@@ -1,4 +1,14 @@
-""" Archivio Premier League — costruzione incrementale. Scarica il CSV di football-data.co.uk, lo unisce all'archivio locale senza creare duplicati, e ricalcola le medie di arbitri, squadre e partite. Fonte: https://www.football-data.co.uk/englandm.php Licenza dei dati: Public Domain Dedication and License (PDDL) Nessuna chiave API, nessun limite di richieste. """
+"""
+Archivio Premier League — costruzione incrementale.
+
+Scarica il CSV di football-data.co.uk, lo unisce all'archivio locale
+senza creare duplicati, e ricalcola le medie di arbitri, squadre e partite.
+
+Fonte: https://www.football-data.co.uk/englandm.php
+Licenza dei dati: Public Domain Dedication and License (PDDL)
+
+Nessuna chiave API, nessun limite di richieste.
+"""
 
 import csv
 import io
@@ -51,7 +61,11 @@ NUMERICHE = [
 
 
 def stagioni_da_scaricare():
-    """Restituisce i codici stagione da scaricare, es. ['2627']. Di default solo la stagione corrente. Impostando la variabile STAGIONI si possono scaricare più annate: STAGIONI="2425,2526,2627" """
+    """Restituisce i codici stagione da scaricare, es. ['2627'].
+
+    Di default solo la stagione corrente. Impostando la variabile
+    STAGIONI si possono scaricare più annate: STAGIONI="2425,2526,2627"
+    """
     esplicite = os.environ.get("STAGIONI", "").strip()
     if esplicite:
         return [s.strip() for s in esplicite.split(",") if s.strip()]
@@ -68,15 +82,15 @@ def etichetta_stagione(codice):
 
 def scarica(codice_stagione):
     url = f"{BASE}/{codice_stagione}/{CODICE_LEGA}.csv"
-    print(f" GET {url}")
+    print(f"  GET {url}")
     try:
         with urlopen(Request(url, headers={"User-Agent": UA}), timeout=60) as r:
             grezzo = r.read()
     except HTTPError as e:
-        print(f" HTTP {e.code} — file non ancora pubblicato o inesistente")
+        print(f"    HTTP {e.code} — file non ancora pubblicato o inesistente")
         return None
     except URLError as e:
-        print(f" Rete non raggiungibile: {e.reason}")
+        print(f"    Rete non raggiungibile: {e.reason}")
         return None
 
     # I file usano codifiche miste a seconda dell'annata
@@ -158,10 +172,15 @@ def calcola_statistiche(righe):
     arbitri = defaultdict(lambda: {
         "partite": 0, "gialli": 0, "rossi": 0, "falli": 0,
         "gialliCasa": 0, "gialliOspite": 0, "conDati": 0,
+        "rigori": 0, "vittorieCasa": 0, "pareggi": 0, "vittorieOspite": 0,
+        "perSquadra": defaultdict(lambda: {"partite": 0, "gialli": 0, "rossi": 0}),
+        "perStagione": defaultdict(lambda: {"partite": 0, "gialli": 0, "rossi": 0}),
+        "elenco": [],
     })
     squadre = defaultdict(lambda: {
         "partite": 0, "gialli": 0, "rossi": 0, "falli": 0,
         "tiri": 0, "corner": 0, "conDati": 0,
+        "gialliCasa": 0, "gialliOspite": 0, "partiteCasa": 0, "partiteOspite": 0,
     })
 
     complete = 0
@@ -172,6 +191,9 @@ def calcola_statistiche(righe):
         fc, fo = num(r, "FalliCasa"), num(r, "FalliOspite")
         tc, to = num(r, "TiriCasa"), num(r, "TiriOspite")
         cc, co = num(r, "CornerCasa"), num(r, "CornerOspite")
+        casa = (r.get("Casa") or "").strip()
+        ospite = (r.get("Ospite") or "").strip()
+        esito = (r.get("Esito") or "").strip()
 
         ha_disciplina = None not in (gc, go, rc, ro)
         if ha_disciplina:
@@ -190,12 +212,42 @@ def calcola_statistiche(righe):
             if None not in (fc, fo):
                 a["falli"] += fc + fo
 
+            if esito == "H":
+                a["vittorieCasa"] += 1
+            elif esito == "D":
+                a["pareggi"] += 1
+            elif esito == "A":
+                a["vittorieOspite"] += 1
+
+            for squadra, gialli, rossi in ((casa, gc, rc), (ospite, go, ro)):
+                if not squadra:
+                    continue
+                ps = a["perSquadra"][squadra]
+                ps["partite"] += 1
+                ps["gialli"] += gialli
+                ps["rossi"] += rossi
+
+            stag = (r.get("Stagione") or "").strip()
+            if stag:
+                pst = a["perStagione"][stag]
+                pst["partite"] += 1
+                pst["gialli"] += gc + go
+                pst["rossi"] += rc + ro
+
+            a["elenco"].append({
+                "stagione": r.get("Stagione"), "data": r.get("Data"),
+                "casa": casa, "ospite": ospite,
+                "gc": num(r, "GolCasa"), "go": num(r, "GolOspite"),
+                "gialliCasa": gc, "gialliOspite": go,
+                "rossiCasa": rc, "rossiOspite": ro,
+                "falliCasa": fc, "falliOspite": fo,
+            })
+
         # --- squadre ---
-        for nome, gialli, rossi, falli, tiri, corner in (
-            (r.get("Casa"), gc, rc, fc, tc, cc),
-            (r.get("Ospite"), go, ro, fo, to, co),
+        for nome, gialli, rossi, falli, tiri, corner, in_casa in (
+            (casa, gc, rc, fc, tc, cc, True),
+            (ospite, go, ro, fo, to, co, False),
         ):
-            nome = (nome or "").strip()
             if not nome:
                 continue
             s = squadre[nome]
@@ -204,6 +256,12 @@ def calcola_statistiche(righe):
                 s["conDati"] += 1
                 s["gialli"] += gialli
                 s["rossi"] += rossi
+                if in_casa:
+                    s["gialliCasa"] += gialli
+                    s["partiteCasa"] += 1
+                else:
+                    s["gialliOspite"] += gialli
+                    s["partiteOspite"] += 1
             if falli is not None:
                 s["falli"] += falli
             if tiri is not None:
@@ -217,6 +275,37 @@ def calcola_statistiche(righe):
     lista_arbitri = []
     for nome, a in arbitri.items():
         n = a["conDati"]
+
+        per_squadra = sorted(
+            [
+                {
+                    "squadra": sq,
+                    "partite": v["partite"],
+                    "gialli": v["gialli"],
+                    "rossi": v["rossi"],
+                    "media": media(v["gialli"], v["partite"]),
+                }
+                for sq, v in a["perSquadra"].items()
+            ],
+            key=lambda x: (-(x["media"] or 0), x["squadra"]),
+        )
+
+        per_stagione = sorted(
+            [
+                {
+                    "stagione": st,
+                    "partite": v["partite"],
+                    "gialli": v["gialli"],
+                    "rossi": v["rossi"],
+                    "media": media(v["gialli"] + v["rossi"], v["partite"]),
+                }
+                for st, v in a["perStagione"].items()
+            ],
+            key=lambda x: x["stagione"],
+        )
+
+        elenco = sorted(a["elenco"], key=lambda x: x["stagione"] or "", reverse=True)[:30]
+
         lista_arbitri.append({
             "nome": nome,
             "partite": a["partite"],
@@ -226,8 +315,17 @@ def calcola_statistiche(righe):
             "mediaRossi": media(a["rossi"], n),
             "mediaCartellini": media(a["gialli"] + a["rossi"], n),
             "mediaFalli": media(a["falli"], n, 1),
-            # quanto l'arbitro punisce di più la squadra ospite
+            "gialliPerFallo": media(a["gialli"] / a["falli"] * 100, 1, 1) if a["falli"] else None,
             "squilibrioCasaOspite": media(a["gialliOspite"] - a["gialliCasa"], n),
+            "mediaGialliCasa": media(a["gialliCasa"], n),
+            "mediaGialliOspite": media(a["gialliOspite"], n),
+            "vittorieCasa": a["vittorieCasa"],
+            "pareggi": a["pareggi"],
+            "vittorieOspite": a["vittorieOspite"],
+            "percVittorieCasa": media(a["vittorieCasa"] * 100, n, 1),
+            "perSquadra": per_squadra,
+            "perStagione": per_stagione,
+            "elenco": elenco,
         })
     lista_arbitri.sort(key=lambda x: (-(x["mediaCartellini"] or 0), x["nome"]))
 
@@ -244,6 +342,9 @@ def calcola_statistiche(righe):
             "mediaFalli": media(s["falli"], n, 1),
             "mediaTiri": media(s["tiri"], n, 1),
             "mediaCorner": media(s["corner"], n, 1),
+            "mediaGialliCasa": media(s["gialliCasa"], s["partiteCasa"]),
+            "mediaGialliOspite": media(s["gialliOspite"], s["partiteOspite"]),
+            "falliPerGiallo": media(s["falli"], s["gialli"], 1) if s["gialli"] else None,
         })
     lista_squadre.sort(key=lambda x: (-(x["mediaGialli"] or 0), x["nome"]))
 
@@ -308,7 +409,7 @@ def main():
 
         righe = normalizza(testo, etichetta)
         scaricato_qualcosa = True
-        print(f" {len(righe)} partite nel file")
+        print(f"    {len(righe)} partite nel file")
 
         nuove = aggiornate = 0
         for riga in righe:
@@ -319,7 +420,7 @@ def main():
                 aggiornate += 1
             indice[k] = riga   # il file remoto è sempre la versione autorevole
 
-        print(f" {nuove} nuove · {aggiornate} aggiornate")
+        print(f"    {nuove} nuove · {aggiornate} aggiornate")
 
     if not scaricato_qualcosa and prima == 0:
         print("\nNessun dato scaricato e archivio vuoto: esco senza scrivere.")
