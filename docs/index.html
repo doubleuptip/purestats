@@ -225,9 +225,28 @@ function caricaLega(id){
 
 function vaiLega(id){
   if(id===legaAttiva) return;
+  const lega = LEGHE.find(l=>l.id===id);
   legaAttiva=id; arbitroAperto=null; ricerca=""; stagione="tutte";
   window.scrollTo(0,0);
-  caricaLega(id).then(d=>{ D=d; render(); }).catch(mostraErrore);
+  caricaLega(id)
+    .then(d=>{ D=d; render(); })
+    .catch(()=>{
+      LEGHE.forEach(l=>{
+        const b=document.getElementById("lg-"+l.id);
+        if(b) b.className = (l.id===legaAttiva) ? "on" : "";
+      });
+      const a=document.getElementById("app"); a.className="";
+      a.innerHTML=`<div class="empty">
+        <div style="font-size:26px;margin-bottom:10px">⚠</div>
+        <div class="nome" style="font-size:22px;margin-bottom:10px">${esc(lega.nome)} NON DISPONIBILE</div>
+        <div style="font-size:10px;color:${MUTED};line-height:1.9;text-align:left;max-width:300px;margin:0 auto">
+          Manca il file <code>docs/${esc(lega.file)}</code>.<br><br>
+          1. Verifica che sia nel repository<br>
+          2. Lancia il workflow dal tab Actions<br>
+          3. Ricarica questa pagina
+        </div></div>`;
+      document.getElementById("pie").innerHTML="";
+    });
 }
 
 function mostraErrore(e){
@@ -238,23 +257,26 @@ function mostraErrore(e){
     Lancia il workflow dal tab Actions.</div></div>`;
 }
 
-/* All'avvio prova i campionati in ordine e mostra solo quelli disponibili */
+/* All'avvio prova a caricare tutti i campionati.
+   Quelli senza dati restano visibili ma segnalati: nascondere in silenzio
+   renderebbe impossibile capire che manca un file. */
 Promise.all(LEGHE.map(l =>
   fetch(l.file+"?t="+Date.now())
     .then(r=>r.ok?r.json():null)
     .then(d=>{ if(d) cache[l.id]=d; return {lega:l, ok:!!d}; })
     .catch(()=>({lega:l, ok:false}))
 )).then(esiti=>{
-  const disponibili = esiti.filter(e=>e.ok).map(e=>e.lega);
   const box = document.getElementById("scelta-lega");
-  if(!disponibili.length){ mostraErrore(new Error("nessun archivio trovato")); return; }
-
-  box.innerHTML = disponibili.map((l,i)=>
+  box.innerHTML = esiti.map((e,i)=>
     (i?`<span>·</span>`:"")+
-    `<button id="lg-${l.id}" onclick="vaiLega('${l.id}')">${l.nome}</button>`
+    `<button id="lg-${e.lega.id}" onclick="vaiLega('${e.lega.id}')"
+       ${e.ok?"":`style="opacity:.45"`}>${e.lega.nome}${e.ok?"":" ⚠"}</button>`
   ).join("");
 
-  legaAttiva = disponibili[0].id;
+  const primo = esiti.find(e=>e.ok);
+  if(!primo){ mostraErrore(new Error("nessun archivio trovato")); return; }
+
+  legaAttiva = primo.lega.id;
   D = cache[legaAttiva];
   render();
 });
