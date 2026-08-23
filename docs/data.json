@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-23T12:14:16.985361+00:00",
+  "aggiornato": "2026-08-23T12:25:41.369231+00:00",
   "campionato": "Premier League",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "stagioni": [
@@ -85,14 +85,26 @@
           "partite": 2,
           "gialli": 13,
           "rossi": 0,
-          "media": 6.5
+          "media": 6.5,
+          "mediaGialli": 6.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 31.5,
+          "squilibrio": -0.5,
+          "mediaGialliCasa": 3.5,
+          "mediaGialliOspite": 3.0
         },
         {
           "stagione": "2025/26",
           "partite": 3,
           "gialli": 15,
           "rossi": 0,
-          "media": 5.0
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 26.3,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 3.0
         }
       ],
       "elenco": [
@@ -207,7 +219,13 @@
           "partite": 1,
           "gialli": 5,
           "rossi": 0,
-          "media": 5.0
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 21.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
@@ -273,14 +291,26 @@
           "partite": 1,
           "gialli": 6,
           "rossi": 1,
-          "media": 7.0
+          "media": 7.0,
+          "mediaGialli": 6.0,
+          "mediaRossi": 1.0,
+          "mediaFalli": 27.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 3.0
         },
         {
           "stagione": "2023/24",
           "partite": 1,
           "gialli": 3,
           "rossi": 0,
-          "media": 3.0
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 19.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
@@ -353,7 +383,13 @@
           "partite": 1,
           "gialli": 5,
           "rossi": 0,
-          "media": 5.0
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 31.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 3.0
         }
       ],
       "elenco": [
@@ -447,14 +483,26 @@
           "partite": 3,
           "gialli": 11,
           "rossi": 0,
-          "media": 3.67
+          "media": 3.67,
+          "mediaGialli": 3.67,
+          "mediaRossi": 0.0,
+          "mediaFalli": 25.3,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.33,
+          "mediaGialliOspite": 1.33
         },
         {
           "stagione": "2024/25",
           "partite": 1,
           "gialli": 8,
           "rossi": 0,
-          "media": 8.0
+          "media": 8.0,
+          "mediaGialli": 8.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 32.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 4.0,
+          "mediaGialliOspite": 4.0
         }
       ],
       "elenco": [
@@ -695,21 +743,39 @@
           "partite": 21,
           "gialli": 77,
           "rossi": 3,
-          "media": 3.81
+          "media": 3.81,
+          "mediaGialli": 3.67,
+          "mediaRossi": 0.14,
+          "mediaFalli": 23.4,
+          "squilibrio": 0.24,
+          "mediaGialliCasa": 1.71,
+          "mediaGialliOspite": 1.95
         },
         {
           "stagione": "2023/24",
           "partite": 16,
           "gialli": 82,
           "rossi": 3,
-          "media": 5.31
+          "media": 5.31,
+          "mediaGialli": 5.12,
+          "mediaRossi": 0.19,
+          "mediaFalli": 24.8,
+          "squilibrio": 0.5,
+          "mediaGialliCasa": 2.31,
+          "mediaGialliOspite": 2.81
         },
         {
           "stagione": "2024/25",
           "partite": 6,
           "gialli": 30,
           "rossi": 0,
-          "media": 5.0
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.8,
+          "squilibrio": -0.33,
+          "mediaGialliCasa": 2.67,
+          "mediaGialliOspite": 2.33
         }
       ],
       "elenco": [
@@ -1188,7 +1254,13 @@
           "partite": 2,
           "gialli": 8,
           "rossi": 1,
-          "media": 4.5
+          "media": 4.5,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.5,
+          "mediaFalli": 26.5,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": 1.5
         }
       ],
       "elenco": [
@@ -1415,28 +1487,52 @@
           "partite": 19,
           "gialli": 81,
           "rossi": 1,
-          "media": 4.32
+          "media": 4.32,
+          "mediaGialli": 4.26,
+          "mediaRossi": 0.05,
+          "mediaFalli": 22.1,
+          "squilibrio": 0.26,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.26
         },
         {
           "stagione": "2023/24",
           "partite": 22,
           "gialli": 88,
           "rossi": 4,
-          "media": 4.18
+          "media": 4.18,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.18,
+          "mediaFalli": 21.8,
+          "squilibrio": -0.55,
+          "mediaGialliCasa": 2.27,
+          "mediaGialliOspite": 1.73
         },
         {
           "stagione": "2024/25",
           "partite": 17,
           "gialli": 86,
           "rossi": 1,
-          "media": 5.12
+          "media": 5.12,
+          "mediaGialli": 5.06,
+          "mediaRossi": 0.06,
+          "mediaFalli": 22.3,
+          "squilibrio": -0.59,
+          "mediaGialliCasa": 2.82,
+          "mediaGialliOspite": 2.24
         },
         {
           "stagione": "2025/26",
           "partite": 12,
           "gialli": 44,
           "rossi": 3,
-          "media": 3.92
+          "media": 3.92,
+          "mediaGialli": 3.67,
+          "mediaRossi": 0.25,
+          "mediaFalli": 20.9,
+          "squilibrio": 0.17,
+          "mediaGialliCasa": 1.75,
+          "mediaGialliOspite": 1.92
         }
       ],
       "elenco": [
@@ -1978,21 +2074,39 @@
           "partite": 2,
           "gialli": 11,
           "rossi": 1,
-          "media": 6.0
+          "media": 6.0,
+          "mediaGialli": 5.5,
+          "mediaRossi": 0.5,
+          "mediaFalli": 19.0,
+          "squilibrio": -2.5,
+          "mediaGialliCasa": 4.0,
+          "mediaGialliOspite": 1.5
         },
         {
           "stagione": "2024/25",
           "partite": 7,
           "gialli": 26,
           "rossi": 1,
-          "media": 3.86
+          "media": 3.86,
+          "mediaGialli": 3.71,
+          "mediaRossi": 0.14,
+          "mediaFalli": 25.3,
+          "squilibrio": 0.57,
+          "mediaGialliCasa": 1.57,
+          "mediaGialliOspite": 2.14
         },
         {
           "stagione": "2025/26",
           "partite": 1,
           "gialli": 4,
           "rossi": 1,
-          "media": 5.0
+          "media": 5.0,
+          "mediaGialli": 4.0,
+          "mediaRossi": 1.0,
+          "mediaFalli": 24.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
@@ -2331,28 +2445,52 @@
           "partite": 18,
           "gialli": 64,
           "rossi": 2,
-          "media": 3.67
+          "media": 3.67,
+          "mediaGialli": 3.56,
+          "mediaRossi": 0.11,
+          "mediaFalli": 21.2,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.28,
+          "mediaGialliOspite": 2.28
         },
         {
           "stagione": "2023/24",
           "partite": 12,
           "gialli": 57,
           "rossi": 1,
-          "media": 4.83
+          "media": 4.83,
+          "mediaGialli": 4.75,
+          "mediaRossi": 0.08,
+          "mediaFalli": 22.2,
+          "squilibrio": 0.58,
+          "mediaGialliCasa": 2.08,
+          "mediaGialliOspite": 2.67
         },
         {
           "stagione": "2024/25",
           "partite": 19,
           "gialli": 79,
           "rossi": 4,
-          "media": 4.37
+          "media": 4.37,
+          "mediaGialli": 4.16,
+          "mediaRossi": 0.21,
+          "mediaFalli": 22.9,
+          "squilibrio": 0.79,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 2.47
         },
         {
           "stagione": "2025/26",
           "partite": 23,
           "gialli": 99,
           "rossi": 3,
-          "media": 4.43
+          "media": 4.43,
+          "mediaGialli": 4.3,
+          "mediaRossi": 0.13,
+          "mediaFalli": 22.0,
+          "squilibrio": 0.3,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.3
         }
       ],
       "elenco": [
@@ -2964,28 +3102,52 @@
           "partite": 26,
           "gialli": 105,
           "rossi": 0,
-          "media": 4.04
+          "media": 4.04,
+          "mediaGialli": 4.04,
+          "mediaRossi": 0.0,
+          "mediaFalli": 22.8,
+          "squilibrio": 0.65,
+          "mediaGialliCasa": 1.69,
+          "mediaGialliOspite": 2.35
         },
         {
           "stagione": "2023/24",
           "partite": 22,
           "gialli": 94,
           "rossi": 5,
-          "media": 4.5
+          "media": 4.5,
+          "mediaGialli": 4.27,
+          "mediaRossi": 0.23,
+          "mediaFalli": 23.1,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.64,
+          "mediaGialliOspite": 2.64
         },
         {
           "stagione": "2024/25",
           "partite": 22,
           "gialli": 93,
           "rossi": 4,
-          "media": 4.41
+          "media": 4.41,
+          "mediaGialli": 4.23,
+          "mediaRossi": 0.18,
+          "mediaFalli": 24.8,
+          "squilibrio": 0.68,
+          "mediaGialliCasa": 1.77,
+          "mediaGialliOspite": 2.45
         },
         {
           "stagione": "2025/26",
           "partite": 18,
           "gialli": 75,
           "rossi": 0,
-          "media": 4.17
+          "media": 4.17,
+          "mediaGialli": 4.17,
+          "mediaRossi": 0.0,
+          "mediaFalli": 21.1,
+          "squilibrio": 0.28,
+          "mediaGialliCasa": 1.94,
+          "mediaGialliOspite": 2.22
         }
       ],
       "elenco": [
@@ -3611,28 +3773,52 @@
           "partite": 2,
           "gialli": 9,
           "rossi": 0,
-          "media": 4.5
+          "media": 4.5,
+          "mediaGialli": 4.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 28.5,
+          "squilibrio": 0.5,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.5
         },
         {
           "stagione": "2023/24",
           "partite": 21,
           "gialli": 89,
           "rossi": 0,
-          "media": 4.24
+          "media": 4.24,
+          "mediaGialli": 4.24,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.0,
+          "squilibrio": 0.71,
+          "mediaGialliCasa": 1.76,
+          "mediaGialliOspite": 2.48
         },
         {
           "stagione": "2024/25",
           "partite": 16,
           "gialli": 68,
           "rossi": 2,
-          "media": 4.38
+          "media": 4.38,
+          "mediaGialli": 4.25,
+          "mediaRossi": 0.12,
+          "mediaFalli": 22.8,
+          "squilibrio": -0.12,
+          "mediaGialliCasa": 2.19,
+          "mediaGialliOspite": 2.06
         },
         {
           "stagione": "2025/26",
           "partite": 9,
           "gialli": 36,
           "rossi": 1,
-          "media": 4.11
+          "media": 4.11,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.11,
+          "mediaFalli": 22.9,
+          "squilibrio": 1.33,
+          "mediaGialliCasa": 1.33,
+          "mediaGialliOspite": 2.67
         }
       ],
       "elenco": [
@@ -4209,21 +4395,39 @@
           "partite": 4,
           "gialli": 16,
           "rossi": 1,
-          "media": 4.25
+          "media": 4.25,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.25,
+          "mediaFalli": 19.8,
+          "squilibrio": 1.5,
+          "mediaGialliCasa": 1.25,
+          "mediaGialliOspite": 2.75
         },
         {
           "stagione": "2023/24",
           "partite": 5,
           "gialli": 22,
           "rossi": 2,
-          "media": 4.8
+          "media": 4.8,
+          "mediaGialli": 4.4,
+          "mediaRossi": 0.4,
+          "mediaFalli": 20.8,
+          "squilibrio": 0.8,
+          "mediaGialliCasa": 1.8,
+          "mediaGialliOspite": 2.6
         },
         {
           "stagione": "2024/25",
           "partite": 14,
           "gialli": 55,
           "rossi": 1,
-          "media": 4.0
+          "media": 4.0,
+          "mediaGialli": 3.93,
+          "mediaRossi": 0.07,
+          "mediaFalli": 22.3,
+          "squilibrio": 0.36,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 2.14
         }
       ],
       "elenco": [
@@ -4737,28 +4941,52 @@
           "partite": 29,
           "gialli": 99,
           "rossi": 1,
-          "media": 3.45
+          "media": 3.45,
+          "mediaGialli": 3.41,
+          "mediaRossi": 0.03,
+          "mediaFalli": 20.7,
+          "squilibrio": 0.66,
+          "mediaGialliCasa": 1.38,
+          "mediaGialliOspite": 2.03
         },
         {
           "stagione": "2023/24",
           "partite": 25,
           "gialli": 110,
           "rossi": 3,
-          "media": 4.52
+          "media": 4.52,
+          "mediaGialli": 4.4,
+          "mediaRossi": 0.12,
+          "mediaFalli": 22.4,
+          "squilibrio": 0.88,
+          "mediaGialliCasa": 1.76,
+          "mediaGialliOspite": 2.64
         },
         {
           "stagione": "2024/25",
           "partite": 23,
           "gialli": 108,
           "rossi": 2,
-          "media": 4.78
+          "media": 4.78,
+          "mediaGialli": 4.7,
+          "mediaRossi": 0.09,
+          "mediaFalli": 19.7,
+          "squilibrio": -0.09,
+          "mediaGialliCasa": 2.39,
+          "mediaGialliOspite": 2.3
         },
         {
           "stagione": "2025/26",
           "partite": 15,
           "gialli": 60,
           "rossi": 2,
-          "media": 4.13
+          "media": 4.13,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.13,
+          "mediaFalli": 23.3,
+          "squilibrio": 0.93,
+          "mediaGialliCasa": 1.53,
+          "mediaGialliOspite": 2.47
         }
       ],
       "elenco": [
@@ -5370,28 +5598,52 @@
           "partite": 21,
           "gialli": 91,
           "rossi": 0,
-          "media": 4.33
+          "media": 4.33,
+          "mediaGialli": 4.33,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.67,
+          "mediaGialliOspite": 2.67
         },
         {
           "stagione": "2023/24",
           "partite": 10,
           "gialli": 49,
           "rossi": 1,
-          "media": 5.0
+          "media": 5.0,
+          "mediaGialli": 4.9,
+          "mediaRossi": 0.1,
+          "mediaFalli": 21.3,
+          "squilibrio": 0.3,
+          "mediaGialliCasa": 2.3,
+          "mediaGialliOspite": 2.6
         },
         {
           "stagione": "2024/25",
           "partite": 23,
           "gialli": 85,
           "rossi": 3,
-          "media": 3.83
+          "media": 3.83,
+          "mediaGialli": 3.7,
+          "mediaRossi": 0.13,
+          "mediaFalli": 20.1,
+          "squilibrio": -0.04,
+          "mediaGialliCasa": 1.87,
+          "mediaGialliOspite": 1.83
         },
         {
           "stagione": "2025/26",
           "partite": 22,
           "gialli": 84,
           "rossi": 4,
-          "media": 4.0
+          "media": 4.0,
+          "mediaGialli": 3.82,
+          "mediaRossi": 0.18,
+          "mediaFalli": 22.5,
+          "squilibrio": 0.82,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 2.32
         }
       ],
       "elenco": [
@@ -5919,21 +6171,39 @@
           "partite": 1,
           "gialli": 3,
           "rossi": 0,
-          "media": 3.0
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 25.0,
+          "squilibrio": -3.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 0.0
         },
         {
           "stagione": "2023/24",
           "partite": 4,
           "gialli": 15,
           "rossi": 2,
-          "media": 4.25
+          "media": 4.25,
+          "mediaGialli": 3.75,
+          "mediaRossi": 0.5,
+          "mediaFalli": 23.2,
+          "squilibrio": -0.75,
+          "mediaGialliCasa": 2.25,
+          "mediaGialliOspite": 1.5
         },
         {
           "stagione": "2024/25",
           "partite": 3,
           "gialli": 13,
           "rossi": 0,
-          "media": 4.33
+          "media": 4.33,
+          "mediaGialli": 4.33,
+          "mediaRossi": 0.0,
+          "mediaFalli": 19.7,
+          "squilibrio": 0.33,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.33
         }
       ],
       "elenco": [
@@ -6244,28 +6514,52 @@
           "partite": 25,
           "gialli": 81,
           "rossi": 2,
-          "media": 3.32
+          "media": 3.32,
+          "mediaGialli": 3.24,
+          "mediaRossi": 0.08,
+          "mediaFalli": 20.1,
+          "squilibrio": 0.68,
+          "mediaGialliCasa": 1.28,
+          "mediaGialliOspite": 1.96
         },
         {
           "stagione": "2023/24",
           "partite": 17,
           "gialli": 73,
           "rossi": 4,
-          "media": 4.53
+          "media": 4.53,
+          "mediaGialli": 4.29,
+          "mediaRossi": 0.24,
+          "mediaFalli": 20.7,
+          "squilibrio": -0.29,
+          "mediaGialliCasa": 2.29,
+          "mediaGialliOspite": 2.0
         },
         {
           "stagione": "2024/25",
           "partite": 19,
           "gialli": 72,
           "rossi": 3,
-          "media": 3.95
+          "media": 3.95,
+          "mediaGialli": 3.79,
+          "mediaRossi": 0.16,
+          "mediaFalli": 20.5,
+          "squilibrio": 0.11,
+          "mediaGialliCasa": 1.84,
+          "mediaGialliOspite": 1.95
         },
         {
           "stagione": "2025/26",
           "partite": 25,
           "gialli": 115,
           "rossi": 2,
-          "media": 4.68
+          "media": 4.68,
+          "mediaGialli": 4.6,
+          "mediaRossi": 0.08,
+          "mediaFalli": 21.7,
+          "squilibrio": 0.44,
+          "mediaGialliCasa": 2.08,
+          "mediaGialliOspite": 2.52
         }
       ],
       "elenco": [
@@ -6877,28 +7171,52 @@
           "partite": 8,
           "gialli": 24,
           "rossi": 0,
-          "media": 3.0
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 24.4,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 1.5
         },
         {
           "stagione": "2023/24",
           "partite": 11,
           "gialli": 54,
           "rossi": 3,
-          "media": 5.18
+          "media": 5.18,
+          "mediaGialli": 4.91,
+          "mediaRossi": 0.27,
+          "mediaFalli": 24.6,
+          "squilibrio": 0.73,
+          "mediaGialliCasa": 2.09,
+          "mediaGialliOspite": 2.82
         },
         {
           "stagione": "2024/25",
           "partite": 11,
           "gialli": 36,
           "rossi": 4,
-          "media": 3.64
+          "media": 3.64,
+          "mediaGialli": 3.27,
+          "mediaRossi": 0.36,
+          "mediaFalli": 20.5,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.64,
+          "mediaGialliOspite": 1.64
         },
         {
           "stagione": "2025/26",
           "partite": 22,
           "gialli": 89,
           "rossi": 2,
-          "media": 4.14
+          "media": 4.14,
+          "mediaGialli": 4.05,
+          "mediaRossi": 0.09,
+          "mediaFalli": 21.5,
+          "squilibrio": 0.86,
+          "mediaGialliCasa": 1.59,
+          "mediaGialliOspite": 2.45
         }
       ],
       "elenco": [
@@ -7524,28 +7842,52 @@
           "partite": 15,
           "gialli": 65,
           "rossi": 2,
-          "media": 4.47
+          "media": 4.47,
+          "mediaGialli": 4.33,
+          "mediaRossi": 0.13,
+          "mediaFalli": 23.3,
+          "squilibrio": 0.33,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.33
         },
         {
           "stagione": "2023/24",
           "partite": 14,
           "gialli": 54,
           "rossi": 3,
-          "media": 4.07
+          "media": 4.07,
+          "mediaGialli": 3.86,
+          "mediaRossi": 0.21,
+          "mediaFalli": 23.7,
+          "squilibrio": 0.14,
+          "mediaGialliCasa": 1.86,
+          "mediaGialliOspite": 2.0
         },
         {
           "stagione": "2024/25",
           "partite": 15,
           "gialli": 43,
           "rossi": 3,
-          "media": 3.07
+          "media": 3.07,
+          "mediaGialli": 2.87,
+          "mediaRossi": 0.2,
+          "mediaFalli": 21.9,
+          "squilibrio": -0.07,
+          "mediaGialliCasa": 1.47,
+          "mediaGialliOspite": 1.4
         },
         {
           "stagione": "2025/26",
           "partite": 14,
           "gialli": 61,
           "rossi": 0,
-          "media": 4.36
+          "media": 4.36,
+          "mediaGialli": 4.36,
+          "mediaRossi": 0.0,
+          "mediaFalli": 21.9,
+          "squilibrio": -0.21,
+          "mediaGialliCasa": 2.29,
+          "mediaGialliOspite": 2.07
         }
       ],
       "elenco": [
@@ -8164,28 +8506,52 @@
           "partite": 13,
           "gialli": 39,
           "rossi": 0,
-          "media": 3.0
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 20.7,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
         },
         {
           "stagione": "2023/24",
           "partite": 20,
           "gialli": 78,
           "rossi": 4,
-          "media": 4.1
+          "media": 4.1,
+          "mediaGialli": 3.9,
+          "mediaRossi": 0.2,
+          "mediaFalli": 21.6,
+          "squilibrio": 0.5,
+          "mediaGialliCasa": 1.7,
+          "mediaGialliOspite": 2.2
         },
         {
           "stagione": "2024/25",
           "partite": 24,
           "gialli": 96,
           "rossi": 5,
-          "media": 4.21
+          "media": 4.21,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.21,
+          "mediaFalli": 21.0,
+          "squilibrio": -0.25,
+          "mediaGialliCasa": 2.12,
+          "mediaGialliOspite": 1.88
         },
         {
           "stagione": "2025/26",
           "partite": 30,
           "gialli": 119,
           "rossi": 3,
-          "media": 4.07
+          "media": 4.07,
+          "mediaGialli": 3.97,
+          "mediaRossi": 0.1,
+          "mediaFalli": 22.5,
+          "squilibrio": 0.3,
+          "mediaGialliCasa": 1.83,
+          "mediaGialliOspite": 2.13
         }
       ],
       "elenco": [
@@ -8804,21 +9170,39 @@
           "partite": 15,
           "gialli": 47,
           "rossi": 1,
-          "media": 3.2
+          "media": 3.2,
+          "mediaGialli": 3.13,
+          "mediaRossi": 0.07,
+          "mediaFalli": 20.1,
+          "squilibrio": 0.33,
+          "mediaGialliCasa": 1.4,
+          "mediaGialliOspite": 1.73
         },
         {
           "stagione": "2024/25",
           "partite": 23,
           "gialli": 106,
           "rossi": 1,
-          "media": 4.65
+          "media": 4.65,
+          "mediaGialli": 4.61,
+          "mediaRossi": 0.04,
+          "mediaFalli": 21.1,
+          "squilibrio": 0.43,
+          "mediaGialliCasa": 2.09,
+          "mediaGialliOspite": 2.52
         },
         {
           "stagione": "2025/26",
           "partite": 24,
           "gialli": 89,
           "rossi": 1,
-          "media": 3.75
+          "media": 3.75,
+          "mediaGialli": 3.71,
+          "mediaRossi": 0.04,
+          "mediaFalli": 19.3,
+          "squilibrio": 0.62,
+          "mediaGialliCasa": 1.54,
+          "mediaGialliOspite": 2.17
         }
       ],
       "elenco": [
@@ -9444,28 +9828,52 @@
           "partite": 30,
           "gialli": 113,
           "rossi": 3,
-          "media": 3.87
+          "media": 3.87,
+          "mediaGialli": 3.77,
+          "mediaRossi": 0.1,
+          "mediaFalli": 19.8,
+          "squilibrio": -0.23,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.77
         },
         {
           "stagione": "2023/24",
           "partite": 27,
           "gialli": 127,
           "rossi": 4,
-          "media": 4.85
+          "media": 4.85,
+          "mediaGialli": 4.7,
+          "mediaRossi": 0.15,
+          "mediaFalli": 21.2,
+          "squilibrio": 0.41,
+          "mediaGialliCasa": 2.15,
+          "mediaGialliOspite": 2.56
         },
         {
           "stagione": "2024/25",
           "partite": 30,
           "gialli": 88,
           "rossi": 6,
-          "media": 3.13
+          "media": 3.13,
+          "mediaGialli": 2.93,
+          "mediaRossi": 0.2,
+          "mediaFalli": 21.4,
+          "squilibrio": 0.27,
+          "mediaGialliCasa": 1.33,
+          "mediaGialliOspite": 1.6
         },
         {
           "stagione": "2025/26",
           "partite": 31,
           "gialli": 122,
           "rossi": 2,
-          "media": 4.0
+          "media": 4.0,
+          "mediaGialli": 3.94,
+          "mediaRossi": 0.06,
+          "mediaFalli": 20.5,
+          "squilibrio": 0.32,
+          "mediaGialliCasa": 1.81,
+          "mediaGialliOspite": 2.13
         }
       ],
       "elenco": [
@@ -10084,28 +10492,52 @@
           "partite": 21,
           "gialli": 79,
           "rossi": 1,
-          "media": 3.81
+          "media": 3.81,
+          "mediaGialli": 3.76,
+          "mediaRossi": 0.05,
+          "mediaFalli": 23.9,
+          "squilibrio": -0.33,
+          "mediaGialliCasa": 2.05,
+          "mediaGialliOspite": 1.71
         },
         {
           "stagione": "2023/24",
           "partite": 19,
           "gialli": 82,
           "rossi": 3,
-          "media": 4.47
+          "media": 4.47,
+          "mediaGialli": 4.32,
+          "mediaRossi": 0.16,
+          "mediaFalli": 21.9,
+          "squilibrio": 0.84,
+          "mediaGialliCasa": 1.74,
+          "mediaGialliOspite": 2.58
         },
         {
           "stagione": "2024/25",
           "partite": 22,
           "gialli": 94,
           "rossi": 3,
-          "media": 4.41
+          "media": 4.41,
+          "mediaGialli": 4.27,
+          "mediaRossi": 0.14,
+          "mediaFalli": 22.6,
+          "squilibrio": 0.36,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.32
         },
         {
           "stagione": "2025/26",
           "partite": 21,
           "gialli": 56,
           "rossi": 2,
-          "media": 2.76
+          "media": 2.76,
+          "mediaGialli": 2.67,
+          "mediaRossi": 0.1,
+          "mediaFalli": 21.7,
+          "squilibrio": 0.29,
+          "mediaGialliCasa": 1.19,
+          "mediaGialliOspite": 1.48
         }
       ],
       "elenco": [
@@ -10724,28 +11156,52 @@
           "partite": 24,
           "gialli": 83,
           "rossi": 3,
-          "media": 3.58
+          "media": 3.58,
+          "mediaGialli": 3.46,
+          "mediaRossi": 0.12,
+          "mediaFalli": 22.7,
+          "squilibrio": 0.62,
+          "mediaGialliCasa": 1.42,
+          "mediaGialliOspite": 2.04
         },
         {
           "stagione": "2023/24",
           "partite": 23,
           "gialli": 87,
           "rossi": 2,
-          "media": 3.87
+          "media": 3.87,
+          "mediaGialli": 3.78,
+          "mediaRossi": 0.09,
+          "mediaFalli": 22.8,
+          "squilibrio": 0.57,
+          "mediaGialliCasa": 1.61,
+          "mediaGialliOspite": 2.17
         },
         {
           "stagione": "2024/25",
           "partite": 20,
           "gialli": 86,
           "rossi": 1,
-          "media": 4.35
+          "media": 4.35,
+          "mediaGialli": 4.3,
+          "mediaRossi": 0.05,
+          "mediaFalli": 23.2,
+          "squilibrio": 0.6,
+          "mediaGialliCasa": 1.85,
+          "mediaGialliOspite": 2.45
         },
         {
           "stagione": "2025/26",
           "partite": 21,
           "gialli": 68,
           "rossi": 4,
-          "media": 3.43
+          "media": 3.43,
+          "mediaGialli": 3.24,
+          "mediaRossi": 0.19,
+          "mediaFalli": 22.9,
+          "squilibrio": 0.19,
+          "mediaGialliCasa": 1.52,
+          "mediaGialliOspite": 1.71
         }
       ],
       "elenco": [
@@ -11350,28 +11806,52 @@
           "partite": 17,
           "gialli": 45,
           "rossi": 1,
-          "media": 2.71
+          "media": 2.71,
+          "mediaGialli": 2.65,
+          "mediaRossi": 0.06,
+          "mediaFalli": 18.0,
+          "squilibrio": -0.29,
+          "mediaGialliCasa": 1.47,
+          "mediaGialliOspite": 1.18
         },
         {
           "stagione": "2023/24",
           "partite": 21,
           "gialli": 93,
           "rossi": 1,
-          "media": 4.48
+          "media": 4.48,
+          "mediaGialli": 4.43,
+          "mediaRossi": 0.05,
+          "mediaFalli": 20.8,
+          "squilibrio": -0.33,
+          "mediaGialliCasa": 2.38,
+          "mediaGialliOspite": 2.05
         },
         {
           "stagione": "2024/25",
           "partite": 16,
           "gialli": 68,
           "rossi": 0,
-          "media": 4.25
+          "media": 4.25,
+          "mediaGialli": 4.25,
+          "mediaRossi": 0.0,
+          "mediaFalli": 22.1,
+          "squilibrio": 0.5,
+          "mediaGialliCasa": 1.88,
+          "mediaGialliOspite": 2.38
         },
         {
           "stagione": "2025/26",
           "partite": 22,
           "gialli": 79,
           "rossi": 1,
-          "media": 3.64
+          "media": 3.64,
+          "mediaGialli": 3.59,
+          "mediaRossi": 0.05,
+          "mediaFalli": 19.8,
+          "squilibrio": 0.05,
+          "mediaGialliCasa": 1.77,
+          "mediaGialliOspite": 1.82
         }
       ],
       "elenco": [
@@ -11997,28 +12477,52 @@
           "partite": 6,
           "gialli": 23,
           "rossi": 0,
-          "media": 3.83
+          "media": 3.83,
+          "mediaGialli": 3.83,
+          "mediaRossi": 0.0,
+          "mediaFalli": 22.0,
+          "squilibrio": 0.5,
+          "mediaGialliCasa": 1.67,
+          "mediaGialliOspite": 2.17
         },
         {
           "stagione": "2023/24",
           "partite": 10,
           "gialli": 37,
           "rossi": 1,
-          "media": 3.8
+          "media": 3.8,
+          "mediaGialli": 3.7,
+          "mediaRossi": 0.1,
+          "mediaFalli": 21.7,
+          "squilibrio": 0.1,
+          "mediaGialliCasa": 1.8,
+          "mediaGialliOspite": 1.9
         },
         {
           "stagione": "2024/25",
           "partite": 18,
           "gialli": 72,
           "rossi": 3,
-          "media": 4.17
+          "media": 4.17,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.17,
+          "mediaFalli": 22.6,
+          "squilibrio": 0.44,
+          "mediaGialliCasa": 1.78,
+          "mediaGialliOspite": 2.22
         },
         {
           "stagione": "2025/26",
           "partite": 11,
           "gialli": 33,
           "rossi": 1,
-          "media": 3.09
+          "media": 3.09,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.09,
+          "mediaFalli": 20.0,
+          "squilibrio": 0.09,
+          "mediaGialliCasa": 1.45,
+          "mediaGialliOspite": 1.55
         }
       ],
       "elenco": [
@@ -12574,7 +13078,13 @@
           "partite": 13,
           "gialli": 46,
           "rossi": 2,
-          "media": 3.69
+          "media": 3.69,
+          "mediaGialli": 3.54,
+          "mediaRossi": 0.15,
+          "mediaFalli": 19.2,
+          "squilibrio": -0.62,
+          "mediaGialliCasa": 2.08,
+          "mediaGialliOspite": 1.46
         }
       ],
       "elenco": [
@@ -12955,21 +13465,39 @@
           "partite": 30,
           "gialli": 114,
           "rossi": 2,
-          "media": 3.87
+          "media": 3.87,
+          "mediaGialli": 3.8,
+          "mediaRossi": 0.07,
+          "mediaFalli": 21.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.9,
+          "mediaGialliOspite": 1.9
         },
         {
           "stagione": "2023/24",
           "partite": 25,
           "gialli": 86,
           "rossi": 3,
-          "media": 3.56
+          "media": 3.56,
+          "mediaGialli": 3.44,
+          "mediaRossi": 0.12,
+          "mediaFalli": 21.8,
+          "squilibrio": 0.48,
+          "mediaGialliCasa": 1.48,
+          "mediaGialliOspite": 1.96
         },
         {
           "stagione": "2025/26",
           "partite": 12,
           "gialli": 40,
           "rossi": 2,
-          "media": 3.5
+          "media": 3.5,
+          "mediaGialli": 3.33,
+          "mediaRossi": 0.17,
+          "mediaFalli": 20.2,
+          "squilibrio": 0.5,
+          "mediaGialliCasa": 1.42,
+          "mediaGialliOspite": 1.92
         }
       ],
       "elenco": [
@@ -13581,28 +14109,52 @@
           "partite": 30,
           "gialli": 87,
           "rossi": 1,
-          "media": 2.93
+          "media": 2.93,
+          "mediaGialli": 2.9,
+          "mediaRossi": 0.03,
+          "mediaFalli": 21.0,
+          "squilibrio": -0.57,
+          "mediaGialliCasa": 1.73,
+          "mediaGialliOspite": 1.17
         },
         {
           "stagione": "2023/24",
           "partite": 24,
           "gialli": 94,
           "rossi": 5,
-          "media": 4.12
+          "media": 4.12,
+          "mediaGialli": 3.92,
+          "mediaRossi": 0.21,
+          "mediaFalli": 21.1,
+          "squilibrio": 0.5,
+          "mediaGialliCasa": 1.71,
+          "mediaGialliOspite": 2.21
         },
         {
           "stagione": "2024/25",
           "partite": 25,
           "gialli": 108,
           "rossi": 5,
-          "media": 4.52
+          "media": 4.52,
+          "mediaGialli": 4.32,
+          "mediaRossi": 0.2,
+          "mediaFalli": 23.2,
+          "squilibrio": 0.72,
+          "mediaGialliCasa": 1.8,
+          "mediaGialliOspite": 2.52
         },
         {
           "stagione": "2025/26",
           "partite": 29,
           "gialli": 92,
           "rossi": 2,
-          "media": 3.24
+          "media": 3.24,
+          "mediaGialli": 3.17,
+          "mediaRossi": 0.07,
+          "mediaFalli": 22.7,
+          "squilibrio": 0.55,
+          "mediaGialliCasa": 1.31,
+          "mediaGialliOspite": 1.86
         }
       ],
       "elenco": [
@@ -14081,7 +14633,13 @@
           "partite": 2,
           "gialli": 7,
           "rossi": 0,
-          "media": 3.5
+          "media": 3.5,
+          "mediaGialli": 3.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.5,
+          "squilibrio": 1.5,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.5
         }
       ],
       "elenco": [
@@ -14203,14 +14761,26 @@
           "partite": 2,
           "gialli": 4,
           "rossi": 0,
-          "media": 2.0
+          "media": 2.0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 27.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 0.5
         },
         {
           "stagione": "2025/26",
           "partite": 4,
           "gialli": 15,
           "rossi": 0,
-          "media": 3.75
+          "media": 3.75,
+          "mediaGialli": 3.75,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.2,
+          "squilibrio": -0.25,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.75
         }
       ],
       "elenco": [
@@ -14381,7 +14951,13 @@
           "partite": 6,
           "gialli": 16,
           "rossi": 3,
-          "media": 3.17
+          "media": 3.17,
+          "mediaGialli": 2.67,
+          "mediaRossi": 0.5,
+          "mediaFalli": 24.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.33,
+          "mediaGialliOspite": 1.33
         }
       ],
       "elenco": [
@@ -14510,7 +15086,13 @@
           "partite": 1,
           "gialli": 3,
           "rossi": 0,
-          "media": 3.0
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 27.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
@@ -14674,14 +15256,26 @@
           "partite": 6,
           "gialli": 13,
           "rossi": 2,
-          "media": 2.5
+          "media": 2.5,
+          "mediaGialli": 2.17,
+          "mediaRossi": 0.33,
+          "mediaFalli": 19.8,
+          "squilibrio": -0.83,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 0.67
         },
         {
           "stagione": "2023/24",
           "partite": 6,
           "gialli": 17,
           "rossi": 0,
-          "media": 2.83
+          "media": 2.83,
+          "mediaGialli": 2.83,
+          "mediaRossi": 0.0,
+          "mediaFalli": 17.5,
+          "squilibrio": -0.17,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 1.33
         }
       ],
       "elenco": [
@@ -14936,7 +15530,13 @@
           "partite": 5,
           "gialli": 13,
           "rossi": 0,
-          "media": 2.6
+          "media": 2.6,
+          "mediaGialli": 2.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 21.8,
+          "squilibrio": 0.6,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.6
         }
       ],
       "elenco": [
