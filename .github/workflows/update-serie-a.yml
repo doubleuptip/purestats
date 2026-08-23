@@ -1,0 +1,47 @@
+name: Aggiorna archivio Serie A
+
+on:
+  schedule:
+    - cron: '0 9 * * 1,4'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archivio-serie-a
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configura Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Scarica dati e designazioni
+        env:
+          STAGIONI: ${{ vars.STAGIONI_SERIE_A }}
+        run: python scripts/fetch_serie_a.py
+
+      - name: Committa le modifiche
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/serie_a.csv data/designazioni_serie_a.json docs/data_serie_a.json
+          if git diff --staged --quiet; then
+            echo "Nessuna variazione."
+          else
+            git commit -m "Serie A aggiornata $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
