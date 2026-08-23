@@ -8,7 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root{
-    --nero:#050706; --card:#0C110E; --fluo:#39FF14; --fluo2:#1FA30C;
+    --nero:#050706; --card:#0C110E; --card2:#111A14; --fluo:#39FF14; --fluo2:#1FA30C;
     --bordo:#1C2A1F; --testo:#E8F5E6; --muted:#6B8470;
     --rosso:#FF2D2D; --giallo:#FFD400;
   }
@@ -16,64 +16,83 @@
   body{background:var(--nero);color:var(--testo);font-family:'JetBrains Mono',monospace;padding-bottom:60px}
 
   header{position:sticky;top:0;z-index:20;background:rgba(5,7,6,.96);
-    border-bottom:1px solid var(--bordo);backdrop-filter:blur(8px);padding:16px 16px 0}
-  .logo{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+    border-bottom:1px solid var(--bordo);backdrop-filter:blur(8px);padding:14px 14px 0}
+  .logo{display:flex;align-items:center;gap:8px}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--fluo);box-shadow:0 0 10px var(--fluo)}
-  .logo span{font-family:'Teko',sans-serif;font-size:26px;letter-spacing:.06em;line-height:1}
+  .logo span{font-family:'Teko',sans-serif;font-size:25px;letter-spacing:.06em;line-height:1}
   .logo b{color:var(--fluo);font-weight:inherit}
-  .lega{font-size:9px;color:var(--muted);letter-spacing:.14em;margin:0 0 13px 16px}
+  .lega{font-size:8px;color:var(--muted);letter-spacing:.14em;margin:2px 0 12px 16px}
 
   nav{display:flex;gap:5px;flex-wrap:wrap}
   nav button{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
     letter-spacing:.06em;color:var(--muted);background:transparent;
     border:1px solid var(--bordo);border-bottom:none;border-radius:5px 5px 0 0;
-    padding:9px 12px;cursor:pointer}
+    padding:9px 13px;cursor:pointer}
   nav button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
 
-  main{padding:22px 16px 0}
-  h1{font-family:'Teko',sans-serif;font-size:36px;line-height:1;font-weight:600}
-  .sub{font-size:10px;color:var(--muted);margin-top:6px;line-height:1.6}
+  main{padding:20px 14px 0}
+  h1{font-family:'Teko',sans-serif;font-size:34px;line-height:1;font-weight:600}
+  .sub{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.6}
 
-  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 26px}
-  .kpi{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:12px 10px;text-align:center}
-  .kpi b{display:block;font-family:'Teko',sans-serif;font-size:28px;color:var(--fluo);line-height:1}
-  .kpi span{display:block;font-size:8px;color:var(--muted);letter-spacing:.08em;margin-top:4px}
+  /* --- KPI numerici --- */
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0 22px}
+  .kpi{background:var(--card);border:1px solid var(--bordo);border-radius:7px;padding:11px 8px;text-align:center}
+  .kpi b{display:block;font-family:'Teko',sans-serif;font-size:26px;color:var(--fluo);line-height:1}
+  .kpi span{display:block;font-size:7px;color:var(--muted);letter-spacing:.09em;margin-top:4px}
 
-  .titolo{display:flex;align-items:center;gap:8px;margin:24px 0 6px}
-  .titolo i{width:3px;height:18px;background:var(--fluo);box-shadow:0 0 8px var(--fluo)}
-  .titolo span{font-family:'Teko',sans-serif;font-size:22px;letter-spacing:.03em;line-height:1}
-  .titolo-sub{font-size:9px;color:var(--muted);margin:0 0 13px 11px;line-height:1.6}
+  .titolo{display:flex;align-items:center;gap:8px;margin:22px 0 5px}
+  .titolo i{width:3px;height:17px;background:var(--fluo);box-shadow:0 0 8px var(--fluo)}
+  .titolo span{font-family:'Teko',sans-serif;font-size:21px;letter-spacing:.03em;line-height:1}
+  .titolo-sub{font-size:9px;color:var(--muted);margin:0 0 11px 11px;line-height:1.6}
 
-  .card{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:12px 14px}
-  .grid{display:grid;gap:7px}
+  /* --- TABELLA NUMERICA --- */
+  .tab{width:100%;border-collapse:collapse;font-size:11px}
+  .tab thead th{font-size:8px;color:var(--muted);letter-spacing:.07em;font-weight:700;
+    text-align:right;padding:0 6px 8px;border-bottom:1px solid var(--bordo);white-space:nowrap}
+  .tab thead th:first-child{text-align:left;padding-left:10px}
+  .tab tbody td{padding:9px 6px;text-align:right;border-bottom:1px solid rgba(28,42,31,.5);
+    font-variant-numeric:tabular-nums}
+  .tab tbody td:first-child{text-align:left;padding-left:10px}
+  .tab tbody tr{background:var(--card)}
+  .tab tbody tr.click{cursor:pointer}
+  .tab tbody tr.click:active{background:var(--card2)}
+  .pos{color:var(--muted);font-size:9px;display:inline-block;min-width:16px}
+  .nome{font-family:'Teko',sans-serif;font-size:17px;letter-spacing:.02em;vertical-align:middle}
+  .big{color:var(--fluo);font-weight:700;font-size:13px}
+  .gial{color:var(--giallo);font-weight:700}
+  .ros{color:var(--rosso);font-weight:700}
+  .neg{color:var(--fluo)}
+  .freccia{color:var(--muted);font-size:11px;padding-left:6px}
 
-  .riga{display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .nome{font-family:'Teko',sans-serif;font-size:19px;letter-spacing:.02em}
-  .meta{font-size:8px;color:var(--muted);margin-top:1px}
-  .val{font-family:'Teko',sans-serif;font-size:26px;color:var(--fluo);line-height:1}
-  .val small{display:block;font-family:'JetBrains Mono',monospace;font-size:7px;
-    color:var(--muted);letter-spacing:.08em;margin-top:2px}
+  /* --- SCHEDA ARBITRO --- */
+  .back{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--fluo);
+    background:transparent;border:1px solid var(--bordo);border-radius:5px;
+    padding:7px 12px;cursor:pointer;margin-bottom:16px;letter-spacing:.06em}
+  .scheda-top{background:var(--card);border:1px solid rgba(57,255,20,.25);
+    border-radius:9px;padding:16px;margin-bottom:18px}
+  .scheda-nome{font-family:'Teko',sans-serif;font-size:32px;line-height:1;letter-spacing:.02em}
+  .scheda-meta{font-size:9px;color:var(--muted);margin-top:4px}
+  .dati{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bordo);
+    border:1px solid var(--bordo);border-radius:7px;overflow:hidden;margin-bottom:18px}
+  .dato{background:var(--card);padding:12px 11px}
+  .dato b{display:block;font-family:'Teko',sans-serif;font-size:27px;color:var(--fluo);line-height:1}
+  .dato b.g{color:var(--giallo)} .dato b.r{color:var(--rosso)} .dato b.n{color:var(--testo)}
+  .dato span{display:block;font-size:8px;color:var(--muted);letter-spacing:.07em;margin-top:5px;line-height:1.4}
 
-  .pill{font-size:8px;font-weight:700;letter-spacing:.08em;padding:3px 6px;
-    border-radius:3px;text-transform:uppercase;display:inline-block}
-  .pill.g{color:var(--giallo);background:rgba(255,212,0,.09);border:1px solid rgba(255,212,0,.27)}
-  .pill.r{color:var(--rosso);background:rgba(255,45,45,.09);border:1px solid rgba(255,45,45,.27)}
-  .pill.f{color:var(--fluo);background:rgba(57,255,20,.09);border:1px solid rgba(57,255,20,.27)}
-  .pill.m{color:var(--muted);background:rgba(107,132,112,.09);border:1px solid rgba(107,132,112,.27)}
+  .conf{display:flex;align-items:center;justify-content:space-between;
+    background:var(--card);border:1px solid var(--bordo);border-radius:7px;
+    padding:12px 14px;margin-bottom:8px}
+  .conf-lab{font-size:9px;color:var(--muted);letter-spacing:.06em}
+  .conf-val{font-family:'Teko',sans-serif;font-size:24px;line-height:1}
 
   .chart-box{background:var(--card);border:1px solid var(--bordo);border-radius:8px;
     padding:14px 10px 10px;margin-bottom:20px}
 
-  .barra{height:4px;background:var(--bordo);border-radius:2px;margin-top:7px;overflow:hidden}
-  .barra i{display:block;height:100%;background:var(--fluo);border-radius:2px;
-    box-shadow:0 0 6px rgba(57,255,20,.5)}
-
   .empty{background:var(--card);border:1px dashed var(--bordo);border-radius:8px;
     padding:30px 20px;text-align:center}
   .loading{text-align:center;padding:60px 20px;color:var(--muted);font-size:11px}
-  .hidden{display:none}
-  footer{text-align:center;font-size:8px;color:var(--muted);margin:34px 16px 0;
-    padding-top:16px;border-top:1px solid var(--bordo);line-height:1.9}
+  footer{text-align:center;font-size:8px;color:var(--muted);margin:32px 14px 0;
+    padding-top:15px;border-top:1px solid var(--bordo);line-height:1.9}
   code{color:var(--fluo);font-size:9px}
 </style>
 </head>
@@ -83,9 +102,9 @@
   <div class="logo"><div class="dot"></div><span>PURE<b>STATS</b></span></div>
   <div class="lega">PREMIER LEAGUE</div>
   <nav>
-    <button id="n-arb"  class="on" onclick="vai('arbitri')">ARBITRI</button>
-    <button id="n-squ"  onclick="vai('squadre')">SQUADRE</button>
-    <button id="n-par"  onclick="vai('partite')">PARTITE</button>
+    <button id="n-arb" class="on" onclick="vai('arbitri')">ARBITRI</button>
+    <button id="n-squ" onclick="vai('squadre')">SQUADRE</button>
+    <button id="n-par" onclick="vai('partite')">PARTITE</button>
   </nav>
 </header>
 
@@ -96,23 +115,25 @@
 const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
       MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706";
 
-let D=null, vista="arbitri", charts=[];
+let D=null, vista="arbitri", arbitroAperto=null, charts=[];
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const n=(v,d="—")=>v===null||v===undefined?d:v;
+const seg=v=>v>0?"+"+v:String(v);
 
 fetch("data.json?t="+Date.now())
   .then(r=>{if(!r.ok)throw new Error("data.json non trovato");return r.json();})
   .then(d=>{D=d;render();})
   .catch(e=>{
-    document.getElementById("app").className="";
-    document.getElementById("app").innerHTML=
-      `<div class="empty"><div style="font-size:26px;margin-bottom:10px">⚑</div>
-       <div class="nome" style="font-size:22px;margin-bottom:8px">ARCHIVIO VUOTO</div>
-       <div style="font-size:10px;color:${MUTED};line-height:1.8">${esc(e.message)}<br><br>
-       Lancia il workflow <code>Aggiorna archivio Premier League</code><br>dal tab Actions.</div></div>`;
+    const a=document.getElementById("app"); a.className="";
+    a.innerHTML=`<div class="empty"><div style="font-size:26px;margin-bottom:10px">⚑</div>
+      <div class="nome" style="font-size:22px;margin-bottom:8px">ARCHIVIO VUOTO</div>
+      <div style="font-size:10px;color:${MUTED};line-height:1.8">${esc(e.message)}<br><br>
+      Lancia il workflow dal tab Actions.</div></div>`;
   });
 
-function vai(v){vista=v;render();}
+function vai(v){vista=v;arbitroAperto=null;window.scrollTo(0,0);render();}
+function apriArbitro(nome){arbitroAperto=nome;window.scrollTo(0,0);render();}
+function chiudiArbitro(){arbitroAperto=null;window.scrollTo(0,0);render();}
 
 function render(){
   charts.forEach(c=>c.destroy()); charts=[];
@@ -120,69 +141,31 @@ function render(){
   document.getElementById("n-squ").className = vista==="squadre"?"on":"";
   document.getElementById("n-par").className = vista==="partite"?"on":"";
 
-  const app=document.getElementById("app");
-  app.className="";
-  app.innerHTML = vista==="arbitri" ? vArbitri() : vista==="squadre" ? vSquadre() : vPartite();
+  const app=document.getElementById("app"); app.className="";
+  if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
+  else if(vista==="squadre") app.innerHTML = vSquadre();
+  else app.innerHTML = vPartite();
 
   document.getElementById("pie").innerHTML =
     `Fonte: ${esc(D.fonte)}<br>
-     Archivio: ${D.totalePartite} partite · ${D.partiteConDisciplina} con dati disciplinari<br>
+     ${D.totalePartite} partite · ${D.partiteConDisciplina} con dati disciplinari
+     ${D.stagioni&&D.stagioni.length?" · "+esc(D.stagioni[0])+"–"+esc(D.stagioni[D.stagioni.length-1]):""}<br>
      Aggiornato: ${new Date(D.aggiornato).toLocaleString("it-IT")}`;
 
-  if(vista==="arbitri") gArbitri();
-  if(vista==="squadre") gSquadre();
+  if(vista==="arbitri"&&arbitroAperto) gScheda();
+  else if(vista==="arbitri") gArbitri();
+  else if(vista==="squadre") gSquadre();
 }
 
-function kpi(a,b,c){
-  return `<div class="kpis">
-    <div class="kpi"><b>${a[0]}</b><span>${a[1]}</span></div>
-    <div class="kpi"><b>${b[0]}</b><span>${b[1]}</span></div>
-    <div class="kpi"><b>${c[0]}</b><span>${c[1]}</span></div></div>`;
-}
-
-/* ---------- ARBITRI ---------- */
-function vArbitri(){
-  const A=(D.arbitri||[]).filter(a=>a.partite>=1);
-  if(!A.length) return `<h1>Arbitri</h1><div class="sub">Nessun dato disponibile</div>`;
-
-  const tot=A.reduce((s,a)=>s+a.partite,0);
-  const media=(A.reduce((s,a)=>s+(a.mediaCartellini||0)*a.partite,0)/tot).toFixed(2);
-
-  let h=`<h1>Arbitri</h1>
-    <div class="sub">Medie calcolate sulle partite dirette e registrate nell'archivio</div>
-    ${kpi([A.length,"ARBITRI"],[tot,"PARTITE"],[media,"CART/PARTITA"])}
-    <div class="chart-box"><canvas id="c1" height="230"></canvas></div>
-    <div class="chart-box"><canvas id="c2" height="230"></canvas></div>
-    <div class="titolo"><i></i><span>CLASSIFICA SEVERITÀ</span></div>
-    <div class="titolo-sub">Ordinati per cartellini medi a partita</div><div class="grid">`;
-
-  const max=Math.max(...A.map(a=>a.mediaCartellini||0));
-  A.forEach(a=>{
-    h+=`<div class="card">
-      <div class="riga">
-        <div>
-          <div class="nome">${esc(a.nome)}</div>
-          <div class="meta">${a.partite} ${a.partite===1?"partita":"partite"} dirette</div>
-        </div>
-        <div class="val" style="text-align:right">${n(a.mediaCartellini)}<small>CART/PARTITA</small></div>
-      </div>
-      <div class="barra"><i style="width:${Math.max(3,(a.mediaCartellini/max)*100)}%"></i></div>
-      <div style="display:flex;gap:5px;margin-top:9px;flex-wrap:wrap">
-        <span class="pill g">${n(a.mediaGialli)} gialli</span>
-        ${a.rossi>0?`<span class="pill r">${n(a.mediaRossi)} rossi</span>`:""}
-        <span class="pill m">${n(a.mediaFalli)} falli</span>
-        ${a.squilibrioCasaOspite!==null&&a.squilibrioCasaOspite!==0
-          ? `<span class="pill ${a.squilibrioCasaOspite>0?"r":"f"}">
-             ${a.squilibrioCasaOspite>0?"+":""}${a.squilibrioCasaOspite} vs ospiti</span>`:""}
-      </div></div>`;
-  });
-  return h+`</div>`;
+function kpi(...v){
+  return `<div class="kpis">${v.map(x=>
+    `<div class="kpi"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("")}</div>`;
 }
 
 function opz(titolo,orizz){
   return {responsive:true,maintainAspectRatio:false,indexAxis:orizz?"y":"x",
     plugins:{
-      title:{display:true,text:titolo,color:TESTO,font:{family:"Teko",size:17},padding:{bottom:10}},
+      title:{display:true,text:titolo,color:TESTO,font:{family:"Teko",size:16},padding:{bottom:10}},
       legend:{labels:{color:MUTED,font:{family:"JetBrains Mono",size:9},boxWidth:9}},
       tooltip:{backgroundColor:NERO,borderColor:FLUO,borderWidth:1,titleColor:TESTO,bodyColor:TESTO,
         titleFont:{family:"JetBrains Mono",size:10},bodyFont:{family:"JetBrains Mono",size:10}}},
@@ -191,35 +174,166 @@ function opz(titolo,orizz){
       y:{ticks:{color:MUTED,font:{family:"JetBrains Mono",size:8}},grid:{color:BORDO}}}};
 }
 
-function gArbitri(){
-  const A=(D.arbitri||[]).slice(0,12);
-  if(!A.length) return;
+/* ================= ELENCO ARBITRI ================= */
+function vArbitri(){
+  const A=D.arbitri||[];
+  if(!A.length) return `<h1>Arbitri</h1><div class="sub">Nessun dato disponibile</div>`;
 
-  const c1=document.getElementById("c1");
-  if(c1){
-    const o=opz("CARTELLINI MEDI A PARTITA",true);
-    o.scales.x.stacked=true;o.scales.y.stacked=true;
-    charts.push(new Chart(c1,{type:"bar",
-      data:{labels:A.map(a=>a.nome),datasets:[
-        {label:"Gialli",data:A.map(a=>a.mediaGialli||0),backgroundColor:GIALLO},
-        {label:"Rossi", data:A.map(a=>a.mediaRossi||0), backgroundColor:ROSSO}]},
-      options:o}));
-  }
+  const tot=A.reduce((s,a)=>s+a.partite,0);
+  const mc=(A.reduce((s,a)=>s+(a.mediaCartellini||0)*a.partite,0)/tot).toFixed(2);
+  const mr=(A.reduce((s,a)=>s+a.rossi,0)/tot).toFixed(2);
 
-  const c2=document.getElementById("c2");
-  const S=A.filter(a=>a.squilibrioCasaOspite!==null);
-  if(c2&&S.length){
-    const o=opz("SQUILIBRIO CASA / TRASFERTA",true);
-    charts.push(new Chart(c2,{type:"bar",
-      data:{labels:S.map(a=>a.nome),
-        datasets:[{label:"Gialli in più agli ospiti",
-          data:S.map(a=>a.squilibrioCasaOspite),
-          backgroundColor:S.map(a=>a.squilibrioCasaOspite>0?ROSSO:FLUO)}]},
-      options:o}));
-  }
+  let h=`<h1>Arbitri</h1>
+    <div class="sub">Tocca un arbitro per la scheda completa</div>
+    ${kpi([A.length,"ARBITRI"],[tot,"PARTITE"],[mc,"CART / PARTITA"])}
+    <div class="chart-box"><canvas id="c1" height="240"></canvas></div>
+    <div class="titolo"><i></i><span>CLASSIFICA SEVERITÀ</span></div>
+    <div class="titolo-sub">GIA e ROS sono medie a partita · SQL = gialli in più agli ospiti</div>
+    <table class="tab">
+      <thead><tr>
+        <th>Arbitro</th><th>PG</th><th>GIA</th><th>ROS</th><th>FAL</th><th>SQL</th><th></th>
+      </tr></thead><tbody>`;
+
+  A.forEach((a,i)=>{
+    h+=`<tr class="click" onclick="apriArbitro('${esc(a.nome).replace(/'/g,"\\'")}')">
+      <td><span class="pos">${i+1}</span><span class="nome">${esc(a.nome)}</span></td>
+      <td>${a.partite}</td>
+      <td class="gial">${n(a.mediaGialli)}</td>
+      <td class="${a.rossi>0?"ros":""}">${n(a.mediaRossi)}</td>
+      <td>${n(a.mediaFalli)}</td>
+      <td class="${a.squilibrioCasaOspite>0?"ros":a.squilibrioCasaOspite<0?"neg":""}">
+        ${a.squilibrioCasaOspite===null?"—":seg(a.squilibrioCasaOspite)}</td>
+      <td class="freccia">›</td>
+    </tr>`;
+  });
+  return h+`</tbody></table>`;
 }
 
-/* ---------- SQUADRE ---------- */
+function gArbitri(){
+  const A=(D.arbitri||[]).slice(0,14);
+  const c=document.getElementById("c1");
+  if(!c||!A.length) return;
+  const o=opz("CARTELLINI MEDI A PARTITA",true);
+  o.scales.x.stacked=true;o.scales.y.stacked=true;
+  charts.push(new Chart(c,{type:"bar",
+    data:{labels:A.map(a=>a.nome),datasets:[
+      {label:"Gialli",data:A.map(a=>a.mediaGialli||0),backgroundColor:GIALLO},
+      {label:"Rossi", data:A.map(a=>a.mediaRossi||0), backgroundColor:ROSSO}]},
+    options:o}));
+}
+
+/* ================= SCHEDA ARBITRO ================= */
+function vScheda(){
+  const a=(D.arbitri||[]).find(x=>x.nome===arbitroAperto);
+  if(!a) return `<button class="back" onclick="chiudiArbitro()">‹ INDIETRO</button>
+                 <div class="empty">Arbitro non trovato</div>`;
+
+  const pos=(D.arbitri||[]).findIndex(x=>x.nome===arbitroAperto)+1;
+  const totArb=(D.arbitri||[]).length;
+  const mediaLega=(D.arbitri.reduce((s,x)=>s+(x.mediaGialli||0)*x.partite,0)/
+                   D.arbitri.reduce((s,x)=>s+x.partite,0));
+  const scarto=(a.mediaGialli-mediaLega).toFixed(2);
+  const unGialloOgni=a.gialliPerFallo?(100/a.gialliPerFallo).toFixed(1):null;
+
+  let h=`<button class="back" onclick="chiudiArbitro()">‹ TUTTI GLI ARBITRI</button>
+
+  <div class="scheda-top">
+    <div class="scheda-nome">${esc(a.nome)}</div>
+    <div class="scheda-meta">${a.partite} partite dirette · ${pos}° su ${totArb} per severità</div>
+  </div>
+
+  <div class="dati">
+    <div class="dato"><b class="g">${n(a.mediaGialli)}</b><span>GIALLI A PARTITA</span></div>
+    <div class="dato"><b class="r">${n(a.mediaRossi)}</b><span>ROSSI A PARTITA</span></div>
+    <div class="dato"><b class="n">${a.gialli}</b><span>GIALLI TOTALI</span></div>
+    <div class="dato"><b class="n">${a.rossi}</b><span>ROSSI TOTALI</span></div>
+    <div class="dato"><b>${n(a.mediaFalli)}</b><span>FALLI FISCHIATI<br>A PARTITA</span></div>
+    <div class="dato"><b>${unGialloOgni||"—"}</b><span>FALLI PER OGNI<br>AMMONIZIONE</span></div>
+  </div>
+
+  <div class="titolo"><i></i><span>CONFRONTI</span></div>
+  <div class="titolo-sub">Come si colloca rispetto al resto del campionato</div>
+
+  <div class="conf">
+    <span class="conf-lab">SCARTO DALLA MEDIA DEL CAMPIONATO</span>
+    <span class="conf-val" style="color:${scarto>0?ROSSO:FLUO}">${seg(scarto)}</span>
+  </div>
+  <div class="conf">
+    <span class="conf-lab">GIALLI ALLA SQUADRA DI CASA</span>
+    <span class="conf-val" style="color:${TESTO}">${n(a.mediaGialliCasa)}</span>
+  </div>
+  <div class="conf">
+    <span class="conf-lab">GIALLI ALLA SQUADRA OSPITE</span>
+    <span class="conf-val" style="color:${a.mediaGialliOspite>a.mediaGialliCasa?ROSSO:TESTO}">${n(a.mediaGialliOspite)}</span>
+  </div>
+  <div class="conf">
+    <span class="conf-lab">VITTORIE CASA CON LUI</span>
+    <span class="conf-val" style="color:${FLUO}">${n(a.percVittorieCasa)}%</span>
+  </div>`;
+
+  if(a.perStagione&&a.perStagione.length>1){
+    h+=`<div class="titolo"><i></i><span>ANDAMENTO PER STAGIONE</span></div>
+        <div class="titolo-sub">Cartellini medi a partita</div>
+        <div class="chart-box"><canvas id="cs" height="180"></canvas></div>`;
+  }
+
+  if(a.perSquadra&&a.perSquadra.length){
+    h+=`<div class="titolo"><i></i><span>SQUADRE PIÙ AMMONITE DA LUI</span></div>
+        <div class="titolo-sub">GIA = gialli medi a partita quando arbitra lui</div>
+        <table class="tab"><thead><tr>
+          <th>Squadra</th><th>PG</th><th>GIA</th><th>TOT</th><th>ROS</th>
+        </tr></thead><tbody>`;
+    a.perSquadra.slice(0,15).forEach((s,i)=>{
+      h+=`<tr>
+        <td><span class="pos">${i+1}</span><span class="nome">${esc(s.squadra)}</span></td>
+        <td>${s.partite}</td>
+        <td class="big">${n(s.media)}</td>
+        <td class="gial">${s.gialli}</td>
+        <td class="${s.rossi>0?"ros":""}">${s.rossi}</td>
+      </tr>`;
+    });
+    h+=`</tbody></table>`;
+  }
+
+  if(a.elenco&&a.elenco.length){
+    h+=`<div class="titolo"><i></i><span>PARTITE DIRETTE</span></div>
+        <div class="titolo-sub">Le più recenti · G = gialli, R = rossi</div>
+        <table class="tab"><thead><tr>
+          <th>Partita</th><th>Ris</th><th>G</th><th>R</th><th>FAL</th>
+        </tr></thead><tbody>`;
+    a.elenco.forEach(p=>{
+      const gt=(p.gialliCasa||0)+(p.gialliOspite||0);
+      const rt=(p.rossiCasa||0)+(p.rossiOspite||0);
+      const ft=(p.falliCasa||0)+(p.falliOspite||0);
+      h+=`<tr>
+        <td style="line-height:1.5">
+          <span style="font-size:10px">${esc(p.casa)} – ${esc(p.ospite)}</span>
+          <span style="display:block;font-size:8px;color:${MUTED}">${esc(p.data)}</span>
+        </td>
+        <td style="color:${FLUO};font-weight:700">${n(p.gc,"?")}-${n(p.go,"?")}</td>
+        <td class="gial">${gt}</td>
+        <td class="${rt>0?"ros":""}">${rt||"–"}</td>
+        <td>${ft||"–"}</td>
+      </tr>`;
+    });
+    h+=`</tbody></table>`;
+  }
+  return h;
+}
+
+function gScheda(){
+  const a=(D.arbitri||[]).find(x=>x.nome===arbitroAperto);
+  const c=document.getElementById("cs");
+  if(!c||!a||!a.perStagione||a.perStagione.length<2) return;
+  charts.push(new Chart(c,{type:"line",
+    data:{labels:a.perStagione.map(s=>s.stagione),
+      datasets:[{label:"Cartellini medi",data:a.perStagione.map(s=>s.media),
+        borderColor:FLUO,backgroundColor:"rgba(57,255,20,.12)",fill:true,
+        tension:.3,pointBackgroundColor:FLUO,pointRadius:4}]},
+    options:opz("",false)}));
+}
+
+/* ================= SQUADRE ================= */
 function vSquadre(){
   const S=D.squadre||[];
   if(!S.length) return `<h1>Squadre</h1><div class="sub">Nessun dato disponibile</div>`;
@@ -228,84 +342,66 @@ function vSquadre(){
   const rossi=S.reduce((s,x)=>s+x.rossi,0);
 
   let h=`<h1>Squadre</h1>
-    <div class="sub">Medie disciplinari e di gioco per squadra</div>
+    <div class="sub">Medie disciplinari e di gioco</div>
     ${kpi([S.length,"SQUADRE"],[mg,"GIALLI MEDI"],[rossi,"ROSSI TOTALI"])}
     <div class="chart-box"><canvas id="c1" height="260"></canvas></div>
-    <div class="chart-box"><canvas id="c2" height="240"></canvas></div>
     <div class="titolo"><i></i><span>CLASSIFICA DISCIPLINARE</span></div>
-    <div class="titolo-sub">Ordinate per ammonizioni medie a partita</div><div class="grid">`;
+    <div class="titolo-sub">CASA e OSP = gialli medi in casa e in trasferta</div>
+    <table class="tab"><thead><tr>
+      <th>Squadra</th><th>PG</th><th>GIA</th><th>CASA</th><th>OSP</th><th>FAL</th><th>ROS</th>
+    </tr></thead><tbody>`;
 
-  const max=Math.max(...S.map(x=>x.mediaGialli||0));
-  S.forEach(s=>{
-    h+=`<div class="card" ${s.rossi>0?'style="border-color:rgba(255,45,45,.28)"':""}>
-      <div class="riga">
-        <div>
-          <div class="nome">${esc(s.nome)}</div>
-          <div class="meta">${s.partite} ${s.partite===1?"partita":"partite"}</div>
-        </div>
-        <div class="val" style="text-align:right">${n(s.mediaGialli)}<small>GIALLI/PARTITA</small></div>
-      </div>
-      <div class="barra"><i style="width:${Math.max(3,(s.mediaGialli/max)*100)}%"></i></div>
-      <div style="display:flex;gap:5px;margin-top:9px;flex-wrap:wrap">
-        <span class="pill g">${s.gialli} gialli</span>
-        ${s.rossi>0?`<span class="pill r">${s.rossi} rossi</span>`:""}
-        <span class="pill m">${n(s.mediaFalli)} falli</span>
-        <span class="pill m">${n(s.mediaTiri)} tiri</span>
-      </div></div>`;
+  S.forEach((s,i)=>{
+    h+=`<tr>
+      <td><span class="pos">${i+1}</span><span class="nome">${esc(s.nome)}</span></td>
+      <td>${s.partite}</td>
+      <td class="big">${n(s.mediaGialli)}</td>
+      <td>${n(s.mediaGialliCasa)}</td>
+      <td class="${s.mediaGialliOspite>s.mediaGialliCasa?"ros":""}">${n(s.mediaGialliOspite)}</td>
+      <td>${n(s.mediaFalli)}</td>
+      <td class="${s.rossi>0?"ros":""}">${s.rossi}</td>
+    </tr>`;
   });
-  return h+`</div>`;
+  return h+`</tbody></table>`;
 }
 
 function gSquadre(){
-  const S=(D.squadre||[]).slice(0,14);
-  if(!S.length) return;
-
-  const c1=document.getElementById("c1");
-  if(c1) charts.push(new Chart(c1,{type:"bar",
+  const S=(D.squadre||[]).slice(0,16);
+  const c=document.getElementById("c1");
+  if(!c||!S.length) return;
+  charts.push(new Chart(c,{type:"bar",
     data:{labels:S.map(s=>s.nome),
-      datasets:[{label:"Gialli medi",data:S.map(s=>s.mediaGialli||0),backgroundColor:GIALLO}]},
+      datasets:[{label:"Gialli medi a partita",data:S.map(s=>s.mediaGialli||0),backgroundColor:GIALLO}]},
     options:opz("AMMONIZIONI MEDIE PER SQUADRA",true)}));
-
-  const c2=document.getElementById("c2");
-  const F=S.filter(s=>s.mediaFalli!==null);
-  if(c2&&F.length) charts.push(new Chart(c2,{type:"bar",
-    data:{labels:F.map(s=>s.nome),
-      datasets:[{label:"Falli medi",data:F.map(s=>s.mediaFalli),backgroundColor:FLUO}]},
-    options:opz("FALLI MEDI PER SQUADRA",true)}));
 }
 
-/* ---------- PARTITE ---------- */
+/* ================= PARTITE ================= */
 function vPartite(){
   const P=D.ultimePartite||[];
-  if(!P.length) return `<h1>Partite</h1><div class="sub">Nessuna partita nell'archivio</div>`;
+  if(!P.length) return `<h1>Partite</h1><div class="sub">Nessuna partita in archivio</div>`;
 
   let h=`<h1>Partite</h1>
-    <div class="sub">Le più recenti registrate nell'archivio</div>
-    <div class="grid" style="margin-top:18px">`;
+    <div class="sub">Le più recenti registrate</div>
+    <div class="titolo"><i></i><span>RISULTATI</span></div>
+    <div class="titolo-sub">G = gialli casa-ospite · R = rossi totali</div>
+    <table class="tab"><thead><tr>
+      <th>Partita</th><th>Ris</th><th>G</th><th>R</th><th>Arbitro</th>
+    </tr></thead><tbody>`;
 
   P.forEach(p=>{
-    const gt=(p.gialliCasa||0)+(p.gialliOspite||0);
     const rt=(p.rossiCasa||0)+(p.rossiOspite||0);
-    h+=`<div class="card" ${rt>0?'style="border-color:rgba(255,45,45,.28)"':""}>
-      <div class="riga">
-        <span class="nome" style="flex:1">${esc(p.casa)}</span>
-        <span style="font-size:16px;font-weight:700;color:${FLUO};padding:2px 10px;
-          background:rgba(57,255,20,.07);border-radius:4px">${n(p.gc,"?")}–${n(p.go,"?")}</span>
-        <span class="nome" style="flex:1;text-align:right">${esc(p.ospite)}</span>
-      </div>
-      <div style="font-size:8px;color:${MUTED};text-align:center;margin-top:7px">
-        ${esc(p.data)}${p.arbitro?" · arb. "+esc(p.arbitro):""}
-      </div>
-      ${(gt||rt||p.falliCasa!==null)?`
-      <div style="display:flex;gap:5px;justify-content:center;margin-top:8px;flex-wrap:wrap">
-        ${gt?`<span class="pill g">${p.gialliCasa}–${p.gialliOspite} gialli</span>`:""}
-        ${rt?`<span class="pill r">${rt} rossi</span>`:""}
-        ${p.falliCasa!==null?`<span class="pill m">${p.falliCasa}–${p.falliOspite} falli</span>`:""}
-        ${p.tiriCasa!==null?`<span class="pill m">${p.tiriCasa}–${p.tiriOspite} tiri</span>`:""}
-      </div>`:""}
-    </div>`;
+    h+=`<tr>
+      <td style="line-height:1.5">
+        <span style="font-size:10px">${esc(p.casa)} – ${esc(p.ospite)}</span>
+        <span style="display:block;font-size:8px;color:${MUTED}">${esc(p.data)}</span>
+      </td>
+      <td style="color:${FLUO};font-weight:700">${n(p.gc,"?")}-${n(p.go,"?")}</td>
+      <td class="gial">${n(p.gialliCasa,"–")}-${n(p.gialliOspite,"–")}</td>
+      <td class="${rt>0?"ros":""}">${rt||"–"}</td>
+      <td style="font-size:8px;color:${MUTED};text-align:right">${esc(p.arbitro||"—")}</td>
+    </tr>`;
   });
-  return h+`</div>`;
+  return h+`</tbody></table>`;
 }
 </script>
 </body>
