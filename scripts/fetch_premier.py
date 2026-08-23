@@ -174,7 +174,10 @@ def calcola_statistiche(righe):
         "gialliCasa": 0, "gialliOspite": 0, "conDati": 0,
         "rigori": 0, "vittorieCasa": 0, "pareggi": 0, "vittorieOspite": 0,
         "perSquadra": defaultdict(lambda: {"partite": 0, "gialli": 0, "rossi": 0}),
-        "perStagione": defaultdict(lambda: {"partite": 0, "gialli": 0, "rossi": 0}),
+        "perStagione": defaultdict(lambda: {
+            "partite": 0, "gialli": 0, "rossi": 0, "falli": 0,
+            "gialliCasa": 0, "gialliOspite": 0,
+        }),
         "elenco": [],
     })
     squadre = defaultdict(lambda: {
@@ -233,6 +236,10 @@ def calcola_statistiche(righe):
                 pst["partite"] += 1
                 pst["gialli"] += gc + go
                 pst["rossi"] += rc + ro
+                pst["gialliCasa"] += gc
+                pst["gialliOspite"] += go
+                if None not in (fc, fo):
+                    pst["falli"] += fc + fo
 
             a["elenco"].append({
                 "stagione": r.get("Stagione"), "data": r.get("Data"),
@@ -298,6 +305,12 @@ def calcola_statistiche(righe):
                     "gialli": v["gialli"],
                     "rossi": v["rossi"],
                     "media": media(v["gialli"] + v["rossi"], v["partite"]),
+                    "mediaGialli": media(v["gialli"], v["partite"]),
+                    "mediaRossi": media(v["rossi"], v["partite"]),
+                    "mediaFalli": media(v["falli"], v["partite"], 1),
+                    "squilibrio": media(v["gialliOspite"] - v["gialliCasa"], v["partite"]),
+                    "mediaGialliCasa": media(v["gialliCasa"], v["partite"]),
+                    "mediaGialliOspite": media(v["gialliOspite"], v["partite"]),
                 }
                 for st, v in a["perStagione"].items()
             ],
