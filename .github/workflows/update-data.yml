@@ -32,6 +32,7 @@ jobs:
 
       - name: Recupera i dati da API-Football
         env:
+          STAGIONE: '2023'
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
           MAX_CHIAMATE: '90'
           MAX_DETTAGLIO: '3'
