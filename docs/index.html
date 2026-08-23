@@ -1,1 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PureStats · Premier League</title>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --nero:#050706; --card:#0C110E; --fluo:#39FF14; --fluo2:#1FA30C;
+    --bordo:#1C2A1F; --testo:#E8F5E6; --muted:#6B8470;
+    --rosso:#FF2D2D; --giallo:#FFD400;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--nero);color:var(--testo);font-family:'JetBrains Mono',monospace;padding-bottom:60px}
 
+  header{position:sticky;top:0;z-index:20;background:rgba(5,7,6,.96);
+    border-bottom:1px solid var(--bordo);backdrop-filter:blur(8px);padding:16px 16px 0}
+  .logo{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--fluo);box-shadow:0 0 10px var(--fluo)}
+  .logo span{font-family:'Teko',sans-serif;font-size:26px;letter-spacing:.06em;line-height:1}
+  .logo b{color:var(--fluo);font-weight:inherit}
+  .lega{font-size:9px;color:var(--muted);letter-spacing:.14em;margin:0 0 13px 16px}
+
+  nav{display:flex;gap:5px;flex-wrap:wrap}
+  nav button{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+    letter-spacing:.06em;color:var(--muted);background:transparent;
+    border:1px solid var(--bordo);border-bottom:none;border-radius:5px 5px 0 0;
+    padding:9px 12px;cursor:pointer}
+  nav button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
+
+  main{padding:22px 16px 0}
+  h1{font-family:'Teko',sans-serif;font-size:36px;line-height:1;font-weight:600}
+  .sub{font-size:10px;color:var(--muted);margin-top:6px;line-height:1.6}
+
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 26px}
+  .kpi{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:12px 10px;text-align:center}
+  .kpi b{display:block;font-family:'Teko',sans-serif;font-size:28px;color:var(--fluo);line-height:1}
+  .kpi span{display:block;font-size:8px;color:var(--muted);letter-spacing:.08em;margin-top:4px}
+
+  .titolo{display:flex;align-items:center;gap:8px;margin:24px 0 6px}
+  .titolo i{width:3px;height:18px;background:var(--fluo);box-shadow:0 0 8px var(--fluo)}
+  .titolo span{font-family:'Teko',sans-serif;font-size:22px;letter-spacing:.03em;line-height:1}
+  .titolo-sub{font-size:9px;color:var(--muted);margin:0 0 13px 11px;line-height:1.6}
+
+  .card{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:12px 14px}
+  .grid{display:grid;gap:7px}
+
+  .riga{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .nome{font-family:'Teko',sans-serif;font-size:19px;letter-spacing:.02em}
+  .meta{font-size:8px;color:var(--muted);margin-top:1px}
+  .val{font-family:'Teko',sans-serif;font-size:26px;color:var(--fluo);line-height:1}
+  .val small{display:block;font-family:'JetBrains Mono',monospace;font-size:7px;
+    color:var(--muted);letter-spacing:.08em;margin-top:2px}
+
+  .pill{font-size:8px;font-weight:700;letter-spacing:.08em;padding:3px 6px;
+    border-radius:3px;text-transform:uppercase;display:inline-block}
+  .pill.g{color:var(--giallo);background:rgba(255,212,0,.09);border:1px solid rgba(255,212,0,.27)}
+  .pill.r{color:var(--rosso);background:rgba(255,45,45,.09);border:1px solid rgba(255,45,45,.27)}
+  .pill.f{color:var(--fluo);background:rgba(57,255,20,.09);border:1px solid rgba(57,255,20,.27)}
+  .pill.m{color:var(--muted);background:rgba(107,132,112,.09);border:1px solid rgba(107,132,112,.27)}
+
+  .chart-box{background:var(--card);border:1px solid var(--bordo);border-radius:8px;
+    padding:14px 10px 10px;margin-bottom:20px}
+
+  .barra{height:4px;background:var(--bordo);border-radius:2px;margin-top:7px;overflow:hidden}
+  .barra i{display:block;height:100%;background:var(--fluo);border-radius:2px;
+    box-shadow:0 0 6px rgba(57,255,20,.5)}
+
+  .empty{background:var(--card);border:1px dashed var(--bordo);border-radius:8px;
+    padding:30px 20px;text-align:center}
+  .loading{text-align:center;padding:60px 20px;color:var(--muted);font-size:11px}
+  .hidden{display:none}
+  footer{text-align:center;font-size:8px;color:var(--muted);margin:34px 16px 0;
+    padding-top:16px;border-top:1px solid var(--bordo);line-height:1.9}
+  code{color:var(--fluo);font-size:9px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><div class="dot"></div><span>PURE<b>STATS</b></span></div>
+  <div class="lega">PREMIER LEAGUE</div>
+  <nav>
+    <button id="n-arb"  class="on" onclick="vai('arbitri')">ARBITRI</button>
+    <button id="n-squ"  onclick="vai('squadre')">SQUADRE</button>
+    <button id="n-par"  onclick="vai('partite')">PARTITE</button>
+  </nav>
+</header>
+
+<main><div id="app" class="loading">Caricamento archivio…</div></main>
+<footer id="pie"></footer>
+
+<script>
+const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
+      MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706";
+
+let D=null, vista="arbitri", charts=[];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const n=(v,d="—")=>v===null||v===undefined?d:v;
+
+fetch("data.json?t="+Date.now())
+  .then(r=>{if(!r.ok)throw new Error("data.json non trovato");return r.json();})
+  .then(d=>{D=d;render();})
+  .catch(e=>{
+    document.getElementById("app").className="";
+    document.getElementById("app").innerHTML=
+      `<div class="empty"><div style="font-size:26px;margin-bottom:10px">⚑</div>
+       <div class="nome" style="font-size:22px;margin-bottom:8px">ARCHIVIO VUOTO</div>
+       <div style="font-size:10px;color:${MUTED};line-height:1.8">${esc(e.message)}<br><br>
+       Lancia il workflow <code>Aggiorna archivio Premier League</code><br>dal tab Actions.</div></div>`;
+  });
+
+function vai(v){vista=v;render();}
+
+function render(){
+  charts.forEach(c=>c.destroy()); charts=[];
+  document.getElementById("n-arb").className = vista==="arbitri"?"on":"";
+  document.getElementById("n-squ").className = vista==="squadre"?"on":"";
+  document.getElementById("n-par").className = vista==="partite"?"on":"";
+
+  const app=document.getElementById("app");
+  app.className="";
+  app.innerHTML = vista==="arbitri" ? vArbitri() : vista==="squadre" ? vSquadre() : vPartite();
+
+  document.getElementById("pie").innerHTML =
+    `Fonte: ${esc(D.fonte)}<br>
+     Archivio: ${D.totalePartite} partite · ${D.partiteConDisciplina} con dati disciplinari<br>
+     Aggiornato: ${new Date(D.aggiornato).toLocaleString("it-IT")}`;
+
+  if(vista==="arbitri") gArbitri();
+  if(vista==="squadre") gSquadre();
+}
+
+function kpi(a,b,c){
+  return `<div class="kpis">
+    <div class="kpi"><b>${a[0]}</b><span>${a[1]}</span></div>
+    <div class="kpi"><b>${b[0]}</b><span>${b[1]}</span></div>
+    <div class="kpi"><b>${c[0]}</b><span>${c[1]}</span></div></div>`;
+}
+
+/* ---------- ARBITRI ---------- */
+function vArbitri(){
+  const A=(D.arbitri||[]).filter(a=>a.partite>=1);
+  if(!A.length) return `<h1>Arbitri</h1><div class="sub">Nessun dato disponibile</div>`;
+
+  const tot=A.reduce((s,a)=>s+a.partite,0);
+  const media=(A.reduce((s,a)=>s+(a.mediaCartellini||0)*a.partite,0)/tot).toFixed(2);
+
+  let h=`<h1>Arbitri</h1>
+    <div class="sub">Medie calcolate sulle partite dirette e registrate nell'archivio</div>
+    ${kpi([A.length,"ARBITRI"],[tot,"PARTITE"],[media,"CART/PARTITA"])}
+    <div class="chart-box"><canvas id="c1" height="230"></canvas></div>
+    <div class="chart-box"><canvas id="c2" height="230"></canvas></div>
+    <div class="titolo"><i></i><span>CLASSIFICA SEVERITÀ</span></div>
+    <div class="titolo-sub">Ordinati per cartellini medi a partita</div><div class="grid">`;
+
+  const max=Math.max(...A.map(a=>a.mediaCartellini||0));
+  A.forEach(a=>{
+    h+=`<div class="card">
+      <div class="riga">
+        <div>
+          <div class="nome">${esc(a.nome)}</div>
+          <div class="meta">${a.partite} ${a.partite===1?"partita":"partite"} dirette</div>
+        </div>
+        <div class="val" style="text-align:right">${n(a.mediaCartellini)}<small>CART/PARTITA</small></div>
+      </div>
+      <div class="barra"><i style="width:${Math.max(3,(a.mediaCartellini/max)*100)}%"></i></div>
+      <div style="display:flex;gap:5px;margin-top:9px;flex-wrap:wrap">
+        <span class="pill g">${n(a.mediaGialli)} gialli</span>
+        ${a.rossi>0?`<span class="pill r">${n(a.mediaRossi)} rossi</span>`:""}
+        <span class="pill m">${n(a.mediaFalli)} falli</span>
+        ${a.squilibrioCasaOspite!==null&&a.squilibrioCasaOspite!==0
+          ? `<span class="pill ${a.squilibrioCasaOspite>0?"r":"f"}">
+             ${a.squilibrioCasaOspite>0?"+":""}${a.squilibrioCasaOspite} vs ospiti</span>`:""}
+      </div></div>`;
+  });
+  return h+`</div>`;
+}
+
+function opz(titolo,orizz){
+  return {responsive:true,maintainAspectRatio:false,indexAxis:orizz?"y":"x",
+    plugins:{
+      title:{display:true,text:titolo,color:TESTO,font:{family:"Teko",size:17},padding:{bottom:10}},
+      legend:{labels:{color:MUTED,font:{family:"JetBrains Mono",size:9},boxWidth:9}},
+      tooltip:{backgroundColor:NERO,borderColor:FLUO,borderWidth:1,titleColor:TESTO,bodyColor:TESTO,
+        titleFont:{family:"JetBrains Mono",size:10},bodyFont:{family:"JetBrains Mono",size:10}}},
+    scales:{
+      x:{ticks:{color:MUTED,font:{family:"JetBrains Mono",size:8}},grid:{color:BORDO}},
+      y:{ticks:{color:MUTED,font:{family:"JetBrains Mono",size:8}},grid:{color:BORDO}}}};
+}
+
+function gArbitri(){
+  const A=(D.arbitri||[]).slice(0,12);
+  if(!A.length) return;
+
+  const c1=document.getElementById("c1");
+  if(c1){
+    const o=opz("CARTELLINI MEDI A PARTITA",true);
+    o.scales.x.stacked=true;o.scales.y.stacked=true;
+    charts.push(new Chart(c1,{type:"bar",
+      data:{labels:A.map(a=>a.nome),datasets:[
+        {label:"Gialli",data:A.map(a=>a.mediaGialli||0),backgroundColor:GIALLO},
+        {label:"Rossi", data:A.map(a=>a.mediaRossi||0), backgroundColor:ROSSO}]},
+      options:o}));
+  }
+
+  const c2=document.getElementById("c2");
+  const S=A.filter(a=>a.squilibrioCasaOspite!==null);
+  if(c2&&S.length){
+    const o=opz("SQUILIBRIO CASA / TRASFERTA",true);
+    charts.push(new Chart(c2,{type:"bar",
+      data:{labels:S.map(a=>a.nome),
+        datasets:[{label:"Gialli in più agli ospiti",
+          data:S.map(a=>a.squilibrioCasaOspite),
+          backgroundColor:S.map(a=>a.squilibrioCasaOspite>0?ROSSO:FLUO)}]},
+      options:o}));
+  }
+}
+
+/* ---------- SQUADRE ---------- */
+function vSquadre(){
+  const S=D.squadre||[];
+  if(!S.length) return `<h1>Squadre</h1><div class="sub">Nessun dato disponibile</div>`;
+
+  const mg=(S.reduce((s,x)=>s+(x.mediaGialli||0),0)/S.length).toFixed(2);
+  const rossi=S.reduce((s,x)=>s+x.rossi,0);
+
+  let h=`<h1>Squadre</h1>
+    <div class="sub">Medie disciplinari e di gioco per squadra</div>
+    ${kpi([S.length,"SQUADRE"],[mg,"GIALLI MEDI"],[rossi,"ROSSI TOTALI"])}
+    <div class="chart-box"><canvas id="c1" height="260"></canvas></div>
+    <div class="chart-box"><canvas id="c2" height="240"></canvas></div>
+    <div class="titolo"><i></i><span>CLASSIFICA DISCIPLINARE</span></div>
+    <div class="titolo-sub">Ordinate per ammonizioni medie a partita</div><div class="grid">`;
+
+  const max=Math.max(...S.map(x=>x.mediaGialli||0));
+  S.forEach(s=>{
+    h+=`<div class="card" ${s.rossi>0?'style="border-color:rgba(255,45,45,.28)"':""}>
+      <div class="riga">
+        <div>
+          <div class="nome">${esc(s.nome)}</div>
+          <div class="meta">${s.partite} ${s.partite===1?"partita":"partite"}</div>
+        </div>
+        <div class="val" style="text-align:right">${n(s.mediaGialli)}<small>GIALLI/PARTITA</small></div>
+      </div>
+      <div class="barra"><i style="width:${Math.max(3,(s.mediaGialli/max)*100)}%"></i></div>
+      <div style="display:flex;gap:5px;margin-top:9px;flex-wrap:wrap">
+        <span class="pill g">${s.gialli} gialli</span>
+        ${s.rossi>0?`<span class="pill r">${s.rossi} rossi</span>`:""}
+        <span class="pill m">${n(s.mediaFalli)} falli</span>
+        <span class="pill m">${n(s.mediaTiri)} tiri</span>
+      </div></div>`;
+  });
+  return h+`</div>`;
+}
+
+function gSquadre(){
+  const S=(D.squadre||[]).slice(0,14);
+  if(!S.length) return;
+
+  const c1=document.getElementById("c1");
+  if(c1) charts.push(new Chart(c1,{type:"bar",
+    data:{labels:S.map(s=>s.nome),
+      datasets:[{label:"Gialli medi",data:S.map(s=>s.mediaGialli||0),backgroundColor:GIALLO}]},
+    options:opz("AMMONIZIONI MEDIE PER SQUADRA",true)}));
+
+  const c2=document.getElementById("c2");
+  const F=S.filter(s=>s.mediaFalli!==null);
+  if(c2&&F.length) charts.push(new Chart(c2,{type:"bar",
+    data:{labels:F.map(s=>s.nome),
+      datasets:[{label:"Falli medi",data:F.map(s=>s.mediaFalli),backgroundColor:FLUO}]},
+    options:opz("FALLI MEDI PER SQUADRA",true)}));
+}
+
+/* ---------- PARTITE ---------- */
+function vPartite(){
+  const P=D.ultimePartite||[];
+  if(!P.length) return `<h1>Partite</h1><div class="sub">Nessuna partita nell'archivio</div>`;
+
+  let h=`<h1>Partite</h1>
+    <div class="sub">Le più recenti registrate nell'archivio</div>
+    <div class="grid" style="margin-top:18px">`;
+
+  P.forEach(p=>{
+    const gt=(p.gialliCasa||0)+(p.gialliOspite||0);
+    const rt=(p.rossiCasa||0)+(p.rossiOspite||0);
+    h+=`<div class="card" ${rt>0?'style="border-color:rgba(255,45,45,.28)"':""}>
+      <div class="riga">
+        <span class="nome" style="flex:1">${esc(p.casa)}</span>
+        <span style="font-size:16px;font-weight:700;color:${FLUO};padding:2px 10px;
+          background:rgba(57,255,20,.07);border-radius:4px">${n(p.gc,"?")}–${n(p.go,"?")}</span>
+        <span class="nome" style="flex:1;text-align:right">${esc(p.ospite)}</span>
+      </div>
+      <div style="font-size:8px;color:${MUTED};text-align:center;margin-top:7px">
+        ${esc(p.data)}${p.arbitro?" · arb. "+esc(p.arbitro):""}
+      </div>
+      ${(gt||rt||p.falliCasa!==null)?`
+      <div style="display:flex;gap:5px;justify-content:center;margin-top:8px;flex-wrap:wrap">
+        ${gt?`<span class="pill g">${p.gialliCasa}–${p.gialliOspite} gialli</span>`:""}
+        ${rt?`<span class="pill r">${rt} rossi</span>`:""}
+        ${p.falliCasa!==null?`<span class="pill m">${p.falliCasa}–${p.falliOspite} falli</span>`:""}
+        ${p.tiriCasa!==null?`<span class="pill m">${p.tiriCasa}–${p.tiriOspite} tiri</span>`:""}
+      </div>`:""}
+    </div>`;
+  });
+  return h+`</div>`;
+}
+</script>
+</body>
+</html>
