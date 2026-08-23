@@ -85,6 +85,23 @@
   .conf-lab{font-size:9px;color:var(--muted);letter-spacing:.06em}
   .conf-val{font-family:'Teko',sans-serif;font-size:24px;line-height:1}
 
+  /* --- RICERCA E FILTRI --- */
+  .filtri{margin:16px 0 18px}
+  .cerca{width:100%;background:var(--card);border:1px solid var(--bordo);border-radius:7px;
+    padding:11px 13px;color:var(--testo);font-family:'JetBrains Mono',monospace;
+    font-size:12px;outline:none}
+  .cerca:focus{border-color:var(--fluo);box-shadow:0 0 0 1px rgba(57,255,20,.2)}
+  .cerca::placeholder{color:var(--muted)}
+  .stagioni{display:flex;gap:5px;overflow-x:auto;margin-top:9px;padding-bottom:3px;
+    -webkit-overflow-scrolling:touch}
+  .stagioni button{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:9px;
+    font-weight:700;letter-spacing:.05em;color:var(--muted);background:var(--card);
+    border:1px solid var(--bordo);border-radius:5px;padding:7px 11px;cursor:pointer;white-space:nowrap}
+  .stagioni button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
+  .conteggio{font-size:9px;color:var(--muted);margin-top:9px;letter-spacing:.05em}
+
+  .arb{color:var(--fluo);font-weight:700}
+
   .chart-box{background:var(--card);border:1px solid var(--bordo);border-radius:8px;
     padding:14px 10px 10px;margin-bottom:20px}
 
@@ -116,6 +133,7 @@ const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
       MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706";
 
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
+let ricerca="", stagione="tutte";
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const n=(v,d="—")=>v===null||v===undefined?d:v;
 const seg=v=>v>0?"+"+v:String(v);
@@ -135,6 +153,22 @@ function vai(v){vista=v;arbitroAperto=null;window.scrollTo(0,0);render();}
 function apriArbitro(nome){arbitroAperto=nome;window.scrollTo(0,0);render();}
 function chiudiArbitro(){arbitroAperto=null;window.scrollTo(0,0);render();}
 
+function cerca(v){
+  ricerca=v;
+  render();
+  // Il render ricostruisce il DOM: rimetto il cursore nel campo
+  const c=document.querySelector(".cerca");
+  if(c){ c.focus(); c.setSelectionRange(c.value.length, c.value.length); }
+}
+function filtraStagione(s){stagione=s;render();}
+
+/* Dalla tabella partite salta direttamente alla scheda dell'arbitro */
+function vaiArbitro(nome){
+  const esiste=(D.arbitri||[]).some(a=>a.nome===nome);
+  if(!esiste) return;
+  vista="arbitri"; arbitroAperto=nome; window.scrollTo(0,0); render();
+}
+
 function render(){
   charts.forEach(c=>c.destroy()); charts=[];
   document.getElementById("n-arb").className = vista==="arbitri"?"on":"";
@@ -153,8 +187,6 @@ function render(){
      Aggiornato: ${new Date(D.aggiornato).toLocaleString("it-IT")}`;
 
   if(vista==="arbitri"&&arbitroAperto) gScheda();
-  else if(vista==="arbitri") gArbitri();
-  else if(vista==="squadre") gSquadre();
 }
 
 function kpi(...v){
@@ -175,18 +207,66 @@ function opz(titolo,orizz){
 }
 
 /* ================= ELENCO ARBITRI ================= */
+
+/* Restituisce l'arbitro con le medie della stagione selezionata,
+   oppure i dati complessivi se il filtro è su "tutte". */
+function perFiltro(a){
+  if(stagione==="tutte") return {
+    partite:a.partite, mediaGialli:a.mediaGialli, mediaRossi:a.mediaRossi,
+    mediaCartellini:a.mediaCartellini, mediaFalli:a.mediaFalli,
+    squilibrio:a.squilibrioCasaOspite
+  };
+  const s=(a.perStagione||[]).find(x=>x.stagione===stagione);
+  if(!s) return null;
+  return {
+    partite:s.partite, mediaGialli:s.mediaGialli, mediaRossi:s.mediaRossi,
+    mediaCartellini:s.media, mediaFalli:s.mediaFalli, squilibrio:s.squilibrio
+  };
+}
+
+function arbitriFiltrati(){
+  const q=ricerca.trim().toLowerCase();
+  return (D.arbitri||[])
+    .map(a=>({arb:a, d:perFiltro(a)}))
+    .filter(x=>x.d!==null)
+    .filter(x=>!q||x.arb.nome.toLowerCase().includes(q))
+    .sort((x,y)=>(y.d.mediaCartellini||0)-(x.d.mediaCartellini||0)
+                 || x.arb.nome.localeCompare(y.arb.nome));
+}
+
 function vArbitri(){
   const A=D.arbitri||[];
   if(!A.length) return `<h1>Arbitri</h1><div class="sub">Nessun dato disponibile</div>`;
 
-  const tot=A.reduce((s,a)=>s+a.partite,0);
-  const mc=(A.reduce((s,a)=>s+(a.mediaCartellini||0)*a.partite,0)/tot).toFixed(2);
-  const mr=(A.reduce((s,a)=>s+a.rossi,0)/tot).toFixed(2);
+  const lista=arbitriFiltrati();
+  const tot=lista.reduce((s,x)=>s+x.d.partite,0);
+  const mc=tot?(lista.reduce((s,x)=>s+(x.d.mediaCartellini||0)*x.d.partite,0)/tot).toFixed(2):"—";
+  const stag=D.stagioni||[];
 
   let h=`<h1>Arbitri</h1>
     <div class="sub">Tocca un arbitro per la scheda completa</div>
-    ${kpi([A.length,"ARBITRI"],[tot,"PARTITE"],[mc,"CART / PARTITA"])}
-    <div class="chart-box"><canvas id="c1" height="240"></canvas></div>
+
+    <div class="filtri">
+      <input class="cerca" type="search" placeholder="Cerca arbitro…"
+             value="${esc(ricerca)}" oninput="cerca(this.value)">
+      ${stag.length>1?`<div class="stagioni">
+        <button class="${stagione==="tutte"?"on":""}" onclick="filtraStagione('tutte')">TUTTE</button>
+        ${stag.map(s=>`<button class="${stagione===s?"on":""}"
+          onclick="filtraStagione('${esc(s)}')">${esc(s)}</button>`).join("")}
+      </div>`:""}
+      <div class="conteggio">
+        ${lista.length} ${lista.length===1?"arbitro":"arbitri"} · ${tot} partite
+        ${stagione!=="tutte"?" · stagione "+esc(stagione):""}
+      </div>
+    </div>`;
+
+  if(!lista.length){
+    return h+`<div class="empty">
+      <div style="font-size:10px;color:${MUTED};line-height:1.8">
+        Nessun arbitro corrisponde ai filtri.</div></div>`;
+  }
+
+  h+=`${kpi([lista.length,"ARBITRI"],[tot,"PARTITE"],[mc,"CART / PARTITA"])}
     <div class="titolo"><i></i><span>CLASSIFICA SEVERITÀ</span></div>
     <div class="titolo-sub">GIA e ROS sono medie a partita · SQL = gialli in più agli ospiti</div>
     <table class="tab">
@@ -194,32 +274,20 @@ function vArbitri(){
         <th>Arbitro</th><th>PG</th><th>GIA</th><th>ROS</th><th>FAL</th><th>SQL</th><th></th>
       </tr></thead><tbody>`;
 
-  A.forEach((a,i)=>{
+  lista.forEach((x,i)=>{
+    const a=x.arb, d=x.d;
     h+=`<tr class="click" onclick="apriArbitro('${esc(a.nome).replace(/'/g,"\\'")}')">
       <td><span class="pos">${i+1}</span><span class="nome">${esc(a.nome)}</span></td>
-      <td>${a.partite}</td>
-      <td class="gial">${n(a.mediaGialli)}</td>
-      <td class="${a.rossi>0?"ros":""}">${n(a.mediaRossi)}</td>
-      <td>${n(a.mediaFalli)}</td>
-      <td class="${a.squilibrioCasaOspite>0?"ros":a.squilibrioCasaOspite<0?"neg":""}">
-        ${a.squilibrioCasaOspite===null?"—":seg(a.squilibrioCasaOspite)}</td>
+      <td>${d.partite}</td>
+      <td class="gial">${n(d.mediaGialli)}</td>
+      <td class="${d.mediaRossi>0?"ros":""}">${n(d.mediaRossi)}</td>
+      <td>${n(d.mediaFalli)}</td>
+      <td class="${d.squilibrio>0?"ros":d.squilibrio<0?"neg":""}">
+        ${d.squilibrio===null||d.squilibrio===undefined?"—":seg(d.squilibrio)}</td>
       <td class="freccia">›</td>
     </tr>`;
   });
   return h+`</tbody></table>`;
-}
-
-function gArbitri(){
-  const A=(D.arbitri||[]).slice(0,14);
-  const c=document.getElementById("c1");
-  if(!c||!A.length) return;
-  const o=opz("CARTELLINI MEDI A PARTITA",true);
-  o.scales.x.stacked=true;o.scales.y.stacked=true;
-  charts.push(new Chart(c,{type:"bar",
-    data:{labels:A.map(a=>a.nome),datasets:[
-      {label:"Gialli",data:A.map(a=>a.mediaGialli||0),backgroundColor:GIALLO},
-      {label:"Rossi", data:A.map(a=>a.mediaRossi||0), backgroundColor:ROSSO}]},
-    options:o}));
 }
 
 /* ================= SCHEDA ARBITRO ================= */
@@ -344,7 +412,6 @@ function vSquadre(){
   let h=`<h1>Squadre</h1>
     <div class="sub">Medie disciplinari e di gioco</div>
     ${kpi([S.length,"SQUADRE"],[mg,"GIALLI MEDI"],[rossi,"ROSSI TOTALI"])}
-    <div class="chart-box"><canvas id="c1" height="260"></canvas></div>
     <div class="titolo"><i></i><span>CLASSIFICA DISCIPLINARE</span></div>
     <div class="titolo-sub">CASA e OSP = gialli medi in casa e in trasferta</div>
     <table class="tab"><thead><tr>
@@ -365,16 +432,6 @@ function vSquadre(){
   return h+`</tbody></table>`;
 }
 
-function gSquadre(){
-  const S=(D.squadre||[]).slice(0,16);
-  const c=document.getElementById("c1");
-  if(!c||!S.length) return;
-  charts.push(new Chart(c,{type:"bar",
-    data:{labels:S.map(s=>s.nome),
-      datasets:[{label:"Gialli medi a partita",data:S.map(s=>s.mediaGialli||0),backgroundColor:GIALLO}]},
-    options:opz("AMMONIZIONI MEDIE PER SQUADRA",true)}));
-}
-
 /* ================= PARTITE ================= */
 function vPartite(){
   const P=D.ultimePartite||[];
@@ -390,6 +447,7 @@ function vPartite(){
 
   P.forEach(p=>{
     const rt=(p.rossiCasa||0)+(p.rossiOspite||0);
+    const arb=(p.arbitro||"").trim();
     h+=`<tr>
       <td style="line-height:1.5">
         <span style="font-size:10px">${esc(p.casa)} – ${esc(p.ospite)}</span>
@@ -398,7 +456,10 @@ function vPartite(){
       <td style="color:${FLUO};font-weight:700">${n(p.gc,"?")}-${n(p.go,"?")}</td>
       <td class="gial">${n(p.gialliCasa,"–")}-${n(p.gialliOspite,"–")}</td>
       <td class="${rt>0?"ros":""}">${rt||"–"}</td>
-      <td style="font-size:8px;color:${MUTED};text-align:right">${esc(p.arbitro||"—")}</td>
+      <td style="text-align:right">${arb
+        ? `<span class="arb click" style="font-size:9px;cursor:pointer"
+             onclick="vaiArbitro('${esc(arb).replace(/'/g,"\\'")}')">${esc(arb)}</span>`
+        : `<span style="font-size:9px;color:${MUTED}">—</span>`}</td>
     </tr>`;
   });
   return h+`</tbody></table>`;
