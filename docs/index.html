@@ -21,7 +21,21 @@
   .dot{width:8px;height:8px;border-radius:50%;background:var(--fluo);box-shadow:0 0 10px var(--fluo)}
   .logo span{font-family:'Teko',sans-serif;font-size:25px;letter-spacing:.06em;line-height:1}
   .logo b{color:var(--fluo);font-weight:inherit}
-  .lega{font-size:8px;color:var(--muted);letter-spacing:.14em;margin:2px 0 12px 16px}
+  .lega{display:flex;gap:5px;margin:4px 0 12px 16px}
+  .lega button{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;
+    letter-spacing:.12em;color:var(--muted);background:transparent;border:none;
+    padding:2px 0;cursor:pointer;border-bottom:1px solid transparent}
+  .lega button.on{color:var(--fluo);border-bottom-color:var(--fluo)}
+  .lega span{color:var(--bordo);font-size:8px}
+
+  /* --- PROSSIMA DESIGNAZIONE --- */
+  .desig{background:rgba(57,255,20,.06);border:1px solid rgba(57,255,20,.3);
+    border-radius:8px;padding:13px 15px;margin-bottom:18px}
+  .desig-lab{font-size:8px;color:var(--fluo);letter-spacing:.12em;font-weight:700;margin-bottom:7px}
+  .desig-match{font-family:'Teko',sans-serif;font-size:23px;line-height:1.1}
+  .desig-quando{font-size:9px;color:var(--muted);margin-top:3px}
+  .desig-ruolo{font-size:8px;color:var(--muted);margin-top:6px;letter-spacing:.05em}
+  .desig+.desig{margin-top:-10px}
 
   nav{display:flex;gap:5px;flex-wrap:wrap}
   nav button{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
@@ -121,7 +135,7 @@
 
 <header>
   <div class="logo"><div class="dot"></div><span>PURE<b>STATS</b></span></div>
-  <div class="lega">PREMIER LEAGUE</div>
+  <div class="lega" id="scelta-lega"></div>
   <nav>
     <button id="n-arb" class="on" onclick="vai('arbitri')">ARBITRI</button>
     <button id="n-squ" onclick="vai('squadre')">SQUADRE</button>
@@ -138,6 +152,15 @@ const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
 
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
 let ricerca="", stagione="tutte";
+
+/* Campionati disponibili. Ciascuno ha il proprio file dati:
+   se un file non esiste il campionato viene semplicemente nascosto. */
+const LEGHE = [
+  {id:"premier",  nome:"PREMIER LEAGUE", file:"data.json"},
+  {id:"serie_a",  nome:"SERIE A",        file:"data_serie_a.json"},
+];
+let legaAttiva = null;
+const cache = {};
 
 /* Ordinamento: una configurazione per ciascuna tabella.
    dir = -1 decrescente (default per le medie), +1 crescente. */
@@ -183,16 +206,58 @@ const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 const n=(v,d="—")=>v===null||v===undefined?d:v;
 const seg=v=>v>0?"+"+v:String(v);
 
-fetch("data.json?t="+Date.now())
-  .then(r=>{if(!r.ok)throw new Error("data.json non trovato");return r.json();})
-  .then(d=>{D=d;render();})
-  .catch(e=>{
-    const a=document.getElementById("app"); a.className="";
-    a.innerHTML=`<div class="empty"><div style="font-size:26px;margin-bottom:10px">⚑</div>
-      <div class="nome" style="font-size:22px;margin-bottom:8px">ARCHIVIO VUOTO</div>
-      <div style="font-size:10px;color:${MUTED};line-height:1.8">${esc(e.message)}<br><br>
-      Lancia il workflow dal tab Actions.</div></div>`;
-  });
+/* '2026-03-02' -> 'lunedì 2 marzo' */
+function dataEstesa(iso){
+  if(!iso) return "";
+  const d=new Date(iso+"T12:00:00");
+  if(isNaN(d.getTime())) return esc(iso);
+  return d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"});
+}
+
+function caricaLega(id){
+  const lega = LEGHE.find(l=>l.id===id);
+  if(!lega) return Promise.reject(new Error("campionato sconosciuto"));
+  if(cache[id]) return Promise.resolve(cache[id]);
+  return fetch(lega.file+"?t="+Date.now())
+    .then(r=>{ if(!r.ok) throw new Error(lega.file+" non trovato"); return r.json(); })
+    .then(d=>{ cache[id]=d; return d; });
+}
+
+function vaiLega(id){
+  if(id===legaAttiva) return;
+  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione="tutte";
+  window.scrollTo(0,0);
+  caricaLega(id).then(d=>{ D=d; render(); }).catch(mostraErrore);
+}
+
+function mostraErrore(e){
+  const a=document.getElementById("app"); a.className="";
+  a.innerHTML=`<div class="empty"><div style="font-size:26px;margin-bottom:10px">⚑</div>
+    <div class="nome" style="font-size:22px;margin-bottom:8px">ARCHIVIO VUOTO</div>
+    <div style="font-size:10px;color:${MUTED};line-height:1.8">${esc(e.message)}<br><br>
+    Lancia il workflow dal tab Actions.</div></div>`;
+}
+
+/* All'avvio prova i campionati in ordine e mostra solo quelli disponibili */
+Promise.all(LEGHE.map(l =>
+  fetch(l.file+"?t="+Date.now())
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{ if(d) cache[l.id]=d; return {lega:l, ok:!!d}; })
+    .catch(()=>({lega:l, ok:false}))
+)).then(esiti=>{
+  const disponibili = esiti.filter(e=>e.ok).map(e=>e.lega);
+  const box = document.getElementById("scelta-lega");
+  if(!disponibili.length){ mostraErrore(new Error("nessun archivio trovato")); return; }
+
+  box.innerHTML = disponibili.map((l,i)=>
+    (i?`<span>·</span>`:"")+
+    `<button id="lg-${l.id}" onclick="vaiLega('${l.id}')">${l.nome}</button>`
+  ).join("");
+
+  legaAttiva = disponibili[0].id;
+  D = cache[legaAttiva];
+  render();
+});
 
 function vai(v){vista=v;arbitroAperto=null;window.scrollTo(0,0);render();}
 function apriArbitro(nome){arbitroAperto=nome;window.scrollTo(0,0);render();}
@@ -216,6 +281,10 @@ function vaiArbitro(nome){
 
 function render(){
   charts.forEach(c=>c.destroy()); charts=[];
+  LEGHE.forEach(l=>{
+    const b=document.getElementById("lg-"+l.id);
+    if(b) b.className = (l.id===legaAttiva) ? "on" : "";
+  });
   document.getElementById("n-arb").className = vista==="arbitri"?"on":"";
   document.getElementById("n-squ").className = vista==="squadre"?"on":"";
   document.getElementById("n-par").className = vista==="partite"?"on":"";
@@ -327,8 +396,10 @@ function vArbitri(){
       </tr></thead><tbody>`;
 
   lista.forEach((x,i)=>{
+    const designato = (x.arb.prossime||[]).length > 0;
     h+=`<tr class="click" onclick="apriArbitro('${esc(x.nome).replace(/'/g,"\\'")}')">
-      <td><span class="pos">${i+1}</span><span class="nome">${esc(x.nome)}</span></td>
+      <td><span class="pos">${i+1}</span><span class="nome">${esc(x.nome)}</span>${
+        designato?`<span style="color:${FLUO};font-size:9px;margin-left:5px" title="designato">●</span>`:""}</td>
       <td>${x.partite}</td>
       <td class="gial">${n(x.mediaGialli)}</td>
       <td class="${x.mediaRossi>0?"ros":""}">${n(x.mediaRossi)}</td>
@@ -349,18 +420,47 @@ function vScheda(){
 
   const pos=(D.arbitri||[]).findIndex(x=>x.nome===arbitroAperto)+1;
   const totArb=(D.arbitri||[]).length;
-  const mediaLega=(D.arbitri.reduce((s,x)=>s+(x.mediaGialli||0)*x.partite,0)/
-                   D.arbitri.reduce((s,x)=>s+x.partite,0));
-  const scarto=(a.mediaGialli-mediaLega).toFixed(2);
+  const conStorico=(D.arbitri||[]).filter(x=>x.partite>0);
+  const baseMedia=conStorico.reduce((s,x)=>s+x.partite,0);
+  const mediaLega=baseMedia?conStorico.reduce((s,x)=>s+(x.mediaGialli||0)*x.partite,0)/baseMedia:0;
+  const scarto=a.mediaGialli!==null?(a.mediaGialli-mediaLega).toFixed(2):null;
   const unGialloOgni=a.gialliPerFallo?(100/a.gialliPerFallo).toFixed(1):null;
 
   let h=`<button class="back" onclick="chiudiArbitro()">‹ TUTTI GLI ARBITRI</button>
 
   <div class="scheda-top">
     <div class="scheda-nome">${esc(a.nome)}</div>
-    <div class="scheda-meta">${a.partite} partite dirette · ${pos}° su ${totArb} per severità</div>
-  </div>
+    <div class="scheda-meta">${a.partite
+      ? `${a.partite} partite dirette · ${pos}° su ${totArb} per severità`
+      : `nessuna partita ancora in archivio`}</div>
+  </div>`;
 
+  // Designazioni note per partite non ancora giocate
+  const pross=a.prossime||[];
+  if(pross.length){
+    pross.forEach((p,i)=>{
+      const ruoli=[];
+      if(p.quartoUomo) ruoli.push("IV: "+esc(p.quartoUomo));
+      if(p.var) ruoli.push("VAR: "+esc(p.var));
+      if(p.avar) ruoli.push("AVAR: "+esc(p.avar));
+      h+=`<div class="desig">
+        <div class="desig-lab">${i===0?"PROSSIMA DESIGNAZIONE":"POI"}</div>
+        <div class="desig-match">${esc(p.casa)} – ${esc(p.ospite)}</div>
+        <div class="desig-quando">${dataEstesa(p.data)}${p.ora?" · ore "+esc(p.ora):""}${
+          p.giornata?" · giornata "+p.giornata:""}</div>
+        ${ruoli.length?`<div class="desig-ruolo">${ruoli.join("  ·  ")}</div>`:""}
+      </div>`;
+    });
+  }
+
+  if(!a.partite){
+    return h+`<div class="empty">
+      <div style="font-size:10px;color:${MUTED};line-height:1.8">
+        Nessuna partita diretta presente in archivio.<br>
+        Le statistiche compariranno dopo la prima gara registrata.</div></div>`;
+  }
+
+  h+=`
   <div class="dati">
     <div class="dato"><b class="g">${n(a.mediaGialli)}</b><span>GIALLI A PARTITA</span></div>
     <div class="dato"><b class="r">${n(a.mediaRossi)}</b><span>ROSSI A PARTITA</span></div>
@@ -375,7 +475,7 @@ function vScheda(){
 
   <div class="conf">
     <span class="conf-lab">SCARTO DALLA MEDIA DEL CAMPIONATO</span>
-    <span class="conf-val" style="color:${scarto>0?ROSSO:FLUO}">${seg(scarto)}</span>
+    <span class="conf-val" style="color:${scarto>0?ROSSO:FLUO}">${scarto===null?"—":seg(scarto)}</span>
   </div>
   <div class="conf">
     <span class="conf-lab">GIALLI ALLA SQUADRA DI CASA</span>
