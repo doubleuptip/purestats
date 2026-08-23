@@ -60,17 +60,22 @@
   .titolo-sub{font-size:9px;color:var(--muted);margin:0 0 11px 11px;line-height:1.6}
 
   /* --- TABELLA NUMERICA --- */
-  .tab{width:100%;border-collapse:collapse;font-size:11px}
+  .tab{width:100%;border-collapse:collapse;font-size:11px;table-layout:auto}
   .tab thead th{font-size:8px;color:var(--muted);letter-spacing:.07em;font-weight:700;
     text-align:right;padding:0 6px 8px;border-bottom:1px solid var(--bordo);white-space:nowrap}
-  .tab thead th:first-child{text-align:left;padding-left:10px}
+  .tab thead th:first-child{text-align:left;padding-left:10px;width:auto}
+  /* Le colonne numeriche occupano solo lo spazio necessario, così il nome
+     non viene mai compresso né troncato */
+  .tab thead th:not(:first-child){width:1%}
+  .tab tbody td:not(:first-child){white-space:nowrap;width:1%}
+  .tab tbody td:first-child{text-align:left;padding-left:10px;
+    white-space:normal;overflow-wrap:anywhere;text-overflow:clip}
   .tab thead th.ord{cursor:pointer;-webkit-user-select:none;user-select:none}
   .tab thead th.ord:active{color:var(--testo)}
   .tab thead th.attivo{color:var(--fluo)}
   .tab thead th .dir{font-size:8px;margin-left:2px}
   .tab tbody td{padding:9px 6px;text-align:right;border-bottom:1px solid rgba(28,42,31,.5);
     font-variant-numeric:tabular-nums}
-  .tab tbody td:first-child{text-align:left;padding-left:10px}
   .tab tbody tr{background:var(--card)}
   .tab tbody tr.click{cursor:pointer}
   .tab tbody tr.click:active{background:var(--card2)}
@@ -373,15 +378,14 @@ function arbitriFiltrati(){
 
 function vArbitri(){
   const A=D.arbitri||[];
-  if(!A.length) return `<h1>Arbitri</h1><div class="sub">Nessun dato disponibile</div>`;
+  if(!A.length) return `<div class="sub" style="margin-top:0">Nessun dato disponibile</div>`;
 
   const lista=arbitriFiltrati();
   const tot=lista.reduce((s,x)=>s+x.d.partite,0);
   const mc=tot?(lista.reduce((s,x)=>s+(x.d.mediaCartellini||0)*x.d.partite,0)/tot).toFixed(2):"—";
   const stag=D.stagioni||[];
 
-  let h=`<h1>Arbitri</h1>
-    <div class="sub">Tocca un arbitro per la scheda completa</div>
+  let h=`<div class="sub" style="margin-top:0">Tocca un arbitro per la scheda completa</div>
 
     <div class="filtri">
       <input class="cerca" type="search" placeholder="Cerca arbitro…"
@@ -577,7 +581,7 @@ function gScheda(){
 /* ================= SQUADRE ================= */
 function vSquadre(){
   const base=D.squadre||[];
-  if(!base.length) return `<h1>Squadre</h1><div class="sub">Nessun dato disponibile</div>`;
+  if(!base.length) return `<div class="sub" style="margin-top:0">Nessun dato disponibile</div>`;
 
   const o=ord.squadre;
   const S=[...base].sort((a,b)=>confronta(a,b,o.campo,o.dir) || a.nome.localeCompare(b.nome));
@@ -585,8 +589,7 @@ function vSquadre(){
   const mg=(base.reduce((s,x)=>s+(x.mediaGialli||0),0)/base.length).toFixed(2);
   const rossi=base.reduce((s,x)=>s+x.rossi,0);
 
-  let h=`<h1>Squadre</h1>
-    <div class="sub">Medie disciplinari e di gioco</div>
+  let h=`<div class="sub" style="margin-top:0">Medie disciplinari e di gioco</div>
     ${kpi([base.length,"SQUADRE"],[mg,"GIALLI MEDI"],[rossi,"ROSSI TOTALI"])}
     <div class="titolo"><i></i><span>CLASSIFICA DISCIPLINARE</span></div>
     <div class="titolo-sub">Tocca un'intestazione per ordinare · CASA e OSP = gialli medi per campo</div>
@@ -617,12 +620,11 @@ function vSquadre(){
 /* ================= PARTITE ================= */
 function vPartite(){
   const P=D.ultimePartite||[];
-  if(!P.length) return `<h1>Partite</h1><div class="sub">Nessuna partita in archivio</div>`;
+  if(!P.length) return `<div class="sub" style="margin-top:0">Nessuna partita in archivio</div>`;
 
   const conScheda=new Set((D.arbitri||[]).map(a=>a.nome));
 
-  let h=`<h1>Partite</h1>
-    <div class="sub">Le più recenti registrate</div>
+  let h=`<div class="sub" style="margin-top:0">Le più recenti registrate</div>
     <div class="titolo"><i></i><span>RISULTATI</span></div>
     <div class="titolo-sub">G = gialli casa-ospite · R = rossi totali · tocca l'arbitro per la scheda</div>
     <table class="tab"><thead><tr>
