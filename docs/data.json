@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-23T09:31:42.370545+00:00",
+  "aggiornato": "2026-08-23T09:36:53.622664+00:00",
   "stagione": 2023,
   "fonte": "API-Football (api-sports.io)",
   "campionati": {
@@ -10,7 +10,8 @@
       "stagione": 2023,
       "concluse": [],
       "inCorso": [],
-      "prossime": []
+      "prossime": [],
+      "errore": "dati non disponibili"
     },
     "premier": {
       "id": 39,
@@ -19,7 +20,8 @@
       "stagione": 2023,
       "concluse": [],
       "inCorso": [],
-      "prossime": []
+      "prossime": [],
+      "errore": "dati non disponibili"
     },
     "ligue1": {
       "id": 61,
@@ -28,7 +30,8 @@
       "stagione": 2023,
       "concluse": [],
       "inCorso": [],
-      "prossime": []
+      "prossime": [],
+      "errore": "dati non disponibili"
     },
     "laliga": {
       "id": 140,
@@ -37,7 +40,8 @@
       "stagione": 2023,
       "concluse": [],
       "inCorso": [],
-      "prossime": []
+      "prossime": [],
+      "errore": "dati non disponibili"
     },
     "bundesliga": {
       "id": 78,
@@ -46,8 +50,9 @@
       "stagione": 2023,
       "concluse": [],
       "inCorso": [],
-      "prossime": []
+      "prossime": [],
+      "errore": "dati non disponibili"
     }
   },
-  "chiamateUsate": 5
+  "chiamateUsate": 10
 }
