@@ -348,6 +348,7 @@ def calcola_statistiche(righe, future):
         "gialliCasa": 0, "gialliOspite": 0, "conDati": 0,
         "vittorieCasa": 0, "pareggi": 0, "vittorieOspite": 0,
         "perSquadra": defaultdict(lambda: {"partite": 0, "gialli": 0, "rossi": 0}),
+        "perConfronto": defaultdict(list),
         "perStagione": defaultdict(lambda: {
             "partite": 0, "gialli": 0, "rossi": 0, "falli": 0,
             "gialliCasa": 0, "gialliOspite": 0}),
@@ -393,6 +394,17 @@ def calcola_statistiche(righe, future):
                 if sq:
                     ps = a["perSquadra"][sq]
                     ps["partite"] += 1; ps["gialli"] += gi; ps["rossi"] += ros
+
+            if casa and ospite:
+                chiave = "|||".join(sorted([casa, ospite]))
+                a["perConfronto"][chiave].append({
+                    "_ord": chiave_data(r),
+                    "stagione": r.get("Stagione"), "data": r.get("Data"),
+                    "casa": casa, "ospite": ospite,
+                    "gc": num(r, "GolCasa"), "go": num(r, "GolOspite"),
+                    "gialliCasa": gc, "gialliOspite": go,
+                    "rossiCasa": rc, "rossiOspite": ro,
+                })
 
             st = (r.get("Stagione") or "").strip()
             if st:
@@ -462,6 +474,21 @@ def calcola_statistiche(righe, future):
         for p in elenco:
             p.pop("_ord", None)
 
+        scontri_diretti = []
+        for chiave, partite_coppia in a["perConfronto"].items():
+            if len(partite_coppia) < 2:
+                continue
+            squadre_coppia = chiave.split("|||")
+            elenco_coppia = sorted(partite_coppia, key=lambda x: x.get("_ord", ""), reverse=True)
+            for p in elenco_coppia:
+                p.pop("_ord", None)
+            scontri_diretti.append({
+                "squadre": squadre_coppia,
+                "partite": len(elenco_coppia),
+                "elenco": elenco_coppia,
+            })
+        scontri_diretti.sort(key=lambda x: -x["partite"])
+
         lista_arbitri.append({
             "nome": nome, "partite": a["partite"],
             "gialli": a["gialli"], "rossi": a["rossi"],
@@ -477,6 +504,7 @@ def calcola_statistiche(righe, future):
             "vittorieOspite": a["vittorieOspite"],
             "percVittorieCasa": media(a["vittorieCasa"] * 100, n, 1),
             "perSquadra": per_squadra, "perStagione": per_stagione, "elenco": elenco,
+            "scontriDiretti": scontri_diretti,
             "prossime": sorted(future_per_arbitro.get(nome, []),
                                key=lambda d: (d.get("data") or ""))[:5],
         })
@@ -493,7 +521,7 @@ def calcola_statistiche(righe, future):
                 "squilibrioCasaOspite": None, "mediaGialliCasa": None,
                 "mediaGialliOspite": None, "vittorieCasa": 0, "pareggi": 0,
                 "vittorieOspite": 0, "percVittorieCasa": None,
-                "perSquadra": [], "perStagione": [], "elenco": [],
+                "perSquadra": [], "perStagione": [], "elenco": [], "scontriDiretti": [],
                 "prossime": sorted(ds, key=lambda d: (d.get("data") or ""))[:5],
             })
 

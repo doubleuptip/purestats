@@ -43,5 +43,11 @@ jobs:
             echo "Nessuna variazione."
           else
             git commit -m "Serie A aggiornata $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push
+            for tentativo in 1 2 3 4 5; do
+              if git push; then
+                break
+              fi
+              echo "Push rifiutato (remoto avanzato nel frattempo), tentativo $tentativo: rebase e riprovo..."
+              git pull --rebase
+            done
           fi

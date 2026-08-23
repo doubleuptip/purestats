@@ -19,14 +19,14 @@
     border-bottom:1px solid var(--bordo);backdrop-filter:blur(8px);padding:14px 14px 0}
   .logo{display:flex;align-items:center;gap:8px}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--fluo);box-shadow:0 0 10px var(--fluo)}
-  .logo span{font-family:'Teko',sans-serif;font-size:25px;letter-spacing:.06em;line-height:1}
+  .logo span{font-family:'Teko',sans-serif;font-size:34px;letter-spacing:.06em;line-height:1}
   .logo b{color:var(--fluo);font-weight:inherit}
-  .lega{display:flex;gap:5px;margin:4px 0 12px 16px}
-  .lega button{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;
+  .lega{display:flex;gap:8px;margin:6px 0 14px 16px}
+  .lega button{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
     letter-spacing:.12em;color:var(--muted);background:transparent;border:none;
-    padding:2px 0;cursor:pointer;border-bottom:1px solid transparent}
+    padding:3px 0;cursor:pointer;border-bottom:1px solid transparent}
   .lega button.on{color:var(--fluo);border-bottom-color:var(--fluo)}
-  .lega span{color:var(--bordo);font-size:8px}
+  .lega span{color:var(--bordo);font-size:11px}
 
   /* --- PROSSIMA DESIGNAZIONE --- */
   .desig{background:rgba(57,255,20,.06);border:1px solid rgba(57,255,20,.3);
@@ -37,11 +37,11 @@
   .desig-ruolo{font-size:8px;color:var(--muted);margin-top:6px;letter-spacing:.05em}
   .desig+.desig{margin-top:-10px}
 
-  nav{display:flex;gap:5px;flex-wrap:wrap}
-  nav button{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  nav{display:flex;gap:6px;flex-wrap:wrap}
+  nav button{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;
     letter-spacing:.06em;color:var(--muted);background:transparent;
     border:1px solid var(--bordo);border-bottom:none;border-radius:5px 5px 0 0;
-    padding:9px 13px;cursor:pointer}
+    padding:11px 16px;cursor:pointer}
   nav button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
 
   main{padding:20px 14px 0}
@@ -538,6 +538,24 @@ function vScheda(){
       </tr>`;
     });
     h+=`</tbody></table>`;
+  }
+
+  if(a.scontriDiretti&&a.scontriDiretti.length){
+    h+=`<div class="titolo"><i></i><span>SCONTRI DIRETTI RIPETUTI</span></div>
+        <div class="titolo-sub">Coppie di squadre dirette più di una volta da lui</div>`;
+    a.scontriDiretti.forEach(sc=>{
+      h+=`<div class="desig" style="margin-bottom:8px">
+        <div class="desig-lab">${esc(sc.squadre[0])} – ${esc(sc.squadre[1])} · ${sc.partite} precedenti</div>`;
+      sc.elenco.forEach(p=>{
+        const gt=(p.gialliCasa||0)+(p.gialliOspite||0);
+        const rt=(p.rossiCasa||0)+(p.rossiOspite||0);
+        h+=`<div class="desig-match" style="font-size:10px">
+          ${esc(p.casa)} ${n(p.gc,"?")}-${n(p.go,"?")} ${esc(p.ospite)}
+          <span style="color:${MUTED}">· ${esc(p.data)} · G:${gt}${rt?" R:"+rt:""}</span>
+        </div>`;
+      });
+      h+=`</div>`;
+    });
   }
 
   if(a.elenco&&a.elenco.length){
