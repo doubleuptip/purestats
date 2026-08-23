@@ -138,21 +138,31 @@ def carica_archivio():
         return list(csv.DictReader(f))
 
 
-def salva_archivio(righe):
-    def ordinamento(r):
-        try:
-            g, m, a = r["Data"].split("/")
-            a = f"20{a}" if len(a) == 2 else a
-            return (a, m, g, r["Casa"])
-        except (ValueError, AttributeError):
-            return ("", "", "", r.get("Casa", ""))
+def chiave_data(riga):
+    """Chiave di ordinamento cronologico robusta.
 
-    righe = sorted(righe, key=ordinamento)
+    I file usano date in formato gg/mm/aa oppure gg/mm/aaaa, e non sempre
+    con lo zero iniziale. Normalizza tutto in 'aaaammgg' per un confronto
+    testuale corretto.
+    """
+    data = (riga.get("Data") or "").strip()
+    try:
+        g, m, a = data.split("/")
+        a = f"20{a}" if len(a) == 2 else a
+        return f"{a}{int(m):02d}{int(g):02d}"
+    except (ValueError, AttributeError):
+        return "00000000"
+
+
+def salva_archivio(righe):
+    """Ordina cronologicamente, salva su disco e restituisce la lista ordinata."""
+    righe = sorted(righe, key=lambda r: (chiave_data(r), r.get("Casa") or ""))
     ARCHIVIO.parent.mkdir(parents=True, exist_ok=True)
     with ARCHIVIO.open("w", encoding="utf-8", newline="") as f:
         scrittore = csv.DictWriter(f, fieldnames=COLONNE)
         scrittore.writeheader()
         scrittore.writerows(righe)
+    return righe
 
 
 def num(riga, campo):
@@ -242,6 +252,7 @@ def calcola_statistiche(righe):
                     pst["falli"] += fc + fo
 
             a["elenco"].append({
+                "_ord": chiave_data(r),
                 "stagione": r.get("Stagione"), "data": r.get("Data"),
                 "casa": casa, "ospite": ospite,
                 "gc": num(r, "GolCasa"), "go": num(r, "GolOspite"),
@@ -317,7 +328,9 @@ def calcola_statistiche(righe):
             key=lambda x: x["stagione"],
         )
 
-        elenco = sorted(a["elenco"], key=lambda x: x["stagione"] or "", reverse=True)[:30]
+        elenco = sorted(a["elenco"], key=lambda x: x.get("_ord", ""), reverse=True)[:30]
+        for p in elenco:
+            p.pop("_ord", None)
 
         lista_arbitri.append({
             "nome": nome,
@@ -439,8 +452,7 @@ def main():
         print("\nNessun dato scaricato e archivio vuoto: esco senza scrivere.")
         sys.exit(1)
 
-    tutte = list(indice.values())
-    salva_archivio(tutte)
+    tutte = salva_archivio(list(indice.values()))
     print(f"\nArchivio salvato: {len(tutte)} partite ({len(tutte) - prima:+d})")
 
     stats = calcola_statistiche(tutte)
