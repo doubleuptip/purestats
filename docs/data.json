@@ -1,7 +1,58 @@
 {
-  "aggiornato": "2026-08-23T00:00:00+00:00",
+  "aggiornato": "2026-08-23T09:04:33.795281+00:00",
   "stagione": 2026,
   "fonte": "API-Football (api-sports.io)",
-  "campionati": {},
-  "chiamateUsate": 0
+  "campionati": {
+    "serie_a": {
+      "id": 135,
+      "nome": "Serie A",
+      "paese": "Italia",
+      "stagione": 2026,
+      "concluse": [],
+      "inCorso": [],
+      "prossime": [],
+      "errore": "dati non disponibili"
+    },
+    "premier": {
+      "id": 39,
+      "nome": "Premier League",
+      "paese": "Inghilterra",
+      "stagione": 2026,
+      "concluse": [],
+      "inCorso": [],
+      "prossime": [],
+      "errore": "dati non disponibili"
+    },
+    "ligue1": {
+      "id": 61,
+      "nome": "Ligue 1",
+      "paese": "Francia",
+      "stagione": 2026,
+      "concluse": [],
+      "inCorso": [],
+      "prossime": [],
+      "errore": "dati non disponibili"
+    },
+    "laliga": {
+      "id": 140,
+      "nome": "LaLiga",
+      "paese": "Spagna",
+      "stagione": 2026,
+      "concluse": [],
+      "inCorso": [],
+      "prossime": [],
+      "errore": "dati non disponibili"
+    },
+    "bundesliga": {
+      "id": 78,
+      "nome": "Bundesliga",
+      "paese": "Germania",
+      "stagione": 2026,
+      "concluse": [],
+      "inCorso": [],
+      "prossime": [],
+      "errore": "dati non disponibili"
+    }
+  },
+  "chiamateUsate": 5
 }
