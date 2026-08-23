@@ -209,40 +209,88 @@ def _testo_da_html(html):
     return re.sub(r"[ \t]+", " ", testo)
 
 
-def aggiorna_designazioni(anno_riferimento):
-    """Scarica e interpreta le designazioni disponibili.
+def _dentro_stagione(data_iso, anno_inizio_stagione):
+    """La stagione va da luglio dell'anno di inizio a giugno dell'anno dopo."""
+    if not data_iso:
+        return False
+    try:
+        anno, mese, _ = (int(x) for x in data_iso.split("-"))
+    except ValueError:
+        return False
+    if anno == anno_inizio_stagione and mese >= 7:
+        return True
+    if anno == anno_inizio_stagione + 1 and mese <= 6:
+        return True
+    return False
 
-    Non è un passaggio critico: qualsiasi errore viene segnalato e ignorato.
+
+def aggiorna_designazioni(anno_riferimento):
+    """Raccoglie le designazioni dal file manuale e, se possibile, dal web.
+
+    Il file `data/designazioni.txt` è la fonte principale: i siti ufficiali
+    (Lega e AIA) bloccano gli accessi automatici o non espongono i dati in
+    modo utilizzabile.
+
+    Le designazioni con date fuori dalla stagione vengono scartate: capita
+    quando si incolla per errore una pagina che contiene anche notizie
+    vecchie, e senza questo controllo finirebbero in archivio.
     """
     trovate = []
-    for url in FONTI_DESIGNAZIONI:
-        html = scarica(url, "designazioni")
-        if not html:
-            continue
-        testo = _testo_da_html(html)
-        giornata = dz.giornata_da_testo(testo)
-        try:
-            estratte = dz.analizza(testo, anno_riferimento=anno_riferimento, giornata=giornata)
-        except Exception as e:
-            print(f"    Interpretazione fallita: {e}")
-            continue
-        valide = [d for d in estratte if d.get("arbitro") and d.get("data")]
-        print(f"    {len(valide)} designazioni interpretate")
-        trovate.extend(valide)
+    scartate = []
 
-    # File manuale di riserva: se lo scraping non funziona, si può
-    # incollare a mano il testo delle designazioni in questo file.
-    manuale = RADICE / "data" / "designazioni_manuali.txt"
+    def raccogli(estratte, etichetta):
+        buone = []
+        for d in estratte:
+            if not (d.get("arbitro") and d.get("data")):
+                continue
+            if _dentro_stagione(d["data"], anno_riferimento):
+                buone.append(d)
+            else:
+                scartate.append(d)
+        return buone
+
+    manuale = RADICE / "data" / "designazioni.txt"
     if manuale.exists():
         testo = manuale.read_text(encoding="utf-8")
-        giornata = dz.giornata_da_testo(testo)
-        try:
-            estratte = dz.analizza(testo, anno_riferimento=anno_riferimento, giornata=giornata)
-            valide = [d for d in estratte if d.get("arbitro") and d.get("data")]
-            print(f"  File manuale: {len(valide)} designazioni")
-            trovate.extend(valide)
-        except Exception as e:
-            print(f"  File manuale non interpretabile: {e}")
+        blocchi = [b.strip() for b in re.split(r"\n\s*(?:-{3,}|={3,})\s*\n|\n\s*\n\s*\n", testo)]
+        blocchi = [b for b in blocchi if len(b) > 40]
+        print(f"  File designazioni.txt: {len(blocchi)} blocchi")
+
+        for i, blocco in enumerate(blocchi, 1):
+            utile = "\n".join(r for r in blocco.splitlines() if not r.strip().startswith("#"))
+            if len(utile.strip()) < 40:
+                continue
+
+            giornata = dz.giornata_da_testo(utile)
+            try:
+                estratte = dz.analizza(utile, anno_riferimento=anno_riferimento,
+                                       giornata=giornata)
+            except Exception as e:
+                print(f"    Blocco {i}: non interpretabile ({e})")
+                continue
+
+            buone = raccogli(estratte, f"blocco {i}")
+            etichetta = f"giornata {giornata}" if giornata else "giornata non indicata"
+            if buone:
+                prima, ultima = buone[0]["data"], buone[-1]["data"]
+                print(f"    Blocco {i} ({etichetta}): {len(buone)} designazioni, {prima} → {ultima}")
+            else:
+                print(f"    Blocco {i} ({etichetta}): nessuna designazione valida")
+                print(f"      inizio del testo: {utile.strip()[:70]!r}")
+            trovate.extend(buone)
+    else:
+        print("  File data/designazioni.txt assente")
+        print("  (senza designazioni l'archivio resta valido, ma senza arbitri)")
+
+    if scartate:
+        stagione = f"20{str(anno_riferimento)[2:]}/{str(anno_riferimento + 1)[2:]}"
+        print(f"\n  ATTENZIONE: {len(scartate)} designazioni scartate perché fuori")
+        print(f"  dalla stagione {stagione} (luglio {anno_riferimento} – giugno {anno_riferimento + 1}):")
+        for d in scartate[:5]:
+            print(f"    {d['data']}  {d['casa']}-{d['ospite']}  {d['arbitro']}")
+        if len(scartate) > 5:
+            print(f"    ...e altre {len(scartate) - 5}")
+        print("  Probabile causa: nel file c'è testo di giornate di altre stagioni.")
 
     return trovate
 
