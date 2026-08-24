@@ -1,17 +1,17 @@
 """
-Archivio Serie A — statistiche di squadra e designazioni arbitrali.
+Archivio LaLiga — statistiche disciplinari e designazioni arbitrali.
 
-Due fonti indipendenti, unite sulla coppia (data, squadre):
+A differenza della Serie A, qui le designazioni sono recuperabili in
+automatico: la RFEF pubblica PDF con URL costruibile a tavolino e testo
+perfettamente strutturato.
 
-  1. football-data.co.uk  -> risultati, cartellini di squadra, falli, tiri
-     Licenza PDDL. Il campo arbitro per la Serie A è vuoto.
+Due fonti:
+  1. football-data.co.uk (SP1.csv) — cartellini e falli di squadra.
+     Licenza PDDL. Non contiene la colonna arbitro.
+  2. PDF del Comité Técnico de Árbitros — chi arbitra ogni partita.
 
-  2. Designazioni arbitrali (Lega / AIA) -> chi arbitra ogni partita
-     Colma esattamente la lacuna della prima fonte.
-
-Se la seconda fonte non risponde l'archivio resta valido: si aggiorna
-comunque con i dati di squadra, e le designazioni si recuperano al giro
-successivo. Nessuna delle due è indispensabile all'altra.
+L'archivio è centrato sugli arbitri: le statistiche offensive presenti
+nel CSV vengono conservate nel file ma non entrano nelle medie.
 """
 
 import csv
@@ -27,57 +27,38 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import designazioni as dz
+import designaciones as dg
 
 RADICE = Path(__file__).resolve().parent.parent
-ARCHIVIO = RADICE / "data" / "serie_a.csv"
-DESIGNAZIONI = RADICE / "data" / "designazioni_serie_a.json"
-USCITA = RADICE / "docs" / "data_serie_a.json"
+ARCHIVIO = RADICE / "data" / "la_liga.csv"
+DESIGNAZIONI = RADICE / "data" / "designaciones_la_liga.json"
+USCITA = RADICE / "docs" / "data_la_liga.json"
 
 BASE_CSV = "https://www.football-data.co.uk/mmz4281"
-CODICE = "I1"                      # I1 = Serie A
+CODICE = "SP1"
+BASE_PDF = "https://rfef.es/sites/default/files"
 UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 
-# Pagine da cui leggere le designazioni. Vengono provate in ordine:
-# se la prima non risponde o cambia formato, si passa alla successiva.
-FONTI_DESIGNAZIONI = [
-    "https://www.aia-figc.it/news/?c=9",
-]
+# I PDF hanno un file per ogni giorno di gara della giornata
+GIORNI = ["viernes", "sabado", "domingo", "lunes", "jueves", "martes", "miercoles"]
 
 COLONNE = [
     "Stagione", "Data", "Ora", "Casa", "Ospite",
     "GolCasa", "GolOspite", "Esito",
-    "GolCasaPT", "GolOspitePT", "EsitoPT",
     "Arbitro", "Giornata", "QuartoUomo", "Var", "Avar",
-    "TiriCasa", "TiriOspite", "TiriPortaCasa", "TiriPortaOspite",
-    "FalliCasa", "FalliOspite", "CornerCasa", "CornerOspite",
+    "FalliCasa", "FalliOspite",
     "GialliCasa", "GialliOspite", "RossiCasa", "RossiOspite",
 ]
 
 MAPPA = {
     "Date": "Data", "Time": "Ora", "HomeTeam": "Casa", "AwayTeam": "Ospite",
     "FTHG": "GolCasa", "FTAG": "GolOspite", "FTR": "Esito",
-    "HTHG": "GolCasaPT", "HTAG": "GolOspitePT", "HTR": "EsitoPT",
-    "HS": "TiriCasa", "AS": "TiriOspite", "HST": "TiriPortaCasa", "AST": "TiriPortaOspite",
-    "HF": "FalliCasa", "AF": "FalliOspite", "HC": "CornerCasa", "AC": "CornerOspite",
+    "HF": "FalliCasa", "AF": "FalliOspite",
     "HY": "GialliCasa", "AY": "GialliOspite", "HR": "RossiCasa", "AR": "RossiOspite",
 }
 
-# football-data usa nomi propri: li allineiamo a quelli delle designazioni
-ALIAS_FOOTBALL_DATA = {
-    "Milan": "Milan", "Inter": "Inter", "Juventus": "Juventus", "Roma": "Roma",
-    "Napoli": "Napoli", "Lazio": "Lazio", "Atalanta": "Atalanta",
-    "Fiorentina": "Fiorentina", "Bologna": "Bologna", "Torino": "Torino",
-    "Udinese": "Udinese", "Genoa": "Genoa", "Cagliari": "Cagliari",
-    "Lecce": "Lecce", "Verona": "Verona", "Hellas Verona": "Verona",
-    "Sassuolo": "Sassuolo", "Parma": "Parma", "Como": "Como",
-    "Monza": "Monza", "Venezia": "Venezia", "Empoli": "Empoli",
-    "Cremonese": "Cremonese", "Pisa": "Pisa", "Frosinone": "Frosinone",
-    "Salernitana": "Salernitana", "Sampdoria": "Sampdoria", "Spezia": "Spezia",
-}
 
-
-def scarica(url, descrizione):
+def scarica(url, descrizione, binario=False):
     print(f"  GET {url}")
     try:
         with urlopen(Request(url, headers={"User-Agent": UA}), timeout=60) as r:
@@ -92,6 +73,8 @@ def scarica(url, descrizione):
         print(f"    Errore: {e}")
         return None
 
+    if binario:
+        return grezzo
     for codifica in ("utf-8", "utf-8-sig", "latin-1"):
         try:
             return grezzo.decode(codifica)
@@ -100,7 +83,7 @@ def scarica(url, descrizione):
     return grezzo.decode("utf-8", errors="replace")
 
 
-# ---------------------------------------------------------------- statistiche
+# ---------------------------------------------------------------- stagioni
 
 def stagioni_da_scaricare():
     esplicite = os.environ.get("STAGIONI", "").strip()
@@ -119,6 +102,8 @@ def anno_inizio(codice):
     return 2000 + int(codice[:2])
 
 
+# --------------------------------------------------------------- CSV
+
 def normalizza(testo, etichetta):
     righe = []
     for grezza in csv.DictReader(io.StringIO(testo)):
@@ -128,9 +113,6 @@ def normalizza(testo, etichetta):
         riga["Stagione"] = etichetta
         for originale, nostra in MAPPA.items():
             riga[nostra] = (grezza.get(originale) or "").strip()
-        # allinea i nomi squadra
-        for campo in ("Casa", "Ospite"):
-            riga[campo] = ALIAS_FOOTBALL_DATA.get(riga[campo], riga[campo])
         righe.append(riga)
     return righe
 
@@ -154,7 +136,6 @@ def carica_archivio():
         return []
     with ARCHIVIO.open(encoding="utf-8", newline="") as f:
         righe = list(csv.DictReader(f))
-    # tollera archivi salvati con un insieme di colonne precedente
     for r in righe:
         for c in COLONNE:
             r.setdefault(c, "")
@@ -171,7 +152,7 @@ def salva_archivio(righe):
     return righe
 
 
-# --------------------------------------------------------------- designazioni
+# ------------------------------------------------------------ designazioni
 
 def carica_designazioni():
     if not DESIGNAZIONI.exists():
@@ -183,120 +164,88 @@ def carica_designazioni():
 
 
 def salva_designazioni(elenco):
-    """Deduplica su (data, casa, ospite) tenendo l'ultima versione."""
     indice = {}
     for d in elenco:
         k = (d.get("data"), d.get("casa"), d.get("ospite"))
         if all(k):
             indice[k] = d
-    ordinate = sorted(indice.values(), key=lambda d: (d.get("data") or "", d.get("casa") or ""))
+    ordinate = sorted(indice.values(), key=lambda d: (d.get("data") or "", d.get("ora") or ""))
     DESIGNAZIONI.parent.mkdir(parents=True, exist_ok=True)
     DESIGNAZIONI.write_text(json.dumps(ordinate, ensure_ascii=False, indent=2), encoding="utf-8")
     return ordinate
 
 
-def _testo_da_html(html):
-    """Estrae il testo visibile da una pagina, senza librerie esterne."""
-    html = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", html)
-    html = re.sub(r"(?i)<br\s*/?>", "\n", html)
-    html = re.sub(r"(?i)</(p|div|li|h[1-6]|tr)>", "\n", html)
-    testo = re.sub(r"<[^>]+>", " ", html)
-    # entità HTML più comuni
-    for a, b in (("&nbsp;", " "), ("&amp;", "&"), ("&#8211;", "–"),
-                 ("&#8217;", "'"), ("&quot;", '"'), ("&lt;", "<"), ("&gt;", ">")):
-        testo = testo.replace(a, b)
-    testo = re.sub(r"&#(\d+);", lambda m: chr(int(m.group(1))), testo)
-    return re.sub(r"[ \t]+", " ", testo)
+def url_pdf(anno, giornata, giorno):
+    """Costruisce l'indirizzo del PDF ufficiale.
 
-
-def _dentro_stagione(data_iso, anno_inizio_stagione):
-    """La stagione va da luglio dell'anno di inizio a giugno dell'anno dopo."""
-    if not data_iso:
-        return False
-    try:
-        anno, mese, _ = (int(x) for x in data_iso.split("-"))
-    except ValueError:
-        return False
-    if anno == anno_inizio_stagione and mese >= 7:
-        return True
-    if anno == anno_inizio_stagione + 1 and mese <= 6:
-        return True
-    return False
-
-
-def aggiorna_designazioni(anno_riferimento):
-    """Raccoglie le designazioni dal file manuale e, se possibile, dal web.
-
-    Il file `data/designazioni.txt` è la fonte principale: i siti ufficiali
-    (Lega e AIA) bloccano gli accessi automatici o non espongono i dati in
-    modo utilizzabile.
-
-    Le designazioni con date fuori dalla stagione vengono scartate: capita
-    quando si incolla per errore una pagina che contiene anche notizie
-    vecchie, e senza questo controllo finirebbero in archivio.
+    Esempio reale:
+    designaciones_1a_division_masculina_-_temp_2026-27_-_jornada_2_sabado.pdf
     """
+    temp = f"{anno}-{str(anno + 1)[2:]}"
+    return (f"{BASE_PDF}/designaciones_1a_division_masculina_-_temp_{temp}"
+            f"_-_jornada_{giornata}_{giorno}.pdf")
+
+
+def giornate_da_cercare(designazioni_note, anno):
+    """Decide quali giornate provare a scaricare.
+
+    Riparte dall'ultima giornata già acquisita e prova le successive:
+    evita di ripetere ogni volta il download di tutto lo storico.
+    """
+    esplicite = os.environ.get("GIORNATE", "").strip()
+    if esplicite:
+        return [int(g) for g in re.split(r"[,\s]+", esplicite) if g.isdigit()]
+
+    note = {d.get("giornata") for d in designazioni_note if d.get("giornata")}
+    inizio = max(note) if note else 1
+    # ricontrolla l'ultima nota (potrebbero essere usciti altri giorni)
+    # e guarda le tre successive
+    return list(range(inizio, inizio + 4))
+
+
+def aggiorna_designazioni(anno, designazioni_note):
+    """Scarica e interpreta i PDF delle designazioni."""
     trovate = []
-    scartate = []
+    giornate = giornate_da_cercare(designazioni_note, anno)
+    print(f"  Giornate da controllare: {giornate}")
 
-    def raccogli(estratte, etichetta):
-        buone = []
-        for d in estratte:
-            if not (d.get("arbitro") and d.get("data")):
+    for giornata in giornate:
+        per_giornata = 0
+        for giorno in GIORNI:
+            dati = scarica(url_pdf(anno, giornata, giorno),
+                           f"giornata {giornata} {giorno}", binario=True)
+            if not dati:
                 continue
-            if _dentro_stagione(d["data"], anno_riferimento):
-                buone.append(d)
-            else:
-                scartate.append(d)
-        return buone
+            try:
+                testo = dg.testo_da_pdf(dati)
+            except Exception as e:
+                print(f"    PDF illeggibile: {e}")
+                continue
 
-    manuale = RADICE / "data" / "designazioni.txt"
+            estratte = dg.analizza(testo, giornata=dg.giornata_da_testo(testo) or giornata)
+            valide = [d for d in estratte if d.get("arbitro") and d.get("data")]
+            if valide:
+                print(f"    Giornata {giornata} {giorno}: {len(valide)} designazioni")
+                trovate.extend(valide)
+                per_giornata += len(valide)
+
+        if per_giornata == 0:
+            print(f"    Giornata {giornata}: nessun PDF disponibile")
+
+    # File manuale di riserva, se un giorno il formato cambiasse
+    manuale = RADICE / "data" / "designaciones.txt"
     if manuale.exists():
         testo = manuale.read_text(encoding="utf-8")
-        blocchi = [b.strip() for b in re.split(r"\n\s*(?:-{3,}|={3,})\s*\n|\n\s*\n\s*\n", testo)]
-        blocchi = [b for b in blocchi if len(b) > 40]
-        print(f"  File designazioni.txt: {len(blocchi)} blocchi")
-
-        for i, blocco in enumerate(blocchi, 1):
-            utile = "\n".join(r for r in blocco.splitlines() if not r.strip().startswith("#"))
-            if len(utile.strip()) < 40:
-                continue
-
-            giornata = dz.giornata_da_testo(utile)
-            try:
-                estratte = dz.analizza(utile, anno_riferimento=anno_riferimento,
-                                       giornata=giornata)
-            except Exception as e:
-                print(f"    Blocco {i}: non interpretabile ({e})")
-                continue
-
-            buone = raccogli(estratte, f"blocco {i}")
-            etichetta = f"giornata {giornata}" if giornata else "giornata non indicata"
-            if buone:
-                prima, ultima = buone[0]["data"], buone[-1]["data"]
-                print(f"    Blocco {i} ({etichetta}): {len(buone)} designazioni, {prima} → {ultima}")
-            else:
-                print(f"    Blocco {i} ({etichetta}): nessuna designazione valida")
-                print(f"      inizio del testo: {utile.strip()[:70]!r}")
-            trovate.extend(buone)
-    else:
-        print("  File data/designazioni.txt assente")
-        print("  (senza designazioni l'archivio resta valido, ma senza arbitri)")
-
-    if scartate:
-        stagione = f"20{str(anno_riferimento)[2:]}/{str(anno_riferimento + 1)[2:]}"
-        print(f"\n  ATTENZIONE: {len(scartate)} designazioni scartate perché fuori")
-        print(f"  dalla stagione {stagione} (luglio {anno_riferimento} – giugno {anno_riferimento + 1}):")
-        for d in scartate[:5]:
-            print(f"    {d['data']}  {d['casa']}-{d['ospite']}  {d['arbitro']}")
-        if len(scartate) > 5:
-            print(f"    ...e altre {len(scartate) - 5}")
-        print("  Probabile causa: nel file c'è testo di giornate di altre stagioni.")
+        estratte = dg.analizza(testo)
+        valide = [d for d in estratte if d.get("arbitro") and d.get("data")]
+        if valide:
+            print(f"  File manuale: {len(valide)} designazioni")
+            trovate.extend(valide)
 
     return trovate
 
 
 def applica_designazioni(righe, designazioni):
-    """Scrive l'arbitro nelle partite dell'archivio che lo hanno vuoto."""
     per_chiave = {}
     for d in designazioni:
         data = (d.get("data") or "").replace("-", "")
@@ -304,8 +253,7 @@ def applica_designazioni(righe, designazioni):
 
     aggiornate = 0
     for r in righe:
-        k = (chiave_data(r), r.get("Casa"), r.get("Ospite"))
-        d = per_chiave.get(k)
+        d = per_chiave.get((chiave_data(r), r.get("Casa"), r.get("Ospite")))
         if not d:
             continue
         if not (r.get("Arbitro") or "").strip():
@@ -320,17 +268,13 @@ def applica_designazioni(righe, designazioni):
 
 
 def prossime_designazioni(designazioni, righe):
-    """Designazioni di partite non ancora presenti in archivio: le prossime."""
     giocate = {(chiave_data(r), r.get("Casa"), r.get("Ospite")) for r in righe}
-    future = []
-    for d in designazioni:
-        data = (d.get("data") or "").replace("-", "")
-        if (data, d.get("casa"), d.get("ospite")) not in giocate:
-            future.append(d)
+    future = [d for d in designazioni
+              if ((d.get("data") or "").replace("-", ""), d.get("casa"), d.get("ospite")) not in giocate]
     return sorted(future, key=lambda d: (d.get("data") or "", d.get("ora") or ""))
 
 
-# ------------------------------------------------------------------ statistiche
+# ------------------------------------------------------------- statistiche
 
 def num(riga, campo):
     v = (riga.get(campo) or "").strip()
@@ -343,6 +287,11 @@ def num(riga, campo):
 
 
 def calcola_statistiche(righe, future):
+    """Statistiche centrate sugli arbitri e sulla disciplina.
+
+    Non calcola tiri, corner o altre metriche offensive: l'archivio
+    serve a misurare la severità arbitrale, non il rendimento sportivo.
+    """
     arbitri = defaultdict(lambda: {
         "partite": 0, "gialli": 0, "rossi": 0, "falli": 0,
         "gialliCasa": 0, "gialliOspite": 0, "conDati": 0,
@@ -354,9 +303,8 @@ def calcola_statistiche(righe, future):
         "elenco": [],
     })
     squadre = defaultdict(lambda: {
-        "partite": 0, "gialli": 0, "rossi": 0, "falli": 0, "tiri": 0,
-        "corner": 0, "conDati": 0, "gialliCasa": 0, "gialliOspite": 0,
-        "partiteCasa": 0, "partiteOspite": 0,
+        "partite": 0, "gialli": 0, "rossi": 0, "falli": 0, "conDati": 0,
+        "gialliCasa": 0, "gialliOspite": 0, "partiteCasa": 0, "partiteOspite": 0,
     })
 
     complete = 0
@@ -364,8 +312,6 @@ def calcola_statistiche(righe, future):
         gc, go = num(r, "GialliCasa"), num(r, "GialliOspite")
         rc, ro = num(r, "RossiCasa"), num(r, "RossiOspite")
         fc, fo = num(r, "FalliCasa"), num(r, "FalliOspite")
-        tc, to = num(r, "TiriCasa"), num(r, "TiriOspite")
-        cc, co = num(r, "CornerCasa"), num(r, "CornerOspite")
         casa = (r.get("Casa") or "").strip()
         ospite = (r.get("Ospite") or "").strip()
         esito = (r.get("Esito") or "").strip()
@@ -411,9 +357,8 @@ def calcola_statistiche(righe, future):
                 "falliCasa": fc, "falliOspite": fo,
             })
 
-        for nome, gi, ros, fa, ti, co_, in_casa in (
-            (casa, gc, rc, fc, tc, cc, True),
-            (ospite, go, ro, fo, to, co, False),
+        for nome, gi, ros, fa, in_casa in (
+            (casa, gc, rc, fc, True), (ospite, go, ro, fo, False),
         ):
             if not nome:
                 continue
@@ -424,13 +369,10 @@ def calcola_statistiche(righe, future):
                 if in_casa: s["gialliCasa"] += gi; s["partiteCasa"] += 1
                 else: s["gialliOspite"] += gi; s["partiteOspite"] += 1
             if fa is not None: s["falli"] += fa
-            if ti is not None: s["tiri"] += ti
-            if co_ is not None: s["corner"] += co_
 
     def media(tot, n, cifre=2):
         return round(tot / n, cifre) if n else None
 
-    # designazioni future per arbitro
     future_per_arbitro = defaultdict(list)
     for d in future:
         if d.get("arbitro"):
@@ -482,7 +424,6 @@ def calcola_statistiche(righe, future):
         })
     lista_arbitri.sort(key=lambda x: (-(x["mediaCartellini"] or 0), x["nome"]))
 
-    # Arbitri designati ma senza partite in archivio: compaiono comunque
     noti = {a["nome"] for a in lista_arbitri}
     for nome, ds in future_per_arbitro.items():
         if nome not in noti:
@@ -520,16 +461,14 @@ def calcola_statistiche(righe, future):
         })
     ultime.reverse()
 
-    con_arbitro = sum(1 for r in righe if (r.get("Arbitro") or "").strip())
-
     return {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
-        "campionato": "Serie A",
-        "fonte": "football-data.co.uk (PDDL) · designazioni AIA/Lega Serie A",
+        "campionato": "LaLiga",
+        "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
         "stagioni": sorted({r.get("Stagione", "") for r in righe if r.get("Stagione")}),
         "totalePartite": len(righe),
         "partiteConDisciplina": complete,
-        "partiteConArbitro": con_arbitro,
+        "partiteConArbitro": sum(1 for r in righe if (r.get("Arbitro") or "").strip()),
         "arbitri": lista_arbitri,
         "squadre": lista_squadre,
         "ultimePartite": ultime,
@@ -539,7 +478,7 @@ def calcola_statistiche(righe, future):
 
 def main():
     print("=" * 58)
-    print("ARCHIVIO SERIE A")
+    print("ARCHIVIO LALIGA")
     print("=" * 58)
 
     archivio = carica_archivio()
@@ -561,7 +500,6 @@ def main():
         for riga in righe:
             k = chiave(riga)
             if k in indice:
-                # conserva i campi arbitrali già acquisiti
                 for campo in ("Arbitro", "Giornata", "QuartoUomo", "Var", "Avar"):
                     if not riga.get(campo):
                         riga[campo] = indice[k].get(campo, "")
@@ -574,9 +512,10 @@ def main():
         oggi = datetime.now(timezone.utc)
         anno_rif = oggi.year if oggi.month >= 7 else oggi.year - 1
 
-    print("\nDesignazioni arbitrali")
-    nuove_des = aggiorna_designazioni(anno_rif)
-    tutte_des = salva_designazioni(carica_designazioni() + nuove_des)
+    print("\nDesignazioni arbitrali (RFEF)")
+    note = carica_designazioni()
+    nuove_des = aggiorna_designazioni(anno_rif, note)
+    tutte_des = salva_designazioni(note + nuove_des)
     print(f"  Archivio designazioni: {len(tutte_des)}")
 
     righe = list(indice.values())

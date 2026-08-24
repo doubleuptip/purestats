@@ -366,8 +366,6 @@ def calcola_statistiche(righe):
             "mediaGialli": media(s["gialli"], n),
             "mediaRossi": media(s["rossi"], n),
             "mediaFalli": media(s["falli"], n, 1),
-            "mediaTiri": media(s["tiri"], n, 1),
-            "mediaCorner": media(s["corner"], n, 1),
             "mediaGialliCasa": media(s["gialliCasa"], s["partiteCasa"]),
             "mediaGialliOspite": media(s["gialliOspite"], s["partiteOspite"]),
             "falliPerGiallo": media(s["falli"], s["gialli"], 1) if s["gialli"] else None,
@@ -391,10 +389,6 @@ def calcola_statistiche(righe):
             "rossiOspite": num(r, "RossiOspite"),
             "falliCasa": num(r, "FalliCasa"),
             "falliOspite": num(r, "FalliOspite"),
-            "tiriCasa": num(r, "TiriCasa"),
-            "tiriOspite": num(r, "TiriOspite"),
-            "cornerCasa": num(r, "CornerCasa"),
-            "cornerOspite": num(r, "CornerOspite"),
         })
     ultime.reverse()
 
