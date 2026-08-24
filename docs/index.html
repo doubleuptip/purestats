@@ -21,7 +21,9 @@
   .dot{width:8px;height:8px;border-radius:50%;background:var(--fluo);box-shadow:0 0 10px var(--fluo)}
   .logo span{font-family:'Teko',sans-serif;font-size:32px;letter-spacing:.06em;line-height:1}
   .logo b{color:var(--fluo);font-weight:inherit}
-  .lega{display:flex;gap:9px;align-items:center;margin:6px 0 14px 20px}
+  .lega{display:flex;gap:9px;align-items:center;margin:6px 0 14px 20px;
+    overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+  .lega button{flex-shrink:0;white-space:nowrap}
   .lega button{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
     letter-spacing:.1em;color:var(--muted);background:transparent;border:none;
     padding:4px 0;cursor:pointer;border-bottom:2px solid transparent}
@@ -163,6 +165,7 @@ let ricerca="", stagione="tutte";
 const LEGHE = [
   {id:"premier",  nome:"PREMIER LEAGUE", file:"data.json"},
   {id:"serie_a",  nome:"SERIE A",        file:"data_serie_a.json"},
+  {id:"la_liga",  nome:"LALIGA",         file:"data_la_liga.json"},
 ];
 let legaAttiva = null;
 const cache = {};
