@@ -134,11 +134,33 @@ def _dividi_corpo(corpo):
     return None, None, None, None, None
 
 
+# Il nome dell'arbitro ha una forma costante: nome proprio con l'iniziale
+# maiuscola seguito dal cognome tutto in maiuscolo ('Jérémie PIGNARD').
+# Ancorare questo schema evita che il testo che segue l'ultima partita
+# della pagina — menu, piè di pagina, avvisi di copyright — venga scambiato
+# per parte del nome.
+NOME_ARBITRO = re.compile(
+    # nome proprio, anche composto col trattino: 'Jean-Luc', 'Jérémie', 'J.'
+    r"^(?P<nome>(?:[A-ZÀ-Ü][a-zà-ÿ']*(?:-[A-ZÀ-Ü]?[a-zà-ÿ']+)*\.?\s+)+"
+    r"[A-ZÀ-Ü][A-ZÀ-Ü'\-]+"                            # cognome in maiuscolo
+    r"(?:\s+[A-ZÀ-Ü][A-ZÀ-Ü'\-]+)*)"                   # eventuale secondo cognome
+)
+
+
+def _estrai_arbitro(testo):
+    """Isola il nome dell'arbitro dal testo che lo segue."""
+    if not testo:
+        return None
+    m = NOME_ARBITRO.match(testo.strip())
+    return m.group("nome").strip() if m else None
+
+
 def _dividi_ospite_arbitro(testo):
     """Separa 'Olympique de Marseille Jérémie PIGNARD'.
 
     L'arbitro è in fondo. Si provano tutti i punti di taglio e si tiene
-    quello in cui la parte iniziale è una squadra riconosciuta.
+    quello in cui la parte iniziale è una squadra riconosciuta e la parte
+    finale ha la forma di un nome di arbitro.
     """
     parole = testo.split()
     if len(parole) < 2:
@@ -147,10 +169,11 @@ def _dividi_ospite_arbitro(testo):
     candidati = []
     for taglio in range(1, len(parole)):
         squadra = normalizza_squadra(" ".join(parole[:taglio]))
-        if squadra:
-            arbitro = " ".join(parole[taglio:]).strip()
-            if arbitro:
-                candidati.append((len(parole) - taglio, squadra, arbitro))
+        if not squadra:
+            continue
+        arbitro = _estrai_arbitro(" ".join(parole[taglio:]))
+        if arbitro:
+            candidati.append((len(parole) - taglio, squadra, arbitro))
 
     if not candidati:
         return None, None
@@ -178,6 +201,14 @@ def giornata_da_testo(testo):
     return int(m.group(1)) if m else None
 
 
+# Frasi che segnalano l'inizio del piè di pagina: da lì in poi non ci sono
+# più designazioni, solo elementi di contorno del sito.
+FINE_CONTENUTO = re.compile(
+    r"Suivez-nous|Présentation du site|Liens utiles|©\s*\d{4}|Mentions légales",
+    re.IGNORECASE,
+)
+
+
 def analizza(testo, giornata=None):
     """Estrae le designazioni. Restituisce una lista di dizionari."""
     if not testo:
@@ -185,6 +216,11 @@ def analizza(testo, giornata=None):
 
     testo = testo.replace("\u00a0", " ")
     testo = re.sub(r"[ \t]+", " ", testo)
+
+    # scarta tutto ciò che segue l'inizio del piè di pagina
+    taglio = FINE_CONTENUTO.search(testo)
+    if taglio:
+        testo = testo[:taglio.start()]
 
     risultati = []
     for m in RIGA.finditer(testo):
