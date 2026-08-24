@@ -1,0 +1,48 @@
+name: Aggiorna archivio Ligue 1
+
+on:
+  schedule:
+    - cron: '0 8 * * 2'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archivio-ligue-1
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configura Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Scarica dati e designazioni
+        env:
+          STAGIONI: ${{ vars.STAGIONI_LIGUE_1 }}
+          GIORNATE: ${{ vars.GIORNATE_LIGUE_1 }}
+        run: python scripts/fetch_ligue_1.py
+
+      - name: Committa le modifiche
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ligue_1.csv data/designations_ligue_1.json docs/data_ligue_1.json
+          if git diff --staged --quiet; then
+            echo "Nessuna variazione."
+          else
+            git commit -m "Ligue 1 aggiornata $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
