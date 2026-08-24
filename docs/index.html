@@ -19,34 +19,34 @@
     border-bottom:1px solid var(--bordo);backdrop-filter:blur(8px);padding:14px 14px 0}
   .logo{display:flex;align-items:center;gap:8px}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--fluo);box-shadow:0 0 10px var(--fluo)}
-  .logo span{font-family:'Teko',sans-serif;font-size:34px;letter-spacing:.06em;line-height:1}
+  .logo span{font-family:'Teko',sans-serif;font-size:32px;letter-spacing:.06em;line-height:1}
   .logo b{color:var(--fluo);font-weight:inherit}
-  .lega{display:flex;gap:8px;margin:6px 0 14px 16px}
-  .lega button{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
-    letter-spacing:.12em;color:var(--muted);background:transparent;border:none;
-    padding:3px 0;cursor:pointer;border-bottom:1px solid transparent}
+  .lega{display:flex;gap:9px;align-items:center;margin:6px 0 14px 20px}
+  .lega button{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
+    letter-spacing:.1em;color:var(--muted);background:transparent;border:none;
+    padding:4px 0;cursor:pointer;border-bottom:2px solid transparent}
   .lega button.on{color:var(--fluo);border-bottom-color:var(--fluo)}
   .lega span{color:var(--bordo);font-size:11px}
 
   /* --- PROSSIMA DESIGNAZIONE --- */
   .desig{background:rgba(57,255,20,.06);border:1px solid rgba(57,255,20,.3);
     border-radius:8px;padding:13px 15px;margin-bottom:18px}
-  .desig-lab{font-size:8px;color:var(--fluo);letter-spacing:.12em;font-weight:700;margin-bottom:7px}
-  .desig-match{font-family:'Teko',sans-serif;font-size:23px;line-height:1.1}
-  .desig-quando{font-size:9px;color:var(--muted);margin-top:3px}
+  .desig-lab{font-size:10px;color:var(--fluo);letter-spacing:.12em;font-weight:700;margin-bottom:7px}
+  .desig-match{font-family:'Teko',sans-serif;font-size:28px;line-height:1.1}
+  .desig-quando{font-size:11px;color:var(--muted);margin-top:3px}
   .desig-ruolo{font-size:8px;color:var(--muted);margin-top:6px;letter-spacing:.05em}
   .desig+.desig{margin-top:-10px}
 
-  nav{display:flex;gap:6px;flex-wrap:wrap}
-  nav button{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;
+  nav{display:flex;gap:5px;flex-wrap:wrap}
+  nav button{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
     letter-spacing:.06em;color:var(--muted);background:transparent;
     border:1px solid var(--bordo);border-bottom:none;border-radius:5px 5px 0 0;
-    padding:11px 16px;cursor:pointer}
+    padding:9px 13px;cursor:pointer}
   nav button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
 
   main{padding:20px 14px 0}
   h1{font-family:'Teko',sans-serif;font-size:34px;line-height:1;font-weight:600}
-  .sub{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.6}
+  .sub{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.6}
 
   /* --- KPI numerici --- */
   .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0 22px}
@@ -55,13 +55,13 @@
   .kpi span{display:block;font-size:7px;color:var(--muted);letter-spacing:.09em;margin-top:4px}
 
   .titolo{display:flex;align-items:center;gap:8px;margin:22px 0 5px}
-  .titolo i{width:3px;height:17px;background:var(--fluo);box-shadow:0 0 8px var(--fluo)}
-  .titolo span{font-family:'Teko',sans-serif;font-size:21px;letter-spacing:.03em;line-height:1}
-  .titolo-sub{font-size:9px;color:var(--muted);margin:0 0 11px 11px;line-height:1.6}
+  .titolo i{width:3px;height:21px;background:var(--fluo);box-shadow:0 0 8px var(--fluo)}
+  .titolo span{font-family:'Teko',sans-serif;font-size:26px;letter-spacing:.03em;line-height:1}
+  .titolo-sub{font-size:11px;color:var(--muted);margin:0 0 11px 11px;line-height:1.6}
 
   /* --- TABELLA NUMERICA --- */
-  .tab{width:100%;border-collapse:collapse;font-size:11px;table-layout:auto}
-  .tab thead th{font-size:8px;color:var(--muted);letter-spacing:.07em;font-weight:700;
+  .tab{width:100%;border-collapse:collapse;font-size:13px;table-layout:auto}
+  .tab thead th{font-size:10px;color:var(--muted);letter-spacing:.07em;font-weight:700;
     text-align:right;padding:0 6px 8px;border-bottom:1px solid var(--bordo);white-space:nowrap}
   .tab thead th:first-child{text-align:left;padding-left:10px;width:auto}
   /* Le colonne numeriche occupano solo lo spazio necessario, così il nome
@@ -79,8 +79,8 @@
   .tab tbody tr{background:var(--card)}
   .tab tbody tr.click{cursor:pointer}
   .tab tbody tr.click:active{background:var(--card2)}
-  .pos{color:var(--muted);font-size:9px;display:inline-block;min-width:16px}
-  .nome{font-family:'Teko',sans-serif;font-size:17px;letter-spacing:.02em;vertical-align:middle}
+  .pos{color:var(--muted);font-size:11px;display:inline-block;min-width:20px}
+  .nome{font-family:'Teko',sans-serif;font-size:22px;letter-spacing:.02em;vertical-align:middle;line-height:1.15}
   .big{color:var(--fluo);font-weight:700;font-size:13px}
   .gial{color:var(--giallo);font-weight:700}
   .ros{color:var(--rosso);font-weight:700}
@@ -93,8 +93,8 @@
     padding:7px 12px;cursor:pointer;margin-bottom:16px;letter-spacing:.06em}
   .scheda-top{background:var(--card);border:1px solid rgba(57,255,20,.25);
     border-radius:9px;padding:16px;margin-bottom:18px}
-  .scheda-nome{font-family:'Teko',sans-serif;font-size:32px;line-height:1;letter-spacing:.02em}
-  .scheda-meta{font-size:9px;color:var(--muted);margin-top:4px}
+  .scheda-nome{font-family:'Teko',sans-serif;font-size:40px;line-height:1;letter-spacing:.02em}
+  .scheda-meta{font-size:11px;color:var(--muted);margin-top:4px}
   .dati{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bordo);
     border:1px solid var(--bordo);border-radius:7px;overflow:hidden;margin-bottom:18px}
   .dato{background:var(--card);padding:12px 11px}
@@ -540,24 +540,6 @@ function vScheda(){
     h+=`</tbody></table>`;
   }
 
-  if(a.scontriDiretti&&a.scontriDiretti.length){
-    h+=`<div class="titolo"><i></i><span>SCONTRI DIRETTI RIPETUTI</span></div>
-        <div class="titolo-sub">Coppie di squadre dirette più di una volta da lui</div>`;
-    a.scontriDiretti.forEach(sc=>{
-      h+=`<div class="desig" style="margin-bottom:8px">
-        <div class="desig-lab">${esc(sc.squadre[0])} – ${esc(sc.squadre[1])} · ${sc.partite} precedenti</div>`;
-      sc.elenco.forEach(p=>{
-        const gt=(p.gialliCasa||0)+(p.gialliOspite||0);
-        const rt=(p.rossiCasa||0)+(p.rossiOspite||0);
-        h+=`<div class="desig-match" style="font-size:10px">
-          ${esc(p.casa)} ${n(p.gc,"?")}-${n(p.go,"?")} ${esc(p.ospite)}
-          <span style="color:${MUTED}">· ${esc(p.data)} · G:${gt}${rt?" R:"+rt:""}</span>
-        </div>`;
-      });
-      h+=`</div>`;
-    });
-  }
-
   if(a.elenco&&a.elenco.length){
     h+=`<div class="titolo"><i></i><span>PARTITE DIRETTE</span></div>
         <div class="titolo-sub">Le più recenti · G = gialli, R = rossi</div>
@@ -570,8 +552,8 @@ function vScheda(){
       const ft=(p.falliCasa||0)+(p.falliOspite||0);
       h+=`<tr>
         <td style="line-height:1.5">
-          <span style="font-size:10px">${esc(p.casa)} – ${esc(p.ospite)}</span>
-          <span style="display:block;font-size:8px;color:${MUTED}">${esc(p.data)}</span>
+          <span style="font-size:13px">${esc(p.casa)} – ${esc(p.ospite)}</span>
+          <span style="display:block;font-size:10px;color:${MUTED}">${esc(p.data)}</span>
         </td>
         <td style="color:${FLUO};font-weight:700">${n(p.gc,"?")}-${n(p.go,"?")}</td>
         <td class="gial">${gt}</td>
@@ -654,13 +636,13 @@ function vPartite(){
     const arb=(p.arbitro||"").trim();
     let cella;
     if(!arb){
-      cella=`<span style="font-size:9px;color:${MUTED}">—</span>`;
+      cella=`<span style="font-size:12px;color:${MUTED}">—</span>`;
     } else if(conScheda.has(arb)){
-      cella=`<span class="arb" style="font-size:9px;cursor:pointer"
+      cella=`<span class="arb" style="font-size:12px;cursor:pointer"
         onclick="vaiArbitro('${esc(arb).replace(/'/g,"\\'")}')">${esc(arb)}</span>`;
     } else {
       // arbitro noto ma senza statistiche disciplinari: mostrato, non cliccabile
-      cella=`<span style="font-size:9px;color:${MUTED}">${esc(arb)}</span>`;
+      cella=`<span style="font-size:12px;color:${MUTED}">${esc(arb)}</span>`;
     }
     h+=`<tr>
       <td style="line-height:1.5">
