@@ -124,10 +124,13 @@ def _titolo(cognome):
 
 # Coppia di squadre separate da trattino. Volutamente permissiva:
 # la validazione vera avviene confrontando i nomi con l'elenco SQUADRE.
+# Il nome di una squadra non attraversa mai un ritorno a capo, quindi gli
+# spazi ammessi al suo interno sono solo quelli orizzontali. Usare \s+
+# farebbe fondere l'ultima parola di una riga con la prima della successiva.
 COPPIA = re.compile(
-    r"\b(?P<casa>[A-ZÀ-Ü][A-ZÀ-Ü.']{1,14}(?:\s+[A-ZÀ-Ü][A-ZÀ-Ü.']{1,14})?)"
-    r"\s*" + TRATTINI + r"\s*"
-    r"(?P<ospite>[A-ZÀ-Ü][A-ZÀ-Ü.']{1,14}(?:\s+[A-ZÀ-Ü][A-ZÀ-Ü.']{1,14})?)\b"
+    r"\b(?P<casa>[A-ZÀ-Ü][A-ZÀ-Ü.']{1,14}(?:[ \t]+[A-ZÀ-Ü][A-ZÀ-Ü.']{1,14})?)"
+    r"[ \t]*" + TRATTINI + r"[ \t]*"
+    r"(?P<ospite>[A-ZÀ-Ü][A-ZÀ-Ü.']{1,14}(?:[ \t]+[A-ZÀ-Ü][A-ZÀ-Ü.']{1,14})?)\b"
 )
 
 QUANDO = re.compile(
@@ -177,6 +180,46 @@ AVAR_RE = re.compile(r"AVAR\s*:\s*([A-ZÀ-Ü][A-ZÀ-Ü.'\s]{1,24}?)(?=\s*(?:,|·
 IV_RE = re.compile(r"\bIV\s*:\s*([A-ZÀ-Ü][A-ZÀ-Ü.'\s]{1,24}?)(?=\s*(?:,|·|VAR|$|\n))")
 
 
+# Intestazione di giornata con il mese scritto a parole:
+# "Domenica 23 agosto", "Sabato 22 Agosto 2026"
+INTESTAZIONE_DATA = re.compile(
+    r"(?:Lun|Mar|Mer|Gio|Ven|Sab|Dom)[a-zì]*\s+"
+    r"(?P<g>\d{1,2})\s+"
+    r"(?P<mese>gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|"
+    r"agosto|settembre|ottobre|novembre|dicembre)"
+    r"(?:\s+(?P<a>\d{4}))?",
+    re.IGNORECASE,
+)
+
+
+def _trova_intestazioni(testo, anno_riferimento):
+    """Elenca le intestazioni di giornata con la loro posizione nel testo."""
+    trovate = []
+    for m in INTESTAZIONE_DATA.finditer(testo):
+        mese = MESI.get(m.group("mese").lower())
+        if not mese:
+            continue
+        g = int(m.group("g"))
+        anno = int(m.group("a")) if m.group("a") else (
+            anno_riferimento if mese >= 7 else anno_riferimento + 1)
+        try:
+            trovate.append((m.start(), f"{anno:04d}-{mese:02d}-{g:02d}"))
+        except ValueError:
+            continue
+    return trovate
+
+
+def _intestazione_precedente(intestazioni, posizione, anno_riferimento):
+    """Data dell'ultima intestazione che precede la posizione indicata."""
+    data = None
+    for inizio, valore in intestazioni:
+        if inizio < posizione:
+            data = valore
+        else:
+            break
+    return data
+
+
 def _data_iso_da_match(m, anno_riferimento):
     """Converte un match di QUANDO in data ISO e ora."""
     if not m:
@@ -221,6 +264,7 @@ def analizza(testo, anno_riferimento, giornata=None):
             partite.append((m.start(), m.end(), casa, ospite))
 
     # Fase 2: per ciascuna, analizza il testo fino alla partita successiva
+    intestazioni_data = _trova_intestazioni(testo, anno_riferimento)
     risultati = []
     for i, (inizio, fine_coppia, casa, ospite) in enumerate(partite):
         fine = partite[i + 1][0] if i + 1 < len(partite) else len(testo)
@@ -228,6 +272,19 @@ def analizza(testo, anno_riferimento, giornata=None):
 
         mq = QUANDO.search(blocco)
         data, ora = _data_iso_da_match(mq, anno_riferimento)
+
+        # Alcune pubblicazioni raggruppano le partite sotto un'intestazione
+        # ("Domenica 23 agosto") e nelle righe riportano solo l'orario.
+        # In quel caso si usa la data dell'intestazione che precede la
+        # partita nel testo. Non si eredita mai dalla partita precedente:
+        # sarebbe un modo semplice per attribuire silenziosamente il giorno
+        # sbagliato quando cambia la giornata di gara.
+        if not data:
+            data = _intestazione_precedente(intestazioni_data, inizio, anno_riferimento)
+            if data and not ora:
+                mo = re.search(r"h\.?\s*(\d{1,2})[.:](\d{2})", blocco)
+                if mo and 0 <= int(mo.group(1)) <= 23:
+                    ora = f"{int(mo.group(1)):02d}:{mo.group(2)}"
 
         # L'arbitro è il primo cognome dopo la data, escluse le sigle di ruolo
         dopo = blocco[mq.end():] if mq else blocco
