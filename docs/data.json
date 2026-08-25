@@ -1,15 +1,16 @@
 {
-  "aggiornato": "2026-08-24T12:53:36.509973+00:00",
+  "aggiornato": "2026-08-25T07:23:25.099242+00:00",
   "campionato": "Premier League",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "stagioni": [
     "2022/23",
     "2023/24",
     "2024/25",
-    "2025/26"
+    "2025/26",
+    "2026/27"
   ],
-  "totalePartite": 1520,
-  "partiteConDisciplina": 1520,
+  "totalePartite": 1530,
+  "partiteConDisciplina": 1530,
   "arbitri": [
     {
       "nome": "M Donohue",
@@ -1296,21 +1297,21 @@
     },
     {
       "nome": "J Brooks",
-      "partite": 70,
-      "gialli": 299,
+      "partite": 71,
+      "gialli": 304,
       "rossi": 9,
-      "mediaGialli": 4.27,
+      "mediaGialli": 4.28,
       "mediaRossi": 0.13,
-      "mediaCartellini": 4.4,
-      "mediaFalli": 21.9,
-      "gialliPerFallo": 19.5,
-      "squilibrioCasaOspite": -0.21,
+      "mediaCartellini": 4.41,
+      "mediaFalli": 21.8,
+      "gialliPerFallo": 19.6,
+      "squilibrioCasaOspite": -0.2,
       "mediaGialliCasa": 2.24,
-      "mediaGialliOspite": 2.03,
+      "mediaGialliOspite": 2.04,
       "vittorieCasa": 38,
       "pareggi": 16,
-      "vittorieOspite": 16,
-      "percVittorieCasa": 54.3,
+      "vittorieOspite": 17,
+      "percVittorieCasa": 53.5,
       "perSquadra": [
         {
           "squadra": "Ipswich",
@@ -1335,10 +1336,10 @@
         },
         {
           "squadra": "Chelsea",
-          "partite": 8,
-          "gialli": 23,
+          "partite": 9,
+          "gialli": 26,
           "rossi": 1,
-          "media": 2.88
+          "media": 2.89
         },
         {
           "squadra": "Aston Villa",
@@ -1405,8 +1406,8 @@
         },
         {
           "squadra": "Fulham",
-          "partite": 7,
-          "gialli": 14,
+          "partite": 8,
+          "gialli": 16,
           "rossi": 0,
           "media": 2.0
         },
@@ -1533,9 +1534,36 @@
           "squilibrio": 0.17,
           "mediaGialliCasa": 1.75,
           "mediaGialliOspite": 1.92
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 19.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 3.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "24/08/2026",
+          "casa": "Fulham",
+          "ospite": "Chelsea",
+          "gc": 2,
+          "go": 3,
+          "gialliCasa": 2,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 7
+        },
         {
           "stagione": "2025/26",
           "data": "17/05/2026",
@@ -1941,20 +1969,6 @@
           "rossiOspite": 0,
           "falliCasa": 11,
           "falliOspite": 9
-        },
-        {
-          "stagione": "2023/24",
-          "data": "19/05/2024",
-          "casa": "Man City",
-          "ospite": "West Ham",
-          "gc": 3,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 3,
-          "falliOspite": 12
         }
       ]
     },
@@ -2254,21 +2268,21 @@
     },
     {
       "nome": "D England",
-      "partite": 72,
-      "gialli": 299,
+      "partite": 73,
+      "gialli": 302,
       "rossi": 10,
-      "mediaGialli": 4.15,
+      "mediaGialli": 4.14,
       "mediaRossi": 0.14,
-      "mediaCartellini": 4.29,
+      "mediaCartellini": 4.27,
       "mediaFalli": 22.1,
       "gialliPerFallo": 18.8,
-      "squilibrioCasaOspite": 0.65,
+      "squilibrioCasaOspite": 0.63,
       "mediaGialliCasa": 1.75,
-      "mediaGialliOspite": 2.4,
-      "vittorieCasa": 32,
+      "mediaGialliOspite": 2.38,
+      "vittorieCasa": 33,
       "pareggi": 19,
       "vittorieOspite": 21,
-      "percVittorieCasa": 44.4,
+      "percVittorieCasa": 45.2,
       "perSquadra": [
         {
           "squadra": "Ipswich",
@@ -2369,17 +2383,17 @@
           "media": 2.11
         },
         {
-          "squadra": "Leeds",
-          "partite": 3,
-          "gialli": 6,
+          "squadra": "Hull",
+          "partite": 1,
+          "gialli": 2,
           "rossi": 0,
           "media": 2.0
         },
         {
-          "squadra": "Man United",
-          "partite": 5,
-          "gialli": 10,
-          "rossi": 1,
+          "squadra": "Leeds",
+          "partite": 3,
+          "gialli": 6,
+          "rossi": 0,
           "media": 2.0
         },
         {
@@ -2388,6 +2402,13 @@
           "gialli": 4,
           "rossi": 0,
           "media": 2.0
+        },
+        {
+          "squadra": "Man United",
+          "partite": 6,
+          "gialli": 11,
+          "rossi": 1,
+          "media": 1.83
         },
         {
           "squadra": "Leicester",
@@ -2491,9 +2512,36 @@
           "squilibrio": 0.3,
           "mediaGialliCasa": 2.0,
           "mediaGialliOspite": 2.3
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 19.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Hull",
+          "ospite": "Man United",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 9
+        },
         {
           "stagione": "2025/26",
           "data": "24/05/2026",
@@ -2899,677 +2947,6 @@
           "rossiOspite": 0,
           "falliCasa": 11,
           "falliOspite": 8
-        },
-        {
-          "stagione": "2024/25",
-          "data": "26/02/2025",
-          "casa": "Man United",
-          "ospite": "Ipswich",
-          "gc": 3,
-          "go": 2,
-          "gialliCasa": 4,
-          "gialliOspite": 4,
-          "rossiCasa": 1,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 16
-        }
-      ]
-    },
-    {
-      "nome": "R Jones",
-      "partite": 88,
-      "gialli": 367,
-      "rossi": 9,
-      "mediaGialli": 4.17,
-      "mediaRossi": 0.1,
-      "mediaCartellini": 4.27,
-      "mediaFalli": 23.0,
-      "gialliPerFallo": 18.1,
-      "squilibrioCasaOspite": 0.67,
-      "mediaGialliCasa": 1.75,
-      "mediaGialliOspite": 2.42,
-      "vittorieCasa": 46,
-      "pareggi": 19,
-      "vittorieOspite": 23,
-      "percVittorieCasa": 52.3,
-      "perSquadra": [
-        {
-          "squadra": "Sheffield United",
-          "partite": 2,
-          "gialli": 6,
-          "rossi": 0,
-          "media": 3.0
-        },
-        {
-          "squadra": "Nott'm Forest",
-          "partite": 8,
-          "gialli": 23,
-          "rossi": 2,
-          "media": 2.88
-        },
-        {
-          "squadra": "Man United",
-          "partite": 11,
-          "gialli": 30,
-          "rossi": 0,
-          "media": 2.73
-        },
-        {
-          "squadra": "Burnley",
-          "partite": 3,
-          "gialli": 8,
-          "rossi": 1,
-          "media": 2.67
-        },
-        {
-          "squadra": "Leeds",
-          "partite": 6,
-          "gialli": 16,
-          "rossi": 0,
-          "media": 2.67
-        },
-        {
-          "squadra": "Tottenham",
-          "partite": 11,
-          "gialli": 29,
-          "rossi": 0,
-          "media": 2.64
-        },
-        {
-          "squadra": "Ipswich",
-          "partite": 2,
-          "gialli": 5,
-          "rossi": 1,
-          "media": 2.5
-        },
-        {
-          "squadra": "Luton",
-          "partite": 2,
-          "gialli": 5,
-          "rossi": 0,
-          "media": 2.5
-        },
-        {
-          "squadra": "Brentford",
-          "partite": 5,
-          "gialli": 12,
-          "rossi": 0,
-          "media": 2.4
-        },
-        {
-          "squadra": "Leicester",
-          "partite": 6,
-          "gialli": 14,
-          "rossi": 0,
-          "media": 2.33
-        },
-        {
-          "squadra": "Brighton",
-          "partite": 10,
-          "gialli": 22,
-          "rossi": 0,
-          "media": 2.2
-        },
-        {
-          "squadra": "Fulham",
-          "partite": 11,
-          "gialli": 24,
-          "rossi": 0,
-          "media": 2.18
-        },
-        {
-          "squadra": "Bournemouth",
-          "partite": 8,
-          "gialli": 17,
-          "rossi": 0,
-          "media": 2.12
-        },
-        {
-          "squadra": "Chelsea",
-          "partite": 11,
-          "gialli": 23,
-          "rossi": 0,
-          "media": 2.09
-        },
-        {
-          "squadra": "Newcastle",
-          "partite": 13,
-          "gialli": 26,
-          "rossi": 1,
-          "media": 2.0
-        },
-        {
-          "squadra": "Crystal Palace",
-          "partite": 11,
-          "gialli": 21,
-          "rossi": 0,
-          "media": 1.91
-        },
-        {
-          "squadra": "Wolves",
-          "partite": 11,
-          "gialli": 21,
-          "rossi": 1,
-          "media": 1.91
-        },
-        {
-          "squadra": "Southampton",
-          "partite": 6,
-          "gialli": 11,
-          "rossi": 0,
-          "media": 1.83
-        },
-        {
-          "squadra": "Aston Villa",
-          "partite": 12,
-          "gialli": 18,
-          "rossi": 0,
-          "media": 1.5
-        },
-        {
-          "squadra": "Sunderland",
-          "partite": 4,
-          "gialli": 6,
-          "rossi": 0,
-          "media": 1.5
-        },
-        {
-          "squadra": "Man City",
-          "partite": 10,
-          "gialli": 14,
-          "rossi": 2,
-          "media": 1.4
-        },
-        {
-          "squadra": "Arsenal",
-          "partite": 7,
-          "gialli": 9,
-          "rossi": 1,
-          "media": 1.29
-        },
-        {
-          "squadra": "West Ham",
-          "partite": 6,
-          "gialli": 7,
-          "rossi": 0,
-          "media": 1.17
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2022/23",
-          "partite": 26,
-          "gialli": 105,
-          "rossi": 0,
-          "media": 4.04,
-          "mediaGialli": 4.04,
-          "mediaRossi": 0.0,
-          "mediaFalli": 22.8,
-          "squilibrio": 0.65,
-          "mediaGialliCasa": 1.69,
-          "mediaGialliOspite": 2.35
-        },
-        {
-          "stagione": "2023/24",
-          "partite": 22,
-          "gialli": 94,
-          "rossi": 5,
-          "media": 4.5,
-          "mediaGialli": 4.27,
-          "mediaRossi": 0.23,
-          "mediaFalli": 23.1,
-          "squilibrio": 1.0,
-          "mediaGialliCasa": 1.64,
-          "mediaGialliOspite": 2.64
-        },
-        {
-          "stagione": "2024/25",
-          "partite": 22,
-          "gialli": 93,
-          "rossi": 4,
-          "media": 4.41,
-          "mediaGialli": 4.23,
-          "mediaRossi": 0.18,
-          "mediaFalli": 24.8,
-          "squilibrio": 0.68,
-          "mediaGialliCasa": 1.77,
-          "mediaGialliOspite": 2.45
-        },
-        {
-          "stagione": "2025/26",
-          "partite": 18,
-          "gialli": 75,
-          "rossi": 0,
-          "media": 4.17,
-          "mediaGialli": 4.17,
-          "mediaRossi": 0.0,
-          "mediaFalli": 21.1,
-          "squilibrio": 0.28,
-          "mediaGialliCasa": 1.94,
-          "mediaGialliOspite": 2.22
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2025/26",
-          "data": "24/05/2026",
-          "casa": "Fulham",
-          "ospite": "Newcastle",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 6
-        },
-        {
-          "stagione": "2025/26",
-          "data": "03/05/2026",
-          "casa": "Bournemouth",
-          "ospite": "Crystal Palace",
-          "gc": 3,
-          "go": 0,
-          "gialliCasa": 0,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 10,
-          "falliOspite": 11
-        },
-        {
-          "stagione": "2025/26",
-          "data": "12/04/2026",
-          "casa": "Sunderland",
-          "ospite": "Tottenham",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 3,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 14,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2025/26",
-          "data": "10/02/2026",
-          "casa": "Chelsea",
-          "ospite": "Leeds",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 4,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 13
-        },
-        {
-          "stagione": "2025/26",
-          "data": "01/02/2026",
-          "casa": "Tottenham",
-          "ospite": "Man City",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 3,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 15,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2025/26",
-          "data": "17/01/2026",
-          "casa": "Sunderland",
-          "ospite": "Crystal Palace",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 3,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 8,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2025/26",
-          "data": "30/12/2025",
-          "casa": "Burnley",
-          "ospite": "Newcastle",
-          "gc": 1,
-          "go": 3,
-          "gialliCasa": 2,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 3
-        },
-        {
-          "stagione": "2025/26",
-          "data": "27/12/2025",
-          "casa": "Nott'm Forest",
-          "ospite": "Man City",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 5,
-          "falliOspite": 13
-        },
-        {
-          "stagione": "2025/26",
-          "data": "13/12/2025",
-          "casa": "Arsenal",
-          "ospite": "Wolves",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2025/26",
-          "data": "06/12/2025",
-          "casa": "Tottenham",
-          "ospite": "Brentford",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 3,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 8,
-          "falliOspite": 9
-        },
-        {
-          "stagione": "2025/26",
-          "data": "30/11/2025",
-          "casa": "Crystal Palace",
-          "ospite": "Man United",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 3,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 14,
-          "falliOspite": 14
-        },
-        {
-          "stagione": "2025/26",
-          "data": "23/11/2025",
-          "casa": "Leeds",
-          "ospite": "Aston Villa",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 5,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 18,
-          "falliOspite": 16
-        },
-        {
-          "stagione": "2025/26",
-          "data": "02/11/2025",
-          "casa": "West Ham",
-          "ospite": "Newcastle",
-          "gc": 3,
-          "go": 1,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 5,
-          "falliOspite": 10
-        },
-        {
-          "stagione": "2025/26",
-          "data": "18/10/2025",
-          "casa": "Sunderland",
-          "ospite": "Wolves",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 0,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 5,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2025/26",
-          "data": "27/09/2025",
-          "casa": "Man City",
-          "ospite": "Burnley",
-          "gc": 5,
-          "go": 1,
-          "gialliCasa": 1,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 5,
-          "falliOspite": 7
-        },
-        {
-          "stagione": "2025/26",
-          "data": "21/09/2025",
-          "casa": "Bournemouth",
-          "ospite": "Newcastle",
-          "gc": 0,
-          "go": 0,
-          "gialliCasa": 2,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 10
-        },
-        {
-          "stagione": "2025/26",
-          "data": "30/08/2025",
-          "casa": "Chelsea",
-          "ospite": "Fulham",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 17
-        },
-        {
-          "stagione": "2025/26",
-          "data": "16/08/2025",
-          "casa": "Sunderland",
-          "ospite": "West Ham",
-          "gc": 3,
-          "go": 0,
-          "gialliCasa": 0,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 8,
-          "falliOspite": 10
-        },
-        {
-          "stagione": "2024/25",
-          "data": "25/05/2025",
-          "casa": "Tottenham",
-          "ospite": "Brighton",
-          "gc": 1,
-          "go": 4,
-          "gialliCasa": 3,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 8
-        },
-        {
-          "stagione": "2024/25",
-          "data": "03/05/2025",
-          "casa": "Aston Villa",
-          "ospite": "Fulham",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 0,
-          "gialliOspite": 5,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 6,
-          "falliOspite": 17
-        },
-        {
-          "stagione": "2024/25",
-          "data": "20/04/2025",
-          "casa": "Man United",
-          "ospite": "Wolves",
-          "gc": 0,
-          "go": 1,
-          "gialliCasa": 2,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 18
-        },
-        {
-          "stagione": "2024/25",
-          "data": "07/04/2025",
-          "casa": "Leicester",
-          "ospite": "Newcastle",
-          "gc": 0,
-          "go": 3,
-          "gialliCasa": 2,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 8,
-          "falliOspite": 9
-        },
-        {
-          "stagione": "2024/25",
-          "data": "02/04/2025",
-          "casa": "Bournemouth",
-          "ospite": "Ipswich",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 14,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2024/25",
-          "data": "15/03/2025",
-          "casa": "Southampton",
-          "ospite": "Wolves",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 0,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 12,
-          "falliOspite": 13
-        },
-        {
-          "stagione": "2024/25",
-          "data": "22/02/2025",
-          "casa": "Fulham",
-          "ospite": "Crystal Palace",
-          "gc": 0,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 10,
-          "falliOspite": 7
-        },
-        {
-          "stagione": "2024/25",
-          "data": "15/02/2025",
-          "casa": "Aston Villa",
-          "ospite": "Ipswich",
-          "gc": 1,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 1,
-          "falliCasa": 7,
-          "falliOspite": 11
-        },
-        {
-          "stagione": "2024/25",
-          "data": "26/01/2025",
-          "casa": "Tottenham",
-          "ospite": "Leicester",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 5,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 6,
-          "falliOspite": 16
-        },
-        {
-          "stagione": "2024/25",
-          "data": "14/01/2025",
-          "casa": "Chelsea",
-          "ospite": "Bournemouth",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 2,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 15,
-          "falliOspite": 16
-        },
-        {
-          "stagione": "2024/25",
-          "data": "29/12/2024",
-          "casa": "Fulham",
-          "ospite": "Bournemouth",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 16
-        },
-        {
-          "stagione": "2024/25",
-          "data": "21/12/2024",
-          "casa": "West Ham",
-          "ospite": "Brighton",
-          "gc": 1,
-          "go": 1,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 14,
-          "falliOspite": 20
         }
       ]
     },
@@ -4245,6 +3622,676 @@
       ]
     },
     {
+      "nome": "R Jones",
+      "partite": 89,
+      "gialli": 370,
+      "rossi": 9,
+      "mediaGialli": 4.16,
+      "mediaRossi": 0.1,
+      "mediaCartellini": 4.26,
+      "mediaFalli": 23.1,
+      "gialliPerFallo": 18.0,
+      "squilibrioCasaOspite": 0.65,
+      "mediaGialliCasa": 1.75,
+      "mediaGialliOspite": 2.4,
+      "vittorieCasa": 46,
+      "pareggi": 19,
+      "vittorieOspite": 24,
+      "percVittorieCasa": 51.7,
+      "perSquadra": [
+        {
+          "squadra": "Sheffield United",
+          "partite": 2,
+          "gialli": 6,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Nott'm Forest",
+          "partite": 9,
+          "gialli": 25,
+          "rossi": 2,
+          "media": 2.78
+        },
+        {
+          "squadra": "Man United",
+          "partite": 11,
+          "gialli": 30,
+          "rossi": 0,
+          "media": 2.73
+        },
+        {
+          "squadra": "Burnley",
+          "partite": 3,
+          "gialli": 8,
+          "rossi": 1,
+          "media": 2.67
+        },
+        {
+          "squadra": "Tottenham",
+          "partite": 11,
+          "gialli": 29,
+          "rossi": 0,
+          "media": 2.64
+        },
+        {
+          "squadra": "Ipswich",
+          "partite": 2,
+          "gialli": 5,
+          "rossi": 1,
+          "media": 2.5
+        },
+        {
+          "squadra": "Luton",
+          "partite": 2,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 2.5
+        },
+        {
+          "squadra": "Leeds",
+          "partite": 7,
+          "gialli": 17,
+          "rossi": 0,
+          "media": 2.43
+        },
+        {
+          "squadra": "Brentford",
+          "partite": 5,
+          "gialli": 12,
+          "rossi": 0,
+          "media": 2.4
+        },
+        {
+          "squadra": "Leicester",
+          "partite": 6,
+          "gialli": 14,
+          "rossi": 0,
+          "media": 2.33
+        },
+        {
+          "squadra": "Brighton",
+          "partite": 10,
+          "gialli": 22,
+          "rossi": 0,
+          "media": 2.2
+        },
+        {
+          "squadra": "Fulham",
+          "partite": 11,
+          "gialli": 24,
+          "rossi": 0,
+          "media": 2.18
+        },
+        {
+          "squadra": "Bournemouth",
+          "partite": 8,
+          "gialli": 17,
+          "rossi": 0,
+          "media": 2.12
+        },
+        {
+          "squadra": "Chelsea",
+          "partite": 11,
+          "gialli": 23,
+          "rossi": 0,
+          "media": 2.09
+        },
+        {
+          "squadra": "Newcastle",
+          "partite": 13,
+          "gialli": 26,
+          "rossi": 1,
+          "media": 2.0
+        },
+        {
+          "squadra": "Crystal Palace",
+          "partite": 11,
+          "gialli": 21,
+          "rossi": 0,
+          "media": 1.91
+        },
+        {
+          "squadra": "Wolves",
+          "partite": 11,
+          "gialli": 21,
+          "rossi": 1,
+          "media": 1.91
+        },
+        {
+          "squadra": "Southampton",
+          "partite": 6,
+          "gialli": 11,
+          "rossi": 0,
+          "media": 1.83
+        },
+        {
+          "squadra": "Aston Villa",
+          "partite": 12,
+          "gialli": 18,
+          "rossi": 0,
+          "media": 1.5
+        },
+        {
+          "squadra": "Sunderland",
+          "partite": 4,
+          "gialli": 6,
+          "rossi": 0,
+          "media": 1.5
+        },
+        {
+          "squadra": "Man City",
+          "partite": 10,
+          "gialli": 14,
+          "rossi": 2,
+          "media": 1.4
+        },
+        {
+          "squadra": "Arsenal",
+          "partite": 7,
+          "gialli": 9,
+          "rossi": 1,
+          "media": 1.29
+        },
+        {
+          "squadra": "West Ham",
+          "partite": 6,
+          "gialli": 7,
+          "rossi": 0,
+          "media": 1.17
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 26,
+          "gialli": 105,
+          "rossi": 0,
+          "media": 4.04,
+          "mediaGialli": 4.04,
+          "mediaRossi": 0.0,
+          "mediaFalli": 22.8,
+          "squilibrio": 0.65,
+          "mediaGialliCasa": 1.69,
+          "mediaGialliOspite": 2.35
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 22,
+          "gialli": 94,
+          "rossi": 5,
+          "media": 4.5,
+          "mediaGialli": 4.27,
+          "mediaRossi": 0.23,
+          "mediaFalli": 23.1,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.64,
+          "mediaGialliOspite": 2.64
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 22,
+          "gialli": 93,
+          "rossi": 4,
+          "media": 4.41,
+          "mediaGialli": 4.23,
+          "mediaRossi": 0.18,
+          "mediaFalli": 24.8,
+          "squilibrio": 0.68,
+          "mediaGialliCasa": 1.77,
+          "mediaGialliOspite": 2.45
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 18,
+          "gialli": 75,
+          "rossi": 0,
+          "media": 4.17,
+          "mediaGialli": 4.17,
+          "mediaRossi": 0.0,
+          "mediaFalli": 21.1,
+          "squilibrio": 0.28,
+          "mediaGialliCasa": 1.94,
+          "mediaGialliOspite": 2.22
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 29.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Nott'm Forest",
+          "ospite": "Leeds",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 14
+        },
+        {
+          "stagione": "2025/26",
+          "data": "24/05/2026",
+          "casa": "Fulham",
+          "ospite": "Newcastle",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 6
+        },
+        {
+          "stagione": "2025/26",
+          "data": "03/05/2026",
+          "casa": "Bournemouth",
+          "ospite": "Crystal Palace",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2025/26",
+          "data": "12/04/2026",
+          "casa": "Sunderland",
+          "ospite": "Tottenham",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 3,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2025/26",
+          "data": "10/02/2026",
+          "casa": "Chelsea",
+          "ospite": "Leeds",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 4,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 13
+        },
+        {
+          "stagione": "2025/26",
+          "data": "01/02/2026",
+          "casa": "Tottenham",
+          "ospite": "Man City",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 3,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2025/26",
+          "data": "17/01/2026",
+          "casa": "Sunderland",
+          "ospite": "Crystal Palace",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 3,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2025/26",
+          "data": "30/12/2025",
+          "casa": "Burnley",
+          "ospite": "Newcastle",
+          "gc": 1,
+          "go": 3,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 3
+        },
+        {
+          "stagione": "2025/26",
+          "data": "27/12/2025",
+          "casa": "Nott'm Forest",
+          "ospite": "Man City",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 5,
+          "falliOspite": 13
+        },
+        {
+          "stagione": "2025/26",
+          "data": "13/12/2025",
+          "casa": "Arsenal",
+          "ospite": "Wolves",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2025/26",
+          "data": "06/12/2025",
+          "casa": "Tottenham",
+          "ospite": "Brentford",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 3,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 9
+        },
+        {
+          "stagione": "2025/26",
+          "data": "30/11/2025",
+          "casa": "Crystal Palace",
+          "ospite": "Man United",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 3,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 14
+        },
+        {
+          "stagione": "2025/26",
+          "data": "23/11/2025",
+          "casa": "Leeds",
+          "ospite": "Aston Villa",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 5,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 18,
+          "falliOspite": 16
+        },
+        {
+          "stagione": "2025/26",
+          "data": "02/11/2025",
+          "casa": "West Ham",
+          "ospite": "Newcastle",
+          "gc": 3,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 5,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2025/26",
+          "data": "18/10/2025",
+          "casa": "Sunderland",
+          "ospite": "Wolves",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 5,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2025/26",
+          "data": "27/09/2025",
+          "casa": "Man City",
+          "ospite": "Burnley",
+          "gc": 5,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 5,
+          "falliOspite": 7
+        },
+        {
+          "stagione": "2025/26",
+          "data": "21/09/2025",
+          "casa": "Bournemouth",
+          "ospite": "Newcastle",
+          "gc": 0,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2025/26",
+          "data": "30/08/2025",
+          "casa": "Chelsea",
+          "ospite": "Fulham",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 17
+        },
+        {
+          "stagione": "2025/26",
+          "data": "16/08/2025",
+          "casa": "Sunderland",
+          "ospite": "West Ham",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2024/25",
+          "data": "25/05/2025",
+          "casa": "Tottenham",
+          "ospite": "Brighton",
+          "gc": 1,
+          "go": 4,
+          "gialliCasa": 3,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 8
+        },
+        {
+          "stagione": "2024/25",
+          "data": "03/05/2025",
+          "casa": "Aston Villa",
+          "ospite": "Fulham",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 5,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 6,
+          "falliOspite": 17
+        },
+        {
+          "stagione": "2024/25",
+          "data": "20/04/2025",
+          "casa": "Man United",
+          "ospite": "Wolves",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 18
+        },
+        {
+          "stagione": "2024/25",
+          "data": "07/04/2025",
+          "casa": "Leicester",
+          "ospite": "Newcastle",
+          "gc": 0,
+          "go": 3,
+          "gialliCasa": 2,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 9
+        },
+        {
+          "stagione": "2024/25",
+          "data": "02/04/2025",
+          "casa": "Bournemouth",
+          "ospite": "Ipswich",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2024/25",
+          "data": "15/03/2025",
+          "casa": "Southampton",
+          "ospite": "Wolves",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 0,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 13
+        },
+        {
+          "stagione": "2024/25",
+          "data": "22/02/2025",
+          "casa": "Fulham",
+          "ospite": "Crystal Palace",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 7
+        },
+        {
+          "stagione": "2024/25",
+          "data": "15/02/2025",
+          "casa": "Aston Villa",
+          "ospite": "Ipswich",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 7,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2024/25",
+          "data": "26/01/2025",
+          "casa": "Tottenham",
+          "ospite": "Leicester",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 5,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 6,
+          "falliOspite": 16
+        },
+        {
+          "stagione": "2024/25",
+          "data": "14/01/2025",
+          "casa": "Chelsea",
+          "ospite": "Bournemouth",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 2,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 16
+        },
+        {
+          "stagione": "2024/25",
+          "data": "29/12/2024",
+          "casa": "Fulham",
+          "ospite": "Bournemouth",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 16
+        }
+      ]
+    },
+    {
       "nome": "D Bond",
       "partite": 23,
       "gialli": 93,
@@ -4752,6 +4799,676 @@
           "rossiOspite": 0,
           "falliCasa": 12,
           "falliOspite": 11
+        }
+      ]
+    },
+    {
+      "nome": "P Bankes",
+      "partite": 77,
+      "gialli": 314,
+      "rossi": 9,
+      "mediaGialli": 4.08,
+      "mediaRossi": 0.12,
+      "mediaCartellini": 4.19,
+      "mediaFalli": 21.8,
+      "gialliPerFallo": 18.7,
+      "squilibrioCasaOspite": 0.55,
+      "mediaGialliCasa": 1.77,
+      "mediaGialliOspite": 2.31,
+      "vittorieCasa": 46,
+      "pareggi": 15,
+      "vittorieOspite": 16,
+      "percVittorieCasa": 59.7,
+      "perSquadra": [
+        {
+          "squadra": "Sunderland",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 5.0
+        },
+        {
+          "squadra": "Luton",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Sheffield United",
+          "partite": 2,
+          "gialli": 8,
+          "rossi": 1,
+          "media": 4.0
+        },
+        {
+          "squadra": "Chelsea",
+          "partite": 8,
+          "gialli": 23,
+          "rossi": 3,
+          "media": 2.88
+        },
+        {
+          "squadra": "Fulham",
+          "partite": 9,
+          "gialli": 25,
+          "rossi": 0,
+          "media": 2.78
+        },
+        {
+          "squadra": "Tottenham",
+          "partite": 9,
+          "gialli": 24,
+          "rossi": 0,
+          "media": 2.67
+        },
+        {
+          "squadra": "Southampton",
+          "partite": 2,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 2.5
+        },
+        {
+          "squadra": "Brighton",
+          "partite": 9,
+          "gialli": 22,
+          "rossi": 0,
+          "media": 2.44
+        },
+        {
+          "squadra": "Crystal Palace",
+          "partite": 5,
+          "gialli": 12,
+          "rossi": 0,
+          "media": 2.4
+        },
+        {
+          "squadra": "Aston Villa",
+          "partite": 8,
+          "gialli": 17,
+          "rossi": 1,
+          "media": 2.12
+        },
+        {
+          "squadra": "Nott'm Forest",
+          "partite": 9,
+          "gialli": 19,
+          "rossi": 0,
+          "media": 2.11
+        },
+        {
+          "squadra": "Ipswich",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Bournemouth",
+          "partite": 9,
+          "gialli": 17,
+          "rossi": 1,
+          "media": 1.89
+        },
+        {
+          "squadra": "Man City",
+          "partite": 8,
+          "gialli": 15,
+          "rossi": 0,
+          "media": 1.88
+        },
+        {
+          "squadra": "Man United",
+          "partite": 8,
+          "gialli": 15,
+          "rossi": 1,
+          "media": 1.88
+        },
+        {
+          "squadra": "West Ham",
+          "partite": 10,
+          "gialli": 17,
+          "rossi": 1,
+          "media": 1.7
+        },
+        {
+          "squadra": "Leeds",
+          "partite": 9,
+          "gialli": 15,
+          "rossi": 0,
+          "media": 1.67
+        },
+        {
+          "squadra": "Wolves",
+          "partite": 9,
+          "gialli": 15,
+          "rossi": 0,
+          "media": 1.67
+        },
+        {
+          "squadra": "Brentford",
+          "partite": 13,
+          "gialli": 21,
+          "rossi": 0,
+          "media": 1.62
+        },
+        {
+          "squadra": "Leicester",
+          "partite": 2,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 1.5
+        },
+        {
+          "squadra": "Newcastle",
+          "partite": 11,
+          "gialli": 16,
+          "rossi": 1,
+          "media": 1.45
+        },
+        {
+          "squadra": "Arsenal",
+          "partite": 6,
+          "gialli": 8,
+          "rossi": 0,
+          "media": 1.33
+        },
+        {
+          "squadra": "Burnley",
+          "partite": 5,
+          "gialli": 6,
+          "rossi": 0,
+          "media": 1.2
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 21,
+          "gialli": 91,
+          "rossi": 0,
+          "media": 4.33,
+          "mediaGialli": 4.33,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.67,
+          "mediaGialliOspite": 2.67
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 10,
+          "gialli": 49,
+          "rossi": 1,
+          "media": 5.0,
+          "mediaGialli": 4.9,
+          "mediaRossi": 0.1,
+          "mediaFalli": 21.3,
+          "squilibrio": 0.3,
+          "mediaGialliCasa": 2.3,
+          "mediaGialliOspite": 2.6
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 23,
+          "gialli": 85,
+          "rossi": 3,
+          "media": 3.83,
+          "mediaGialli": 3.7,
+          "mediaRossi": 0.13,
+          "mediaFalli": 20.1,
+          "squilibrio": -0.04,
+          "mediaGialliCasa": 1.87,
+          "mediaGialliOspite": 1.83
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 22,
+          "gialli": 84,
+          "rossi": 4,
+          "media": 4.0,
+          "mediaGialli": 3.82,
+          "mediaRossi": 0.18,
+          "mediaFalli": 22.5,
+          "squilibrio": 0.82,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 1,
+          "media": 6.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 1.0,
+          "mediaFalli": 23.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 3.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Brighton",
+          "ospite": "Aston Villa",
+          "gc": 4,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 12,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2025/26",
+          "data": "14/03/2026",
+          "casa": "Burnley",
+          "ospite": "Bournemouth",
+          "gc": 0,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 5
+        },
+        {
+          "stagione": "2025/26",
+          "data": "04/03/2026",
+          "casa": "Newcastle",
+          "ospite": "Man United",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 3,
+          "rossiCasa": 1,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 16
+        },
+        {
+          "stagione": "2025/26",
+          "data": "28/02/2026",
+          "casa": "Leeds",
+          "ospite": "Man City",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 8
+        },
+        {
+          "stagione": "2025/26",
+          "data": "22/02/2026",
+          "casa": "Tottenham",
+          "ospite": "Arsenal",
+          "gc": 1,
+          "go": 4,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 17,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2025/26",
+          "data": "11/02/2026",
+          "casa": "Aston Villa",
+          "ospite": "Brighton",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2025/26",
+          "data": "06/02/2026",
+          "casa": "Leeds",
+          "ospite": "Nott'm Forest",
+          "gc": 3,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2025/26",
+          "data": "24/01/2026",
+          "casa": "Burnley",
+          "ospite": "Tottenham",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 9
+        },
+        {
+          "stagione": "2025/26",
+          "data": "07/01/2026",
+          "casa": "Fulham",
+          "ospite": "Chelsea",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 3,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 11,
+          "falliOspite": 6
+        },
+        {
+          "stagione": "2025/26",
+          "data": "03/01/2026",
+          "casa": "Wolves",
+          "ospite": "West Ham",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2025/26",
+          "data": "27/12/2025",
+          "casa": "Brentford",
+          "ospite": "Bournemouth",
+          "gc": 4,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 8
+        },
+        {
+          "stagione": "2025/26",
+          "data": "14/12/2025",
+          "casa": "Sunderland",
+          "ospite": "Newcastle",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 5,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2025/26",
+          "data": "06/12/2025",
+          "casa": "Aston Villa",
+          "ospite": "Arsenal",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 8
+        },
+        {
+          "stagione": "2025/26",
+          "data": "29/11/2025",
+          "casa": "Man City",
+          "ospite": "Leeds",
+          "gc": 3,
+          "go": 2,
+          "gialliCasa": 4,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 17,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2025/26",
+          "data": "22/11/2025",
+          "casa": "Burnley",
+          "ospite": "Chelsea",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 2,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 8
+        },
+        {
+          "stagione": "2025/26",
+          "data": "01/11/2025",
+          "casa": "Crystal Palace",
+          "ospite": "Brentford",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2025/26",
+          "data": "25/10/2025",
+          "casa": "Newcastle",
+          "ospite": "Fulham",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 18
+        },
+        {
+          "stagione": "2025/26",
+          "data": "05/10/2025",
+          "casa": "Newcastle",
+          "ospite": "Nott'm Forest",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 16,
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2025/26",
+          "data": "20/09/2025",
+          "casa": "Man United",
+          "ospite": "Chelsea",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 5,
+          "rossiCasa": 1,
+          "rossiOspite": 1,
+          "falliCasa": 13,
+          "falliOspite": 14
+        },
+        {
+          "stagione": "2025/26",
+          "data": "13/09/2025",
+          "casa": "Bournemouth",
+          "ospite": "Brighton",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 4,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 16,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2025/26",
+          "data": "30/08/2025",
+          "casa": "Leeds",
+          "ospite": "Newcastle",
+          "gc": 0,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2025/26",
+          "data": "23/08/2025",
+          "casa": "Man City",
+          "ospite": "Tottenham",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2025/26",
+          "data": "17/08/2025",
+          "casa": "Nott'm Forest",
+          "ospite": "Brentford",
+          "gc": 3,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2024/25",
+          "data": "16/05/2025",
+          "casa": "Aston Villa",
+          "ospite": "Tottenham",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 5,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2024/25",
+          "data": "02/05/2025",
+          "casa": "Man City",
+          "ospite": "Wolves",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2024/25",
+          "data": "27/04/2025",
+          "casa": "Bournemouth",
+          "ospite": "Man United",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 4,
+          "gialliOspite": 2,
+          "rossiCasa": 1,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2024/25",
+          "data": "21/04/2025",
+          "casa": "Tottenham",
+          "ospite": "Nott'm Forest",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2024/25",
+          "data": "05/04/2025",
+          "casa": "Ipswich",
+          "ospite": "Wolves",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 16
+        },
+        {
+          "stagione": "2024/25",
+          "data": "02/04/2025",
+          "casa": "Newcastle",
+          "ospite": "Brentford",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2024/25",
+          "data": "25/02/2025",
+          "casa": "Wolves",
+          "ospite": "Fulham",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 15
         }
       ]
     },
@@ -5413,931 +6130,22 @@
       ]
     },
     {
-      "nome": "P Bankes",
-      "partite": 76,
-      "gialli": 309,
-      "rossi": 8,
-      "mediaGialli": 4.07,
-      "mediaRossi": 0.11,
-      "mediaCartellini": 4.17,
-      "mediaFalli": 21.7,
-      "gialliPerFallo": 18.7,
-      "squilibrioCasaOspite": 0.54,
-      "mediaGialliCasa": 1.76,
-      "mediaGialliOspite": 2.3,
-      "vittorieCasa": 45,
-      "pareggi": 15,
-      "vittorieOspite": 16,
-      "percVittorieCasa": 59.2,
-      "perSquadra": [
-        {
-          "squadra": "Sunderland",
-          "partite": 1,
-          "gialli": 5,
-          "rossi": 0,
-          "media": 5.0
-        },
-        {
-          "squadra": "Luton",
-          "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0
-        },
-        {
-          "squadra": "Sheffield United",
-          "partite": 2,
-          "gialli": 8,
-          "rossi": 1,
-          "media": 4.0
-        },
-        {
-          "squadra": "Chelsea",
-          "partite": 8,
-          "gialli": 23,
-          "rossi": 3,
-          "media": 2.88
-        },
-        {
-          "squadra": "Fulham",
-          "partite": 9,
-          "gialli": 25,
-          "rossi": 0,
-          "media": 2.78
-        },
-        {
-          "squadra": "Tottenham",
-          "partite": 9,
-          "gialli": 24,
-          "rossi": 0,
-          "media": 2.67
-        },
-        {
-          "squadra": "Brighton",
-          "partite": 8,
-          "gialli": 20,
-          "rossi": 0,
-          "media": 2.5
-        },
-        {
-          "squadra": "Southampton",
-          "partite": 2,
-          "gialli": 5,
-          "rossi": 0,
-          "media": 2.5
-        },
-        {
-          "squadra": "Crystal Palace",
-          "partite": 5,
-          "gialli": 12,
-          "rossi": 0,
-          "media": 2.4
-        },
-        {
-          "squadra": "Nott'm Forest",
-          "partite": 9,
-          "gialli": 19,
-          "rossi": 0,
-          "media": 2.11
-        },
-        {
-          "squadra": "Aston Villa",
-          "partite": 7,
-          "gialli": 14,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Ipswich",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Bournemouth",
-          "partite": 9,
-          "gialli": 17,
-          "rossi": 1,
-          "media": 1.89
-        },
-        {
-          "squadra": "Man City",
-          "partite": 8,
-          "gialli": 15,
-          "rossi": 0,
-          "media": 1.88
-        },
-        {
-          "squadra": "Man United",
-          "partite": 8,
-          "gialli": 15,
-          "rossi": 1,
-          "media": 1.88
-        },
-        {
-          "squadra": "West Ham",
-          "partite": 10,
-          "gialli": 17,
-          "rossi": 1,
-          "media": 1.7
-        },
-        {
-          "squadra": "Leeds",
-          "partite": 9,
-          "gialli": 15,
-          "rossi": 0,
-          "media": 1.67
-        },
-        {
-          "squadra": "Wolves",
-          "partite": 9,
-          "gialli": 15,
-          "rossi": 0,
-          "media": 1.67
-        },
-        {
-          "squadra": "Brentford",
-          "partite": 13,
-          "gialli": 21,
-          "rossi": 0,
-          "media": 1.62
-        },
-        {
-          "squadra": "Leicester",
-          "partite": 2,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 1.5
-        },
-        {
-          "squadra": "Newcastle",
-          "partite": 11,
-          "gialli": 16,
-          "rossi": 1,
-          "media": 1.45
-        },
-        {
-          "squadra": "Arsenal",
-          "partite": 6,
-          "gialli": 8,
-          "rossi": 0,
-          "media": 1.33
-        },
-        {
-          "squadra": "Burnley",
-          "partite": 5,
-          "gialli": 6,
-          "rossi": 0,
-          "media": 1.2
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2022/23",
-          "partite": 21,
-          "gialli": 91,
-          "rossi": 0,
-          "media": 4.33,
-          "mediaGialli": 4.33,
-          "mediaRossi": 0.0,
-          "mediaFalli": 23.0,
-          "squilibrio": 1.0,
-          "mediaGialliCasa": 1.67,
-          "mediaGialliOspite": 2.67
-        },
-        {
-          "stagione": "2023/24",
-          "partite": 10,
-          "gialli": 49,
-          "rossi": 1,
-          "media": 5.0,
-          "mediaGialli": 4.9,
-          "mediaRossi": 0.1,
-          "mediaFalli": 21.3,
-          "squilibrio": 0.3,
-          "mediaGialliCasa": 2.3,
-          "mediaGialliOspite": 2.6
-        },
-        {
-          "stagione": "2024/25",
-          "partite": 23,
-          "gialli": 85,
-          "rossi": 3,
-          "media": 3.83,
-          "mediaGialli": 3.7,
-          "mediaRossi": 0.13,
-          "mediaFalli": 20.1,
-          "squilibrio": -0.04,
-          "mediaGialliCasa": 1.87,
-          "mediaGialliOspite": 1.83
-        },
-        {
-          "stagione": "2025/26",
-          "partite": 22,
-          "gialli": 84,
-          "rossi": 4,
-          "media": 4.0,
-          "mediaGialli": 3.82,
-          "mediaRossi": 0.18,
-          "mediaFalli": 22.5,
-          "squilibrio": 0.82,
-          "mediaGialliCasa": 1.5,
-          "mediaGialliOspite": 2.32
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2025/26",
-          "data": "14/03/2026",
-          "casa": "Burnley",
-          "ospite": "Bournemouth",
-          "gc": 0,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 5
-        },
-        {
-          "stagione": "2025/26",
-          "data": "04/03/2026",
-          "casa": "Newcastle",
-          "ospite": "Man United",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 2,
-          "gialliOspite": 3,
-          "rossiCasa": 1,
-          "rossiOspite": 0,
-          "falliCasa": 15,
-          "falliOspite": 16
-        },
-        {
-          "stagione": "2025/26",
-          "data": "28/02/2026",
-          "casa": "Leeds",
-          "ospite": "Man City",
-          "gc": 0,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 10,
-          "falliOspite": 8
-        },
-        {
-          "stagione": "2025/26",
-          "data": "22/02/2026",
-          "casa": "Tottenham",
-          "ospite": "Arsenal",
-          "gc": 1,
-          "go": 4,
-          "gialliCasa": 2,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 17,
-          "falliOspite": 11
-        },
-        {
-          "stagione": "2025/26",
-          "data": "11/02/2026",
-          "casa": "Aston Villa",
-          "ospite": "Brighton",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 2,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2025/26",
-          "data": "06/02/2026",
-          "casa": "Leeds",
-          "ospite": "Nott'm Forest",
-          "gc": 3,
-          "go": 1,
-          "gialliCasa": 1,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2025/26",
-          "data": "24/01/2026",
-          "casa": "Burnley",
-          "ospite": "Tottenham",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 8,
-          "falliOspite": 9
-        },
-        {
-          "stagione": "2025/26",
-          "data": "07/01/2026",
-          "casa": "Fulham",
-          "ospite": "Chelsea",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 3,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 1,
-          "falliCasa": 11,
-          "falliOspite": 6
-        },
-        {
-          "stagione": "2025/26",
-          "data": "03/01/2026",
-          "casa": "Wolves",
-          "ospite": "West Ham",
-          "gc": 3,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 10
-        },
-        {
-          "stagione": "2025/26",
-          "data": "27/12/2025",
-          "casa": "Brentford",
-          "ospite": "Bournemouth",
-          "gc": 4,
-          "go": 1,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 8
-        },
-        {
-          "stagione": "2025/26",
-          "data": "14/12/2025",
-          "casa": "Sunderland",
-          "ospite": "Newcastle",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 5,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 10,
-          "falliOspite": 10
-        },
-        {
-          "stagione": "2025/26",
-          "data": "06/12/2025",
-          "casa": "Aston Villa",
-          "ospite": "Arsenal",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 10,
-          "falliOspite": 8
-        },
-        {
-          "stagione": "2025/26",
-          "data": "29/11/2025",
-          "casa": "Man City",
-          "ospite": "Leeds",
-          "gc": 3,
-          "go": 2,
-          "gialliCasa": 4,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 17,
-          "falliOspite": 11
-        },
-        {
-          "stagione": "2025/26",
-          "data": "22/11/2025",
-          "casa": "Burnley",
-          "ospite": "Chelsea",
-          "gc": 0,
-          "go": 2,
-          "gialliCasa": 2,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 8
-        },
-        {
-          "stagione": "2025/26",
-          "data": "01/11/2025",
-          "casa": "Crystal Palace",
-          "ospite": "Brentford",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 0,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 11
-        },
-        {
-          "stagione": "2025/26",
-          "data": "25/10/2025",
-          "casa": "Newcastle",
-          "ospite": "Fulham",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 18
-        },
-        {
-          "stagione": "2025/26",
-          "data": "05/10/2025",
-          "casa": "Newcastle",
-          "ospite": "Nott'm Forest",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 0,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 16,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2025/26",
-          "data": "20/09/2025",
-          "casa": "Man United",
-          "ospite": "Chelsea",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 5,
-          "rossiCasa": 1,
-          "rossiOspite": 1,
-          "falliCasa": 13,
-          "falliOspite": 14
-        },
-        {
-          "stagione": "2025/26",
-          "data": "13/09/2025",
-          "casa": "Bournemouth",
-          "ospite": "Brighton",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 4,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 16,
-          "falliOspite": 10
-        },
-        {
-          "stagione": "2025/26",
-          "data": "30/08/2025",
-          "casa": "Leeds",
-          "ospite": "Newcastle",
-          "gc": 0,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 10,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2025/26",
-          "data": "23/08/2025",
-          "casa": "Man City",
-          "ospite": "Tottenham",
-          "gc": 0,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2025/26",
-          "data": "17/08/2025",
-          "casa": "Nott'm Forest",
-          "ospite": "Brentford",
-          "gc": 3,
-          "go": 1,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2024/25",
-          "data": "16/05/2025",
-          "casa": "Aston Villa",
-          "ospite": "Tottenham",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 5,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2024/25",
-          "data": "02/05/2025",
-          "casa": "Man City",
-          "ospite": "Wolves",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 0,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 11
-        },
-        {
-          "stagione": "2024/25",
-          "data": "27/04/2025",
-          "casa": "Bournemouth",
-          "ospite": "Man United",
-          "gc": 1,
-          "go": 1,
-          "gialliCasa": 4,
-          "gialliOspite": 2,
-          "rossiCasa": 1,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2024/25",
-          "data": "21/04/2025",
-          "casa": "Tottenham",
-          "ospite": "Nott'm Forest",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2024/25",
-          "data": "05/04/2025",
-          "casa": "Ipswich",
-          "ospite": "Wolves",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 12,
-          "falliOspite": 16
-        },
-        {
-          "stagione": "2024/25",
-          "data": "02/04/2025",
-          "casa": "Newcastle",
-          "ospite": "Brentford",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 1,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 12,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2024/25",
-          "data": "25/02/2025",
-          "casa": "Wolves",
-          "ospite": "Fulham",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 8,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2024/25",
-          "data": "16/02/2025",
-          "casa": "Tottenham",
-          "ospite": "Man United",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 9
-        }
-      ]
-    },
-    {
-      "nome": "J Smith",
-      "partite": 8,
-      "gialli": 31,
-      "rossi": 2,
-      "mediaGialli": 3.88,
-      "mediaRossi": 0.25,
-      "mediaCartellini": 4.12,
-      "mediaFalli": 22.1,
-      "gialliPerFallo": 17.5,
-      "squilibrioCasaOspite": -0.62,
-      "mediaGialliCasa": 2.25,
-      "mediaGialliOspite": 1.62,
-      "vittorieCasa": 5,
-      "pareggi": 2,
-      "vittorieOspite": 1,
-      "percVittorieCasa": 62.5,
-      "perSquadra": [
-        {
-          "squadra": "Brentford",
-          "partite": 2,
-          "gialli": 7,
-          "rossi": 0,
-          "media": 3.5
-        },
-        {
-          "squadra": "Fulham",
-          "partite": 4,
-          "gialli": 11,
-          "rossi": 0,
-          "media": 2.75
-        },
-        {
-          "squadra": "Burnley",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 1,
-          "media": 2.0
-        },
-        {
-          "squadra": "Leicester",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "West Ham",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Wolves",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 1,
-          "media": 2.0
-        },
-        {
-          "squadra": "Nott'm Forest",
-          "partite": 2,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 1.5
-        },
-        {
-          "squadra": "Arsenal",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        },
-        {
-          "squadra": "Southampton",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        },
-        {
-          "squadra": "Crystal Palace",
-          "partite": 1,
-          "gialli": 0,
-          "rossi": 0,
-          "media": 0.0
-        },
-        {
-          "squadra": "Luton",
-          "partite": 1,
-          "gialli": 0,
-          "rossi": 0,
-          "media": 0.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2022/23",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0,
-          "mediaGialli": 3.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 25.0,
-          "squilibrio": -3.0,
-          "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 0.0
-        },
-        {
-          "stagione": "2023/24",
-          "partite": 4,
-          "gialli": 15,
-          "rossi": 2,
-          "media": 4.25,
-          "mediaGialli": 3.75,
-          "mediaRossi": 0.5,
-          "mediaFalli": 23.2,
-          "squilibrio": -0.75,
-          "mediaGialliCasa": 2.25,
-          "mediaGialliOspite": 1.5
-        },
-        {
-          "stagione": "2024/25",
-          "partite": 3,
-          "gialli": 13,
-          "rossi": 0,
-          "media": 4.33,
-          "mediaGialli": 4.33,
-          "mediaRossi": 0.0,
-          "mediaFalli": 19.7,
-          "squilibrio": 0.33,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 2.33
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2024/25",
-          "data": "03/12/2024",
-          "casa": "Leicester",
-          "ospite": "West Ham",
-          "gc": 3,
-          "go": 1,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 7
-        },
-        {
-          "stagione": "2024/25",
-          "data": "28/09/2024",
-          "casa": "Nott'm Forest",
-          "ospite": "Fulham",
-          "gc": 0,
-          "go": 1,
-          "gialliCasa": 2,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 15
-        },
-        {
-          "stagione": "2024/25",
-          "data": "31/08/2024",
-          "casa": "Brentford",
-          "ospite": "Southampton",
-          "gc": 3,
-          "go": 1,
-          "gialliCasa": 2,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 10,
-          "falliOspite": 7
-        },
-        {
-          "stagione": "2023/24",
-          "data": "31/12/2023",
-          "casa": "Fulham",
-          "ospite": "Arsenal",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 4,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 10
-        },
-        {
-          "stagione": "2023/24",
-          "data": "06/12/2023",
-          "casa": "Fulham",
-          "ospite": "Nott'm Forest",
-          "gc": 5,
-          "go": 0,
-          "gialliCasa": 0,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 10
-        },
-        {
-          "stagione": "2023/24",
-          "data": "21/10/2023",
-          "casa": "Brentford",
-          "ospite": "Burnley",
-          "gc": 3,
-          "go": 0,
-          "gialliCasa": 5,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 1,
-          "falliCasa": 14,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2023/24",
-          "data": "23/09/2023",
-          "casa": "Luton",
-          "ospite": "Wolves",
-          "gc": 1,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 1,
-          "falliCasa": 12,
-          "falliOspite": 17
-        },
-        {
-          "stagione": "2022/23",
-          "data": "20/05/2023",
-          "casa": "Fulham",
-          "ospite": "Crystal Palace",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 3,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 12
-        }
-      ]
-    },
-    {
       "nome": "S Attwell",
-      "partite": 86,
-      "gialli": 341,
+      "partite": 87,
+      "gialli": 349,
       "rossi": 11,
-      "mediaGialli": 3.97,
+      "mediaGialli": 4.01,
       "mediaRossi": 0.13,
-      "mediaCartellini": 4.09,
-      "mediaFalli": 20.8,
-      "gialliPerFallo": 19.1,
-      "squilibrioCasaOspite": 0.29,
-      "mediaGialliCasa": 1.84,
-      "mediaGialliOspite": 2.13,
+      "mediaCartellini": 4.14,
+      "mediaFalli": 20.9,
+      "gialliPerFallo": 19.2,
+      "squilibrioCasaOspite": 0.26,
+      "mediaGialliCasa": 1.87,
+      "mediaGialliOspite": 2.14,
       "vittorieCasa": 41,
-      "pareggi": 19,
+      "pareggi": 20,
       "vittorieOspite": 26,
-      "percVittorieCasa": 47.7,
+      "percVittorieCasa": 47.1,
       "perSquadra": [
         {
           "squadra": "Nott'm Forest",
@@ -6431,6 +6239,13 @@
           "media": 2.0
         },
         {
+          "squadra": "Newcastle",
+          "partite": 12,
+          "gialli": 23,
+          "rossi": 0,
+          "media": 1.92
+        },
+        {
           "squadra": "Leeds",
           "partite": 6,
           "gialli": 11,
@@ -6459,13 +6274,6 @@
           "media": 1.7
         },
         {
-          "squadra": "Newcastle",
-          "partite": 11,
-          "gialli": 18,
-          "rossi": 0,
-          "media": 1.64
-        },
-        {
           "squadra": "Brentford",
           "partite": 9,
           "gialli": 13,
@@ -6487,6 +6295,13 @@
           "media": 1.25
         },
         {
+          "squadra": "Liverpool",
+          "partite": 11,
+          "gialli": 13,
+          "rossi": 0,
+          "media": 1.18
+        },
+        {
           "squadra": "Arsenal",
           "partite": 5,
           "gialli": 5,
@@ -6497,13 +6312,6 @@
           "squadra": "Leicester",
           "partite": 4,
           "gialli": 4,
-          "rossi": 0,
-          "media": 1.0
-        },
-        {
-          "squadra": "Liverpool",
-          "partite": 10,
-          "gialli": 10,
           "rossi": 0,
           "media": 1.0
         }
@@ -6560,9 +6368,36 @@
           "squilibrio": 0.44,
           "mediaGialliCasa": 2.08,
           "mediaGialliOspite": 2.52
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 8,
+          "rossi": 0,
+          "media": 8.0,
+          "mediaGialli": 8.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 31.0,
+          "squilibrio": -2.0,
+          "mediaGialliCasa": 5.0,
+          "mediaGialliOspite": 3.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Newcastle",
+          "ospite": "Liverpool",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 5,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 16,
+          "falliOspite": 15
+        },
         {
           "stagione": "2025/26",
           "data": "19/05/2026",
@@ -6968,40 +6803,278 @@
           "rossiOspite": 0,
           "falliCasa": 16,
           "falliOspite": 11
+        }
+      ]
+    },
+    {
+      "nome": "J Smith",
+      "partite": 8,
+      "gialli": 31,
+      "rossi": 2,
+      "mediaGialli": 3.88,
+      "mediaRossi": 0.25,
+      "mediaCartellini": 4.12,
+      "mediaFalli": 22.1,
+      "gialliPerFallo": 17.5,
+      "squilibrioCasaOspite": -0.62,
+      "mediaGialliCasa": 2.25,
+      "mediaGialliOspite": 1.62,
+      "vittorieCasa": 5,
+      "pareggi": 2,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 62.5,
+      "perSquadra": [
+        {
+          "squadra": "Brentford",
+          "partite": 2,
+          "gialli": 7,
+          "rossi": 0,
+          "media": 3.5
+        },
+        {
+          "squadra": "Fulham",
+          "partite": 4,
+          "gialli": 11,
+          "rossi": 0,
+          "media": 2.75
+        },
+        {
+          "squadra": "Burnley",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 1,
+          "media": 2.0
+        },
+        {
+          "squadra": "Leicester",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "West Ham",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Wolves",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 1,
+          "media": 2.0
+        },
+        {
+          "squadra": "Nott'm Forest",
+          "partite": 2,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 1.5
+        },
+        {
+          "squadra": "Arsenal",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Southampton",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Crystal Palace",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        },
+        {
+          "squadra": "Luton",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 25.0,
+          "squilibrio": -3.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 0.0
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 4,
+          "gialli": 15,
+          "rossi": 2,
+          "media": 4.25,
+          "mediaGialli": 3.75,
+          "mediaRossi": 0.5,
+          "mediaFalli": 23.2,
+          "squilibrio": -0.75,
+          "mediaGialliCasa": 2.25,
+          "mediaGialliOspite": 1.5
         },
         {
           "stagione": "2024/25",
-          "data": "08/03/2025",
-          "casa": "Wolves",
-          "ospite": "Everton",
-          "gc": 1,
+          "partite": 3,
+          "gialli": 13,
+          "rossi": 0,
+          "media": 4.33,
+          "mediaGialli": 4.33,
+          "mediaRossi": 0.0,
+          "mediaFalli": 19.7,
+          "squilibrio": 0.33,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.33
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2024/25",
+          "data": "03/12/2024",
+          "casa": "Leicester",
+          "ospite": "West Ham",
+          "gc": 3,
           "go": 1,
           "gialliCasa": 2,
           "gialliOspite": 2,
           "rossiCasa": 0,
           "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 7
+        },
+        {
+          "stagione": "2024/25",
+          "data": "28/09/2024",
+          "casa": "Nott'm Forest",
+          "ospite": "Fulham",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
           "falliCasa": 11,
-          "falliOspite": 16
+          "falliOspite": 15
+        },
+        {
+          "stagione": "2024/25",
+          "data": "31/08/2024",
+          "casa": "Brentford",
+          "ospite": "Southampton",
+          "gc": 3,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 7
+        },
+        {
+          "stagione": "2023/24",
+          "data": "31/12/2023",
+          "casa": "Fulham",
+          "ospite": "Arsenal",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 4,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2023/24",
+          "data": "06/12/2023",
+          "casa": "Fulham",
+          "ospite": "Nott'm Forest",
+          "gc": 5,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2023/24",
+          "data": "21/10/2023",
+          "casa": "Brentford",
+          "ospite": "Burnley",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 5,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 14,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2023/24",
+          "data": "23/09/2023",
+          "casa": "Luton",
+          "ospite": "Wolves",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 12,
+          "falliOspite": 17
+        },
+        {
+          "stagione": "2022/23",
+          "data": "20/05/2023",
+          "casa": "Fulham",
+          "ospite": "Crystal Palace",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 3,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 12
         }
       ]
     },
     {
       "nome": "T Bramall",
-      "partite": 52,
-      "gialli": 203,
+      "partite": 53,
+      "gialli": 205,
       "rossi": 9,
-      "mediaGialli": 3.9,
+      "mediaGialli": 3.87,
       "mediaRossi": 0.17,
-      "mediaCartellini": 4.08,
+      "mediaCartellini": 4.04,
       "mediaFalli": 22.4,
-      "gialliPerFallo": 17.4,
-      "squilibrioCasaOspite": 0.52,
-      "mediaGialliCasa": 1.69,
-      "mediaGialliOspite": 2.21,
-      "vittorieCasa": 25,
+      "gialliPerFallo": 17.3,
+      "squilibrioCasaOspite": 0.51,
+      "mediaGialliCasa": 1.68,
+      "mediaGialliOspite": 2.19,
+      "vittorieCasa": 26,
       "pareggi": 17,
       "vittorieOspite": 10,
-      "percVittorieCasa": 48.1,
+      "percVittorieCasa": 49.1,
       "perSquadra": [
         {
           "squadra": "Bournemouth",
@@ -7151,6 +7224,13 @@
           "media": 1.0
         },
         {
+          "squadra": "Coventry",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
           "squadra": "Man United",
           "partite": 3,
           "gialli": 2,
@@ -7159,10 +7239,10 @@
         },
         {
           "squadra": "Arsenal",
-          "partite": 1,
-          "gialli": 0,
+          "partite": 2,
+          "gialli": 1,
           "rossi": 0,
-          "media": 0.0
+          "media": 0.5
         }
       ],
       "perStagione": [
@@ -7217,9 +7297,36 @@
           "squilibrio": 0.86,
           "mediaGialliCasa": 1.59,
           "mediaGialliOspite": 2.45
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "21/08/2026",
+          "casa": "Arsenal",
+          "ospite": "Coventry",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 13
+        },
         {
           "stagione": "2025/26",
           "data": "10/05/2026",
@@ -7625,20 +7732,6 @@
           "rossiOspite": 0,
           "falliCasa": 13,
           "falliOspite": 8
-        },
-        {
-          "stagione": "2024/25",
-          "data": "18/01/2025",
-          "casa": "West Ham",
-          "ospite": "Crystal Palace",
-          "gc": 0,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 0,
-          "rossiCasa": 1,
-          "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 10
         }
       ]
     },
@@ -11629,21 +11722,21 @@
     },
     {
       "nome": "J Gillett",
-      "partite": 76,
-      "gialli": 285,
+      "partite": 77,
+      "gialli": 288,
       "rossi": 3,
-      "mediaGialli": 3.75,
+      "mediaGialli": 3.74,
       "mediaRossi": 0.04,
-      "mediaCartellini": 3.79,
-      "mediaFalli": 20.1,
+      "mediaCartellini": 3.78,
+      "mediaFalli": 20.2,
       "gialliPerFallo": 18.6,
-      "squilibrioCasaOspite": -0.04,
-      "mediaGialliCasa": 1.89,
+      "squilibrioCasaOspite": -0.03,
+      "mediaGialliCasa": 1.88,
       "mediaGialliOspite": 1.86,
-      "vittorieCasa": 25,
+      "vittorieCasa": 26,
       "pareggi": 16,
       "vittorieOspite": 35,
-      "percVittorieCasa": 32.9,
+      "percVittorieCasa": 33.8,
       "perSquadra": [
         {
           "squadra": "Burnley",
@@ -11674,18 +11767,18 @@
           "media": 2.86
         },
         {
-          "squadra": "Bournemouth",
-          "partite": 6,
-          "gialli": 16,
-          "rossi": 0,
-          "media": 2.67
-        },
-        {
           "squadra": "Fulham",
           "partite": 5,
           "gialli": 13,
           "rossi": 0,
           "media": 2.6
+        },
+        {
+          "squadra": "Bournemouth",
+          "partite": 7,
+          "gialli": 18,
+          "rossi": 0,
+          "media": 2.57
         },
         {
           "squadra": "Brighton",
@@ -11766,10 +11859,10 @@
         },
         {
           "squadra": "Man City",
-          "partite": 10,
-          "gialli": 13,
+          "partite": 11,
+          "gialli": 14,
           "rossi": 0,
-          "media": 1.3
+          "media": 1.27
         },
         {
           "squadra": "Brentford",
@@ -11852,9 +11945,36 @@
           "squilibrio": 0.05,
           "mediaGialliCasa": 1.77,
           "mediaGialliOspite": 1.82
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 22.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Man City",
+          "ospite": "Bournemouth",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 11
+        },
         {
           "stagione": "2025/26",
           "data": "17/05/2026",
@@ -12260,20 +12380,6 @@
           "rossiOspite": 0,
           "falliCasa": 10,
           "falliOspite": 5
-        },
-        {
-          "stagione": "2024/25",
-          "data": "26/02/2025",
-          "casa": "Tottenham",
-          "ospite": "Man City",
-          "gc": 0,
-          "go": 1,
-          "gialliCasa": 3,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 12,
-          "falliOspite": 15
         }
       ]
     },
@@ -13274,21 +13380,21 @@
     },
     {
       "nome": "P Tierney",
-      "partite": 67,
-      "gialli": 240,
+      "partite": 68,
+      "gialli": 241,
       "rossi": 7,
-      "mediaGialli": 3.58,
+      "mediaGialli": 3.54,
       "mediaRossi": 0.1,
-      "mediaCartellini": 3.69,
+      "mediaCartellini": 3.65,
       "mediaFalli": 21.1,
-      "gialliPerFallo": 17.0,
-      "squilibrioCasaOspite": 0.27,
-      "mediaGialliCasa": 1.66,
-      "mediaGialliOspite": 1.93,
-      "vittorieCasa": 29,
+      "gialliPerFallo": 16.8,
+      "squilibrioCasaOspite": 0.28,
+      "mediaGialliCasa": 1.63,
+      "mediaGialliOspite": 1.91,
+      "vittorieCasa": 30,
       "pareggi": 16,
       "vittorieOspite": 22,
-      "percVittorieCasa": 43.3,
+      "percVittorieCasa": 44.1,
       "perSquadra": [
         {
           "squadra": "Southampton",
@@ -13354,13 +13460,6 @@
           "media": 2.14
         },
         {
-          "squadra": "Everton",
-          "partite": 4,
-          "gialli": 8,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
           "squadra": "Leicester",
           "partite": 3,
           "gialli": 6,
@@ -13369,10 +13468,10 @@
         },
         {
           "squadra": "Crystal Palace",
-          "partite": 9,
-          "gialli": 17,
+          "partite": 10,
+          "gialli": 18,
           "rossi": 0,
-          "media": 1.89
+          "media": 1.8
         },
         {
           "squadra": "Nott'm Forest",
@@ -13390,6 +13489,13 @@
         },
         {
           "squadra": "Brighton",
+          "partite": 5,
+          "gialli": 8,
+          "rossi": 0,
+          "media": 1.6
+        },
+        {
+          "squadra": "Everton",
           "partite": 5,
           "gialli": 8,
           "rossi": 0,
@@ -13498,9 +13604,36 @@
           "squilibrio": 0.5,
           "mediaGialliCasa": 1.42,
           "mediaGialliOspite": 1.92
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 20.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": 1.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Everton",
+          "ospite": "Crystal Palace",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 5,
+          "falliOspite": 15
+        },
         {
           "stagione": "2025/26",
           "data": "18/05/2026",
@@ -13906,40 +14039,26 @@
           "rossiOspite": 0,
           "falliCasa": 5,
           "falliOspite": 10
-        },
-        {
-          "stagione": "2023/24",
-          "data": "02/12/2023",
-          "casa": "Nott'm Forest",
-          "ospite": "Everton",
-          "gc": 0,
-          "go": 1,
-          "gialliCasa": 1,
-          "gialliOspite": 0,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 15,
-          "falliOspite": 14
         }
       ]
     },
     {
       "nome": "M Oliver",
-      "partite": 108,
-      "gialli": 381,
+      "partite": 109,
+      "gialli": 383,
       "rossi": 13,
-      "mediaGialli": 3.53,
+      "mediaGialli": 3.51,
       "mediaRossi": 0.12,
-      "mediaCartellini": 3.65,
-      "mediaFalli": 22.0,
-      "gialliPerFallo": 16.0,
+      "mediaCartellini": 3.63,
+      "mediaFalli": 22.1,
+      "gialliPerFallo": 15.9,
       "squilibrioCasaOspite": 0.27,
-      "mediaGialliCasa": 1.63,
-      "mediaGialliOspite": 1.9,
-      "vittorieCasa": 46,
+      "mediaGialliCasa": 1.62,
+      "mediaGialliOspite": 1.89,
+      "vittorieCasa": 47,
       "pareggi": 24,
       "vittorieOspite": 38,
-      "percVittorieCasa": 42.6,
+      "percVittorieCasa": 43.1,
       "perSquadra": [
         {
           "squadra": "Sheffield United",
@@ -14034,10 +14153,10 @@
         },
         {
           "squadra": "Tottenham",
-          "partite": 12,
-          "gialli": 21,
+          "partite": 13,
+          "gialli": 22,
           "rossi": 3,
-          "media": 1.75
+          "media": 1.69
         },
         {
           "squadra": "Leeds",
@@ -14062,10 +14181,10 @@
         },
         {
           "squadra": "Brentford",
-          "partite": 8,
-          "gialli": 12,
+          "partite": 9,
+          "gialli": 13,
           "rossi": 0,
-          "media": 1.5
+          "media": 1.44
         },
         {
           "squadra": "Wolves",
@@ -14155,9 +14274,36 @@
           "squilibrio": 0.55,
           "mediaGialliCasa": 1.31,
           "mediaGialliOspite": 1.86
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 31.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Brentford",
+          "ospite": "Tottenham",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 17,
+          "falliOspite": 14
+        },
         {
           "stagione": "2025/26",
           "data": "24/05/2026",
@@ -14563,20 +14709,6 @@
           "rossiOspite": 0,
           "falliCasa": 14,
           "falliOspite": 8
-        },
-        {
-          "stagione": "2024/25",
-          "data": "18/05/2025",
-          "casa": "Everton",
-          "ospite": "Southampton",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 6,
-          "falliOspite": 10
         }
       ]
     },
@@ -15113,6 +15245,210 @@
       ]
     },
     {
+      "nome": "F Hallam",
+      "partite": 6,
+      "gialli": 16,
+      "rossi": 0,
+      "mediaGialli": 2.67,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 2.67,
+      "mediaFalli": 22.5,
+      "gialliPerFallo": 11.9,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 0.83,
+      "mediaGialliOspite": 1.83,
+      "vittorieCasa": 3,
+      "pareggi": 1,
+      "vittorieOspite": 2,
+      "percVittorieCasa": 50.0,
+      "perSquadra": [
+        {
+          "squadra": "Sunderland",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Everton",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Leeds",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Wolves",
+          "partite": 2,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Arsenal",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Burnley",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Crystal Palace",
+          "partite": 2,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Man City",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Brentford",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        },
+        {
+          "squadra": "Ipswich",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2025/26",
+          "partite": 5,
+          "gialli": 13,
+          "rossi": 0,
+          "media": 2.6,
+          "mediaGialli": 2.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 21.8,
+          "squilibrio": 0.6,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.6
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 26.0,
+          "squilibrio": 3.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": 3.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Ipswich",
+          "ospite": "Sunderland",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 14
+        },
+        {
+          "stagione": "2025/26",
+          "data": "24/05/2026",
+          "casa": "Crystal Palace",
+          "ospite": "Arsenal",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 0,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 12
+        },
+        {
+          "stagione": "2025/26",
+          "data": "18/04/2026",
+          "casa": "Leeds",
+          "ospite": "Wolves",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 17
+        },
+        {
+          "stagione": "2025/26",
+          "data": "11/04/2026",
+          "casa": "Brentford",
+          "ospite": "Everton",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 0,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 6,
+          "falliOspite": 7
+        },
+        {
+          "stagione": "2025/26",
+          "data": "11/02/2026",
+          "casa": "Crystal Palace",
+          "ospite": "Burnley",
+          "gc": 2,
+          "go": 3,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 8
+        },
+        {
+          "stagione": "2025/26",
+          "data": "24/01/2026",
+          "casa": "Man City",
+          "ospite": "Wolves",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 16,
+          "falliOspite": 14
+        }
+      ]
+    },
+    {
       "nome": "G Scott",
       "partite": 12,
       "gialli": 30,
@@ -15448,169 +15784,6 @@
           "falliOspite": 6
         }
       ]
-    },
-    {
-      "nome": "F Hallam",
-      "partite": 5,
-      "gialli": 13,
-      "rossi": 0,
-      "mediaGialli": 2.6,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 2.6,
-      "mediaFalli": 21.8,
-      "gialliPerFallo": 11.9,
-      "squilibrioCasaOspite": 0.6,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 1.6,
-      "vittorieCasa": 2,
-      "pareggi": 1,
-      "vittorieOspite": 2,
-      "percVittorieCasa": 40.0,
-      "perSquadra": [
-        {
-          "squadra": "Everton",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Leeds",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Wolves",
-          "partite": 2,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Arsenal",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        },
-        {
-          "squadra": "Burnley",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        },
-        {
-          "squadra": "Crystal Palace",
-          "partite": 2,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 1.0
-        },
-        {
-          "squadra": "Man City",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        },
-        {
-          "squadra": "Brentford",
-          "partite": 1,
-          "gialli": 0,
-          "rossi": 0,
-          "media": 0.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2025/26",
-          "partite": 5,
-          "gialli": 13,
-          "rossi": 0,
-          "media": 2.6,
-          "mediaGialli": 2.6,
-          "mediaRossi": 0.0,
-          "mediaFalli": 21.8,
-          "squilibrio": 0.6,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 1.6
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2025/26",
-          "data": "24/05/2026",
-          "casa": "Crystal Palace",
-          "ospite": "Arsenal",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 0,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 12
-        },
-        {
-          "stagione": "2025/26",
-          "data": "18/04/2026",
-          "casa": "Leeds",
-          "ospite": "Wolves",
-          "gc": 3,
-          "go": 0,
-          "gialliCasa": 2,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 17
-        },
-        {
-          "stagione": "2025/26",
-          "data": "11/04/2026",
-          "casa": "Brentford",
-          "ospite": "Everton",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 0,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 6,
-          "falliOspite": 7
-        },
-        {
-          "stagione": "2025/26",
-          "data": "11/02/2026",
-          "casa": "Crystal Palace",
-          "ospite": "Burnley",
-          "gc": 2,
-          "go": 3,
-          "gialliCasa": 2,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 8
-        },
-        {
-          "stagione": "2025/26",
-          "data": "24/01/2026",
-          "casa": "Man City",
-          "ospite": "Wolves",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 16,
-          "falliOspite": 14
-        }
-      ]
     }
   ],
   "squadre": [
@@ -15628,51 +15801,39 @@
     },
     {
       "nome": "Chelsea",
-      "partite": 152,
-      "gialli": 368,
+      "partite": 153,
+      "gialli": 371,
       "rossi": 15,
       "mediaGialli": 2.42,
       "mediaRossi": 0.1,
       "mediaFalli": 11.2,
       "mediaGialliCasa": 2.29,
-      "mediaGialliOspite": 2.55,
+      "mediaGialliOspite": 2.56,
       "falliPerGiallo": 4.6
     },
     {
-      "nome": "Ipswich",
-      "partite": 38,
-      "gialli": 84,
-      "rossi": 5,
-      "mediaGialli": 2.21,
-      "mediaRossi": 0.13,
-      "mediaFalli": 11.3,
-      "mediaGialliCasa": 1.79,
-      "mediaGialliOspite": 2.63,
-      "falliPerGiallo": 5.1
-    },
-    {
-      "nome": "Tottenham",
-      "partite": 152,
-      "gialli": 334,
-      "rossi": 11,
-      "mediaGialli": 2.2,
-      "mediaRossi": 0.07,
-      "mediaFalli": 11.6,
-      "mediaGialliCasa": 2.2,
-      "mediaGialliOspite": 2.2,
-      "falliPerGiallo": 5.3
-    },
-    {
       "nome": "Bournemouth",
-      "partite": 152,
-      "gialli": 333,
+      "partite": 153,
+      "gialli": 335,
       "rossi": 8,
       "mediaGialli": 2.19,
       "mediaRossi": 0.05,
       "mediaFalli": 12.3,
       "mediaGialliCasa": 1.97,
-      "mediaGialliOspite": 2.41,
+      "mediaGialliOspite": 2.4,
       "falliPerGiallo": 5.6
+    },
+    {
+      "nome": "Tottenham",
+      "partite": 153,
+      "gialli": 335,
+      "rossi": 11,
+      "mediaGialli": 2.19,
+      "mediaRossi": 0.07,
+      "mediaFalli": 11.6,
+      "mediaGialliCasa": 2.2,
+      "mediaGialliOspite": 2.18,
+      "falliPerGiallo": 5.3
     },
     {
       "nome": "Wolves",
@@ -15685,6 +15846,18 @@
       "mediaGialliCasa": 2.11,
       "mediaGialliOspite": 2.28,
       "falliPerGiallo": 5.7
+    },
+    {
+      "nome": "Ipswich",
+      "partite": 39,
+      "gialli": 84,
+      "rossi": 5,
+      "mediaGialli": 2.15,
+      "mediaRossi": 0.13,
+      "mediaFalli": 11.3,
+      "mediaGialliCasa": 1.7,
+      "mediaGialliOspite": 2.63,
+      "falliPerGiallo": 5.3
     },
     {
       "nome": "Southampton",
@@ -15700,32 +15873,20 @@
     },
     {
       "nome": "Sunderland",
-      "partite": 38,
-      "gialli": 80,
+      "partite": 39,
+      "gialli": 83,
       "rossi": 3,
-      "mediaGialli": 2.11,
+      "mediaGialli": 2.13,
       "mediaRossi": 0.08,
-      "mediaFalli": 10.7,
+      "mediaFalli": 10.8,
       "mediaGialliCasa": 1.95,
-      "mediaGialliOspite": 2.26,
+      "mediaGialliOspite": 2.3,
       "falliPerGiallo": 5.1
     },
     {
-      "nome": "Everton",
-      "partite": 152,
-      "gialli": 311,
-      "rossi": 10,
-      "mediaGialli": 2.05,
-      "mediaRossi": 0.07,
-      "mediaFalli": 11.1,
-      "mediaGialliCasa": 1.91,
-      "mediaGialliOspite": 2.18,
-      "falliPerGiallo": 5.4
-    },
-    {
       "nome": "Fulham",
-      "partite": 152,
-      "gialli": 312,
+      "partite": 153,
+      "gialli": 314,
       "rossi": 8,
       "mediaGialli": 2.05,
       "mediaRossi": 0.05,
@@ -15735,9 +15896,33 @@
       "falliPerGiallo": 5.3
     },
     {
+      "nome": "Everton",
+      "partite": 153,
+      "gialli": 311,
+      "rossi": 10,
+      "mediaGialli": 2.03,
+      "mediaRossi": 0.07,
+      "mediaFalli": 11.1,
+      "mediaGialliCasa": 1.88,
+      "mediaGialliOspite": 2.18,
+      "falliPerGiallo": 5.4
+    },
+    {
+      "nome": "Aston Villa",
+      "partite": 153,
+      "gialli": 307,
+      "rossi": 9,
+      "mediaGialli": 2.01,
+      "mediaRossi": 0.06,
+      "mediaFalli": 10.6,
+      "mediaGialliCasa": 1.87,
+      "mediaGialliOspite": 2.14,
+      "falliPerGiallo": 5.3
+    },
+    {
       "nome": "Brighton",
-      "partite": 152,
-      "gialli": 306,
+      "partite": 153,
+      "gialli": 308,
       "rossi": 6,
       "mediaGialli": 2.01,
       "mediaRossi": 0.04,
@@ -15747,64 +15932,64 @@
       "falliPerGiallo": 5.7
     },
     {
-      "nome": "Aston Villa",
-      "partite": 152,
-      "gialli": 304,
-      "rossi": 8,
+      "nome": "Hull",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
       "mediaGialli": 2.0,
-      "mediaRossi": 0.05,
-      "mediaFalli": 10.6,
-      "mediaGialliCasa": 1.87,
-      "mediaGialliOspite": 2.13,
-      "falliPerGiallo": 5.3
+      "mediaRossi": 0.0,
+      "mediaFalli": 10.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": null,
+      "falliPerGiallo": 5.0
     },
     {
       "nome": "Nott'm Forest",
-      "partite": 152,
-      "gialli": 304,
+      "partite": 153,
+      "gialli": 306,
       "rossi": 5,
       "mediaGialli": 2.0,
       "mediaRossi": 0.03,
       "mediaFalli": 11.0,
-      "mediaGialliCasa": 1.72,
+      "mediaGialliCasa": 1.73,
       "mediaGialliOspite": 2.28,
       "falliPerGiallo": 5.5
     },
     {
       "nome": "Man United",
-      "partite": 152,
-      "gialli": 303,
+      "partite": 153,
+      "gialli": 304,
       "rossi": 8,
       "mediaGialli": 1.99,
       "mediaRossi": 0.05,
       "mediaFalli": 10.7,
       "mediaGialliCasa": 1.91,
-      "mediaGialliOspite": 2.08,
+      "mediaGialliOspite": 2.06,
       "falliPerGiallo": 5.4
     },
     {
       "nome": "Crystal Palace",
-      "partite": 152,
-      "gialli": 296,
+      "partite": 153,
+      "gialli": 297,
       "rossi": 11,
-      "mediaGialli": 1.95,
+      "mediaGialli": 1.94,
       "mediaRossi": 0.07,
       "mediaFalli": 11.3,
       "mediaGialliCasa": 1.8,
-      "mediaGialliOspite": 2.09,
+      "mediaGialliOspite": 2.08,
       "falliPerGiallo": 5.8
     },
     {
       "nome": "Leeds",
-      "partite": 76,
-      "gialli": 146,
+      "partite": 77,
+      "gialli": 147,
       "rossi": 4,
-      "mediaGialli": 1.92,
+      "mediaGialli": 1.91,
       "mediaRossi": 0.05,
-      "mediaFalli": 11.2,
+      "mediaFalli": 11.3,
       "mediaGialliCasa": 1.82,
-      "mediaGialliOspite": 2.03,
-      "falliPerGiallo": 5.8
+      "mediaGialliOspite": 2.0,
+      "falliPerGiallo": 5.9
     },
     {
       "nome": "Leicester",
@@ -15832,13 +16017,13 @@
     },
     {
       "nome": "Brentford",
-      "partite": 152,
-      "gialli": 274,
+      "partite": 153,
+      "gialli": 275,
       "rossi": 4,
       "mediaGialli": 1.8,
       "mediaRossi": 0.03,
-      "mediaFalli": 9.5,
-      "mediaGialliCasa": 1.63,
+      "mediaFalli": 9.6,
+      "mediaGialliCasa": 1.62,
       "mediaGialliOspite": 1.97,
       "falliPerGiallo": 5.3
     },
@@ -15856,15 +16041,15 @@
     },
     {
       "nome": "Newcastle",
-      "partite": 152,
-      "gialli": 264,
+      "partite": 153,
+      "gialli": 269,
       "rossi": 5,
-      "mediaGialli": 1.74,
+      "mediaGialli": 1.76,
       "mediaRossi": 0.03,
-      "mediaFalli": 10.3,
-      "mediaGialliCasa": 1.7,
+      "mediaFalli": 10.4,
+      "mediaGialliCasa": 1.74,
       "mediaGialliOspite": 1.78,
-      "falliPerGiallo": 6.0
+      "falliPerGiallo": 5.9
     },
     {
       "nome": "West Ham",
@@ -15880,20 +16065,20 @@
     },
     {
       "nome": "Liverpool",
-      "partite": 152,
-      "gialli": 243,
+      "partite": 153,
+      "gialli": 246,
       "rossi": 10,
-      "mediaGialli": 1.6,
+      "mediaGialli": 1.61,
       "mediaRossi": 0.07,
       "mediaFalli": 11.1,
       "mediaGialliCasa": 1.41,
-      "mediaGialliOspite": 1.79,
+      "mediaGialliOspite": 1.81,
       "falliPerGiallo": 6.9
     },
     {
       "nome": "Arsenal",
-      "partite": 152,
-      "gialli": 228,
+      "partite": 153,
+      "gialli": 229,
       "rossi": 8,
       "mediaGialli": 1.5,
       "mediaRossi": 0.05,
@@ -15904,18 +16089,180 @@
     },
     {
       "nome": "Man City",
-      "partite": 152,
-      "gialli": 218,
+      "partite": 153,
+      "gialli": 219,
       "rossi": 5,
       "mediaGialli": 1.43,
       "mediaRossi": 0.03,
       "mediaFalli": 8.5,
-      "mediaGialliCasa": 1.36,
+      "mediaGialliCasa": 1.35,
       "mediaGialliOspite": 1.51,
       "falliPerGiallo": 5.9
+    },
+    {
+      "nome": "Coventry",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 13.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 1.0,
+      "falliPerGiallo": 13.0
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "24/08/2026",
+      "casa": "Fulham",
+      "ospite": "Chelsea",
+      "gc": 2,
+      "go": 3,
+      "arbitro": "J Brooks",
+      "gialliCasa": 2,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 12,
+      "falliOspite": 7
+    },
+    {
+      "stagione": "2026/27",
+      "data": "23/08/2026",
+      "casa": "Newcastle",
+      "ospite": "Liverpool",
+      "gc": 2,
+      "go": 2,
+      "arbitro": "S Attwell",
+      "gialliCasa": 5,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 16,
+      "falliOspite": 15
+    },
+    {
+      "stagione": "2026/27",
+      "data": "23/08/2026",
+      "casa": "Man City",
+      "ospite": "Bournemouth",
+      "gc": 2,
+      "go": 1,
+      "arbitro": "J Gillett",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 11,
+      "falliOspite": 11
+    },
+    {
+      "stagione": "2026/27",
+      "data": "23/08/2026",
+      "casa": "Brighton",
+      "ospite": "Aston Villa",
+      "gc": 4,
+      "go": 0,
+      "arbitro": "P Bankes",
+      "gialliCasa": 2,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 1,
+      "falliCasa": 12,
+      "falliOspite": 11
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Nott'm Forest",
+      "ospite": "Leeds",
+      "gc": 0,
+      "go": 1,
+      "arbitro": "R Jones",
+      "gialliCasa": 2,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 15,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Ipswich",
+      "ospite": "Sunderland",
+      "gc": 2,
+      "go": 1,
+      "arbitro": "F Hallam",
+      "gialliCasa": 0,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 12,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Hull",
+      "ospite": "Man United",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "D England",
+      "gialliCasa": 2,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 10,
+      "falliOspite": 9
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Everton",
+      "ospite": "Crystal Palace",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "P Tierney",
+      "gialliCasa": 0,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 5,
+      "falliOspite": 15
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Brentford",
+      "ospite": "Tottenham",
+      "gc": 3,
+      "go": 0,
+      "arbitro": "M Oliver",
+      "gialliCasa": 1,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 17,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "21/08/2026",
+      "casa": "Arsenal",
+      "ospite": "Coventry",
+      "gc": 3,
+      "go": 0,
+      "arbitro": "T Bramall",
+      "gialliCasa": 1,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 10,
+      "falliOspite": 13
+    },
     {
       "stagione": "2025/26",
       "data": "24/05/2026",
@@ -16365,156 +16712,6 @@
       "rossiOspite": 1,
       "falliCasa": 12,
       "falliOspite": 21
-    },
-    {
-      "stagione": "2025/26",
-      "data": "09/05/2026",
-      "casa": "Brighton",
-      "ospite": "Wolves",
-      "gc": 3,
-      "go": 0,
-      "arbitro": "J Brooks",
-      "gialliCasa": 1,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 9,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2025/26",
-      "data": "04/05/2026",
-      "casa": "Everton",
-      "ospite": "Man City",
-      "gc": 3,
-      "go": 3,
-      "arbitro": "M Oliver",
-      "gialliCasa": 4,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 15,
-      "falliOspite": 5
-    },
-    {
-      "stagione": "2025/26",
-      "data": "04/05/2026",
-      "casa": "Chelsea",
-      "ospite": "Nott'm Forest",
-      "gc": 1,
-      "go": 3,
-      "arbitro": "A Taylor",
-      "gialliCasa": 3,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 12,
-      "falliOspite": 10
-    },
-    {
-      "stagione": "2025/26",
-      "data": "03/05/2026",
-      "casa": "Man United",
-      "ospite": "Liverpool",
-      "gc": 3,
-      "go": 2,
-      "arbitro": "D England",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 12,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2025/26",
-      "data": "03/05/2026",
-      "casa": "Bournemouth",
-      "ospite": "Crystal Palace",
-      "gc": 3,
-      "go": 0,
-      "arbitro": "R Jones",
-      "gialliCasa": 0,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 10,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2025/26",
-      "data": "03/05/2026",
-      "casa": "Aston Villa",
-      "ospite": "Tottenham",
-      "gc": 1,
-      "go": 2,
-      "arbitro": "S Barrott",
-      "gialliCasa": 2,
-      "gialliOspite": 5,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 12,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2025/26",
-      "data": "02/05/2026",
-      "casa": "Wolves",
-      "ospite": "Sunderland",
-      "gc": 1,
-      "go": 1,
-      "arbitro": "P Tierney",
-      "gialliCasa": 0,
-      "gialliOspite": 4,
-      "rossiCasa": 0,
-      "rossiOspite": 1,
-      "falliCasa": 11,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2025/26",
-      "data": "02/05/2026",
-      "casa": "Newcastle",
-      "ospite": "Brighton",
-      "gc": 3,
-      "go": 1,
-      "arbitro": "C Kavanagh",
-      "gialliCasa": 3,
-      "gialliOspite": 3,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 10,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2025/26",
-      "data": "02/05/2026",
-      "casa": "Brentford",
-      "ospite": "West Ham",
-      "gc": 3,
-      "go": 0,
-      "arbitro": "C Pawson",
-      "gialliCasa": 1,
-      "gialliOspite": 3,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 8,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2025/26",
-      "data": "02/05/2026",
-      "casa": "Arsenal",
-      "ospite": "Fulham",
-      "gc": 3,
-      "go": 0,
-      "arbitro": "J Gillett",
-      "gialliCasa": 0,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 7,
-      "falliOspite": 12
     }
   ]
 }
