@@ -1,359 +1,879 @@
 {
-  "aggiornato": "2026-08-24T12:53:56.340483+00:00",
+  "aggiornato": "2026-08-25T07:23:47.277884+00:00",
   "campionato": "Ligue 1",
   "fonte": "football-data.co.uk (PDDL) · designazioni deux-zero.com",
-  "stagioni": [],
-  "totalePartite": 0,
-  "partiteConDisciplina": 0,
-  "partiteConArbitro": 0,
+  "stagioni": [
+    "2026/27"
+  ],
+  "totalePartite": 9,
+  "partiteConDisciplina": 9,
+  "partiteConArbitro": 8,
   "arbitri": [
     {
-      "nome": "Ruddy Buquet",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 1,
-          "data": "2026-08-21",
-          "ora": "20:45",
-          "casa": "Marseille",
-          "ospite": "Strasbourg",
-          "gc": 4,
-          "go": 0,
-          "arbitro": "Ruddy Buquet"
-        }
-      ]
-    },
-    {
-      "nome": "Mathieu Vernice",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 1,
-          "data": "2026-08-22",
-          "ora": "17:15",
-          "casa": "Lens",
-          "ospite": "Auxerre",
-          "gc": 5,
-          "go": 2,
-          "arbitro": "Mathieu Vernice"
-        }
-      ]
-    },
-    {
-      "nome": "Romain Lissorgue",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 1,
-          "data": "2026-08-22",
-          "ora": "20:45",
-          "casa": "Nice",
-          "ospite": "Lorient",
-          "gc": 0,
-          "go": 0,
-          "arbitro": "Romain Lissorgue"
-        }
-      ]
-    },
-    {
-      "nome": "Guillaume Paradis",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 1,
-          "data": "2026-08-22",
-          "ora": "20:45",
-          "casa": "Toulouse",
-          "ospite": "Lyon",
-          "gc": 0,
-          "go": 2,
-          "arbitro": "Guillaume Paradis"
-        }
-      ]
-    },
-    {
-      "nome": "Marc Bollengier",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 1,
-          "data": "2026-08-22",
-          "ora": "20:45",
-          "casa": "Troyes",
-          "ospite": "Paris FC",
-          "gc": 0,
-          "go": 0,
-          "arbitro": "Marc Bollengier"
-        }
-      ]
-    },
-    {
-      "nome": "Jérémy Stinat",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 1,
-          "data": "2026-08-23",
-          "ora": "15:00",
-          "casa": "Angers",
-          "ospite": "Lille",
-          "gc": 0,
-          "go": 2,
-          "arbitro": "Jérémy Stinat"
-        }
-      ]
-    },
-    {
       "nome": "Jérémie Pignard",
-      "partite": 0,
-      "gialli": 0,
+      "partite": 1,
+      "gialli": 5,
       "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
+      "mediaGialli": 5.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 5.0,
+      "mediaFalli": 25.0,
+      "gialliPerFallo": 20.0,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 3.0,
+      "mediaGialliOspite": 2.0,
       "vittorieCasa": 0,
       "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
         {
-          "giornata": 1,
-          "data": "2026-08-23",
-          "ora": "17:15",
+          "squadra": "Le Havre",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Monaco",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 25.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
           "casa": "Le Havre",
           "ospite": "Monaco",
           "gc": 0,
           "go": 1,
-          "arbitro": "Jérémie Pignard"
+          "gialliCasa": 3,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 12
         }
-      ]
+      ],
+      "prossime": []
     },
     {
       "nome": "Bastien Dechepy",
-      "partite": 0,
-      "gialli": 0,
+      "partite": 1,
+      "gialli": 4,
       "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
+      "mediaGialli": 4.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.0,
+      "mediaFalli": 13.0,
+      "gialliPerFallo": 30.8,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 2.0,
       "vittorieCasa": 0,
-      "pareggi": 0,
+      "pareggi": 1,
       "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
         {
-          "giornata": 1,
-          "data": "2026-08-23",
-          "ora": "20:45",
+          "squadra": "Paris SG",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Rennes",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 13.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
           "casa": "Rennes",
           "ospite": "Paris SG",
           "gc": 2,
           "go": 2,
-          "arbitro": "Bastien Dechepy"
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 6
         }
-      ]
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Jérémy Stinat",
+      "partite": 1,
+      "gialli": 4,
+      "rossi": 0,
+      "mediaGialli": 4.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.0,
+      "mediaFalli": 24.0,
+      "gialliPerFallo": 16.7,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Angers",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Lille",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 24.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Angers",
+          "ospite": "Lille",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 13
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Ruddy Buquet",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 1,
+      "mediaGialli": 3.0,
+      "mediaRossi": 1.0,
+      "mediaCartellini": 4.0,
+      "mediaFalli": 18.0,
+      "gialliPerFallo": 16.7,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Strasbourg",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 1,
+          "media": 2.0
+        },
+        {
+          "squadra": "Marseille",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 1,
+          "media": 4.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 1.0,
+          "mediaFalli": 18.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "21/08/2026",
+          "casa": "Marseille",
+          "ospite": "Strasbourg",
+          "gc": 4,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 6,
+          "falliOspite": 12
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Guillaume Paradis",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 30.0,
+      "gialliPerFallo": 10.0,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Lyon",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Toulouse",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 30.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Toulouse",
+          "ospite": "Lyon",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 15
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Marc Bollengier",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 22.0,
+      "gialliPerFallo": 13.6,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 0,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Troyes",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Paris FC",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 22.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Troyes",
+          "ospite": "Paris FC",
+          "gc": 0,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 14
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Mathieu Vernice",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 1,
+      "mediaGialli": 2.0,
+      "mediaRossi": 1.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 27.0,
+      "gialliPerFallo": 7.4,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Auxerre",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 1,
+          "media": 1.0
+        },
+        {
+          "squadra": "Lens",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 1,
+          "media": 3.0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 1.0,
+          "mediaFalli": 27.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Lens",
+          "ospite": "Auxerre",
+          "gc": 5,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 6,
+          "falliOspite": 21
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Romain Lissorgue",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 1.0,
+      "mediaFalli": 23.0,
+      "gialliPerFallo": 4.3,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 0.0,
+      "vittorieCasa": 0,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Nice",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Lorient",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 0.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Nice",
+          "ospite": "Lorient",
+          "gc": 0,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 8
+        }
+      ],
+      "prossime": []
     }
   ],
-  "squadre": [],
-  "ultimePartite": [],
-  "prossimeDesignazioni": [
+  "squadre": [
     {
-      "giornata": 1,
-      "data": "2026-08-21",
-      "ora": "20:45",
-      "casa": "Marseille",
-      "ospite": "Strasbourg",
-      "gc": 4,
-      "go": 0,
-      "arbitro": "Ruddy Buquet"
+      "nome": "Le Havre",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 13.0,
+      "mediaGialliCasa": 3.0,
+      "mediaGialliOspite": null
     },
     {
-      "giornata": 1,
-      "data": "2026-08-22",
-      "ora": "17:15",
-      "casa": "Lens",
-      "ospite": "Auxerre",
-      "gc": 5,
-      "go": 2,
-      "arbitro": "Mathieu Vernice"
+      "nome": "Angers",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 11.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": null
     },
     {
-      "giornata": 1,
-      "data": "2026-08-22",
-      "ora": "20:45",
-      "casa": "Nice",
-      "ospite": "Lorient",
-      "gc": 0,
-      "go": 0,
-      "arbitro": "Romain Lissorgue"
+      "nome": "Lille",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 13.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 2.0
     },
     {
-      "giornata": 1,
-      "data": "2026-08-22",
-      "ora": "20:45",
-      "casa": "Toulouse",
-      "ospite": "Lyon",
-      "gc": 0,
-      "go": 2,
-      "arbitro": "Guillaume Paradis"
+      "nome": "Lyon",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 15.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 2.0
     },
     {
-      "giornata": 1,
-      "data": "2026-08-22",
-      "ora": "20:45",
-      "casa": "Troyes",
-      "ospite": "Paris FC",
-      "gc": 0,
-      "go": 0,
-      "arbitro": "Marc Bollengier"
+      "nome": "Monaco",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 12.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 2.0
     },
     {
-      "giornata": 1,
-      "data": "2026-08-23",
-      "ora": "15:00",
-      "casa": "Angers",
-      "ospite": "Lille",
-      "gc": 0,
-      "go": 2,
-      "arbitro": "Jérémy Stinat"
+      "nome": "Paris SG",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 6.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 2.0
     },
     {
-      "giornata": 1,
-      "data": "2026-08-23",
-      "ora": "17:15",
-      "casa": "Le Havre",
-      "ospite": "Monaco",
-      "gc": 0,
-      "go": 1,
-      "arbitro": "Jérémie Pignard"
+      "nome": "Rennes",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 7.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": null
     },
     {
-      "giornata": 1,
-      "data": "2026-08-23",
-      "ora": "20:45",
+      "nome": "Strasbourg",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 1,
+      "mediaGialli": 2.0,
+      "mediaRossi": 1.0,
+      "mediaFalli": 12.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 2.0
+    },
+    {
+      "nome": "Troyes",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 8.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": null
+    },
+    {
+      "nome": "Auxerre",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 1,
+      "mediaGialli": 1.0,
+      "mediaRossi": 1.0,
+      "mediaFalli": 21.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 1.0
+    },
+    {
+      "nome": "Brest",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 12.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 1.0
+    },
+    {
+      "nome": "Le Mans",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 14.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": null
+    },
+    {
+      "nome": "Lens",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 6.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": null
+    },
+    {
+      "nome": "Marseille",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 6.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": null
+    },
+    {
+      "nome": "Nice",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 15.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": null
+    },
+    {
+      "nome": "Paris FC",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 14.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 1.0
+    },
+    {
+      "nome": "Toulouse",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 15.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": null
+    },
+    {
+      "nome": "Lorient",
+      "partite": 1,
+      "gialli": 0,
+      "rossi": 0,
+      "mediaGialli": 0.0,
+      "mediaRossi": 0.0,
+      "mediaFalli": 8.0,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": 0.0
+    }
+  ],
+  "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "23/08/2026",
       "casa": "Rennes",
       "ospite": "Paris SG",
       "gc": 2,
       "go": 2,
-      "arbitro": "Bastien Dechepy"
+      "arbitro": "Bastien Dechepy",
+      "gialliCasa": 2,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 7,
+      "falliOspite": 6
+    },
+    {
+      "stagione": "2026/27",
+      "data": "23/08/2026",
+      "casa": "Le Havre",
+      "ospite": "Monaco",
+      "gc": 0,
+      "go": 1,
+      "arbitro": "Jérémie Pignard",
+      "gialliCasa": 3,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 13,
+      "falliOspite": 12
+    },
+    {
+      "stagione": "2026/27",
+      "data": "23/08/2026",
+      "casa": "Angers",
+      "ospite": "Lille",
+      "gc": 0,
+      "go": 2,
+      "arbitro": "Jérémy Stinat",
+      "gialliCasa": 2,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 11,
+      "falliOspite": 13
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Troyes",
+      "ospite": "Paris FC",
+      "gc": 0,
+      "go": 0,
+      "arbitro": "Marc Bollengier",
+      "gialliCasa": 2,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 8,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Toulouse",
+      "ospite": "Lyon",
+      "gc": 0,
+      "go": 2,
+      "arbitro": "Guillaume Paradis",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 15,
+      "falliOspite": 15
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Nice",
+      "ospite": "Lorient",
+      "gc": 0,
+      "go": 0,
+      "arbitro": "Romain Lissorgue",
+      "gialliCasa": 1,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 15,
+      "falliOspite": 8
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Lens",
+      "ospite": "Auxerre",
+      "gc": 5,
+      "go": 2,
+      "arbitro": "Mathieu Vernice",
+      "gialliCasa": 1,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 1,
+      "falliCasa": 6,
+      "falliOspite": 21
+    },
+    {
+      "stagione": "2026/27",
+      "data": "22/08/2026",
+      "casa": "Le Mans",
+      "ospite": "Brest",
+      "gc": 2,
+      "go": 2,
+      "arbitro": "",
+      "gialliCasa": 1,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 14,
+      "falliOspite": 12
+    },
+    {
+      "stagione": "2026/27",
+      "data": "21/08/2026",
+      "casa": "Marseille",
+      "ospite": "Strasbourg",
+      "gc": 4,
+      "go": 0,
+      "arbitro": "Ruddy Buquet",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 1,
+      "falliCasa": 6,
+      "falliOspite": 12
     }
-  ]
+  ],
+  "prossimeDesignazioni": []
 }
