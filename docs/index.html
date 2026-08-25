@@ -93,9 +93,17 @@
   .back{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--fluo);
     background:transparent;border:1px solid var(--bordo);border-radius:5px;
     padding:7px 12px;cursor:pointer;margin-bottom:16px;letter-spacing:.06em}
+  .avatar{width:54px;height:54px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;position:relative;
+    overflow:hidden;border:1px solid rgba(57,255,20,.3)}
+  .avatar b{font-family:'Teko',sans-serif;font-size:27px;line-height:1;
+    letter-spacing:.04em;position:relative;z-index:2}
+  .avatar canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.55}
+  .scheda-testa{display:flex;align-items:center;gap:13px;min-width:0}
+
   .scheda-top{background:var(--card);border:1px solid rgba(57,255,20,.25);
     border-radius:9px;padding:16px;margin-bottom:18px}
-  .scheda-nome{font-family:'Teko',sans-serif;font-size:40px;line-height:1;letter-spacing:.02em}
+  .scheda-nome{font-family:'Teko',sans-serif;font-size:29px;line-height:1.05;letter-spacing:.02em;overflow-wrap:anywhere}
   .scheda-meta{font-size:11px;color:var(--muted);margin-top:4px}
   .dati{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bordo);
     border:1px solid var(--bordo);border-radius:7px;overflow:hidden;margin-bottom:18px}
@@ -214,6 +222,101 @@ function th(tabella, campo, etichetta, primo){
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const n=(v,d="—")=>v===null||v===undefined?d:v;
 const seg=v=>v>0?"+"+v:String(v);
+
+/* ---------- AVATAR GENERATO DAL NOME ----------
+   Ogni arbitro ottiene un motivo grafico unico e sempre identico,
+   ricavato dalle lettere del suo nome. Nessuna immagine esterna,
+   quindi nessun problema di diritti d'autore o di ritratto. */
+
+function _semeDaNome(nome){
+  // hash deterministico: lo stesso nome dà sempre lo stesso motivo
+  let h = 2166136261;
+  for(let i=0;i<nome.length;i++){
+    h ^= nome.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function _iniziali(nome){
+  const parti = String(nome||"").trim().split(/\s+/).filter(Boolean);
+  if(!parti.length) return "?";
+  if(parti.length === 1) return parti[0].slice(0,2).toUpperCase();
+  return (parti[0][0] + parti[parti.length-1][0]).toUpperCase();
+}
+
+/* Tonalità derivata dal nome, mantenuta nella gamma verde del tema */
+function _tinta(seme){
+  const scarto = (seme % 60) - 30;      // da -30 a +29 gradi attorno al verde
+  return 105 + scarto;
+}
+
+function avatar(nome, lato){
+  const seme = _semeDaNome(nome||"");
+  const tinta = _tinta(seme);
+  const id = "av" + seme.toString(36);
+  const sfondo = `hsl(${tinta} 45% 8%)`;
+  const testo  = `hsl(${tinta} 90% 62%)`;
+
+  // il canvas viene disegnato dopo l'inserimento nel DOM
+  setTimeout(()=>disegnaAvatar(id, seme, tinta), 0);
+
+  return `<div class="avatar" style="background:${sfondo};width:${lato}px;height:${lato}px">
+    <canvas id="${id}" width="${lato*2}" height="${lato*2}"></canvas>
+    <b style="color:${testo};font-size:${Math.round(lato*0.43)}px">${esc(_iniziali(nome))}</b>
+  </div>`;
+}
+
+/* Disegna anelli concentrici, cerchi in orbita e un arco sul bordo.
+   Tutti i parametri derivano dal seme, quindi il risultato è unico
+   per ogni nome e sempre identico a sé stesso. */
+function disegnaAvatar(id, seme, tinta){
+  const c = document.getElementById(id);
+  if(!c) return;
+  const ctx = c.getContext("2d");
+  const L = c.width, centro = L/2;
+  let s = seme;
+  const prossimo = ()=>{ s = (s * 1664525 + 1013904223) >>> 0; return s; };
+
+  ctx.clearRect(0,0,L,L);
+
+  // Anelli concentrici di spessore variabile: danno profondità
+  const anelli = 2 + (prossimo() % 3);
+  for(let i = anelli; i > 0; i--){
+    const raggio = (L * 0.46) * (i / anelli);
+    const chiarezza = 26 + (prossimo() % 30);
+    ctx.beginPath();
+    ctx.arc(centro, centro, raggio, 0, Math.PI * 2);
+    ctx.fillStyle = `hsl(${tinta} 65% ${chiarezza}%)`;
+    ctx.fill();
+  }
+
+  // Cerchi in orbita, disposti simmetricamente attorno al centro
+  const quanti = 3 + (prossimo() % 4);
+  const distanza = L * (0.24 + (prossimo() % 12) / 100);
+  const rotazione = (prossimo() % 360) * Math.PI / 180;
+  const raggioPunto = L * (0.055 + (prossimo() % 5) / 100);
+
+  for(let i = 0; i < quanti; i++){
+    const angolo = rotazione + (i * 2 * Math.PI / quanti);
+    const x = centro + Math.cos(angolo) * distanza;
+    const y = centro + Math.sin(angolo) * distanza;
+    const chiarezza = 48 + (prossimo() % 26);
+    ctx.beginPath();
+    ctx.arc(x, y, raggioPunto, 0, Math.PI * 2);
+    ctx.fillStyle = `hsl(${tinta} 78% ${chiarezza}%)`;
+    ctx.fill();
+  }
+
+  // Arco spezzato sul bordo: elemento asimmetrico che rende unico il risultato
+  const inizio = (prossimo() % 360) * Math.PI / 180;
+  const ampiezza = (0.6 + (prossimo() % 100) / 100) * Math.PI;
+  ctx.beginPath();
+  ctx.arc(centro, centro, L * 0.42, inizio, inizio + ampiezza);
+  ctx.strokeStyle = `hsl(${tinta} 85% 60%)`;
+  ctx.lineWidth = L * 0.035;
+  ctx.stroke();
+}
 
 /* '2026-03-02' -> 'lunedì 2 marzo' */
 function dataEstesa(iso){
@@ -459,10 +562,15 @@ function vScheda(){
   let h=`<button class="back" onclick="chiudiArbitro()">‹ TUTTI GLI ARBITRI</button>
 
   <div class="scheda-top">
+   <div class="scheda-testa">
+    ${avatar(a.nome, 54)}
+    <div>
     <div class="scheda-nome">${esc(a.nome)}</div>
     <div class="scheda-meta">${a.partite
       ? `${a.partite} partite dirette · ${pos}° su ${totArb} per severità`
       : `nessuna partita ancora in archivio`}</div>
+    </div>
+   </div>
   </div>`;
 
   // Designazioni note per partite non ancora giocate
