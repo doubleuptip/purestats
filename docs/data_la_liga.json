@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-25T07:24:30.833367+00:00",
+  "aggiornato": "2026-08-26T08:35:09.723717+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -9,9 +9,9 @@
     "2025/26",
     "2026/27"
   ],
-  "totalePartite": 1537,
-  "partiteConDisciplina": 1537,
-  "partiteConArbitro": 6,
+  "totalePartite": 1539,
+  "partiteConDisciplina": 1539,
+  "partiteConArbitro": 7,
   "arbitri": [
     {
       "nome": "César Soto",
@@ -344,6 +344,72 @@
       "prossime": []
     },
     {
+      "nome": "José Luis Munuera",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 27.0,
+      "gialliPerFallo": 11.1,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 0,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Alaves",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Vallecano",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 27.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "20/08/2026",
+          "casa": "Vallecano",
+          "ospite": "Alaves",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 13
+        }
+      ],
+      "prossime": []
+    },
+    {
       "nome": "Alejandro Quintero",
       "partite": 1,
       "gialli": 1,
@@ -408,42 +474,6 @@
         }
       ],
       "prossime": []
-    },
-    {
-      "nome": "José Luis Munuera",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 2,
-          "data": "2026-08-20",
-          "ora": "21:00",
-          "casa": "Vallecano",
-          "ospite": "Alaves",
-          "arbitro": "José Luis Munuera",
-          "quartoUomo": "Guillermo Conejero",
-          "var": "Iván Caparrós",
-          "avar": "Juan Luis Pulido",
-          "assistente1": "Adrián Díaz",
-          "assistente2": "Antonio Ramón Martínez"
-        }
-      ]
     }
   ],
   "squadre": [
@@ -493,13 +523,13 @@
     },
     {
       "nome": "Vallecano",
-      "partite": 153,
-      "gialli": 398,
+      "partite": 154,
+      "gialli": 399,
       "rossi": 23,
-      "mediaGialli": 2.6,
+      "mediaGialli": 2.59,
       "mediaRossi": 0.15,
       "mediaFalli": 14.1,
-      "mediaGialliCasa": 2.29,
+      "mediaGialliCasa": 2.27,
       "mediaGialliOspite": 2.91
     },
     {
@@ -526,14 +556,14 @@
     },
     {
       "nome": "Alaves",
-      "partite": 116,
-      "gialli": 291,
+      "partite": 117,
+      "gialli": 293,
       "rossi": 11,
-      "mediaGialli": 2.51,
+      "mediaGialli": 2.5,
       "mediaRossi": 0.09,
-      "mediaFalli": 14.6,
+      "mediaFalli": 14.5,
       "mediaGialliCasa": 2.38,
-      "mediaGialliOspite": 2.64
+      "mediaGialliOspite": 2.63
     },
     {
       "nome": "Santander",
@@ -624,6 +654,17 @@
       "mediaGialliOspite": 2.55
     },
     {
+      "nome": "Malaga",
+      "partite": 3,
+      "gialli": 7,
+      "rossi": 0,
+      "mediaGialli": 2.33,
+      "mediaRossi": 0.0,
+      "mediaFalli": 11.3,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 3.0
+    },
+    {
       "nome": "Osasuna",
       "partite": 153,
       "gialli": 349,
@@ -636,10 +677,10 @@
     },
     {
       "nome": "Ath Madrid",
-      "partite": 153,
-      "gialli": 339,
+      "partite": 154,
+      "gialli": 341,
       "rossi": 22,
-      "mediaGialli": 2.22,
+      "mediaGialli": 2.21,
       "mediaRossi": 0.14,
       "mediaFalli": 11.3,
       "mediaGialliCasa": 2.01,
@@ -754,17 +795,6 @@
       "mediaFalli": 17.0,
       "mediaGialliCasa": 2.0,
       "mediaGialliOspite": null
-    },
-    {
-      "nome": "Malaga",
-      "partite": 2,
-      "gialli": 4,
-      "rossi": 0,
-      "mediaGialli": 2.0,
-      "mediaRossi": 0.0,
-      "mediaFalli": 11.5,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 3.0
     },
     {
       "nome": "Barcelona",
@@ -939,6 +969,21 @@
     {
       "stagione": "2026/27",
       "data": "20/08/2026",
+      "casa": "Vallecano",
+      "ospite": "Alaves",
+      "gc": 1,
+      "go": 1,
+      "arbitro": "José Luis Munuera",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 14,
+      "falliOspite": 13
+    },
+    {
+      "stagione": "2026/27",
+      "data": "20/08/2026",
       "casa": "Rayo Vallecano",
       "ospite": "Alaves",
       "gc": 1,
@@ -955,6 +1000,21 @@
       "stagione": "2026/27",
       "data": "19/08/2026",
       "casa": "Atl. Madrid",
+      "ospite": "Malaga",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "",
+      "gialliCasa": 2,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 17,
+      "falliOspite": 11
+    },
+    {
+      "stagione": "2026/27",
+      "data": "19/08/2026",
+      "casa": "Ath Madrid",
       "ospite": "Malaga",
       "gc": 2,
       "go": 0,
@@ -1370,51 +1430,7 @@
       "rossiOspite": 0,
       "falliCasa": 9,
       "falliOspite": 20
-    },
-    {
-      "stagione": "2025/26",
-      "data": "14/05/2026",
-      "casa": "Real Madrid",
-      "ospite": "Oviedo",
-      "gc": 2,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 0,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 7,
-      "falliOspite": 14
-    },
-    {
-      "stagione": "2025/26",
-      "data": "14/05/2026",
-      "casa": "Girona",
-      "ospite": "Sociedad",
-      "gc": 1,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 7,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 13,
-      "falliOspite": 19
     }
   ],
-  "prossimeDesignazioni": [
-    {
-      "giornata": 2,
-      "data": "2026-08-20",
-      "ora": "21:00",
-      "casa": "Vallecano",
-      "ospite": "Alaves",
-      "arbitro": "José Luis Munuera",
-      "quartoUomo": "Guillermo Conejero",
-      "var": "Iván Caparrós",
-      "avar": "Juan Luis Pulido",
-      "assistente1": "Adrián Díaz",
-      "assistente2": "Antonio Ramón Martínez"
-    }
-  ]
+  "prossimeDesignazioni": []
 }
