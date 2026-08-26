@@ -288,12 +288,18 @@ def _data_iso_da_match(m, anno_riferimento):
         return None, None
 
 
-def analizza(testo, anno_riferimento, giornata=None):
+def analizza(testo, anno_riferimento, giornata=None, ancore_esterne=None):
     """Estrae le designazioni dal testo. Restituisce una lista di dizionari.
 
     Procede in due fasi: prima individua le coppie di squadre riconosciute,
     poi analizza il segmento di testo che segue ciascuna. È più tollerante
     di una singola espressione regolare e non si blocca su formati inattesi.
+
+    ancore_esterne: date certe ricavate altrove, da usare per risolvere le
+    partite che indicano solo il giorno della settimana. Serve quando il
+    testo viene analizzato a blocchi separati: una partita che riporta solo
+    "Domenica" non ha, dentro il proprio blocco, nulla con cui calcolare
+    la data, mentre gli altri blocchi dello stesso file la contengono.
     """
     testo = _pulisci(testo)
 
@@ -317,6 +323,9 @@ def analizza(testo, anno_riferimento, giornata=None):
         if d and d not in ancore:
             ancore.append(d)
     for inizio_int, valore in intestazioni_data:
+        if valore not in ancore:
+            ancore.append(valore)
+    for valore in (ancore_esterne or []):
         if valore not in ancore:
             ancore.append(valore)
     ancore.sort()
@@ -385,3 +394,22 @@ def giornata_da_testo(testo):
         return int(m.group(1))
     m = re.search(r"designazioni[^0-9]{0,30}(\d{1,2})\s*[ªa°]", testo, re.IGNORECASE)
     return int(m.group(1)) if m else None
+
+
+def raccogli_date(testo, anno_riferimento):
+    """Elenca tutte le date esplicite presenti in un testo.
+
+    Va usata sull'intero file prima di analizzarlo a blocchi: fornisce i
+    riferimenti con cui risolvere le partite che indicano solo il giorno
+    della settimana.
+    """
+    testo = _pulisci(testo)
+    date = []
+    for m in QUANDO.finditer(testo):
+        d, _ = _data_iso_da_match(m, anno_riferimento)
+        if d and d not in date:
+            date.append(d)
+    for _, valore in _trova_intestazioni(testo, anno_riferimento):
+        if valore not in date:
+            date.append(valore)
+    return sorted(date)

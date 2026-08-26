@@ -256,6 +256,14 @@ def aggiorna_designazioni(anno_riferimento):
         blocchi = [b for b in blocchi if len(b) > 40]
         print(f"  File designazioni.txt: {len(blocchi)} blocchi")
 
+        # Le date esplicite vanno raccolte sull'intero file, non blocco per
+        # blocco: una partita che riporta solo "Domenica" non ha nel proprio
+        # blocco alcun riferimento con cui calcolare la data, mentre gli
+        # altri blocchi dello stesso file lo contengono.
+        ancore = dz.raccogli_date(testo, anno_riferimento)
+        if ancore:
+            print(f"    Date di riferimento nel file: {ancore[0]} → {ancore[-1]}")
+
         for i, blocco in enumerate(blocchi, 1):
             utile = "\n".join(r for r in blocco.splitlines() if not r.strip().startswith("#"))
             if len(utile.strip()) < 40:
@@ -264,7 +272,7 @@ def aggiorna_designazioni(anno_riferimento):
             giornata = dz.giornata_da_testo(utile)
             try:
                 estratte = dz.analizza(utile, anno_riferimento=anno_riferimento,
-                                       giornata=giornata)
+                                       giornata=giornata, ancore_esterne=ancore)
             except Exception as e:
                 print(f"    Blocco {i}: non interpretabile ({e})")
                 continue
