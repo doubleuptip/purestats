@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-26T08:23:08.580770+00:00",
+  "aggiornato": "2026-08-26T08:30:21.427684+00:00",
   "campionato": "Serie A",
   "fonte": "football-data.co.uk (PDDL) · designazioni AIA/Lega Serie A",
   "stagioni": [
@@ -7,7 +7,7 @@
   ],
   "totalePartite": 10,
   "partiteConDisciplina": 10,
-  "partiteConArbitro": 6,
+  "partiteConArbitro": 10,
   "arbitri": [
     {
       "nome": "Maresca F.",
@@ -71,6 +71,72 @@
           "rossiOspite": 0,
           "falliCasa": 18,
           "falliOspite": 19
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Ayroldi",
+      "partite": 1,
+      "gialli": 4,
+      "rossi": 0,
+      "mediaGialli": 4.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.0,
+      "mediaFalli": 33.0,
+      "gialliPerFallo": 12.1,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Frosinone",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Juventus",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 33.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Frosinone",
+          "ospite": "Juventus",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 18
         }
       ],
       "prossime": []
@@ -203,6 +269,72 @@
           "rossiOspite": 0,
           "falliCasa": 5,
           "falliOspite": 14
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Rapuano",
+      "partite": 1,
+      "gialli": 4,
+      "rossi": 0,
+      "mediaGialli": 4.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.0,
+      "mediaFalli": 20.0,
+      "gialliPerFallo": 20.0,
+      "squilibrioCasaOspite": 2.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 3.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Lecce",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Venezia",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 20.0,
+          "squilibrio": 2.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 3.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Venezia",
+          "ospite": "Lecce",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 12
         }
       ],
       "prossime": []
@@ -413,6 +545,138 @@
           "rossiOspite": 0,
           "falliCasa": 6,
           "falliOspite": 20
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Zufferli",
+      "partite": 1,
+      "gialli": 1,
+      "rossi": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 1.0,
+      "mediaFalli": 19.0,
+      "gialliPerFallo": 5.3,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 0.0,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Milan",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Torino",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 19.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Torino",
+          "ospite": "Milan",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 0,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 9
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Crezzini",
+      "partite": 1,
+      "gialli": 0,
+      "rossi": 0,
+      "mediaGialli": 0.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 0.0,
+      "mediaFalli": 19.0,
+      "gialliPerFallo": 0.0,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 0.0,
+      "mediaGialliOspite": 0.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Atalanta",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        },
+        {
+          "squadra": "Sassuolo",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0,
+          "mediaGialli": 0.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 19.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": 0.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Atalanta",
+          "ospite": "Sassuolo",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 10
         }
       ],
       "prossime": []
@@ -961,7 +1225,7 @@
       "ospite": "Lecce",
       "gc": 0,
       "go": 2,
-      "arbitro": "",
+      "arbitro": "Rapuano",
       "gialliCasa": 1,
       "gialliOspite": 3,
       "rossiCasa": 0,
@@ -976,7 +1240,7 @@
       "ospite": "Milan",
       "gc": 1,
       "go": 2,
-      "arbitro": "",
+      "arbitro": "Zufferli",
       "gialliCasa": 0,
       "gialliOspite": 1,
       "rossiCasa": 0,
@@ -991,7 +1255,7 @@
       "ospite": "Juventus",
       "gc": 0,
       "go": 1,
-      "arbitro": "",
+      "arbitro": "Ayroldi",
       "gialliCasa": 2,
       "gialliOspite": 2,
       "rossiCasa": 0,
@@ -1006,7 +1270,7 @@
       "ospite": "Sassuolo",
       "gc": 2,
       "go": 1,
-      "arbitro": "",
+      "arbitro": "Crezzini",
       "gialliCasa": 0,
       "gialliOspite": 0,
       "rossiCasa": 0,
