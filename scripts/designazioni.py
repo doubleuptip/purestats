@@ -15,6 +15,7 @@ Non fa richieste di rete: si limita a interpretare testo già scaricato,
 così è collaudabile in isolamento.
 """
 
+import datetime
 import re
 import unicodedata
 
@@ -220,6 +221,47 @@ def _intestazione_precedente(intestazioni, posizione, anno_riferimento):
     return data
 
 
+# Giorni della settimana come li numera datetime: lunedì = 0, domenica = 6
+GIORNI_SETTIMANA = {
+    "lun": 0, "mar": 1, "mer": 2, "gio": 3, "ven": 4, "sab": 5, "dom": 6,
+}
+
+SOLO_GIORNO = re.compile(
+    r"\b(?P<giorno>Lun|Mar|Mer|Gio|Ven|Sab|Dom)[a-zì]*\b", re.IGNORECASE)
+
+
+def _data_da_giorno_settimana(blocco, ancore):
+    """Ricava la data quando il testo indica solo il giorno della settimana.
+
+    Capita che le designazioni riportino "Domenica h. 18.30" senza la data:
+    il giorno da solo non basterebbe, ma le altre partite della stessa
+    giornata forniscono un riferimento. Sapendo che il sabato è il 22
+    agosto, la domenica può essere solo il 23.
+
+    Cerca entro tre giorni da ciascun riferimento noto: dentro una finestra
+    di una settimana un giorno feriale individua una data sola.
+    """
+    if not ancore:
+        return None
+    m = SOLO_GIORNO.search(blocco)
+    if not m:
+        return None
+    voluto = GIORNI_SETTIMANA.get(m.group("giorno")[:3].lower())
+    if voluto is None:
+        return None
+
+    for ancora in ancore:
+        try:
+            base = datetime.date.fromisoformat(ancora)
+        except ValueError:
+            continue
+        for scarto in range(-3, 4):
+            candidata = base + datetime.timedelta(days=scarto)
+            if candidata.weekday() == voluto:
+                return candidata.isoformat()
+    return None
+
+
 def _data_iso_da_match(m, anno_riferimento):
     """Converte un match di QUANDO in data ISO e ora."""
     if not m:
@@ -265,6 +307,20 @@ def analizza(testo, anno_riferimento, giornata=None):
 
     # Fase 2: per ciascuna, analizza il testo fino alla partita successiva
     intestazioni_data = _trova_intestazioni(testo, anno_riferimento)
+
+    # Passata preliminare: raccoglie le date esplicite presenti nel testo.
+    # Servono da riferimento per le partite che indicano solo il giorno
+    # della settimana, e vengono ordinate per vicinanza temporale.
+    ancore = []
+    for m in QUANDO.finditer(testo):
+        d, _ = _data_iso_da_match(m, anno_riferimento)
+        if d and d not in ancore:
+            ancore.append(d)
+    for inizio_int, valore in intestazioni_data:
+        if valore not in ancore:
+            ancore.append(valore)
+    ancore.sort()
+
     risultati = []
     for i, (inizio, fine_coppia, casa, ospite) in enumerate(partite):
         fine = partite[i + 1][0] if i + 1 < len(partite) else len(testo)
@@ -281,10 +337,16 @@ def analizza(testo, anno_riferimento, giornata=None):
         # sbagliato quando cambia la giornata di gara.
         if not data:
             data = _intestazione_precedente(intestazioni_data, inizio, anno_riferimento)
-            if data and not ora:
-                mo = re.search(r"h\.?\s*(\d{1,2})[.:](\d{2})", blocco)
-                if mo and 0 <= int(mo.group(1)) <= 23:
-                    ora = f"{int(mo.group(1)):02d}:{mo.group(2)}"
+
+        if not data:
+            # Ultimo tentativo: il testo indica solo il giorno della settimana
+            # ("Domenica h. 18.30"). Si risolve usando le date già certe.
+            data = _data_da_giorno_settimana(blocco, ancore)
+
+        if data and not ora:
+            mo = re.search(r"h\.?\s*(\d{1,2})[.:](\d{2})", blocco)
+            if mo and 0 <= int(mo.group(1)) <= 23:
+                ora = f"{int(mo.group(1)):02d}:{mo.group(2)}"
 
         # L'arbitro è il primo cognome dopo la data, escluse le sigle di ruolo
         dopo = blocco[mq.end():] if mq else blocco
