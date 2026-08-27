@@ -77,6 +77,20 @@ ALIAS_FOOTBALL_DATA = {
 }
 
 
+def uniforma_squadra(nome):
+    """Riporta il nome di una squadra alla forma di riferimento."""
+    grezzo = (nome or "").strip()
+    if not grezzo:
+        return grezzo
+    if grezzo in ALIAS_FOOTBALL_DATA:
+        return ALIAS_FOOTBALL_DATA[grezzo]
+    minuscolo = grezzo.lower()
+    for k, v in ALIAS_FOOTBALL_DATA.items():
+        if k.lower() == minuscolo:
+            return v
+    return grezzo
+
+
 def scarica(url, descrizione):
     print(f"  GET {url}")
     try:
@@ -128,9 +142,8 @@ def normalizza(testo, etichetta):
         riga["Stagione"] = etichetta
         for originale, nostra in MAPPA.items():
             riga[nostra] = (grezza.get(originale) or "").strip()
-        # allinea i nomi squadra
         for campo in ("Casa", "Ospite"):
-            riga[campo] = ALIAS_FOOTBALL_DATA.get(riga[campo], riga[campo])
+            riga[campo] = uniforma_squadra(riga[campo])
         righe.append(riga)
     return righe
 
@@ -158,6 +171,8 @@ def carica_archivio():
     for r in righe:
         for c in COLONNE:
             r.setdefault(c, "")
+        for campo in ("Casa", "Ospite"):
+            r[campo] = uniforma_squadra(r.get(campo))
     return righe
 
 

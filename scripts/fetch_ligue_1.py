@@ -63,6 +63,31 @@ MAPPA = {
 }
 
 
+ALIAS_CSV = {
+    "paris sg": "Paris SG", "paris s-g": "Paris SG", "psg": "Paris SG",
+    "paris fc": "Paris FC", "st etienne": "St Etienne",
+    "saint-etienne": "St Etienne", "st-etienne": "St Etienne",
+    "ajaccio gfco": "Ajaccio", "le havre": "Le Havre",
+}
+
+
+def uniforma_squadra(nome):
+    """Riporta il nome di una squadra alla forma di riferimento.
+
+    La fonte cambia nel tempo la denominazione di alcune squadre: senza
+    uniformarle la stessa partita entrerebbe due volte in archivio, con
+    due chiavi diverse.
+    """
+    grezzo = (nome or "").strip()
+    if not grezzo:
+        return grezzo
+    chiave = re.sub(r"\s+", " ", grezzo.lower()).strip()
+    if chiave in ALIAS_CSV:
+        return ALIAS_CSV[chiave]
+    senza_punti = re.sub(r"\s+", " ", chiave.replace(".", "")).strip()
+    return ALIAS_CSV.get(senza_punti, grezzo)
+
+
 def scarica(url, descrizione, binario=False):
     print(f"  GET {url}")
     try:
@@ -118,6 +143,8 @@ def normalizza(testo, etichetta):
         riga["Stagione"] = etichetta
         for originale, nostra in MAPPA.items():
             riga[nostra] = (grezza.get(originale) or "").strip()
+        for campo in ("Casa", "Ospite"):
+            riga[campo] = uniforma_squadra(riga[campo])
         righe.append(riga)
     return righe
 
@@ -144,6 +171,8 @@ def carica_archivio():
     for r in righe:
         for c in COLONNE:
             r.setdefault(c, "")
+        for campo in ("Casa", "Ospite"):
+            r[campo] = uniforma_squadra(r.get(campo))
     return righe
 
 

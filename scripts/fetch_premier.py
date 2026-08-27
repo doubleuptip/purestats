@@ -14,6 +14,7 @@ import csv
 import io
 import json
 import os
+import re
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -78,6 +79,34 @@ def stagioni_da_scaricare():
 def etichetta_stagione(codice):
     """'2627' -> '2026/27'"""
     return f"20{codice[:2]}/{codice[2:]}"
+
+
+ALIAS_CSV = {
+    "man united": "Man United", "manchester united": "Man United",
+    "man utd": "Man United", "man city": "Man City",
+    "manchester city": "Man City", "nott'm forest": "Nott'm Forest",
+    "nottingham forest": "Nott'm Forest", "forest": "Nott'm Forest",
+    "sheffield united": "Sheffield United", "sheffield weds": "Sheffield Weds",
+    "west brom": "West Brom", "west ham": "West Ham",
+    "wolves": "Wolves", "wolverhampton": "Wolves", "spurs": "Tottenham",
+}
+
+
+def uniforma_squadra(nome):
+    """Riporta il nome di una squadra alla forma di riferimento.
+
+    La fonte cambia nel tempo la denominazione di alcune squadre: senza
+    uniformarle la stessa partita entrerebbe due volte in archivio, con
+    due chiavi diverse.
+    """
+    grezzo = (nome or "").strip()
+    if not grezzo:
+        return grezzo
+    chiave = re.sub(r"\s+", " ", grezzo.lower()).strip()
+    if chiave in ALIAS_CSV:
+        return ALIAS_CSV[chiave]
+    senza_punti = re.sub(r"\s+", " ", chiave.replace(".", "")).strip()
+    return ALIAS_CSV.get(senza_punti, grezzo)
 
 
 def scarica(codice_stagione):

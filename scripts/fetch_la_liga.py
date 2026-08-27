@@ -58,6 +58,61 @@ MAPPA = {
 }
 
 
+# football-data.co.uk cambia nel tempo la denominazione di alcune squadre
+# ("Ath Madrid" diventa "Atl. Madrid", "La Coruna" diventa "Dep. A Coruna").
+# Senza uniformarle la stessa partita entrerebbe due volte in archivio, con
+# due chiavi diverse. Si sceglie una forma di riferimento e ci si riporta
+# sempre a quella, comprese le righe già salvate in passato.
+ALIAS_CSV = {
+    "atl. madrid": "Ath Madrid",
+    "atl madrid": "Ath Madrid",
+    "atletico madrid": "Ath Madrid",
+    "atletico": "Ath Madrid",
+    "ath madrid": "Ath Madrid",
+    "dep. a coruna": "La Coruna",
+    "dep a coruna": "La Coruna",
+    "deportivo": "La Coruna",
+    "la coruna": "La Coruna",
+    "ath bilbao": "Ath Bilbao",
+    "athletic": "Ath Bilbao",
+    "athletic club": "Ath Bilbao",
+    "espanol": "Espanol",
+    "espanyol": "Espanol",
+    "vallecano": "Vallecano",
+    "rayo vallecano": "Vallecano",
+    "rayo": "Vallecano",
+    "sociedad": "Sociedad",
+    "real sociedad": "Sociedad",
+    "betis": "Betis",
+    "real betis": "Betis",
+    "celta": "Celta",
+    "celta vigo": "Celta",
+    "sp gijon": "Sp Gijon",
+    "sporting gijon": "Sp Gijon",
+    "santander": "Santander",
+    "racing santander": "Santander",
+    "racing": "Santander",
+    "las palmas": "Las Palmas",
+    "valladolid": "Valladolid",
+    "real valladolid": "Valladolid",
+    "oviedo": "Oviedo",
+    "real oviedo": "Oviedo",
+}
+
+
+def uniforma_squadra(nome):
+    """Riporta il nome di una squadra alla forma di riferimento."""
+    grezzo = (nome or "").strip()
+    if not grezzo:
+        return grezzo
+    chiave = re.sub(r"\s+", " ", grezzo.lower()).strip()
+    if chiave in ALIAS_CSV:
+        return ALIAS_CSV[chiave]
+    senza_punti = chiave.replace(".", "").strip()
+    senza_punti = re.sub(r"\s+", " ", senza_punti)
+    return ALIAS_CSV.get(senza_punti, grezzo)
+
+
 def scarica(url, descrizione, binario=False):
     print(f"  GET {url}")
     try:
@@ -113,6 +168,8 @@ def normalizza(testo, etichetta):
         riga["Stagione"] = etichetta
         for originale, nostra in MAPPA.items():
             riga[nostra] = (grezza.get(originale) or "").strip()
+        for campo in ("Casa", "Ospite"):
+            riga[campo] = uniforma_squadra(riga[campo])
         righe.append(riga)
     return righe
 
@@ -139,6 +196,8 @@ def carica_archivio():
     for r in righe:
         for c in COLONNE:
             r.setdefault(c, "")
+        for campo in ("Casa", "Ospite"):
+            r[campo] = uniforma_squadra(r.get(campo))
     return righe
 
 
@@ -518,6 +577,12 @@ def main():
     print(f"\nArchivio esistente: {len(archivio)} partite")
     indice = {chiave(r): r for r in archivio}
     prima = len(indice)
+
+    # Se dopo l'uniformazione dei nomi due righe hanno la stessa chiave,
+    # erano la stessa partita salvata sotto denominazioni diverse.
+    fusi = len(archivio) - len(indice)
+    if fusi > 0:
+        print(f"  {fusi} duplicati fusi (stessa partita, nomi squadra diversi)")
 
     anno_rif = None
     for codice in stagioni_da_scaricare():
