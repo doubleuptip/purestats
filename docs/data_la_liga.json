@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-27T08:15:50.108116+00:00",
+  "aggiornato": "2026-08-27T08:30:37.425716+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -11,7 +11,7 @@
   ],
   "totalePartite": 1539,
   "partiteConDisciplina": 1539,
-  "partiteConArbitro": 8,
+  "partiteConArbitro": 10,
   "arbitri": [
     {
       "nome": "César Soto",
@@ -410,6 +410,72 @@
       "prossime": []
     },
     {
+      "nome": "Juan Martínez",
+      "partite": 1,
+      "gialli": 4,
+      "rossi": 0,
+      "mediaGialli": 4.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.0,
+      "mediaFalli": 31.0,
+      "gialliPerFallo": 12.9,
+      "squilibrioCasaOspite": 2.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 3.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Santander",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Getafe",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 31.0,
+          "squilibrio": 2.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 3.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Getafe",
+          "ospite": "Santander",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 17
+        }
+      ],
+      "prossime": []
+    },
+    {
       "nome": "José Luis Munuera",
       "partite": 1,
       "gialli": 3,
@@ -471,6 +537,72 @@
           "rossiOspite": 0,
           "falliCasa": 14,
           "falliOspite": 13
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Víctor García",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 21.0,
+      "gialliPerFallo": 14.3,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 0,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Osasuna",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Levante",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 21.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "24/08/2026",
+          "casa": "Osasuna",
+          "ospite": "Levante",
+          "gc": 0,
+          "go": 0,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 12
         }
       ],
       "prossime": []
@@ -2101,7 +2233,7 @@
       "ospite": "Levante",
       "gc": 0,
       "go": 0,
-      "arbitro": "",
+      "arbitro": "Víctor García",
       "gialliCasa": 2,
       "gialliOspite": 1,
       "rossiCasa": 0,
@@ -2131,7 +2263,7 @@
       "ospite": "Santander",
       "gc": 1,
       "go": 0,
-      "arbitro": "",
+      "arbitro": "Juan Martínez",
       "gialliCasa": 1,
       "gialliOspite": 3,
       "rossiCasa": 0,
