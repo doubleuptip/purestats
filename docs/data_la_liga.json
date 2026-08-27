@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-26T08:35:09.723717+00:00",
+  "aggiornato": "2026-08-27T08:15:50.108116+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -11,7 +11,7 @@
   ],
   "totalePartite": 1539,
   "partiteConDisciplina": 1539,
-  "partiteConArbitro": 7,
+  "partiteConArbitro": 8,
   "arbitri": [
     {
       "nome": "César Soto",
@@ -278,6 +278,72 @@
       "prossime": []
     },
     {
+      "nome": "Javier Alberola",
+      "partite": 1,
+      "gialli": 5,
+      "rossi": 0,
+      "mediaGialli": 5.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 5.0,
+      "mediaFalli": 24.0,
+      "gialliPerFallo": 20.8,
+      "squilibrioCasaOspite": 3.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 4.0,
+      "vittorieCasa": 0,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "La Coruna",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Malaga",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 24.0,
+          "squilibrio": 3.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 4.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "24/08/2026",
+          "casa": "Malaga",
+          "ospite": "La Coruna",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 12
+        }
+      ],
+      "prossime": []
+    },
+    {
       "nome": "Jesús Gil",
       "partite": 1,
       "gialli": 5,
@@ -486,7 +552,64 @@
       "mediaRossi": 0.21,
       "mediaFalli": 15.9,
       "mediaGialliCasa": 2.83,
-      "mediaGialliOspite": 3.47
+      "mediaGialliOspite": 3.47,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 126,
+          "rossi": 9,
+          "mediaGialli": 3.32,
+          "mediaRossi": 0.24,
+          "mediaFalli": 15.8,
+          "mediaGialliCasa": 3.32,
+          "mediaGialliOspite": 3.32
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 135,
+          "rossi": 8,
+          "mediaGialli": 3.55,
+          "mediaRossi": 0.21,
+          "mediaFalli": 17.1,
+          "mediaGialliCasa": 3.11,
+          "mediaGialliOspite": 4.0
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 109,
+          "rossi": 7,
+          "mediaGialli": 2.87,
+          "mediaRossi": 0.18,
+          "mediaFalli": 15.8,
+          "mediaGialliCasa": 2.63,
+          "mediaGialliOspite": 3.11
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 111,
+          "rossi": 8,
+          "mediaGialli": 2.92,
+          "mediaRossi": 0.21,
+          "mediaFalli": 15.2,
+          "mediaGialliCasa": 2.37,
+          "mediaGialliOspite": 3.47
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 4,
+          "rossi": 1,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.5,
+          "mediaFalli": 13.5,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "La Coruna",
@@ -497,7 +620,20 @@
       "mediaRossi": 0.0,
       "mediaFalli": 14.5,
       "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 4.0
+      "mediaGialliOspite": 4.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 6,
+          "rossi": 0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 14.5,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 4.0
+        }
+      ]
     },
     {
       "nome": "Cadiz",
@@ -508,7 +644,31 @@
       "mediaRossi": 0.18,
       "mediaFalli": 14.6,
       "mediaGialliCasa": 3.03,
-      "mediaGialliOspite": 2.82
+      "mediaGialliOspite": 2.82,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 115,
+          "rossi": 7,
+          "mediaGialli": 3.03,
+          "mediaRossi": 0.18,
+          "mediaFalli": 14.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 3.05
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 107,
+          "rossi": 7,
+          "mediaGialli": 2.82,
+          "mediaRossi": 0.18,
+          "mediaFalli": 15.2,
+          "mediaGialliCasa": 3.05,
+          "mediaGialliOspite": 2.58
+        }
+      ]
     },
     {
       "nome": "Sevilla",
@@ -519,7 +679,64 @@
       "mediaRossi": 0.2,
       "mediaFalli": 13.2,
       "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 2.74
+      "mediaGialliOspite": 2.74,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 119,
+          "rossi": 13,
+          "mediaGialli": 3.13,
+          "mediaRossi": 0.34,
+          "mediaFalli": 12.5,
+          "mediaGialliCasa": 2.89,
+          "mediaGialliOspite": 3.37
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 108,
+          "rossi": 4,
+          "mediaGialli": 2.84,
+          "mediaRossi": 0.11,
+          "mediaFalli": 12.5,
+          "mediaGialliCasa": 2.89,
+          "mediaGialliOspite": 2.79
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 97,
+          "rossi": 8,
+          "mediaGialli": 2.55,
+          "mediaRossi": 0.21,
+          "mediaFalli": 12.9,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 2.11
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 109,
+          "rossi": 5,
+          "mediaGialli": 2.87,
+          "mediaRossi": 0.13,
+          "mediaFalli": 14.8,
+          "mediaGialliCasa": 3.16,
+          "mediaGialliOspite": 2.58
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 9,
+          "rossi": 1,
+          "mediaGialli": 4.5,
+          "mediaRossi": 0.5,
+          "mediaFalli": 17.0,
+          "mediaGialliCasa": 4.0,
+          "mediaGialliOspite": 5.0
+        }
+      ]
     },
     {
       "nome": "Vallecano",
@@ -530,7 +747,64 @@
       "mediaRossi": 0.15,
       "mediaFalli": 14.1,
       "mediaGialliCasa": 2.27,
-      "mediaGialliOspite": 2.91
+      "mediaGialliOspite": 2.91,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 90,
+          "rossi": 6,
+          "mediaGialli": 2.37,
+          "mediaRossi": 0.16,
+          "mediaFalli": 14.3,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.53
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 106,
+          "rossi": 5,
+          "mediaGialli": 2.79,
+          "mediaRossi": 0.13,
+          "mediaFalli": 14.8,
+          "mediaGialliCasa": 2.68,
+          "mediaGialliOspite": 2.89
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 96,
+          "rossi": 3,
+          "mediaGialli": 2.53,
+          "mediaRossi": 0.08,
+          "mediaFalli": 13.7,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.89
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 102,
+          "rossi": 9,
+          "mediaGialli": 2.68,
+          "mediaRossi": 0.24,
+          "mediaFalli": 13.5,
+          "mediaGialliCasa": 2.11,
+          "mediaGialliOspite": 3.26
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 5,
+          "rossi": 0,
+          "mediaGialli": 2.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 16.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 4.0
+        }
+      ]
     },
     {
       "nome": "Granada",
@@ -541,7 +815,20 @@
       "mediaRossi": 0.13,
       "mediaFalli": 13.5,
       "mediaGialliCasa": 2.37,
-      "mediaGialliOspite": 2.68
+      "mediaGialliOspite": 2.68,
+      "perStagione": [
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 96,
+          "rossi": 5,
+          "mediaGialli": 2.53,
+          "mediaRossi": 0.13,
+          "mediaFalli": 13.5,
+          "mediaGialliCasa": 2.37,
+          "mediaGialliOspite": 2.68
+        }
+      ]
     },
     {
       "nome": "Mallorca",
@@ -552,7 +839,53 @@
       "mediaRossi": 0.11,
       "mediaFalli": 13.9,
       "mediaGialliCasa": 2.55,
-      "mediaGialliOspite": 2.5
+      "mediaGialliOspite": 2.5,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 120,
+          "rossi": 3,
+          "mediaGialli": 3.16,
+          "mediaRossi": 0.08,
+          "mediaFalli": 16.1,
+          "mediaGialliCasa": 3.58,
+          "mediaGialliOspite": 2.74
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 103,
+          "rossi": 3,
+          "mediaGialli": 2.71,
+          "mediaRossi": 0.08,
+          "mediaFalli": 14.9,
+          "mediaGialliCasa": 2.89,
+          "mediaGialliOspite": 2.53
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 6,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.16,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 2.42
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 81,
+          "rossi": 5,
+          "mediaGialli": 2.13,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.3,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.32
+        }
+      ]
     },
     {
       "nome": "Alaves",
@@ -563,7 +896,53 @@
       "mediaRossi": 0.09,
       "mediaFalli": 14.5,
       "mediaGialliCasa": 2.38,
-      "mediaGialliOspite": 2.63
+      "mediaGialliOspite": 2.63,
+      "perStagione": [
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 84,
+          "rossi": 1,
+          "mediaGialli": 2.21,
+          "mediaRossi": 0.03,
+          "mediaFalli": 12.7,
+          "mediaGialliCasa": 2.26,
+          "mediaGialliOspite": 2.16
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 106,
+          "rossi": 5,
+          "mediaGialli": 2.79,
+          "mediaRossi": 0.13,
+          "mediaFalli": 16.1,
+          "mediaGialliCasa": 2.58,
+          "mediaGialliOspite": 3.0
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 95,
+          "rossi": 5,
+          "mediaGialli": 2.5,
+          "mediaRossi": 0.13,
+          "mediaFalli": 14.9,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.79
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 8,
+          "rossi": 0,
+          "mediaGialli": 2.67,
+          "mediaRossi": 0.0,
+          "mediaFalli": 14.0,
+          "mediaGialliCasa": 4.0,
+          "mediaGialliOspite": 2.0
+        }
+      ]
     },
     {
       "nome": "Santander",
@@ -574,7 +953,20 @@
       "mediaRossi": 0.0,
       "mediaFalli": 15.5,
       "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 3.0
+      "mediaGialliOspite": 3.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 5,
+          "rossi": 0,
+          "mediaGialli": 2.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 15.5,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Las Palmas",
@@ -585,7 +977,31 @@
       "mediaRossi": 0.12,
       "mediaFalli": 11.3,
       "mediaGialliCasa": 2.61,
-      "mediaGialliOspite": 2.37
+      "mediaGialliOspite": 2.37,
+      "perStagione": [
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 82,
+          "rossi": 5,
+          "mediaGialli": 2.16,
+          "mediaRossi": 0.13,
+          "mediaFalli": 10.8,
+          "mediaGialliCasa": 2.42,
+          "mediaGialliOspite": 1.89
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 107,
+          "rossi": 4,
+          "mediaGialli": 2.82,
+          "mediaRossi": 0.11,
+          "mediaFalli": 11.8,
+          "mediaGialliCasa": 2.79,
+          "mediaGialliOspite": 2.84
+        }
+      ]
     },
     {
       "nome": "Villarreal",
@@ -596,7 +1012,64 @@
       "mediaRossi": 0.12,
       "mediaFalli": 12.1,
       "mediaGialliCasa": 2.24,
-      "mediaGialliOspite": 2.72
+      "mediaGialliOspite": 2.72,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 91,
+          "rossi": 3,
+          "mediaGialli": 2.39,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.8,
+          "mediaGialliCasa": 2.53,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 110,
+          "rossi": 8,
+          "mediaGialli": 2.89,
+          "mediaRossi": 0.21,
+          "mediaFalli": 12.8,
+          "mediaGialliCasa": 2.47,
+          "mediaGialliOspite": 3.32
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 97,
+          "rossi": 4,
+          "mediaGialli": 2.55,
+          "mediaRossi": 0.11,
+          "mediaFalli": 11.6,
+          "mediaGialliCasa": 2.37,
+          "mediaGialliOspite": 2.74
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 78,
+          "rossi": 3,
+          "mediaGialli": 2.05,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.9,
+          "mediaGialliCasa": 1.58,
+          "mediaGialliOspite": 2.53
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 6,
+          "rossi": 0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 13.5,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Almeria",
@@ -607,7 +1080,31 @@
       "mediaRossi": 0.12,
       "mediaFalli": 12.1,
       "mediaGialliCasa": 2.37,
-      "mediaGialliOspite": 2.55
+      "mediaGialliOspite": 2.55,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 96,
+          "rossi": 4,
+          "mediaGialli": 2.53,
+          "mediaRossi": 0.11,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 2.58,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 91,
+          "rossi": 5,
+          "mediaGialli": 2.39,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.5,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.63
+        }
+      ]
     },
     {
       "nome": "Valladolid",
@@ -618,7 +1115,31 @@
       "mediaRossi": 0.14,
       "mediaFalli": 12.1,
       "mediaGialliCasa": 2.13,
-      "mediaGialliOspite": 2.76
+      "mediaGialliOspite": 2.76,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 93,
+          "rossi": 6,
+          "mediaGialli": 2.45,
+          "mediaRossi": 0.16,
+          "mediaFalli": 12.1,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 3.21
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 93,
+          "rossi": 5,
+          "mediaGialli": 2.45,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.1,
+          "mediaGialliCasa": 2.58,
+          "mediaGialliOspite": 2.32
+        }
+      ]
     },
     {
       "nome": "Espanol",
@@ -629,7 +1150,53 @@
       "mediaRossi": 0.14,
       "mediaFalli": 13.1,
       "mediaGialliCasa": 2.29,
-      "mediaGialliOspite": 2.6
+      "mediaGialliOspite": 2.6,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 98,
+          "rossi": 10,
+          "mediaGialli": 2.58,
+          "mediaRossi": 0.26,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": 2.42,
+          "mediaGialliOspite": 2.74
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 86,
+          "rossi": 1,
+          "mediaGialli": 2.26,
+          "mediaRossi": 0.03,
+          "mediaFalli": 13.1,
+          "mediaGialliCasa": 2.11,
+          "mediaGialliOspite": 2.42
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 91,
+          "rossi": 5,
+          "mediaGialli": 2.39,
+          "mediaRossi": 0.13,
+          "mediaFalli": 13.8,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.63
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 8,
+          "rossi": 0,
+          "mediaGialli": 4.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 18.0,
+          "mediaGialliCasa": 4.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Sociedad",
@@ -640,7 +1207,64 @@
       "mediaRossi": 0.08,
       "mediaFalli": 14.9,
       "mediaGialliCasa": 2.28,
-      "mediaGialliOspite": 2.47
+      "mediaGialliOspite": 2.47,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 90,
+          "rossi": 2,
+          "mediaGialli": 2.37,
+          "mediaRossi": 0.05,
+          "mediaFalli": 16.4,
+          "mediaGialliCasa": 2.42,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 97,
+          "rossi": 2,
+          "mediaGialli": 2.55,
+          "mediaRossi": 0.05,
+          "mediaFalli": 15.9,
+          "mediaGialliCasa": 2.26,
+          "mediaGialliOspite": 2.84
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 85,
+          "rossi": 4,
+          "mediaGialli": 2.24,
+          "mediaRossi": 0.11,
+          "mediaFalli": 13.2,
+          "mediaGialliCasa": 2.32,
+          "mediaGialliOspite": 2.16
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 88,
+          "rossi": 4,
+          "mediaGialli": 2.32,
+          "mediaRossi": 0.11,
+          "mediaFalli": 14.2,
+          "mediaGialliCasa": 2.11,
+          "mediaGialliOspite": 2.53
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Elche",
@@ -651,7 +1275,42 @@
       "mediaRossi": 0.2,
       "mediaFalli": 13.5,
       "mediaGialliCasa": 2.13,
-      "mediaGialliOspite": 2.55
+      "mediaGialliOspite": 2.55,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 99,
+          "rossi": 11,
+          "mediaGialli": 2.61,
+          "mediaRossi": 0.29,
+          "mediaFalli": 13.8,
+          "mediaGialliCasa": 2.37,
+          "mediaGialliOspite": 2.84
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 81,
+          "rossi": 5,
+          "mediaGialli": 2.13,
+          "mediaRossi": 0.13,
+          "mediaFalli": 13.3,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 5,
+          "rossi": 0,
+          "mediaGialli": 1.67,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.3,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
+        }
+      ]
     },
     {
       "nome": "Malaga",
@@ -662,7 +1321,20 @@
       "mediaRossi": 0.0,
       "mediaFalli": 11.3,
       "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 3.0
+      "mediaGialliOspite": 3.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 7,
+          "rossi": 0,
+          "mediaGialli": 2.33,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Osasuna",
@@ -673,7 +1345,64 @@
       "mediaRossi": 0.12,
       "mediaFalli": 13.7,
       "mediaGialliCasa": 2.31,
-      "mediaGialliOspite": 2.25
+      "mediaGialliOspite": 2.25,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 93,
+          "rossi": 7,
+          "mediaGialli": 2.45,
+          "mediaRossi": 0.18,
+          "mediaFalli": 14.3,
+          "mediaGialliCasa": 2.32,
+          "mediaGialliOspite": 2.58
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 77,
+          "rossi": 5,
+          "mediaGialli": 2.03,
+          "mediaRossi": 0.13,
+          "mediaFalli": 13.6,
+          "mediaGialliCasa": 2.26,
+          "mediaGialliOspite": 1.79
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 86,
+          "rossi": 0,
+          "mediaGialli": 2.26,
+          "mediaRossi": 0.0,
+          "mediaFalli": 13.3,
+          "mediaGialliCasa": 2.37,
+          "mediaGialliOspite": 2.16
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 91,
+          "rossi": 6,
+          "mediaGialli": 2.39,
+          "mediaRossi": 0.16,
+          "mediaFalli": 13.5,
+          "mediaGialliCasa": 2.32,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Ath Madrid",
@@ -684,7 +1413,64 @@
       "mediaRossi": 0.14,
       "mediaFalli": 11.3,
       "mediaGialliCasa": 2.01,
-      "mediaGialliOspite": 2.42
+      "mediaGialliOspite": 2.42,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 91,
+          "rossi": 8,
+          "mediaGialli": 2.39,
+          "mediaRossi": 0.21,
+          "mediaFalli": 11.6,
+          "mediaGialliCasa": 2.11,
+          "mediaGialliOspite": 2.68
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 90,
+          "rossi": 5,
+          "mediaGialli": 2.37,
+          "mediaRossi": 0.13,
+          "mediaFalli": 11.6,
+          "mediaGialliCasa": 2.05,
+          "mediaGialliOspite": 2.68
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 76,
+          "rossi": 3,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.08,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 79,
+          "rossi": 5,
+          "mediaGialli": 2.08,
+          "mediaRossi": 0.13,
+          "mediaFalli": 11.2,
+          "mediaGialliCasa": 1.89,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 5,
+          "rossi": 1,
+          "mediaGialli": 2.5,
+          "mediaRossi": 0.5,
+          "mediaFalli": 14.5,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Leganes",
@@ -695,7 +1481,20 @@
       "mediaRossi": 0.16,
       "mediaFalli": 13.2,
       "mediaGialliCasa": 1.95,
-      "mediaGialliOspite": 2.37
+      "mediaGialliOspite": 2.37,
+      "perStagione": [
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 82,
+          "rossi": 6,
+          "mediaGialli": 2.16,
+          "mediaRossi": 0.16,
+          "mediaFalli": 13.2,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.37
+        }
+      ]
     },
     {
       "nome": "Oviedo",
@@ -706,7 +1505,20 @@
       "mediaRossi": 0.26,
       "mediaFalli": 12.5,
       "mediaGialliCasa": 2.16,
-      "mediaGialliOspite": 2.11
+      "mediaGialliOspite": 2.11,
+      "perStagione": [
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 81,
+          "rossi": 10,
+          "mediaGialli": 2.13,
+          "mediaRossi": 0.26,
+          "mediaFalli": 12.5,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.11
+        }
+      ]
     },
     {
       "nome": "Levante",
@@ -717,7 +1529,31 @@
       "mediaRossi": 0.12,
       "mediaFalli": 12.1,
       "mediaGialliCasa": 2.21,
-      "mediaGialliOspite": 2.05
+      "mediaGialliOspite": 2.05,
+      "perStagione": [
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 84,
+          "rossi": 5,
+          "mediaGialli": 2.21,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.3,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.21
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 0.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.5,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 0.5
+        }
+      ]
     },
     {
       "nome": "Girona",
@@ -728,7 +1564,53 @@
       "mediaRossi": 0.09,
       "mediaFalli": 11.1,
       "mediaGialliCasa": 1.92,
-      "mediaGialliOspite": 2.3
+      "mediaGialliOspite": 2.3,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 93,
+          "rossi": 3,
+          "mediaGialli": 2.45,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.6,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.68
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 74,
+          "rossi": 1,
+          "mediaGialli": 1.95,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.63,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 75,
+          "rossi": 2,
+          "mediaGialli": 1.97,
+          "mediaRossi": 0.05,
+          "mediaFalli": 11.5,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 79,
+          "rossi": 7,
+          "mediaGialli": 2.08,
+          "mediaRossi": 0.18,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.0
+        }
+      ]
     },
     {
       "nome": "Betis",
@@ -739,7 +1621,64 @@
       "mediaRossi": 0.16,
       "mediaFalli": 11.0,
       "mediaGialliCasa": 2.06,
-      "mediaGialliOspite": 2.11
+      "mediaGialliOspite": 2.11,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 82,
+          "rossi": 15,
+          "mediaGialli": 2.16,
+          "mediaRossi": 0.39,
+          "mediaFalli": 10.9,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 87,
+          "rossi": 3,
+          "mediaGialli": 2.29,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 2.37,
+          "mediaGialliOspite": 2.21
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 74,
+          "rossi": 4,
+          "mediaGialli": 1.95,
+          "mediaRossi": 0.11,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 2.05,
+          "mediaGialliOspite": 1.84
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 73,
+          "rossi": 2,
+          "mediaGialli": 1.92,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.6,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Valencia",
@@ -750,7 +1689,64 @@
       "mediaRossi": 0.11,
       "mediaFalli": 12.4,
       "mediaGialliCasa": 2.14,
-      "mediaGialliOspite": 1.95
+      "mediaGialliOspite": 1.95,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 91,
+          "rossi": 8,
+          "mediaGialli": 2.39,
+          "mediaRossi": 0.21,
+          "mediaFalli": 13.3,
+          "mediaGialliCasa": 2.68,
+          "mediaGialliOspite": 2.11
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 64,
+          "rossi": 5,
+          "mediaGialli": 1.68,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.6,
+          "mediaGialliCasa": 1.63,
+          "mediaGialliOspite": 1.74
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 85,
+          "rossi": 1,
+          "mediaGialli": 2.24,
+          "mediaRossi": 0.03,
+          "mediaFalli": 11.6,
+          "mediaGialliCasa": 2.47,
+          "mediaGialliOspite": 2.0
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 71,
+          "rossi": 3,
+          "mediaGialli": 1.87,
+          "mediaRossi": 0.08,
+          "mediaFalli": 12.1,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 1.95
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 17.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Celta",
@@ -761,7 +1757,64 @@
       "mediaRossi": 0.1,
       "mediaFalli": 12.1,
       "mediaGialliCasa": 1.92,
-      "mediaGialliOspite": 2.14
+      "mediaGialliOspite": 2.14,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 86,
+          "rossi": 6,
+          "mediaGialli": 2.26,
+          "mediaRossi": 0.16,
+          "mediaFalli": 12.3,
+          "mediaGialliCasa": 2.05,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 65,
+          "rossi": 4,
+          "mediaGialli": 1.71,
+          "mediaRossi": 0.11,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 1.47
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 84,
+          "rossi": 5,
+          "mediaGialli": 2.21,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.1,
+          "mediaGialliCasa": 2.11,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 73,
+          "rossi": 1,
+          "mediaGialli": 1.92,
+          "mediaRossi": 0.03,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 1.58,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 17.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Ath Bilbao",
@@ -772,7 +1825,64 @@
       "mediaRossi": 0.13,
       "mediaFalli": 13.3,
       "mediaGialliCasa": 2.03,
-      "mediaGialliOspite": 2.0
+      "mediaGialliOspite": 2.0,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 81,
+          "rossi": 5,
+          "mediaGialli": 2.13,
+          "mediaRossi": 0.13,
+          "mediaFalli": 13.4,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.11
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 5,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.13,
+          "mediaFalli": 13.4,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.21
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 64,
+          "rossi": 3,
+          "mediaGialli": 1.68,
+          "mediaRossi": 0.08,
+          "mediaFalli": 12.7,
+          "mediaGialliCasa": 1.74,
+          "mediaGialliOspite": 1.63
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 81,
+          "rossi": 6,
+          "mediaGialli": 2.13,
+          "mediaRossi": 0.16,
+          "mediaFalli": 13.7,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 1,
+          "mediaGialli": 2.0,
+          "mediaRossi": 1.0,
+          "mediaFalli": 11.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Atl. Madrid",
@@ -783,7 +1893,20 @@
       "mediaRossi": 0.0,
       "mediaFalli": 17.0,
       "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": null
+      "mediaGialliOspite": null,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 17.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Dep. A Coruna",
@@ -794,7 +1917,20 @@
       "mediaRossi": 0.0,
       "mediaFalli": 17.0,
       "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": null
+      "mediaGialliOspite": null,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 17.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Barcelona",
@@ -805,7 +1941,64 @@
       "mediaRossi": 0.08,
       "mediaFalli": 10.4,
       "mediaGialliCasa": 1.61,
-      "mediaGialliOspite": 2.21
+      "mediaGialliOspite": 2.21,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 81,
+          "rossi": 6,
+          "mediaGialli": 2.13,
+          "mediaRossi": 0.16,
+          "mediaFalli": 11.4,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 2.58
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 87,
+          "rossi": 2,
+          "mediaGialli": 2.29,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.8,
+          "mediaGialliCasa": 2.32,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 64,
+          "rossi": 3,
+          "mediaGialli": 1.68,
+          "mediaRossi": 0.08,
+          "mediaFalli": 9.7,
+          "mediaGialliCasa": 1.26,
+          "mediaGialliOspite": 2.11
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 60,
+          "rossi": 2,
+          "mediaGialli": 1.58,
+          "mediaRossi": 0.05,
+          "mediaFalli": 9.5,
+          "mediaGialliCasa": 1.16,
+          "mediaGialliOspite": 2.0
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "mediaGialli": 0.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 0.0
+        }
+      ]
     },
     {
       "nome": "Real Madrid",
@@ -816,7 +2009,64 @@
       "mediaRossi": 0.12,
       "mediaFalli": 9.5,
       "mediaGialliCasa": 1.64,
-      "mediaGialliOspite": 1.86
+      "mediaGialliOspite": 1.86,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 72,
+          "rossi": 3,
+          "mediaGialli": 1.89,
+          "mediaRossi": 0.08,
+          "mediaFalli": 9.7,
+          "mediaGialliCasa": 1.63,
+          "mediaGialliOspite": 2.16
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 69,
+          "rossi": 4,
+          "mediaGialli": 1.82,
+          "mediaRossi": 0.11,
+          "mediaFalli": 9.7,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 1.95
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 57,
+          "rossi": 4,
+          "mediaGialli": 1.5,
+          "mediaRossi": 0.11,
+          "mediaFalli": 8.7,
+          "mediaGialliCasa": 1.26,
+          "mediaGialliOspite": 1.74
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 69,
+          "rossi": 7,
+          "mediaGialli": 1.82,
+          "mediaRossi": 0.18,
+          "mediaFalli": 10.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.63
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 7.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 1.0
+        }
+      ]
     },
     {
       "nome": "Rayo Vallecano",
@@ -827,7 +2077,20 @@
       "mediaRossi": 0.0,
       "mediaFalli": 14.0,
       "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": null
+      "mediaGialliOspite": null,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 14.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": null
+        }
+      ]
     }
   ],
   "ultimePartite": [
@@ -853,7 +2116,7 @@
       "ospite": "La Coruna",
       "gc": 1,
       "go": 1,
-      "arbitro": "",
+      "arbitro": "Javier Alberola",
       "gialliCasa": 1,
       "gialliOspite": 4,
       "rossiCasa": 0,
