@@ -194,6 +194,10 @@ def calcola_statistiche(righe):
         "partite": 0, "gialli": 0, "rossi": 0, "falli": 0,
         "tiri": 0, "corner": 0, "conDati": 0,
         "gialliCasa": 0, "gialliOspite": 0, "partiteCasa": 0, "partiteOspite": 0,
+        "perStagione": defaultdict(lambda: {
+            "partite": 0, "gialli": 0, "rossi": 0, "falli": 0, "conDati": 0,
+            "gialliCasa": 0, "gialliOspite": 0,
+            "partiteCasa": 0, "partiteOspite": 0}),
     })
 
     complete = 0
@@ -369,6 +373,15 @@ def calcola_statistiche(righe):
             "mediaGialliCasa": media(s["gialliCasa"], s["partiteCasa"]),
             "mediaGialliOspite": media(s["gialliOspite"], s["partiteOspite"]),
             "falliPerGiallo": media(s["falli"], s["gialli"], 1) if s["gialli"] else None,
+            "perStagione": sorted([
+                {"stagione": st, "partite": v["partite"],
+                 "gialli": v["gialli"], "rossi": v["rossi"],
+                 "mediaGialli": media(v["gialli"], v["conDati"]),
+                 "mediaRossi": media(v["rossi"], v["conDati"]),
+                 "mediaFalli": media(v["falli"], v["conDati"], 1),
+                 "mediaGialliCasa": media(v["gialliCasa"], v["partiteCasa"]),
+                 "mediaGialliOspite": media(v["gialliOspite"], v["partiteOspite"])}
+                for st, v in s["perStagione"].items()], key=lambda x: x["stagione"]),
         })
     lista_squadre.sort(key=lambda x: (-(x["mediaGialli"] or 0), x["nome"]))
 

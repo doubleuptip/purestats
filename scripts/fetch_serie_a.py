@@ -365,6 +365,10 @@ def calcola_statistiche(righe, future):
         "partite": 0, "gialli": 0, "rossi": 0, "falli": 0, "tiri": 0,
         "corner": 0, "conDati": 0, "gialliCasa": 0, "gialliOspite": 0,
         "partiteCasa": 0, "partiteOspite": 0,
+        "perStagione": defaultdict(lambda: {
+            "partite": 0, "gialli": 0, "rossi": 0, "falli": 0, "conDati": 0,
+            "gialliCasa": 0, "gialliOspite": 0,
+            "partiteCasa": 0, "partiteOspite": 0}),
     })
 
     complete = 0
@@ -426,12 +430,22 @@ def calcola_statistiche(righe, future):
             if not nome:
                 continue
             s = squadre[nome]
+            st_sq = (r.get("Stagione") or "").strip()
+            ps = s["perStagione"][st_sq] if st_sq else None
             s["partite"] += 1
+            if ps is not None:
+                ps["partite"] += 1
             if None not in (gi, ros):
                 s["conDati"] += 1; s["gialli"] += gi; s["rossi"] += ros
                 if in_casa: s["gialliCasa"] += gi; s["partiteCasa"] += 1
                 else: s["gialliOspite"] += gi; s["partiteOspite"] += 1
-            if fa is not None: s["falli"] += fa
+                if ps is not None:
+                    ps["conDati"] += 1; ps["gialli"] += gi; ps["rossi"] += ros
+                    if in_casa: ps["gialliCasa"] += gi; ps["partiteCasa"] += 1
+                    else: ps["gialliOspite"] += gi; ps["partiteOspite"] += 1
+            if fa is not None:
+                s["falli"] += fa
+                if ps is not None: ps["falli"] += fa
             if ti is not None: s["tiri"] += ti
             if co_ is not None: s["corner"] += co_
 
@@ -511,7 +525,16 @@ def calcola_statistiche(righe, future):
          "mediaRossi": media(s["rossi"], s["conDati"]),
          "mediaFalli": media(s["falli"], s["conDati"], 1),
          "mediaGialliCasa": media(s["gialliCasa"], s["partiteCasa"]),
-         "mediaGialliOspite": media(s["gialliOspite"], s["partiteOspite"])}
+         "mediaGialliOspite": media(s["gialliOspite"], s["partiteOspite"]),
+         "perStagione": sorted([
+             {"stagione": st, "partite": v["partite"],
+              "gialli": v["gialli"], "rossi": v["rossi"],
+              "mediaGialli": media(v["gialli"], v["conDati"]),
+              "mediaRossi": media(v["rossi"], v["conDati"]),
+              "mediaFalli": media(v["falli"], v["conDati"], 1),
+              "mediaGialliCasa": media(v["gialliCasa"], v["partiteCasa"]),
+              "mediaGialliOspite": media(v["gialliOspite"], v["partiteOspite"])}
+             for st, v in s["perStagione"].items()], key=lambda x: x["stagione"])}
         for nome, s in squadre.items()
     ], key=lambda x: (-(x["mediaGialli"] or 0), x["nome"]))
 
