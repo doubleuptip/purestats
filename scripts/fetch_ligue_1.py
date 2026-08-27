@@ -4,15 +4,13 @@ Archivio Ligue 1 — statistiche disciplinari e designazioni arbitrali.
 Due fonti:
   1. football-data.co.uk (F1.csv) — cartellini e falli di squadra.
      Licenza PDDL. Il campo arbitro esiste ma è sempre vuoto.
-  2. deux-zero.com — chi arbitra ogni partita.
+  2. ligue1.com — designazioni ufficiali della Lega, con arbitro
+     principale, assistenti, quarto uomo e coppia VAR.
 
-Nota sull'uso della seconda fonte: è un sito indipendente, non una
-fonte ufficiale né sotto licenza aperta. Lo script scarica per questo
-la sola giornata corrente, con una pausa fra le richieste, per un
-volume di traffico equivalente a quello di una persona che consulta
-il sito. Lo scaricamento dello storico è disattivato per scelta: si
-attiva solo impostando GIORNATE, e conviene farlo dopo aver chiesto
-il consenso al gestore del sito.
+La fonte ufficiale è quella preferita. Come riserva resta deux-zero.com,
+il cui gestore ha confermato per iscritto che la consultazione del sito è
+libera; viene interrogato solo se il sito della Lega non risponde, e per
+la sola giornata corrente.
 
 L'archivio è centrato sugli arbitri: le statistiche offensive presenti
 nel CSV vengono conservate nel file ma non entrano nelle medie.
@@ -41,6 +39,8 @@ USCITA = RADICE / "docs" / "data_ligue_1.json"
 
 BASE_CSV = "https://www.football-data.co.uk/mmz4281"
 CODICE = "F1"
+BASE_LFP = "https://ligue1.com"
+ELENCO_LFP = "https://ligue1.com/fr/articles"
 BASE_DESIG = "https://www.deux-zero.com/ligue-1/arbitrage-designations-journee/edition"
 UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 
@@ -50,7 +50,7 @@ PAUSA = 3.0
 COLONNE = [
     "Stagione", "Data", "Ora", "Casa", "Ospite",
     "GolCasa", "GolOspite", "Esito",
-    "Arbitro", "Giornata",
+    "Arbitro", "Giornata", "QuartoUomo", "Var", "Avar",
     "FalliCasa", "FalliOspite",
     "GialliCasa", "GialliOspite", "RossiCasa", "RossiOspite",
 ]
@@ -227,51 +227,109 @@ def _testo_da_html(html):
     return re.sub(r"[ \t]+", " ", testo)
 
 
-def aggiorna_designazioni(anno, designazioni_note):
-    """Scarica le designazioni della giornata corrente.
+def _articoli_designazioni(html):
+    """Estrae dall'elenco articoli i collegamenti alle designazioni.
 
-    Di norma esegue una sola richiesta. Lo scaricamento di più giornate
-    va richiesto esplicitamente con la variabile GIORNATE, e resta a
-    discrezione di chi lo attiva verificare che sia lecito farlo.
+    Cerca gli indirizzi che contengono 'arbitres' e un riferimento alla
+    giornata: sono gli articoli pubblicati prima di ogni turno.
+    """
+    trovati = []
+    for m in re.finditer(r'href="(?P<url>/fr/articles/l1_article_[^"]+)"', html):
+        url = m.group("url")
+        if "arbitre" not in url.lower():
+            continue
+        completo = BASE_LFP + url
+        if completo not in trovati:
+            trovati.append(completo)
+    return trovati
+
+
+def _data_pubblicazione(html):
+    """Legge la data di pubblicazione dell'articolo."""
+    m = re.search(r'article:published_time"?\s*[:=]\s*"?([0-9]{4}-[0-9]{2}-[0-9]{2})', html)
+    if m:
+        return m.group(1)
+    m = re.search(r"Publi[ée] le\s*(\d{2})/(\d{2})/(\d{4})", html)
+    if m:
+        return f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
+    return None
+
+
+def _da_fonte_ufficiale(gia_note):
+    """Legge le designazioni dal sito ufficiale della Lega.
+
+    Due richieste: l'elenco articoli e l'articolo delle designazioni più
+    recente. Se la struttura del sito cambia si torna a mani vuote senza
+    interrompere l'aggiornamento: c'è la fonte di riserva.
     """
     trovate = []
+    elenco = scarica(ELENCO_LFP, "elenco articoli")
+    if not elenco:
+        return trovate
 
-    giornate = os.environ.get("GIORNATE", "").strip()
-    if giornate:
-        elenco = [g for g in re.split(r"[,\s]+", giornate) if g.isdigit()]
-        print(f"  Giornate richieste esplicitamente: {elenco}")
-        print("  Verifica di avere il consenso del sito per questo volume di richieste.")
-    else:
-        elenco = [None]   # solo la pagina corrente
+    collegamenti = _articoli_designazioni(elenco)
+    if not collegamenti:
+        print("    Nessun articolo di designazioni nell'elenco")
+        return trovate
+    print(f"    {len(collegamenti)} articoli di designazioni individuati")
 
-    for i, giornata in enumerate(elenco):
-        if i > 0:
-            time.sleep(PAUSA)
-        url = url_designazioni(anno)
-        if giornata:
-            url += f"/journee/{giornata}"
-
-        html = scarica(url, "designazioni")
+    # Solo i più recenti: gli altri riguardano giornate già in archivio
+    quanti = int(os.environ.get("ARTICOLI", "2"))
+    for url in collegamenti[:quanti]:
+        time.sleep(PAUSA)
+        html = scarica(url, "articolo designazioni")
         if not html:
             continue
-
         testo = _testo_da_html(html)
         try:
-            estratte = dg.analizza(testo, giornata=int(giornata) if giornata else
-                                   dg.giornata_da_testo(testo))
+            estratte = dg.analizza_lfp(testo, _data_pubblicazione(html))
         except Exception as e:
-            print(f"    Interpretazione fallita: {e}")
+            print(f"      Interpretazione fallita: {e}")
             continue
-
         valide = [d for d in estratte if d.get("arbitro") and d.get("data")]
         if valide:
-            prima, ultima = valide[0]["data"], valide[-1]["data"]
-            print(f"    {len(valide)} designazioni, {prima} -> {ultima}")
+            g = valide[0].get("giornata")
+            print(f"      Giornata {g if g else '?'}: {len(valide)} designazioni "
+                  f"({valide[0]['data']} → {valide[-1]['data']})")
+            trovate.extend(valide)
         else:
-            print("    Nessuna designazione riconosciuta nella pagina")
-        trovate.extend(valide)
+            print("      Nessuna designazione riconosciuta")
+    return trovate
 
-    # File manuale di riserva
+
+def _da_fonte_riserva(anno):
+    """Fonte alternativa, usata solo se quella ufficiale non dà nulla."""
+    trovate = []
+    url = url_designazioni(anno)
+    html = scarica(url, "designazioni (riserva)")
+    if not html:
+        return trovate
+    testo = _testo_da_html(html)
+    try:
+        estratte = dg.analizza(testo, giornata=dg.giornata_da_testo(testo))
+    except Exception as e:
+        print(f"    Interpretazione fallita: {e}")
+        return trovate
+    valide = [d for d in estratte if d.get("arbitro") and d.get("data")]
+    print(f"    {len(valide)} designazioni dalla fonte di riserva")
+    return valide
+
+
+def aggiorna_designazioni(anno, designazioni_note):
+    """Recupera le designazioni, preferendo la fonte ufficiale.
+
+    Il sito della Lega pubblica arbitro, assistenti, quarto uomo e coppia
+    VAR; la fonte alternativa solo l'arbitro principale. Si prova prima
+    quella ufficiale e si ricorre all'altra solo se non risponde.
+    """
+    print("  Fonte ufficiale (ligue1.com)")
+    trovate = _da_fonte_ufficiale(designazioni_note)
+
+    if not trovate:
+        print("  Fonte di riserva (deux-zero.com)")
+        trovate = _da_fonte_riserva(anno)
+
+    # File manuale, se un giorno entrambe le fonti cambiassero formato
     manuale = RADICE / "data" / "designations.txt"
     if manuale.exists():
         testo = manuale.read_text(encoding="utf-8")
@@ -301,6 +359,9 @@ def applica_designazioni(righe, designazioni):
         if not (r.get("Arbitro") or "").strip():
             aggiornate += 1
         r["Arbitro"] = d.get("arbitro") or ""
+        r["QuartoUomo"] = d.get("quartoUomo") or ""
+        r["Var"] = d.get("var") or ""
+        r["Avar"] = d.get("avar") or ""
         if d.get("giornata"):
             r["Giornata"] = str(d["giornata"])
     return aggiornate
@@ -526,7 +587,7 @@ def calcola_statistiche(righe, future):
     return {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
         "campionato": "Ligue 1",
-        "fonte": "football-data.co.uk (PDDL) · designazioni deux-zero.com",
+        "fonte": "football-data.co.uk (PDDL) · designazioni ufficiali LFP",
         "stagioni": sorted({r.get("Stagione", "") for r in righe if r.get("Stagione")}),
         "totalePartite": len(righe),
         "partiteConDisciplina": complete,
@@ -562,7 +623,7 @@ def main():
         for riga in righe:
             k = chiave(riga)
             if k in indice:
-                for campo in ("Arbitro", "Giornata"):
+                for campo in ("Arbitro", "Giornata", "QuartoUomo", "Var", "Avar"):
                     if not riga.get(campo):
                         riga[campo] = indice[k].get(campo, "")
             else:

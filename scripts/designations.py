@@ -16,6 +16,7 @@ Questo modulo non fa richieste di rete: interpreta solo testo già
 scaricato, così è collaudabile in isolamento.
 """
 
+import datetime
 import re
 import unicodedata
 
@@ -278,6 +279,131 @@ def analizza(testo, giornata=None):
             "gc": gc,
             "go": go,
             "arbitro": _titolo_arbitro(arbitro),
+        })
+
+    return risultati
+
+
+# ---------------------------------------------------------------------------
+# Formato ufficiale LFP (ligue1.com)
+#
+#   **Stade Rennais FC – Olympique de Marseille (vendredi, 20h45)**
+#   Arbitre principal : Jérémie PIGNARD
+#   Arbitres assistants : Mikaël BERCHEBRU et Christophe MOUYSSET
+#   4e arbitre : Gaël ANGOULA
+#   Arbitres assistants vidéo : Cyril GRINGORE et Cédric DOS SANTOS
+#
+# Più ricco della fonte alternativa: oltre all'arbitro principale riporta
+# assistenti, quarto uomo e coppia VAR. Indica però solo il giorno della
+# settimana, non la data: si ricava dalla data di pubblicazione.
+# ---------------------------------------------------------------------------
+
+INTESTAZIONE_LFP = re.compile(
+    r"^\**\s*(?P<casa>[^\n–—-]{3,40}?)\s*[–—-]\s*(?P<ospite>[^\n(]{3,40}?)\s*"
+    r"\(\s*(?P<giorno>" + "|".join(GIORNI) + r")\s*,?\s*"
+    r"(?P<oh>\d{1,2})\s*h\s*(?P<om>\d{2})?\s*\)\s*\**\s*$",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+PRINCIPALE = re.compile(r"Arbitre\s+principal\s*:\s*(?P<nome>[^\n]+)", re.IGNORECASE)
+ASSISTENTI = re.compile(r"Arbitres?\s+assistants?\s*:\s*(?P<nome>[^\n]+)", re.IGNORECASE)
+QUARTO = re.compile(r"4e?\s*arbitre\s*:\s*(?P<nome>[^\n]+)", re.IGNORECASE)
+VIDEO = re.compile(r"Arbitres?\s+assistants?\s+vid[ée]o\s*:\s*(?P<nome>[^\n]+)", re.IGNORECASE)
+
+GIORNATA_LFP = re.compile(r"(\d{1,2})\s*(?:ère|ere|e|ème|eme)\s*journ[ée]e", re.IGNORECASE)
+
+
+def _ripulisci(testo):
+    """Toglie asterischi, spazi doppi e code spurie da un nome."""
+    if not testo:
+        return None
+    n = re.sub(r"[*_]", "", testo)
+    n = re.sub(r"\s+", " ", n).strip(" :-")
+    return n or None
+
+
+def _coppia(testo):
+    """'Mikaël BERCHEBRU et Christophe MOUYSSET' -> lista di due nomi."""
+    n = _ripulisci(testo)
+    if not n:
+        return []
+    return [x.strip() for x in re.split(r"\s+et\s+|\s*,\s*", n) if x.strip()]
+
+
+def giornata_lfp(testo):
+    m = GIORNATA_LFP.search(testo or "")
+    return int(m.group(1)) if m else None
+
+
+def analizza_lfp(testo, data_pubblicazione, giornata=None):
+    """Interpreta un articolo di designazioni di ligue1.com.
+
+    data_pubblicazione: data ISO dell'articolo. Serve a datare le partite,
+    che nel testo hanno solo il giorno della settimana. Gli articoli escono
+    nei giorni immediatamente precedenti alla giornata di campionato.
+    """
+    if not testo:
+        return []
+
+    testo = testo.replace("\u00a0", " ")
+    if giornata is None:
+        giornata = giornata_lfp(testo)
+
+    try:
+        base = datetime.date.fromisoformat((data_pubblicazione or "")[:10])
+    except (ValueError, TypeError):
+        base = None
+
+    intestazioni = list(INTESTAZIONE_LFP.finditer(testo))
+    risultati = []
+
+    for i, m in enumerate(intestazioni):
+        casa = normalizza_squadra(_ripulisci(m.group("casa")))
+        ospite = normalizza_squadra(_ripulisci(m.group("ospite")))
+        if not casa or not ospite or casa == ospite:
+            continue
+
+        fine = intestazioni[i + 1].start() if i + 1 < len(intestazioni) else len(testo)
+        blocco = testo[m.end():fine]
+
+        # La data si ricava dal giorno della settimana, cercando in avanti
+        # a partire dalla pubblicazione: le designazioni escono prima delle gare.
+        data = None
+        if base:
+            voluto = GIORNI.index(m.group("giorno").lower())
+            for scarto in range(0, 10):
+                candidata = base + datetime.timedelta(days=scarto)
+                if candidata.weekday() == voluto:
+                    data = candidata.isoformat()
+                    break
+
+        assistenti = []
+        video = []
+        ma = ASSISTENTI.search(blocco)
+        mv = VIDEO.search(blocco)
+        # 'assistants vidéo' contiene 'assistants': va escluso dagli assistenti
+        if ma and (not mv or ma.start() != mv.start()):
+            assistenti = _coppia(ma.group("nome"))
+        if mv:
+            video = _coppia(mv.group("nome"))
+
+        mp = PRINCIPALE.search(blocco)
+        mq = QUARTO.search(blocco)
+
+        risultati.append({
+            "giornata": giornata,
+            "data": data,
+            "ora": f"{int(m.group('oh')):02d}:{m.group('om') or '00'}",
+            "casa": casa,
+            "ospite": ospite,
+            "gc": None,
+            "go": None,
+            "arbitro": _titolo_arbitro(_ripulisci(mp.group("nome"))) if mp else None,
+            "quartoUomo": _titolo_arbitro(_ripulisci(mq.group("nome"))) if mq else None,
+            "assistente1": _titolo_arbitro(assistenti[0]) if len(assistenti) > 0 else None,
+            "assistente2": _titolo_arbitro(assistenti[1]) if len(assistenti) > 1 else None,
+            "var": _titolo_arbitro(video[0]) if len(video) > 0 else None,
+            "avar": _titolo_arbitro(video[1]) if len(video) > 1 else None,
         })
 
     return risultati
