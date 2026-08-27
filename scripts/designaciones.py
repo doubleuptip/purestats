@@ -103,6 +103,39 @@ def _chiave(nome):
 
 # Indice per confronto: chiave normalizzata -> nome breve
 _INDICE = {_chiave(k): v for k, v in SQUADRE.items()}
+# Parole generiche che compaiono in molte denominazioni societarie e che da
+# sole non identificano nessuna squadra.
+PAROLE_GENERICHE = {
+    "real", "club", "de", "del", "la", "las", "los", "cf", "fc", "rc", "rcd",
+    "cd", "ud", "sd", "ca", "ac", "atletico", "deportivo", "sociedad",
+    "balompie", "futbol", "union", "sporting", "racing", "unido", "sad",
+}
+
+
+def _indice_parole():
+    """Associa le parole distintive di ogni squadra al suo nome breve.
+
+    Serve come ultima risorsa quando la denominazione nel PDF non coincide
+    con nessuna di quelle in elenco: 'Real Racing Club de Santander' non
+    corrisponde a niente parola per parola, ma contiene 'santander', che
+    appartiene a una squadra sola.
+    """
+    indice = {}
+    ambigue = set()
+    for nome_esteso, breve in SQUADRE.items():
+        for parola in _chiave(nome_esteso).split():
+            if parola in PAROLE_GENERICHE or len(parola) < 4:
+                continue
+            if parola in indice and indice[parola] != breve:
+                ambigue.add(parola)
+            indice[parola] = breve
+    for parola in ambigue:
+        indice.pop(parola, None)
+    return indice
+
+
+_PAROLE = _indice_parole()
+
 
 
 def normalizza_squadra(nome):
@@ -115,7 +148,16 @@ def normalizza_squadra(nome):
     # tolleranza: prova togliendo suffissi e prefissi societari
     ridotto = re.sub(r"^(cf|fc|rc|rcd|cd|ud|sd|ca|club)\s+", "", k)
     ridotto = re.sub(r"\s+(cf|fc|rc|rcd|cd|ud|sd|ca)$", "", ridotto)
-    return _INDICE.get(ridotto)
+    if ridotto in _INDICE:
+        return _INDICE[ridotto]
+
+    # Ultima risorsa: cerca una parola distintiva. Una denominazione può
+    # variare nella forma ("Real Racing Club de Santander" contro "Racing
+    # de Santander") ma il nome della città o della società resta.
+    trovate = {_PAROLE[parola] for parola in k.split() if parola in _PAROLE}
+    if len(trovate) == 1:
+        return trovate.pop()
+    return None
 
 
 def _dividi_squadre(testo):

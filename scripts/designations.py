@@ -82,6 +82,36 @@ def _chiave(nome):
 
 
 _INDICE = {_chiave(k): v for k, v in SQUADRE.items()}
+PAROLE_GENERICHE = {
+    "olympique", "stade", "football", "club", "sportive", "association",
+    "racing", "sporting", "de", "du", "des", "la", "le", "les", "en", "avant",
+    "fc", "as", "rc", "sc", "ac", "sm", "us", "ogc", "losc", "aj", "estac",
+    "es", "sco", "osc", "hsc", "fco", "alsace", "bretagne", "sud",
+}
+
+
+def _indice_parole():
+    """Associa le parole distintive di ogni squadra al suo nome breve.
+
+    Le denominazioni possono variare ("Stade Brestois" contro "Stade
+    Brestois 29") ma il nome della città resta e identifica la squadra.
+    """
+    indice = {}
+    ambigue = set()
+    for esteso, breve in SQUADRE.items():
+        for parola in _chiave(esteso).split():
+            if parola in PAROLE_GENERICHE or len(parola) < 4:
+                continue
+            if parola in indice and indice[parola] != breve:
+                ambigue.add(parola)
+            indice[parola] = breve
+    for parola in ambigue:
+        indice.pop(parola, None)
+    return indice
+
+
+_PAROLE = _indice_parole()
+
 
 
 def normalizza_squadra(nome):
@@ -96,6 +126,11 @@ def normalizza_squadra(nome):
     ridotto = re.sub(r"\s+(fc|ac|sc|osc|sco|hsc|fco)$", "", ridotto)
     if ridotto in _INDICE:
         return _INDICE[ridotto]
+
+    # Ultima risorsa: una parola distintiva, se appartiene a una sola squadra
+    trovate = {_PAROLE[parola] for parola in k.split() if parola in _PAROLE}
+    if len(trovate) == 1:
+        return trovate.pop()
     return None
 
 
