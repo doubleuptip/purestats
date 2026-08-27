@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-27T08:37:39.691055+00:00",
+  "aggiornato": "2026-08-27T08:45:35.329636+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -9,8 +9,8 @@
     "2025/26",
     "2026/27"
   ],
-  "totalePartite": 1539,
-  "partiteConDisciplina": 1539,
+  "totalePartite": 1536,
+  "partiteConDisciplina": 1536,
   "partiteConArbitro": 10,
   "arbitri": [
     {
@@ -1021,14 +1021,14 @@
     },
     {
       "nome": "Alaves",
-      "partite": 117,
-      "gialli": 293,
+      "partite": 116,
+      "gialli": 291,
       "rossi": 11,
-      "mediaGialli": 2.5,
+      "mediaGialli": 2.51,
       "mediaRossi": 0.09,
-      "mediaFalli": 14.5,
+      "mediaFalli": 14.6,
       "mediaGialliCasa": 2.38,
-      "mediaGialliOspite": 2.63,
+      "mediaGialliOspite": 2.64,
       "perStagione": [
         {
           "stagione": "2023/24",
@@ -1065,12 +1065,12 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 3,
-          "gialli": 8,
+          "partite": 2,
+          "gialli": 6,
           "rossi": 0,
-          "mediaGialli": 2.67,
+          "mediaGialli": 3.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 14.0,
+          "mediaFalli": 14.5,
           "mediaGialliCasa": 4.0,
           "mediaGialliOspite": 2.0
         }
@@ -1400,14 +1400,14 @@
     },
     {
       "nome": "Elche",
-      "partite": 79,
-      "gialli": 185,
+      "partite": 78,
+      "gialli": 183,
       "rossi": 16,
-      "mediaGialli": 2.34,
-      "mediaRossi": 0.2,
+      "mediaGialli": 2.35,
+      "mediaRossi": 0.21,
       "mediaFalli": 13.5,
       "mediaGialliCasa": 2.13,
-      "mediaGialliOspite": 2.55,
+      "mediaGialliOspite": 2.56,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -1433,38 +1433,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 3,
-          "gialli": 5,
+          "partite": 2,
+          "gialli": 3,
           "rossi": 0,
-          "mediaGialli": 1.67,
+          "mediaGialli": 1.5,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.3,
+          "mediaFalli": 12.5,
           "mediaGialliCasa": 1.0,
           "mediaGialliOspite": 2.0
-        }
-      ]
-    },
-    {
-      "nome": "Malaga",
-      "partite": 3,
-      "gialli": 7,
-      "rossi": 0,
-      "mediaGialli": 2.33,
-      "mediaRossi": 0.0,
-      "mediaFalli": 11.3,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 3.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 3,
-          "gialli": 7,
-          "rossi": 0,
-          "mediaGialli": 2.33,
-          "mediaRossi": 0.0,
-          "mediaFalli": 11.3,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 3.0
         }
       ]
     },
@@ -2017,50 +1993,26 @@
       ]
     },
     {
-      "nome": "Atl. Madrid",
-      "partite": 1,
-      "gialli": 2,
+      "nome": "Malaga",
+      "partite": 2,
+      "gialli": 4,
       "rossi": 0,
       "mediaGialli": 2.0,
       "mediaRossi": 0.0,
-      "mediaFalli": 17.0,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": null,
+      "mediaFalli": 11.5,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 3.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 2,
+          "partite": 2,
+          "gialli": 4,
           "rossi": 0,
           "mediaGialli": 2.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 17.0,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": null
-        }
-      ]
-    },
-    {
-      "nome": "Dep. A Coruna",
-      "partite": 1,
-      "gialli": 2,
-      "rossi": 0,
-      "mediaGialli": 2.0,
-      "mediaRossi": 0.0,
-      "mediaFalli": 17.0,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": null,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 17.0,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": null
+          "mediaFalli": 11.5,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 3.0
         }
       ]
     },
@@ -2197,30 +2149,6 @@
           "mediaFalli": 7.0,
           "mediaGialliCasa": null,
           "mediaGialliOspite": 1.0
-        }
-      ]
-    },
-    {
-      "nome": "Rayo Vallecano",
-      "partite": 1,
-      "gialli": 1,
-      "rossi": 0,
-      "mediaGialli": 1.0,
-      "mediaRossi": 0.0,
-      "mediaFalli": 14.0,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": null,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "mediaGialli": 1.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 14.0,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": null
         }
       ]
     }
@@ -2378,36 +2306,6 @@
     },
     {
       "stagione": "2026/27",
-      "data": "20/08/2026",
-      "casa": "Rayo Vallecano",
-      "ospite": "Alaves",
-      "gc": 1,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 1,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 14,
-      "falliOspite": 13
-    },
-    {
-      "stagione": "2026/27",
-      "data": "19/08/2026",
-      "casa": "Atl. Madrid",
-      "ospite": "Malaga",
-      "gc": 2,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 3,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 17,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2026/27",
       "data": "19/08/2026",
       "casa": "Ath Madrid",
       "ospite": "Malaga",
@@ -2425,21 +2323,6 @@
       "stagione": "2026/27",
       "data": "17/08/2026",
       "casa": "La Coruna",
-      "ospite": "Elche",
-      "gc": 1,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 17,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2026/27",
-      "data": "17/08/2026",
-      "casa": "Dep. A Coruna",
       "ospite": "Elche",
       "gc": 1,
       "go": 1,
@@ -2825,6 +2708,51 @@
       "rossiOspite": 0,
       "falliCasa": 9,
       "falliOspite": 20
+    },
+    {
+      "stagione": "2025/26",
+      "data": "14/05/2026",
+      "casa": "Real Madrid",
+      "ospite": "Oviedo",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "",
+      "gialliCasa": 0,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 7,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2025/26",
+      "data": "14/05/2026",
+      "casa": "Girona",
+      "ospite": "Sociedad",
+      "gc": 1,
+      "go": 1,
+      "arbitro": "",
+      "gialliCasa": 2,
+      "gialliOspite": 7,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 13,
+      "falliOspite": 19
+    },
+    {
+      "stagione": "2025/26",
+      "data": "13/05/2026",
+      "casa": "Villarreal",
+      "ospite": "Sevilla",
+      "gc": 2,
+      "go": 3,
+      "arbitro": "",
+      "gialliCasa": 2,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 11,
+      "falliOspite": 9
     }
   ],
   "prossimeDesignazioni": []
