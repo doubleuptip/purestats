@@ -62,6 +62,28 @@ SQUADRE = {
     "real racing club": "Santander",
     "real zaragoza": "Zaragoza",
     "sporting de gijon": "Sp Gijon",
+    "rc deportivo de la coruna": "La Coruna",
+    "deportivo de la coruna": "La Coruna",
+    "rc deportivo": "La Coruna",
+    "real racing club": "Santander",
+    "racing de santander": "Santander",
+    "real oviedo": "Oviedo",
+    "cd castellon": "Castellon",
+    "cd mirandes": "Mirandes",
+    "sd eibar": "Eibar",
+    "cd leganes": "Leganes",
+    "ud almeria": "Almeria",
+    "sporting de gijon": "Sp Gijon",
+    "real sporting de gijon": "Sp Gijon",
+    "cd tenerife": "Tenerife",
+    "albacete balompie": "Albacete",
+    "fc andorra": "Andorra",
+    "sd huesca": "Huesca",
+    "cordoba cf": "Cordoba",
+    "ad ceuta fc": "Ceuta",
+    "real valladolid cf": "Valladolid",
+    "real zaragoza": "Zaragoza",
+    "burgos cf": "Burgos",
     "malaga cf": "Malaga",
 }
 
@@ -212,3 +234,18 @@ def testo_da_pdf(dati_binari):
 
     lettore = PdfReader(io.BytesIO(dati_binari))
     return "\n".join((p.extract_text() or "") for p in lettore.pages)
+
+
+def righe_non_riconosciute(testo):
+    """Elenca le intestazioni di partita le cui squadre non sono in elenco.
+
+    Serve a segnalare subito quando una squadra promossa o rinominata manca
+    dalla tabella SQUADRE: senza questo avviso la partita sparirebbe in
+    silenzio e ci si accorgerebbe della lacuna solo guardando la dashboard.
+    """
+    fuori = []
+    for m in INTESTAZIONE.finditer(testo.replace("\u00a0", " ")):
+        casa, ospite = _dividi_squadre(m.group("squadre"))
+        if not (casa and ospite):
+            fuori.append(m.group("squadre").strip())
+    return fuori
