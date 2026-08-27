@@ -166,7 +166,14 @@ const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
       MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706";
 
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
-let ricerca="", stagione="tutte";
+let ricerca="", stagione=null;   // null = non ancora scelta, si imposta al caricamento
+
+/* La stagione in corso è quella predefinita: guardare le medie di tutta la
+   storia raramente è ciò che serve per prima cosa. "Tutte" resta a un tocco. */
+function stagionePredefinita(d){
+  const s = d && d.stagioni;
+  return (s && s.length) ? s[s.length - 1] : "tutte";
+}
 
 /* Campionati disponibili. Ciascuno ha il proprio file dati:
    se un file non esiste il campionato viene semplicemente nascosto. */
@@ -338,10 +345,10 @@ function caricaLega(id){
 function vaiLega(id){
   if(id===legaAttiva) return;
   const lega = LEGHE.find(l=>l.id===id);
-  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione="tutte";
+  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione=null;
   window.scrollTo(0,0);
   caricaLega(id)
-    .then(d=>{ D=d; render(); })
+    .then(d=>{ D=d; stagione=stagionePredefinita(d); render(); })
     .catch(()=>{
       LEGHE.forEach(l=>{
         const b=document.getElementById("lg-"+l.id);
@@ -390,6 +397,7 @@ Promise.all(LEGHE.map(l =>
 
   legaAttiva = primo.lega.id;
   D = cache[legaAttiva];
+  stagione = stagionePredefinita(D);
   render();
 });
 
@@ -405,6 +413,13 @@ function cerca(v){
   if(c){ c.focus(); c.setSelectionRange(c.value.length, c.value.length); }
 }
 function filtraStagione(s){stagione=s;render();}
+
+function cercaSquadra(v){
+  ricerca=v;
+  render();
+  const c=document.querySelector(".cerca");
+  if(c){ c.focus(); c.setSelectionRange(c.value.length, c.value.length); }
+}
 
 /* Dalla tabella partite salta direttamente alla scheda dell'arbitro */
 function vaiArbitro(nome){
@@ -497,11 +512,7 @@ function vArbitri(){
     <div class="filtri">
       <input class="cerca" type="search" placeholder="Cerca arbitro…"
              value="${esc(ricerca)}" oninput="cerca(this.value)">
-      ${stag.length>1?`<div class="stagioni">
-        <button class="${stagione==="tutte"?"on":""}" onclick="filtraStagione('tutte')">TUTTE</button>
-        ${stag.map(s=>`<button class="${stagione===s?"on":""}"
-          onclick="filtraStagione('${esc(s)}')">${esc(s)}</button>`).join("")}
-      </div>`:""}
+      ${barraStagioni()}
       <div class="conteggio">
         ${lista.length} ${lista.length===1?"arbitro":"arbitri"} · ${tot} partite
         ${stagione!=="tutte"?" · stagione "+esc(stagione):""}
@@ -691,18 +702,66 @@ function gScheda(){
 }
 
 /* ================= SQUADRE ================= */
+function squadraPerFiltro(s){
+  if(stagione==="tutte") return {
+    partite:s.partite, mediaGialli:s.mediaGialli, mediaRossi:s.mediaRossi,
+    mediaFalli:s.mediaFalli, mediaGialliCasa:s.mediaGialliCasa,
+    mediaGialliOspite:s.mediaGialliOspite, rossi:s.rossi, gialli:s.gialli
+  };
+  const x=(s.perStagione||[]).find(y=>y.stagione===stagione);
+  if(!x) return null;
+  return {
+    partite:x.partite, mediaGialli:x.mediaGialli, mediaRossi:x.mediaRossi,
+    mediaFalli:x.mediaFalli, mediaGialliCasa:x.mediaGialliCasa,
+    mediaGialliOspite:x.mediaGialliOspite, rossi:x.rossi, gialli:x.gialli
+  };
+}
+
+function barraStagioni(){
+  const stag=D.stagioni||[];
+  if(stag.length<2) return "";
+  return `<div class="stagioni">
+    <button class="${stagione==="tutte"?"on":""}" onclick="filtraStagione('tutte')">TUTTE</button>
+    ${stag.slice().reverse().map(s=>`<button class="${stagione===s?"on":""}"
+      onclick="filtraStagione('${esc(s)}')">${esc(s)}</button>`).join("")}
+  </div>`;
+}
+
 function vSquadre(){
   const base=D.squadre||[];
   if(!base.length) return `<div class="sub" style="margin-top:0">Nessun dato disponibile</div>`;
 
+  const q=ricerca.trim().toLowerCase();
   const o=ord.squadre;
-  const S=[...base].sort((a,b)=>confronta(a,b,o.campo,o.dir) || a.nome.localeCompare(b.nome));
+  const lista=base
+    .map(s=>({sq:s, d:squadraPerFiltro(s)}))
+    .filter(x=>x.d!==null)
+    .filter(x=>!q||x.sq.nome.toLowerCase().includes(q))
+    .map(x=>({...x, nome:x.sq.nome, ...x.d}))
+    .sort((a,b)=>confronta(a,b,o.campo,o.dir) || a.nome.localeCompare(b.nome));
 
-  const mg=(base.reduce((s,x)=>s+(x.mediaGialli||0),0)/base.length).toFixed(2);
-  const rossi=base.reduce((s,x)=>s+x.rossi,0);
+  const conMedia=lista.filter(x=>x.mediaGialli!==null&&x.mediaGialli!==undefined);
+  const mg=conMedia.length
+    ? (conMedia.reduce((s,x)=>s+x.mediaGialli,0)/conMedia.length).toFixed(2) : "—";
+  const rossi=lista.reduce((s,x)=>s+(x.rossi||0),0);
 
-  let h=`<div class="sub" style="margin-top:0">Medie disciplinari e di gioco</div>
-    ${kpi([base.length,"SQUADRE"],[mg,"GIALLI MEDI"],[rossi,"ROSSI TOTALI"])}
+  let h=`<div class="sub" style="margin-top:0">Medie disciplinari per stagione</div>
+    <div class="filtri">
+      <input class="cerca" type="search" placeholder="Cerca squadra…"
+             value="${esc(ricerca)}" oninput="cercaSquadra(this.value)">
+      ${barraStagioni()}
+      <div class="conteggio">
+        ${lista.length} ${lista.length===1?"squadra":"squadre"}
+        ${stagione!=="tutte"?" · stagione "+esc(stagione):" · tutte le stagioni"}
+      </div>
+    </div>`;
+
+  if(!lista.length){
+    return h+`<div class="empty"><div style="font-size:10px;color:${MUTED};line-height:1.8">
+      Nessuna squadra ha giocato in questa stagione.</div></div>`;
+  }
+
+  h+=`${kpi([lista.length,"SQUADRE"],[mg,"GIALLI MEDI"],[rossi,"ROSSI TOTALI"])}
     <div class="titolo"><i></i><span>CLASSIFICA DISCIPLINARE</span></div>
     <div class="titolo-sub">Tocca un'intestazione per ordinare · CASA e OSP = gialli medi per campo</div>
     <table class="tab"><thead><tr>
@@ -715,15 +774,15 @@ function vSquadre(){
       ${th("squadre","rossi","ROS")}
     </tr></thead><tbody>`;
 
-  S.forEach((s,i)=>{
+  lista.forEach((x,i)=>{
     h+=`<tr>
-      <td><span class="pos">${i+1}</span><span class="nome">${esc(s.nome)}</span></td>
-      <td>${s.partite}</td>
-      <td class="big">${n(s.mediaGialli)}</td>
-      <td>${n(s.mediaGialliCasa)}</td>
-      <td class="${s.mediaGialliOspite>s.mediaGialliCasa?"ros":""}">${n(s.mediaGialliOspite)}</td>
-      <td>${n(s.mediaFalli)}</td>
-      <td class="${s.rossi>0?"ros":""}">${s.rossi}</td>
+      <td><span class="pos">${i+1}</span><span class="nome">${esc(x.nome)}</span></td>
+      <td>${x.partite}</td>
+      <td class="big">${n(x.mediaGialli)}</td>
+      <td>${n(x.mediaGialliCasa)}</td>
+      <td class="${x.mediaGialliOspite>x.mediaGialliCasa?"ros":""}">${n(x.mediaGialliOspite)}</td>
+      <td>${n(x.mediaFalli)}</td>
+      <td class="${x.rossi>0?"ros":""}">${x.rossi}</td>
     </tr>`;
   });
   return h+`</tbody></table>`;
