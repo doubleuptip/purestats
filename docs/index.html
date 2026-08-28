@@ -135,21 +135,13 @@
 
   .arb{color:var(--fluo);font-weight:700}
 
-  /* --- NEWS --- */
+  /* --- CALENDARIO --- */
   .sottomenu{display:flex;gap:5px;overflow-x:auto;margin:14px 0 16px;padding-bottom:3px}
   .sottomenu button{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:10px;
     font-weight:700;letter-spacing:.05em;color:var(--muted);background:var(--card);
     border:1px solid var(--bordo);border-radius:5px;padding:8px 12px;cursor:pointer;white-space:nowrap}
   .sottomenu button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
 
-  .notizia{display:block;background:var(--card);border:1px solid var(--bordo);
-    border-radius:8px;padding:12px 14px;text-decoration:none;color:inherit}
-  .notizia:active{border-color:var(--fluo)}
-  .notizia-tit{font-size:13px;line-height:1.45;color:var(--testo)}
-  .notizia-meta{display:flex;align-items:center;gap:8px;margin-top:8px;
-    font-size:9px;color:var(--muted)}
-  .notizia-fonte{color:var(--fluo)}
-  .notizia-freccia{margin-left:auto;color:var(--muted);font-size:12px}
 
   .gara{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:11px 14px}
   .gara-quando{font-size:9px;color:var(--fluo);letter-spacing:.08em;margin-bottom:6px}
@@ -159,8 +151,6 @@
     color:var(--muted);padding:0 10px}
   .gara-arb{font-size:9px;color:var(--muted);margin-top:6px}
 
-  .avviso{background:var(--card2);border:1px dashed var(--bordo);border-radius:8px;
-    padding:14px;font-size:10px;color:var(--muted);line-height:1.7;margin-top:16px}
 
   .chart-box{background:var(--card);border:1px solid var(--bordo);border-radius:8px;
     padding:14px 10px 10px;margin-bottom:20px}
@@ -182,7 +172,7 @@
     <button id="n-arb" class="on" onclick="vai('arbitri')">ARBITRI</button>
     <button id="n-squ" onclick="vai('squadre')">SQUADRE</button>
     <button id="n-par" onclick="vai('partite')">PARTITE</button>
-    <button id="n-new" onclick="vai('news')">NEWS</button>
+    <button id="n-cal" onclick="vai('calendario')">CALENDARIO</button>
   </nav>
 </header>
 
@@ -206,15 +196,14 @@ function stagionePredefinita(d){
 /* Campionati disponibili. Ciascuno ha il proprio file dati:
    se un file non esiste il campionato viene semplicemente nascosto. */
 const LEGHE = [
-  {id:"premier",  nome:"PREMIER LEAGUE", file:"data.json",        news:"news_premier.json"},
-  {id:"serie_a",  nome:"SERIE A",        file:"data_serie_a.json", news:"news_serie_a.json"},
-  {id:"la_liga",  nome:"LALIGA",         file:"data_la_liga.json", news:"news_la_liga.json"},
-  {id:"ligue_1",  nome:"LIGUE 1",        file:"data_ligue_1.json", news:"news_ligue_1.json"},
+  {id:"premier",  nome:"PREMIER LEAGUE", file:"data.json"},
+  {id:"serie_a",  nome:"SERIE A",        file:"data_serie_a.json"},
+  {id:"la_liga",  nome:"LALIGA",         file:"data_la_liga.json"},
+  {id:"ligue_1",  nome:"LIGUE 1",        file:"data_ligue_1.json"},
 ];
 let legaAttiva = null;
 const cache = {};
-const cacheNews = {};
-let sezioneNews = "calendario";
+let calendario = null;   // un file solo, comune a tutti i campionati
 
 /* Ordinamento: una configurazione per ciascuna tabella.
    dir = -1 decrescente (default per le medie), +1 crescente. */
@@ -467,13 +456,13 @@ function render(){
   document.getElementById("n-arb").className = vista==="arbitri"?"on":"";
   document.getElementById("n-squ").className = vista==="squadre"?"on":"";
   document.getElementById("n-par").className = vista==="partite"?"on":"";
-  const bn=document.getElementById("n-new"); if(bn) bn.className = vista==="news"?"on":"";
+  const bc=document.getElementById("n-cal"); if(bc) bc.className = vista==="calendario"?"on":"";
 
   const app=document.getElementById("app"); app.className="";
   if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
   else if(vista==="squadre") app.innerHTML = vSquadre();
   else if(vista==="partite") app.innerHTML = vPartite();
-  else app.innerHTML = vNews();
+  else app.innerHTML = vCalendario();
 
   document.getElementById("pie").innerHTML =
     `Fonte: ${esc(D.fonte)}<br>
@@ -820,18 +809,14 @@ function vSquadre(){
   return h+`</tbody></table>`;
 }
 
-/* ================= NEWS ================= */
+/* ================= CALENDARIO ================= */
 
-function caricaNews(id){
-  const lega = LEGHE.find(l=>l.id===id);
-  if(!lega || !lega.news) return Promise.reject(new Error("campionato senza news"));
-  if(cacheNews[id]) return Promise.resolve(cacheNews[id]);
-  return fetch(lega.news+"?t="+Date.now())
-    .then(r=>{ if(!r.ok) throw new Error(lega.news+" non trovato"); return r.json(); })
-    .then(d=>{ cacheNews[id]=d; return d; });
+function caricaCalendario(){
+  if(calendario) return Promise.resolve(calendario);
+  return fetch("calendario.json?t="+Date.now())
+    .then(r=>{ if(!r.ok) throw new Error("calendario.json non trovato"); return r.json(); })
+    .then(d=>{ calendario=d; return d; });
 }
-
-function vaiSezioneNews(s){ sezioneNews=s; render(); }
 
 function quandoEsteso(iso, ora){
   if(!iso) return "";
@@ -841,102 +826,78 @@ function quandoEsteso(iso, ora){
   return ora ? `${g} · ore ${esc(ora)}` : g;
 }
 
-function quandoRelativo(iso){
+/* Quanto manca alla partita, in forma leggibile */
+function traQuanto(iso){
   if(!iso) return "";
-  const d=new Date(iso);
+  const d=new Date(iso+"T12:00:00");
   if(isNaN(d.getTime())) return "";
-  const min=Math.floor((Date.now()-d.getTime())/60000);
-  if(min<60) return min<=1 ? "adesso" : min+" minuti fa";
-  const ore=Math.floor(min/60);
-  if(ore<24) return ore===1 ? "un'ora fa" : ore+" ore fa";
-  const gg=Math.floor(ore/24);
-  if(gg===1) return "ieri";
-  if(gg<7) return gg+" giorni fa";
-  return d.toLocaleDateString("it-IT",{day:"numeric",month:"short"});
+  const oggi=new Date(); oggi.setHours(12,0,0,0);
+  const gg=Math.round((d-oggi)/86400000);
+  if(gg<=0) return "oggi";
+  if(gg===1) return "domani";
+  if(gg<7) return "fra "+gg+" giorni";
+  return "";
 }
 
-function elencoNotizie(voci){
-  if(!voci || !voci.length){
-    return `<div class="empty"><div style="font-size:10px;color:${MUTED};line-height:1.8">
-      Nessuna notizia in questa categoria al momento.</div></div>`;
-  }
-  return `<div class="grid">` + voci.map(n=>
-    `<a class="notizia" href="${esc(n.collegamento)}" target="_blank" rel="noopener">
-      <div class="notizia-tit">${esc(n.titolo)}</div>
-      <div class="notizia-meta">
-        <span class="notizia-fonte">${esc(n.fonte)}</span>
-        <span>${esc(quandoRelativo(n.data))}</span>
-        <span class="notizia-freccia">↗</span>
-      </div>
-    </a>`).join("") + `</div>`;
-}
-
-function vNews(){
-  const N = cacheNews[legaAttiva];
-  if(!N){
-    caricaNews(legaAttiva).then(()=>render()).catch(()=>{
+function vCalendario(){
+  if(!calendario){
+    caricaCalendario().then(()=>render()).catch(()=>{
       const a=document.getElementById("app"); a.className="";
       a.innerHTML=`<div class="empty">
         <div style="font-size:26px;margin-bottom:10px">⚑</div>
-        <div class="nome" style="font-size:20px;margin-bottom:10px">NEWS NON DISPONIBILI</div>
+        <div class="nome" style="font-size:20px;margin-bottom:10px">CALENDARIO NON DISPONIBILE</div>
         <div style="font-size:10px;color:${MUTED};line-height:1.9">
-          Manca il file delle notizie per questo campionato.<br>
-          Lancia il workflow "Aggiorna news" dal tab Actions.</div></div>`;
+          Manca il file <code>docs/calendario.json</code>.<br>
+          Lancia il workflow "Aggiorna calendario" dal tab Actions.</div></div>`;
     });
-    return `<div class="loading">Caricamento notizie…</div>`;
+    return `<div class="loading">Caricamento calendario…</div>`;
   }
 
-  const sezioni = [
-    ["calendario", "CALENDARIO", (N.calendario||[]).length],
-    ["formazioni", "FORMAZIONI", (N.formazioni||[]).length],
-    ["infortuni",  "INFORTUNI",  (N.infortuni||[]).length],
-    ["mercato",    "MERCATO",    (N.mercato||[]).length],
-    ["generale",   "ALTRE",      (N.generale||[]).length],
-  ];
+  const C = (calendario.campionati||{})[legaAttiva];
+  const gare = (C && C.partite) || [];
 
   let h = `<div class="sub" style="margin-top:0">
-    ${esc(N.nome||"")} · aggiornato ${esc(quandoRelativo(N.aggiornato))}</div>
-    <div class="sottomenu">` +
-    sezioni.map(([id,et,n])=>
-      `<button class="${sezioneNews===id?"on":""}" onclick="vaiSezioneNews('${id}')">
-        ${et}${n?" "+n:""}</button>`).join("") + `</div>`;
+    Prossime partite · fonte ${esc(calendario.fonte||"")}</div>`;
 
-  if(sezioneNews==="calendario"){
-    const gare = N.calendario||[];
-    h += `<div class="titolo"><i></i><span>PROSSIME PARTITE</span></div>
-          <div class="titolo-sub">Dal calendario ufficiale del campionato</div>`;
-    if(!gare.length){
-      h += `<div class="empty"><div style="font-size:10px;color:${MUTED};line-height:1.8">
-        Nessuna partita in programma nel file calendario.</div></div>`;
-    } else {
-      h += `<div class="grid">` + gare.map(g=>
-        `<div class="gara">
-          <div class="gara-quando">${esc(quandoEsteso(g.data, g.ora)).toUpperCase()}</div>
-          <div class="gara-squadre">
-            <span>${esc(g.casa)}</span><span class="vs">VS</span>
-            <span style="text-align:right">${esc(g.ospite)}</span>
-          </div>
-          ${g.arbitro?`<div class="gara-arb">arbitro designato: <span style="color:${FLUO}">${esc(g.arbitro)}</span></div>`:""}
-        </div>`).join("") + `</div>`;
-    }
-    return h;
+  if(!gare.length){
+    return h + `<div class="empty" style="margin-top:16px">
+      <div style="font-size:10px;color:${MUTED};line-height:1.8">
+        Nessuna partita in programma nei prossimi
+        ${calendario.giorniAvanti||45} giorni.<br>
+        Il file viene aggiornato ogni giorno.</div></div>`;
   }
 
-  const etichette = {
-    formazioni: ["PROBABILI FORMAZIONI",
-      "Articoli delle testate: le formazioni non sono un dato pubblicato dalle leghe"],
-    infortuni: ["INFORTUNI E INDISPONIBILI",
-      "Articoli delle testate: nessuna fonte ufficiale pubblica gli indisponibili"],
-    mercato: ["CALCIOMERCATO", "Trattative e ufficialità"],
-    generale: ["ALTRE NOTIZIE", "Tutto il resto"],
-  };
-  const [tit, sub] = etichette[sezioneNews] || ["NOTIZIE", ""];
-  h += `<div class="titolo"><i></i><span>${tit}</span></div>
-        <div class="titolo-sub">${sub}</div>`;
-  h += elencoNotizie(N[sezioneNews]);
-  h += `<div class="avviso">
-    Titoli e collegamenti dai feed delle testate. Il testo degli articoli
-    resta sui siti che li pubblicano: tocca una notizia per aprirla.</div>`;
+  // raggruppa per giorno, così le partite dello stesso turno stanno insieme
+  const perGiorno = [];
+  gare.forEach(g=>{
+    const ultimo = perGiorno[perGiorno.length-1];
+    if(ultimo && ultimo.data===g.data) ultimo.gare.push(g);
+    else perGiorno.push({data:g.data, gare:[g]});
+  });
+
+  h += `<div class="titolo"><i></i><span>PROSSIME PARTITE</span></div>
+        <div class="titolo-sub">${gare.length} gare in programma · l'arbitro compare dove già designato</div>`;
+
+  perGiorno.forEach(gruppo=>{
+    const manca = traQuanto(gruppo.data);
+    h += `<div style="margin:18px 0 9px;display:flex;align-items:baseline;gap:8px">
+      <span style="font-family:'Teko',sans-serif;font-size:19px;color:${FLUO}">
+        ${esc(quandoEsteso(gruppo.data,null)).toUpperCase()}</span>
+      ${manca?`<span style="font-size:9px;color:${MUTED}">${esc(manca)}</span>`:""}
+    </div><div class="grid">`;
+    gruppo.gare.forEach(g=>{
+      h += `<div class="gara">
+        <div class="gara-squadre">
+          <span>${esc(g.casa)}</span>
+          <span class="vs">${g.ora?esc(g.ora):"VS"}</span>
+          <span style="text-align:right">${esc(g.ospite)}</span>
+        </div>
+        ${g.arbitro?`<div class="gara-arb">arbitro: <span style="color:${FLUO}">${esc(g.arbitro)}</span>${
+          g.var?` · VAR: ${esc(g.var)}`:""}</div>`:""}
+      </div>`;
+    });
+    h += `</div>`;
+  });
   return h;
 }
 
