@@ -302,7 +302,11 @@ def calcola_statistiche(righe):
             if not nome:
                 continue
             s = squadre[nome]
+            st_sq = (r.get("Stagione") or "").strip()
+            ps = s["perStagione"][st_sq] if st_sq else None
             s["partite"] += 1
+            if ps is not None:
+                ps["partite"] += 1
             if None not in (gialli, rossi):
                 s["conDati"] += 1
                 s["gialli"] += gialli
@@ -313,8 +317,20 @@ def calcola_statistiche(righe):
                 else:
                     s["gialliOspite"] += gialli
                     s["partiteOspite"] += 1
+                if ps is not None:
+                    ps["conDati"] += 1
+                    ps["gialli"] += gialli
+                    ps["rossi"] += rossi
+                    if in_casa:
+                        ps["gialliCasa"] += gialli
+                        ps["partiteCasa"] += 1
+                    else:
+                        ps["gialliOspite"] += gialli
+                        ps["partiteOspite"] += 1
             if falli is not None:
                 s["falli"] += falli
+                if ps is not None:
+                    ps["falli"] += falli
             if tiri is not None:
                 s["tiri"] += tiri
             if corner is not None:
