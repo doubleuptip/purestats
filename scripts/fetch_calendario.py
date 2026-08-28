@@ -107,6 +107,10 @@ def main():
 
     per_codice = {}
     totale = 0
+    letti = 0
+    date_viste = []
+    codici_visti = set()
+
     for r in csv.DictReader(io.StringIO(testo)):
         codice = (r.get("Div") or "").strip()
         casa = (r.get("HomeTeam") or "").strip()
@@ -114,6 +118,9 @@ def main():
         data = _data_iso(r.get("Date"))
         if not (codice and casa and ospite and data):
             continue
+        letti += 1
+        date_viste.append(data)
+        codici_visti.add(codice)
         if not (oggi <= data <= limite):
             continue
         per_codice.setdefault(codice, []).append({
@@ -124,8 +131,25 @@ def main():
         })
         totale += 1
 
-    print(f"  {totale} partite entro {GIORNI_AVANTI} giorni, "
-          f"{len(per_codice)} divisioni nel file")
+    # Diagnostica: senza questi numeri, un calendario vuoto non dice se il
+    # problema sia il filtro, il formato del file o il file stesso.
+    print(f"  {letti} righe valide nel file, {len(codici_visti)} divisioni")
+    if date_viste:
+        print(f"  Date presenti: da {min(date_viste)} a {max(date_viste)}")
+        print(f"  Finestra cercata: da {oggi} a {limite}")
+    print(f"  {totale} partite dentro la finestra")
+
+    if letti and not totale:
+        print()
+        print("  Il file contiene partite, ma nessuna nella finestra cercata.")
+        print("  Di norma significa che non è ancora stato aggiornato per il")
+        print("  turno in arrivo: viene rigenerato il venerdì pomeriggio.")
+    elif not letti:
+        print()
+        print("  Nessuna riga leggibile: il formato del file potrebbe essere")
+        print("  cambiato. Le colonne attese sono Div, Date, HomeTeam, AwayTeam.")
+        intestazione = testo.splitlines()[0][:120] if testo else ""
+        print(f"  Intestazione trovata: {intestazione!r}")
 
     risultato = {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
@@ -155,6 +179,12 @@ def main():
         }
         nota = f" · {con_arbitro} con arbitro designato" if con_arbitro else ""
         print(f"  {conf['nome']:16} {len(gare)} partite{nota}")
+
+    # Se non c'è nulla da mostrare, si conserva il calendario precedente:
+    # sovrascriverlo con un file vuoto cancellerebbe partite ancora valide.
+    if totale == 0 and USCITA.exists():
+        print("\n  Nessuna partita trovata: conservo il calendario precedente.")
+        return
 
     USCITA.parent.mkdir(parents=True, exist_ok=True)
     USCITA.write_text(json.dumps(risultato, ensure_ascii=False, indent=2),
