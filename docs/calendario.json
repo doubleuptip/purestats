@@ -1,23 +1,281 @@
 {
-  "aggiornato": "2026-08-28T08:20:54.544318+00:00",
+  "aggiornato": "2026-08-28T13:07:00.986261+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "giorniAvanti": 45,
   "campionati": {
     "premier": {
       "nome": "Premier League",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-08-28",
+          "ora": "20:00",
+          "casa": "Crystal Palace",
+          "ospite": "Man City"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "12:30",
+          "casa": "Liverpool",
+          "ospite": "Nott'm Forest"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "15:00",
+          "casa": "Bournemouth",
+          "ospite": "Everton"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "15:00",
+          "casa": "Coventry",
+          "ospite": "Hull"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "17:30",
+          "casa": "Tottenham",
+          "ospite": "Newcastle"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "14:00",
+          "casa": "Chelsea",
+          "ospite": "Brighton"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "14:00",
+          "casa": "Leeds",
+          "ospite": "Brentford"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "14:00",
+          "casa": "Sunderland",
+          "ospite": "Fulham"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "16:30",
+          "casa": "Man United",
+          "ospite": "Ipswich"
+        },
+        {
+          "data": "2026-08-31",
+          "ora": "20:00",
+          "casa": "Aston Villa",
+          "ospite": "Arsenal"
+        }
+      ]
     },
     "serie_a": {
       "nome": "Serie A",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-08-28",
+          "ora": "19:45",
+          "casa": "Milan",
+          "ospite": "Venezia",
+          "arbitro": "Manganiello",
+          "var": "Camplone"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "17:30",
+          "casa": "Fiorentina",
+          "ospite": "Frosinone",
+          "arbitro": "Collu",
+          "var": "Prontera"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "17:30",
+          "casa": "Monza",
+          "ospite": "Udinese",
+          "arbitro": "Allegretta",
+          "var": "Paterna"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "17:30",
+          "casa": "Sassuolo",
+          "ospite": "Torino",
+          "arbitro": "Di Marco",
+          "var": "Pezzuto"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "19:45",
+          "casa": "Juventus",
+          "ospite": "Parma",
+          "arbitro": "Fourneau",
+          "var": "Meraviglia"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "17:30",
+          "casa": "Napoli",
+          "ospite": "Como",
+          "arbitro": "Pairetto",
+          "var": "Gariglio"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "19:45",
+          "casa": "Cagliari",
+          "ospite": "Inter",
+          "arbitro": "Fabbri",
+          "var": "Aureliano"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "19:45",
+          "casa": "Lazio",
+          "ospite": "Genoa",
+          "arbitro": "Feliciani",
+          "var": "Abisso"
+        },
+        {
+          "data": "2026-08-31",
+          "ora": "17:30",
+          "casa": "Lecce",
+          "ospite": "Roma",
+          "arbitro": "Chiffi",
+          "var": "Di Paolo"
+        },
+        {
+          "data": "2026-08-31",
+          "ora": "19:45",
+          "casa": "Atalanta",
+          "ospite": "Bologna",
+          "arbitro": "Doveri",
+          "var": "Dionisi"
+        }
+      ]
     },
     "la_liga": {
       "nome": "LaLiga",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-08-28",
+          "ora": "18:00",
+          "casa": "Santander",
+          "ospite": "Elche"
+        },
+        {
+          "data": "2026-08-28",
+          "ora": "20:30",
+          "casa": "Alaves",
+          "ospite": "Villarreal"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "16:00",
+          "casa": "Levante",
+          "ospite": "Betis"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "18:00",
+          "casa": "Sociedad",
+          "ospite": "Espanol"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "20:30",
+          "casa": "Sevilla",
+          "ospite": "Ath Madrid"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "16:00",
+          "casa": "Real Madrid",
+          "ospite": "Malaga"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "18:30",
+          "casa": "La Coruna",
+          "ospite": "Valencia"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "20:30",
+          "casa": "Celta",
+          "ospite": "Ath Bilbao"
+        },
+        {
+          "data": "2026-08-31",
+          "ora": "18:30",
+          "casa": "Osasuna",
+          "ospite": "Getafe"
+        },
+        {
+          "data": "2026-08-31",
+          "ora": "20:30",
+          "casa": "Barcelona",
+          "ospite": "Vallecano"
+        }
+      ]
     },
     "ligue_1": {
       "nome": "Ligue 1",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-08-28",
+          "ora": "19:45",
+          "casa": "Lille",
+          "ospite": "Paris SG"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "16:15",
+          "casa": "Strasbourg",
+          "ospite": "Lens"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "19:45",
+          "casa": "Auxerre",
+          "ospite": "Angers"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "19:45",
+          "casa": "Brest",
+          "ospite": "Toulouse"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "19:45",
+          "casa": "Lorient",
+          "ospite": "Troyes"
+        },
+        {
+          "data": "2026-08-29",
+          "ora": "19:45",
+          "casa": "Lyon",
+          "ospite": "Le Havre"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "14:00",
+          "casa": "Paris FC",
+          "ospite": "Nice"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "16:15",
+          "casa": "Rennes",
+          "ospite": "Le Mans"
+        },
+        {
+          "data": "2026-08-30",
+          "ora": "19:45",
+          "casa": "Monaco",
+          "ospite": "Marseille"
+        }
+      ]
     }
   }
 }
