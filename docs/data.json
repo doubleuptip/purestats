@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-28T13:07:02.700597+00:00",
+  "aggiornato": "2026-08-28T13:15:40.127041+00:00",
   "campionato": "Premier League",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "stagioni": [
@@ -15798,7 +15798,19 @@
       "mediaGialliCasa": 2.53,
       "mediaGialliOspite": 2.37,
       "falliPerGiallo": 4.5,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 93,
+          "rossi": 5,
+          "mediaGialli": 2.45,
+          "mediaRossi": 0.13,
+          "mediaFalli": 11.1,
+          "mediaGialliCasa": 2.53,
+          "mediaGialliOspite": 2.37
+        }
+      ]
     },
     {
       "nome": "Chelsea",
@@ -15811,7 +15823,63 @@
       "mediaGialliCasa": 2.29,
       "mediaGialliOspite": 2.56,
       "falliPerGiallo": 4.6,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 77,
+          "rossi": 3,
+          "mediaGialli": 2.03,
+          "mediaRossi": 0.08,
+          "mediaFalli": 10.4,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 104,
+          "rossi": 3,
+          "mediaGialli": 2.74,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 2.42,
+          "mediaGialliOspite": 3.05
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 98,
+          "rossi": 2,
+          "mediaGialli": 2.58,
+          "mediaRossi": 0.05,
+          "mediaFalli": 11.5,
+          "mediaGialliCasa": 2.53,
+          "mediaGialliOspite": 2.63
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 89,
+          "rossi": 7,
+          "mediaGialli": 2.34,
+          "mediaRossi": 0.18,
+          "mediaFalli": 11.2,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 7.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Bournemouth",
@@ -15824,7 +15892,63 @@
       "mediaGialliCasa": 1.97,
       "mediaGialliOspite": 2.4,
       "falliPerGiallo": 5.6,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 68,
+          "rossi": 0,
+          "mediaGialli": 1.79,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.3,
+          "mediaGialliCasa": 1.58,
+          "mediaGialliOspite": 2.0
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 3,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.08,
+          "mediaFalli": 13.3,
+          "mediaGialliCasa": 1.89,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 97,
+          "rossi": 3,
+          "mediaGialli": 2.55,
+          "mediaRossi": 0.08,
+          "mediaFalli": 13.5,
+          "mediaGialliCasa": 2.26,
+          "mediaGialliOspite": 2.84
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 88,
+          "rossi": 2,
+          "mediaGialli": 2.32,
+          "mediaRossi": 0.05,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 2.0
+        }
+      ]
     },
     {
       "nome": "Tottenham",
@@ -15837,7 +15961,63 @@
       "mediaGialliCasa": 2.2,
       "mediaGialliOspite": 2.18,
       "falliPerGiallo": 5.3,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 75,
+          "rossi": 3,
+          "mediaGialli": 1.97,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.1,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 1.79
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 88,
+          "rossi": 4,
+          "mediaGialli": 2.32,
+          "mediaRossi": 0.11,
+          "mediaFalli": 11.2,
+          "mediaGialliCasa": 2.11,
+          "mediaGialliOspite": 2.53
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 70,
+          "rossi": 1,
+          "mediaGialli": 1.84,
+          "mediaRossi": 0.03,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 1.63,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 101,
+          "rossi": 3,
+          "mediaGialli": 2.66,
+          "mediaRossi": 0.08,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 2.89,
+          "mediaGialliOspite": 2.42
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 14.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 1.0
+        }
+      ]
     },
     {
       "nome": "Wolves",
@@ -15850,7 +16030,52 @@
       "mediaGialliCasa": 2.11,
       "mediaGialliOspite": 2.28,
       "falliPerGiallo": 5.7,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 83,
+          "rossi": 5,
+          "mediaGialli": 2.18,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 2.37,
+          "mediaGialliOspite": 2.0
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 98,
+          "rossi": 4,
+          "mediaGialli": 2.58,
+          "mediaRossi": 0.11,
+          "mediaFalli": 12.6,
+          "mediaGialliCasa": 2.58,
+          "mediaGialliOspite": 2.58
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 74,
+          "rossi": 2,
+          "mediaGialli": 1.95,
+          "mediaRossi": 0.05,
+          "mediaFalli": 12.6,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 2.11
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 78,
+          "rossi": 3,
+          "mediaGialli": 2.05,
+          "mediaRossi": 0.08,
+          "mediaFalli": 13.0,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 2.42
+        }
+      ]
     },
     {
       "nome": "Ipswich",
@@ -15863,7 +16088,30 @@
       "mediaGialliCasa": 1.7,
       "mediaGialliOspite": 2.63,
       "falliPerGiallo": 5.3,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 84,
+          "rossi": 5,
+          "mediaGialli": 2.21,
+          "mediaRossi": 0.13,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 2.63
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "mediaGialli": 0.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Southampton",
@@ -15876,7 +16124,30 @@
       "mediaGialliCasa": 1.66,
       "mediaGialliOspite": 2.61,
       "falliPerGiallo": 5.5,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 73,
+          "rossi": 0,
+          "mediaGialli": 1.92,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 1.37,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 89,
+          "rossi": 3,
+          "mediaGialli": 2.34,
+          "mediaRossi": 0.08,
+          "mediaFalli": 12.1,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.74
+        }
+      ]
     },
     {
       "nome": "Sunderland",
@@ -15889,7 +16160,30 @@
       "mediaGialliCasa": 1.95,
       "mediaGialliOspite": 2.3,
       "falliPerGiallo": 5.1,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 3,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.08,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 14.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Fulham",
@@ -15902,7 +16196,63 @@
       "mediaGialliCasa": 1.74,
       "mediaGialliOspite": 2.37,
       "falliPerGiallo": 5.3,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 1,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.8,
+          "mediaGialliCasa": 1.42,
+          "mediaGialliOspite": 2.79
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 77,
+          "rossi": 4,
+          "mediaGialli": 2.03,
+          "mediaRossi": 0.11,
+          "mediaFalli": 10.1,
+          "mediaGialliCasa": 1.89,
+          "mediaGialliOspite": 2.16
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 2,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.05,
+          "mediaFalli": 11.4,
+          "mediaGialliCasa": 1.74,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 75,
+          "rossi": 1,
+          "mediaGialli": 1.97,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.9,
+          "mediaGialliCasa": 1.89,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Everton",
@@ -15915,7 +16265,63 @@
       "mediaGialliCasa": 1.88,
       "mediaGialliOspite": 2.18,
       "falliPerGiallo": 5.4,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 79,
+          "rossi": 2,
+          "mediaGialli": 2.08,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.4,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.21
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 79,
+          "rossi": 1,
+          "mediaGialli": 2.08,
+          "mediaRossi": 0.03,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": 1.74,
+          "mediaGialliOspite": 2.42
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 2,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.05,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 2.11,
+          "mediaGialliOspite": 2.11
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 73,
+          "rossi": 5,
+          "mediaGialli": 1.92,
+          "mediaRossi": 0.13,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.84,
+          "mediaGialliOspite": 2.0
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "mediaGialli": 0.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 5.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Aston Villa",
@@ -15928,7 +16334,63 @@
       "mediaGialliCasa": 1.87,
       "mediaGialliOspite": 2.14,
       "falliPerGiallo": 5.3,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 1,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.03,
+          "mediaFalli": 11.0,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 94,
+          "rossi": 2,
+          "mediaGialli": 2.47,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.9,
+          "mediaGialliCasa": 2.53,
+          "mediaGialliOspite": 2.42
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 72,
+          "rossi": 4,
+          "mediaGialli": 1.89,
+          "mediaRossi": 0.11,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 2.11
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 58,
+          "rossi": 1,
+          "mediaGialli": 1.53,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.0,
+          "mediaGialliCasa": 1.32,
+          "mediaGialliOspite": 1.74
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 1,
+          "mediaGialli": 3.0,
+          "mediaRossi": 1.0,
+          "mediaFalli": 11.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Brighton",
@@ -15941,7 +16403,63 @@
       "mediaGialliCasa": 1.79,
       "mediaGialliOspite": 2.24,
       "falliPerGiallo": 5.7,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 59,
+          "rossi": 0,
+          "mediaGialli": 1.55,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.2,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 1.42
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 89,
+          "rossi": 3,
+          "mediaGialli": 2.34,
+          "mediaRossi": 0.08,
+          "mediaFalli": 10.9,
+          "mediaGialliCasa": 1.89,
+          "mediaGialliOspite": 2.79
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 72,
+          "rossi": 3,
+          "mediaGialli": 1.89,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.5,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 2.0
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 86,
+          "rossi": 0,
+          "mediaGialli": 2.26,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.9,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 2.74
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Hull",
@@ -15954,7 +16472,19 @@
       "mediaGialliCasa": 2.0,
       "mediaGialliOspite": null,
       "falliPerGiallo": 5.0,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Nott'm Forest",
@@ -15967,7 +16497,63 @@
       "mediaGialliCasa": 1.73,
       "mediaGialliOspite": 2.28,
       "falliPerGiallo": 5.5,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 84,
+          "rossi": 0,
+          "mediaGialli": 2.21,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 2.58,
+          "mediaGialliOspite": 1.84
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 75,
+          "rossi": 3,
+          "mediaGialli": 1.97,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 1.47,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 85,
+          "rossi": 2,
+          "mediaGialli": 2.24,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.3,
+          "mediaGialliCasa": 1.58,
+          "mediaGialliOspite": 2.89
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 60,
+          "rossi": 0,
+          "mediaGialli": 1.58,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.26,
+          "mediaGialliOspite": 1.89
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 15.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Man United",
@@ -15980,7 +16566,63 @@
       "mediaGialliCasa": 1.91,
       "mediaGialliOspite": 2.06,
       "falliPerGiallo": 5.4,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 78,
+          "rossi": 1,
+          "mediaGialli": 2.05,
+          "mediaRossi": 0.03,
+          "mediaFalli": 11.1,
+          "mediaGialliCasa": 1.84,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 1,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.5,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.26
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 83,
+          "rossi": 3,
+          "mediaGialli": 2.18,
+          "mediaRossi": 0.08,
+          "mediaFalli": 10.9,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.21
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 62,
+          "rossi": 3,
+          "mediaGialli": 1.63,
+          "mediaRossi": 0.08,
+          "mediaFalli": 10.3,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 1.58
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 1.0
+        }
+      ]
     },
     {
       "nome": "Crystal Palace",
@@ -15993,7 +16635,63 @@
       "mediaGialliCasa": 1.8,
       "mediaGialliOspite": 2.08,
       "falliPerGiallo": 5.8,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 78,
+          "rossi": 3,
+          "mediaGialli": 2.05,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 1.74,
+          "mediaGialliOspite": 2.37
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 69,
+          "rossi": 2,
+          "mediaGialli": 1.82,
+          "mediaRossi": 0.05,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 1.68
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 75,
+          "rossi": 4,
+          "mediaGialli": 1.97,
+          "mediaRossi": 0.11,
+          "mediaFalli": 11.0,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.0
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 74,
+          "rossi": 2,
+          "mediaGialli": 1.95,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.5,
+          "mediaGialliCasa": 1.58,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 15.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 1.0
+        }
+      ]
     },
     {
       "nome": "Leeds",
@@ -16006,7 +16704,41 @@
       "mediaGialliCasa": 1.82,
       "mediaGialliOspite": 2.0,
       "falliPerGiallo": 5.9,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 84,
+          "rossi": 3,
+          "mediaGialli": 2.21,
+          "mediaRossi": 0.08,
+          "mediaFalli": 12.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.42
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 62,
+          "rossi": 1,
+          "mediaGialli": 1.63,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.5,
+          "mediaGialliCasa": 1.63,
+          "mediaGialliOspite": 1.63
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 14.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 1.0
+        }
+      ]
     },
     {
       "nome": "Leicester",
@@ -16019,7 +16751,30 @@
       "mediaGialliCasa": 1.82,
       "mediaGialliOspite": 2.0,
       "falliPerGiallo": 5.7,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 58,
+          "rossi": 2,
+          "mediaGialli": 1.53,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.8,
+          "mediaGialliCasa": 1.42,
+          "mediaGialliOspite": 1.63
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 87,
+          "rossi": 0,
+          "mediaGialli": 2.29,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.1,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.37
+        }
+      ]
     },
     {
       "nome": "Luton",
@@ -16032,7 +16787,19 @@
       "mediaGialliCasa": 1.95,
       "mediaGialliOspite": 1.79,
       "falliPerGiallo": 6.2,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 71,
+          "rossi": 0,
+          "mediaGialli": 1.87,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 1.79
+        }
+      ]
     },
     {
       "nome": "Brentford",
@@ -16045,7 +16812,63 @@
       "mediaGialliCasa": 1.62,
       "mediaGialliOspite": 1.97,
       "falliPerGiallo": 5.3,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 55,
+          "rossi": 1,
+          "mediaGialli": 1.45,
+          "mediaRossi": 0.03,
+          "mediaFalli": 9.3,
+          "mediaGialliCasa": 1.47,
+          "mediaGialliOspite": 1.42
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 88,
+          "rossi": 2,
+          "mediaGialli": 2.32,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.1,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.68
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 62,
+          "rossi": 1,
+          "mediaGialli": 1.63,
+          "mediaRossi": 0.03,
+          "mediaFalli": 8.4,
+          "mediaGialliCasa": 1.63,
+          "mediaGialliOspite": 1.63
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 69,
+          "rossi": 0,
+          "mediaGialli": 1.82,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.3,
+          "mediaGialliCasa": 1.47,
+          "mediaGialliOspite": 2.16
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 17.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Burnley",
@@ -16058,7 +16881,30 @@
       "mediaGialliCasa": 1.34,
       "mediaGialliOspite": 2.21,
       "falliPerGiallo": 6.1,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 71,
+          "rossi": 7,
+          "mediaGialli": 1.87,
+          "mediaRossi": 0.18,
+          "mediaFalli": 11.2,
+          "mediaGialliCasa": 1.42,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 64,
+          "rossi": 2,
+          "mediaGialli": 1.68,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.4,
+          "mediaGialliCasa": 1.26,
+          "mediaGialliOspite": 2.11
+        }
+      ]
     },
     {
       "nome": "Newcastle",
@@ -16071,7 +16917,63 @@
       "mediaGialliCasa": 1.74,
       "mediaGialliOspite": 1.78,
       "falliPerGiallo": 5.9,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 57,
+          "rossi": 1,
+          "mediaGialli": 1.5,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.53,
+          "mediaGialliOspite": 1.47
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 76,
+          "rossi": 1,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.1,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 2.32
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 68,
+          "rossi": 1,
+          "mediaGialli": 1.79,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.4,
+          "mediaGialliCasa": 2.05,
+          "mediaGialliOspite": 1.53
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 63,
+          "rossi": 2,
+          "mediaGialli": 1.66,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.2,
+          "mediaGialliCasa": 1.53,
+          "mediaGialliOspite": 1.79
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 16.0,
+          "mediaGialliCasa": 5.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "West Ham",
@@ -16084,7 +16986,52 @@
       "mediaGialliCasa": 1.7,
       "mediaGialliOspite": 1.79,
       "falliPerGiallo": 6.1,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 44,
+          "rossi": 0,
+          "mediaGialli": 1.16,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.5,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.32
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 76,
+          "rossi": 3,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.08,
+          "mediaFalli": 10.3,
+          "mediaGialliCasa": 1.95,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 78,
+          "rossi": 3,
+          "mediaGialli": 2.05,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 2.26,
+          "mediaGialliOspite": 1.84
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 67,
+          "rossi": 3,
+          "mediaGialli": 1.76,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.1,
+          "mediaGialliCasa": 1.58,
+          "mediaGialliOspite": 1.95
+        }
+      ]
     },
     {
       "nome": "Liverpool",
@@ -16097,7 +17044,63 @@
       "mediaGialliCasa": 1.41,
       "mediaGialliOspite": 1.81,
       "falliPerGiallo": 6.9,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 57,
+          "rossi": 1,
+          "mediaGialli": 1.5,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.47,
+          "mediaGialliOspite": 1.53
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 65,
+          "rossi": 5,
+          "mediaGialli": 1.71,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 1.37,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 64,
+          "rossi": 3,
+          "mediaGialli": 1.68,
+          "mediaRossi": 0.08,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 1.63,
+          "mediaGialliOspite": 1.74
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 57,
+          "rossi": 1,
+          "mediaGialli": 1.5,
+          "mediaRossi": 0.03,
+          "mediaFalli": 10.1,
+          "mediaGialliCasa": 1.16,
+          "mediaGialliOspite": 1.84
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 15.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 3.0
+        }
+      ]
     },
     {
       "nome": "Arsenal",
@@ -16110,7 +17113,63 @@
       "mediaGialliCasa": 1.3,
       "mediaGialliOspite": 1.7,
       "falliPerGiallo": 6.8,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 51,
+          "rossi": 0,
+          "mediaGialli": 1.34,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.8,
+          "mediaGialliCasa": 0.89,
+          "mediaGialliOspite": 1.79
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 62,
+          "rossi": 2,
+          "mediaGialli": 1.63,
+          "mediaRossi": 0.05,
+          "mediaFalli": 10.3,
+          "mediaGialliCasa": 1.79,
+          "mediaGialliOspite": 1.47
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 64,
+          "rossi": 6,
+          "mediaGialli": 1.68,
+          "mediaRossi": 0.16,
+          "mediaFalli": 10.5,
+          "mediaGialliCasa": 1.63,
+          "mediaGialliOspite": 1.74
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 51,
+          "rossi": 0,
+          "mediaGialli": 1.34,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.3,
+          "mediaGialliCasa": 0.89,
+          "mediaGialliOspite": 1.79
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Man City",
@@ -16123,7 +17182,63 @@
       "mediaGialliCasa": 1.35,
       "mediaGialliOspite": 1.51,
       "falliPerGiallo": 5.9,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 43,
+          "rossi": 1,
+          "mediaGialli": 1.13,
+          "mediaRossi": 0.03,
+          "mediaFalli": 9.1,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.26
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 51,
+          "rossi": 2,
+          "mediaGialli": 1.34,
+          "mediaRossi": 0.05,
+          "mediaFalli": 7.6,
+          "mediaGialliCasa": 1.16,
+          "mediaGialliOspite": 1.53
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 57,
+          "rossi": 2,
+          "mediaGialli": 1.5,
+          "mediaRossi": 0.05,
+          "mediaFalli": 7.6,
+          "mediaGialliCasa": 1.74,
+          "mediaGialliOspite": 1.26
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 67,
+          "rossi": 0,
+          "mediaGialli": 1.76,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.7,
+          "mediaGialliCasa": 1.53,
+          "mediaGialliOspite": 2.0
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": null
+        }
+      ]
     },
     {
       "nome": "Coventry",
@@ -16136,7 +17251,19 @@
       "mediaGialliCasa": null,
       "mediaGialliOspite": 1.0,
       "falliPerGiallo": 13.0,
-      "perStagione": []
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 13.0,
+          "mediaGialliCasa": null,
+          "mediaGialliOspite": 1.0
+        }
+      ]
     }
   ],
   "ultimePartite": [
