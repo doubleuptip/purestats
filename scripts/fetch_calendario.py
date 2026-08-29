@@ -31,16 +31,44 @@ UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 # Quanti giorni in avanti guardare
 GIORNI_AVANTI = 45
 
+# Gli orari nel file sono espressi in ora britannica, per tutti i
+# campionati. Per quelli dell'Europa continentale va aggiunta un'ora:
+# lo scarto fra Regno Unito ed Europa centrale è sempre di sessanta
+# minuti, perché entrambi cambiano ora legale negli stessi giorni.
 CAMPIONATI = {
     "premier": {"nome": "Premier League", "codice": "E0",
-                "designazioni": None},
+                "designazioni": None, "scartoOre": 0},
     "serie_a": {"nome": "Serie A", "codice": "I1",
-                "designazioni": "designazioni_serie_a.json"},
+                "designazioni": "designazioni_serie_a.json", "scartoOre": 1},
     "la_liga": {"nome": "LaLiga", "codice": "SP1",
-                "designazioni": "designaciones_la_liga.json"},
+                "designazioni": "designaciones_la_liga.json", "scartoOre": 1},
     "ligue_1": {"nome": "Ligue 1", "codice": "F1",
-                "designazioni": "designations_ligue_1.json"},
+                "designazioni": "designations_ligue_1.json", "scartoOre": 1},
 }
+
+
+# football-data pubblica gli orari in ora britannica. L'Europa continentale
+# è avanti di un'ora tutto l'anno, perché il cambio stagionale avviene negli
+# stessi giorni da entrambe le parti: la differenza resta costante.
+SCARTO_ORARIO = 1
+
+
+def _in_ora_italiana(data_iso, ora):
+    """Sposta data e ora dall'ora britannica a quella italiana.
+
+    Restituisce la coppia aggiornata. Una partita alle 23:30 britanniche
+    cade il giorno successivo da noi, quindi anche la data può cambiare.
+    """
+    if not ora:
+        return data_iso, ora
+    try:
+        oh, om = ora.split(":")
+        base = datetime.strptime(f"{data_iso} {int(oh):02d}:{int(om):02d}",
+                                 "%Y-%m-%d %H:%M")
+    except (ValueError, AttributeError):
+        return data_iso, ora
+    spostata = base + timedelta(hours=SCARTO_ORARIO)
+    return spostata.strftime("%Y-%m-%d"), spostata.strftime("%H:%M")
 
 
 def scarica(url, descrizione):
@@ -74,6 +102,22 @@ def _data_iso(testo):
         return f"{int(a):04d}-{int(m):02d}-{int(g):02d}"
     except (ValueError, AttributeError):
         return None
+
+
+def sposta_orario(data, ora, scarto_ore):
+    """Sposta l'orario di un campionato nel proprio fuso.
+
+    Restituisce data e ora aggiornate: aggiungendo un'ora a una partita
+    delle 23:30 si passa al giorno dopo, quindi anche la data va corretta.
+    """
+    if not ora or not scarto_ore:
+        return data, ora
+    try:
+        momento = datetime.strptime(f"{data} {ora}", "%Y-%m-%d %H:%M")
+    except ValueError:
+        return data, ora
+    momento += timedelta(hours=scarto_ore)
+    return momento.date().isoformat(), momento.strftime("%H:%M")
 
 
 def carica_designazioni(nome_file):
@@ -123,9 +167,11 @@ def main():
         codici_visti.add(codice)
         if not (oggi <= data <= limite):
             continue
+        ora = (r.get("Time") or "").strip() or None
+        data, ora = _in_ora_italiana(data, ora)
         per_codice.setdefault(codice, []).append({
             "data": data,
-            "ora": (r.get("Time") or "").strip() or None,
+            "ora": ora,
             "casa": casa,
             "ospite": ospite,
         })
@@ -154,14 +200,22 @@ def main():
     risultato = {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
         "fonte": "football-data.co.uk (licenza PDDL)",
+        "fuso": "orari italiani",
         "giorniAvanti": GIORNI_AVANTI,
         "campionati": {},
     }
 
     print()
     for chiave, conf in CAMPIONATI.items():
-        gare = sorted(per_codice.get(conf["codice"], []),
-                      key=lambda x: (x["data"], x["ora"] or ""))
+        gare = per_codice.get(conf["codice"], [])
+
+        # L'orario va portato nel fuso del campionato prima di ogni altra
+        # cosa: le designazioni riportano l'ora locale, e senza allineare
+        # i due valori il confronto avverrebbe fra orari diversi.
+        for g in gare:
+            g["data"], g["ora"] = sposta_orario(g["data"], g["ora"],
+                                                conf.get("scartoOre", 0))
+        gare = sorted(gare, key=lambda x: (x["data"], x["ora"] or ""))
         designazioni = carica_designazioni(conf["designazioni"])
 
         con_arbitro = 0
