@@ -1,0 +1,58 @@
+name: Aggiorna archivio Bundesliga
+
+on:
+  schedule:
+    - cron: '0 10 * * 1,4'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archivio-bundesliga
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configura Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Scarica dati e designazioni
+        env:
+          STAGIONI: ${{ vars.STAGIONI_BUNDESLIGA }}
+        run: python scripts/fetch_bundesliga.py
+
+      - name: Committa le modifiche
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/bundesliga.csv data/ansetzungen_bundesliga.json docs/data_bundesliga.json
+          if git diff --staged --quiet; then
+            echo "Nessuna variazione."
+            exit 0
+          fi
+          git commit -m "Bundesliga aggiornata $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for tentativo in 1 2 3 4 5; do
+            if git push; then
+              echo "Pubblicato al tentativo $tentativo"
+              exit 0
+            fi
+            echo "Repository cambiato, mi riallineo e riprovo..."
+            git pull --rebase origin main
+            sleep 5
+          done
+          echo "Pubblicazione non riuscita dopo 5 tentativi"
+          exit 1
