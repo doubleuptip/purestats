@@ -32,18 +32,23 @@ UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 GIORNI_AVANTI = 45
 
 # Gli orari nel file sono espressi in ora britannica, per tutti i
-# campionati. Per quelli dell'Europa continentale va aggiunta un'ora:
+# campionati. Vengono riportati in ora italiana aggiungendo un'ora:
 # lo scarto fra Regno Unito ed Europa centrale è sempre di sessanta
 # minuti, perché entrambi cambiano ora legale negli stessi giorni.
+#
+# Anche le partite inglesi vengono convertite: chi consulta il calendario
+# vuole sapere a che ora accendere la televisione, non l'ora dello stadio.
+SCARTO_ORA_ITALIANA = 1
+
 CAMPIONATI = {
     "premier": {"nome": "Premier League", "codice": "E0",
-                "designazioni": None, "scartoOre": 0},
+                "designazioni": None},
     "serie_a": {"nome": "Serie A", "codice": "I1",
-                "designazioni": "designazioni_serie_a.json", "scartoOre": 1},
+                "designazioni": "designazioni_serie_a.json"},
     "la_liga": {"nome": "LaLiga", "codice": "SP1",
-                "designazioni": "designaciones_la_liga.json", "scartoOre": 1},
+                "designazioni": "designaciones_la_liga.json"},
     "ligue_1": {"nome": "Ligue 1", "codice": "F1",
-                "designazioni": "designations_ligue_1.json", "scartoOre": 1},
+                "designazioni": "designations_ligue_1.json"},
 }
 
 
@@ -105,7 +110,7 @@ def _data_iso(testo):
 
 
 def sposta_orario(data, ora, scarto_ore):
-    """Sposta l'orario di un campionato nel proprio fuso.
+    """Riporta l'orario in ora italiana.
 
     Restituisce data e ora aggiornate: aggiungendo un'ora a una partita
     delle 23:30 si passa al giorno dopo, quindi anche la data va corretta.
@@ -200,6 +205,7 @@ def main():
     risultato = {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
         "fonte": "football-data.co.uk (licenza PDDL)",
+        "fusoOrario": "ora italiana",
         "fuso": "orari italiani",
         "giorniAvanti": GIORNI_AVANTI,
         "campionati": {},
@@ -209,12 +215,12 @@ def main():
     for chiave, conf in CAMPIONATI.items():
         gare = per_codice.get(conf["codice"], [])
 
-        # L'orario va portato nel fuso del campionato prima di ogni altra
-        # cosa: le designazioni riportano l'ora locale, e senza allineare
-        # i due valori il confronto avverrebbe fra orari diversi.
+        # L'orario va convertito prima di abbinare le designazioni: quelle
+        # italiane riportano già l'ora locale, e senza allineare i due
+        # valori il confronto avverrebbe fra fusi diversi.
         for g in gare:
             g["data"], g["ora"] = sposta_orario(g["data"], g["ora"],
-                                                conf.get("scartoOre", 0))
+                                                SCARTO_ORA_ITALIANA)
         gare = sorted(gare, key=lambda x: (x["data"], x["ora"] or ""))
         designazioni = carica_designazioni(conf["designazioni"])
 
