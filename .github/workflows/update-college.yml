@@ -1,0 +1,59 @@
+name: Aggiorna archivio College Football
+
+on:
+  schedule:
+    # Lunedì: il college jgioca prevalentemente il sabato.
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fetch_college.py'
+      - '.github/workflows/update-college.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archivio-college
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configura Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Scarica i dati College
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          STAGIONI: ${{ vars.STAGIONI_COLLEGE }}
+        run: python scripts/fetch_college.py
+
+      - name: Committa le modifiche
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/college.csv docs/data_college.json
+          if git diff --staged --quiet; then
+            echo "Nessuna variazione."
+            exit 0
+          fi
+          git commit -m "College aggiornato $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for tentativo in 1 2 3 4 5; do
+            if git push; then
+              echo "Pubblicato al tentativo $tentativo"
+              exit 0
+            fi
+            echo "Repository cambiato, mi riallineo e riprovo..."
+            git pull --rebase origin main
+            sleep 5
+          done
+          echo "Pubblicazione non riuscita dopo 5 tentativi"
+          exit 1
