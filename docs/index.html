@@ -857,7 +857,8 @@ function vCalendario(){
   const gare = (C && C.partite) || [];
 
   let h = `<div class="sub" style="margin-top:0">
-    Prossime partite · fonte ${esc(calendario.fonte||"")}</div>`;
+    Prossime partite${calendario.fusoOrario?" · orari in "+esc(calendario.fusoOrario):""}
+    <br>fonte ${esc(calendario.fonte||"")}</div>`;
 
   if(!gare.length){
     return h + `<div class="empty" style="margin-top:16px">
