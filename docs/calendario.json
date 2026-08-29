@@ -1,17 +1,11 @@
 {
-  "aggiornato": "2026-08-28T13:08:57.721864+00:00",
+  "aggiornato": "2026-08-29T05:04:46.314877+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "giorniAvanti": 45,
   "campionati": {
     "premier": {
       "nome": "Premier League",
       "partite": [
-        {
-          "data": "2026-08-28",
-          "ora": "20:00",
-          "casa": "Crystal Palace",
-          "ospite": "Man City"
-        },
         {
           "data": "2026-08-29",
           "ora": "12:30",
@@ -71,14 +65,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-08-28",
-          "ora": "19:45",
-          "casa": "Milan",
-          "ospite": "Venezia",
-          "arbitro": "Manganiello",
-          "var": "Camplone"
-        },
         {
           "data": "2026-08-29",
           "ora": "17:30",
@@ -157,34 +143,28 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-08-28",
-          "ora": "18:00",
-          "casa": "Santander",
-          "ospite": "Elche"
-        },
-        {
-          "data": "2026-08-28",
-          "ora": "20:30",
-          "casa": "Alaves",
-          "ospite": "Villarreal"
-        },
-        {
           "data": "2026-08-29",
           "ora": "16:00",
           "casa": "Levante",
-          "ospite": "Betis"
+          "ospite": "Betis",
+          "arbitro": "Ricardo De Burgos",
+          "var": "Juan Luis Pulido"
         },
         {
           "data": "2026-08-29",
           "ora": "18:00",
           "casa": "Sociedad",
-          "ospite": "Espanol"
+          "ospite": "Espanol",
+          "arbitro": "Manuel Jesús Orellana",
+          "var": "Luis Mario Milla"
         },
         {
           "data": "2026-08-29",
           "ora": "20:30",
           "casa": "Sevilla",
-          "ospite": "Ath Madrid"
+          "ospite": "Ath Madrid",
+          "arbitro": "Javier Alberola",
+          "var": "Javier Iglesias"
         },
         {
           "data": "2026-08-30",
@@ -221,12 +201,6 @@
     "ligue_1": {
       "nome": "Ligue 1",
       "partite": [
-        {
-          "data": "2026-08-28",
-          "ora": "19:45",
-          "casa": "Lille",
-          "ospite": "Paris SG"
-        },
         {
           "data": "2026-08-29",
           "ora": "16:15",
