@@ -256,9 +256,8 @@ def aggiorna_designazioni(anno, designazioni_note):
             trovate.extend(valide)
         else:
             print("    Nessuna designazione riconosciuta nella pagina")
-            if "Bundesliga" not in testo:
-                print("    La pagina non contiene la sezione Bundesliga:")
-                print("    la struttura del sito potrebbe essere cambiata.")
+            for riga in dg.diagnostica(testo):
+                print(f"      {riga}")
 
     # File manuale di riserva, se il sito cambiasse formato
     manuale = RADICE / "data" / "ansetzungen.txt"

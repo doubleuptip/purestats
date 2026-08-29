@@ -112,8 +112,47 @@ def normalizza_squadra(nome):
     return trovate.pop() if len(trovate) == 1 else None
 
 
-# Sezione di un campionato: '###### Bundesliga' fino al successivo '######'
-SEZIONE = re.compile(r"^#{4,6}\s*(?P<nome>.+?)\s*$", re.MULTILINE)
+# Nomi delle categorie presenti nella pagina. Servono a delimitare la
+# sezione della Bundesliga: comincia dove compare il suo nome e finisce
+# dove ne comincia un'altra.
+CATEGORIE = [
+    "2. Bundesliga", "3. Liga", "Regionalliga", "Frauen-Bundesliga",
+    "Google Pixel Frauen-Bundesliga", "DFB-Pokal", "Junioren", "A-Junioren",
+    "B-Junioren", "Bundesliga",
+]
+
+# L'intestazione può presentarsi come titolo in formato testuale
+# ('###### Bundesliga') o come riga a sé stante, a seconda di come il
+# contenuto viene convertito in testo. Si accettano entrambe le forme.
+def _intestazioni(testo):
+    """Elenca le categorie trovate, con la posizione nel testo."""
+    trovate = []
+    for m in re.finditer(r"^[ \t]*#{0,6}[ \t]*(?P<nome>[^\n]{3,60}?)[ \t]*$",
+                         testo, re.MULTILINE):
+        nome = m.group("nome").strip()
+        pulito = _senza_accenti(nome)
+        for categoria in CATEGORIE:
+            if pulito == _senza_accenti(categoria):
+                trovate.append((m.start(), m.end(), categoria))
+                break
+    return trovate
+
+
+def sezione_bundesliga(testo):
+    """Isola la parte di pagina che riguarda la sola Bundesliga.
+
+    La pagina elenca tutte le categorie del calcio tedesco, dalla seconda
+    divisione ai campionati femminili: senza questo taglio finirebbero in
+    archivio partite di competizioni diverse.
+    """
+    intestazioni = _intestazioni(testo)
+    for i, (inizio, fine_int, nome) in enumerate(intestazioni):
+        if nome != "Bundesliga":
+            continue
+        fine = intestazioni[i + 1][0] if i + 1 < len(intestazioni) else len(testo)
+        return testo[fine_int:fine]
+    return ""
+
 
 GIORNATA = re.compile(r"Spieltag\s+(\d{1,2})")
 
@@ -132,18 +171,6 @@ UFFICIALE = re.compile(
 def _pulisci(nome):
     n = re.sub(r"\s+", " ", (nome or "")).strip(" :-|")
     return n or None
-
-
-def sezione_bundesliga(testo):
-    """Isola la parte di pagina che riguarda la sola Bundesliga."""
-    inizi = list(SEZIONE.finditer(testo))
-    for i, m in enumerate(inizi):
-        nome = _senza_accenti(m.group("nome")).strip()
-        # esattamente 'bundesliga': esclude '2. bundesliga' e i femminili
-        if nome == "bundesliga":
-            fine = inizi[i + 1].start() if i + 1 < len(inizi) else len(testo)
-            return testo[m.end():fine]
-    return ""
 
 
 def analizza(testo):
@@ -219,3 +246,26 @@ def analizza(testo):
         })
 
     return risultati
+
+
+def diagnostica(testo):
+    """Riepiloga cosa è stato riconosciuto nella pagina.
+
+    Serve quando l'analisi non produce nulla: distingue fra pagina non
+    scaricata, sezione non individuata e partite non interpretate.
+    """
+    righe = []
+    intestazioni = _intestazioni(testo)
+    righe.append(f"categorie individuate: {[c for _, _, c in intestazioni] or 'nessuna'}")
+
+    blocco = sezione_bundesliga(testo)
+    righe.append(f"sezione Bundesliga: {len(blocco)} caratteri")
+    if blocco:
+        righe.append(f"date trovate nella sezione: {len(QUANDO.findall(blocco))}")
+        righe.append(f"ufficiali di gara trovati: {len(UFFICIALE.findall(blocco))}")
+        estratto = " ".join(blocco.split())[:150]
+        righe.append(f"inizio sezione: {estratto!r}")
+    else:
+        estratto = " ".join(testo.split())[:150]
+        righe.append(f"inizio pagina: {estratto!r}")
+    return righe
