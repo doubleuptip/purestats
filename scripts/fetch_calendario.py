@@ -31,14 +31,13 @@ UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 # Quanti giorni in avanti guardare
 GIORNI_AVANTI = 45
 
-# Gli orari nel file sono espressi in ora britannica, per tutti i
-# campionati. Vengono riportati in ora italiana aggiungendo un'ora:
-# lo scarto fra Regno Unito ed Europa centrale è sempre di sessanta
-# minuti, perché entrambi cambiano ora legale negli stessi giorni.
-#
-# Anche le partite inglesi vengono convertite: chi consulta il calendario
-# vuole sapere a che ora accendere la televisione, non l'ora dello stadio.
-SCARTO_ORA_ITALIANA = 1
+# Gli orari nel file sono già espressi in ora dell'Europa centrale, quindi
+# non vanno convertiti. Era stata introdotta una correzione di un'ora sul
+# presupposto che fossero in ora britannica: si è rivelata sbagliata e
+# mandava avanti tutti gli orari. La costante resta a zero per rendere
+# esplicita la scelta, invece di lasciare l'assenza di conversione come
+# una svista.
+SCARTO_ORA_ITALIANA = 0
 
 CAMPIONATI = {
     "premier": {"nome": "Premier League", "codice": "E0",
@@ -207,7 +206,7 @@ def main():
     risultato = {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
         "fonte": "football-data.co.uk (licenza PDDL)",
-        "fusoOrario": "ora italiana",
+        "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
         "fuso": "orari italiani",
         "giorniAvanti": GIORNI_AVANTI,
         "campionati": {},
@@ -217,12 +216,12 @@ def main():
     for chiave, conf in CAMPIONATI.items():
         gare = per_codice.get(conf["codice"], [])
 
-        # L'orario va convertito prima di abbinare le designazioni: quelle
-        # italiane riportano già l'ora locale, e senza allineare i due
-        # valori il confronto avverrebbe fra fusi diversi.
-        for g in gare:
-            g["data"], g["ora"] = sposta_orario(g["data"], g["ora"],
-                                                SCARTO_ORA_ITALIANA)
+        # Eventuale conversione, se un giorno la fonte cambiasse fuso.
+        # A scarto nullo la funzione restituisce i valori invariati.
+        if SCARTO_ORA_ITALIANA:
+            for g in gare:
+                g["data"], g["ora"] = sposta_orario(g["data"], g["ora"],
+                                                    SCARTO_ORA_ITALIANA)
         gare = sorted(gare, key=lambda x: (x["data"], x["ora"] or ""))
         designazioni = carica_designazioni(conf["designazioni"])
 
