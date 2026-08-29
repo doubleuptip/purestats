@@ -8,9 +8,19 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root{
-    --nero:#050706; --card:#0C110E; --card2:#111A14; --fluo:#39FF14; --fluo2:#1FA30C;
+    --nero:#050706; --card:#0C110E; --card2:#111A14;
     --bordo:#1C2A1F; --testo:#E8F5E6; --muted:#6B8470;
     --rosso:#FF2D2D; --giallo:#FFD400;
+
+    /* Accento: verde per il calcio, arancio per il football americano.
+       Le due leghe statunitensi hanno metriche del tutto diverse, e il
+       colore serve a segnalare che si sta guardando un'altra cosa. */
+    --acc:#39FF14; --acc2:#1FA30C; --acc-rgb:57,255,20;
+  }
+  body.arancio{
+    --acc:#FF8A1F; --acc2:#B35A0A; --acc-rgb:255,138,31;
+    --bordo:#2E2116; --testo:#F5EDE6; --muted:#8A7A6B;
+    --card:#120D08; --card2:#1A1310; --nero:#070503;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--nero);color:var(--testo);font-family:'JetBrains Mono',monospace;padding-bottom:60px}
@@ -18,22 +28,22 @@
   header{position:sticky;top:0;z-index:20;background:rgba(5,7,6,.96);
     border-bottom:1px solid var(--bordo);backdrop-filter:blur(8px);padding:14px 14px 0}
   .logo{display:flex;align-items:center;gap:8px}
-  .dot{width:8px;height:8px;border-radius:50%;background:var(--fluo);box-shadow:0 0 10px var(--fluo)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
   .logo span{font-family:'Teko',sans-serif;font-size:32px;letter-spacing:.06em;line-height:1}
-  .logo b{color:var(--fluo);font-weight:inherit}
+  .logo b{color:var(--acc);font-weight:inherit}
   .lega{display:flex;gap:9px;align-items:center;margin:6px 0 14px 20px;
     overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
   .lega button{flex-shrink:0;white-space:nowrap}
   .lega button{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
     letter-spacing:.1em;color:var(--muted);background:transparent;border:none;
     padding:4px 0;cursor:pointer;border-bottom:2px solid transparent}
-  .lega button.on{color:var(--fluo);border-bottom-color:var(--fluo)}
+  .lega button.on{color:var(--acc);border-bottom-color:var(--acc)}
   .lega span{color:var(--bordo);font-size:11px}
 
   /* --- PROSSIMA DESIGNAZIONE --- */
-  .desig{background:rgba(57,255,20,.06);border:1px solid rgba(57,255,20,.3);
+  .desig{background:rgba(var(--acc-rgb),.06);border:1px solid rgba(var(--acc-rgb),.3);
     border-radius:8px;padding:13px 15px;margin-bottom:18px}
-  .desig-lab{font-size:10px;color:var(--fluo);letter-spacing:.12em;font-weight:700;margin-bottom:7px}
+  .desig-lab{font-size:10px;color:var(--acc);letter-spacing:.12em;font-weight:700;margin-bottom:7px}
   .desig-match{font-family:'Teko',sans-serif;font-size:28px;line-height:1.1}
   .desig-quando{font-size:11px;color:var(--muted);margin-top:3px}
   .desig-ruolo{font-size:8px;color:var(--muted);margin-top:6px;letter-spacing:.05em}
@@ -44,7 +54,7 @@
     letter-spacing:.06em;color:var(--muted);background:transparent;
     border:1px solid var(--bordo);border-bottom:none;border-radius:5px 5px 0 0;
     padding:9px 13px;cursor:pointer}
-  nav button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
+  nav button.on{color:var(--nero);background:var(--acc);border-color:var(--acc)}
 
   main{padding:20px 14px 0}
   h1{font-family:'Teko',sans-serif;font-size:34px;line-height:1;font-weight:600}
@@ -53,11 +63,11 @@
   /* --- KPI numerici --- */
   .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0 22px}
   .kpi{background:var(--card);border:1px solid var(--bordo);border-radius:7px;padding:11px 8px;text-align:center}
-  .kpi b{display:block;font-family:'Teko',sans-serif;font-size:26px;color:var(--fluo);line-height:1}
+  .kpi b{display:block;font-family:'Teko',sans-serif;font-size:26px;color:var(--acc);line-height:1}
   .kpi span{display:block;font-size:7px;color:var(--muted);letter-spacing:.09em;margin-top:4px}
 
   .titolo{display:flex;align-items:center;gap:8px;margin:22px 0 5px}
-  .titolo i{width:3px;height:21px;background:var(--fluo);box-shadow:0 0 8px var(--fluo)}
+  .titolo i{width:3px;height:21px;background:var(--acc);box-shadow:0 0 8px var(--acc)}
   .titolo span{font-family:'Teko',sans-serif;font-size:26px;letter-spacing:.03em;line-height:1}
   .titolo-sub{font-size:11px;color:var(--muted);margin:0 0 11px 11px;line-height:1.6}
 
@@ -70,11 +80,15 @@
      non viene mai compresso né troncato */
   .tab thead th:not(:first-child){width:1%}
   .tab tbody td:not(:first-child){white-space:nowrap;width:1%}
+  /* Le sigle NFL e i nomi dei college sono già leggibili in piccolo:
+     il corpo grande del calcio qui sprecherebbe spazio in larghezza. */
+  body.arancio .nome{font-size:16px}
+  body.arancio .tab{font-size:12px}
   .tab tbody td:first-child{text-align:left;padding-left:10px;
     white-space:normal;overflow-wrap:anywhere;text-overflow:clip}
   .tab thead th.ord{cursor:pointer;-webkit-user-select:none;user-select:none}
   .tab thead th.ord:active{color:var(--testo)}
-  .tab thead th.attivo{color:var(--fluo)}
+  .tab thead th.attivo{color:var(--acc)}
   .tab thead th .dir{font-size:8px;margin-left:2px}
   .tab tbody td{padding:9px 6px;text-align:right;border-bottom:1px solid rgba(28,42,31,.5);
     font-variant-numeric:tabular-nums}
@@ -83,32 +97,32 @@
   .tab tbody tr.click:active{background:var(--card2)}
   .pos{color:var(--muted);font-size:11px;display:inline-block;min-width:20px}
   .nome{font-family:'Teko',sans-serif;font-size:22px;letter-spacing:.02em;vertical-align:middle;line-height:1.15}
-  .big{color:var(--fluo);font-weight:700;font-size:13px}
+  .big{color:var(--acc);font-weight:700;font-size:13px}
   .gial{color:var(--giallo);font-weight:700}
   .ros{color:var(--rosso);font-weight:700}
-  .neg{color:var(--fluo)}
+  .neg{color:var(--acc)}
   .freccia{color:var(--muted);font-size:11px;padding-left:6px}
 
   /* --- SCHEDA ARBITRO --- */
-  .back{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--fluo);
+  .back{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--acc);
     background:transparent;border:1px solid var(--bordo);border-radius:5px;
     padding:7px 12px;cursor:pointer;margin-bottom:16px;letter-spacing:.06em}
   .avatar{width:54px;height:54px;border-radius:50%;flex-shrink:0;
     display:flex;align-items:center;justify-content:center;position:relative;
-    overflow:hidden;border:1px solid rgba(57,255,20,.3)}
+    overflow:hidden;border:1px solid rgba(var(--acc-rgb),.3)}
   .avatar b{font-family:'Teko',sans-serif;font-size:27px;line-height:1;
     letter-spacing:.04em;position:relative;z-index:2}
   .avatar canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.55}
   .scheda-testa{display:flex;align-items:center;gap:13px;min-width:0}
 
-  .scheda-top{background:var(--card);border:1px solid rgba(57,255,20,.25);
+  .scheda-top{background:var(--card);border:1px solid rgba(var(--acc-rgb),.25);
     border-radius:9px;padding:16px;margin-bottom:18px}
   .scheda-nome{font-family:'Teko',sans-serif;font-size:29px;line-height:1.05;letter-spacing:.02em;overflow-wrap:anywhere}
   .scheda-meta{font-size:11px;color:var(--muted);margin-top:4px}
   .dati{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bordo);
     border:1px solid var(--bordo);border-radius:7px;overflow:hidden;margin-bottom:18px}
   .dato{background:var(--card);padding:12px 11px}
-  .dato b{display:block;font-family:'Teko',sans-serif;font-size:27px;color:var(--fluo);line-height:1}
+  .dato b{display:block;font-family:'Teko',sans-serif;font-size:27px;color:var(--acc);line-height:1}
   .dato b.g{color:var(--giallo)} .dato b.r{color:var(--rosso)} .dato b.n{color:var(--testo)}
   .dato span{display:block;font-size:8px;color:var(--muted);letter-spacing:.07em;margin-top:5px;line-height:1.4}
 
@@ -123,28 +137,28 @@
   .cerca{width:100%;background:var(--card);border:1px solid var(--bordo);border-radius:7px;
     padding:11px 13px;color:var(--testo);font-family:'JetBrains Mono',monospace;
     font-size:12px;outline:none}
-  .cerca:focus{border-color:var(--fluo);box-shadow:0 0 0 1px rgba(57,255,20,.2)}
+  .cerca:focus{border-color:var(--acc);box-shadow:0 0 0 1px rgba(var(--acc-rgb),.2)}
   .cerca::placeholder{color:var(--muted)}
   .stagioni{display:flex;gap:5px;overflow-x:auto;margin-top:9px;padding-bottom:3px;
     -webkit-overflow-scrolling:touch}
   .stagioni button{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:9px;
     font-weight:700;letter-spacing:.05em;color:var(--muted);background:var(--card);
     border:1px solid var(--bordo);border-radius:5px;padding:7px 11px;cursor:pointer;white-space:nowrap}
-  .stagioni button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
+  .stagioni button.on{color:var(--nero);background:var(--acc);border-color:var(--acc)}
   .conteggio{font-size:9px;color:var(--muted);margin-top:9px;letter-spacing:.05em}
 
-  .arb{color:var(--fluo);font-weight:700}
+  .arb{color:var(--acc);font-weight:700}
 
   /* --- CALENDARIO --- */
   .sottomenu{display:flex;gap:5px;overflow-x:auto;margin:14px 0 16px;padding-bottom:3px}
   .sottomenu button{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:10px;
     font-weight:700;letter-spacing:.05em;color:var(--muted);background:var(--card);
     border:1px solid var(--bordo);border-radius:5px;padding:8px 12px;cursor:pointer;white-space:nowrap}
-  .sottomenu button.on{color:var(--nero);background:var(--fluo);border-color:var(--fluo)}
+  .sottomenu button.on{color:var(--nero);background:var(--acc);border-color:var(--acc)}
 
 
   .gara{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:11px 14px}
-  .gara-quando{font-size:9px;color:var(--fluo);letter-spacing:.08em;margin-bottom:6px}
+  .gara-quando{font-size:9px;color:var(--acc);letter-spacing:.08em;margin-bottom:6px}
   .gara-squadre{display:flex;align-items:center;justify-content:space-between}
   .gara-squadre span{font-family:'Teko',sans-serif;font-size:19px;flex:1}
   .gara-squadre .vs{flex:0;font-family:'JetBrains Mono',monospace;font-size:9px;
@@ -160,7 +174,7 @@
   .loading{text-align:center;padding:60px 20px;color:var(--muted);font-size:11px}
   footer{text-align:center;font-size:8px;color:var(--muted);margin:32px 14px 0;
     padding-top:15px;border-top:1px solid var(--bordo);line-height:1.9}
-  code{color:var(--fluo);font-size:9px}
+  code{color:var(--acc);font-size:9px}
 </style>
 </head>
 <body>
@@ -184,7 +198,8 @@ const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
       MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706";
 
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
-let ricerca="", stagione=null;   // null = non ancora scelta, si imposta al caricamento
+let ricerca="", stagione=null;
+let annoFootball=null, gruppoFootball="tutti";   // null = non ancora scelta, si imposta al caricamento
 
 /* La stagione in corso è quella predefinita: guardare le medie di tutta la
    storia raramente è ciò che serve per prima cosa. "Tutte" resta a un tocco. */
@@ -201,6 +216,8 @@ const LEGHE = [
   {id:"la_liga",  nome:"LALIGA",         file:"data_la_liga.json"},
   {id:"ligue_1",  nome:"LIGUE 1",        file:"data_ligue_1.json"},
   {id:"bundesliga", nome:"BUNDESLIGA",  file:"data_bundesliga.json"},
+  {id:"nfl",      nome:"NFL",           file:"data_nfl.json",      football:true},
+  {id:"college",  nome:"COLLEGE FB",    file:"data_college.json",  football:true},
 ];
 let legaAttiva = null;
 const cache = {};
@@ -365,7 +382,7 @@ function caricaLega(id){
 function vaiLega(id){
   if(id===legaAttiva) return;
   const lega = LEGHE.find(l=>l.id===id);
-  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione=null;
+  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione=null; annoFootball=null; gruppoFootball="tutti";
   window.scrollTo(0,0);
   caricaLega(id)
     .then(d=>{ D=d; stagione=stagionePredefinita(d); render(); })
@@ -448,8 +465,25 @@ function vaiArbitro(nome){
   vista="arbitri"; arbitroAperto=nome; window.scrollTo(0,0); render();
 }
 
+function eFootball(id){
+  const l=LEGHE.find(x=>x.id===(id||legaAttiva));
+  return !!(l && l.football);
+}
+
 function render(){
   charts.forEach(c=>c.destroy()); charts=[];
+
+  // L'accento passa all'arancio per le leghe di football americano
+  document.body.className = eFootball() ? "arancio" : "";
+
+  // Le schede del calcio non hanno senso per il football: si nascondono
+  const soloFootball = eFootball();
+  [["n-arb",!soloFootball],["n-squ",true],["n-par",true],
+   ["n-cal",!soloFootball]].forEach(([id,visibile])=>{
+    const b=document.getElementById(id);
+    if(b) b.style.display = visibile ? "" : "none";
+  });
+  if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista="squadre";
   LEGHE.forEach(l=>{
     const b=document.getElementById("lg-"+l.id);
     if(b) b.className = (l.id===legaAttiva) ? "on" : "";
@@ -460,7 +494,10 @@ function render(){
   const bc=document.getElementById("n-cal"); if(bc) bc.className = vista==="calendario"?"on":"";
 
   const app=document.getElementById("app"); app.className="";
-  if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
+  if(eFootball()){
+    app.innerHTML = vista==="partite" ? vFootballPartite() : vFootballSquadre();
+  }
+  else if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
   else if(vista==="squadre") app.innerHTML = vSquadre();
   else if(vista==="partite") app.innerHTML = vPartite();
   else app.innerHTML = vCalendario();
@@ -718,7 +755,7 @@ function gScheda(){
   charts.push(new Chart(c,{type:"line",
     data:{labels:a.perStagione.map(s=>s.stagione),
       datasets:[{label:"Cartellini medi",data:a.perStagione.map(s=>s.media),
-        borderColor:FLUO,backgroundColor:"rgba(57,255,20,.12)",fill:true,
+        borderColor:FLUO,backgroundColor:"rgba(var(--acc-rgb),.12)",fill:true,
         tension:.3,pointBackgroundColor:FLUO,pointRadius:4}]},
     options:opz("",false)}));
 }
@@ -808,6 +845,163 @@ function vSquadre(){
     </tr>`;
   });
   return h+`</tbody></table>`;
+}
+
+/* ============ FOOTBALL AMERICANO (NFL e College) ============ */
+
+/* Le stagioni sono anni singoli, non a cavallo come nel calcio:
+   il sottomenù parte dalla più recente. */
+function annoPredefinito(d){
+  const s = d && d.stagioni;
+  return (s && s.length) ? s[0] : null;
+}
+
+function scegliAnno(a){ annoFootball=a; render(); }
+function scegliGruppo(g){ gruppoFootball=g; render(); }
+
+/* Conference per la NFL, conference universitarie per il college:
+   in entrambi i casi è il raggruppamento con cui si legge la classifica. */
+function barraGruppi(){
+  const g=(D.conferences||[]);
+  if(g.length<2) return "";
+  return `<div class="stagioni" style="margin-top:6px">
+    <button class="${gruppoFootball==="tutti"?"on":""}" onclick="scegliGruppo('tutti')">TUTTE</button>
+    ${g.map(x=>`<button class="${gruppoFootball===x?"on":""}"
+      onclick="scegliGruppo('${esc(x)}')">${esc(x)}</button>`).join("")}
+  </div>`;
+}
+
+function barraAnni(){
+  const anni=(D.stagioni||[]);
+  if(anni.length<2) return "";
+  return `<div class="stagioni">
+    <button class="${annoFootball==="tutte"?"on":""}" onclick="scegliAnno('tutte')">TUTTE</button>
+    ${anni.map(a=>`<button class="${annoFootball===a?"on":""}"
+      onclick="scegliAnno('${esc(a)}')">${esc(a)}</button>`).join("")}
+  </div>`;
+}
+
+/* Dati della squadra per l'anno scelto, o complessivi se "tutte" */
+function squadraFootball(s){
+  if(annoFootball==="tutte") return {
+    partite:s.partite, vittorie:s.vittorie, sconfitte:s.sconfitte,
+    pareggi:s.pareggi, percVittorie:s.percVittorie,
+    mediaFatti:s.mediaFatti, mediaSubiti:s.mediaSubiti,
+    differenza:s.differenza, conferenza:s.conferenza,
+    vittorieCasa:null, partiteCasa:null
+  };
+  const x=(s.perStagione||[]).find(y=>y.stagione===annoFootball);
+  return x || null;
+}
+
+function vFootballSquadre(){
+  const base=D.squadre||[];
+  if(!base.length) return `<div class="sub" style="margin-top:0">Nessun dato disponibile</div>`;
+
+  if(annoFootball===null) annoFootball = annoPredefinito(D) || "tutte";
+
+  const q=ricerca.trim().toLowerCase();
+  const o=ord.squadre;
+  const lista=base
+    .map(s=>({sq:s, d:squadraFootball(s)}))
+    .filter(x=>x.d!==null)
+    .filter(x=>gruppoFootball==="tutti"
+                || (x.sq.conference||x.d.conferenza)===gruppoFootball)
+    .filter(x=>!q||x.sq.nome.toLowerCase().includes(q)
+                ||(x.sq.nomeCompleto||"").toLowerCase().includes(q)
+                ||(x.sq.conference||x.d.conferenza||"").toLowerCase().includes(q))
+    .map(x=>({...x, nome:x.sq.nome, ...x.d}))
+    .sort((a,b)=>confronta(a,b,o.campo,o.dir) || a.nome.localeCompare(b.nome));
+
+  const gio=lista.reduce((s,x)=>s+(x.partite||0),0);
+  const pf=lista.length
+    ? (lista.reduce((s,x)=>s+(x.mediaFatti||0),0)/lista.length).toFixed(1) : "—";
+
+  let h=`<div class="sub" style="margin-top:0">
+      ${esc(D.campionato||"")} · classifica per stagione</div>
+    <div class="filtri">
+      <input class="cerca" type="search" placeholder="Cerca squadra o conference…"
+             value="${esc(ricerca)}" oninput="cercaSquadra(this.value)">
+      ${barraAnni()}
+      ${barraGruppi()}
+      <div class="conteggio">
+        ${lista.length} squadre · ${gio} presenze
+        ${annoFootball!=="tutte"?" · stagione "+esc(annoFootball):" · tutte le stagioni"}
+      </div>
+    </div>`;
+
+  if(!lista.length){
+    return h+`<div class="empty"><div style="font-size:10px;color:${MUTED};line-height:1.8">
+      Nessuna squadra ha giocato in questa stagione.</div></div>`;
+  }
+
+  h+=`${kpi([lista.length,"SQUADRE"],[gio,"PARTITE"],[pf,"PUNTI MEDI"])}
+    <div class="titolo"><i></i><span>CLASSIFICA</span></div>
+    <div class="titolo-sub">Tocca un'intestazione per ordinare · PF e PS = punti fatti e subiti a partita</div>
+    <table class="tab"><thead><tr>
+      ${th("squadre","nome","Squadra",true)}
+      ${th("squadre","partite","PG")}
+      ${th("squadre","vittorie","V")}
+      ${th("squadre","sconfitte","S")}
+      ${th("squadre","percVittorie","%")}
+      ${th("squadre","mediaFatti","PF")}
+      ${th("squadre","mediaSubiti","PS")}
+      ${th("squadre","differenza","DIFF")}
+    </tr></thead><tbody>`;
+
+  lista.forEach((x,i)=>{
+    h+=`<tr>
+      <td><span class="pos">${i+1}</span><span class="nome">${esc(x.sq.nomeCompleto||x.nome)}</span>${
+        (x.sq.division||x.conferenza)
+          ? `<span style="display:block;font-size:8px;color:${MUTED}">${esc(x.sq.division||x.conferenza)}</span>`
+          : ""}</td>
+      <td>${n(x.partite)}</td>
+      <td class="big">${n(x.vittorie)}</td>
+      <td>${n(x.sconfitte)}</td>
+      <td>${n(x.percVittorie)}</td>
+      <td>${n(x.mediaFatti)}</td>
+      <td>${n(x.mediaSubiti)}</td>
+      <td class="${x.differenza<0?"ros":""}">${x.differenza===null||x.differenza===undefined?"—":seg(x.differenza)}</td>
+    </tr>`;
+  });
+  return h+`</tbody></table>`;
+}
+
+function vFootballPartite(){
+  const P=D.ultimePartite||[];
+  if(!P.length) return `<div class="sub" style="margin-top:0">Nessuna partita in archivio</div>`;
+
+  if(annoFootball===null) annoFootball = annoPredefinito(D) || "tutte";
+  const sue = annoFootball==="tutte" ? P : P.filter(p=>p.stagione===annoFootball);
+
+  let h=`<div class="sub" style="margin-top:0">Le più recenti registrate</div>
+    <div class="filtri">${barraAnni()}
+      <div class="conteggio">${sue.length} partite
+        ${annoFootball!=="tutte"?" · stagione "+esc(annoFootball):""}</div>
+    </div>
+    <div class="titolo"><i></i><span>RISULTATI</span></div>
+    <div class="titolo-sub">Settimana, punteggio e sede</div>`;
+
+  if(!sue.length){
+    return h+`<div class="empty"><div style="font-size:10px;color:${MUTED};line-height:1.8">
+      Nessuna partita in questa stagione.</div></div>`;
+  }
+
+  h+=`<div class="grid">`;
+  sue.forEach(p=>{
+    const disputata = p.pc!==null && p.pc!==undefined;
+    h+=`<div class="gara">
+      <div class="gara-quando">${p.settimana?"SETTIMANA "+esc(p.settimana):""}${
+        p.data?" · "+esc(p.data):""}</div>
+      <div class="gara-squadre">
+        <span>${esc(p.ospite)}</span>
+        <span class="vs">${disputata?`${p.po}–${p.pc}`:"@"}</span>
+        <span style="text-align:right">${esc(p.casa)}</span>
+      </div>
+      ${p.stadio?`<div class="gara-arb">${esc(p.stadio)}</div>`:""}
+    </div>`;
+  });
+  return h+`</div>`;
 }
 
 /* ================= CALENDARIO ================= */
