@@ -26,6 +26,9 @@ USCITA = RADICE / "docs" / "data_nfl.json"
 PARTITE = "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv"
 # Anagrafica squadre: conference e division non sono nel file partite
 SQUADRE_URL = "https://raw.githubusercontent.com/nflverse/nfldata/master/data/teams.csv"
+# Statistiche per giocatore, un file per stagione, con dettaglio settimanale
+GIOCATORI_URL = ("https://github.com/nflverse/nflverse-data/releases/download/"
+                 "player_stats/player_stats_{stagione}.csv")
 UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 
 MAX_STAGIONI = 5
@@ -86,6 +89,104 @@ def carica_anagrafica():
         }
     print(f"    {len(per_sigla)} squadre in anagrafica")
     return per_sigla
+
+
+# Ruoli mostrati nella scheda partita, con la statistica che li qualifica.
+# Non serve l'elenco completo dei giocatori: bastano i due o tre che
+# decidono la partita, quelli di cui si parla prima del calcio d'inizio.
+RUOLI = [
+    ("QB", "passing_yards",   "yard passate",  ["passing_tds", "interceptions"]),
+    ("RB", "rushing_yards",   "yard corse",    ["rushing_tds"]),
+    ("WR", "receiving_yards", "yard ricevute", ["receptions", "receiving_tds"]),
+    ("TE", "receiving_yards", "yard ricevute", ["receptions", "receiving_tds"]),
+]
+
+# Quanti giocatori tenere per ruolo, per squadra e per stagione
+QUANTI_PER_RUOLO = {"QB": 1, "RB": 1, "WR": 2, "TE": 1}
+
+ETICHETTE = {
+    "passing_tds": "TD", "interceptions": "INT", "rushing_tds": "TD",
+    "receptions": "ric.", "receiving_tds": "TD",
+}
+
+
+def _decimale(valore):
+    v = (valore or "").strip()
+    if v in ("", "NA"):
+        return 0.0
+    try:
+        return float(v)
+    except ValueError:
+        return 0.0
+
+
+def carica_giocatori(stagioni):
+    """I migliori giocatori per squadra, ruolo e stagione.
+
+    I file di nflverse riportano una riga per giocatore per settimana:
+    si sommano i valori dell'intera stagione e si tiene solo chi guida
+    la propria squadra nel proprio ruolo.
+    """
+    per_squadra = {}
+
+    for stagione in stagioni:
+        url = GIOCATORI_URL.format(stagione=stagione)
+        testo = scarica(url, f"giocatori {stagione}")
+        if not testo:
+            continue
+
+        # somma per giocatore
+        totali = {}
+        for r in csv.DictReader(io.StringIO(testo)):
+            squadra = (r.get("recent_team") or r.get("team") or "").strip()
+            nome = (r.get("player_display_name") or r.get("player_name") or "").strip()
+            ruolo = (r.get("position") or "").strip()
+            if not (squadra and nome and ruolo):
+                continue
+            chiave = (squadra, nome, ruolo)
+            voce = totali.setdefault(chiave, {"partite": 0})
+            voce["partite"] += 1
+            for campo in ("passing_yards", "passing_tds", "interceptions",
+                          "rushing_yards", "rushing_tds",
+                          "receiving_yards", "receptions", "receiving_tds"):
+                voce[campo] = voce.get(campo, 0.0) + _decimale(r.get(campo))
+
+        # per ogni squadra e ruolo, i migliori
+        candidati = defaultdict(list)
+        for (squadra, nome, ruolo), v in totali.items():
+            for r_ruolo, misura, _, _ in RUOLI:
+                if ruolo == r_ruolo:
+                    candidati[(squadra, ruolo)].append((v.get(misura, 0.0), nome, v))
+
+        conteggio = 0
+        for (squadra, ruolo), elenco in candidati.items():
+            elenco.sort(reverse=True, key=lambda x: x[0])
+            quanti = QUANTI_PER_RUOLO.get(ruolo, 1)
+            for valore, nome, v in elenco[:quanti]:
+                if valore <= 0:
+                    continue
+                misura, etichetta, extra = next(
+                    (m, e, x) for r, m, e, x in RUOLI if r == ruolo)
+                dettagli = []
+                for campo in extra:
+                    n = int(v.get(campo, 0))
+                    if n:
+                        dettagli.append(f"{n} {ETICHETTE.get(campo, campo)}")
+                per_squadra.setdefault(squadra, {}).setdefault(str(stagione), []).append({
+                    "nome": nome, "ruolo": ruolo,
+                    "valore": int(valore), "misura": etichetta,
+                    "dettagli": dettagli, "partite": v["partite"],
+                })
+                conteggio += 1
+        print(f"    stagione {stagione}: {conteggio} giocatori di riferimento")
+
+    # ordine di presentazione: prima il quarterback, poi il resto
+    ordine = {"QB": 0, "RB": 1, "WR": 2, "TE": 3}
+    for squadra in per_squadra:
+        for stagione in per_squadra[squadra]:
+            per_squadra[squadra][stagione].sort(
+                key=lambda g: (ordine.get(g["ruolo"], 9), -g["valore"]))
+    return per_squadra
 
 
 def num(valore):
@@ -156,7 +257,7 @@ def salva_archivio(righe):
     return righe
 
 
-def calcola_statistiche(righe, anagrafica=None):
+def calcola_statistiche(righe, anagrafica=None, giocatori=None):
     """Aggrega per squadra e per stagione."""
     squadre = defaultdict(lambda: defaultdict(lambda: {
         "partite": 0, "vittorie": 0, "sconfitte": 0, "pareggi": 0,
@@ -231,12 +332,13 @@ def calcola_statistiche(righe, anagrafica=None):
             "mediaSubiti": media(tot["puntiSubiti"], tot["partite"]),
             "differenza": tot["puntiFatti"] - tot["puntiSubiti"],
             "perStagione": stagioni,
+            "giocatori": (giocatori or {}).get(nome, {}),
         })
     lista.sort(key=lambda x: (-(x["percVittorie"] or 0), x["nome"]))
 
-    # Ordinate dalla più recente: stagione, poi settimana, poi data.
-    # La settimana va confrontata come numero, altrimenti la 10 finirebbe
-    # prima della 9 e il raggruppamento nella pagina risulterebbe sfasato.
+    # Ordinate come si legge un calendario: stagione, poi settimana dalla
+    # prima all'ultima. La settimana va confrontata come numero, altrimenti
+    # la 10 finirebbe prima della 9 e i raggruppamenti risulterebbero sfasati.
     def ordine(r):
         try:
             settimana = int(r.get("Settimana") or 0)
@@ -244,7 +346,11 @@ def calcola_statistiche(righe, anagrafica=None):
             settimana = 0
         return (r.get("Stagione") or "", settimana, r.get("Data") or "")
 
-    recenti = sorted(righe, key=ordine, reverse=True)[:80]
+    # Tutte le partite delle stagioni conservate: la pagina filtra per anno,
+    # quindi limitarle qui significherebbe mostrare calendari incompleti.
+    recenti = sorted(righe, key=ordine)
+
+    giocatori = giocatori or {}
 
     ultime = []
     for r in recenti:
@@ -296,8 +402,11 @@ def main():
     print()
     anagrafica = carica_anagrafica()
 
+    print("\nGiocatori di riferimento")
+    giocatori = carica_giocatori(stagioni)
+
     righe = salva_archivio(righe)
-    stats = calcola_statistiche(righe, anagrafica)
+    stats = calcola_statistiche(righe, anagrafica, giocatori)
 
     USCITA.parent.mkdir(parents=True, exist_ok=True)
     USCITA.write_text(json.dumps(stats, ensure_ascii=False, indent=2),

@@ -266,9 +266,9 @@ def calcola_statistiche(righe):
         })
     lista.sort(key=lambda x: (-(x["percVittorie"] or 0), x["nome"]))
 
-    # Ordinate dalla più recente: stagione, poi settimana, poi data.
-    # La settimana va confrontata come numero, altrimenti la 10 finirebbe
-    # prima della 9 e il raggruppamento nella pagina risulterebbe sfasato.
+    # Ordinate come si legge un calendario: stagione, poi settimana dalla
+    # prima all'ultima. La settimana va confrontata come numero, altrimenti
+    # la 10 finirebbe prima della 9 e i raggruppamenti risulterebbero sfasati.
     def ordine(r):
         try:
             settimana = int(r.get("Settimana") or 0)
@@ -276,7 +276,9 @@ def calcola_statistiche(righe):
             settimana = 0
         return (r.get("Stagione") or "", settimana, r.get("Data") or "")
 
-    recenti = sorted(righe, key=ordine, reverse=True)[:80]
+    # Tutte le partite delle stagioni conservate: la pagina filtra per anno,
+    # quindi limitarle qui significherebbe mostrare calendari incompleti.
+    recenti = sorted(righe, key=ordine)
 
     ultime = []
     for r in recenti:
