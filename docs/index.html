@@ -199,7 +199,7 @@ const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
 
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
 let ricerca="", stagione=null;
-let annoFootball=null, gruppoFootball="tutti";   // null = non ancora scelta, si imposta al caricamento
+let annoFootball=null, gruppoFootball="tutti", squadraAperta=null;   // null = non ancora scelta, si imposta al caricamento
 
 /* La stagione in corso è quella predefinita: guardare le medie di tutta la
    storia raramente è ciò che serve per prima cosa. "Tutte" resta a un tocco. */
@@ -382,7 +382,7 @@ function caricaLega(id){
 function vaiLega(id){
   if(id===legaAttiva) return;
   const lega = LEGHE.find(l=>l.id===id);
-  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione=null; annoFootball=null; gruppoFootball="tutti";
+  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione=null; annoFootball=null; gruppoFootball="tutti"; squadraAperta=null;
   window.scrollTo(0,0);
   caricaLega(id)
     .then(d=>{ D=d; stagione=stagionePredefinita(d); render(); })
@@ -495,7 +495,8 @@ function render(){
 
   const app=document.getElementById("app"); app.className="";
   if(eFootball()){
-    app.innerHTML = vista==="partite" ? vFootballPartite() : vFootballSquadre();
+    app.innerHTML = vista==="partite" ? vFootballPartite()
+                  : squadraAperta ? vSquadraFootball() : vFootballSquadre();
   }
   else if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
   else if(vista==="squadre") app.innerHTML = vSquadre();
@@ -947,10 +948,11 @@ function vFootballSquadre(){
       ${th("squadre","mediaFatti","PF")}
       ${th("squadre","mediaSubiti","PS")}
       ${th("squadre","differenza","DIFF")}
+      <th></th>
     </tr></thead><tbody>`;
 
   lista.forEach((x,i)=>{
-    h+=`<tr>
+    h+=`<tr class="click" onclick="apriSquadra('${esc(x.nome).replace(/'/g,"\\'")}')">
       <td><span class="pos">${i+1}</span><span class="nome">${esc(x.sq.nomeCompleto||x.nome)}</span>${
         (x.sq.division||x.conferenza)
           ? `<span style="display:block;font-size:8px;color:${MUTED}">${esc(x.sq.division||x.conferenza)}</span>`
@@ -962,10 +964,14 @@ function vFootballSquadre(){
       <td>${n(x.mediaFatti)}</td>
       <td>${n(x.mediaSubiti)}</td>
       <td class="${x.differenza<0?"ros":""}">${x.differenza===null||x.differenza===undefined?"—":seg(x.differenza)}</td>
+      <td class="freccia">›</td>
     </tr>`;
   });
   return h+`</tbody></table>`;
 }
+
+function apriSquadra(nome){ squadraAperta=nome; window.scrollTo(0,0); render(); }
+function chiudiSquadra(){ squadraAperta=null; window.scrollTo(0,0); render(); }
 
 function vFootballPartite(){
   const P=D.ultimePartite||[];
@@ -974,34 +980,107 @@ function vFootballPartite(){
   if(annoFootball===null) annoFootball = annoPredefinito(D) || "tutte";
   const sue = annoFootball==="tutte" ? P : P.filter(p=>p.stagione===annoFootball);
 
-  let h=`<div class="sub" style="margin-top:0">Le più recenti registrate</div>
+  let h=`<div class="sub" style="margin-top:0">Risultati più recenti</div>
     <div class="filtri">${barraAnni()}
       <div class="conteggio">${sue.length} partite
         ${annoFootball!=="tutte"?" · stagione "+esc(annoFootball):""}</div>
-    </div>
-    <div class="titolo"><i></i><span>RISULTATI</span></div>
-    <div class="titolo-sub">Settimana, punteggio e sede</div>`;
+    </div>`;
 
   if(!sue.length){
     return h+`<div class="empty"><div style="font-size:10px;color:${MUTED};line-height:1.8">
       Nessuna partita in questa stagione.</div></div>`;
   }
 
-  h+=`<div class="grid">`;
+  /* Raggruppate per stagione e settimana: un elenco piatto di sessanta
+     partite non dice a quale turno appartengano, e nel football la
+     settimana è il riferimento con cui si ragiona. */
+  const gruppi=[];
   sue.forEach(p=>{
-    const disputata = p.pc!==null && p.pc!==undefined;
-    h+=`<div class="gara">
-      <div class="gara-quando">${p.settimana?"SETTIMANA "+esc(p.settimana):""}${
-        p.data?" · "+esc(p.data):""}</div>
-      <div class="gara-squadre">
-        <span>${esc(p.ospite)}</span>
-        <span class="vs">${disputata?`${p.po}–${p.pc}`:"@"}</span>
-        <span style="text-align:right">${esc(p.casa)}</span>
-      </div>
-      ${p.stadio?`<div class="gara-arb">${esc(p.stadio)}</div>`:""}
-    </div>`;
+    const etichetta = `${p.stagione}|${p.settimana||"?"}`;
+    const ultimo = gruppi[gruppi.length-1];
+    if(ultimo && ultimo.chiave===etichetta) ultimo.gare.push(p);
+    else gruppi.push({chiave:etichetta, stagione:p.stagione,
+                      settimana:p.settimana, tipo:p.tipo, gare:[p]});
   });
-  return h+`</div>`;
+
+  gruppi.forEach(g=>{
+    const titolo = g.settimana && g.settimana!=="?"
+      ? `SETTIMANA ${esc(g.settimana)}` : "PARTITE";
+    h += `<div style="margin:20px 0 9px;display:flex;align-items:baseline;gap:8px">
+      <span style="font-family:'Teko',sans-serif;font-size:19px;color:${FLUO}">${titolo}</span>
+      <span style="font-size:9px;color:${MUTED}">stagione ${esc(g.stagione)}${
+        g.tipo && g.tipo!=="REG" ? " · "+esc(g.tipo) : ""} · ${g.gare.length} gare</span>
+    </div><div class="grid">`;
+    g.gare.forEach(p=>{
+      const disputata = p.pc!==null && p.pc!==undefined;
+      const vinceCasa = disputata && p.pc>p.po;
+      h += `<div class="gara">
+        <div class="gara-squadre">
+          <span style="${!disputata||vinceCasa?"":"opacity:.6"}">${esc(p.ospite)}</span>
+          <span class="vs">${disputata?`${p.po}–${p.pc}`:"@"}</span>
+          <span style="text-align:right;${!disputata||!vinceCasa?"":"opacity:.6"}">${esc(p.casa)}</span>
+        </div>
+        <div class="gara-arb">${esc(p.data||"")}${p.stadio?" · "+esc(p.stadio):""}</div>
+      </div>`;
+    });
+    h += `</div>`;
+  });
+  return h;
+}
+
+/* Scheda di una singola squadra: andamento stagione per stagione */
+function vSquadraFootball(){
+  const s=(D.squadre||[]).find(x=>x.nome===squadraAperta);
+  if(!s) return `<button class="back" onclick="chiudiSquadra()">‹ INDIETRO</button>
+                 <div class="empty">Squadra non trovata</div>`;
+
+  const pos=(D.squadre||[]).findIndex(x=>x.nome===squadraAperta)+1;
+  let h=`<button class="back" onclick="chiudiSquadra()">‹ TUTTE LE SQUADRE</button>
+
+  <div class="scheda-top">
+    <div class="scheda-testa">
+      ${avatar(s.nomeCompleto||s.nome, 54)}
+      <div>
+        <div class="scheda-nome">${esc(s.nomeCompleto||s.nome)}</div>
+        <div class="scheda-meta">${s.division||s.conference||""} · ${pos}° per percentuale vittorie</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dati">
+    <div class="dato"><b>${n(s.percVittorie)}%</b><span>VITTORIE</span></div>
+    <div class="dato"><b class="n">${s.vittorie}-${s.sconfitte}${s.pareggi?"-"+s.pareggi:""}</b><span>RECORD</span></div>
+    <div class="dato"><b>${n(s.mediaFatti)}</b><span>PUNTI FATTI<br>A PARTITA</span></div>
+    <div class="dato"><b>${n(s.mediaSubiti)}</b><span>PUNTI SUBITI<br>A PARTITA</span></div>
+  </div>
+
+  <div class="conf">
+    <span class="conf-lab">DIFFERENZA PUNTI COMPLESSIVA</span>
+    <span class="conf-val" style="color:${s.differenza<0?ROSSO:FLUO}">${seg(s.differenza)}</span>
+  </div>
+
+  <div class="titolo"><i></i><span>STAGIONE PER STAGIONE</span></div>
+  <div class="titolo-sub">CASA e FUORI = vittorie sulle partite giocate</div>
+  <table class="tab"><thead><tr>
+    <th>Stagione</th><th>PG</th><th>V</th><th>S</th><th>%</th>
+    <th>PF</th><th>PS</th><th>CASA</th><th>FUORI</th>
+  </tr></thead><tbody>`;
+
+  (s.perStagione||[]).forEach(x=>{
+    h+=`<tr>
+      <td><span class="nome">${esc(x.stagione)}</span>${
+        x.conferenza?`<span style="display:block;font-size:8px;color:${MUTED}">${esc(x.conferenza)}</span>`:""}</td>
+      <td>${n(x.partite)}</td>
+      <td class="big">${n(x.vittorie)}</td>
+      <td>${n(x.sconfitte)}</td>
+      <td>${n(x.percVittorie)}</td>
+      <td>${n(x.mediaFatti)}</td>
+      <td>${n(x.mediaSubiti)}</td>
+      <td>${x.vittorieCasa!==null&&x.vittorieCasa!==undefined?`${x.vittorieCasa}/${x.partiteCasa}`:"—"}</td>
+      <td>${x.vittorieFuori!==null&&x.vittorieFuori!==undefined?`${x.vittorieFuori}/${x.partiteFuori}`:"—"}</td>
+    </tr>`;
+  });
+  return h+`</tbody></table>`;
 }
 
 /* ================= CALENDARIO ================= */
