@@ -234,8 +234,20 @@ def calcola_statistiche(righe, anagrafica=None):
         })
     lista.sort(key=lambda x: (-(x["percVittorie"] or 0), x["nome"]))
 
+    # Ordinate dalla più recente: stagione, poi settimana, poi data.
+    # La settimana va confrontata come numero, altrimenti la 10 finirebbe
+    # prima della 9 e il raggruppamento nella pagina risulterebbe sfasato.
+    def ordine(r):
+        try:
+            settimana = int(r.get("Settimana") or 0)
+        except ValueError:
+            settimana = 0
+        return (r.get("Stagione") or "", settimana, r.get("Data") or "")
+
+    recenti = sorted(righe, key=ordine, reverse=True)[:80]
+
     ultime = []
-    for r in reversed(righe[-60:]):
+    for r in recenti:
         ultime.append({
             "stagione": r["Stagione"], "settimana": r["Settimana"],
             "tipo": r["Tipo"], "data": r["Data"], "ora": r["Ora"] or None,
