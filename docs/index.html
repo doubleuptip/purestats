@@ -18,9 +18,12 @@
     --acc:#39FF14; --acc2:#1FA30C; --acc-rgb:57,255,20;
   }
   body.arancio{
-    --acc:#FF8A1F; --acc2:#B35A0A; --acc-rgb:255,138,31;
-    --bordo:#2E2116; --testo:#F5EDE6; --muted:#8A7A6B;
-    --card:#120D08; --card2:#1A1310; --nero:#070503;
+    --acc:#FF9838; --acc2:#B35A0A; --acc-rgb:255,152,56;
+    /* Grigi schiariti: sui fondi caldi i toni precedenti sparivano.
+       --data è il tono ambra di date e campi da gioco, che portano
+       un'informazione diversa dal resto del testo secondario. */
+    --bordo:#3D2E1F; --testo:#FBF5EF; --muted:#B39B82; --data:#C98A4B;
+    --card:#17110B; --card2:#1F1710; --nero:#070503;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--nero);color:var(--testo);font-family:'JetBrains Mono',monospace;padding-bottom:60px}
@@ -149,6 +152,21 @@
 
   .arb{color:var(--acc);font-weight:700}
 
+  /* --- GRUPPI COMPRIMIBILI --- */
+  .gruppo{width:100%;display:flex;align-items:center;gap:9px;text-align:left;
+    background:var(--card);border:1px solid var(--bordo);border-radius:8px;
+    padding:11px 13px;margin-top:8px;cursor:pointer;
+    font-family:'JetBrains Mono',monospace}
+  .gruppo.on{border-color:var(--acc)}
+  .gruppo-tit{font-family:'Teko',sans-serif;font-size:19px;color:var(--acc);line-height:1}
+  .gruppo-sub{font-size:9px;color:var(--muted)}
+  .gruppo-freccia{margin-left:auto;color:var(--muted);font-size:11px}
+  .gruppo-corpo{margin-top:8px}
+
+  .toggle-gio{width:100%;margin-top:9px;font-family:'JetBrains Mono',monospace;
+    font-size:9px;color:var(--acc);background:transparent;border:1px solid var(--bordo);
+    border-radius:4px;padding:5px;cursor:pointer;letter-spacing:.06em}
+
   /* --- GIOCATORI NELLA SCHEDA PARTITA --- */
   .rose{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:11px;
     padding-top:11px;border-top:1px solid var(--bordo)}
@@ -171,10 +189,16 @@
   .gara{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:11px 14px}
   .gara-quando{font-size:9px;color:var(--acc);letter-spacing:.08em;margin-bottom:6px}
   .gara-squadre{display:flex;align-items:center;justify-content:space-between}
-  .gara-squadre span{font-family:'Teko',sans-serif;font-size:19px;flex:1}
-  .gara-squadre .vs{flex:0;font-family:'JetBrains Mono',monospace;font-size:9px;
-    color:var(--muted);padding:0 10px}
+  .gara-squadre span{font-family:'Teko',sans-serif;font-size:19px;flex:1;line-height:1.15}
+  body.arancio .gara-squadre span{font-size:20px}
+  .gara-squadre .vs{flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:9px;
+    color:var(--muted);padding:0 10px;white-space:nowrap}
+  /* Il punteggio va tenuto su una riga: spezzato in due si legge male
+     e disallinea le due squadre. */
+  body.arancio .gara-squadre .vs{font-size:13px;font-weight:700;
+    color:var(--testo);padding:0 12px}
   .gara-arb{font-size:9px;color:var(--muted);margin-top:6px}
+  body.arancio .gara-arb{font-size:10px;color:var(--data, var(--muted))}
 
 
   .chart-box{background:var(--card);border:1px solid var(--bordo);border-radius:8px;
@@ -210,7 +234,14 @@ const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
 
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
 let ricerca="", stagione=null;
-let annoFootball=null, gruppoFootball="tutti", squadraAperta=null;   // null = non ancora scelta, si imposta al caricamento
+let annoFootball=null, gruppoFootball="tutti", squadraAperta=null;
+
+/* Cosa è aperto nella pagina. Con un calendario intero, mostrare tutto
+   espanso significa migliaia di righe: si parte chiusi e si apre ciò
+   che interessa. Gli insiemi sopravvivono ai ridisegni, quindi aprire
+   una scheda non richiude le altre. */
+const settimaneAperte = new Set();
+const partiteAperte = new Set();   // null = non ancora scelta, si imposta al caricamento
 
 /* La stagione in corso è quella predefinita: guardare le medie di tutta la
    storia raramente è ciò che serve per prima cosa. "Tutte" resta a un tocco. */
@@ -988,6 +1019,22 @@ function vFootballSquadre(){
 /* I giocatori sono archiviati una volta per squadra e stagione, non
    ripetuti in ogni partita: con un calendario intero la duplicazione
    avrebbe moltiplicato il peso del file per il numero di giornate. */
+/* Il file delle partite riporta le sigle; il nome per esteso sta
+   nell'anagrafica delle squadre. Le sigle sono chiare solo a chi segue
+   il campionato da anni. */
+/* '2026-09-13' -> 'domenica 13 settembre' */
+function dataBreve(iso){
+  if(!iso) return "";
+  const d=new Date(iso+"T12:00:00");
+  if(isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"});
+}
+
+function nomeSquadra(sigla){
+  const s=(D.squadre||[]).find(x=>x.nome===sigla);
+  return (s && s.nomeCompleto) || sigla;
+}
+
 function giocatoriDi(squadra, stagione){
   const s=(D.squadre||[]).find(x=>x.nome===squadra);
   if(!s || !s.giocatori) return [];
@@ -1006,6 +1053,15 @@ function rosa(titolo, giocatori){
   </div>`;
 }
 
+function apriGruppo(chiave){
+  settimaneAperte.has(chiave) ? settimaneAperte.delete(chiave) : settimaneAperte.add(chiave);
+  render();
+}
+function apriPartita(chiave){
+  partiteAperte.has(chiave) ? partiteAperte.delete(chiave) : partiteAperte.add(chiave);
+  render();
+}
+
 function apriSquadra(nome){ squadraAperta=nome; window.scrollTo(0,0); render(); }
 function chiudiSquadra(){ squadraAperta=null; window.scrollTo(0,0); render(); }
 
@@ -1016,7 +1072,7 @@ function vFootballPartite(){
   if(annoFootball===null) annoFootball = annoPredefinito(D) || "tutte";
   const sue = annoFootball==="tutte" ? P : P.filter(p=>p.stagione===annoFootball);
 
-  let h=`<div class="sub" style="margin-top:0">Risultati più recenti</div>
+  let h=`<div class="sub" style="margin-top:0">Calendario completo · tocca una settimana per aprirla</div>
     <div class="filtri">${barraAnni()}
       <div class="conteggio">${sue.length} partite
         ${annoFootball!=="tutte"?" · stagione "+esc(annoFootball):""}</div>
@@ -1027,42 +1083,55 @@ function vFootballPartite(){
       Nessuna partita in questa stagione.</div></div>`;
   }
 
-  /* Raggruppate per stagione e settimana: un elenco piatto di sessanta
-     partite non dice a quale turno appartengano, e nel football la
-     settimana è il riferimento con cui si ragiona. */
   const gruppi=[];
   sue.forEach(p=>{
-    const etichetta = `${p.stagione}|${p.settimana||"?"}`;
+    const k = `${p.stagione}|${p.settimana||"?"}`;
     const ultimo = gruppi[gruppi.length-1];
-    if(ultimo && ultimo.chiave===etichetta) ultimo.gare.push(p);
-    else gruppi.push({chiave:etichetta, stagione:p.stagione,
-                      settimana:p.settimana, tipo:p.tipo, gare:[p]});
+    if(ultimo && ultimo.chiave===k) ultimo.gare.push(p);
+    else gruppi.push({chiave:k, stagione:p.stagione, settimana:p.settimana,
+                      tipo:p.tipo, gare:[p]});
   });
 
+  h += `<div class="titolo"><i></i><span>WEEK</span></div>
+        <div class="titolo-sub">${gruppi.length} week · tocca per vedere le partite</div>`;
+
   gruppi.forEach(g=>{
+    const aperto = settimaneAperte.has(g.chiave);
+    // 'Week' è il termine con cui si indica il turno nel football
     const titolo = g.settimana && g.settimana!=="?"
-      ? `SETTIMANA ${esc(g.settimana)}` : "PARTITE";
-    h += `<div style="margin:20px 0 9px;display:flex;align-items:baseline;gap:8px">
-      <span style="font-family:'Teko',sans-serif;font-size:19px;color:${FLUO}">${titolo}</span>
-      <span style="font-size:9px;color:${MUTED}">stagione ${esc(g.stagione)}${
-        g.tipo && g.tipo!=="REG" ? " · "+esc(g.tipo) : ""} · ${g.gare.length} gare</span>
-    </div><div class="grid">`;
+      ? `WEEK ${esc(g.settimana)}` : "PARTITE";
+    const disputate = g.gare.filter(x=>x.pc!==null&&x.pc!==undefined).length;
+
+    h += `<button class="gruppo${aperto?" on":""}" onclick="apriGruppo('${esc(g.chiave)}')">
+      <span class="gruppo-tit">${titolo}</span>
+      <span class="gruppo-sub">${g.gare.length} gare${
+        disputate<g.gare.length?` · ${disputate} disputate`:""}${
+        annoFootball==="tutte"?" · "+esc(g.stagione):""}</span>
+      <span class="gruppo-freccia">${aperto?"▴":"▾"}</span>
+    </button>`;
+
+    if(!aperto) return;
+
+    h += `<div class="gruppo-corpo grid">`;
     g.gare.forEach(p=>{
+      const kp = `${p.stagione}|${p.settimana}|${p.casa}|${p.ospite}`;
       const disputata = p.pc!==null && p.pc!==undefined;
-      const vinceCasa = disputata && p.pc>p.po;
+      const casa = giocatoriDi(p.casa, p.stagione);
+      const osp  = giocatoriDi(p.ospite, p.stagione);
+      const conRose = casa.length || osp.length;
+      const rosaAperta = partiteAperte.has(kp);
+
       h += `<div class="gara">
         <div class="gara-squadre">
-          <span style="${!disputata||vinceCasa?"":"opacity:.6"}">${esc(p.ospite)}</span>
-          <span class="vs">${disputata?`${p.po}–${p.pc}`:"@"}</span>
-          <span style="text-align:right;${!disputata||!vinceCasa?"":"opacity:.6"}">${esc(p.casa)}</span>
+          <span>${esc(nomeSquadra(p.ospite))}</span>
+          <span class="vs">${disputata?`${p.po}\u2013${p.pc}`:"@"}</span>
+          <span style="text-align:right">${esc(nomeSquadra(p.casa))}</span>
         </div>
-        <div class="gara-arb">${esc(p.data||"")}${p.stadio?" · "+esc(p.stadio):""}</div>
-        ${(() => {
-          const casa = giocatoriDi(p.casa, p.stagione);
-          const osp  = giocatoriDi(p.ospite, p.stagione);
-          return (casa.length || osp.length)
-            ? `<div class="rose">${rosa(p.ospite, osp)}${rosa(p.casa, casa)}</div>` : "";
-        })()}
+        <div class="gara-arb">${esc(dataBreve(p.data))}${p.stadio?" · "+esc(p.stadio):""}</div>
+        ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
+            ${rosaAperta?"▴ NASCONDI GIOCATORI":"▾ GIOCATORI CHIAVE"}</button>` : ""}
+        ${conRose && rosaAperta
+          ? `<div class="rose">${rosa(p.ospite, osp)}${rosa(p.casa, casa)}</div>` : ""}
       </div>`;
     });
     h += `</div>`;
@@ -1193,15 +1262,25 @@ function vCalendario(){
   });
 
   h += `<div class="titolo"><i></i><span>PROSSIME PARTITE</span></div>
-        <div class="titolo-sub">${gare.length} gare in programma · l'arbitro compare dove già designato</div>`;
+        <div class="titolo-sub">${gare.length} gare · tocca un giorno per aprirlo</div>`;
 
-  perGiorno.forEach(gruppo=>{
+  perGiorno.forEach((gruppo, i)=>{
+    const chiave = "cal|" + gruppo.data;
+    // Il primo giorno resta aperto: è quello che si guarda per primo.
+    const aperto = settimaneAperte.has(chiave) || (i===0 && !settimaneAperte.size);
     const manca = traQuanto(gruppo.data);
-    h += `<div style="margin:18px 0 9px;display:flex;align-items:baseline;gap:8px">
-      <span style="font-family:'Teko',sans-serif;font-size:19px;color:${FLUO}">
-        ${esc(quandoEsteso(gruppo.data,null)).toUpperCase()}</span>
-      ${manca?`<span style="font-size:9px;color:${MUTED}">${esc(manca)}</span>`:""}
-    </div><div class="grid">`;
+    const conArbitro = gruppo.gare.filter(g=>g.arbitro).length;
+
+    h += `<button class="gruppo${aperto?" on":""}" onclick="apriGruppo('${esc(chiave)}')">
+      <span class="gruppo-tit">${esc(quandoEsteso(gruppo.data,null)).toUpperCase()}</span>
+      <span class="gruppo-sub">${gruppo.gare.length} gare${
+        manca?" · "+esc(manca):""}${conArbitro?` · ${conArbitro} con arbitro`:""}</span>
+      <span class="gruppo-freccia">${aperto?"▴":"▾"}</span>
+    </button>`;
+
+    if(!aperto) return;
+
+    h += `<div class="gruppo-corpo grid">`;
     gruppo.gare.forEach(g=>{
       h += `<div class="gara">
         <div class="gara-squadre">
