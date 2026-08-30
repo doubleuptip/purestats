@@ -38,28 +38,37 @@ COLONNE = [
 ]
 
 
-# Conference della prima divisione (FBS). Il college football conta oltre
-# settecento squadre fra tutte le categorie: senza questo filtro la
-# classifica diventerebbe illeggibile e l'archivio enorme.
+# Conference ammesse. Il college football conta oltre settecento squadre
+# fra tutte le categorie: senza questo elenco il calendario si riempirebbe
+# di incontri fra scuole di seconda e terza divisione.
 #
-# Si chiede all'API la sola prima divisione e in più si verifica qui la
-# conference, perché nelle partite fuori categoria una delle due squadre
-# appartiene comunque a una divisione inferiore.
-CONFERENCE_FBS = {
-    # Power conferences
-    "SEC", "Big Ten", "ACC", "Big 12", "Pac-12", "Pac-10",
-    # Group of Five
-    "American Athletic", "American", "Mountain West", "Sun Belt",
-    "Conference USA", "Mid-American", "MAC",
-    # Indipendenti
-    "FBS Independents", "Independent",
+# Il filtro è rigoroso: una partita entra in archivio solo se ENTRAMBE le
+# squadre appartengono a queste conference. Tenere anche le sfide contro
+# avversari di categoria inferiore sembrava ragionevole, ma nei fatti
+# riempiva il calendario di partite che non interessano.
+CONFERENCE_AMMESSE = {
+    "ACC", "Atlantic Coast Conference",
+    "American Athletic", "American", "The American",
+    "Big 12", "Big Twelve",
+    "Big Ten", "Big 10",
+    "Conference USA", "C-USA",
+    "Mountain West", "Mountain West Conference", "MWC",
+    "Pac-12", "Pac 12", "Pacific 12",
+    "Sun Belt", "Sun Belt Conference",
+    "SEC", "Southeastern Conference",
+    "Mid-American", "MAC",
+    "FBS Independents", "Independent", "Independents",
 }
+
+# Confronto senza distinzione fra maiuscole e spazi, perché la stessa
+# conference compare scritta in modi diversi a seconda della stagione.
+_AMMESSE = {" ".join(c.lower().split()) for c in CONFERENCE_AMMESSE}
 
 
 def e_prima_divisione(conferenza):
-    """Vero se la conference appartiene alla prima divisione."""
-    c = (conferenza or "").strip()
-    return bool(c) and c in CONFERENCE_FBS
+    """Vero se la conference è fra quelle seguite."""
+    c = " ".join((conferenza or "").lower().split())
+    return bool(c) and c in _AMMESSE
 
 
 def chiave_api():
@@ -125,6 +134,7 @@ def stagioni_da_scaricare():
 def normalizza(partite, stagione):
     righe = []
     scartate = 0
+    fuori = set()
     for g in partite or []:
         casa = (g.get("homeTeam") or g.get("home_team") or "").strip()
         ospite = (g.get("awayTeam") or g.get("away_team") or "").strip()
@@ -133,8 +143,10 @@ def normalizza(partite, stagione):
 
         conf_casa = (g.get("homeConference") or g.get("home_conference") or "").strip()
         conf_ospite = (g.get("awayConference") or g.get("away_conference") or "").strip()
-        if not (e_prima_divisione(conf_casa) or e_prima_divisione(conf_ospite)):
+        if not (e_prima_divisione(conf_casa) and e_prima_divisione(conf_ospite)):
             scartate += 1
+            fuori.add(conf_casa or "(senza conference)")
+            fuori.add(conf_ospite or "(senza conference)")
             continue
         data = (g.get("startDate") or g.get("start_date") or "")[:10]
         righe.append({
@@ -155,7 +167,10 @@ def normalizza(partite, stagione):
             "Spettatori": str(g.get("attendance") or ""),
         })
     if scartate:
-        print(f"      {scartate} partite di divisioni inferiori scartate")
+        print(f"      {scartate} partite scartate (fuori dalle conference seguite)")
+        ignote = sorted(c for c in fuori if not e_prima_divisione(c))[:6]
+        if ignote:
+            print(f"      conference escluse: {', '.join(ignote)}")
     return righe
 
 
