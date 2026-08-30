@@ -38,6 +38,30 @@ COLONNE = [
 ]
 
 
+# Conference della prima divisione (FBS). Il college football conta oltre
+# settecento squadre fra tutte le categorie: senza questo filtro la
+# classifica diventerebbe illeggibile e l'archivio enorme.
+#
+# Si chiede all'API la sola prima divisione e in più si verifica qui la
+# conference, perché nelle partite fuori categoria una delle due squadre
+# appartiene comunque a una divisione inferiore.
+CONFERENCE_FBS = {
+    # Power conferences
+    "SEC", "Big Ten", "ACC", "Big 12", "Pac-12", "Pac-10",
+    # Group of Five
+    "American Athletic", "American", "Mountain West", "Sun Belt",
+    "Conference USA", "Mid-American", "MAC",
+    # Indipendenti
+    "FBS Independents", "Independent",
+}
+
+
+def e_prima_divisione(conferenza):
+    """Vero se la conference appartiene alla prima divisione."""
+    c = (conferenza or "").strip()
+    return bool(c) and c in CONFERENCE_FBS
+
+
 def chiave_api():
     k = os.environ.get("CFBD_API_KEY", "").strip()
     if not k:
@@ -100,10 +124,17 @@ def stagioni_da_scaricare():
 
 def normalizza(partite, stagione):
     righe = []
+    scartate = 0
     for g in partite or []:
         casa = (g.get("homeTeam") or g.get("home_team") or "").strip()
         ospite = (g.get("awayTeam") or g.get("away_team") or "").strip()
         if not (casa and ospite):
+            continue
+
+        conf_casa = (g.get("homeConference") or g.get("home_conference") or "").strip()
+        conf_ospite = (g.get("awayConference") or g.get("away_conference") or "").strip()
+        if not (e_prima_divisione(conf_casa) or e_prima_divisione(conf_ospite)):
+            scartate += 1
             continue
         data = (g.get("startDate") or g.get("start_date") or "")[:10]
         righe.append({
@@ -123,6 +154,8 @@ def normalizza(partite, stagione):
             "Stadio": (g.get("venue") or "").strip(),
             "Spettatori": str(g.get("attendance") or ""),
         })
+    if scartate:
+        print(f"      {scartate} partite di divisioni inferiori scartate")
     return righe
 
 
@@ -171,6 +204,11 @@ def calcola_statistiche(righe):
             (r["Casa"], pc, po, True, r.get("ConferenzaCasa")),
             (r["Ospite"], po, pc, False, r.get("ConferenzaOspite")),
         ):
+            # In archivio restano anche gli avversari di categoria inferiore,
+            # perché la partita conta per la squadra di prima divisione. In
+            # classifica però non compaiono: non è il loro campionato.
+            if not e_prima_divisione(conf):
+                continue
             s = squadre[nome][stagione]
             s["partite"] += 1
             s["puntiFatti"] += propri
@@ -245,7 +283,7 @@ def calcola_statistiche(righe):
         "stagioni": sorted({r["Stagione"] for r in righe}, reverse=True),
         "totalePartite": len(righe),
         "partiteGiocate": giocate,
-        "squadre": lista[:200],
+        "squadre": lista,
         "conferences": sorted({s["conferenza"] for s in lista if s.get("conferenza")}),
         "ultimePartite": ultime,
     }
@@ -270,7 +308,11 @@ def main():
             time.sleep(PAUSA)
         print(f"\nStagione {anno}")
         for tipo in ("regular", "postseason"):
-            partite = chiama("games", year=anno, seasonType=tipo)
+            # 'classification' è il nome attuale del parametro; le versioni
+            # precedenti usavano 'division'. Si passano entrambi: quello
+            # non riconosciuto viene ignorato dal servizio.
+            partite = chiama("games", year=anno, seasonType=tipo,
+                             classification="fbs", division="fbs")
             if partite is None:
                 continue
             righe = normalizza(partite, anno)
