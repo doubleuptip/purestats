@@ -149,6 +149,17 @@
 
   .arb{color:var(--acc);font-weight:700}
 
+  /* --- GIOCATORI NELLA SCHEDA PARTITA --- */
+  .rose{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:11px;
+    padding-top:11px;border-top:1px solid var(--bordo)}
+  .rosa-tit{font-size:8px;color:var(--acc);letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+  .gio{margin-bottom:7px;line-height:1.35}
+  .gio-r{display:inline-block;min-width:22px;font-size:8px;font-weight:700;
+    color:var(--muted);letter-spacing:.06em}
+  .gio-n{font-size:11px;color:var(--testo)}
+  .gio-v{display:block;font-size:9px;color:var(--muted);margin-left:22px}
+  .gio-v b{color:var(--acc);font-weight:700}
+
   /* --- CALENDARIO --- */
   .sottomenu{display:flex;gap:5px;overflow-x:auto;margin:14px 0 16px;padding-bottom:3px}
   .sottomenu button{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:10px;
@@ -970,6 +981,31 @@ function vFootballSquadre(){
   return h+`</tbody></table>`;
 }
 
+/* Elenco compatto dei giocatori di riferimento di una squadra.
+   Servono a dare contesto alla partita: chi la decide, con il rendimento
+   di stagione accanto. Non è l'organico completo, sono i tre o quattro
+   nomi di cui si parla prima del calcio d'inizio. */
+/* I giocatori sono archiviati una volta per squadra e stagione, non
+   ripetuti in ogni partita: con un calendario intero la duplicazione
+   avrebbe moltiplicato il peso del file per il numero di giornate. */
+function giocatoriDi(squadra, stagione){
+  const s=(D.squadre||[]).find(x=>x.nome===squadra);
+  if(!s || !s.giocatori) return [];
+  return (s.giocatori[stagione] || []).slice(0,5);
+}
+
+function rosa(titolo, giocatori){
+  if(!giocatori || !giocatori.length) return "";
+  return `<div>
+    <div class="rosa-tit">${esc(titolo)}</div>
+    ${giocatori.map(g=>`<div class="gio">
+      <span class="gio-r">${esc(g.ruolo)}</span><span class="gio-n">${esc(g.nome)}</span>
+      <span class="gio-v"><b>${n(g.valore)}</b> ${esc(g.misura)}${
+        g.dettagli && g.dettagli.length ? " · "+esc(g.dettagli.join(", ")) : ""}</span>
+    </div>`).join("")}
+  </div>`;
+}
+
 function apriSquadra(nome){ squadraAperta=nome; window.scrollTo(0,0); render(); }
 function chiudiSquadra(){ squadraAperta=null; window.scrollTo(0,0); render(); }
 
@@ -1021,6 +1057,12 @@ function vFootballPartite(){
           <span style="text-align:right;${!disputata||!vinceCasa?"":"opacity:.6"}">${esc(p.casa)}</span>
         </div>
         <div class="gara-arb">${esc(p.data||"")}${p.stadio?" · "+esc(p.stadio):""}</div>
+        ${(() => {
+          const casa = giocatoriDi(p.casa, p.stagione);
+          const osp  = giocatoriDi(p.ospite, p.stagione);
+          return (casa.length || osp.length)
+            ? `<div class="rose">${rosa(p.ospite, osp)}${rosa(p.casa, casa)}</div>` : "";
+        })()}
       </div>`;
     });
     h += `</div>`;
