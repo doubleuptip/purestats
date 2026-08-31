@@ -42,10 +42,12 @@ COLONNE = [
 # fra tutte le categorie: senza questo elenco il calendario si riempirebbe
 # di incontri fra scuole di seconda e terza divisione.
 #
-# Il filtro è rigoroso: una partita entra in archivio solo se ENTRAMBE le
-# squadre appartengono a queste conference. Tenere anche le sfide contro
-# avversari di categoria inferiore sembrava ragionevole, ma nei fatti
-# riempiva il calendario di partite che non interessano.
+# Una partita entra in archivio se ALMENO UNA delle due squadre appartiene
+# a queste conference. Il criterio più stretto, che ne richiedeva due,
+# cancellava anche le sfide contro avversari di categoria inferiore: ma
+# quelle contano per la squadra maggiore, e toglierle significava perderne
+# le statistiche. Restano escluse solo le partite fra due squadre minori,
+# che sono quelle che riempivano il calendario senza interessare nessuno.
 CONFERENCE_AMMESSE = {
     "ACC", "Atlantic Coast Conference",
     "American Athletic", "American", "The American",
@@ -143,7 +145,7 @@ def normalizza(partite, stagione):
 
         conf_casa = (g.get("homeConference") or g.get("home_conference") or "").strip()
         conf_ospite = (g.get("awayConference") or g.get("away_conference") or "").strip()
-        if not (e_prima_divisione(conf_casa) and e_prima_divisione(conf_ospite)):
+        if not (e_prima_divisione(conf_casa) or e_prima_divisione(conf_ospite)):
             scartate += 1
             fuori.add(conf_casa or "(senza conference)")
             fuori.add(conf_ospite or "(senza conference)")
@@ -175,13 +177,31 @@ def normalizza(partite, stagione):
 
 
 def carica_archivio():
+    """Legge l'archivio applicando anche a esso il filtro sulle conference.
+
+    Filtrare solo ciò che si scarica non basta: le partite salvate prima
+    che il filtro esistesse resterebbero per sempre, perché a ogni giro
+    l'archivio viene ricaricato e riscritto così com'è.
+    """
     if not ARCHIVIO.exists():
         return []
     with ARCHIVIO.open(encoding="utf-8", newline="") as f:
-        righe = list(csv.DictReader(f))
-    for r in righe:
+        grezze = list(csv.DictReader(f))
+
+    righe = []
+    scartate = 0
+    for r in grezze:
         for c in COLONNE:
             r.setdefault(c, "")
+        if not (e_prima_divisione(r.get("ConferenzaCasa"))
+                or e_prima_divisione(r.get("ConferenzaOspite"))):
+            scartate += 1
+            continue
+        righe.append(r)
+
+    if scartate:
+        print(f"  {scartate} partite rimosse dall'archivio "
+              f"(fuori dalle conference seguite)")
     return righe
 
 
