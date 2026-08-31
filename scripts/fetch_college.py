@@ -189,11 +189,11 @@ QUANTI_PER_CATEGORIA = {"QB": 1, "RB": 1, "WR": 2}
 
 ETICHETTE = {"TD": "TD", "INT": "INT", "REC": "ric."}
 
-# Quante stagioni arricchire con le statistiche dei giocatori. Ogni
-# stagione costa una chiamata per settimana, quindi una quindicina:
-# il piano gratuito ha un tetto mensile e conviene non consumarlo tutto
-# per annate che nessuno consulterà nel dettaglio.
-STAGIONI_CON_GIOCATORI = int(os.environ.get("STAGIONI_GIOCATORI", "1"))
+# Quante stagioni arricchire con le statistiche dei giocatori: quella in
+# corso e la precedente. Ogni stagione costa una chiamata per settimana,
+# quindi una trentina in tutto — le annate più lontane restano senza,
+# perché nessuno ne consulta il dettaglio partita per partita.
+STAGIONI_CON_GIOCATORI = int(os.environ.get("STAGIONI_GIOCATORI", "2"))
 SETTIMANE_MAX = 16
 
 
