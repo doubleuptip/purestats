@@ -227,11 +227,19 @@ def carica_giocatori(stagioni):
 
     for stagione in scelte:
         trovate = 0
+        fallite = 0
+        vuote = 0
         for settimana in range(1, SETTIMANE_MAX + 1):
             time.sleep(PAUSA)
             partite = chiama("games/players", year=stagione,
                              seasonType="regular", week=settimana)
+            if partite is None:
+                # la chiamata non è riuscita: errore di rete o rifiuto
+                fallite += 1
+                continue
             if not partite:
+                # l'API ha risposto senza partite per quella settimana
+                vuote += 1
                 continue
 
             for gara in partite:
@@ -280,6 +288,17 @@ def carica_giocatori(stagioni):
         settimane = len(per_partita.get(str(stagione), {}))
         print(f"    stagione {stagione}: {settimane} settimane, "
               f"{trovate} prestazioni di rilievo")
+        if fallite or vuote:
+            print(f"      {fallite} chiamate non riuscite, "
+                  f"{vuote} risposte senza partite")
+        if settimane == 0:
+            if fallite:
+                print("      Nessun dato: le chiamate sono state rifiutate.")
+                print("      Se l'errore è 429 il tetto mensile è esaurito;")
+                print("      riduci STAGIONI_GIOCATORI a 1 e riprova il mese prossimo.")
+            else:
+                print("      Nessun dato: l'API risponde ma non ha statistiche")
+                print("      giocatori per questa stagione.")
 
     return per_partita
 
