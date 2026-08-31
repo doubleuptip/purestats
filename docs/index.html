@@ -1016,6 +1016,22 @@ function vFootballSquadre(){
    Servono a dare contesto alla partita: chi la decide, con il rendimento
    di stagione accanto. Non è l'organico completo, sono i tre o quattro
    nomi di cui si parla prima del calcio d'inizio. */
+/* '2026-09-13' -> 'domenica 13 settembre' */
+function dataBreve(iso){
+  if(!iso) return "";
+  const d=new Date(iso+"T12:00:00");
+  if(isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"});
+}
+
+/* Il file delle partite riporta le sigle; il nome per esteso sta
+   nell'anagrafica delle squadre. Le sigle sono chiare solo a chi segue
+   il campionato da anni. */
+function nomeSquadra(sigla){
+  const s=(D.squadre||[]).find(x=>x.nome===sigla);
+  return (s && s.nomeCompleto) || sigla;
+}
+
 function rosa(titolo, giocatori){
   if(!giocatori || !giocatori.length) return "";
   return `<div>
