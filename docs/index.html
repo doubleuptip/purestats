@@ -1016,31 +1016,6 @@ function vFootballSquadre(){
    Servono a dare contesto alla partita: chi la decide, con il rendimento
    di stagione accanto. Non è l'organico completo, sono i tre o quattro
    nomi di cui si parla prima del calcio d'inizio. */
-/* I giocatori sono archiviati una volta per squadra e stagione, non
-   ripetuti in ogni partita: con un calendario intero la duplicazione
-   avrebbe moltiplicato il peso del file per il numero di giornate. */
-/* Il file delle partite riporta le sigle; il nome per esteso sta
-   nell'anagrafica delle squadre. Le sigle sono chiare solo a chi segue
-   il campionato da anni. */
-/* '2026-09-13' -> 'domenica 13 settembre' */
-function dataBreve(iso){
-  if(!iso) return "";
-  const d=new Date(iso+"T12:00:00");
-  if(isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"});
-}
-
-function nomeSquadra(sigla){
-  const s=(D.squadre||[]).find(x=>x.nome===sigla);
-  return (s && s.nomeCompleto) || sigla;
-}
-
-function giocatoriDi(squadra, stagione){
-  const s=(D.squadre||[]).find(x=>x.nome===squadra);
-  if(!s || !s.giocatori) return [];
-  return (s.giocatori[stagione] || []).slice(0,5);
-}
-
 function rosa(titolo, giocatori){
   if(!giocatori || !giocatori.length) return "";
   return `<div>
@@ -1116,8 +1091,8 @@ function vFootballPartite(){
     g.gare.forEach(p=>{
       const kp = `${p.stagione}|${p.settimana}|${p.casa}|${p.ospite}`;
       const disputata = p.pc!==null && p.pc!==undefined;
-      const casa = giocatoriDi(p.casa, p.stagione);
-      const osp  = giocatoriDi(p.ospite, p.stagione);
+      const casa = p.giocatoriCasa || [];
+      const osp  = p.giocatoriOspite || [];
       const conRose = casa.length || osp.length;
       const rosaAperta = partiteAperte.has(kp);
 
@@ -1129,7 +1104,7 @@ function vFootballPartite(){
         </div>
         <div class="gara-arb">${esc(dataBreve(p.data))}${p.stadio?" · "+esc(p.stadio):""}</div>
         ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
-            ${rosaAperta?"▴ NASCONDI GIOCATORI":"▾ GIOCATORI CHIAVE"}</button>` : ""}
+            ${rosaAperta?"▴ NASCONDI":"▾ MIGLIORI DELLA PARTITA"}</button>` : ""}
         ${conRose && rosaAperta
           ? `<div class="rose">${rosa(p.ospite, osp)}${rosa(p.casa, casa)}</div>` : ""}
       </div>`;
