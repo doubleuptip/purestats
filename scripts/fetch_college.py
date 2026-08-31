@@ -229,6 +229,7 @@ def carica_giocatori(stagioni):
         trovate = 0
         fallite = 0
         vuote = 0
+        campione = None      # prima risposta utile, per la diagnostica
         for settimana in range(1, SETTIMANE_MAX + 1):
             time.sleep(PAUSA)
             partite = chiama("games/players", year=stagione,
@@ -241,6 +242,8 @@ def carica_giocatori(stagioni):
                 # l'API ha risposto senza partite per quella settimana
                 vuote += 1
                 continue
+            if campione is None:
+                campione = partite[0]
 
             for gara in partite:
                 for squadra in gara.get("teams", []):
@@ -291,6 +294,23 @@ def carica_giocatori(stagioni):
         if fallite or vuote:
             print(f"      {fallite} chiamate non riuscite, "
                   f"{vuote} risposte senza partite")
+        if settimane == 0 and campione is not None:
+            # L'API ha risposto ma non è stato riconosciuto nulla: quasi
+            # sempre significa che i nomi dei campi non corrispondono.
+            print("      L'API ha risposto ma la struttura non è quella attesa.")
+            print(f"      chiavi della partita: {sorted(campione.keys())}")
+            squadre_campione = campione.get("teams") or campione.get("Teams") or []
+            if squadre_campione and isinstance(squadre_campione[0], dict):
+                s0 = squadre_campione[0]
+                print(f"      chiavi della squadra: {sorted(s0.keys())}")
+                cat = s0.get("categories") or []
+                if cat and isinstance(cat[0], dict):
+                    print(f"      chiavi della categoria: {sorted(cat[0].keys())}")
+                    print(f"      nome categoria: {cat[0].get('name')}")
+            else:
+                import json as _j
+                print(f"      esempio: {_j.dumps(campione, ensure_ascii=False)[:400]}")
+
         if settimane == 0:
             if fallite:
                 print("      Nessun dato: le chiamate sono state rifiutate.")
