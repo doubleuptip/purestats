@@ -26,9 +26,18 @@ USCITA = RADICE / "docs" / "data_nfl.json"
 PARTITE = "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv"
 # Anagrafica squadre: conference e division non sono nel file partite
 SQUADRE_URL = "https://raw.githubusercontent.com/nflverse/nfldata/master/data/teams.csv"
-# Statistiche per giocatore, un file per stagione, con dettaglio settimanale
-GIOCATORI_URL = ("https://github.com/nflverse/nflverse-data/releases/download/"
-                 "player_stats/player_stats_{stagione}.csv")
+# Statistiche per giocatore, un file per stagione con dettaglio settimanale.
+#
+# nflverse ha deprecato il dataset 'player_stats' il 1° agosto 2025,
+# sostituendolo con 'stats_player'. I file storici restano dov'erano,
+# quindi si prova prima il nome nuovo e si ricade sul vecchio: così
+# funzionano sia le stagioni recenti sia quelle passate.
+GIOCATORI_URL = [
+    ("https://github.com/nflverse/nflverse-data/releases/download/"
+     "stats_player/stats_player_week_{stagione}.csv"),
+    ("https://github.com/nflverse/nflverse-data/releases/download/"
+     "player_stats/player_stats_{stagione}.csv"),
+]
 UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 
 MAX_STAGIONI = 5
@@ -133,10 +142,14 @@ def carica_giocatori(stagioni):
     per_partita = {}
 
     for stagione in stagioni:
-        url = GIOCATORI_URL.format(stagione=stagione)
-        testo = scarica(url, f"giocatori {stagione}")
+        testo = None
+        for modello in GIOCATORI_URL:
+            testo = scarica(modello.format(stagione=stagione), f"giocatori {stagione}")
+            if testo:
+                break
         if not testo:
-            print(f"    stagione {stagione}: dati giocatori non disponibili")
+            print(f"    stagione {stagione}: dati giocatori non disponibili "
+                  f"con nessuno dei formati noti")
             continue
 
         # candidati per squadra, settimana e ruolo
