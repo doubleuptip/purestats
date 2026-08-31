@@ -121,72 +121,73 @@ def _decimale(valore):
 
 
 def carica_giocatori(stagioni):
-    """I migliori giocatori per squadra, ruolo e stagione.
+    """I migliori giocatori di ogni singola partita, per ruolo.
 
     I file di nflverse riportano una riga per giocatore per settimana:
-    si sommano i valori dell'intera stagione e si tiene solo chi guida
-    la propria squadra nel proprio ruolo.
+    si tiene il rendimento della singola gara, non il totale di stagione.
+    Un quarterback da 300 yard in quella partita dice qualcosa su quella
+    partita; il suo totale annuale no.
+
+    Restituisce: {stagione: {settimana: {squadra: [giocatori]}}}
     """
-    per_squadra = {}
+    per_partita = {}
 
     for stagione in stagioni:
         url = GIOCATORI_URL.format(stagione=stagione)
         testo = scarica(url, f"giocatori {stagione}")
         if not testo:
+            print(f"    stagione {stagione}: dati giocatori non disponibili")
             continue
 
-        # somma per giocatore
-        totali = {}
+        # candidati per squadra, settimana e ruolo
+        candidati = defaultdict(list)
+        righe_lette = 0
         for r in csv.DictReader(io.StringIO(testo)):
             squadra = (r.get("recent_team") or r.get("team") or "").strip()
             nome = (r.get("player_display_name") or r.get("player_name") or "").strip()
             ruolo = (r.get("position") or "").strip()
-            if not (squadra and nome and ruolo):
+            settimana = (r.get("week") or "").strip()
+            if not (squadra and nome and ruolo and settimana):
                 continue
-            chiave = (squadra, nome, ruolo)
-            voce = totali.setdefault(chiave, {"partite": 0})
-            voce["partite"] += 1
-            for campo in ("passing_yards", "passing_tds", "interceptions",
-                          "rushing_yards", "rushing_tds",
-                          "receiving_yards", "receptions", "receiving_tds"):
-                voce[campo] = voce.get(campo, 0.0) + _decimale(r.get(campo))
-
-        # per ogni squadra e ruolo, i migliori
-        candidati = defaultdict(list)
-        for (squadra, nome, ruolo), v in totali.items():
-            for r_ruolo, misura, _, _ in RUOLI:
-                if ruolo == r_ruolo:
-                    candidati[(squadra, ruolo)].append((v.get(misura, 0.0), nome, v))
-
-        conteggio = 0
-        for (squadra, ruolo), elenco in candidati.items():
-            elenco.sort(reverse=True, key=lambda x: x[0])
-            quanti = QUANTI_PER_RUOLO.get(ruolo, 1)
-            for valore, nome, v in elenco[:quanti]:
+            righe_lette += 1
+            for r_ruolo, misura, etichetta, extra in RUOLI:
+                if ruolo != r_ruolo:
+                    continue
+                valore = _decimale(r.get(misura))
                 if valore <= 0:
                     continue
-                misura, etichetta, extra = next(
-                    (m, e, x) for r, m, e, x in RUOLI if r == ruolo)
                 dettagli = []
                 for campo in extra:
-                    n = int(v.get(campo, 0))
+                    n = int(_decimale(r.get(campo)))
                     if n:
                         dettagli.append(f"{n} {ETICHETTE.get(campo, campo)}")
-                per_squadra.setdefault(squadra, {}).setdefault(str(stagione), []).append({
-                    "nome": nome, "ruolo": ruolo,
-                    "valore": int(valore), "misura": etichetta,
-                    "dettagli": dettagli, "partite": v["partite"],
+                candidati[(str(stagione), settimana, squadra, ruolo)].append({
+                    "nome": nome, "ruolo": ruolo, "valore": int(valore),
+                    "misura": etichetta, "dettagli": dettagli,
                 })
-                conteggio += 1
-        print(f"    stagione {stagione}: {conteggio} giocatori di riferimento")
+
+        conteggio = 0
+        for (stag, settimana, squadra, ruolo), elenco in candidati.items():
+            elenco.sort(key=lambda g: -g["valore"])
+            quanti = QUANTI_PER_RUOLO.get(ruolo, 1)
+            scelti = elenco[:quanti]
+            (per_partita.setdefault(stag, {})
+                        .setdefault(settimana, {})
+                        .setdefault(squadra, [])).extend(scelti)
+            conteggio += len(scelti)
+
+        settimane = len(per_partita.get(str(stagione), {}))
+        print(f"    stagione {stagione}: {righe_lette} rilevazioni, "
+              f"{settimane} settimane, {conteggio} prestazioni di rilievo")
 
     # ordine di presentazione: prima il quarterback, poi il resto
     ordine = {"QB": 0, "RB": 1, "WR": 2, "TE": 3}
-    for squadra in per_squadra:
-        for stagione in per_squadra[squadra]:
-            per_squadra[squadra][stagione].sort(
-                key=lambda g: (ordine.get(g["ruolo"], 9), -g["valore"]))
-    return per_squadra
+    for stag in per_partita:
+        for settimana in per_partita[stag]:
+            for squadra in per_partita[stag][settimana]:
+                per_partita[stag][settimana][squadra].sort(
+                    key=lambda g: (ordine.get(g["ruolo"], 9), -g["valore"]))
+    return per_partita
 
 
 def num(valore):
@@ -332,7 +333,6 @@ def calcola_statistiche(righe, anagrafica=None, giocatori=None):
             "mediaSubiti": media(tot["puntiSubiti"], tot["partite"]),
             "differenza": tot["puntiFatti"] - tot["puntiSubiti"],
             "perStagione": stagioni,
-            "giocatori": (giocatori or {}).get(nome, {}),
         })
     lista.sort(key=lambda x: (-(x["percVittorie"] or 0), x["nome"]))
 
@@ -352,6 +352,10 @@ def calcola_statistiche(righe, anagrafica=None, giocatori=None):
 
     giocatori = giocatori or {}
 
+    def prestazioni(squadra, stagione, settimana):
+        return ((giocatori.get(str(stagione), {}) or {})
+                .get(str(settimana), {}) or {}).get(squadra, [])[:5]
+
     ultime = []
     for r in recenti:
         ultime.append({
@@ -360,6 +364,8 @@ def calcola_statistiche(righe, anagrafica=None, giocatori=None):
             "casa": r["Casa"], "ospite": r["Ospite"],
             "pc": num(r["PuntiCasa"]), "po": num(r["PuntiOspite"]),
             "stadio": r["Stadio"] or None,
+            "giocatoriCasa": prestazioni(r["Casa"], r["Stagione"], r["Settimana"]),
+            "giocatoriOspite": prestazioni(r["Ospite"], r["Stagione"], r["Settimana"]),
         })
 
     stagioni = sorted({r["Stagione"] for r in righe}, reverse=True)
