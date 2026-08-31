@@ -247,7 +247,11 @@ def carica_giocatori(stagioni):
 
             for gara in partite:
                 for squadra in gara.get("teams", []):
-                    nome_squadra = (squadra.get("school") or "").strip()
+                    # Il nome sta in 'team'; 'school' compare in altre
+                    # risposte dello stesso servizio, quindi si accettano
+                    # entrambi invece di legarsi a una sola forma.
+                    nome_squadra = (squadra.get("team")
+                                    or squadra.get("school") or "").strip()
                     if not (nome_squadra and e_prima_divisione(squadra.get("conference"))):
                         continue
 
