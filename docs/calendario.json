@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-30T05:04:46.484695+00:00",
+  "aggiornato": "2026-08-31T05:04:48.867185+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -8,30 +8,6 @@
     "premier": {
       "nome": "Premier League",
       "partite": [
-        {
-          "data": "2026-08-30",
-          "ora": "15:00",
-          "casa": "Chelsea",
-          "ospite": "Brighton"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "15:00",
-          "casa": "Leeds",
-          "ospite": "Brentford"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "15:00",
-          "casa": "Sunderland",
-          "ospite": "Fulham"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "17:30",
-          "casa": "Man United",
-          "ospite": "Ipswich"
-        },
         {
           "data": "2026-08-31",
           "ora": "21:00",
@@ -43,30 +19,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-08-30",
-          "ora": "18:30",
-          "casa": "Napoli",
-          "ospite": "Como",
-          "arbitro": "Pairetto",
-          "var": "Gariglio"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "20:45",
-          "casa": "Cagliari",
-          "ospite": "Inter",
-          "arbitro": "Fabbri",
-          "var": "Aureliano"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "20:45",
-          "casa": "Lazio",
-          "ospite": "Genoa",
-          "arbitro": "Feliciani",
-          "var": "Abisso"
-        },
         {
           "data": "2026-08-31",
           "ora": "18:30",
@@ -89,24 +41,6 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-08-30",
-          "ora": "17:00",
-          "casa": "Real Madrid",
-          "ospite": "Malaga"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "19:30",
-          "casa": "La Coruna",
-          "ospite": "Valencia"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "21:30",
-          "casa": "Celta",
-          "ospite": "Ath Bilbao"
-        },
-        {
           "data": "2026-08-31",
           "ora": "19:30",
           "casa": "Osasuna",
@@ -122,47 +56,11 @@
     },
     "ligue_1": {
       "nome": "Ligue 1",
-      "partite": [
-        {
-          "data": "2026-08-30",
-          "ora": "15:00",
-          "casa": "Paris FC",
-          "ospite": "Nice"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "17:15",
-          "casa": "Rennes",
-          "ospite": "Le Mans"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "20:45",
-          "casa": "Monaco",
-          "ospite": "Marseille"
-        }
-      ]
+      "partite": []
     },
     "bundesliga": {
       "nome": "Bundesliga",
-      "partite": [
-        {
-          "data": "2026-08-30",
-          "ora": "15:30",
-          "casa": "Freiburg",
-          "ospite": "Werder Bremen",
-          "arbitro": "Daniel Siebert",
-          "var": "Benjamin Cortus"
-        },
-        {
-          "data": "2026-08-30",
-          "ora": "17:30",
-          "casa": "Augsburg",
-          "ospite": "Schalke 04",
-          "arbitro": "Sascha Stegemann",
-          "var": "Robert Schröder"
-        }
-      ]
+      "partite": []
     }
   }
 }
