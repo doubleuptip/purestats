@@ -176,6 +176,114 @@ def normalizza(partite, stagione):
     return righe
 
 
+# Ruoli mostrati nella scheda partita. Nel college le statistiche arrivano
+# raggruppate per categoria (passing, rushing, receiving) invece che per
+# ruolo del giocatore: si prende il migliore di ogni categoria.
+CATEGORIE_GIOCATORI = [
+    ("passing",   "YDS", "QB", "yard passate",  ["TD", "INT"]),
+    ("rushing",   "YDS", "RB", "yard corse",    ["TD"]),
+    ("receiving", "YDS", "WR", "yard ricevute", ["REC", "TD"]),
+]
+
+QUANTI_PER_CATEGORIA = {"QB": 1, "RB": 1, "WR": 2}
+
+ETICHETTE = {"TD": "TD", "INT": "INT", "REC": "ric."}
+
+# Quante stagioni arricchire con le statistiche dei giocatori. Ogni
+# stagione costa una chiamata per settimana, quindi una quindicina:
+# il piano gratuito ha un tetto mensile e conviene non consumarlo tutto
+# per annate che nessuno consulterà nel dettaglio.
+STAGIONI_CON_GIOCATORI = int(os.environ.get("STAGIONI_GIOCATORI", "1"))
+SETTIMANE_MAX = 16
+
+
+def _numero(valore):
+    """Le statistiche arrivano come testo, a volte con formati misti."""
+    testo = str(valore or "").strip().replace(",", "")
+    if not testo:
+        return 0
+    # 'passing YDS' può arrivare come '312'; 'C/ATT' come '24/35'
+    if "/" in testo:
+        testo = testo.split("/")[0]
+    try:
+        return int(float(testo))
+    except ValueError:
+        return 0
+
+
+def carica_giocatori(stagioni):
+    """I migliori giocatori di ogni partita, per categoria.
+
+    Restituisce: {stagione: {settimana: {squadra: [giocatori]}}}
+    """
+    per_partita = {}
+    if STAGIONI_CON_GIOCATORI <= 0:
+        print("  Statistiche giocatori disattivate")
+        return per_partita
+
+    scelte = stagioni[:STAGIONI_CON_GIOCATORI]
+    print(f"  Stagioni arricchite: {scelte} "
+          f"(fino a {SETTIMANE_MAX} chiamate ciascuna)")
+
+    for stagione in scelte:
+        trovate = 0
+        for settimana in range(1, SETTIMANE_MAX + 1):
+            time.sleep(PAUSA)
+            partite = chiama("games/players", year=stagione,
+                             seasonType="regular", week=settimana)
+            if not partite:
+                continue
+
+            for gara in partite:
+                for squadra in gara.get("teams", []):
+                    nome_squadra = (squadra.get("school") or "").strip()
+                    if not (nome_squadra and e_prima_divisione(squadra.get("conference"))):
+                        continue
+
+                    # indicizza le statistiche per categoria e tipo
+                    valori = {}
+                    for categoria in squadra.get("categories", []):
+                        nome_cat = (categoria.get("name") or "").lower()
+                        for tipo in categoria.get("types", []):
+                            nome_tipo = (tipo.get("name") or "").upper()
+                            for atleta in tipo.get("athletes", []):
+                                chiave = (nome_cat, (atleta.get("name") or "").strip())
+                                if not chiave[1]:
+                                    continue
+                                valori.setdefault(chiave, {})[nome_tipo] = atleta.get("stat")
+
+                    scelti = []
+                    for cat, misura, ruolo, etichetta, extra in CATEGORIE_GIOCATORI:
+                        candidati = []
+                        for (nome_cat, atleta), stat in valori.items():
+                            if nome_cat != cat:
+                                continue
+                            valore = _numero(stat.get(misura))
+                            if valore <= 0:
+                                continue
+                            dettagli = []
+                            for campo in extra:
+                                n = _numero(stat.get(campo))
+                                if n:
+                                    dettagli.append(f"{n} {ETICHETTE.get(campo, campo)}")
+                            candidati.append({"nome": atleta, "ruolo": ruolo,
+                                              "valore": valore, "misura": etichetta,
+                                              "dettagli": dettagli})
+                        candidati.sort(key=lambda g: -g["valore"])
+                        scelti.extend(candidati[:QUANTI_PER_CATEGORIA.get(ruolo, 1)])
+
+                    if scelti:
+                        (per_partita.setdefault(str(stagione), {})
+                                    .setdefault(str(settimana), {})[nome_squadra]) = scelti
+                        trovate += len(scelti)
+
+        settimane = len(per_partita.get(str(stagione), {}))
+        print(f"    stagione {stagione}: {settimane} settimane, "
+              f"{trovate} prestazioni di rilievo")
+
+    return per_partita
+
+
 def carica_archivio():
     """Legge l'archivio applicando anche a esso il filtro sulle conference.
 
@@ -219,7 +327,7 @@ def chiave(r):
     return (r.get("Stagione"), r.get("Data"), r.get("Casa"), r.get("Ospite"))
 
 
-def calcola_statistiche(righe):
+def calcola_statistiche(righe, giocatori=None):
     squadre = defaultdict(lambda: defaultdict(lambda: {
         "partite": 0, "vittorie": 0, "sconfitte": 0, "pareggi": 0,
         "puntiFatti": 0, "puntiSubiti": 0,
@@ -315,6 +423,12 @@ def calcola_statistiche(righe):
     # quindi limitarle qui significherebbe mostrare calendari incompleti.
     recenti = sorted(righe, key=ordine)
 
+    giocatori = giocatori or {}
+
+    def prestazioni(squadra, stagione, settimana):
+        return ((giocatori.get(str(stagione), {}) or {})
+                .get(str(settimana), {}) or {}).get(squadra, [])[:5]
+
     ultime = []
     for r in recenti:
         ultime.append({
@@ -323,6 +437,8 @@ def calcola_statistiche(righe):
             "pc": num(r["PuntiCasa"]), "po": num(r["PuntiOspite"]),
             "conferenzaCasa": r.get("ConferenzaCasa") or None,
             "stadio": r.get("Stadio") or None,
+            "giocatoriCasa": prestazioni(r["Casa"], r["Stagione"], r["Settimana"]),
+            "giocatoriOspite": prestazioni(r["Ospite"], r["Stagione"], r["Settimana"]),
         })
 
     return {
@@ -385,7 +501,10 @@ def main():
     righe = salva_archivio(tutte)
     print(f"Archivio salvato: {len(righe)} partite ({len(righe) - prima:+d})")
 
-    stats = calcola_statistiche(righe)
+    print("\nGiocatori di riferimento")
+    giocatori = carica_giocatori(stagioni)
+
+    stats = calcola_statistiche(righe, giocatori)
     USCITA.parent.mkdir(parents=True, exist_ok=True)
     USCITA.write_text(json.dumps(stats, ensure_ascii=False, indent=2),
                       encoding="utf-8")
