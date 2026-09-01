@@ -178,6 +178,12 @@
   .gio-v{display:block;font-size:9px;color:var(--muted);margin-left:22px}
   .gio-v b{color:var(--acc);font-weight:700}
 
+  /* L'attribuzione alla fonte è una condizione della licenza: va
+     mostrata nella pagina, non solo nei dati. */
+  .avviso-fonte{margin-top:20px;padding:12px 14px;background:var(--card2);
+    border:1px solid var(--bordo);border-radius:8px;
+    font-size:10px;color:var(--muted);line-height:1.7;text-align:center}
+
   /* --- CALENDARIO --- */
   .sottomenu{display:flex;gap:5px;overflow-x:auto;margin:14px 0 16px;padding-bottom:3px}
   .sottomenu button{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:10px;
@@ -260,6 +266,7 @@ const LEGHE = [
   {id:"bundesliga", nome:"BUNDESLIGA",  file:"data_bundesliga.json"},
   {id:"nfl",      nome:"NFL",           file:"data_nfl.json",      football:true},
   {id:"college",  nome:"COLLEGE FB",    file:"data_college.json",  football:true},
+  {id:"aleague",  nome:"A-LEAGUE",      file:"data_aleague.json",  soloArbitri:true},
 ];
 let legaAttiva = null;
 const cache = {};
@@ -512,6 +519,13 @@ function eFootball(id){
   return !!(l && l.football);
 }
 
+/* L'A-League fornisce le sole classifiche arbitrali: niente partite,
+   niente squadre. Le schede che non avrebbero contenuto si nascondono. */
+function soloArbitri(id){
+  const l=LEGHE.find(x=>x.id===(id||legaAttiva));
+  return !!(l && l.soloArbitri);
+}
+
 function render(){
   charts.forEach(c=>c.destroy()); charts=[];
 
@@ -520,12 +534,14 @@ function render(){
 
   // Le schede del calcio non hanno senso per il football: si nascondono
   const soloFootball = eFootball();
-  [["n-arb",!soloFootball],["n-squ",true],["n-par",true],
-   ["n-cal",!soloFootball]].forEach(([id,visibile])=>{
+  const soloArb = soloArbitri();
+  [["n-arb",!soloFootball],["n-squ",!soloArb],["n-par",!soloArb],
+   ["n-cal",!soloFootball && !soloArb]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
   if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista="squadre";
+  if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
     const b=document.getElementById("lg-"+l.id);
     if(b) b.className = (l.id===legaAttiva) ? "on" : "";
@@ -536,7 +552,10 @@ function render(){
   const bc=document.getElementById("n-cal"); if(bc) bc.className = vista==="calendario"?"on":"";
 
   const app=document.getElementById("app"); app.className="";
-  if(eFootball()){
+  if(soloArbitri()){
+    app.innerHTML = vArbitriAleague();
+  }
+  else if(eFootball()){
     app.innerHTML = vista==="partite" ? vFootballPartite()
                   : squadraAperta ? vSquadraFootball() : vFootballSquadre();
   }
@@ -1183,6 +1202,66 @@ function vSquadraFootball(){
     </tr>`;
   });
   return h+`</tbody></table>`;
+}
+
+/* ================= A-LEAGUE ================= */
+
+/* Il campionato australiano fornisce le sole classifiche arbitrali,
+   già aggregate dalla fonte: non ci sono partite né squadre, quindi
+   niente scheda arbitro con l'elenco delle gare dirette. */
+function vArbitriAleague(){
+  const A = D.arbitri || [];
+  if(!A.length){
+    return `<div class="sub" style="margin-top:0">Nessun dato disponibile</div>`;
+  }
+
+  const q = ricerca.trim().toLowerCase();
+  const o = ord.arbitri;
+  const lista = A
+    .filter(a=>!q || a.nome.toLowerCase().includes(q)
+                  || (a.nazionalita||"").toLowerCase().includes(q))
+    .slice()
+    .sort((a,b)=>confronta(a,b,o.campo,o.dir) || a.nome.localeCompare(b.nome));
+
+  const conMedia = lista.filter(a=>a.mediaCartellini!==null&&a.mediaCartellini!==undefined);
+  const media = conMedia.length
+    ? (conMedia.reduce((s,a)=>s+a.mediaCartellini,0)/conMedia.length).toFixed(2) : "—";
+  const partite = lista.reduce((s,a)=>s+(a.partite||0),0);
+
+  let h = `<div class="sub" style="margin-top:0">
+      ${esc(D.campionato||"")} · medie fornite dalla fonte</div>
+    <div class="filtri">
+      <input class="cerca" type="search" placeholder="Cerca arbitro…"
+             value="${esc(ricerca)}" oninput="cercaSquadra(this.value)">
+      <div class="conteggio">${lista.length} arbitri · ${partite} presenze
+        ${D.stagione && D.stagione!=="tutte" ? " · stagione "+esc(D.stagione) : ""}</div>
+    </div>
+    ${kpi([lista.length,"ARBITRI"],[partite,"PRESENZE"],[media,"CART / PARTITA"])}
+    <div class="titolo"><i></i><span>CLASSIFICA SEVERITÀ</span></div>
+    <div class="titolo-sub">Tocca un'intestazione per ordinare</div>
+    <table class="tab"><thead><tr>
+      ${th("arbitri","nome","Arbitro",true)}
+      ${th("arbitri","partite","PG")}
+      ${th("arbitri","mediaCartellini","CART")}
+      ${th("arbitri","mediaGialli","GIA")}
+      ${th("arbitri","rossi","ROS")}
+    </tr></thead><tbody>`;
+
+  lista.forEach((a,i)=>{
+    h += `<tr>
+      <td><span class="pos">${i+1}</span><span class="nome">${esc(a.nome)}</span></td>
+      <td>${n(a.partite)}</td>
+      <td class="big">${n(a.mediaCartellini)}</td>
+      <td class="gia">${n(a.mediaGialli)}</td>
+      <td class="${a.rossi>0?"ros":""}">${n(a.rossi)}</td>
+    </tr>`;
+  });
+  h += `</tbody></table>`;
+
+  if(D.attribuzione){
+    h += `<div class="avviso-fonte">${esc(D.attribuzione)}</div>`;
+  }
+  return h;
 }
 
 /* ================= CALENDARIO ================= */
