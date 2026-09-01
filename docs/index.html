@@ -241,6 +241,7 @@ const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
 let ricerca="", stagione=null;
 let annoFootball=null, gruppoFootball="tutti", squadraAperta=null;
+let arbitroAleague=null;
 
 /* Cosa è aperto nella pagina. Con un calendario intero, mostrare tutto
    espanso significa migliaia di righe: si parte chiusi e si apre ciò
@@ -264,9 +265,9 @@ const LEGHE = [
   {id:"la_liga",  nome:"LALIGA",         file:"data_la_liga.json"},
   {id:"ligue_1",  nome:"LIGUE 1",        file:"data_ligue_1.json"},
   {id:"bundesliga", nome:"BUNDESLIGA",  file:"data_bundesliga.json"},
+  {id:"aleague",  nome:"A-LEAGUE",      file:"data_aleague.json",  soloArbitri:true},
   {id:"nfl",      nome:"NFL",           file:"data_nfl.json",      football:true},
   {id:"college",  nome:"COLLEGE FB",    file:"data_college.json",  football:true},
-  {id:"aleague",  nome:"A-LEAGUE",      file:"data_aleague.json",  soloArbitri:true},
 ];
 let legaAttiva = null;
 const cache = {};
@@ -431,7 +432,7 @@ function caricaLega(id){
 function vaiLega(id){
   if(id===legaAttiva) return;
   const lega = LEGHE.find(l=>l.id===id);
-  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione=null; annoFootball=null; gruppoFootball="tutti"; squadraAperta=null;
+  legaAttiva=id; arbitroAperto=null; ricerca=""; stagione=null; annoFootball=null; arbitroAleague=null; gruppoFootball="tutti"; squadraAperta=null;
   window.scrollTo(0,0);
   caricaLega(id)
     .then(d=>{ D=d; stagione=stagionePredefinita(d); render(); })
@@ -553,7 +554,7 @@ function render(){
 
   const app=document.getElementById("app"); app.className="";
   if(soloArbitri()){
-    app.innerHTML = vArbitriAleague();
+    app.innerHTML = arbitroAleague ? vSchedaAleague() : vArbitriAleague();
   }
   else if(eFootball()){
     app.innerHTML = vista==="partite" ? vFootballPartite()
@@ -1245,18 +1246,89 @@ function vArbitriAleague(){
       ${th("arbitri","mediaCartellini","CART")}
       ${th("arbitri","mediaGialli","GIA")}
       ${th("arbitri","rossi","ROS")}
+      <th></th>
     </tr></thead><tbody>`;
 
   lista.forEach((a,i)=>{
-    h += `<tr>
-      <td><span class="pos">${i+1}</span><span class="nome">${esc(a.nome)}</span></td>
+    const storico = (a.perStagione||[]).length;
+    h += `<tr class="click" onclick="apriArbitroAleague('${esc(a.nome).replace(/'/g,"\\'")}')">
+      <td><span class="pos">${i+1}</span><span class="nome">${esc(a.nome)}</span>${
+        storico?`<span style="display:block;font-size:8px;color:${MUTED}">${storico} stagioni</span>`:""}</td>
       <td>${n(a.partite)}</td>
       <td class="big">${n(a.mediaCartellini)}</td>
       <td class="gia">${n(a.mediaGialli)}</td>
       <td class="${a.rossi>0?"ros":""}">${n(a.rossi)}</td>
+      <td class="freccia">›</td>
     </tr>`;
   });
   h += `</tbody></table>`;
+
+  if(D.attribuzione){
+    h += `<div class="avviso-fonte">${esc(D.attribuzione)}</div>`;
+  }
+  return h;
+}
+
+function apriArbitroAleague(nome){ arbitroAleague=nome; window.scrollTo(0,0); render(); }
+function chiudiArbitroAleague(){ arbitroAleague=null; window.scrollTo(0,0); render(); }
+
+/* Scheda di un singolo arbitro australiano: medie complessive e, se le
+   stagioni sono state scaricate, l'andamento nel tempo. */
+function vSchedaAleague(){
+  const a=(D.arbitri||[]).find(x=>x.nome===arbitroAleague);
+  if(!a) return `<button class="back" onclick="chiudiArbitroAleague()">‹ INDIETRO</button>
+                 <div class="empty">Arbitro non trovato</div>`;
+
+  const pos=(D.arbitri||[]).findIndex(x=>x.nome===arbitroAleague)+1;
+  const storico=a.perStagione||[];
+
+  let h=`<button class="back" onclick="chiudiArbitroAleague()">‹ TUTTI GLI ARBITRI</button>
+
+  <div class="scheda-top">
+    <div class="scheda-testa">
+      ${avatar(a.nome, 54)}
+      <div>
+        <div class="scheda-nome">${esc(a.nome)}</div>
+        <div class="scheda-meta">${a.partite} partite dirette · ${pos}° per severità${
+          a.nazionalita?" · "+esc(a.nazionalita):""}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dati">
+    <div class="dato"><b>${n(a.mediaGialli)}</b><span>GIALLI MEDI</span></div>
+    <div class="dato"><b>${n(a.mediaRossi)}</b><span>ROSSI MEDI</span></div>
+    <div class="dato"><b class="n">${a.gialli}</b><span>GIALLI TOTALI</span></div>
+    <div class="dato"><b class="n">${a.rossi}</b><span>ROSSI TOTALI</span></div>
+  </div>
+
+  <div class="conf">
+    <span class="conf-lab">CARTELLINI PER PARTITA</span>
+    <span class="conf-val">${n(a.mediaCartellini)}</span>
+  </div>`;
+
+  if(storico.length){
+    h+=`<div class="titolo"><i></i><span>STAGIONE PER STAGIONE</span></div>
+      <div class="titolo-sub">Andamento nel tempo</div>
+      <table class="tab"><thead><tr>
+        <th>Stagione</th><th>PG</th><th>CART</th><th>GIA</th><th>ROS</th>
+      </tr></thead><tbody>`;
+    storico.forEach(x=>{
+      h+=`<tr>
+        <td><span class="nome">${esc(x.stagione)}</span></td>
+        <td>${n(x.partite)}</td>
+        <td class="big">${n(x.mediaCartellini)}</td>
+        <td class="gia">${n(x.mediaGialli)}</td>
+        <td class="${x.rossi>0?"ros":""}">${n(x.rossi)}</td>
+      </tr>`;
+    });
+    h+=`</tbody></table>`;
+  } else {
+    h+=`<div class="empty" style="margin-top:16px">
+      <div style="font-size:10px;color:${MUTED};line-height:1.8">
+        Nessun dettaglio per stagione.<br>
+        Si ottiene indicando le stagioni nella variabile STAGIONI_ALEAGUE.</div></div>`;
+  }
 
   if(D.attribuzione){
     h += `<div class="avviso-fonte">${esc(D.attribuzione)}</div>`;
