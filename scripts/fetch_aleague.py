@@ -125,25 +125,31 @@ def _numero(valore):
 
 
 # Le quattro classifiche arbitrali, indicate da Justin di Ultimate A-League.
-# Ognuna restituisce tutti gli arbitri con un valore: quattro chiamate per
-# stagione bastano a costruire l'intero quadro, senza interrogare i singoli.
+# Ognuna restituisce tutti gli arbitri: quattro chiamate bastano a costruire
+# l'intero quadro, senza interrogare i singoli.
+#
+# Struttura di una voce:
+#   type=app  -> total_matches
+#   type=tc   -> total_bookings, average, total_matches
+#   type=yc   -> come sopra, riferito ai soli gialli
+#   type=rc   -> come sopra, riferito ai soli rossi
 CLASSIFICHE = [
-    ("app", "partite"),
-    ("tc",  "cartellini"),
-    ("yc",  "gialli"),
-    ("rc",  "rossi"),
+    ("app", "cartellini", None),
+    ("tc",  "cartellini", "mediaCartellini"),
+    ("yc",  "gialli",     "mediaGialli"),
+    ("rc",  "rossi",      "mediaRossi"),
 ]
 
 
 def leggi_stagione(stagione=None, escludi_finali=True):
-    """Costruisce il quadro arbitrale di una stagione.
+    """Costruisce il quadro arbitrale unendo le quattro classifiche.
 
-    Le quattro classifiche vengono unite per nome dell'arbitro: ciascuna
-    porta un valore diverso della stessa persona.
+    Le medie non vengono ricalcolate: l'API le fornisce già, ed è la
+    fonte a sapere quali partite conta e quali no.
     """
     arbitri = {}
 
-    for tipo, campo in CLASSIFICHE:
+    for tipo, campo, campo_media in CLASSIFICHE:
         parametri = {"cat": "r", "type": tipo}
         if stagione:
             parametri["season"] = stagione
@@ -152,48 +158,55 @@ def leggi_stagione(stagione=None, escludi_finali=True):
 
         risposta = chiama("statistics", **parametri)
         if risposta is None:
-            print(f"    {campo}: nessun dato")
+            print(f"    {tipo}: nessun dato")
             continue
 
         voci = _elenco(risposta)
         letti = 0
-        con_valore = 0
         for voce in voci:
-            nome = _campo(voce, "name", "fullName", "displayName",
-                          "referee", "person")
-            if isinstance(nome, dict):
-                nome = _campo(nome, "name", "fullName")
+            nome = _campo(voce, "name", "fullName", "displayName")
             if not nome:
                 continue
             nome = str(nome).strip()
-
             scheda = arbitri.setdefault(nome, {"nome": nome})
-            identificativo = _campo(voce, "id", "refereeId", "personId")
+
+            identificativo = _campo(voce, "id")
             if identificativo is not None:
                 scheda.setdefault("id", identificativo)
-            valore = _numero(_campo(voce, "value", "total", "count",
-                                    "stat", "statistic", "number", "amount",
-                                    "tally", tipo, predefinito=0))
-            scheda[campo] = valore
-            letti += 1
-            if valore:
-                con_valore += 1
 
-        print(f"    {campo}: {letti} arbitri, {con_valore} con un valore")
-        if letti and not con_valore and voci:
-            # I nomi si leggono ma i numeri no: il campo che li contiene
-            # ha un nome diverso da quelli previsti. Mostrarlo evita di
-            # doverlo indovinare.
-            print("      Nessun valore riconosciuto. Prima voce ricevuta:")
-            print(f"      chiavi: {sorted(voci[0].keys()) if isinstance(voci[0], dict) else type(voci[0])}")
-            print(f"      contenuto: {json.dumps(voci[0], ensure_ascii=False)[:300]}")
+            # le presenze compaiono in tutte le risposte
+            partite = _numero(_campo(voce, "total_matches", predefinito=0))
+            if partite:
+                scheda["partite"] = partite
+
+            # la nazionalità arriva come elenco di oggetti
+            nazioni = _campo(voce, "nationality", predefinito=[])
+            if isinstance(nazioni, list) and nazioni:
+                paese = nazioni[0].get("name") if isinstance(nazioni[0], dict) else None
+                if paese:
+                    scheda.setdefault("nazionalita", paese)
+
+            if tipo != "app":
+                scheda[campo] = _numero(_campo(voce, "total_bookings", predefinito=0))
+                media = _campo(voce, "average")
+                if media is not None:
+                    try:
+                        scheda[campo_media] = round(float(media), 2)
+                    except (ValueError, TypeError):
+                        pass
+            letti += 1
+
+        con_valore = sum(1 for a in arbitri.values()
+                         if a.get("partite") or a.get(campo))
+        print(f"    {tipo}: {letti} arbitri, {con_valore} con un valore")
+
         time.sleep(PAUSA)
 
     return arbitri
 
 
 def calcola(arbitri):
-    """Aggiunge le medie e ordina per severità."""
+    """Completa le schede e ordina per severità."""
     elenco = []
     for scheda in arbitri.values():
         partite = scheda.get("partite", 0)
@@ -201,19 +214,24 @@ def calcola(arbitri):
         rossi = scheda.get("rossi", 0)
         cartellini = scheda.get("cartellini", gialli + rossi)
 
-        def media(totale):
+        # Se una media manca — capita per i rossi, che l'API restituisce
+        # solo per chi ne ha assegnati — la si ricava dalle presenze.
+        def media(valore_noto, totale):
+            if valore_noto is not None:
+                return valore_noto
             return round(totale / partite, 2) if partite else None
 
         elenco.append({
             "nome": scheda["nome"],
             "id": scheda.get("id"),
+            "nazionalita": scheda.get("nazionalita"),
             "partite": partite,
             "gialli": gialli,
             "rossi": rossi,
             "cartellini": cartellini,
-            "mediaGialli": media(gialli),
-            "mediaRossi": media(rossi),
-            "mediaCartellini": media(cartellini),
+            "mediaGialli": media(scheda.get("mediaGialli"), gialli),
+            "mediaRossi": media(scheda.get("mediaRossi"), rossi),
+            "mediaCartellini": media(scheda.get("mediaCartellini"), cartellini),
         })
 
     elenco.sort(key=lambda a: (-(a["mediaCartellini"] or 0), a["nome"]))
