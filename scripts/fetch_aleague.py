@@ -238,17 +238,40 @@ def calcola(arbitri):
     return elenco
 
 
+def stagioni_richieste():
+    """Le stagioni da interrogare, oltre al complessivo.
+
+    Il formato accettato dall'API non è documentato: si indica con la
+    variabile STAGIONI_ALEAGUE, per esempio '2025-26,2024-25'. Senza,
+    si scarica il solo dato complessivo.
+    """
+    grezzo = os.environ.get("STAGIONI_ALEAGUE", "").strip()
+    if not grezzo:
+        return []
+    return [s.strip() for s in grezzo.replace(";", ",").split(",") if s.strip()]
+
+
 def main():
     print("=" * 58)
     print("ARCHIVIO A-LEAGUE — ARBITRI")
     print("=" * 58)
 
     archivio = carica_archivio()
-    stagione = os.environ.get("STAGIONE_ALEAGUE", "").strip() or None
 
-    print(f"\nClassifiche arbitrali"
-          f"{f' — stagione {stagione}' if stagione else ' — tutte le stagioni'}")
-    arbitri = leggi_stagione(stagione)
+    print("\nClassifiche complessive")
+    arbitri = leggi_stagione(None)
+
+    # Le singole stagioni servono a ricostruire l'andamento nel tempo.
+    # Ogni stagione costa quattro chiamate, quindi si richiedono solo
+    # quelle indicate esplicitamente.
+    per_stagione = {}
+    for stagione in stagioni_richieste():
+        print(f"\nStagione {stagione}")
+        dati_stagione = leggi_stagione(stagione)
+        if not dati_stagione:
+            print("  Nessun dato: forse il formato della stagione non è corretto.")
+            continue
+        per_stagione[stagione] = calcola(dati_stagione)
 
     if not arbitri:
         print("\nNessun dato ottenuto: conservo l'archivio precedente.")
@@ -258,13 +281,33 @@ def main():
     else:
         elenco = calcola(arbitri)
 
+    # allega a ciascun arbitro il proprio andamento per stagione
+    if per_stagione:
+        for scheda in elenco:
+            storico = []
+            for stagione, elenco_stagione in per_stagione.items():
+                voce = next((a for a in elenco_stagione
+                             if a["nome"] == scheda["nome"]), None)
+                if voce and voce.get("partite"):
+                    storico.append({
+                        "stagione": stagione,
+                        "partite": voce["partite"],
+                        "gialli": voce["gialli"], "rossi": voce["rossi"],
+                        "cartellini": voce["cartellini"],
+                        "mediaCartellini": voce["mediaCartellini"],
+                        "mediaGialli": voce["mediaGialli"],
+                        "mediaRossi": voce["mediaRossi"],
+                    })
+            storico.sort(key=lambda x: x["stagione"], reverse=True)
+            scheda["perStagione"] = storico
+
     dati = {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
         "campionato": "A-League",
         "fonte": "Ultimate A-League",
         "attribuzione": "Dati forniti da Ultimate A-League "
                         "(ultimatealeague.com), usati con permesso.",
-        "stagione": stagione or "tutte",
+        "stagioni": sorted(per_stagione.keys(), reverse=True),
         "arbitri": elenco,
     }
 
