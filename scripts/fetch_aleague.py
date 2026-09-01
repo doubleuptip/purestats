@@ -157,6 +157,7 @@ def leggi_stagione(stagione=None, escludi_finali=True):
 
         voci = _elenco(risposta)
         letti = 0
+        con_valore = 0
         for voce in voci:
             nome = _campo(voce, "name", "fullName", "displayName",
                           "referee", "person")
@@ -170,11 +171,22 @@ def leggi_stagione(stagione=None, escludi_finali=True):
             identificativo = _campo(voce, "id", "refereeId", "personId")
             if identificativo is not None:
                 scheda.setdefault("id", identificativo)
-            scheda[campo] = _numero(_campo(voce, "value", "total", "count",
-                                           "stat", tipo, predefinito=0))
+            valore = _numero(_campo(voce, "value", "total", "count",
+                                    "stat", "statistic", "number", "amount",
+                                    "tally", tipo, predefinito=0))
+            scheda[campo] = valore
             letti += 1
+            if valore:
+                con_valore += 1
 
-        print(f"    {campo}: {letti} arbitri")
+        print(f"    {campo}: {letti} arbitri, {con_valore} con un valore")
+        if letti and not con_valore and voci:
+            # I nomi si leggono ma i numeri no: il campo che li contiene
+            # ha un nome diverso da quelli previsti. Mostrarlo evita di
+            # doverlo indovinare.
+            print("      Nessun valore riconosciuto. Prima voce ricevuta:")
+            print(f"      chiavi: {sorted(voci[0].keys()) if isinstance(voci[0], dict) else type(voci[0])}")
+            print(f"      contenuto: {json.dumps(voci[0], ensure_ascii=False)[:300]}")
         time.sleep(PAUSA)
 
     return arbitri
