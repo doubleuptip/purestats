@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-01T05:08:12.943632+00:00",
+  "aggiornato": "2026-09-02T05:08:00.471059+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -15,11 +15,25 @@
     },
     "la_liga": {
       "nome": "LaLiga",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-03",
+          "ora": "21:00",
+          "casa": "Sociedad",
+          "ospite": "Celta"
+        }
+      ]
     },
     "ligue_1": {
       "nome": "Ligue 1",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-03",
+          "ora": "20:45",
+          "casa": "Toulouse",
+          "ospite": "Lille"
+        }
+      ]
     },
     "bundesliga": {
       "nome": "Bundesliga",
