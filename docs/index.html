@@ -213,8 +213,21 @@
   .empty{background:var(--card);border:1px dashed var(--bordo);border-radius:8px;
     padding:30px 20px;text-align:center}
   .loading{text-align:center;padding:60px 20px;color:var(--muted);font-size:11px}
-  footer{text-align:center;font-size:8px;color:var(--muted);margin:32px 14px 0;
+  footer{font-size:8px;color:var(--muted);margin:32px 14px 0;
     padding-top:15px;border-top:1px solid var(--bordo);line-height:1.9}
+  .pie-riga{text-align:center}
+  .pie-apri{display:block;margin:14px auto 0;font-family:'JetBrains Mono',monospace;
+    font-size:8px;letter-spacing:.1em;color:var(--acc);background:transparent;
+    border:1px solid var(--bordo);border-radius:5px;padding:7px 14px;cursor:pointer}
+  .pie-legale{margin-top:14px;padding:14px;background:var(--card);
+    border:1px solid var(--bordo);border-radius:8px;text-align:left;font-size:9px;
+    line-height:1.85}
+  .pie-legale h4{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;
+    letter-spacing:.1em;color:var(--acc);margin:14px 0 5px}
+  .pie-legale h4:first-child{margin-top:0}
+  .pie-legale ul{margin:0;padding-left:15px}
+  .pie-legale li{margin-bottom:4px}
+  .pie-legale b{color:var(--testo);font-weight:700}
   code{color:var(--acc);font-size:9px}
 </style>
 </head>
@@ -242,6 +255,7 @@ let D=null, vista="arbitri", arbitroAperto=null, charts=[];
 let ricerca="", stagione=null;
 let annoFootball=null, gruppoFootball="tutti", squadraAperta=null;
 let arbitroAleague=null;
+let legaleAperto=false;
 
 /* Cosa è aperto nella pagina. Con un calendario intero, mostrare tutto
    espanso significa migliaia di righe: si parte chiusi e si apre ciò
@@ -565,13 +579,80 @@ function render(){
   else if(vista==="partite") app.innerHTML = vPartite();
   else app.innerHTML = vCalendario();
 
+  const conteggi = D.totalePartite!==undefined
+    ? `${D.totalePartite} partite${D.partiteConDisciplina!==undefined
+        ? " · "+D.partiteConDisciplina+" con dati disciplinari" : ""}` : "";
+  const periodo = D.stagioni && D.stagioni.length
+    ? " · " + esc(D.stagioni[0]) + (D.stagioni.length>1
+        ? "–"+esc(D.stagioni[D.stagioni.length-1]) : "") : "";
+
   document.getElementById("pie").innerHTML =
-    `Fonte: ${esc(D.fonte)}<br>
-     ${D.totalePartite} partite · ${D.partiteConDisciplina} con dati disciplinari
-     ${D.stagioni&&D.stagioni.length?" · "+esc(D.stagioni[0])+"–"+esc(D.stagioni[D.stagioni.length-1]):""}<br>
-     Aggiornato: ${new Date(D.aggiornato).toLocaleString("it-IT")}`;
+    `<div class="pie-riga">
+       Fonte: ${esc(D.fonte||"")}<br>
+       ${conteggi}${periodo}${conteggi||periodo?"<br>":""}
+       Aggiornato: ${new Date(D.aggiornato).toLocaleString("it-IT")}
+     </div>
+     <button class="pie-apri" onclick="apriLegale()">
+       ${legaleAperto?"▴ CHIUDI":"▾ FONTI E CONDIZIONI D'USO"}</button>
+     ${legaleAperto?testoLegale():""}`;
 
   if(vista==="arbitri"&&arbitroAperto) gScheda();
+}
+
+/* ---------- PIÈ DI PAGINA E CONDIZIONI D'USO ----------
+
+   Le condizioni sono scritte distinguendo due cose che è facile confondere:
+   i dati, che arrivano da fonti con licenza libera e non ci appartengono,
+   e ciò che abbiamo costruito noi, che è invece tutelato.
+
+   Rivendicare i dati sarebbe scorretto oltre che infondato: sono fatti,
+   già rilasciati liberamente da chi li raccoglie. Ma il codice, la
+   presentazione e gli indici calcolati sono opera nostra. */
+
+function apriLegale(){ legaleAperto = !legaleAperto; render(); }
+
+const FONTI = [
+  ["Premier League, Serie A, LaLiga, Ligue 1, Bundesliga, calendario",
+   "football-data.co.uk", "licenza PDDL (pubblico dominio)"],
+  ["Designazioni arbitrali Serie A", "AIA e Lega Serie A", "inserite manualmente"],
+  ["Designazioni arbitrali LaLiga", "RFEF — Comité Técnico de Árbitros", "pubblicazioni ufficiali"],
+  ["Designazioni arbitrali Ligue 1", "LFP — ligue1.com", "pubblicazioni ufficiali"],
+  ["Designazioni arbitrali Bundesliga", "DFB Datencenter", "pubblicazioni ufficiali"],
+  ["Statistiche arbitrali A-League", "Ultimate A-League", "usate con permesso, licenza CC BY"],
+  ["NFL", "nflverse", "licenza CC-BY-SA 4.0"],
+  ["College Football", "CollegeFootballData.com", "API pubblica"],
+];
+
+function testoLegale(){
+  return `<div class="pie-legale">
+    <h4>DA DOVE ARRIVANO I DATI</h4>
+    <ul>${FONTI.map(([cosa,chi,lic])=>
+      `<li><b>${esc(chi)}</b> — ${esc(cosa)}<br>${esc(lic)}</li>`).join("")}</ul>
+
+    <h4>COSA PUOI RIUTILIZZARE</h4>
+    I dati sportivi in sé sono fatti e non appartengono a PureStats:
+    provengono dalle fonti elencate sopra e restano soggetti alle loro
+    licenze. Chi vuole riutilizzarli deve rispettare le condizioni di
+    ciascuna fonte, non le nostre. In particolare i dati NFL sono
+    CC-BY-SA 4.0, che obbliga a ridistribuirli con la stessa licenza,
+    e quelli A-League richiedono di citare Ultimate A-League.
+
+    <h4>COSA È DI PURESTATS</h4>
+    Sono opera nostra e non possono essere copiati senza consenso: il
+    codice del sito, la grafica e l'impianto dell'interfaccia, le medie
+    e gli indici che calcoliamo, e il modo in cui i dati sono organizzati
+    e presentati.
+
+    <h4>SE RIPRENDI LE NOSTRE ELABORAZIONI</h4>
+    Citare <b>PureStats</b> con un collegamento a questa pagina, e la
+    fonte originaria dei dati. Riprodurre pagine o sezioni senza
+    attribuzione non è consentito.
+
+    <h4>AVVERTENZA</h4>
+    Progetto personale senza scopo di lucro. I dati possono contenere
+    errori o essere incompleti: non sono adatti a usi che richiedano
+    accuratezza garantita.
+  </div>`;
 }
 
 function kpi(...v){
