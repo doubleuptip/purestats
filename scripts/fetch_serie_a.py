@@ -106,7 +106,10 @@ def scarica(url, descrizione):
         print(f"    Errore: {e}")
         return None
 
-    for codifica in ("utf-8", "utf-8-sig", "latin-1"):
+    # utf-8-sig va provata per prima: rimuove il carattere invisibile
+    # che alcuni file hanno in testa. Con la sola utf-8 quel carattere
+    # resta attaccato al nome della prima colonna e la rende irreperibile.
+    for codifica in ("utf-8-sig", "utf-8", "latin-1"):
         try:
             return grezzo.decode(codifica)
         except UnicodeDecodeError:
@@ -316,6 +319,63 @@ def aggiorna_designazioni(anno_riferimento):
         print("  Probabile causa: nel file c'è testo di giornate di altre stagioni.")
 
     return trovate
+
+
+def numera_giornate(designazioni):
+    """Assegna la giornata alle designazioni che non la dichiarano.
+
+    Il file cresce per aggiunte successive, e capita che un blocco non
+    riporti il numero del turno. Le partite di una stessa giornata però
+    si giocano in pochi giorni consecutivi: raggruppandole per vicinanza
+    di date si ricostruiscono i turni, e a ciascuno si attribuisce il
+    numero dichiarato da almeno una delle sue partite.
+
+    Dove nessuna lo dichiara il campo resta vuoto: dedurlo dalla
+    posizione sarebbe una supposizione, e un numero sbagliato è peggio
+    di uno assente.
+    """
+    valide = [d for d in designazioni if d.get("data")]
+    if not valide:
+        return designazioni
+
+    valide.sort(key=lambda d: d["data"])
+
+    # raggruppa le partite distanti non più di quattro giorni
+    gruppi = []
+    corrente = [valide[0]]
+    for d in valide[1:]:
+        try:
+            precedente = datetime.strptime(corrente[-1]["data"], "%Y-%m-%d")
+            attuale = datetime.strptime(d["data"], "%Y-%m-%d")
+            distanza = (attuale - precedente).days
+        except ValueError:
+            distanza = 99
+        if distanza <= 4:
+            corrente.append(d)
+        else:
+            gruppi.append(corrente)
+            corrente = [d]
+    gruppi.append(corrente)
+
+    assegnate = 0
+    for gruppo in gruppi:
+        numeri = {d.get("giornata") for d in gruppo if d.get("giornata")}
+        if len(numeri) != 1:
+            continue          # nessun numero, o numeri discordanti
+        numero = numeri.pop()
+        for d in gruppo:
+            if not d.get("giornata"):
+                d["giornata"] = numero
+                assegnate += 1
+
+    if assegnate:
+        print(f"  Giornata ricostruita per {assegnate} designazioni "
+              f"({len(gruppi)} turni riconosciuti)")
+    senza = sum(1 for d in valide if not d.get("giornata"))
+    if senza:
+        print(f"  {senza} designazioni restano senza giornata: "
+              f"nessuna partita del loro turno la dichiara")
+    return designazioni
 
 
 def applica_designazioni(righe, designazioni):

@@ -127,18 +127,49 @@ def sposta_orario(data, ora, scarto_ore):
 
 
 def carica_designazioni(nome_file):
-    """Indicizza le designazioni per (data, casa, ospite)."""
+    """Indicizza le designazioni per squadre, con la data come verifica.
+
+    L'abbinamento non usa la data come chiave: una gara spostata di
+    orario può cambiare giorno fra le due fonti, e un confronto esatto
+    la farebbe sparire. Si cerca per squadre e si accetta uno scarto di
+    un giorno, sufficiente a coprire i rinvii di orario ma non a
+    confondere due incontri diversi fra le stesse squadre.
+    """
     if not nome_file:
         return {}
     percorso = RADICE / "data" / nome_file
     if not percorso.exists():
+        print(f"    file {nome_file} assente")
         return {}
     try:
         elenco = json.loads(percorso.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"    file {nome_file} non leggibile: {e}")
         return {}
-    return {(d.get("data"), d.get("casa"), d.get("ospite")): d
-            for d in elenco if d.get("data")}
+
+    per_squadre = {}
+    for d in elenco:
+        if not (d.get("data") and d.get("casa") and d.get("ospite")):
+            continue
+        per_squadre.setdefault((d["casa"], d["ospite"]), []).append(d)
+    return per_squadre
+
+
+def cerca_designazione(indice, casa, ospite, data):
+    """Trova la designazione di una partita, tollerando uno scarto di un giorno."""
+    candidate = indice.get((casa, ospite))
+    if not candidate:
+        return None
+    for scarto in (0, 1, -1):
+        try:
+            voluta = (datetime.strptime(data, "%Y-%m-%d")
+                      + timedelta(days=scarto)).date().isoformat()
+        except (ValueError, TypeError):
+            return None
+        for d in candidate:
+            if d.get("data") == voluta:
+                return d
+    return None
 
 
 def main():
@@ -227,7 +258,7 @@ def main():
 
         con_arbitro = 0
         for g in gare:
-            d = designazioni.get((g["data"], g["casa"], g["ospite"]))
+            d = cerca_designazione(designazioni, g["casa"], g["ospite"], g["data"])
             if d and d.get("arbitro"):
                 g["arbitro"] = d["arbitro"]
                 if d.get("var"):
@@ -240,6 +271,15 @@ def main():
         }
         nota = f" · {con_arbitro} con arbitro designato" if con_arbitro else ""
         print(f"  {conf['nome']:16} {len(gare)} partite{nota}")
+
+        # Se ci sono designazioni ma nessuna si aggancia, il motivo va detto:
+        # quasi sempre i nomi delle squadre non coincidono fra le due fonti.
+        if designazioni and gare and not con_arbitro:
+            attese = sum(len(v) for v in designazioni.values())
+            print(f"    {attese} designazioni in archivio, nessuna abbinata")
+            esempio_des = next(iter(designazioni))
+            print(f"    esempio designazione: {esempio_des}")
+            print(f"    esempio calendario:   ({gare[0]['casa']}, {gare[0]['ospite']})")
 
     # Se non c'è nulla da mostrare, si conserva il calendario precedente:
     # sovrascriverlo con un file vuoto cancellerebbe partite ancora valide.
