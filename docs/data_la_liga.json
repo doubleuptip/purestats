@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-31T17:07:28.345781+00:00",
+  "aggiornato": "2026-09-03T17:13:33.870306+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -9,10 +9,76 @@
     "2025/26",
     "2026/27"
   ],
-  "totalePartite": 1540,
-  "partiteConDisciplina": 1540,
-  "partiteConArbitro": 10,
+  "totalePartite": 1550,
+  "partiteConDisciplina": 1550,
+  "partiteConArbitro": 20,
   "arbitri": [
+    {
+      "nome": "Jon Ander González",
+      "partite": 1,
+      "gialli": 9,
+      "rossi": 0,
+      "mediaGialli": 9.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 9.0,
+      "mediaFalli": 31.0,
+      "gialliPerFallo": 29.0,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 5.0,
+      "mediaGialliOspite": 4.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Osasuna",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 5.0
+        },
+        {
+          "squadra": "Getafe",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 9,
+          "rossi": 0,
+          "media": 9.0,
+          "mediaGialli": 9.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 31.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 5.0,
+          "mediaGialliOspite": 4.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "31/08/2026",
+          "casa": "Osasuna",
+          "ospite": "Getafe",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 5,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 17,
+          "falliOspite": 14
+        }
+      ],
+      "prossime": []
+    },
     {
       "nome": "César Soto",
       "partite": 1,
@@ -143,85 +209,19 @@
           "falliOspite": 13
         }
       ],
-      "prossime": []
-    },
-    {
-      "nome": "Isidro Díaz De Mera",
-      "partite": 1,
-      "gialli": 6,
-      "rossi": 0,
-      "mediaGialli": 6.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 6.0,
-      "mediaFalli": 21.0,
-      "gialliPerFallo": 28.6,
-      "squilibrioCasaOspite": 0.0,
-      "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 3.0,
-      "vittorieCasa": 1,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 100.0,
-      "perSquadra": [
-        {
-          "squadra": "Betis",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
-        },
-        {
-          "squadra": "Sociedad",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 6,
-          "rossi": 0,
-          "media": 6.0,
-          "mediaGialli": 6.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 21.0,
-          "squilibrio": 0.0,
-          "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 3.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "21/08/2026",
-          "casa": "Betis",
-          "ospite": "Sociedad",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 3,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 12
-        }
-      ],
       "prossime": [
         {
-          "giornata": 3,
-          "data": "2026-08-28",
-          "ora": "21:30",
-          "casa": "Alaves",
-          "ospite": "Villarreal",
-          "arbitro": "Isidro Díaz De Mera",
-          "quartoUomo": "Rubén Ruipérez",
-          "var": "Jorge Figueroa",
-          "avar": "Valentín Pizarro",
-          "assistente1": "Diego Santaúrsula",
-          "assistente2": "Rubén Campo"
+          "giornata": 4,
+          "data": "2026-09-04",
+          "ora": "21:00",
+          "casa": "Betis",
+          "ospite": "Real Madrid",
+          "arbitro": "Alejandro José Hernández",
+          "quartoUomo": "Juan Antonio Campos",
+          "var": "Javier Iglesias",
+          "avar": "Juan Luis Pulido",
+          "assistente1": "José Enrique Naranjo",
+          "assistente2": "Marcos Cerdán"
         }
       ]
     },
@@ -292,32 +292,112 @@
       "prossime": []
     },
     {
-      "nome": "Javier Alberola",
+      "nome": "Manuel Jesús Orellana",
       "partite": 1,
-      "gialli": 5,
+      "gialli": 6,
       "rossi": 0,
-      "mediaGialli": 5.0,
+      "mediaGialli": 6.0,
       "mediaRossi": 0.0,
-      "mediaCartellini": 5.0,
-      "mediaFalli": 24.0,
-      "gialliPerFallo": 20.8,
-      "squilibrioCasaOspite": 3.0,
-      "mediaGialliCasa": 1.0,
+      "mediaCartellini": 6.0,
+      "mediaFalli": 33.0,
+      "gialliPerFallo": 18.2,
+      "squilibrioCasaOspite": 2.0,
+      "mediaGialliCasa": 2.0,
       "mediaGialliOspite": 4.0,
-      "vittorieCasa": 0,
-      "pareggi": 1,
+      "vittorieCasa": 1,
+      "pareggi": 0,
       "vittorieOspite": 0,
-      "percVittorieCasa": 0.0,
+      "percVittorieCasa": 100.0,
       "perSquadra": [
         {
-          "squadra": "La Coruna",
+          "squadra": "Espanol",
           "partite": 1,
           "gialli": 4,
           "rossi": 0,
           "media": 4.0
         },
         {
-          "squadra": "Malaga",
+          "squadra": "Sociedad",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 6,
+          "rossi": 0,
+          "media": 6.0,
+          "mediaGialli": 6.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 33.0,
+          "squilibrio": 2.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 4.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "29/08/2026",
+          "casa": "Sociedad",
+          "ospite": "Espanol",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 19,
+          "falliOspite": 14
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Isidro Díaz De Mera",
+      "partite": 2,
+      "gialli": 10,
+      "rossi": 0,
+      "mediaGialli": 5.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 5.0,
+      "mediaFalli": 22.0,
+      "gialliPerFallo": 22.7,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 3.0,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 2,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Alaves",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Betis",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Sociedad",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Villarreal",
           "partite": 1,
           "gialli": 1,
           "rossi": 0,
@@ -327,49 +407,49 @@
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 5,
+          "partite": 2,
+          "gialli": 10,
           "rossi": 0,
           "media": 5.0,
           "mediaGialli": 5.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 24.0,
-          "squilibrio": 3.0,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 4.0
+          "mediaFalli": 22.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "24/08/2026",
-          "casa": "Malaga",
-          "ospite": "La Coruna",
+          "data": "28/08/2026",
+          "casa": "Alaves",
+          "ospite": "Villarreal",
           "gc": 1,
-          "go": 1,
-          "gialliCasa": 1,
-          "gialliOspite": 4,
+          "go": 0,
+          "gialliCasa": 3,
+          "gialliOspite": 1,
           "rossiCasa": 0,
           "rossiOspite": 0,
-          "falliCasa": 12,
+          "falliCasa": 15,
+          "falliOspite": 8
+        },
+        {
+          "stagione": "2026/27",
+          "data": "21/08/2026",
+          "casa": "Betis",
+          "ospite": "Sociedad",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 3,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
           "falliOspite": 12
         }
       ],
-      "prossime": [
-        {
-          "giornata": 3,
-          "data": "2026-08-29",
-          "ora": "21:30",
-          "casa": "Sevilla",
-          "ospite": "Ath Madrid",
-          "arbitro": "Javier Alberola",
-          "quartoUomo": "Francisco José Ortega",
-          "var": "Javier Iglesias",
-          "avar": "Juan Luis Pulido",
-          "assistente1": "Alfredo Rodríguez",
-          "assistente2": "Jorge Bueno"
-        }
-      ]
+      "prossime": []
     },
     {
       "nome": "Jesús Gil",
@@ -438,32 +518,126 @@
       "prossime": []
     },
     {
-      "nome": "Juan Martínez",
-      "partite": 1,
-      "gialli": 4,
+      "nome": "Javier Alberola",
+      "partite": 2,
+      "gialli": 9,
       "rossi": 0,
-      "mediaGialli": 4.0,
+      "mediaGialli": 4.5,
       "mediaRossi": 0.0,
-      "mediaCartellini": 4.0,
-      "mediaFalli": 31.0,
-      "gialliPerFallo": 12.9,
-      "squilibrioCasaOspite": 2.0,
-      "mediaGialliCasa": 1.0,
+      "mediaCartellini": 4.5,
+      "mediaFalli": 30.0,
+      "gialliPerFallo": 15.0,
+      "squilibrioCasaOspite": 1.5,
+      "mediaGialliCasa": 1.5,
       "mediaGialliOspite": 3.0,
+      "vittorieCasa": 0,
+      "pareggi": 1,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "La Coruna",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Ath Madrid",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Sevilla",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Malaga",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 9,
+          "rossi": 0,
+          "media": 4.5,
+          "mediaGialli": 4.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 30.0,
+          "squilibrio": 1.5,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 3.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "29/08/2026",
+          "casa": "Sevilla",
+          "ospite": "Ath Madrid",
+          "gc": 1,
+          "go": 3,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 20,
+          "falliOspite": 16
+        },
+        {
+          "stagione": "2026/27",
+          "data": "24/08/2026",
+          "casa": "Malaga",
+          "ospite": "La Coruna",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 12
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Miguel Ángel Ortiz",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 1,
+      "mediaGialli": 3.0,
+      "mediaRossi": 1.0,
+      "mediaCartellini": 4.0,
+      "mediaFalli": 19.0,
+      "gialliPerFallo": 15.8,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 1.0,
       "vittorieCasa": 1,
       "pareggi": 0,
       "vittorieOspite": 0,
       "percVittorieCasa": 100.0,
       "perSquadra": [
         {
-          "squadra": "Santander",
+          "squadra": "La Coruna",
           "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
+          "gialli": 2,
+          "rossi": 1,
+          "media": 2.0
         },
         {
-          "squadra": "Getafe",
+          "squadra": "Valencia",
           "partite": 1,
           "gialli": 1,
           "rossi": 0,
@@ -474,48 +648,100 @@
         {
           "stagione": "2026/27",
           "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
+          "gialli": 3,
+          "rossi": 1,
           "media": 4.0,
-          "mediaGialli": 4.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 31.0,
-          "squilibrio": 2.0,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 3.0
+          "mediaGialli": 3.0,
+          "mediaRossi": 1.0,
+          "mediaFalli": 19.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.0
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "23/08/2026",
-          "casa": "Getafe",
-          "ospite": "Santander",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
+          "data": "30/08/2026",
+          "casa": "La Coruna",
+          "ospite": "Valencia",
+          "gc": 3,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 1,
           "rossiOspite": 0,
           "falliCasa": 14,
-          "falliOspite": 17
+          "falliOspite": 5
         }
       ],
-      "prossime": [
+      "prossime": []
+    },
+    {
+      "nome": "Carlos Muñiz",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 36.0,
+      "gialliPerFallo": 8.3,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
         {
-          "giornata": 3,
-          "data": "2026-08-30",
-          "ora": "17:00",
-          "casa": "Real Madrid",
-          "ospite": "Malaga",
-          "arbitro": "Juan Martínez",
-          "quartoUomo": "Álvaro Juncal",
-          "var": "Daniel Jesús Trujillo",
-          "avar": "Alejandro José Hernández",
-          "assistente1": "Diego Barbero",
-          "assistente2": "Miguel Martínez"
+          "squadra": "Santander",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Elche",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
         }
-      ]
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 36.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "28/08/2026",
+          "casa": "Santander",
+          "ospite": "Elche",
+          "gc": 3,
+          "go": 2,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 17,
+          "falliOspite": 19
+        }
+      ],
+      "prossime": []
     },
     {
       "nome": "José Luis Munuera",
@@ -579,6 +805,166 @@
           "rossiOspite": 0,
           "falliCasa": 14,
           "falliOspite": 13
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Juan Martínez",
+      "partite": 2,
+      "gialli": 6,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 23.0,
+      "gialliPerFallo": 13.0,
+      "squilibrioCasaOspite": 2.0,
+      "mediaGialliCasa": 0.5,
+      "mediaGialliOspite": 2.5,
+      "vittorieCasa": 2,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Santander",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Malaga",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Getafe",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Real Madrid",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 6,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 23.0,
+          "squilibrio": 2.0,
+          "mediaGialliCasa": 0.5,
+          "mediaGialliOspite": 2.5
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "30/08/2026",
+          "casa": "Real Madrid",
+          "ospite": "Malaga",
+          "gc": 4,
+          "go": 0,
+          "gialliCasa": 0,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 6,
+          "falliOspite": 9
+        },
+        {
+          "stagione": "2026/27",
+          "data": "23/08/2026",
+          "casa": "Getafe",
+          "ospite": "Santander",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 17
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Mateo Busquets",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 25.0,
+      "gialliPerFallo": 12.0,
+      "squilibrioCasaOspite": 3.0,
+      "mediaGialliCasa": 0.0,
+      "mediaGialliOspite": 3.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Ath Bilbao",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Celta",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 25.0,
+          "squilibrio": 3.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": 3.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "30/08/2026",
+          "casa": "Celta",
+          "ospite": "Ath Bilbao",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 0,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 17
         }
       ],
       "prossime": []
@@ -650,6 +1036,72 @@
       "prossime": []
     },
     {
+      "nome": "Ricardo De Burgos",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 2.0,
+      "mediaFalli": 16.0,
+      "gialliPerFallo": 12.5,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Betis",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Levante",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 16.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "29/08/2026",
+          "casa": "Levante",
+          "ospite": "Betis",
+          "gc": 5,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 7
+        }
+      ],
+      "prossime": []
+    },
+    {
       "nome": "Alejandro Quintero",
       "partite": 1,
       "gialli": 1,
@@ -716,263 +1168,77 @@
       "prossime": []
     },
     {
-      "nome": "Carlos Muñiz",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 3,
-          "data": "2026-08-28",
-          "ora": "19:00",
-          "casa": "Santander",
-          "ospite": "Elche",
-          "arbitro": "Carlos Muñiz",
-          "quartoUomo": "Guillermo Cueto",
-          "var": "Guillermo Cuadra",
-          "avar": "Alejandro José Hernández",
-          "assistente1": "Fernando Estela",
-          "assistente2": "Álvaro Granel"
-        }
-      ]
-    },
-    {
-      "nome": "Ricardo De Burgos",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 3,
-          "data": "2026-08-29",
-          "ora": "17:00",
-          "casa": "Levante",
-          "ospite": "Betis",
-          "arbitro": "Ricardo De Burgos",
-          "quartoUomo": "Gerard Rius",
-          "var": "Juan Luis Pulido",
-          "avar": "Alejandro José Hernández",
-          "assistente1": "Iker De Francisco",
-          "assistente2": "Asier Pérez De Mendiola"
-        }
-      ]
-    },
-    {
-      "nome": "Manuel Jesús Orellana",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 3,
-          "data": "2026-08-29",
-          "ora": "19:00",
-          "casa": "Sociedad",
-          "ospite": "Espanol",
-          "arbitro": "Manuel Jesús Orellana",
-          "quartoUomo": "Ignacio De Santisteban",
-          "var": "Luis Mario Milla",
-          "avar": "Valentín Pizarro",
-          "assistente1": "Iván Ríos",
-          "assistente2": "Roberto Tejero"
-        }
-      ]
-    },
-    {
-      "nome": "Miguel Ángel Ortiz",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 3,
-          "data": "2026-08-30",
-          "ora": "19:30",
-          "casa": "La Coruna",
-          "ospite": "Valencia",
-          "arbitro": "Miguel Ángel Ortiz",
-          "quartoUomo": "Manuel Pozueta",
-          "var": "José Antonio López",
-          "avar": "Valentín Pizarro",
-          "assistente1": "José Antonio Garrido",
-          "assistente2": "Alejandro Estévez"
-        }
-      ]
-    },
-    {
-      "nome": "Mateo Busquets",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 3,
-          "data": "2026-08-30",
-          "ora": "21:30",
-          "casa": "Celta",
-          "ospite": "Ath Bilbao",
-          "arbitro": "Mateo Busquets",
-          "quartoUomo": "Fernando Román",
-          "var": "David Gálvez",
-          "avar": "Raúl Martín González",
-          "assistente1": "Íñigo Prieto",
-          "assistente2": "Gonzalo García"
-        }
-      ]
-    },
-    {
-      "nome": "Jon Ander González",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 3,
-          "data": "2026-08-31",
-          "ora": "19:30",
-          "casa": "Osasuna",
-          "ospite": "Getafe",
-          "arbitro": "Jon Ander González",
-          "quartoUomo": "José David Martínez",
-          "var": "Rubén Ávalos",
-          "avar": "José Antonio López",
-          "assistente1": "Judit Romano",
-          "assistente2": "Israel Bárcena"
-        }
-      ]
-    },
-    {
       "nome": "Francisco José Hernández",
-      "partite": 0,
-      "gialli": 0,
+      "partite": 1,
+      "gialli": 1,
       "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
+      "mediaGialli": 1.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 1.0,
+      "mediaFalli": 15.0,
+      "gialliPerFallo": 6.7,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 0.0,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 1,
       "pareggi": 0,
       "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
         {
-          "giornata": 3,
-          "data": "2026-08-31",
-          "ora": "21:30",
+          "squadra": "Vallecano",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Barcelona",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 15.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "31/08/2026",
           "casa": "Barcelona",
           "ospite": "Vallecano",
-          "arbitro": "Francisco José Hernández",
-          "quartoUomo": "Álvaro Cánovas",
-          "var": "Raúl Martín González",
-          "avar": "Alejandro Muñiz",
-          "assistente1": "Iván Massó",
-          "assistente2": "Abraham Pérez"
+          "gc": 5,
+          "go": 2,
+          "gialliCasa": 0,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 4,
+          "falliOspite": 11
         }
-      ]
+      ],
+      "prossime": []
     }
   ],
   "squadre": [
     {
       "nome": "Getafe",
-      "partite": 154,
-      "gialli": 485,
+      "partite": 155,
+      "gialli": 489,
       "rossi": 33,
       "mediaGialli": 3.15,
       "mediaRossi": 0.21,
@@ -1026,38 +1292,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 4,
+          "partite": 3,
+          "gialli": 8,
           "rossi": 1,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.5,
-          "mediaFalli": 13.5,
+          "mediaGialli": 2.67,
+          "mediaRossi": 0.33,
+          "mediaFalli": 13.7,
           "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 3.0
-        }
-      ]
-    },
-    {
-      "nome": "La Coruna",
-      "partite": 2,
-      "gialli": 6,
-      "rossi": 0,
-      "mediaGialli": 3.0,
-      "mediaRossi": 0.0,
-      "mediaFalli": 14.5,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 4.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 6,
-          "rossi": 0,
-          "mediaGialli": 3.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 14.5,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 4.0
+          "mediaGialliOspite": 3.5
         }
       ]
     },
@@ -1098,13 +1340,13 @@
     },
     {
       "nome": "Sevilla",
-      "partite": 154,
-      "gialli": 442,
+      "partite": 155,
+      "gialli": 444,
       "rossi": 31,
-      "mediaGialli": 2.87,
+      "mediaGialli": 2.86,
       "mediaRossi": 0.2,
-      "mediaFalli": 13.2,
-      "mediaGialliCasa": 3.0,
+      "mediaFalli": 13.3,
+      "mediaGialliCasa": 2.99,
       "mediaGialliOspite": 2.74,
       "perStagione": [
         {
@@ -1153,27 +1395,51 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 9,
+          "partite": 3,
+          "gialli": 11,
           "rossi": 1,
-          "mediaGialli": 4.5,
-          "mediaRossi": 0.5,
-          "mediaFalli": 17.0,
-          "mediaGialliCasa": 4.0,
+          "mediaGialli": 3.67,
+          "mediaRossi": 0.33,
+          "mediaFalli": 18.0,
+          "mediaGialliCasa": 3.0,
           "mediaGialliOspite": 5.0
         }
       ]
     },
     {
+      "nome": "La Coruna",
+      "partite": 3,
+      "gialli": 8,
+      "rossi": 1,
+      "mediaGialli": 2.67,
+      "mediaRossi": 0.33,
+      "mediaFalli": 14.3,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 4.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 8,
+          "rossi": 1,
+          "mediaGialli": 2.67,
+          "mediaRossi": 0.33,
+          "mediaFalli": 14.3,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 4.0
+        }
+      ]
+    },
+    {
       "nome": "Vallecano",
-      "partite": 154,
-      "gialli": 399,
+      "partite": 155,
+      "gialli": 400,
       "rossi": 23,
-      "mediaGialli": 2.59,
+      "mediaGialli": 2.58,
       "mediaRossi": 0.15,
       "mediaFalli": 14.1,
       "mediaGialliCasa": 2.27,
-      "mediaGialliOspite": 2.91,
+      "mediaGialliOspite": 2.88,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -1221,14 +1487,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 5,
+          "partite": 3,
+          "gialli": 6,
           "rossi": 0,
-          "mediaGialli": 2.5,
+          "mediaGialli": 2.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 16.0,
+          "mediaFalli": 14.3,
           "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 4.0
+          "mediaGialliOspite": 2.5
         }
       ]
     },
@@ -1315,13 +1581,13 @@
     },
     {
       "nome": "Alaves",
-      "partite": 116,
-      "gialli": 291,
+      "partite": 117,
+      "gialli": 294,
       "rossi": 11,
       "mediaGialli": 2.51,
       "mediaRossi": 0.09,
       "mediaFalli": 14.6,
-      "mediaGialliCasa": 2.38,
+      "mediaGialliCasa": 2.39,
       "mediaGialliOspite": 2.64,
       "perStagione": [
         {
@@ -1359,38 +1625,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 6,
+          "partite": 3,
+          "gialli": 9,
           "rossi": 0,
           "mediaGialli": 3.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 14.5,
-          "mediaGialliCasa": 4.0,
+          "mediaFalli": 14.7,
+          "mediaGialliCasa": 3.5,
           "mediaGialliOspite": 2.0
-        }
-      ]
-    },
-    {
-      "nome": "Santander",
-      "partite": 2,
-      "gialli": 5,
-      "rossi": 0,
-      "mediaGialli": 2.5,
-      "mediaRossi": 0.0,
-      "mediaFalli": 15.5,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 3.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 5,
-          "rossi": 0,
-          "mediaGialli": 2.5,
-          "mediaRossi": 0.0,
-          "mediaFalli": 15.5,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 3.0
         }
       ]
     },
@@ -1431,14 +1673,14 @@
     },
     {
       "nome": "Villarreal",
-      "partite": 154,
-      "gialli": 382,
+      "partite": 155,
+      "gialli": 383,
       "rossi": 18,
-      "mediaGialli": 2.48,
+      "mediaGialli": 2.47,
       "mediaRossi": 0.12,
-      "mediaFalli": 12.1,
+      "mediaFalli": 12.0,
       "mediaGialliCasa": 2.24,
-      "mediaGialliOspite": 2.72,
+      "mediaGialliOspite": 2.7,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -1486,14 +1728,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 6,
+          "partite": 3,
+          "gialli": 7,
           "rossi": 0,
-          "mediaGialli": 3.0,
+          "mediaGialli": 2.33,
           "mediaRossi": 0.0,
-          "mediaFalli": 13.5,
+          "mediaFalli": 11.7,
           "mediaGialliCasa": null,
-          "mediaGialliOspite": 3.0
+          "mediaGialliOspite": 2.33
         }
       ]
     },
@@ -1533,50 +1775,15 @@
       ]
     },
     {
-      "nome": "Valladolid",
-      "partite": 76,
-      "gialli": 186,
-      "rossi": 11,
-      "mediaGialli": 2.45,
-      "mediaRossi": 0.14,
-      "mediaFalli": 12.1,
-      "mediaGialliCasa": 2.13,
-      "mediaGialliOspite": 2.76,
-      "perStagione": [
-        {
-          "stagione": "2022/23",
-          "partite": 38,
-          "gialli": 93,
-          "rossi": 6,
-          "mediaGialli": 2.45,
-          "mediaRossi": 0.16,
-          "mediaFalli": 12.1,
-          "mediaGialliCasa": 1.68,
-          "mediaGialliOspite": 3.21
-        },
-        {
-          "stagione": "2024/25",
-          "partite": 38,
-          "gialli": 93,
-          "rossi": 5,
-          "mediaGialli": 2.45,
-          "mediaRossi": 0.13,
-          "mediaFalli": 12.1,
-          "mediaGialliCasa": 2.58,
-          "mediaGialliOspite": 2.32
-        }
-      ]
-    },
-    {
       "nome": "Espanol",
-      "partite": 116,
-      "gialli": 283,
+      "partite": 117,
+      "gialli": 287,
       "rossi": 16,
-      "mediaGialli": 2.44,
+      "mediaGialli": 2.45,
       "mediaRossi": 0.14,
       "mediaFalli": 13.1,
       "mediaGialliCasa": 2.29,
-      "mediaGialliOspite": 2.6,
+      "mediaGialliOspite": 2.62,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -1613,26 +1820,61 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 8,
+          "partite": 3,
+          "gialli": 12,
           "rossi": 0,
           "mediaGialli": 4.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 18.0,
+          "mediaFalli": 16.7,
           "mediaGialliCasa": 4.0,
-          "mediaGialliOspite": null
+          "mediaGialliOspite": 4.0
+        }
+      ]
+    },
+    {
+      "nome": "Valladolid",
+      "partite": 76,
+      "gialli": 186,
+      "rossi": 11,
+      "mediaGialli": 2.45,
+      "mediaRossi": 0.14,
+      "mediaFalli": 12.1,
+      "mediaGialliCasa": 2.13,
+      "mediaGialliOspite": 2.76,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 93,
+          "rossi": 6,
+          "mediaGialli": 2.45,
+          "mediaRossi": 0.16,
+          "mediaFalli": 12.1,
+          "mediaGialliCasa": 1.68,
+          "mediaGialliOspite": 3.21
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 93,
+          "rossi": 5,
+          "mediaGialli": 2.45,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.1,
+          "mediaGialliCasa": 2.58,
+          "mediaGialliOspite": 2.32
         }
       ]
     },
     {
       "nome": "Sociedad",
-      "partite": 154,
-      "gialli": 366,
+      "partite": 155,
+      "gialli": 368,
       "rossi": 12,
-      "mediaGialli": 2.38,
+      "mediaGialli": 2.37,
       "mediaRossi": 0.08,
       "mediaFalli": 14.9,
-      "mediaGialliCasa": 2.28,
+      "mediaGialliCasa": 2.27,
       "mediaGialliOspite": 2.47,
       "perStagione": [
         {
@@ -1681,27 +1923,27 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 6,
+          "partite": 3,
+          "gialli": 8,
           "rossi": 0,
-          "mediaGialli": 3.0,
+          "mediaGialli": 2.67,
           "mediaRossi": 0.0,
-          "mediaFalli": 10.0,
-          "mediaGialliCasa": null,
+          "mediaFalli": 13.0,
+          "mediaGialliCasa": 2.0,
           "mediaGialliOspite": 3.0
         }
       ]
     },
     {
       "nome": "Elche",
-      "partite": 78,
-      "gialli": 183,
+      "partite": 79,
+      "gialli": 184,
       "rossi": 16,
-      "mediaGialli": 2.35,
-      "mediaRossi": 0.21,
-      "mediaFalli": 13.5,
+      "mediaGialli": 2.33,
+      "mediaRossi": 0.2,
+      "mediaFalli": 13.6,
       "mediaGialliCasa": 2.13,
-      "mediaGialliOspite": 2.56,
+      "mediaGialliOspite": 2.52,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -1727,26 +1969,50 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 3,
+          "partite": 3,
+          "gialli": 4,
           "rossi": 0,
-          "mediaGialli": 1.5,
+          "mediaGialli": 1.33,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.5,
+          "mediaFalli": 14.7,
           "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 2.0
+          "mediaGialliOspite": 1.5
+        }
+      ]
+    },
+    {
+      "nome": "Santander",
+      "partite": 3,
+      "gialli": 7,
+      "rossi": 0,
+      "mediaGialli": 2.33,
+      "mediaRossi": 0.0,
+      "mediaFalli": 16.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 3.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 7,
+          "rossi": 0,
+          "mediaGialli": 2.33,
+          "mediaRossi": 0.0,
+          "mediaFalli": 16.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 3.0
         }
       ]
     },
     {
       "nome": "Osasuna",
-      "partite": 154,
-      "gialli": 350,
+      "partite": 155,
+      "gialli": 355,
       "rossi": 18,
-      "mediaGialli": 2.27,
+      "mediaGialli": 2.29,
       "mediaRossi": 0.12,
       "mediaFalli": 13.7,
-      "mediaGialliCasa": 2.31,
+      "mediaGialliCasa": 2.35,
       "mediaGialliOspite": 2.23,
       "perStagione": [
         {
@@ -1795,21 +2061,21 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 3,
+          "partite": 3,
+          "gialli": 8,
           "rossi": 0,
-          "mediaGialli": 1.5,
+          "mediaGialli": 2.67,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.5,
-          "mediaGialliCasa": 2.0,
+          "mediaFalli": 14.0,
+          "mediaGialliCasa": 3.5,
           "mediaGialliOspite": 1.0
         }
       ]
     },
     {
       "nome": "Ath Madrid",
-      "partite": 154,
-      "gialli": 341,
+      "partite": 155,
+      "gialli": 343,
       "rossi": 22,
       "mediaGialli": 2.21,
       "mediaRossi": 0.14,
@@ -1863,14 +2129,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 5,
+          "partite": 3,
+          "gialli": 7,
           "rossi": 1,
-          "mediaGialli": 2.5,
-          "mediaRossi": 0.5,
-          "mediaFalli": 14.5,
+          "mediaGialli": 2.33,
+          "mediaRossi": 0.33,
+          "mediaFalli": 15.0,
           "mediaGialliCasa": 2.5,
-          "mediaGialliOspite": null
+          "mediaGialliOspite": 2.0
         }
       ]
     },
@@ -1919,41 +2185,6 @@
           "mediaFalli": 12.5,
           "mediaGialliCasa": 2.16,
           "mediaGialliOspite": 2.11
-        }
-      ]
-    },
-    {
-      "nome": "Levante",
-      "partite": 40,
-      "gialli": 85,
-      "rossi": 5,
-      "mediaGialli": 2.12,
-      "mediaRossi": 0.12,
-      "mediaFalli": 12.1,
-      "mediaGialliCasa": 2.21,
-      "mediaGialliOspite": 2.05,
-      "perStagione": [
-        {
-          "stagione": "2025/26",
-          "partite": 38,
-          "gialli": 84,
-          "rossi": 5,
-          "mediaGialli": 2.21,
-          "mediaRossi": 0.13,
-          "mediaFalli": 12.3,
-          "mediaGialliCasa": 2.21,
-          "mediaGialliOspite": 2.21
-        },
-        {
-          "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 1,
-          "rossi": 0,
-          "mediaGialli": 0.5,
-          "mediaRossi": 0.0,
-          "mediaFalli": 9.5,
-          "mediaGialliCasa": null,
-          "mediaGialliOspite": 0.5
         }
       ]
     },
@@ -2015,15 +2246,50 @@
       ]
     },
     {
+      "nome": "Levante",
+      "partite": 41,
+      "gialli": 86,
+      "rossi": 5,
+      "mediaGialli": 2.1,
+      "mediaRossi": 0.12,
+      "mediaFalli": 12.0,
+      "mediaGialliCasa": 2.15,
+      "mediaGialliOspite": 2.05,
+      "perStagione": [
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 84,
+          "rossi": 5,
+          "mediaGialli": 2.21,
+          "mediaRossi": 0.13,
+          "mediaFalli": 12.3,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.21
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 2,
+          "rossi": 0,
+          "mediaGialli": 0.67,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.3,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 0.5
+        }
+      ]
+    },
+    {
       "nome": "Betis",
-      "partite": 154,
-      "gialli": 320,
+      "partite": 155,
+      "gialli": 321,
       "rossi": 24,
-      "mediaGialli": 2.08,
-      "mediaRossi": 0.16,
+      "mediaGialli": 2.07,
+      "mediaRossi": 0.15,
       "mediaFalli": 11.0,
       "mediaGialliCasa": 2.06,
-      "mediaGialliOspite": 2.09,
+      "mediaGialliOspite": 2.08,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -2071,12 +2337,12 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 4,
+          "partite": 3,
+          "gialli": 5,
           "rossi": 0,
-          "mediaGialli": 2.0,
+          "mediaGialli": 1.67,
           "mediaRossi": 0.0,
-          "mediaFalli": 10.0,
+          "mediaFalli": 9.0,
           "mediaGialliCasa": 3.0,
           "mediaGialliOspite": 1.0
         }
@@ -2084,14 +2350,14 @@
     },
     {
       "nome": "Valencia",
-      "partite": 154,
-      "gialli": 315,
+      "partite": 155,
+      "gialli": 316,
       "rossi": 17,
-      "mediaGialli": 2.05,
+      "mediaGialli": 2.04,
       "mediaRossi": 0.11,
       "mediaFalli": 12.4,
       "mediaGialliCasa": 2.14,
-      "mediaGialliOspite": 1.95,
+      "mediaGialliOspite": 1.94,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -2139,26 +2405,94 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 4,
+          "partite": 3,
+          "gialli": 5,
           "rossi": 0,
-          "mediaGialli": 2.0,
+          "mediaGialli": 1.67,
           "mediaRossi": 0.0,
-          "mediaFalli": 13.5,
+          "mediaFalli": 10.7,
           "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": null
+          "mediaGialliOspite": 1.0
+        }
+      ]
+    },
+    {
+      "nome": "Ath Bilbao",
+      "partite": 155,
+      "gialli": 313,
+      "rossi": 20,
+      "mediaGialli": 2.02,
+      "mediaRossi": 0.13,
+      "mediaFalli": 13.3,
+      "mediaGialliCasa": 2.03,
+      "mediaGialliOspite": 2.01,
+      "perStagione": [
+        {
+          "stagione": "2022/23",
+          "partite": 38,
+          "gialli": 81,
+          "rossi": 5,
+          "mediaGialli": 2.13,
+          "mediaRossi": 0.13,
+          "mediaFalli": 13.4,
+          "mediaGialliCasa": 2.16,
+          "mediaGialliOspite": 2.11
+        },
+        {
+          "stagione": "2023/24",
+          "partite": 38,
+          "gialli": 80,
+          "rossi": 5,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.13,
+          "mediaFalli": 13.4,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.21
+        },
+        {
+          "stagione": "2024/25",
+          "partite": 38,
+          "gialli": 64,
+          "rossi": 3,
+          "mediaGialli": 1.68,
+          "mediaRossi": 0.08,
+          "mediaFalli": 12.7,
+          "mediaGialliCasa": 1.74,
+          "mediaGialliOspite": 1.63
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 38,
+          "gialli": 81,
+          "rossi": 6,
+          "mediaGialli": 2.13,
+          "mediaRossi": 0.16,
+          "mediaFalli": 13.7,
+          "mediaGialliCasa": 2.21,
+          "mediaGialliOspite": 2.05
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 7,
+          "rossi": 1,
+          "mediaGialli": 2.33,
+          "mediaRossi": 0.33,
+          "mediaFalli": 11.3,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.5
         }
       ]
     },
     {
       "nome": "Celta",
-      "partite": 154,
+      "partite": 155,
       "gialli": 311,
       "rossi": 17,
-      "mediaGialli": 2.02,
+      "mediaGialli": 2.01,
       "mediaRossi": 0.11,
-      "mediaFalli": 12.1,
-      "mediaGialliCasa": 1.9,
+      "mediaFalli": 12.0,
+      "mediaGialliCasa": 1.87,
       "mediaGialliOspite": 2.14,
       "perStagione": [
         {
@@ -2207,118 +2541,50 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
+          "partite": 3,
           "gialli": 3,
           "rossi": 1,
-          "mediaGialli": 1.5,
-          "mediaRossi": 0.5,
-          "mediaFalli": 12.0,
+          "mediaGialli": 1.0,
+          "mediaRossi": 0.33,
+          "mediaFalli": 10.7,
           "mediaGialliCasa": 0.0,
           "mediaGialliOspite": 3.0
         }
       ]
     },
     {
-      "nome": "Ath Bilbao",
-      "partite": 154,
-      "gialli": 310,
-      "rossi": 20,
-      "mediaGialli": 2.01,
-      "mediaRossi": 0.13,
-      "mediaFalli": 13.2,
-      "mediaGialliCasa": 2.03,
-      "mediaGialliOspite": 2.0,
-      "perStagione": [
-        {
-          "stagione": "2022/23",
-          "partite": 38,
-          "gialli": 81,
-          "rossi": 5,
-          "mediaGialli": 2.13,
-          "mediaRossi": 0.13,
-          "mediaFalli": 13.4,
-          "mediaGialliCasa": 2.16,
-          "mediaGialliOspite": 2.11
-        },
-        {
-          "stagione": "2023/24",
-          "partite": 38,
-          "gialli": 80,
-          "rossi": 5,
-          "mediaGialli": 2.11,
-          "mediaRossi": 0.13,
-          "mediaFalli": 13.4,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 2.21
-        },
-        {
-          "stagione": "2024/25",
-          "partite": 38,
-          "gialli": 64,
-          "rossi": 3,
-          "mediaGialli": 1.68,
-          "mediaRossi": 0.08,
-          "mediaFalli": 12.7,
-          "mediaGialliCasa": 1.74,
-          "mediaGialliOspite": 1.63
-        },
-        {
-          "stagione": "2025/26",
-          "partite": 38,
-          "gialli": 81,
-          "rossi": 6,
-          "mediaGialli": 2.13,
-          "mediaRossi": 0.16,
-          "mediaFalli": 13.7,
-          "mediaGialliCasa": 2.21,
-          "mediaGialliOspite": 2.05
-        },
-        {
-          "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 4,
-          "rossi": 1,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.5,
-          "mediaFalli": 8.5,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 2.0
-        }
-      ]
-    },
-    {
       "nome": "Malaga",
-      "partite": 2,
-      "gialli": 4,
+      "partite": 3,
+      "gialli": 6,
       "rossi": 0,
       "mediaGialli": 2.0,
       "mediaRossi": 0.0,
-      "mediaFalli": 11.5,
+      "mediaFalli": 10.7,
       "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 3.0,
+      "mediaGialliOspite": 2.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 4,
+          "partite": 3,
+          "gialli": 6,
           "rossi": 0,
           "mediaGialli": 2.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 11.5,
+          "mediaFalli": 10.7,
           "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 3.0
+          "mediaGialliOspite": 2.5
         }
       ]
     },
     {
       "nome": "Barcelona",
-      "partite": 154,
+      "partite": 155,
       "gialli": 293,
       "rossi": 13,
-      "mediaGialli": 1.9,
+      "mediaGialli": 1.89,
       "mediaRossi": 0.08,
-      "mediaFalli": 10.4,
-      "mediaGialliCasa": 1.6,
+      "mediaFalli": 10.3,
+      "mediaGialliCasa": 1.58,
       "mediaGialliOspite": 2.21,
       "perStagione": [
         {
@@ -2367,26 +2633,26 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
+          "partite": 3,
           "gialli": 1,
           "rossi": 0,
-          "mediaGialli": 0.5,
+          "mediaGialli": 0.33,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.5,
-          "mediaGialliCasa": 1.0,
+          "mediaFalli": 9.7,
+          "mediaGialliCasa": 0.5,
           "mediaGialliOspite": 0.0
         }
       ]
     },
     {
       "nome": "Real Madrid",
-      "partite": 154,
+      "partite": 155,
       "gialli": 271,
       "rossi": 18,
-      "mediaGialli": 1.76,
+      "mediaGialli": 1.75,
       "mediaRossi": 0.12,
       "mediaFalli": 9.5,
-      "mediaGialliCasa": 1.66,
+      "mediaGialliCasa": 1.64,
       "mediaGialliOspite": 1.86,
       "perStagione": [
         {
@@ -2435,19 +2701,169 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 2,
+          "partite": 3,
           "gialli": 4,
           "rossi": 0,
-          "mediaGialli": 2.0,
+          "mediaGialli": 1.33,
           "mediaRossi": 0.0,
-          "mediaFalli": 8.5,
-          "mediaGialliCasa": 3.0,
+          "mediaFalli": 7.7,
+          "mediaGialliCasa": 1.5,
           "mediaGialliOspite": 1.0
         }
       ]
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "31/08/2026",
+      "casa": "Osasuna",
+      "ospite": "Getafe",
+      "gc": 1,
+      "go": 0,
+      "arbitro": "Jon Ander González",
+      "gialliCasa": 5,
+      "gialliOspite": 4,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 17,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "31/08/2026",
+      "casa": "Barcelona",
+      "ospite": "Vallecano",
+      "gc": 5,
+      "go": 2,
+      "arbitro": "Francisco José Hernández",
+      "gialliCasa": 0,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 4,
+      "falliOspite": 11
+    },
+    {
+      "stagione": "2026/27",
+      "data": "30/08/2026",
+      "casa": "Real Madrid",
+      "ospite": "Malaga",
+      "gc": 4,
+      "go": 0,
+      "arbitro": "Juan Martínez",
+      "gialliCasa": 0,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 6,
+      "falliOspite": 9
+    },
+    {
+      "stagione": "2026/27",
+      "data": "30/08/2026",
+      "casa": "La Coruna",
+      "ospite": "Valencia",
+      "gc": 3,
+      "go": 1,
+      "arbitro": "Miguel Ángel Ortiz",
+      "gialliCasa": 2,
+      "gialliOspite": 1,
+      "rossiCasa": 1,
+      "rossiOspite": 0,
+      "falliCasa": 14,
+      "falliOspite": 5
+    },
+    {
+      "stagione": "2026/27",
+      "data": "30/08/2026",
+      "casa": "Celta",
+      "ospite": "Ath Bilbao",
+      "gc": 0,
+      "go": 2,
+      "arbitro": "Mateo Busquets",
+      "gialliCasa": 0,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 8,
+      "falliOspite": 17
+    },
+    {
+      "stagione": "2026/27",
+      "data": "29/08/2026",
+      "casa": "Sociedad",
+      "ospite": "Espanol",
+      "gc": 2,
+      "go": 1,
+      "arbitro": "Manuel Jesús Orellana",
+      "gialliCasa": 2,
+      "gialliOspite": 4,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 19,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "29/08/2026",
+      "casa": "Sevilla",
+      "ospite": "Ath Madrid",
+      "gc": 1,
+      "go": 3,
+      "arbitro": "Javier Alberola",
+      "gialliCasa": 2,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 20,
+      "falliOspite": 16
+    },
+    {
+      "stagione": "2026/27",
+      "data": "29/08/2026",
+      "casa": "Levante",
+      "ospite": "Betis",
+      "gc": 5,
+      "go": 2,
+      "arbitro": "Ricardo De Burgos",
+      "gialliCasa": 1,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 9,
+      "falliOspite": 7
+    },
+    {
+      "stagione": "2026/27",
+      "data": "28/08/2026",
+      "casa": "Santander",
+      "ospite": "Elche",
+      "gc": 3,
+      "go": 2,
+      "arbitro": "Carlos Muñiz",
+      "gialliCasa": 2,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 17,
+      "falliOspite": 19
+    },
+    {
+      "stagione": "2026/27",
+      "data": "28/08/2026",
+      "casa": "Alaves",
+      "ospite": "Villarreal",
+      "gc": 1,
+      "go": 0,
+      "arbitro": "Isidro Díaz De Mera",
+      "gialliCasa": 3,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 15,
+      "falliOspite": 8
+    },
     {
       "stagione": "2026/27",
       "data": "27/08/2026",
@@ -2897,288 +3313,21 @@
       "rossiOspite": 0,
       "falliCasa": 13,
       "falliOspite": 14
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Vallecano",
-      "ospite": "Villarreal",
-      "gc": 2,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 12,
-      "falliOspite": 10
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Sociedad",
-      "ospite": "Valencia",
-      "gc": 3,
-      "go": 4,
-      "arbitro": "",
-      "gialliCasa": 4,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 1,
-      "falliCasa": 13,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Sevilla",
-      "ospite": "Real Madrid",
-      "gc": 0,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 4,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 18,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Oviedo",
-      "ospite": "Alaves",
-      "gc": 0,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 3,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 13,
-      "falliOspite": 18
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Osasuna",
-      "ospite": "Espanol",
-      "gc": 1,
-      "go": 2,
-      "arbitro": "",
-      "gialliCasa": 1,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 10,
-      "falliOspite": 13
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Levante",
-      "ospite": "Mallorca",
-      "gc": 2,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 0,
-      "rossiCasa": 1,
-      "rossiOspite": 1,
-      "falliCasa": 11,
-      "falliOspite": 15
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Elche",
-      "ospite": "Getafe",
-      "gc": 1,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 3,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 1,
-      "falliCasa": 18,
-      "falliOspite": 13
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Barcelona",
-      "ospite": "Betis",
-      "gc": 3,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 1,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 7,
-      "falliOspite": 8
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Ath Madrid",
-      "ospite": "Girona",
-      "gc": 1,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 7,
-      "falliOspite": 9
-    },
-    {
-      "stagione": "2025/26",
-      "data": "17/05/2026",
-      "casa": "Ath Bilbao",
-      "ospite": "Celta",
-      "gc": 1,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 14,
-      "falliOspite": 11
     }
   ],
   "prossimeDesignazioni": [
     {
-      "giornata": 3,
-      "data": "2026-08-28",
-      "ora": "19:00",
-      "casa": "Santander",
-      "ospite": "Elche",
-      "arbitro": "Carlos Muñiz",
-      "quartoUomo": "Guillermo Cueto",
-      "var": "Guillermo Cuadra",
-      "avar": "Alejandro José Hernández",
-      "assistente1": "Fernando Estela",
-      "assistente2": "Álvaro Granel"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-28",
-      "ora": "21:30",
-      "casa": "Alaves",
-      "ospite": "Villarreal",
-      "arbitro": "Isidro Díaz De Mera",
-      "quartoUomo": "Rubén Ruipérez",
-      "var": "Jorge Figueroa",
-      "avar": "Valentín Pizarro",
-      "assistente1": "Diego Santaúrsula",
-      "assistente2": "Rubén Campo"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-29",
-      "ora": "17:00",
-      "casa": "Levante",
-      "ospite": "Betis",
-      "arbitro": "Ricardo De Burgos",
-      "quartoUomo": "Gerard Rius",
-      "var": "Juan Luis Pulido",
-      "avar": "Alejandro José Hernández",
-      "assistente1": "Iker De Francisco",
-      "assistente2": "Asier Pérez De Mendiola"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-29",
-      "ora": "19:00",
-      "casa": "Sociedad",
-      "ospite": "Espanol",
-      "arbitro": "Manuel Jesús Orellana",
-      "quartoUomo": "Ignacio De Santisteban",
-      "var": "Luis Mario Milla",
-      "avar": "Valentín Pizarro",
-      "assistente1": "Iván Ríos",
-      "assistente2": "Roberto Tejero"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-29",
-      "ora": "21:30",
-      "casa": "Sevilla",
-      "ospite": "Ath Madrid",
-      "arbitro": "Javier Alberola",
-      "quartoUomo": "Francisco José Ortega",
+      "giornata": 4,
+      "data": "2026-09-04",
+      "ora": "21:00",
+      "casa": "Betis",
+      "ospite": "Real Madrid",
+      "arbitro": "Alejandro José Hernández",
+      "quartoUomo": "Juan Antonio Campos",
       "var": "Javier Iglesias",
       "avar": "Juan Luis Pulido",
-      "assistente1": "Alfredo Rodríguez",
-      "assistente2": "Jorge Bueno"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-30",
-      "ora": "17:00",
-      "casa": "Real Madrid",
-      "ospite": "Malaga",
-      "arbitro": "Juan Martínez",
-      "quartoUomo": "Álvaro Juncal",
-      "var": "Daniel Jesús Trujillo",
-      "avar": "Alejandro José Hernández",
-      "assistente1": "Diego Barbero",
-      "assistente2": "Miguel Martínez"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-30",
-      "ora": "19:30",
-      "casa": "La Coruna",
-      "ospite": "Valencia",
-      "arbitro": "Miguel Ángel Ortiz",
-      "quartoUomo": "Manuel Pozueta",
-      "var": "José Antonio López",
-      "avar": "Valentín Pizarro",
-      "assistente1": "José Antonio Garrido",
-      "assistente2": "Alejandro Estévez"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-30",
-      "ora": "21:30",
-      "casa": "Celta",
-      "ospite": "Ath Bilbao",
-      "arbitro": "Mateo Busquets",
-      "quartoUomo": "Fernando Román",
-      "var": "David Gálvez",
-      "avar": "Raúl Martín González",
-      "assistente1": "Íñigo Prieto",
-      "assistente2": "Gonzalo García"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-31",
-      "ora": "19:30",
-      "casa": "Osasuna",
-      "ospite": "Getafe",
-      "arbitro": "Jon Ander González",
-      "quartoUomo": "José David Martínez",
-      "var": "Rubén Ávalos",
-      "avar": "José Antonio López",
-      "assistente1": "Judit Romano",
-      "assistente2": "Israel Bárcena"
-    },
-    {
-      "giornata": 3,
-      "data": "2026-08-31",
-      "ora": "21:30",
-      "casa": "Barcelona",
-      "ospite": "Vallecano",
-      "arbitro": "Francisco José Hernández",
-      "quartoUomo": "Álvaro Cánovas",
-      "var": "Raúl Martín González",
-      "avar": "Alejandro Muñiz",
-      "assistente1": "Iván Massó",
-      "assistente2": "Abraham Pérez"
+      "assistente1": "José Enrique Naranjo",
+      "assistente2": "Marcos Cerdán"
     }
   ]
 }
