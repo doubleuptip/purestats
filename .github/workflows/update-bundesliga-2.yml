@@ -1,0 +1,83 @@
+name: Aggiorna archivio 2. Bundesliga
+
+on:
+  schedule:
+    # Sfalsato di un'ora rispetto alla prima divisione, per non
+    # pubblicare nello stesso momento.
+    - cron: '0 11 * * 1,4'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fetch_bundesliga_2.py'
+      - 'scripts/ansetzungen.py'
+      - '.github/workflows/update-bundesliga-2.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archivio-bundesliga-2
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configura Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Scarica dati e designazioni
+        env:
+          STAGIONI: ${{ vars.STAGIONI_BUNDESLIGA_2 }}
+        run: python scripts/fetch_bundesliga_2.py
+
+      - name: Committa le modifiche
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          FILE="data/bundesliga_2.csv data/ansetzungen_bundesliga_2.json docs/data_bundesliga_2.json"
+
+          git add $FILE
+          if git diff --staged --quiet; then
+            echo "Nessuna variazione."
+            exit 0
+          fi
+          git commit -m "2. Bundesliga aggiornata $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+          for tentativo in 1 2 3 4 5; do
+            if git push; then
+              echo "Pubblicato al tentativo $tentativo"
+              exit 0
+            fi
+
+            echo "Repository cambiato, riapplico i file aggiornati..."
+            mkdir -p /tmp/generati
+            for f in $FILE; do
+              mkdir -p "/tmp/generati/$(dirname "$f")"
+              cp "$f" "/tmp/generati/$f"
+            done
+
+            git fetch origin main
+            git reset --hard origin/main
+
+            for f in $FILE; do cp "/tmp/generati/$f" "$f"; done
+
+            git add $FILE
+            if git diff --staged --quiet; then
+              echo "I dati coincidono già con quelli pubblicati."
+              exit 0
+            fi
+            git commit -m "2. Bundesliga aggiornata $(date -u '+%Y-%m-%d %H:%M UTC')"
+            sleep 5
+          done
+
+          echo "Pubblicazione non riuscita dopo 5 tentativi"
+          exit 1
