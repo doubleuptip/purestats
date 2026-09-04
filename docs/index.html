@@ -152,6 +152,14 @@
 
   .arb{color:var(--acc);font-weight:700}
 
+  /* Sottomenù dei campionati di uno stesso paese */
+  .sub-lega{display:flex;gap:6px;margin:0 0 12px 20px}
+  .sub-lega button{font-family:'JetBrains Mono',monospace;font-size:10px;
+    font-weight:700;letter-spacing:.08em;color:var(--muted);background:var(--card);
+    border:1px solid var(--bordo);border-radius:5px;padding:6px 11px;cursor:pointer;
+    white-space:nowrap}
+  .sub-lega button.on{color:var(--nero);background:var(--acc);border-color:var(--acc)}
+
   /* --- GRUPPI COMPRIMIBILI --- */
   .gruppo{width:100%;display:flex;align-items:center;gap:9px;text-align:left;
     background:var(--card);border:1px solid var(--bordo);border-radius:8px;
@@ -236,6 +244,7 @@
 <header>
   <div class="logo"><div class="dot"></div><span>PURE<b>STATS</b></span></div>
   <div class="lega" id="scelta-lega"></div>
+  <div class="sub-lega" id="sub-lega" style="display:none"></div>
   <nav>
     <button id="n-arb" class="on" onclick="vai('arbitri')">ARBITRI</button>
     <button id="n-squ" onclick="vai('squadre')">SQUADRE</button>
@@ -278,7 +287,8 @@ const LEGHE = [
   {id:"serie_a",  nome:"SERIE A",        file:"data_serie_a.json"},
   {id:"la_liga",  nome:"LALIGA",         file:"data_la_liga.json"},
   {id:"ligue_1",  nome:"LIGUE 1",        file:"data_ligue_1.json"},
-  {id:"bundesliga", nome:"BUNDESLIGA",  file:"data_bundesliga.json"},
+  {id:"bundesliga",   nome:"BUNDESLIGA",   file:"data_bundesliga.json",   gruppo:"GERMANIA"},
+  {id:"bundesliga_2", nome:"BUNDESLIGA 2", file:"data_bundesliga_2.json", gruppo:"GERMANIA"},
   {id:"aleague",  nome:"A-LEAGUE",      file:"data_aleague.json",  soloArbitri:true},
   {id:"nfl",      nome:"NFL",           file:"data_nfl.json",      football:true},
   {id:"college",  nome:"COLLEGE FB",    file:"data_college.json",  football:true},
@@ -486,12 +496,16 @@ Promise.all(LEGHE.map(l =>
     .then(d=>{ if(d) cache[l.id]=d; return {lega:l, ok:!!d}; })
     .catch(()=>({lega:l, ok:false}))
 )).then(esiti=>{
-  const box = document.getElementById("scelta-lega");
-  box.innerHTML = esiti.map((e,i)=>
-    (i?`<span>·</span>`:"")+
-    `<button id="lg-${e.lega.id}" onclick="vaiLega('${e.lega.id}')"
-       ${e.ok?"":`style="opacity:.45"`}>${e.lega.nome}${e.ok?"":" ⚠"}</button>`
-  ).join("");
+  // I campionati senza archivio vengono tolti dal menù invece di
+  // comparire sbiaditi: con i paesi raggruppati, una voce disattivata
+  // dentro un gruppo sarebbe più confusa che utile.
+  const mancanti = esiti.filter(e=>!e.ok).map(e=>e.lega.id);
+  if(mancanti.length){
+    console.warn("Archivi non trovati:", mancanti.join(", "));
+    for(let i=LEGHE.length-1; i>=0; i--){
+      if(mancanti.includes(LEGHE[i].id)) LEGHE.splice(i,1);
+    }
+  }
 
   const primo = esiti.find(e=>e.ok);
   if(!primo){ mostraErrore(new Error("nessun archivio trovato")); return; }
@@ -543,6 +557,7 @@ function soloArbitri(id){
 
 function render(){
   charts.forEach(c=>c.destroy()); charts=[];
+  disegnaMenu();
 
   // L'accento passa all'arancio per le leghe di football americano
   document.body.className = eFootball() ? "arancio" : "";
@@ -653,6 +668,45 @@ function testoLegale(){
     errori o essere incompleti: non sono adatti a usi che richiedano
     accuratezza garantita.
   </div>`;
+}
+
+/* Il menù elenca i paesi, non i singoli campionati: dove ce n'è più di
+   uno compare una voce sola, e la scelta fra le divisioni avviene in un
+   secondo livello. Senza, l'elenco in alto diventerebbe illeggibile. */
+function vociMenu(){
+  const voci = [];
+  LEGHE.forEach(l => {
+    const etichetta = l.gruppo || l.nome;
+    const esistente = voci.find(v => v.etichetta === etichetta);
+    if (esistente) esistente.leghe.push(l);
+    else voci.push({etichetta, leghe: [l]});
+  });
+  return voci;
+}
+
+function disegnaMenu(){
+  const attiva = LEGHE.find(l => l.id === legaAttiva);
+  const gruppoAttivo = attiva ? (attiva.gruppo || attiva.nome) : null;
+
+  document.getElementById("scelta-lega").innerHTML = vociMenu().map((v,i) =>
+    (i ? `<span>·</span>` : "") +
+    `<button id="lg-${v.leghe[0].id}" class="${v.etichetta===gruppoAttivo?"on":""}"
+       onclick="vaiLega('${v.leghe[0].id}')">${v.etichetta}</button>`
+  ).join("");
+
+  // secondo livello, solo se il paese scelto ha più campionati
+  const box = document.getElementById("sub-lega");
+  if(!box) return;
+  const voce = vociMenu().find(v => v.etichetta === gruppoAttivo);
+  if(voce && voce.leghe.length > 1){
+    box.style.display = "flex";
+    box.innerHTML = voce.leghe.map(l =>
+      `<button class="${l.id===legaAttiva?"on":""}"
+         onclick="vaiLega('${l.id}')">${l.nome}</button>`).join("");
+  } else {
+    box.style.display = "none";
+    box.innerHTML = "";
+  }
 }
 
 function kpi(...v){
