@@ -31,6 +31,11 @@ UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 # Quanti giorni in avanti guardare
 GIORNI_AVANTI = 45
 
+# Quanti giorni indietro conservare. La fonte rigenera il file una volta
+# a settimana: senza questo margine, nei giorni fra un aggiornamento e
+# l'altro il calendario risulterebbe vuoto.
+GIORNI_INDIETRO = 3
+
 # Gli orari nel file sono già espressi in ora dell'Europa centrale, quindi
 # non vanno convertiti. Era stata introdotta una correzione di un'ora sul
 # presupposto che fossero in ora britannica: si è rivelata sbagliata e
@@ -172,6 +177,41 @@ def cerca_designazione(indice, casa, ospite, data):
     return None
 
 
+def partite_da_designazioni(indice, gia_presenti, oggi, limite):
+    """Ricava dalle designazioni le partite che il file non riporta ancora.
+
+    Le designazioni arbitrali escono a metà settimana, il calendario
+    ufficiale il venerdì. Nei giorni intermedi la partita è già nota —
+    squadre, data, orario e arbitro — e non c'è motivo di nasconderla
+    solo perché l'altra fonte non l'ha ancora pubblicata.
+    """
+    aggiunte = []
+    for (casa, ospite), elenco in indice.items():
+        for d in elenco:
+            data = d.get("data")
+            if not data or not (oggi <= data <= limite):
+                continue
+            if (casa, ospite, data) in gia_presenti:
+                continue
+            # evita di aggiungere due volte la stessa gara
+            if any(a["casa"] == casa and a["ospite"] == ospite
+                   and a["data"] == data for a in aggiunte):
+                continue
+            gara = {
+                "data": data,
+                "ora": d.get("ora"),
+                "casa": casa,
+                "ospite": ospite,
+                "daDesignazioni": True,
+            }
+            if d.get("arbitro"):
+                gara["arbitro"] = d["arbitro"]
+            if d.get("var"):
+                gara["var"] = d["var"]
+            aggiunte.append(gara)
+    return aggiunte
+
+
 def main():
     print("=" * 58)
     print("CALENDARIO PROSSIME PARTITE")
@@ -182,9 +222,9 @@ def main():
         print("\nNessun dato scaricato: esco senza modificare il file.")
         raise SystemExit(1)
 
-    oggi = datetime.now(timezone.utc).date()
-    limite = (oggi + timedelta(days=GIORNI_AVANTI)).isoformat()
-    oggi = oggi.isoformat()
+    riferimento = datetime.now(timezone.utc).date()
+    limite = (riferimento + timedelta(days=GIORNI_AVANTI)).isoformat()
+    oggi = (riferimento - timedelta(days=GIORNI_INDIETRO)).isoformat()
 
     per_codice = {}
     totale = 0
@@ -264,6 +304,14 @@ def main():
                 if d.get("var"):
                     g["var"] = d["var"]
                 con_arbitro += 1
+
+        # Completa il calendario con le partite note solo dalle designazioni
+        presenti = {(g["casa"], g["ospite"], g["data"]) for g in gare}
+        aggiunte = partite_da_designazioni(designazioni, presenti, oggi, limite)
+        if aggiunte:
+            print(f"    {len(aggiunte)} partite aggiunte dalle designazioni")
+            gare = sorted(gare + aggiunte, key=lambda x: (x["data"], x["ora"] or ""))
+            con_arbitro += sum(1 for a in aggiunte if a.get("arbitro"))
 
         risultato["campionati"][chiave] = {
             "nome": conf["nome"],
