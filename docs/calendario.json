@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-04T09:36:12.937329+00:00",
+  "aggiornato": "2026-09-04T11:37:03.407934+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -7,7 +7,68 @@
   "campionati": {
     "premier": {
       "nome": "Premier League",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-04",
+          "ora": "21:00",
+          "casa": "Ipswich",
+          "ospite": "Liverpool"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "13:30",
+          "casa": "Newcastle",
+          "ospite": "Bournemouth"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "16:00",
+          "casa": "Brentford",
+          "ospite": "Sunderland"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "16:00",
+          "casa": "Brighton",
+          "ospite": "Leeds"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "16:00",
+          "casa": "Fulham",
+          "ospite": "Crystal Palace"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "16:00",
+          "casa": "Man City",
+          "ospite": "Coventry"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "16:00",
+          "casa": "Nott'm Forest",
+          "ospite": "Tottenham"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "18:30",
+          "casa": "Hull",
+          "ospite": "Aston Villa"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "15:00",
+          "casa": "Everton",
+          "ospite": "Man United"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "17:30",
+          "casa": "Arsenal",
+          "ospite": "Chelsea"
+        }
+      ]
     },
     "serie_a": {
       "nome": "Serie A",
@@ -17,7 +78,6 @@
           "ora": "20:45",
           "casa": "Genoa",
           "ospite": "Como",
-          "daDesignazioni": true,
           "arbitro": "Guida",
           "var": "Aureliano"
         },
@@ -26,7 +86,6 @@
           "ora": "15:00",
           "casa": "Fiorentina",
           "ospite": "Torino",
-          "daDesignazioni": true,
           "arbitro": "Massa",
           "var": "Giua"
         },
@@ -35,7 +94,6 @@
           "ora": "18:00",
           "casa": "Inter",
           "ospite": "Napoli",
-          "daDesignazioni": true,
           "arbitro": "Sozza",
           "var": "Di Paolo"
         },
@@ -44,7 +102,6 @@
           "ora": "20:45",
           "casa": "Roma",
           "ospite": "Atalanta",
-          "daDesignazioni": true,
           "arbitro": "Colombo",
           "var": "Camplone"
         },
@@ -53,7 +110,6 @@
           "ora": "15:00",
           "casa": "Frosinone",
           "ospite": "Venezia",
-          "daDesignazioni": true,
           "arbitro": "Perri",
           "var": "Mazzoleni"
         },
@@ -62,7 +118,6 @@
           "ora": "15:00",
           "casa": "Parma",
           "ospite": "Monza",
-          "daDesignazioni": true,
           "arbitro": "La Penna",
           "var": "Pezzuto"
         },
@@ -71,7 +126,6 @@
           "ora": "18:00",
           "casa": "Bologna",
           "ospite": "Sassuolo",
-          "daDesignazioni": true,
           "arbitro": "Di Bello",
           "var": "Paterna"
         },
@@ -80,16 +134,14 @@
           "ora": "20:45",
           "casa": "Juventus",
           "ospite": "Milan",
-          "daDesignazioni": true,
           "arbitro": "Mariani",
           "var": "Fabbri"
         },
         {
           "data": "2026-09-07",
-          "ora": "18:00",
+          "ora": "18:30",
           "casa": "Cagliari",
           "ospite": "Lecce",
-          "daDesignazioni": true,
           "arbitro": "Sacchi J.L.",
           "var": "Piccinini"
         },
@@ -98,7 +150,6 @@
           "ora": "20:45",
           "casa": "Udinese",
           "ospite": "Lazio",
-          "daDesignazioni": true,
           "arbitro": "Tremolada",
           "var": "Maggioni"
         }
@@ -108,19 +159,66 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-09-03",
-          "ora": "21:00",
-          "casa": "Sociedad",
-          "ospite": "Celta"
-        },
-        {
           "data": "2026-09-04",
           "ora": "21:00",
           "casa": "Betis",
           "ospite": "Real Madrid",
-          "daDesignazioni": true,
           "arbitro": "Alejandro José Hernández",
           "var": "Javier Iglesias"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "16:15",
+          "casa": "Ath Bilbao",
+          "ospite": "Ath Madrid"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "18:30",
+          "casa": "Vallecano",
+          "ospite": "Santander"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "21:00",
+          "casa": "Villarreal",
+          "ospite": "La Coruna"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "16:15",
+          "casa": "Valencia",
+          "ospite": "Barcelona"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "18:30",
+          "casa": "Alaves",
+          "ospite": "Osasuna"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "18:30",
+          "casa": "Malaga",
+          "ospite": "Levante"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "21:00",
+          "casa": "Espanol",
+          "ospite": "Sevilla"
+        },
+        {
+          "data": "2026-09-07",
+          "ora": "19:00",
+          "casa": "Getafe",
+          "ospite": "Celta"
+        },
+        {
+          "data": "2026-09-07",
+          "ora": "21:30",
+          "casa": "Elche",
+          "ospite": "Sociedad"
         }
       ]
     },
@@ -128,10 +226,52 @@
       "nome": "Ligue 1",
       "partite": [
         {
-          "data": "2026-09-03",
+          "data": "2026-09-04",
+          "ora": "19:00",
+          "casa": "Lyon",
+          "ospite": "Auxerre"
+        },
+        {
+          "data": "2026-09-04",
+          "ora": "21:05",
+          "casa": "Paris SG",
+          "ospite": "Monaco"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "17:15",
+          "casa": "Lens",
+          "ospite": "Lorient"
+        },
+        {
+          "data": "2026-09-05",
           "ora": "20:45",
-          "casa": "Toulouse",
-          "ospite": "Lille"
+          "casa": "Le Havre",
+          "ospite": "Brest"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "20:45",
+          "casa": "Nice",
+          "ospite": "Le Mans"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "15:00",
+          "casa": "Troyes",
+          "ospite": "Strasbourg"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "17:15",
+          "casa": "Angers",
+          "ospite": "Rennes"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "20:45",
+          "casa": "Marseille",
+          "ospite": "Paris FC"
         }
       ]
     },
@@ -143,7 +283,6 @@
           "ora": "20:30",
           "casa": "Stuttgart",
           "ospite": "FC Koln",
-          "daDesignazioni": true,
           "arbitro": "Christian Dingert",
           "var": "Bastian Dankert"
         },
@@ -152,7 +291,6 @@
           "ora": "15:30",
           "casa": "Hoffenheim",
           "ospite": "Dortmund",
-          "daDesignazioni": true,
           "arbitro": "Dr. Matthias Jöllenbeck",
           "var": "Pascal Müller"
         },
@@ -161,7 +299,6 @@
           "ora": "15:30",
           "casa": "Leverkusen",
           "ospite": "Union Berlin",
-          "daDesignazioni": true,
           "arbitro": "Dr. Robin Braun",
           "var": "Katrin Rafalski"
         },
@@ -170,34 +307,30 @@
           "ora": "15:30",
           "casa": "M'gladbach",
           "ospite": "Elversberg",
-          "daDesignazioni": true,
           "arbitro": "Martin Petersen",
           "var": "Daniel Siebert"
         },
         {
           "data": "2026-09-05",
           "ora": "15:30",
-          "casa": "Werder Bremen",
-          "ospite": "RB Leipzig",
-          "daDesignazioni": true,
-          "arbitro": "Benjamin Brand",
-          "var": "Sören Storks"
+          "casa": "Paderborn",
+          "ospite": "Freiburg",
+          "arbitro": "Dr. Max Burda",
+          "var": "Günter Perl"
         },
         {
           "data": "2026-09-05",
           "ora": "15:30",
-          "casa": "Paderborn",
-          "ospite": "Freiburg",
-          "daDesignazioni": true,
-          "arbitro": "Dr. Max Burda",
-          "var": "Günter Perl"
+          "casa": "Werder Bremen",
+          "ospite": "RB Leipzig",
+          "arbitro": "Benjamin Brand",
+          "var": "Sören Storks"
         },
         {
           "data": "2026-09-05",
           "ora": "18:30",
           "casa": "Schalke 04",
           "ospite": "Bayern Munich",
-          "daDesignazioni": true,
           "arbitro": "Robert Schröder",
           "var": "Dr. Arne Aarnink"
         },
@@ -206,7 +339,6 @@
           "ora": "15:30",
           "casa": "Hamburg",
           "ospite": "Mainz",
-          "daDesignazioni": true,
           "arbitro": "Tobias Reichel",
           "var": "Tobias Welz"
         },
@@ -215,9 +347,67 @@
           "ora": "17:30",
           "casa": "Ein Frankfurt",
           "ospite": "Augsburg",
-          "daDesignazioni": true,
           "arbitro": "Daniel Schlager",
           "var": "Nicolas Winter"
+        }
+      ]
+    },
+    "bundesliga_2": {
+      "nome": "2. Bundesliga",
+      "partite": [
+        {
+          "data": "2026-09-04",
+          "ora": "18:30",
+          "casa": "Bielefeld",
+          "ospite": "St Pauli"
+        },
+        {
+          "data": "2026-09-04",
+          "ora": "18:30",
+          "casa": "Hannover",
+          "ospite": "Karlsruhe"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "13:00",
+          "casa": "Holstein Kiel",
+          "ospite": "Nurnberg"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "13:00",
+          "casa": "Kaiserslautern",
+          "ospite": "Darmstadt"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "13:00",
+          "casa": "Wolfsburg",
+          "ospite": "Cottbus"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "20:30",
+          "casa": "Dresden",
+          "ospite": "Bochum"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "13:30",
+          "casa": "Greuther Furth",
+          "ospite": "Heidenheim"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "13:30",
+          "casa": "Hertha",
+          "ospite": "Magdeburg"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "13:30",
+          "casa": "Osnabruck",
+          "ospite": "Braunschweig"
         }
       ]
     }
