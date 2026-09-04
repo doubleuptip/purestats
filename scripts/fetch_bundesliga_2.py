@@ -1,5 +1,5 @@
 """
-Archivio Bundesliga — statistiche disciplinari e designazioni arbitrali.
+Archivio 2. Bundesliga — statistiche disciplinari e designazioni arbitrali.
 
 Due fonti:
   1. football-data.co.uk (D1.csv) — cartellini e falli di squadra.
@@ -7,8 +7,9 @@ Due fonti:
   2. DFB Datencenter — designazioni ufficiali della federazione, con
      arbitro, assistenti, quarto uomo e coppia video.
 
-La pagina del Datencenter ha indirizzo fisso e contiene tutte le categorie
-del calcio tedesco: il parser isola la sola Bundesliga.
+La pagina del Datencenter contiene tutte le categorie del calcio tedesco:
+la stessa richiesta serve prima e seconda divisione, e il parser isola la
+sezione voluta. Nessun traffico aggiuntivo verso il sito federale.
 
 L'archivio è centrato sugli arbitri: le statistiche offensive presenti
 nel CSV vengono conservate nel file ma non entrano nelle medie.
@@ -31,13 +32,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ansetzungen as dg
 
 RADICE = Path(__file__).resolve().parent.parent
-ARCHIVIO = RADICE / "data" / "bundesliga.csv"
-DESIGNAZIONI = RADICE / "data" / "ansetzungen_bundesliga.json"
-USCITA = RADICE / "docs" / "data_bundesliga.json"
+ARCHIVIO = RADICE / "data" / "bundesliga_2.csv"
+DESIGNAZIONI = RADICE / "data" / "ansetzungen_bundesliga_2.json"
+USCITA = RADICE / "docs" / "data_bundesliga_2.json"
 
 BASE_CSV = "https://www.football-data.co.uk/mmz4281"
-CODICE = "D1"
-CATEGORIA = "Bundesliga"
+CODICE = "D2"
+CATEGORIA = "2. Bundesliga"
 DATENCENTER = "https://datencenter.dfb.de/global_referee_schedule"
 UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 
@@ -55,6 +56,23 @@ ALIAS_CSV = {
     "hertha": "Hertha", "hertha bsc": "Hertha",
     "nurnberg": "Nurnberg", "nuremberg": "Nurnberg",
     "dusseldorf": "Dusseldorf", "fortuna dusseldorf": "Dusseldorf",
+    "kaiserslautern": "Kaiserslautern", "1 fc kaiserslautern": "Kaiserslautern",
+    "greuther furth": "Greuther Furth", "furth": "Greuther Furth",
+    "hansa rostock": "Hansa Rostock", "rostock": "Hansa Rostock",
+    "erzgebirge aue": "Erzgebirge Aue", "aue": "Erzgebirge Aue",
+    "dynamo dresden": "Dynamo Dresden", "dresden": "Dynamo Dresden",
+    "braunschweig": "Braunschweig", "eintracht braunschweig": "Braunschweig",
+    "karlsruhe": "Karlsruhe", "karlsruher sc": "Karlsruhe",
+    "magdeburg": "Magdeburg", "1 fc magdeburg": "Magdeburg",
+    "munster": "Munster", "preussen munster": "Munster",
+    "wehen": "Wehen", "wehen wiesbaden": "Wehen",
+    "regensburg": "Regensburg", "jahn regensburg": "Regensburg",
+    "osnabruck": "Osnabruck", "vfl osnabruck": "Osnabruck",
+    "duisburg": "Duisburg", "msv duisburg": "Duisburg",
+    "sandhausen": "Sandhausen", "sv sandhausen": "Sandhausen",
+    "saarbrucken": "Saarbrucken", "1 fc saarbrucken": "Saarbrucken",
+    "ingolstadt": "Ingolstadt", "fc ingolstadt": "Ingolstadt",
+    "1860 munich": "1860 Munich", "munich 1860": "1860 Munich",
 }
 
 
@@ -516,7 +534,7 @@ def calcola_statistiche(righe, future):
 
     return {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
-        "campionato": "Bundesliga",
+        "campionato": "2. Bundesliga",
         "fonte": "football-data.co.uk (PDDL) · designazioni DFB Datencenter",
         "stagioni": sorted({r.get("Stagione", "") for r in righe if r.get("Stagione")}),
         "totalePartite": len(righe),

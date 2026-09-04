@@ -55,6 +55,8 @@ CAMPIONATI = {
                 "designazioni": "designations_ligue_1.json"},
     "bundesliga": {"nome": "Bundesliga", "codice": "D1",
                    "designazioni": "ansetzungen_bundesliga.json"},
+    "bundesliga_2": {"nome": "2. Bundesliga", "codice": "D2",
+                     "designazioni": "ansetzungen_bundesliga_2.json"},
 }
 
 
