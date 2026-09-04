@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-03T07:51:48.595542+00:00",
+  "aggiornato": "2026-09-04T09:35:45.267469+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -11,7 +11,98 @@
     },
     "serie_a": {
       "nome": "Serie A",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-04",
+          "ora": "20:45",
+          "casa": "Genoa",
+          "ospite": "Como",
+          "daDesignazioni": true,
+          "arbitro": "Guida",
+          "var": "Aureliano"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "15:00",
+          "casa": "Fiorentina",
+          "ospite": "Torino",
+          "daDesignazioni": true,
+          "arbitro": "Massa",
+          "var": "Giua"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "18:00",
+          "casa": "Inter",
+          "ospite": "Napoli",
+          "daDesignazioni": true,
+          "arbitro": "Sozza",
+          "var": "Di Paolo"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "20:45",
+          "casa": "Roma",
+          "ospite": "Atalanta",
+          "daDesignazioni": true,
+          "arbitro": "Colombo",
+          "var": "Camplone"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "15:00",
+          "casa": "Frosinone",
+          "ospite": "Venezia",
+          "daDesignazioni": true,
+          "arbitro": "Perri",
+          "var": "Mazzoleni"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "15:00",
+          "casa": "Parma",
+          "ospite": "Monza",
+          "daDesignazioni": true,
+          "arbitro": "La Penna",
+          "var": "Pezzuto"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "18:00",
+          "casa": "Bologna",
+          "ospite": "Sassuolo",
+          "daDesignazioni": true,
+          "arbitro": "Di Bello",
+          "var": "Paterna"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "20:45",
+          "casa": "Juventus",
+          "ospite": "Milan",
+          "daDesignazioni": true,
+          "arbitro": "Mariani",
+          "var": "Fabbri"
+        },
+        {
+          "data": "2026-09-07",
+          "ora": "18:00",
+          "casa": "Cagliari",
+          "ospite": "Lecce",
+          "daDesignazioni": true,
+          "arbitro": "Sacchi J.L.",
+          "var": "Piccinini"
+        },
+        {
+          "data": "2026-09-07",
+          "ora": "20:45",
+          "casa": "Udinese",
+          "ospite": "Lazio",
+          "daDesignazioni": true,
+          "arbitro": "Tremolada",
+          "var": "Maggioni"
+        }
+      ]
     },
     "la_liga": {
       "nome": "LaLiga",
@@ -21,6 +112,15 @@
           "ora": "21:00",
           "casa": "Sociedad",
           "ospite": "Celta"
+        },
+        {
+          "data": "2026-09-04",
+          "ora": "21:00",
+          "casa": "Betis",
+          "ospite": "Real Madrid",
+          "daDesignazioni": true,
+          "arbitro": "Alejandro José Hernández",
+          "var": "Javier Iglesias"
         }
       ]
     },
@@ -37,7 +137,89 @@
     },
     "bundesliga": {
       "nome": "Bundesliga",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-04",
+          "ora": "20:30",
+          "casa": "Stuttgart",
+          "ospite": "FC Koln",
+          "daDesignazioni": true,
+          "arbitro": "Christian Dingert",
+          "var": "Bastian Dankert"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "15:30",
+          "casa": "Hoffenheim",
+          "ospite": "Dortmund",
+          "daDesignazioni": true,
+          "arbitro": "Dr. Matthias Jöllenbeck",
+          "var": "Pascal Müller"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "15:30",
+          "casa": "Leverkusen",
+          "ospite": "Union Berlin",
+          "daDesignazioni": true,
+          "arbitro": "Dr. Robin Braun",
+          "var": "Katrin Rafalski"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "15:30",
+          "casa": "M'gladbach",
+          "ospite": "Elversberg",
+          "daDesignazioni": true,
+          "arbitro": "Martin Petersen",
+          "var": "Daniel Siebert"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "15:30",
+          "casa": "Werder Bremen",
+          "ospite": "RB Leipzig",
+          "daDesignazioni": true,
+          "arbitro": "Benjamin Brand",
+          "var": "Sören Storks"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "15:30",
+          "casa": "Paderborn",
+          "ospite": "Freiburg",
+          "daDesignazioni": true,
+          "arbitro": "Dr. Max Burda",
+          "var": "Günter Perl"
+        },
+        {
+          "data": "2026-09-05",
+          "ora": "18:30",
+          "casa": "Schalke 04",
+          "ospite": "Bayern Munich",
+          "daDesignazioni": true,
+          "arbitro": "Robert Schröder",
+          "var": "Dr. Arne Aarnink"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "15:30",
+          "casa": "Hamburg",
+          "ospite": "Mainz",
+          "daDesignazioni": true,
+          "arbitro": "Tobias Reichel",
+          "var": "Tobias Welz"
+        },
+        {
+          "data": "2026-09-06",
+          "ora": "17:30",
+          "casa": "Ein Frankfurt",
+          "ospite": "Augsburg",
+          "daDesignazioni": true,
+          "arbitro": "Daniel Schlager",
+          "var": "Nicolas Winter"
+        }
+      ]
     }
   }
 }
