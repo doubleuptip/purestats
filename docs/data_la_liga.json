@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-03T17:13:33.870306+00:00",
+  "aggiornato": "2026-09-04T17:13:09.545022+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -9,8 +9,8 @@
     "2025/26",
     "2026/27"
   ],
-  "totalePartite": 1550,
-  "partiteConDisciplina": 1550,
+  "totalePartite": 1551,
+  "partiteConDisciplina": 1551,
   "partiteConArbitro": 20,
   "arbitri": [
     {
@@ -515,7 +515,21 @@
           "falliOspite": 17
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 4,
+          "data": "2026-09-05",
+          "ora": "21:00",
+          "casa": "Villarreal",
+          "ospite": "La Coruna",
+          "arbitro": "Jesús Gil",
+          "quartoUomo": "Víctor Manuel Broncano",
+          "var": "Luis Mario Milla",
+          "avar": "José Antonio López",
+          "assistente1": "Guadalupe Porras",
+          "assistente2": "Javier Martínez"
+        }
+      ]
     },
     {
       "nome": "Javier Alberola",
@@ -807,7 +821,21 @@
           "falliOspite": 13
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 4,
+          "data": "2026-09-05",
+          "ora": "16:15",
+          "casa": "Ath Bilbao",
+          "ospite": "Ath Madrid",
+          "arbitro": "José Luis Munuera",
+          "quartoUomo": "Néstor Holgueras",
+          "var": "Juan Luis Pulido",
+          "avar": "Javier Iglesias",
+          "assistente1": "Íñigo Prieto",
+          "assistente2": "Antonio Ramón Martínez"
+        }
+      ]
     },
     {
       "nome": "Juan Martínez",
@@ -1165,7 +1193,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 4,
+          "data": "2026-09-05",
+          "ora": "18:30",
+          "casa": "Vallecano",
+          "ospite": "Santander",
+          "arbitro": "Alejandro Quintero",
+          "quartoUomo": "José María Aranda",
+          "var": "Guillermo Cuadra",
+          "avar": "Alejandro Muñiz",
+          "assistente1": "Guillermo Santiago",
+          "assistente2": "José Francisco García"
+        }
+      ]
     },
     {
       "nome": "Francisco José Hernández",
@@ -1868,8 +1910,8 @@
     },
     {
       "nome": "Sociedad",
-      "partite": 155,
-      "gialli": 368,
+      "partite": 156,
+      "gialli": 370,
       "rossi": 12,
       "mediaGialli": 2.37,
       "mediaRossi": 0.08,
@@ -1923,12 +1965,12 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 3,
-          "gialli": 8,
+          "partite": 4,
+          "gialli": 10,
           "rossi": 0,
-          "mediaGialli": 2.67,
+          "mediaGialli": 2.5,
           "mediaRossi": 0.0,
-          "mediaFalli": 13.0,
+          "mediaFalli": 13.5,
           "mediaGialliCasa": 2.0,
           "mediaGialliOspite": 3.0
         }
@@ -2486,14 +2528,14 @@
     },
     {
       "nome": "Celta",
-      "partite": 155,
-      "gialli": 311,
+      "partite": 156,
+      "gialli": 314,
       "rossi": 17,
       "mediaGialli": 2.01,
       "mediaRossi": 0.11,
       "mediaFalli": 12.0,
       "mediaGialliCasa": 1.87,
-      "mediaGialliOspite": 2.14,
+      "mediaGialliOspite": 2.15,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -2541,12 +2583,12 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 3,
-          "gialli": 3,
+          "partite": 4,
+          "gialli": 6,
           "rossi": 1,
-          "mediaGialli": 1.0,
-          "mediaRossi": 0.33,
-          "mediaFalli": 10.7,
+          "mediaGialli": 1.5,
+          "mediaRossi": 0.25,
+          "mediaFalli": 10.8,
           "mediaGialliCasa": 0.0,
           "mediaGialliOspite": 3.0
         }
@@ -2714,6 +2756,21 @@
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "03/09/2026",
+      "casa": "Sociedad",
+      "ospite": "Celta",
+      "gc": 0,
+      "go": 0,
+      "arbitro": "",
+      "gialliCasa": 2,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 15,
+      "falliOspite": 11
+    },
     {
       "stagione": "2026/27",
       "data": "31/08/2026",
@@ -3298,21 +3355,6 @@
       "rossiOspite": 0,
       "falliCasa": 11,
       "falliOspite": 7
-    },
-    {
-      "stagione": "2025/26",
-      "data": "23/05/2026",
-      "casa": "Alaves",
-      "ospite": "Vallecano",
-      "gc": 1,
-      "go": 2,
-      "arbitro": "",
-      "gialliCasa": 3,
-      "gialliOspite": 3,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 13,
-      "falliOspite": 14
     }
   ],
   "prossimeDesignazioni": [
@@ -3328,6 +3370,45 @@
       "avar": "Juan Luis Pulido",
       "assistente1": "José Enrique Naranjo",
       "assistente2": "Marcos Cerdán"
+    },
+    {
+      "giornata": 4,
+      "data": "2026-09-05",
+      "ora": "16:15",
+      "casa": "Ath Bilbao",
+      "ospite": "Ath Madrid",
+      "arbitro": "José Luis Munuera",
+      "quartoUomo": "Néstor Holgueras",
+      "var": "Juan Luis Pulido",
+      "avar": "Javier Iglesias",
+      "assistente1": "Íñigo Prieto",
+      "assistente2": "Antonio Ramón Martínez"
+    },
+    {
+      "giornata": 4,
+      "data": "2026-09-05",
+      "ora": "18:30",
+      "casa": "Vallecano",
+      "ospite": "Santander",
+      "arbitro": "Alejandro Quintero",
+      "quartoUomo": "José María Aranda",
+      "var": "Guillermo Cuadra",
+      "avar": "Alejandro Muñiz",
+      "assistente1": "Guillermo Santiago",
+      "assistente2": "José Francisco García"
+    },
+    {
+      "giornata": 4,
+      "data": "2026-09-05",
+      "ora": "21:00",
+      "casa": "Villarreal",
+      "ospite": "La Coruna",
+      "arbitro": "Jesús Gil",
+      "quartoUomo": "Víctor Manuel Broncano",
+      "var": "Luis Mario Milla",
+      "avar": "José Antonio López",
+      "assistente1": "Guadalupe Porras",
+      "assistente2": "Javier Martínez"
     }
   ]
 }
