@@ -57,6 +57,44 @@ SQUADRE = {
     "1 fc kaiserslautern": "Kaiserslautern",
     "fortuna dusseldorf": "Dusseldorf",
     "hannover 96": "Hannover",
+
+    # Squadre di seconda divisione. Alcune compaiono già sopra perché
+    # sono passate fra le due categorie negli anni: l'elenco unico evita
+    # di doverle spostare a ogni promozione o retrocessione.
+    "1 fc kaiserslautern": "Kaiserslautern",
+    "1 fc nurnberg": "Nurnberg",
+    "1 fc magdeburg": "Magdeburg",
+    "eintracht braunschweig": "Braunschweig",
+    "karlsruher sc": "Karlsruhe",
+    "sv 07 elversberg": "Elversberg",
+    "sc preussen munster": "Munster",
+    "preussen munster": "Munster",
+    "spvgg greuther furth": "Greuther Furth",
+    "greuther furth": "Greuther Furth",
+    "hansa rostock": "Hansa Rostock",
+    "fc hansa rostock": "Hansa Rostock",
+    "sv sandhausen": "Sandhausen",
+    "jahn regensburg": "Regensburg",
+    "ssv jahn regensburg": "Regensburg",
+    "fc erzgebirge aue": "Erzgebirge Aue",
+    "erzgebirge aue": "Erzgebirge Aue",
+    "msv duisburg": "Duisburg",
+    "dynamo dresden": "Dynamo Dresden",
+    "sg dynamo dresden": "Dynamo Dresden",
+    "vfl osnabruck": "Osnabruck",
+    "wehen wiesbaden": "Wehen",
+    "sv wehen wiesbaden": "Wehen",
+    "fc st pauli": "St Pauli",
+    "1 fc saarbrucken": "Saarbrucken",
+    "vfb lubeck": "Lubeck",
+    "fc ingolstadt 04": "Ingolstadt",
+    "spvgg unterhaching": "Unterhaching",
+    "tsv 1860 munchen": "1860 Munich",
+    "1860 munchen": "1860 Munich",
+    "sc verl": "Verl",
+    "energie cottbus": "Cottbus",
+    "fc viktoria koln": "Viktoria Koln",
+    "alemannia aachen": "Aachen",
 }
 
 # Parole troppo comuni per identificare una squadra da sole
@@ -138,20 +176,29 @@ def _intestazioni(testo):
     return trovate
 
 
-def sezione_bundesliga(testo):
-    """Isola la parte di pagina che riguarda la sola Bundesliga.
+def sezione(testo, categoria="Bundesliga"):
+    """Isola la parte di pagina che riguarda una sola categoria.
 
-    La pagina elenca tutte le categorie del calcio tedesco, dalla seconda
-    divisione ai campionati femminili: senza questo taglio finirebbero in
-    archivio partite di competizioni diverse.
+    La pagina elenca tutte le competizioni del calcio tedesco, dalla
+    seconda divisione ai campionati femminili: senza questo taglio
+    finirebbero in archivio partite di categorie diverse.
+
+    Il nome va confrontato per intero: 'Bundesliga' e '2. Bundesliga'
+    sono due sezioni distinte, e una ricerca parziale le confonderebbe.
     """
+    voluta = _senza_accenti(categoria).strip()
     intestazioni = _intestazioni(testo)
     for i, (inizio, fine_int, nome) in enumerate(intestazioni):
-        if nome != "Bundesliga":
+        if _senza_accenti(nome).strip() != voluta:
             continue
         fine = intestazioni[i + 1][0] if i + 1 < len(intestazioni) else len(testo)
         return testo[fine_int:fine]
     return ""
+
+
+def sezione_bundesliga(testo):
+    """Compatibilità con le chiamate esistenti."""
+    return sezione(testo, "Bundesliga")
 
 
 GIORNATA = re.compile(r"Spieltag\s+(\d{1,2})")
@@ -173,12 +220,12 @@ def _pulisci(nome):
     return n or None
 
 
-def analizza(testo):
+def analizza(testo, categoria="Bundesliga"):
     """Estrae le designazioni della Bundesliga dal testo della pagina."""
     if not testo:
         return []
 
-    blocco = sezione_bundesliga(testo)
+    blocco = sezione(testo, categoria)
     if not blocco:
         return []
 
@@ -248,7 +295,7 @@ def analizza(testo):
     return risultati
 
 
-def diagnostica(testo):
+def diagnostica(testo, categoria="Bundesliga"):
     """Riepiloga cosa è stato riconosciuto nella pagina.
 
     Serve quando l'analisi non produce nulla: distingue fra pagina non
@@ -258,8 +305,8 @@ def diagnostica(testo):
     intestazioni = _intestazioni(testo)
     righe.append(f"categorie individuate: {[c for _, _, c in intestazioni] or 'nessuna'}")
 
-    blocco = sezione_bundesliga(testo)
-    righe.append(f"sezione Bundesliga: {len(blocco)} caratteri")
+    blocco = sezione(testo, categoria)
+    righe.append(f"sezione {categoria}: {len(blocco)} caratteri")
     if blocco:
         righe.append(f"date trovate nella sezione: {len(QUANDO.findall(blocco))}")
         righe.append(f"ufficiali di gara trovati: {len(UFFICIALE.findall(blocco))}")
