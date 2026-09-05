@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-04T11:42:42.915713+00:00",
+  "aggiornato": "2026-09-05T05:07:45.854160+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -170,19 +170,25 @@
           "data": "2026-09-05",
           "ora": "16:15",
           "casa": "Ath Bilbao",
-          "ospite": "Ath Madrid"
+          "ospite": "Ath Madrid",
+          "arbitro": "José Luis Munuera",
+          "var": "Juan Luis Pulido"
         },
         {
           "data": "2026-09-05",
           "ora": "18:30",
           "casa": "Vallecano",
-          "ospite": "Santander"
+          "ospite": "Santander",
+          "arbitro": "Alejandro Quintero",
+          "var": "Guillermo Cuadra"
         },
         {
           "data": "2026-09-05",
           "ora": "21:00",
           "casa": "Villarreal",
-          "ospite": "La Coruna"
+          "ospite": "La Coruna",
+          "arbitro": "Jesús Gil",
+          "var": "Luis Mario Milla"
         },
         {
           "data": "2026-09-06",
@@ -359,31 +365,41 @@
           "data": "2026-09-04",
           "ora": "18:30",
           "casa": "Bielefeld",
-          "ospite": "St Pauli"
+          "ospite": "St Pauli",
+          "arbitro": "Felix Prigan",
+          "var": "Günter Perl"
         },
         {
           "data": "2026-09-04",
           "ora": "18:30",
           "casa": "Hannover",
-          "ospite": "Karlsruhe"
+          "ospite": "Karlsruhe",
+          "arbitro": "Tom Bauer",
+          "var": "Pascal Müller"
         },
         {
           "data": "2026-09-05",
           "ora": "13:00",
           "casa": "Holstein Kiel",
-          "ospite": "Nurnberg"
+          "ospite": "Nurnberg",
+          "arbitro": "Tobias Stieler",
+          "var": "Robert Hartmann"
         },
         {
           "data": "2026-09-05",
           "ora": "13:00",
           "casa": "Kaiserslautern",
-          "ospite": "Darmstadt"
+          "ospite": "Darmstadt",
+          "arbitro": "Michael Bacher",
+          "var": "Guido Winkmann"
         },
         {
           "data": "2026-09-05",
           "ora": "13:00",
           "casa": "Wolfsburg",
-          "ospite": "Cottbus"
+          "ospite": "Cottbus",
+          "arbitro": "Lukas Benen",
+          "var": "Dr. Robert Kampka"
         },
         {
           "data": "2026-09-05",
@@ -392,22 +408,37 @@
           "ospite": "Bochum"
         },
         {
+          "data": "2026-09-05",
+          "ora": "20:30",
+          "casa": "Dynamo Dresden",
+          "ospite": "Bochum",
+          "daDesignazioni": true,
+          "arbitro": "Harm Osmers",
+          "var": "Patrick Hanslbauer"
+        },
+        {
           "data": "2026-09-06",
           "ora": "13:30",
           "casa": "Greuther Furth",
-          "ospite": "Heidenheim"
+          "ospite": "Heidenheim",
+          "arbitro": "Konrad Oldhafer",
+          "var": "Patrick Alt"
         },
         {
           "data": "2026-09-06",
           "ora": "13:30",
           "casa": "Hertha",
-          "ospite": "Magdeburg"
+          "ospite": "Magdeburg",
+          "arbitro": "Dr. Florian Exner",
+          "var": "Guido Winkmann"
         },
         {
           "data": "2026-09-06",
           "ora": "13:30",
           "casa": "Osnabruck",
-          "ospite": "Braunschweig"
+          "ospite": "Braunschweig",
+          "arbitro": "Wolfgang Haslberger",
+          "var": "Patrick Hanslbauer"
         }
       ]
     }
