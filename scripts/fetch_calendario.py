@@ -17,6 +17,7 @@ leggendolo dagli archivi dei singoli campionati.
 import csv
 import io
 import json
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -25,7 +26,16 @@ from urllib.error import HTTPError, URLError
 RADICE = Path(__file__).resolve().parent.parent
 USCITA = RADICE / "docs" / "calendario.json"
 
-FIXTURES = "https://www.football-data.co.uk/fixtures.csv"
+# Il file delle prossime partite. Viene rigenerato periodicamente, e
+# durante la rigenerazione può rispondere 503: si riprova qualche volta
+# prima di rinunciare. Il secondo indirizzo è lo stesso file senza il
+# prefisso www, che a volte risponde quando l'altro no.
+FIXTURES = [
+    "https://www.football-data.co.uk/fixtures.csv",
+    "https://football-data.co.uk/fixtures.csv",
+]
+TENTATIVI = 3
+ATTESA = 12
 UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 
 # Quanti giorni in avanti guardare
@@ -221,10 +231,28 @@ def main():
     print("CALENDARIO PROSSIME PARTITE")
     print("=" * 58)
 
-    testo = scarica(FIXTURES, "fixtures.csv")
+    testo = None
+    for tentativo in range(1, TENTATIVI + 1):
+        for indirizzo in FIXTURES:
+            testo = scarica(indirizzo, "fixtures.csv")
+            if testo:
+                break
+        if testo:
+            break
+        if tentativo < TENTATIVI:
+            print(f"    tentativo {tentativo} fallito, riprovo fra {ATTESA} secondi")
+            time.sleep(ATTESA)
+
     if not testo:
-        print("\nNessun dato scaricato: esco senza modificare il file.")
-        raise SystemExit(1)
+        # Non è un guasto nostro: la fonte è momentaneamente irraggiungibile.
+        # Conservare il calendario precedente è la risposta giusta, quindi
+        # si esce senza segnalare errore: un fallimento in rosso su Actions
+        # farebbe pensare a un problema da risolvere quando non c'è.
+        print("\nFonte non raggiungibile dopo "
+              f"{TENTATIVI} tentativi: conservo il calendario precedente.")
+        print("Se il problema persiste per più giorni, "
+              "controllare se l'indirizzo del file è cambiato.")
+        raise SystemExit(0)
 
     riferimento = datetime.now(timezone.utc).date()
     limite = (riferimento + timedelta(days=GIORNI_AVANTI)).isoformat()
