@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-06T09:35:27.442626+00:00",
+  "aggiornato": "2026-09-07T12:16:45.008277+00:00",
   "campionato": "College Football",
   "fonte": "CollegeFootballData.com",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 4549,
-  "partiteGiocate": 3754,
+  "partiteGiocate": 3757,
   "squadre": [
     {
       "nome": "North Dakota State",
@@ -433,15 +433,31 @@
       "nomeCompleto": "Notre Dame",
       "conference": "FBS Independents",
       "conferenza": "FBS Independents",
-      "partite": 54,
-      "vittorie": 43,
+      "partite": 55,
+      "vittorie": 44,
       "sconfitte": 11,
       "pareggi": 0,
-      "percVittorie": 79.6,
-      "mediaFatti": 37.1,
-      "mediaSubiti": 17.9,
-      "differenza": 1039,
+      "percVittorie": 80.0,
+      "mediaFatti": 37.2,
+      "mediaSubiti": 17.8,
+      "differenza": 1067,
       "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "FBS Independents",
+          "partite": 1,
+          "vittorie": 1,
+          "sconfitte": 0,
+          "pareggi": 0,
+          "percVittorie": 100.0,
+          "mediaFatti": 41.0,
+          "mediaSubiti": 13.0,
+          "differenza": 28,
+          "vittorieCasa": 1,
+          "partiteCasa": 1,
+          "vittorieFuori": 0,
+          "partiteFuori": 0
+        },
         {
           "stagione": "2025",
           "conferenza": "FBS Independents",
@@ -705,15 +721,31 @@
       "nomeCompleto": "Ole Miss",
       "conference": "SEC",
       "conferenza": "SEC",
-      "partite": 54,
-      "vittorie": 42,
+      "partite": 55,
+      "vittorie": 43,
       "sconfitte": 12,
       "pareggi": 0,
-      "percVittorie": 77.8,
+      "percVittorie": 78.2,
       "mediaFatti": 36.1,
-      "mediaSubiti": 20.9,
-      "differenza": 819,
+      "mediaSubiti": 21.2,
+      "differenza": 822,
       "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "SEC",
+          "partite": 1,
+          "vittorie": 1,
+          "sconfitte": 0,
+          "pareggi": 0,
+          "percVittorie": 100.0,
+          "mediaFatti": 41.0,
+          "mediaSubiti": 38.0,
+          "differenza": 3,
+          "vittorieCasa": 1,
+          "partiteCasa": 1,
+          "vittorieFuori": 0,
+          "partiteFuori": 0
+        },
         {
           "stagione": "2025",
           "conferenza": "SEC",
@@ -1073,15 +1105,31 @@
       "nomeCompleto": "Washington",
       "conference": "Big Ten",
       "conferenza": "Big Ten",
-      "partite": 54,
-      "vittorie": 40,
+      "partite": 55,
+      "vittorie": 41,
       "sconfitte": 14,
       "pareggi": 0,
-      "percVittorie": 74.1,
-      "mediaFatti": 33.4,
-      "mediaSubiti": 23.3,
-      "differenza": 543,
+      "percVittorie": 74.5,
+      "mediaFatti": 33.2,
+      "mediaSubiti": 23.1,
+      "differenza": 557,
       "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Big Ten",
+          "partite": 1,
+          "vittorie": 1,
+          "sconfitte": 0,
+          "pareggi": 0,
+          "percVittorie": 100.0,
+          "mediaFatti": 24.0,
+          "mediaSubiti": 10.0,
+          "differenza": 14,
+          "vittorieCasa": 1,
+          "partiteCasa": 1,
+          "vittorieFuori": 0,
+          "partiteFuori": 0
+        },
         {
           "stagione": "2025",
           "conferenza": "Big Ten",
@@ -1805,86 +1853,6 @@
       ]
     },
     {
-      "nome": "Louisville",
-      "nomeCompleto": "Louisville",
-      "conference": "ACC",
-      "conferenza": "ACC",
-      "partite": 53,
-      "vittorie": 36,
-      "sconfitte": 17,
-      "pareggi": 0,
-      "percVittorie": 67.9,
-      "mediaFatti": 31.0,
-      "mediaSubiti": 21.4,
-      "differenza": 508,
-      "perStagione": [
-        {
-          "stagione": "2025",
-          "conferenza": "ACC",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 29.9,
-          "mediaSubiti": 21.2,
-          "differenza": 114,
-          "vittorieCasa": 6,
-          "partiteCasa": 9,
-          "vittorieFuori": 3,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "ACC",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 36.5,
-          "mediaSubiti": 24.1,
-          "differenza": 161,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 5,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "ACC",
-          "partite": 14,
-          "vittorie": 10,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 71.4,
-          "mediaFatti": 30.7,
-          "mediaSubiti": 21.3,
-          "differenza": 132,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "ACC",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 26.9,
-          "mediaSubiti": 19.2,
-          "differenza": 101,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "Missouri",
       "nomeCompleto": "Missouri",
       "conference": "SEC",
@@ -2360,6 +2328,102 @@
           "vittorieCasa": 4,
           "partiteCasa": 7,
           "vittorieFuori": 4,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "Louisville",
+      "nomeCompleto": "Louisville",
+      "conference": "ACC",
+      "conferenza": "ACC",
+      "partite": 54,
+      "vittorie": 36,
+      "sconfitte": 18,
+      "pareggi": 0,
+      "percVittorie": 66.7,
+      "mediaFatti": 31.1,
+      "mediaSubiti": 21.8,
+      "differenza": 505,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "ACC",
+          "partite": 1,
+          "vittorie": 0,
+          "sconfitte": 1,
+          "pareggi": 0,
+          "percVittorie": 0.0,
+          "mediaFatti": 38.0,
+          "mediaSubiti": 41.0,
+          "differenza": -3,
+          "vittorieCasa": 0,
+          "partiteCasa": 0,
+          "vittorieFuori": 0,
+          "partiteFuori": 1
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "ACC",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 29.9,
+          "mediaSubiti": 21.2,
+          "differenza": 114,
+          "vittorieCasa": 6,
+          "partiteCasa": 9,
+          "vittorieFuori": 3,
+          "partiteFuori": 4
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "ACC",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 36.5,
+          "mediaSubiti": 24.1,
+          "differenza": 161,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 5,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "ACC",
+          "partite": 14,
+          "vittorie": 10,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 71.4,
+          "mediaFatti": 30.7,
+          "mediaSubiti": 21.3,
+          "differenza": 132,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "ACC",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 26.9,
+          "mediaSubiti": 19.2,
+          "differenza": 101,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
           "partiteFuori": 6
         }
       ]
@@ -5853,86 +5917,6 @@
       ]
     },
     {
-      "nome": "Washington State",
-      "nomeCompleto": "Washington State",
-      "conference": "Pac-12",
-      "conferenza": "Pac-12",
-      "partite": 51,
-      "vittorie": 27,
-      "sconfitte": 24,
-      "pareggi": 0,
-      "percVittorie": 52.9,
-      "mediaFatti": 29.2,
-      "mediaSubiti": 25.2,
-      "differenza": 201,
-      "perStagione": [
-        {
-          "stagione": "2025",
-          "conferenza": "Pac-12",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 22.5,
-          "mediaSubiti": 20.2,
-          "differenza": 30,
-          "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Pac-12",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 36.6,
-          "mediaSubiti": 29.9,
-          "differenza": 87,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Pac-12",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 31.7,
-          "mediaSubiti": 28.1,
-          "differenza": 43,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Pac-12",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 26.1,
-          "mediaSubiti": 22.9,
-          "differenza": 41,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "Georgia Southern",
       "nomeCompleto": "Georgia Southern",
       "conference": "Sun Belt",
@@ -6408,6 +6392,102 @@
           "vittorieCasa": 4,
           "partiteCasa": 6,
           "vittorieFuori": 0,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "Washington State",
+      "nomeCompleto": "Washington State",
+      "conference": "Pac-12",
+      "conferenza": "Pac-12",
+      "partite": 52,
+      "vittorie": 27,
+      "sconfitte": 25,
+      "pareggi": 0,
+      "percVittorie": 51.9,
+      "mediaFatti": 28.8,
+      "mediaSubiti": 25.2,
+      "differenza": 187,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Pac-12",
+          "partite": 1,
+          "vittorie": 0,
+          "sconfitte": 1,
+          "pareggi": 0,
+          "percVittorie": 0.0,
+          "mediaFatti": 10.0,
+          "mediaSubiti": 24.0,
+          "differenza": -14,
+          "vittorieCasa": 0,
+          "partiteCasa": 0,
+          "vittorieFuori": 0,
+          "partiteFuori": 1
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Pac-12",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 22.5,
+          "mediaSubiti": 20.2,
+          "differenza": 30,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Pac-12",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 36.6,
+          "mediaSubiti": 29.9,
+          "differenza": 87,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Pac-12",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 31.7,
+          "mediaSubiti": 28.1,
+          "differenza": 43,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Pac-12",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 26.1,
+          "mediaSubiti": 22.9,
+          "differenza": 41,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
           "partiteFuori": 6
         }
       ]
@@ -8957,86 +9037,6 @@
       ]
     },
     {
-      "nome": "Wisconsin",
-      "nomeCompleto": "Wisconsin",
-      "conference": "Big Ten",
-      "conferenza": "Big Ten",
-      "partite": 50,
-      "vittorie": 23,
-      "sconfitte": 27,
-      "pareggi": 0,
-      "percVittorie": 46.0,
-      "mediaFatti": 21.4,
-      "mediaSubiti": 21.2,
-      "differenza": 11,
-      "perStagione": [
-        {
-          "stagione": "2025",
-          "conferenza": "Big Ten",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 12.8,
-          "mediaSubiti": 21.6,
-          "differenza": -105,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 0,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Big Ten",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 22.6,
-          "mediaSubiti": 23.1,
-          "differenza": -6,
-          "vittorieCasa": 3,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Big Ten",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 23.5,
-          "mediaSubiti": 20.2,
-          "differenza": 43,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Big Ten",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 26.3,
-          "mediaSubiti": 20.2,
-          "differenza": 79,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "Rutgers",
       "nomeCompleto": "Rutgers",
       "conference": "Big Ten",
@@ -9128,6 +9128,102 @@
           "vittorieCasa": 2,
           "partiteCasa": 6,
           "vittorieFuori": 2,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "Wisconsin",
+      "nomeCompleto": "Wisconsin",
+      "conference": "Big Ten",
+      "conferenza": "Big Ten",
+      "partite": 51,
+      "vittorie": 23,
+      "sconfitte": 28,
+      "pareggi": 0,
+      "percVittorie": 45.1,
+      "mediaFatti": 21.3,
+      "mediaSubiti": 21.6,
+      "differenza": -17,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Big Ten",
+          "partite": 1,
+          "vittorie": 0,
+          "sconfitte": 1,
+          "pareggi": 0,
+          "percVittorie": 0.0,
+          "mediaFatti": 13.0,
+          "mediaSubiti": 41.0,
+          "differenza": -28,
+          "vittorieCasa": 0,
+          "partiteCasa": 0,
+          "vittorieFuori": 0,
+          "partiteFuori": 1
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Big Ten",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 12.8,
+          "mediaSubiti": 21.6,
+          "differenza": -105,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 0,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Big Ten",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 22.6,
+          "mediaSubiti": 23.1,
+          "differenza": -6,
+          "vittorieCasa": 3,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Big Ten",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 23.5,
+          "mediaSubiti": 20.2,
+          "differenza": 43,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Big Ten",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 26.3,
+          "mediaSubiti": 20.2,
+          "differenza": 79,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
           "partiteFuori": 6
         }
       ]
@@ -48412,26 +48508,23 @@
         {
           "nome": "Jalon Daniels",
           "ruolo": "QB",
-          "valore": 280,
+          "valore": 176,
           "misura": "yard passate",
           "dettagli": [
-            "4 TD",
-            "1 INT"
+            "3 TD"
           ]
         },
         {
           "nome": "Daniel Hishaw Jr.",
           "ruolo": "RB",
-          "valore": 89,
+          "valore": 69,
           "misura": "yard corse",
-          "dettagli": [
-            "1 TD"
-          ]
+          "dettagli": []
         },
         {
-          "nome": "Emmanuel Henderson Jr.",
+          "nome": "Cam Pickett",
           "ruolo": "WR",
-          "valore": 130,
+          "valore": 77,
           "misura": "yard ricevute",
           "dettagli": [
             "6 ric.",
@@ -48439,12 +48532,12 @@
           ]
         },
         {
-          "nome": "Boden Groen",
+          "nome": "Emmanuel Henderson Jr.",
           "ruolo": "WR",
-          "valore": 53,
+          "valore": 24,
           "misura": "yard ricevute",
           "dettagli": [
-            "2 ric."
+            "3 ric."
           ]
         }
       ],
@@ -48501,33 +48594,33 @@
         {
           "nome": "Avery Johnson",
           "ruolo": "QB",
-          "valore": 273,
+          "valore": 318,
           "misura": "yard passate",
           "dettagli": [
-            "2 TD"
+            "3 TD"
           ]
         },
         {
           "nome": "Joe Jackson",
           "ruolo": "RB",
-          "valore": 51,
+          "valore": 55,
           "misura": "yard corse",
           "dettagli": []
         },
         {
           "nome": "Jayce Brown",
           "ruolo": "WR",
-          "valore": 78,
+          "valore": 109,
           "misura": "yard ricevute",
           "dettagli": [
-            "4 ric.",
+            "12 ric.",
             "1 TD"
           ]
         },
         {
-          "nome": "Jerand Bradley",
+          "nome": "Jaron Tibbs",
           "ruolo": "WR",
-          "valore": 75,
+          "valore": 55,
           "misura": "yard ricevute",
           "dettagli": [
             "3 ric.",
@@ -49817,26 +49910,23 @@
         {
           "nome": "Jalon Daniels",
           "ruolo": "QB",
-          "valore": 280,
+          "valore": 176,
           "misura": "yard passate",
           "dettagli": [
-            "4 TD",
-            "1 INT"
+            "3 TD"
           ]
         },
         {
           "nome": "Daniel Hishaw Jr.",
           "ruolo": "RB",
-          "valore": 89,
+          "valore": 69,
           "misura": "yard corse",
-          "dettagli": [
-            "1 TD"
-          ]
+          "dettagli": []
         },
         {
-          "nome": "Emmanuel Henderson Jr.",
+          "nome": "Cam Pickett",
           "ruolo": "WR",
-          "valore": 130,
+          "valore": 77,
           "misura": "yard ricevute",
           "dettagli": [
             "6 ric.",
@@ -49844,12 +49934,12 @@
           ]
         },
         {
-          "nome": "Boden Groen",
+          "nome": "Emmanuel Henderson Jr.",
           "ruolo": "WR",
-          "valore": 53,
+          "valore": 24,
           "misura": "yard ricevute",
           "dettagli": [
-            "2 ric."
+            "3 ric."
           ]
         }
       ],
@@ -51224,33 +51314,33 @@
         {
           "nome": "Avery Johnson",
           "ruolo": "QB",
-          "valore": 273,
+          "valore": 318,
           "misura": "yard passate",
           "dettagli": [
-            "2 TD"
+            "3 TD"
           ]
         },
         {
           "nome": "Joe Jackson",
           "ruolo": "RB",
-          "valore": 51,
+          "valore": 55,
           "misura": "yard corse",
           "dettagli": []
         },
         {
           "nome": "Jayce Brown",
           "ruolo": "WR",
-          "valore": 78,
+          "valore": 109,
           "misura": "yard ricevute",
           "dettagli": [
-            "4 ric.",
+            "12 ric.",
             "1 TD"
           ]
         },
         {
-          "nome": "Jerand Bradley",
+          "nome": "Jaron Tibbs",
           "ruolo": "WR",
-          "valore": 75,
+          "valore": 55,
           "misura": "yard ricevute",
           "dettagli": [
             "3 ric.",
@@ -108221,12 +108311,12 @@
           ]
         },
         {
-          "nome": "JaVonnie Gibson",
+          "nome": "Isaiah Sategna",
           "ruolo": "WR",
           "valore": 26,
           "misura": "yard ricevute",
           "dettagli": [
-            "2 ric."
+            "4 ric."
           ]
         }
       ]
@@ -108790,12 +108880,12 @@
           ]
         },
         {
-          "nome": "Desirrio Riles",
+          "nome": "Anthony Smith",
           "ruolo": "WR",
           "valore": 62,
           "misura": "yard ricevute",
           "dettagli": [
-            "3 ric."
+            "7 ric."
           ]
         }
       ],
@@ -110119,13 +110209,11 @@
           "dettagli": []
         },
         {
-          "nome": "Caleb Komolafe",
+          "nome": "Joseph Himon II",
           "ruolo": "RB",
           "valore": 31,
           "misura": "yard corse",
-          "dettagli": [
-            "1 TD"
-          ]
+          "dettagli": []
         },
         {
           "nome": "Hunter Welcing",
@@ -110596,7 +110684,7 @@
           ]
         },
         {
-          "nome": "Kadarius Calloway",
+          "nome": "Dijon Stanley",
           "ruolo": "RB",
           "valore": 19,
           "misura": "yard corse",
@@ -110839,7 +110927,7 @@
           ]
         },
         {
-          "nome": "Anthony Brown",
+          "nome": "Johnny Pascuzzi",
           "ruolo": "WR",
           "valore": 52,
           "misura": "yard ricevute",
@@ -111442,12 +111530,12 @@
           ]
         },
         {
-          "nome": "Moussa Barry",
+          "nome": "K.D. Hutchinson",
           "ruolo": "WR",
           "valore": 52,
           "misura": "yard ricevute",
           "dettagli": [
-            "4 ric."
+            "5 ric."
           ]
         }
       ],
@@ -124844,7 +124932,7 @@
         {
           "nome": "Carson Conklin",
           "ruolo": "QB",
-          "valore": 219,
+          "valore": 222,
           "misura": "yard passate",
           "dettagli": [
             "1 INT"
@@ -125544,7 +125632,7 @@
         {
           "nome": "Nick Minicucci",
           "ruolo": "QB",
-          "valore": 340,
+          "valore": 330,
           "misura": "yard passate",
           "dettagli": [
             "2 TD",
@@ -125552,9 +125640,9 @@
           ]
         },
         {
-          "nome": "Jo'Nathan Silver",
+          "nome": "Nakeem Powell",
           "ruolo": "RB",
-          "valore": 19,
+          "valore": 35,
           "misura": "yard corse",
           "dettagli": []
         },
@@ -125595,7 +125683,7 @@
         {
           "nome": "Rickie Collins",
           "ruolo": "QB",
-          "valore": 186,
+          "valore": 156,
           "misura": "yard passate",
           "dettagli": [
             "1 TD"
@@ -126429,7 +126517,7 @@
         {
           "nome": "Keelon Russell",
           "ruolo": "QB",
-          "valore": 249,
+          "valore": 256,
           "misura": "yard passate",
           "dettagli": []
         },
@@ -126751,7 +126839,7 @@
         {
           "nome": "Jay Kastantin",
           "ruolo": "QB",
-          "valore": 283,
+          "valore": 262,
           "misura": "yard passate",
           "dettagli": []
         },
@@ -126767,19 +126855,19 @@
         {
           "nome": "Jeremiah Scoby",
           "ruolo": "WR",
-          "valore": 103,
+          "valore": 102,
           "misura": "yard ricevute",
           "dettagli": [
             "10 ric."
           ]
         },
         {
-          "nome": "Winn Sharp",
+          "nome": "Eli Jacon-Duffy",
           "ruolo": "WR",
-          "valore": 59,
+          "valore": 46,
           "misura": "yard ricevute",
           "dettagli": [
-            "4 ric."
+            "3 ric."
           ]
         }
       ],
@@ -126851,7 +126939,7 @@
         {
           "nome": "JC French",
           "ruolo": "QB",
-          "valore": 60,
+          "valore": 77,
           "misura": "yard passate",
           "dettagli": [
             "1 TD"
@@ -126860,17 +126948,18 @@
         {
           "nome": "Gi'Bran Payne",
           "ruolo": "RB",
-          "valore": 71,
+          "valore": 108,
           "misura": "yard corse",
           "dettagli": []
         },
         {
           "nome": "JaVonnie Gibson",
           "ruolo": "WR",
-          "valore": 37,
+          "valore": 54,
           "misura": "yard ricevute",
           "dettagli": [
-            "3 ric."
+            "4 ric.",
+            "1 TD"
           ]
         },
         {
@@ -126887,33 +126976,37 @@
         {
           "nome": "Mason McKenzie",
           "ruolo": "QB",
-          "valore": 120,
+          "valore": 223,
           "misura": "yard passate",
-          "dettagli": []
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
         },
         {
           "nome": "Mason McKenzie",
           "ruolo": "RB",
-          "valore": 61,
+          "valore": 78,
           "misura": "yard corse",
           "dettagli": []
         },
         {
           "nome": "Javarius Green",
           "ruolo": "WR",
-          "valore": 55,
+          "valore": 74,
           "misura": "yard ricevute",
           "dettagli": [
-            "5 ric."
+            "6 ric."
           ]
         },
         {
-          "nome": "Brady Clough",
+          "nome": "John Montague",
           "ruolo": "WR",
-          "valore": 31,
+          "valore": 55,
           "misura": "yard ricevute",
           "dettagli": [
-            "4 ric."
+            "2 ric.",
+            "1 TD"
           ]
         }
       ]
@@ -129330,11 +129423,10 @@
         {
           "nome": "Maguire Anderson",
           "ruolo": "WR",
-          "valore": 108,
+          "valore": 87,
           "misura": "yard ricevute",
           "dettagli": [
-            "9 ric.",
-            "1 TD"
+            "8 ric."
           ]
         },
         {
@@ -129452,7 +129544,7 @@
         {
           "nome": "Darian Mensah",
           "ruolo": "QB",
-          "valore": 412,
+          "valore": 401,
           "misura": "yard passate",
           "dettagli": [
             "5 TD"
@@ -129468,10 +129560,10 @@
         {
           "nome": "Malachi Toney",
           "ruolo": "WR",
-          "valore": 229,
+          "valore": 234,
           "misura": "yard ricevute",
           "dettagli": [
-            "11 ric.",
+            "12 ric.",
             "3 TD"
           ]
         },
@@ -131167,12 +131259,87 @@
       "data": "2026-09-06",
       "casa": "Notre Dame",
       "ospite": "Wisconsin",
-      "pc": null,
-      "po": null,
+      "pc": 41,
+      "po": 13,
       "conferenzaCasa": "FBS Independents",
       "stadio": "Lambeau Field",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "C.J. Carr",
+          "ruolo": "QB",
+          "valore": 239,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Aneyas Williams",
+          "ruolo": "RB",
+          "valore": 90,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Jordan Faison",
+          "ruolo": "WR",
+          "valore": 81,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Nolan James Jr.",
+          "ruolo": "WR",
+          "valore": 67,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Colton Joseph",
+          "ruolo": "QB",
+          "valore": 217,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Abu Sama III",
+          "ruolo": "RB",
+          "valore": 49,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Malachi Coleman",
+          "ruolo": "WR",
+          "valore": 76,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Tyrell Henry",
+          "ruolo": "WR",
+          "valore": 42,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -131180,12 +131347,90 @@
       "data": "2026-09-06",
       "casa": "Ole Miss",
       "ospite": "Louisville",
-      "pc": null,
-      "po": null,
+      "pc": 41,
+      "po": 38,
       "conferenzaCasa": "SEC",
       "stadio": "Nissan Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Trinidad Chambliss",
+          "ruolo": "QB",
+          "valore": 336,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Kewan Lacy",
+          "ruolo": "RB",
+          "valore": 61,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Deuce Alexander",
+          "ruolo": "WR",
+          "valore": 159,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Caleb Odom",
+          "ruolo": "WR",
+          "valore": 66,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Lincoln Kienholz",
+          "ruolo": "QB",
+          "valore": 307,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Lincoln Kienholz",
+          "ruolo": "RB",
+          "valore": 69,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Tre Richardson",
+          "ruolo": "WR",
+          "valore": 83,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Treyshun Hurry",
+          "ruolo": "WR",
+          "valore": 67,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -131201,7 +131446,7 @@
         {
           "nome": "Carson Conklin",
           "ruolo": "QB",
-          "valore": 219,
+          "valore": 222,
           "misura": "yard passate",
           "dettagli": [
             "1 INT"
@@ -131294,12 +131539,87 @@
       "data": "2026-09-06",
       "casa": "Washington",
       "ospite": "Washington State",
-      "pc": null,
-      "po": null,
+      "pc": 24,
+      "po": 10,
       "conferenzaCasa": "Big Ten",
       "stadio": "Husky Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Demond Williams Jr.",
+          "ruolo": "QB",
+          "valore": 268,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Demond Williams Jr.",
+          "ruolo": "RB",
+          "valore": 61,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Chris Lawson",
+          "ruolo": "WR",
+          "valore": 87,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Rashid Williams",
+          "ruolo": "WR",
+          "valore": 74,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Caden Pinnick",
+          "ruolo": "QB",
+          "valore": 142,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 INT"
+          ]
+        },
+        {
+          "nome": "Caden Pinnick",
+          "ruolo": "RB",
+          "valore": 61,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Daniel Blood",
+          "ruolo": "WR",
+          "valore": 57,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Darrius Clemons",
+          "ruolo": "WR",
+          "valore": 40,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
