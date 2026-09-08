@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-07T05:08:24.285599+00:00",
+  "aggiornato": "2026-09-08T05:08:35.633526+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -8,12 +8,6 @@
     "premier": {
       "nome": "Premier League",
       "partite": [
-        {
-          "data": "2026-09-04",
-          "ora": "21:00",
-          "casa": "Ipswich",
-          "ospite": "Liverpool"
-        },
         {
           "data": "2026-09-05",
           "ora": "13:30",
@@ -73,14 +67,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-09-04",
-          "ora": "20:45",
-          "casa": "Genoa",
-          "ospite": "Como",
-          "arbitro": "Guida",
-          "var": "Aureliano"
-        },
         {
           "data": "2026-09-05",
           "ora": "15:00",
@@ -159,14 +145,6 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-09-04",
-          "ora": "21:00",
-          "casa": "Betis",
-          "ospite": "Real Madrid",
-          "arbitro": "Alejandro José Hernández",
-          "var": "Javier Iglesias"
-        },
-        {
           "data": "2026-09-05",
           "ora": "16:15",
           "casa": "Ath Bilbao",
@@ -194,55 +172,55 @@
           "data": "2026-09-06",
           "ora": "16:15",
           "casa": "Valencia",
-          "ospite": "Barcelona"
+          "ospite": "Barcelona",
+          "arbitro": "Isidro Díaz De Mera",
+          "var": "Alejandro Muñiz"
         },
         {
           "data": "2026-09-06",
           "ora": "18:30",
           "casa": "Alaves",
-          "ospite": "Osasuna"
+          "ospite": "Osasuna",
+          "arbitro": "José María Sánchez",
+          "var": "David Gálvez"
         },
         {
           "data": "2026-09-06",
           "ora": "18:30",
           "casa": "Malaga",
-          "ospite": "Levante"
+          "ospite": "Levante",
+          "arbitro": "Luis Bestard",
+          "var": "Valentín Pizarro"
         },
         {
           "data": "2026-09-06",
           "ora": "21:00",
           "casa": "Espanol",
-          "ospite": "Sevilla"
+          "ospite": "Sevilla",
+          "arbitro": "Miguel Sesma",
+          "var": "Daniel Jesús Trujillo"
         },
         {
           "data": "2026-09-07",
           "ora": "19:00",
           "casa": "Getafe",
-          "ospite": "Celta"
+          "ospite": "Celta",
+          "arbitro": "César Soto",
+          "var": "Jorge Figueroa"
         },
         {
           "data": "2026-09-07",
           "ora": "21:30",
           "casa": "Elche",
-          "ospite": "Sociedad"
+          "ospite": "Sociedad",
+          "arbitro": "Miguel Ángel Ortiz",
+          "var": "Rubén Ávalos"
         }
       ]
     },
     "ligue_1": {
       "nome": "Ligue 1",
       "partite": [
-        {
-          "data": "2026-09-04",
-          "ora": "19:00",
-          "casa": "Lyon",
-          "ospite": "Auxerre"
-        },
-        {
-          "data": "2026-09-04",
-          "ora": "21:05",
-          "casa": "Paris SG",
-          "ospite": "Monaco"
-        },
         {
           "data": "2026-09-05",
           "ora": "17:15",
@@ -284,14 +262,6 @@
     "bundesliga": {
       "nome": "Bundesliga",
       "partite": [
-        {
-          "data": "2026-09-04",
-          "ora": "20:30",
-          "casa": "Stuttgart",
-          "ospite": "FC Koln",
-          "arbitro": "Christian Dingert",
-          "var": "Bastian Dankert"
-        },
         {
           "data": "2026-09-05",
           "ora": "15:30",
@@ -362,22 +332,6 @@
       "nome": "2. Bundesliga",
       "partite": [
         {
-          "data": "2026-09-04",
-          "ora": "18:30",
-          "casa": "Bielefeld",
-          "ospite": "St Pauli",
-          "arbitro": "Felix Prigan",
-          "var": "Günter Perl"
-        },
-        {
-          "data": "2026-09-04",
-          "ora": "18:30",
-          "casa": "Hannover",
-          "ospite": "Karlsruhe",
-          "arbitro": "Tom Bauer",
-          "var": "Pascal Müller"
-        },
-        {
           "data": "2026-09-05",
           "ora": "13:00",
           "casa": "Holstein Kiel",
@@ -445,13 +399,6 @@
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
-        {
-          "data": "2026-09-04",
-          "ora": "19:00",
-          "casa": "Buyuksehyr",
-          "ospite": "Galatasaray",
-          "arbitro": "Kadir Sağlam"
-        },
         {
           "data": "2026-09-05",
           "ora": "16:00",
