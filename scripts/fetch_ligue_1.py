@@ -40,7 +40,10 @@ USCITA = RADICE / "docs" / "data_ligue_1.json"
 BASE_CSV = "https://www.football-data.co.uk/mmz4281"
 CODICE = "F1"
 BASE_LFP = "https://ligue1.com"
-ELENCO_LFP = "https://ligue1.com/fr/articles"
+# La mappa degli articoli. La pagina indice del sito carica l'elenco via
+# JavaScript e a noi arriva vuota; la mappa invece è un documento statico
+# con indirizzo e data di pubblicazione di ogni articolo.
+MAPPA_LFP = "https://ligue1.com/api/sitemap/sitemap-articles-l1-fr"
 BASE_DESIG = "https://www.deux-zero.com/ligue-1/arbitrage-designations-journee/edition"
 UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
 
@@ -105,7 +108,10 @@ def scarica(url, descrizione, binario=False):
 
     if binario:
         return grezzo
-    for codifica in ("utf-8", "utf-8-sig", "latin-1"):
+    # utf-8-sig va provata per prima: rimuove il carattere invisibile
+    # che alcuni file hanno in testa. Con la sola utf-8 quel carattere
+    # resta attaccato al nome della prima colonna e la rende irreperibile.
+    for codifica in ("utf-8-sig", "utf-8", "latin-1"):
         try:
             return grezzo.decode(codifica)
         except UnicodeDecodeError:
@@ -227,21 +233,36 @@ def _testo_da_html(html):
     return re.sub(r"[ \t]+", " ", testo)
 
 
-def _articoli_designazioni(html):
-    """Estrae dall'elenco articoli i collegamenti alle designazioni.
+# Riconoscimento degli articoli di designazione. Il sito ne pubblica due
+# forme: 'les-arbitres-de-la-3e-journee-...' e la più breve 'les-arbitres-j25-...'.
+#
+# Il filtro deve essere stretto: la mappa contiene molti articoli che
+# parlano di arbitri senza essere designazioni — l'analisi del dopo
+# partita, le direttive di inizio stagione, l'elenco degli arbitri
+# dell'annata. Prenderli produrrebbe letture a vuoto.
+DESIGNAZIONI_URL = re.compile(
+    r"les-arbitres-(?:de-la-\d{1,2}(?:ere|e|ème)-journee|j\d{1,2})", re.IGNORECASE)
 
-    Cerca gli indirizzi che contengono 'arbitres' e un riferimento alla
-    giornata: sono gli articoli pubblicati prima di ogni turno.
+
+def _articoli_designazioni(xml):
+    """Estrae dalla mappa gli articoli di designazione, dal più recente.
+
+    Ogni voce riporta indirizzo e data: si ordina per data senza dover
+    aprire gli articoli, e si scaricano solo i più recenti.
     """
     trovati = []
-    for m in re.finditer(r'href="(?P<url>/fr/articles/l1_article_[^"]+)"', html):
-        url = m.group("url")
-        if "arbitre" not in url.lower():
+    for blocco in re.findall(r"<url>(.*?)</url>", xml, re.DOTALL):
+        m = re.search(r"<loc>\s*([^<\s]+)\s*</loc>", blocco)
+        if not m:
             continue
-        completo = BASE_LFP + url
-        if completo not in trovati:
-            trovati.append(completo)
-    return trovati
+        url = m.group(1)
+        if not DESIGNAZIONI_URL.search(url):
+            continue
+        md = re.search(r"<news:publication_date>\s*([^<\s]+)", blocco)
+        trovati.append((md.group(1) if md else "", url))
+
+    trovati.sort(reverse=True)
+    return [url for _, url in trovati]
 
 
 def _data_pubblicazione(html):
@@ -263,13 +284,13 @@ def _da_fonte_ufficiale(gia_note):
     interrompere l'aggiornamento: c'è la fonte di riserva.
     """
     trovate = []
-    elenco = scarica(ELENCO_LFP, "elenco articoli")
+    elenco = scarica(MAPPA_LFP, "mappa articoli")
     if not elenco:
         return trovate
 
     collegamenti = _articoli_designazioni(elenco)
     if not collegamenti:
-        print("    Nessun articolo di designazioni nell'elenco")
+        print("    Nessun articolo di designazioni nella mappa")
         return trovate
     print(f"    {len(collegamenti)} articoli di designazioni individuati")
 

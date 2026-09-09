@@ -31,6 +31,9 @@ SQUADRE = {
     "as monaco": "Monaco",
     "losc lille": "Lille",
     "lille osc": "Lille",
+    # Negli articoli compare anche da solo, senza il nome della città
+    "losc": "Lille",
+    "lille": "Lille",
     "stade rennais fc": "Rennes",
     "ogc nice": "Nice",
     "rc lens": "Lens",
@@ -53,6 +56,11 @@ SQUADRE = {
     "fc girondins de bordeaux": "Bordeaux",
     "estac troyes": "Troyes",
     "es troyes ac": "Troyes",
+    "troyes": "Troyes",
+    # Promosse per la stagione 2026/27, con l'allargamento a diciotto squadre
+    "le mans fc": "Le Mans",
+    "le mans": "Le Mans",
+    "mans fc": "Le Mans",
     "sc bastia": "Bastia",
     "dijon fco": "Dijon",
     "nimes olympique": "Nimes",
@@ -123,7 +131,7 @@ def normalizza_squadra(nome):
     if k in _INDICE:
         return _INDICE[k]
     # tolleranza su prefissi e suffissi societari
-    ridotto = re.sub(r"^(fc|as|rc|sc|ac|sm|us|ogc|losc|aj|estac|es|en avant)\s+", "", k)
+    ridotto = re.sub(r"^(fc|as|rc|sc|ac|sm|us|ogc|aj|estac|es|en avant)\s+", "", k)
     ridotto = re.sub(r"\s+(fc|ac|sc|osc|sco|hsc|fco)$", "", ridotto)
     if ridotto in _INDICE:
         return _INDICE[ridotto]
@@ -298,10 +306,14 @@ def analizza(testo, giornata=None):
 # settimana, non la data: si ricava dalla data di pubblicazione.
 # ---------------------------------------------------------------------------
 
+# Il separatore fra le due squadre è un trattino CIRCONDATO DA SPAZI.
+# La distinzione conta: 'Paris Saint-Germain' e 'Saint-Étienne' contengono
+# un trattino nel nome, e trattarlo come separatore spezzerebbe la squadra
+# facendo sparire la partita.
 INTESTAZIONE_LFP = re.compile(
-    r"^\**\s*(?P<casa>[^\n–—-]{3,40}?)\s*[–—-]\s*(?P<ospite>[^\n(]{3,40}?)\s*"
-    r"\(\s*(?P<giorno>" + "|".join(GIORNI) + r")\s*,?\s*"
-    r"(?P<oh>\d{1,2})\s*h\s*(?P<om>\d{2})?\s*\)\s*\**\s*$",
+    r"^\**\s*(?P<casa>[^\n(]{3,40}?)\s+[–—-]\s+(?P<ospite>[^\n(]{3,40}?)\s*"
+    r"\**\s*\(\s*(?P<giorno>" + "|".join(GIORNI) + r")\s*,?\s*"
+    r"(?P<oh>\d{1,2})\s*h\s*(?P<om>\d{2})?[^)]*\)\s*\**\s*$",
     re.IGNORECASE | re.MULTILINE,
 )
 
