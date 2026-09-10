@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-09T10:46:50.358509+00:00",
+  "aggiornato": "2026-09-10T04:28:49.316358+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -12,42 +12,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-09-06",
-          "ora": "15:00",
-          "casa": "Frosinone",
-          "ospite": "Venezia",
-          "daDesignazioni": true,
-          "arbitro": "Perri",
-          "var": "Mazzoleni"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "15:00",
-          "casa": "Parma",
-          "ospite": "Monza",
-          "daDesignazioni": true,
-          "arbitro": "La Penna",
-          "var": "Pezzuto"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "18:00",
-          "casa": "Bologna",
-          "ospite": "Sassuolo",
-          "daDesignazioni": true,
-          "arbitro": "Di Bello",
-          "var": "Paterna"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "20:45",
-          "casa": "Juventus",
-          "ospite": "Milan",
-          "daDesignazioni": true,
-          "arbitro": "Mariani",
-          "var": "Fabbri"
-        },
         {
           "data": "2026-09-07",
           "ora": "18:00",
@@ -65,48 +29,102 @@
           "daDesignazioni": true,
           "arbitro": "Tremolada",
           "var": "Maggioni"
+        },
+        {
+          "data": "2026-09-11",
+          "ora": "20:45",
+          "casa": "Venezia",
+          "ospite": "Fiorentina",
+          "daDesignazioni": true,
+          "arbitro": "Fourneau",
+          "var": "Dionisi"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:00",
+          "casa": "Genoa",
+          "ospite": "Frosinone",
+          "daDesignazioni": true,
+          "arbitro": "Rapuano",
+          "var": "Camplone"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "18:00",
+          "casa": "Lazio",
+          "ospite": "Milan",
+          "daDesignazioni": true,
+          "arbitro": "Marcenaro",
+          "var": "Meraviglia"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "20:45",
+          "casa": "Atalanta",
+          "ospite": "Cagliari",
+          "daDesignazioni": true,
+          "arbitro": "Arena",
+          "var": "Gariglio"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "15:00",
+          "casa": "Lecce",
+          "ospite": "Monza",
+          "daDesignazioni": true,
+          "arbitro": "Crezzini",
+          "var": "Cosso"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "18:00",
+          "casa": "Napoli",
+          "ospite": "Bologna",
+          "daDesignazioni": true,
+          "arbitro": "Bonacina",
+          "var": "Maggioni"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "20:45",
+          "casa": "Sassuolo",
+          "ospite": "Juventus",
+          "daDesignazioni": true,
+          "arbitro": "Sacchi J.",
+          "var": "Ghersini"
+        },
+        {
+          "data": "2026-09-14",
+          "ora": "18:30",
+          "casa": "Como",
+          "ospite": "Parma",
+          "daDesignazioni": true,
+          "arbitro": "Mucera",
+          "var": "Giua"
+        },
+        {
+          "data": "2026-09-14",
+          "ora": "18:30",
+          "casa": "Torino",
+          "ospite": "Roma",
+          "daDesignazioni": true,
+          "arbitro": "Maresca",
+          "var": "Aureliano"
+        },
+        {
+          "data": "2026-09-14",
+          "ora": "20:45",
+          "casa": "Inter",
+          "ospite": "Udinese",
+          "daDesignazioni": true,
+          "arbitro": "Pairetto",
+          "var": "Marini"
         }
       ]
     },
     "la_liga": {
       "nome": "LaLiga",
       "partite": [
-        {
-          "data": "2026-09-06",
-          "ora": "16:15",
-          "casa": "Valencia",
-          "ospite": "Barcelona",
-          "daDesignazioni": true,
-          "arbitro": "Isidro Díaz De Mera",
-          "var": "Alejandro Muñiz"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "18:30",
-          "casa": "Malaga",
-          "ospite": "Levante",
-          "daDesignazioni": true,
-          "arbitro": "Luis Bestard",
-          "var": "Valentín Pizarro"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "18:30",
-          "casa": "Alaves",
-          "ospite": "Osasuna",
-          "daDesignazioni": true,
-          "arbitro": "José María Sánchez",
-          "var": "David Gálvez"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "21:00",
-          "casa": "Espanol",
-          "ospite": "Sevilla",
-          "daDesignazioni": true,
-          "arbitro": "Miguel Sesma",
-          "var": "Daniel Jesús Trujillo"
-        },
         {
           "data": "2026-09-07",
           "ora": "19:00",
@@ -133,94 +151,15 @@
     },
     "bundesliga": {
       "nome": "Bundesliga",
-      "partite": [
-        {
-          "data": "2026-09-06",
-          "ora": "15:30",
-          "casa": "Hamburg",
-          "ospite": "Mainz",
-          "daDesignazioni": true,
-          "arbitro": "Tobias Reichel",
-          "var": "Tobias Welz"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "17:30",
-          "casa": "Ein Frankfurt",
-          "ospite": "Augsburg",
-          "daDesignazioni": true,
-          "arbitro": "Daniel Schlager",
-          "var": "Nicolas Winter"
-        }
-      ]
+      "partite": []
     },
     "bundesliga_2": {
       "nome": "2. Bundesliga",
-      "partite": [
-        {
-          "data": "2026-09-06",
-          "ora": "13:30",
-          "casa": "Hertha",
-          "ospite": "Magdeburg",
-          "daDesignazioni": true,
-          "arbitro": "Dr. Florian Exner",
-          "var": "Guido Winkmann"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "13:30",
-          "casa": "Greuther Furth",
-          "ospite": "Heidenheim",
-          "daDesignazioni": true,
-          "arbitro": "Konrad Oldhafer",
-          "var": "Patrick Alt"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "13:30",
-          "casa": "Osnabruck",
-          "ospite": "Braunschweig",
-          "daDesignazioni": true,
-          "arbitro": "Wolfgang Haslberger",
-          "var": "Patrick Hanslbauer"
-        }
-      ]
+      "partite": []
     },
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
-        {
-          "data": "2026-09-06",
-          "ora": "17:00",
-          "casa": "Kasimpasa",
-          "ospite": "Amedspor",
-          "daDesignazioni": true,
-          "arbitro": "Oğuzhan Çakır"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "17:00",
-          "casa": "Corum",
-          "ospite": "Eyupspor",
-          "daDesignazioni": true,
-          "arbitro": "Davut Dakul Çelik"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "20:00",
-          "casa": "Kocaelispor",
-          "ospite": "Samsunspor",
-          "daDesignazioni": true,
-          "arbitro": "Reşat Onur Coşkunses"
-        },
-        {
-          "data": "2026-09-06",
-          "ora": "20:00",
-          "casa": "Trabzonspor",
-          "ospite": "Genclerbirligi",
-          "daDesignazioni": true,
-          "arbitro": "Çağdaş Altay"
-        },
         {
           "data": "2026-09-07",
           "ora": "20:00",
