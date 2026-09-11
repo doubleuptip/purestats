@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-10T05:08:23.578723+00:00",
+  "aggiornato": "2026-09-11T05:08:16.950463+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -12,24 +12,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-09-07",
-          "ora": "18:00",
-          "casa": "Cagliari",
-          "ospite": "Lecce",
-          "daDesignazioni": true,
-          "arbitro": "Sacchi J.L.",
-          "var": "Piccinini"
-        },
-        {
-          "data": "2026-09-07",
-          "ora": "20:45",
-          "casa": "Udinese",
-          "ospite": "Lazio",
-          "daDesignazioni": true,
-          "arbitro": "Tremolada",
-          "var": "Maggioni"
-        },
         {
           "data": "2026-09-11",
           "ora": "20:45",
@@ -126,22 +108,13 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-09-07",
-          "ora": "19:00",
-          "casa": "Getafe",
-          "ospite": "Celta",
+          "data": "2026-09-11",
+          "ora": "21:00",
+          "casa": "Sevilla",
+          "ospite": "Valencia",
           "daDesignazioni": true,
-          "arbitro": "César Soto",
-          "var": "Jorge Figueroa"
-        },
-        {
-          "data": "2026-09-07",
-          "ora": "21:30",
-          "casa": "Elche",
-          "ospite": "Sociedad",
-          "daDesignazioni": true,
-          "arbitro": "Miguel Ángel Ortiz",
-          "var": "Rubén Ávalos"
+          "arbitro": "Mateo Busquets",
+          "var": "Carlos Del Cerro"
         }
       ]
     },
@@ -151,30 +124,250 @@
     },
     "bundesliga": {
       "nome": "Bundesliga",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-11",
+          "ora": "20:30",
+          "casa": "Union Berlin",
+          "ospite": "Schalke 04",
+          "daDesignazioni": true,
+          "arbitro": "Timo Gerach",
+          "var": "Nicolas Winter"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:30",
+          "casa": "Dortmund",
+          "ospite": "Paderborn",
+          "daDesignazioni": true,
+          "arbitro": "Harm Osmers",
+          "var": "Robert Schröder"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:30",
+          "casa": "Hoffenheim",
+          "ospite": "Stuttgart",
+          "daDesignazioni": true,
+          "arbitro": "Sven Jablonski",
+          "var": "Tobias Welz"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:30",
+          "casa": "Freiburg",
+          "ospite": "M'gladbach",
+          "daDesignazioni": true,
+          "arbitro": "Richard Hempel",
+          "var": "Pascal Müller"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:30",
+          "casa": "Augsburg",
+          "ospite": "Leverkusen",
+          "daDesignazioni": true,
+          "arbitro": "Daniel Siebert",
+          "var": "Benjamin Cortus"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:30",
+          "casa": "Mainz",
+          "ospite": "Ein Frankfurt",
+          "daDesignazioni": true,
+          "arbitro": "Felix Zwayer",
+          "var": "Benjamin Brand"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "18:30",
+          "casa": "FC Koln",
+          "ospite": "Werder Bremen",
+          "daDesignazioni": true,
+          "arbitro": "Dr. Florian Exner",
+          "var": "Katrin Rafalski"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "15:30",
+          "casa": "RB Leipzig",
+          "ospite": "Hamburg",
+          "daDesignazioni": true,
+          "arbitro": "Florian Badstübner",
+          "var": "Patrick Hanslbauer"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "17:30",
+          "casa": "Elversberg",
+          "ospite": "Bayern Munich",
+          "daDesignazioni": true,
+          "arbitro": "Sascha Stegemann",
+          "var": "Christian Dingert"
+        }
+      ]
     },
     "bundesliga_2": {
       "nome": "2. Bundesliga",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-11",
+          "ora": "18:30",
+          "casa": "Darmstadt",
+          "ospite": "Bielefeld",
+          "daDesignazioni": true,
+          "arbitro": "Eric Weisbach",
+          "var": "Dr. Robert Kampka"
+        },
+        {
+          "data": "2026-09-11",
+          "ora": "18:30",
+          "casa": "Nurnberg",
+          "ospite": "Hannover",
+          "daDesignazioni": true,
+          "arbitro": "Florian Lechner",
+          "var": "Johann Pfeifer"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "13:00",
+          "casa": "Bochum",
+          "ospite": "Greuther Furth",
+          "daDesignazioni": true,
+          "arbitro": "Felix Bickel",
+          "var": "Günter Perl"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "13:00",
+          "casa": "Magdeburg",
+          "ospite": "Kaiserslautern",
+          "daDesignazioni": true,
+          "arbitro": "Marc Philip Eckermann",
+          "var": "Dr. Arne Aarnink"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "13:00",
+          "casa": "Braunschweig",
+          "ospite": "Dynamo Dresden",
+          "daDesignazioni": true,
+          "arbitro": "Lars Erbst",
+          "var": "Johann Pfeifer"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "20:30",
+          "casa": "St Pauli",
+          "ospite": "Wolfsburg",
+          "daDesignazioni": true,
+          "arbitro": "Sören Storks",
+          "var": "Patrick Hanslbauer"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "13:30",
+          "casa": "Heidenheim",
+          "ospite": "Holstein Kiel",
+          "daDesignazioni": true,
+          "arbitro": "Justin Hasmann",
+          "var": "Günter Perl"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "13:30",
+          "casa": "Karlsruhe",
+          "ospite": "Cottbus",
+          "daDesignazioni": true,
+          "arbitro": "Robert Hartmann",
+          "var": "Guido Winkmann"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "13:30",
+          "casa": "Osnabruck",
+          "ospite": "Hertha",
+          "daDesignazioni": true,
+          "arbitro": "Felix Weller",
+          "var": "Dr. Arne Aarnink"
+        }
+      ]
     },
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
         {
-          "data": "2026-09-07",
+          "data": "2026-09-11",
           "ora": "20:00",
-          "casa": "Rizespor",
-          "ospite": "Alanyaspor",
+          "casa": "Besiktas",
+          "ospite": "Erzurumspor",
           "daDesignazioni": true,
-          "arbitro": "Abdullah Buğra Taşkınsoy"
+          "arbitro": "Gürcan Hasova"
         },
         {
-          "data": "2026-09-07",
-          "ora": "20:00",
-          "casa": "Goztep",
-          "ospite": "Gaziantep",
+          "data": "2026-09-12",
+          "ora": "17:00",
+          "casa": "Eyupspor",
+          "ospite": "Rizespor",
           "daDesignazioni": true,
-          "arbitro": "Ümit Öztürk"
+          "arbitro": "Oğuzhan Aksu"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "17:00",
+          "casa": "Samsunspor",
+          "ospite": "Corum",
+          "daDesignazioni": true,
+          "arbitro": "Ali Şansalan"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "20:00",
+          "casa": "Alanyaspor",
+          "ospite": "Goztep",
+          "daDesignazioni": true,
+          "arbitro": "Ozan Ergün"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "20:00",
+          "casa": "Konyaspor",
+          "ospite": "Trabzonspor",
+          "daDesignazioni": true,
+          "arbitro": "Reşat Onur Coşkunses"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "17:00",
+          "casa": "Genclerbirligi",
+          "ospite": "Kasimpasa",
+          "daDesignazioni": true,
+          "arbitro": "Yasin Kol"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "20:00",
+          "casa": "Galatasaray",
+          "ospite": "Kocaelispor",
+          "daDesignazioni": true,
+          "arbitro": "Atilla Karaoğlan"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "20:00",
+          "casa": "Amedspor",
+          "ospite": "Buyuksehyr",
+          "daDesignazioni": true,
+          "arbitro": "Cihan Aydın"
+        },
+        {
+          "data": "2026-09-14",
+          "ora": "20:00",
+          "casa": "Gaziantep",
+          "ospite": "Fenerbahce",
+          "daDesignazioni": true,
+          "arbitro": "Mehmet Türkmen"
         }
       ]
     }
