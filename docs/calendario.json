@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-11T05:08:16.950463+00:00",
+  "aggiornato": "2026-09-12T05:07:55.343703+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -7,7 +7,68 @@
   "campionati": {
     "premier": {
       "nome": "Premier League",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-12",
+          "ora": "16:00",
+          "casa": "Aston Villa",
+          "ospite": "Nott'm Forest"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "16:00",
+          "casa": "Bournemouth",
+          "ospite": "Brentford"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "16:00",
+          "casa": "Chelsea",
+          "ospite": "Hull"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "16:00",
+          "casa": "Crystal Palace",
+          "ospite": "Ipswich"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "16:00",
+          "casa": "Liverpool",
+          "ospite": "Fulham"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "18:30",
+          "casa": "Tottenham",
+          "ospite": "Everton"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "21:00",
+          "casa": "Sunderland",
+          "ospite": "Arsenal"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "15:00",
+          "casa": "Coventry",
+          "ospite": "Brighton"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "17:30",
+          "casa": "Man United",
+          "ospite": "Man City"
+        },
+        {
+          "data": "2026-09-14",
+          "ora": "21:00",
+          "casa": "Leeds",
+          "ospite": "Newcastle"
+        }
+      ]
     },
     "serie_a": {
       "nome": "Serie A",
@@ -17,7 +78,6 @@
           "ora": "20:45",
           "casa": "Venezia",
           "ospite": "Fiorentina",
-          "daDesignazioni": true,
           "arbitro": "Fourneau",
           "var": "Dionisi"
         },
@@ -26,7 +86,6 @@
           "ora": "15:00",
           "casa": "Genoa",
           "ospite": "Frosinone",
-          "daDesignazioni": true,
           "arbitro": "Rapuano",
           "var": "Camplone"
         },
@@ -35,7 +94,6 @@
           "ora": "18:00",
           "casa": "Lazio",
           "ospite": "Milan",
-          "daDesignazioni": true,
           "arbitro": "Marcenaro",
           "var": "Meraviglia"
         },
@@ -44,7 +102,6 @@
           "ora": "20:45",
           "casa": "Atalanta",
           "ospite": "Cagliari",
-          "daDesignazioni": true,
           "arbitro": "Arena",
           "var": "Gariglio"
         },
@@ -53,7 +110,6 @@
           "ora": "15:00",
           "casa": "Lecce",
           "ospite": "Monza",
-          "daDesignazioni": true,
           "arbitro": "Crezzini",
           "var": "Cosso"
         },
@@ -62,7 +118,6 @@
           "ora": "18:00",
           "casa": "Napoli",
           "ospite": "Bologna",
-          "daDesignazioni": true,
           "arbitro": "Bonacina",
           "var": "Maggioni"
         },
@@ -71,7 +126,6 @@
           "ora": "20:45",
           "casa": "Sassuolo",
           "ospite": "Juventus",
-          "daDesignazioni": true,
           "arbitro": "Sacchi J.",
           "var": "Ghersini"
         },
@@ -80,7 +134,6 @@
           "ora": "18:30",
           "casa": "Como",
           "ospite": "Parma",
-          "daDesignazioni": true,
           "arbitro": "Mucera",
           "var": "Giua"
         },
@@ -89,7 +142,6 @@
           "ora": "18:30",
           "casa": "Torino",
           "ospite": "Roma",
-          "daDesignazioni": true,
           "arbitro": "Maresca",
           "var": "Aureliano"
         },
@@ -98,7 +150,6 @@
           "ora": "20:45",
           "casa": "Inter",
           "ospite": "Udinese",
-          "daDesignazioni": true,
           "arbitro": "Pairetto",
           "var": "Marini"
         }
@@ -112,15 +163,131 @@
           "ora": "21:00",
           "casa": "Sevilla",
           "ospite": "Valencia",
-          "daDesignazioni": true,
           "arbitro": "Mateo Busquets",
           "var": "Carlos Del Cerro"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "14:00",
+          "casa": "Santander",
+          "ospite": "Alaves",
+          "arbitro": "Javier Alberola",
+          "var": "Javier Iglesias"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "16:15",
+          "casa": "Osasuna",
+          "ospite": "Espanol",
+          "arbitro": "Luis Bestard",
+          "var": "David Gálvez"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "18:30",
+          "casa": "Ath Bilbao",
+          "ospite": "Elche",
+          "arbitro": "Manuel Jesús Orellana",
+          "var": "José Antonio López"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "21:00",
+          "casa": "Real Madrid",
+          "ospite": "Vallecano",
+          "arbitro": "Víctor García",
+          "var": "Juan Luis Pulido"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "14:00",
+          "casa": "Celta",
+          "ospite": "Malaga"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "16:15",
+          "casa": "Levante",
+          "ospite": "Barcelona"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "18:30",
+          "casa": "Getafe",
+          "ospite": "La Coruna"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "21:00",
+          "casa": "Sociedad",
+          "ospite": "Ath Madrid"
+        },
+        {
+          "data": "2026-09-14",
+          "ora": "21:00",
+          "casa": "Villarreal",
+          "ospite": "Betis"
         }
       ]
     },
     "ligue_1": {
       "nome": "Ligue 1",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-09-11",
+          "ora": "20:45",
+          "casa": "Rennes",
+          "ospite": "Marseille"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "17:15",
+          "casa": "Strasbourg",
+          "ospite": "Monaco"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "20:45",
+          "casa": "Auxerre",
+          "ospite": "Nice"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "20:45",
+          "casa": "Le Havre",
+          "ospite": "Angers"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "20:45",
+          "casa": "Lorient",
+          "ospite": "Toulouse"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "20:45",
+          "casa": "Paris FC",
+          "ospite": "Lyon"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "15:00",
+          "casa": "Lille",
+          "ospite": "Troyes"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "17:15",
+          "casa": "Le Mans",
+          "ospite": "Lens"
+        },
+        {
+          "data": "2026-09-13",
+          "ora": "20:45",
+          "casa": "Brest",
+          "ospite": "Paris SG"
+        }
+      ]
     },
     "bundesliga": {
       "nome": "Bundesliga",
@@ -130,52 +297,46 @@
           "ora": "20:30",
           "casa": "Union Berlin",
           "ospite": "Schalke 04",
-          "daDesignazioni": true,
           "arbitro": "Timo Gerach",
           "var": "Nicolas Winter"
         },
         {
           "data": "2026-09-12",
           "ora": "15:30",
-          "casa": "Dortmund",
-          "ospite": "Paderborn",
-          "daDesignazioni": true,
-          "arbitro": "Harm Osmers",
-          "var": "Robert Schröder"
-        },
-        {
-          "data": "2026-09-12",
-          "ora": "15:30",
-          "casa": "Hoffenheim",
-          "ospite": "Stuttgart",
-          "daDesignazioni": true,
-          "arbitro": "Sven Jablonski",
-          "var": "Tobias Welz"
-        },
-        {
-          "data": "2026-09-12",
-          "ora": "15:30",
-          "casa": "Freiburg",
-          "ospite": "M'gladbach",
-          "daDesignazioni": true,
-          "arbitro": "Richard Hempel",
-          "var": "Pascal Müller"
-        },
-        {
-          "data": "2026-09-12",
-          "ora": "15:30",
           "casa": "Augsburg",
           "ospite": "Leverkusen",
-          "daDesignazioni": true,
           "arbitro": "Daniel Siebert",
           "var": "Benjamin Cortus"
         },
         {
           "data": "2026-09-12",
           "ora": "15:30",
+          "casa": "Dortmund",
+          "ospite": "Paderborn",
+          "arbitro": "Harm Osmers",
+          "var": "Robert Schröder"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:30",
+          "casa": "Freiburg",
+          "ospite": "M'gladbach",
+          "arbitro": "Richard Hempel",
+          "var": "Pascal Müller"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:30",
+          "casa": "Hoffenheim",
+          "ospite": "Stuttgart",
+          "arbitro": "Sven Jablonski",
+          "var": "Tobias Welz"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "15:30",
           "casa": "Mainz",
           "ospite": "Ein Frankfurt",
-          "daDesignazioni": true,
           "arbitro": "Felix Zwayer",
           "var": "Benjamin Brand"
         },
@@ -184,7 +345,6 @@
           "ora": "18:30",
           "casa": "FC Koln",
           "ospite": "Werder Bremen",
-          "daDesignazioni": true,
           "arbitro": "Dr. Florian Exner",
           "var": "Katrin Rafalski"
         },
@@ -193,7 +353,6 @@
           "ora": "15:30",
           "casa": "RB Leipzig",
           "ospite": "Hamburg",
-          "daDesignazioni": true,
           "arbitro": "Florian Badstübner",
           "var": "Patrick Hanslbauer"
         },
@@ -202,7 +361,6 @@
           "ora": "17:30",
           "casa": "Elversberg",
           "ospite": "Bayern Munich",
-          "daDesignazioni": true,
           "arbitro": "Sascha Stegemann",
           "var": "Christian Dingert"
         }
@@ -216,7 +374,6 @@
           "ora": "18:30",
           "casa": "Darmstadt",
           "ospite": "Bielefeld",
-          "daDesignazioni": true,
           "arbitro": "Eric Weisbach",
           "var": "Dr. Robert Kampka"
         },
@@ -225,7 +382,6 @@
           "ora": "18:30",
           "casa": "Nurnberg",
           "ospite": "Hannover",
-          "daDesignazioni": true,
           "arbitro": "Florian Lechner",
           "var": "Johann Pfeifer"
         },
@@ -234,16 +390,20 @@
           "ora": "13:00",
           "casa": "Bochum",
           "ospite": "Greuther Furth",
-          "daDesignazioni": true,
           "arbitro": "Felix Bickel",
           "var": "Günter Perl"
         },
         {
           "data": "2026-09-12",
           "ora": "13:00",
+          "casa": "Braunschweig",
+          "ospite": "Dresden"
+        },
+        {
+          "data": "2026-09-12",
+          "ora": "13:00",
           "casa": "Magdeburg",
           "ospite": "Kaiserslautern",
-          "daDesignazioni": true,
           "arbitro": "Marc Philip Eckermann",
           "var": "Dr. Arne Aarnink"
         },
@@ -261,7 +421,6 @@
           "ora": "20:30",
           "casa": "St Pauli",
           "ospite": "Wolfsburg",
-          "daDesignazioni": true,
           "arbitro": "Sören Storks",
           "var": "Patrick Hanslbauer"
         },
@@ -270,7 +429,6 @@
           "ora": "13:30",
           "casa": "Heidenheim",
           "ospite": "Holstein Kiel",
-          "daDesignazioni": true,
           "arbitro": "Justin Hasmann",
           "var": "Günter Perl"
         },
@@ -279,7 +437,6 @@
           "ora": "13:30",
           "casa": "Karlsruhe",
           "ospite": "Cottbus",
-          "daDesignazioni": true,
           "arbitro": "Robert Hartmann",
           "var": "Guido Winkmann"
         },
@@ -288,7 +445,6 @@
           "ora": "13:30",
           "casa": "Osnabruck",
           "ospite": "Hertha",
-          "daDesignazioni": true,
           "arbitro": "Felix Weller",
           "var": "Dr. Arne Aarnink"
         }
@@ -299,74 +455,65 @@
       "partite": [
         {
           "data": "2026-09-11",
-          "ora": "20:00",
+          "ora": "19:00",
           "casa": "Besiktas",
           "ospite": "Erzurumspor",
-          "daDesignazioni": true,
           "arbitro": "Gürcan Hasova"
         },
         {
           "data": "2026-09-12",
-          "ora": "17:00",
+          "ora": "16:00",
           "casa": "Eyupspor",
           "ospite": "Rizespor",
-          "daDesignazioni": true,
           "arbitro": "Oğuzhan Aksu"
         },
         {
           "data": "2026-09-12",
-          "ora": "17:00",
+          "ora": "16:00",
           "casa": "Samsunspor",
           "ospite": "Corum",
-          "daDesignazioni": true,
           "arbitro": "Ali Şansalan"
         },
         {
           "data": "2026-09-12",
-          "ora": "20:00",
+          "ora": "19:00",
           "casa": "Alanyaspor",
           "ospite": "Goztep",
-          "daDesignazioni": true,
           "arbitro": "Ozan Ergün"
         },
         {
           "data": "2026-09-12",
-          "ora": "20:00",
+          "ora": "19:00",
           "casa": "Konyaspor",
           "ospite": "Trabzonspor",
-          "daDesignazioni": true,
           "arbitro": "Reşat Onur Coşkunses"
         },
         {
           "data": "2026-09-13",
-          "ora": "17:00",
+          "ora": "16:00",
           "casa": "Genclerbirligi",
           "ospite": "Kasimpasa",
-          "daDesignazioni": true,
           "arbitro": "Yasin Kol"
         },
         {
           "data": "2026-09-13",
-          "ora": "20:00",
-          "casa": "Galatasaray",
-          "ospite": "Kocaelispor",
-          "daDesignazioni": true,
-          "arbitro": "Atilla Karaoğlan"
-        },
-        {
-          "data": "2026-09-13",
-          "ora": "20:00",
+          "ora": "19:00",
           "casa": "Amedspor",
           "ospite": "Buyuksehyr",
-          "daDesignazioni": true,
           "arbitro": "Cihan Aydın"
         },
         {
+          "data": "2026-09-13",
+          "ora": "19:00",
+          "casa": "Galatasaray",
+          "ospite": "Kocaelispor",
+          "arbitro": "Atilla Karaoğlan"
+        },
+        {
           "data": "2026-09-14",
-          "ora": "20:00",
+          "ora": "19:00",
           "casa": "Gaziantep",
           "ospite": "Fenerbahce",
-          "daDesignazioni": true,
           "arbitro": "Mehmet Türkmen"
         }
       ]
