@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-14T05:08:26.279841+00:00",
+  "aggiornato": "2026-09-15T05:09:04.998077+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -73,14 +73,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-09-11",
-          "ora": "20:45",
-          "casa": "Venezia",
-          "ospite": "Fiorentina",
-          "arbitro": "Fourneau",
-          "var": "Dionisi"
-        },
         {
           "data": "2026-09-12",
           "ora": "15:00",
@@ -159,14 +151,6 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-09-11",
-          "ora": "21:00",
-          "casa": "Sevilla",
-          "ospite": "Valencia",
-          "arbitro": "Mateo Busquets",
-          "var": "Carlos Del Cerro"
-        },
-        {
           "data": "2026-09-12",
           "ora": "14:00",
           "casa": "Santander",
@@ -202,43 +186,74 @@
           "data": "2026-09-13",
           "ora": "14:00",
           "casa": "Celta",
-          "ospite": "Malaga"
+          "ospite": "Malaga",
+          "arbitro": "Carlos Muñiz",
+          "var": "Jorge Figueroa"
         },
         {
           "data": "2026-09-13",
           "ora": "16:15",
           "casa": "Levante",
-          "ospite": "Barcelona"
+          "ospite": "Barcelona",
+          "arbitro": "Jon Ander González",
+          "var": "Javier Iglesias"
         },
         {
           "data": "2026-09-13",
           "ora": "18:30",
           "casa": "Getafe",
-          "ospite": "La Coruna"
+          "ospite": "La Coruna",
+          "arbitro": "Ricardo De Burgos",
+          "var": "Iván Caparrós"
         },
         {
           "data": "2026-09-13",
           "ora": "21:00",
           "casa": "Sociedad",
-          "ospite": "Ath Madrid"
+          "ospite": "Ath Madrid",
+          "arbitro": "Juan Martínez",
+          "var": "Alejandro Muñiz"
         },
         {
           "data": "2026-09-14",
           "ora": "21:00",
           "casa": "Villarreal",
-          "ospite": "Betis"
+          "ospite": "Betis",
+          "arbitro": "Francisco José Hernández",
+          "var": "Valentín Pizarro"
+        },
+        {
+          "data": "2026-09-15",
+          "ora": "19:00",
+          "casa": "Vallecano",
+          "ospite": "Espanol",
+          "daDesignazioni": true,
+          "arbitro": "Isidro Díaz De Mera",
+          "var": "Javier Iglesias"
+        },
+        {
+          "data": "2026-09-15",
+          "ora": "20:00",
+          "casa": "Alaves",
+          "ospite": "Valencia",
+          "daDesignazioni": true,
+          "arbitro": "Miguel Sesma",
+          "var": "Valentín Pizarro"
+        },
+        {
+          "data": "2026-09-15",
+          "ora": "21:30",
+          "casa": "Elche",
+          "ospite": "Real Madrid",
+          "daDesignazioni": true,
+          "arbitro": "Jesús Gil",
+          "var": "Raúl Martín González"
         }
       ]
     },
     "ligue_1": {
       "nome": "Ligue 1",
       "partite": [
-        {
-          "data": "2026-09-11",
-          "ora": "20:45",
-          "casa": "Rennes",
-          "ospite": "Marseille"
-        },
         {
           "data": "2026-09-12",
           "ora": "17:15",
@@ -292,14 +307,6 @@
     "bundesliga": {
       "nome": "Bundesliga",
       "partite": [
-        {
-          "data": "2026-09-11",
-          "ora": "20:30",
-          "casa": "Union Berlin",
-          "ospite": "Schalke 04",
-          "arbitro": "Timo Gerach",
-          "var": "Nicolas Winter"
-        },
         {
           "data": "2026-09-12",
           "ora": "15:30",
@@ -370,22 +377,6 @@
       "nome": "2. Bundesliga",
       "partite": [
         {
-          "data": "2026-09-11",
-          "ora": "18:30",
-          "casa": "Darmstadt",
-          "ospite": "Bielefeld",
-          "arbitro": "Eric Weisbach",
-          "var": "Dr. Robert Kampka"
-        },
-        {
-          "data": "2026-09-11",
-          "ora": "18:30",
-          "casa": "Nurnberg",
-          "ospite": "Hannover",
-          "arbitro": "Florian Lechner",
-          "var": "Johann Pfeifer"
-        },
-        {
           "data": "2026-09-12",
           "ora": "13:00",
           "casa": "Bochum",
@@ -453,13 +444,6 @@
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
-        {
-          "data": "2026-09-11",
-          "ora": "19:00",
-          "casa": "Besiktas",
-          "ospite": "Erzurumspor",
-          "arbitro": "Gürcan Hasova"
-        },
         {
           "data": "2026-09-12",
           "ora": "16:00",
