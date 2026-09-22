@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-21T10:23:07.669496+00:00",
+  "aggiornato": "2026-09-22T09:36:59.801337+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -8,12 +8,6 @@
     "premier": {
       "nome": "Premier League",
       "partite": [
-        {
-          "data": "2026-09-18",
-          "ora": "21:00",
-          "casa": "Brentford",
-          "ospite": "Chelsea"
-        },
         {
           "data": "2026-09-19",
           "ora": "13:30",
@@ -73,14 +67,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-09-18",
-          "ora": "20:45",
-          "casa": "Monza",
-          "ospite": "Sassuolo",
-          "arbitro": "Perenzoni",
-          "var": "Aureliano"
-        },
         {
           "data": "2026-09-19",
           "ora": "15:00",
@@ -147,14 +133,6 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-09-18",
-          "ora": "21:00",
-          "casa": "Espanol",
-          "ospite": "Elche",
-          "arbitro": "Jon Ander González",
-          "var": "Jorge Figueroa"
-        },
-        {
           "data": "2026-09-19",
           "ora": "14:00",
           "casa": "Osasuna",
@@ -190,43 +168,47 @@
           "data": "2026-09-20",
           "ora": "14:00",
           "casa": "Getafe",
-          "ospite": "Malaga"
+          "ospite": "Malaga",
+          "arbitro": "Javier Alberola",
+          "var": "Juan Luis Pulido"
         },
         {
           "data": "2026-09-20",
           "ora": "16:15",
           "casa": "Ath Madrid",
-          "ospite": "Real Madrid"
+          "ospite": "Real Madrid",
+          "arbitro": "Miguel Ángel Ortiz",
+          "var": "Daniel Jesús Trujillo"
         },
         {
           "data": "2026-09-20",
           "ora": "18:30",
           "casa": "La Coruna",
-          "ospite": "Betis"
+          "ospite": "Betis",
+          "arbitro": "César Soto",
+          "var": "José Antonio López"
         },
         {
           "data": "2026-09-20",
           "ora": "18:30",
           "casa": "Villarreal",
-          "ospite": "Levante"
+          "ospite": "Levante",
+          "arbitro": "Mateo Busquets",
+          "var": "Álvaro Moreno"
         },
         {
           "data": "2026-09-20",
           "ora": "21:00",
           "casa": "Valencia",
-          "ospite": "Sociedad"
+          "ospite": "Sociedad",
+          "arbitro": "José Luis Munuera",
+          "var": "Luis Mario Milla"
         }
       ]
     },
     "ligue_1": {
       "nome": "Ligue 1",
       "partite": [
-        {
-          "data": "2026-09-18",
-          "ora": "20:45",
-          "casa": "Monaco",
-          "ospite": "Lens"
-        },
         {
           "data": "2026-09-19",
           "ora": "17:15",
@@ -280,14 +262,6 @@
     "bundesliga": {
       "nome": "Bundesliga",
       "partite": [
-        {
-          "data": "2026-09-18",
-          "ora": "20:30",
-          "casa": "Bayern Munich",
-          "ospite": "Union Berlin",
-          "arbitro": "Benjamin Brand",
-          "var": "Tobias Welz"
-        },
         {
           "data": "2026-09-19",
           "ora": "15:30",
@@ -358,22 +332,6 @@
       "nome": "2. Bundesliga",
       "partite": [
         {
-          "data": "2026-09-18",
-          "ora": "18:30",
-          "casa": "Greuther Furth",
-          "ospite": "Magdeburg",
-          "arbitro": "Cristian Ballweg",
-          "var": "Katrin Rafalski"
-        },
-        {
-          "data": "2026-09-18",
-          "ora": "18:30",
-          "casa": "Wolfsburg",
-          "ospite": "Darmstadt",
-          "arbitro": "Martin Petersen",
-          "var": "Sascha Stegemann"
-        },
-        {
           "data": "2026-09-19",
           "ora": "13:00",
           "casa": "Holstein Kiel",
@@ -441,12 +399,6 @@
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
-        {
-          "data": "2026-09-18",
-          "ora": "19:00",
-          "casa": "Kasimpasa",
-          "ospite": "Konyaspor"
-        },
         {
           "data": "2026-09-19",
           "ora": "16:00",
