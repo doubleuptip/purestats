@@ -1,13 +1,13 @@
 {
-  "aggiornato": "2026-09-21T09:08:17.357915+00:00",
+  "aggiornato": "2026-09-24T13:58:41.629070+00:00",
   "campionato": "Serie A",
   "fonte": "football-data.co.uk (PDDL) · designazioni AIA/Lega Serie A",
   "stagioni": [
     "2026/27"
   ],
-  "totalePartite": 40,
-  "partiteConDisciplina": 40,
-  "partiteConArbitro": 40,
+  "totalePartite": 50,
+  "partiteConDisciplina": 50,
+  "partiteConArbitro": 44,
   "arbitri": [
     {
       "nome": "Maresca F.",
@@ -474,6 +474,112 @@
       "prossime": []
     },
     {
+      "nome": "Sozza",
+      "partite": 2,
+      "gialli": 9,
+      "rossi": 0,
+      "mediaGialli": 4.5,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.5,
+      "mediaFalli": 18.0,
+      "gialliPerFallo": 25.0,
+      "squilibrioCasaOspite": -2.5,
+      "mediaGialliCasa": 3.5,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 50.0,
+      "perSquadra": [
+        {
+          "squadra": "Venezia",
+          "partite": 1,
+          "gialli": 6,
+          "rossi": 0,
+          "media": 6.0
+        },
+        {
+          "squadra": "Napoli",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Inter",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Lazio",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 9,
+          "rossi": 0,
+          "media": 4.5,
+          "mediaGialli": 4.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 18.0,
+          "squilibrio": -2.5,
+          "mediaGialliCasa": 3.5,
+          "mediaGialliOspite": 1.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "19/09/2026",
+          "casa": "Venezia",
+          "ospite": "Lazio",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 6,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 8
+        },
+        {
+          "stagione": "2026/27",
+          "data": "05/09/2026",
+          "casa": "Inter",
+          "ospite": "Napoli",
+          "gc": 3,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 7,
+          "falliOspite": 7
+        }
+      ],
+      "prossime": [
+        {
+          "giornata": 1,
+          "data": "2027-04-21",
+          "ora": "21:00",
+          "casa": "Inter",
+          "ospite": "Como",
+          "arbitro": "Sozza",
+          "quartoUomo": "Marcenaro",
+          "var": "Doveri",
+          "avar": "La"
+        }
+      ]
+    },
+    {
       "nome": "Ayroldi",
       "partite": 1,
       "gialli": 4,
@@ -776,84 +882,6 @@
         }
       ],
       "prossime": []
-    },
-    {
-      "nome": "Manganiello",
-      "partite": 1,
-      "gialli": 4,
-      "rossi": 0,
-      "mediaGialli": 4.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 4.0,
-      "mediaFalli": 19.0,
-      "gialliPerFallo": 21.1,
-      "squilibrioCasaOspite": 2.0,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 3.0,
-      "vittorieCasa": 1,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 100.0,
-      "perSquadra": [
-        {
-          "squadra": "Venezia",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
-        },
-        {
-          "squadra": "Milan",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0,
-          "mediaGialli": 4.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 19.0,
-          "squilibrio": 2.0,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 3.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "28/08/2026",
-          "casa": "Milan",
-          "ospite": "Venezia",
-          "gc": 2,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 8,
-          "falliOspite": 11
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": null,
-          "data": "2026-09-19",
-          "ora": "15:00",
-          "casa": "Udinese",
-          "ospite": "Cagliari",
-          "arbitro": "Manganiello",
-          "quartoUomo": "Rapuano",
-          "var": "Cosso",
-          "avar": "Ghersini"
-        }
-      ]
     },
     {
       "nome": "Mariani",
@@ -1260,6 +1288,100 @@
       ]
     },
     {
+      "nome": "Perenzoni",
+      "partite": 2,
+      "gialli": 7,
+      "rossi": 0,
+      "mediaGialli": 3.5,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.5,
+      "mediaFalli": 22.5,
+      "gialliPerFallo": 15.6,
+      "squilibrioCasaOspite": -0.5,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 1.5,
+      "vittorieCasa": 1,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 50.0,
+      "perSquadra": [
+        {
+          "squadra": "Monza",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Cagliari",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Sassuolo",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Parma",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 7,
+          "rossi": 0,
+          "media": 3.5,
+          "mediaGialli": 3.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 22.5,
+          "squilibrio": -0.5,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.5
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "18/09/2026",
+          "casa": "Monza",
+          "ospite": "Sassuolo",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 4,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 6
+        },
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Parma",
+          "ospite": "Cagliari",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 6,
+          "falliOspite": 20
+        }
+      ],
+      "prossime": []
+    },
+    {
       "nome": "Colombo",
       "partite": 1,
       "gialli": 2,
@@ -1459,22 +1581,29 @@
     },
     {
       "nome": "Guida",
-      "partite": 1,
-      "gialli": 3,
+      "partite": 2,
+      "gialli": 6,
       "rossi": 0,
       "mediaGialli": 3.0,
       "mediaRossi": 0.0,
       "mediaCartellini": 3.0,
-      "mediaFalli": 15.0,
-      "gialliPerFallo": 20.0,
-      "squilibrioCasaOspite": -1.0,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 1.0,
+      "mediaFalli": 22.5,
+      "gialliPerFallo": 13.3,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 2.0,
       "vittorieCasa": 0,
-      "pareggi": 0,
+      "pareggi": 1,
       "vittorieOspite": 1,
       "percVittorieCasa": 0.0,
       "perSquadra": [
+        {
+          "squadra": "Torino",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
         {
           "squadra": "Genoa",
           "partite": 1,
@@ -1488,24 +1617,45 @@
           "gialli": 1,
           "rossi": 0,
           "media": 1.0
+        },
+        {
+          "squadra": "Bologna",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
         }
       ],
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 3,
+          "partite": 2,
+          "gialli": 6,
           "rossi": 0,
           "media": 3.0,
           "mediaGialli": 3.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 15.0,
-          "squilibrio": -1.0,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 1.0
+          "mediaFalli": 22.5,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "19/09/2026",
+          "casa": "Bologna",
+          "ospite": "Torino",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 18,
+          "falliOspite": 12
+        },
         {
           "stagione": "2026/27",
           "data": "04/09/2026",
@@ -1521,108 +1671,101 @@
           "falliOspite": 7
         }
       ],
-      "prossime": [
-        {
-          "giornata": null,
-          "data": "2026-09-19",
-          "ora": "15:00",
-          "casa": "Bologna",
-          "ospite": "Torino",
-          "arbitro": "Guida",
-          "quartoUomo": "Allegretta",
-          "var": "Santoro",
-          "avar": "Camplone"
-        }
-      ]
+      "prossime": []
     },
     {
-      "nome": "Sozza",
-      "partite": 1,
-      "gialli": 3,
+      "nome": "Manganiello",
+      "partite": 2,
+      "gialli": 6,
       "rossi": 0,
       "mediaGialli": 3.0,
       "mediaRossi": 0.0,
       "mediaCartellini": 3.0,
-      "mediaFalli": 14.0,
-      "gialliPerFallo": 21.4,
-      "squilibrioCasaOspite": 1.0,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 2.0,
+      "mediaFalli": 18.5,
+      "gialliPerFallo": 16.2,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 1.5,
+      "mediaGialliOspite": 1.5,
       "vittorieCasa": 1,
       "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 100.0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 50.0,
       "perSquadra": [
         {
-          "squadra": "Napoli",
+          "squadra": "Venezia",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Udinese",
           "partite": 1,
           "gialli": 2,
           "rossi": 0,
           "media": 2.0
         },
         {
-          "squadra": "Inter",
+          "squadra": "Milan",
           "partite": 1,
           "gialli": 1,
           "rossi": 0,
           "media": 1.0
+        },
+        {
+          "squadra": "Cagliari",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
         }
       ],
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 3,
+          "partite": 2,
+          "gialli": 6,
           "rossi": 0,
           "media": 3.0,
           "mediaGialli": 3.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 14.0,
-          "squilibrio": 1.0,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 2.0
+          "mediaFalli": 18.5,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 1.5
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "05/09/2026",
-          "casa": "Inter",
-          "ospite": "Napoli",
-          "gc": 3,
-          "go": 2,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
+          "data": "19/09/2026",
+          "casa": "Udinese",
+          "ospite": "Cagliari",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 0,
           "rossiCasa": 0,
           "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 7
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": null,
-          "data": "2026-09-19",
-          "ora": "20:45",
-          "casa": "Venezia",
-          "ospite": "Lazio",
-          "arbitro": "Sozza",
-          "quartoUomo": "Bonacina",
-          "var": "Pezzuto",
-          "avar": "Piccinini"
+          "falliCasa": 10,
+          "falliOspite": 8
         },
         {
-          "giornata": 1,
-          "data": "2027-04-21",
-          "ora": "21:00",
-          "casa": "Inter",
-          "ospite": "Como",
-          "arbitro": "Sozza",
-          "quartoUomo": "Marcenaro",
-          "var": "Doveri",
-          "avar": "La"
+          "stagione": "2026/27",
+          "data": "28/08/2026",
+          "casa": "Milan",
+          "ospite": "Venezia",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 11
         }
-      ]
+      ],
+      "prossime": []
     },
     {
       "nome": "Chiffi",
@@ -1777,84 +1920,6 @@
           "quartoUomo": "Silvestri",
           "var": "Di Paolo",
           "avar": "Di Vuolo"
-        }
-      ]
-    },
-    {
-      "nome": "Perenzoni",
-      "partite": 1,
-      "gialli": 2,
-      "rossi": 0,
-      "mediaGialli": 2.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 2.0,
-      "mediaFalli": 26.0,
-      "gialliPerFallo": 7.7,
-      "squilibrioCasaOspite": 2.0,
-      "mediaGialliCasa": 0.0,
-      "mediaGialliOspite": 2.0,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 1,
-      "percVittorieCasa": 0.0,
-      "perSquadra": [
-        {
-          "squadra": "Cagliari",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Parma",
-          "partite": 1,
-          "gialli": 0,
-          "rossi": 0,
-          "media": 0.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 26.0,
-          "squilibrio": 2.0,
-          "mediaGialliCasa": 0.0,
-          "mediaGialliOspite": 2.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "22/08/2026",
-          "casa": "Parma",
-          "ospite": "Cagliari",
-          "gc": 0,
-          "go": 1,
-          "gialliCasa": 0,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 6,
-          "falliOspite": 20
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": null,
-          "data": "2026-09-18",
-          "ora": "20:45",
-          "casa": "Monza",
-          "ospite": "Sassuolo",
-          "arbitro": "Perenzoni",
-          "quartoUomo": "Pairetto",
-          "var": "Aureliano",
-          "avar": "Baroni"
         }
       ]
     },
@@ -2701,486 +2766,636 @@
   "squadre": [
     {
       "nome": "Venezia",
-      "partite": 4,
-      "gialli": 10,
+      "partite": 5,
+      "gialli": 16,
       "rossi": 0,
-      "mediaGialli": 2.5,
+      "mediaGialli": 3.2,
       "mediaRossi": 0.0,
-      "mediaFalli": 11.0,
-      "mediaGialliCasa": 1.5,
+      "mediaFalli": 11.6,
+      "mediaGialliCasa": 3.0,
       "mediaGialliOspite": 3.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 10,
+          "partite": 5,
+          "gialli": 16,
           "rossi": 0,
-          "mediaGialli": 2.5,
+          "mediaGialli": 3.2,
           "mediaRossi": 0.0,
-          "mediaFalli": 11.0,
-          "mediaGialliCasa": 1.5,
+          "mediaFalli": 11.6,
+          "mediaGialliCasa": 3.0,
           "mediaGialliOspite": 3.5
         }
       ]
     },
     {
       "nome": "Frosinone",
-      "partite": 4,
-      "gialli": 9,
+      "partite": 5,
+      "gialli": 12,
       "rossi": 0,
-      "mediaGialli": 2.25,
+      "mediaGialli": 2.4,
       "mediaRossi": 0.0,
-      "mediaFalli": 16.5,
-      "mediaGialliCasa": 2.0,
+      "mediaFalli": 17.4,
+      "mediaGialliCasa": 2.33,
       "mediaGialliOspite": 2.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 9,
+          "partite": 5,
+          "gialli": 12,
           "rossi": 0,
-          "mediaGialli": 2.25,
+          "mediaGialli": 2.4,
           "mediaRossi": 0.0,
-          "mediaFalli": 16.5,
-          "mediaGialliCasa": 2.0,
+          "mediaFalli": 17.4,
+          "mediaGialliCasa": 2.33,
           "mediaGialliOspite": 2.5
         }
       ]
     },
     {
       "nome": "Genoa",
-      "partite": 4,
-      "gialli": 9,
+      "partite": 5,
+      "gialli": 12,
       "rossi": 1,
-      "mediaGialli": 2.25,
-      "mediaRossi": 0.25,
-      "mediaFalli": 9.0,
+      "mediaGialli": 2.4,
+      "mediaRossi": 0.2,
+      "mediaFalli": 10.0,
       "mediaGialliCasa": 2.33,
-      "mediaGialliOspite": 2.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 9,
-          "rossi": 1,
-          "mediaGialli": 2.25,
-          "mediaRossi": 0.25,
-          "mediaFalli": 9.0,
-          "mediaGialliCasa": 2.33,
-          "mediaGialliOspite": 2.0
-        }
-      ]
-    },
-    {
-      "nome": "Lecce",
-      "partite": 4,
-      "gialli": 9,
-      "rossi": 0,
-      "mediaGialli": 2.25,
-      "mediaRossi": 0.0,
-      "mediaFalli": 12.0,
-      "mediaGialliCasa": 1.5,
-      "mediaGialliOspite": 3.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 9,
-          "rossi": 0,
-          "mediaGialli": 2.25,
-          "mediaRossi": 0.0,
-          "mediaFalli": 12.0,
-          "mediaGialliCasa": 1.5,
-          "mediaGialliOspite": 3.0
-        }
-      ]
-    },
-    {
-      "nome": "Udinese",
-      "partite": 4,
-      "gialli": 9,
-      "rossi": 0,
-      "mediaGialli": 2.25,
-      "mediaRossi": 0.0,
-      "mediaFalli": 11.8,
-      "mediaGialliCasa": 4.0,
-      "mediaGialliOspite": 0.5,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 9,
-          "rossi": 0,
-          "mediaGialli": 2.25,
-          "mediaRossi": 0.0,
-          "mediaFalli": 11.8,
-          "mediaGialliCasa": 4.0,
-          "mediaGialliOspite": 0.5
-        }
-      ]
-    },
-    {
-      "nome": "Bologna",
-      "partite": 4,
-      "gialli": 8,
-      "rossi": 0,
-      "mediaGialli": 2.0,
-      "mediaRossi": 0.0,
-      "mediaFalli": 13.8,
-      "mediaGialliCasa": 3.5,
-      "mediaGialliOspite": 0.5,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 8,
-          "rossi": 0,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 13.8,
-          "mediaGialliCasa": 3.5,
-          "mediaGialliOspite": 0.5
-        }
-      ]
-    },
-    {
-      "nome": "Lazio",
-      "partite": 4,
-      "gialli": 8,
-      "rossi": 0,
-      "mediaGialli": 2.0,
-      "mediaRossi": 0.0,
-      "mediaFalli": 15.2,
-      "mediaGialliCasa": 1.5,
       "mediaGialliOspite": 2.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 8,
-          "rossi": 0,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 15.2,
-          "mediaGialliCasa": 1.5,
+          "partite": 5,
+          "gialli": 12,
+          "rossi": 1,
+          "mediaGialli": 2.4,
+          "mediaRossi": 0.2,
+          "mediaFalli": 10.0,
+          "mediaGialliCasa": 2.33,
           "mediaGialliOspite": 2.5
         }
       ]
     },
     {
-      "nome": "Milan",
-      "partite": 4,
-      "gialli": 8,
+      "nome": "Udinese",
+      "partite": 5,
+      "gialli": 11,
+      "rossi": 0,
+      "mediaGialli": 2.2,
+      "mediaRossi": 0.0,
+      "mediaFalli": 11.4,
+      "mediaGialliCasa": 3.33,
+      "mediaGialliOspite": 0.5,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 11,
+          "rossi": 0,
+          "mediaGialli": 2.2,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.4,
+          "mediaGialliCasa": 3.33,
+          "mediaGialliOspite": 0.5
+        }
+      ]
+    },
+    {
+      "nome": "Lecce",
+      "partite": 5,
+      "gialli": 10,
       "rossi": 0,
       "mediaGialli": 2.0,
       "mediaRossi": 0.0,
-      "mediaFalli": 10.5,
-      "mediaGialliCasa": 1.0,
+      "mediaFalli": 12.6,
+      "mediaGialliCasa": 1.5,
       "mediaGialliOspite": 2.33,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 8,
+          "partite": 5,
+          "gialli": 10,
           "rossi": 0,
           "mediaGialli": 2.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 10.5,
-          "mediaGialliCasa": 1.0,
+          "mediaFalli": 12.6,
+          "mediaGialliCasa": 1.5,
           "mediaGialliOspite": 2.33
         }
       ]
     },
     {
-      "nome": "Juventus",
-      "partite": 4,
-      "gialli": 7,
-      "rossi": 0,
-      "mediaGialli": 1.75,
-      "mediaRossi": 0.0,
-      "mediaFalli": 16.0,
-      "mediaGialliCasa": 1.5,
-      "mediaGialliOspite": 2.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 7,
-          "rossi": 0,
-          "mediaGialli": 1.75,
-          "mediaRossi": 0.0,
-          "mediaFalli": 16.0,
-          "mediaGialliCasa": 1.5,
-          "mediaGialliOspite": 2.0
-        }
-      ]
-    },
-    {
       "nome": "Fiorentina",
-      "partite": 4,
-      "gialli": 6,
+      "partite": 5,
+      "gialli": 9,
       "rossi": 0,
-      "mediaGialli": 1.5,
+      "mediaGialli": 1.8,
       "mediaRossi": 0.0,
       "mediaFalli": 11.0,
-      "mediaGialliCasa": 1.5,
+      "mediaGialliCasa": 2.0,
       "mediaGialliOspite": 1.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 6,
+          "partite": 5,
+          "gialli": 9,
           "rossi": 0,
-          "mediaGialli": 1.5,
+          "mediaGialli": 1.8,
           "mediaRossi": 0.0,
           "mediaFalli": 11.0,
-          "mediaGialliCasa": 1.5,
+          "mediaGialliCasa": 2.0,
           "mediaGialliOspite": 1.5
         }
       ]
     },
     {
-      "nome": "Roma",
-      "partite": 4,
-      "gialli": 6,
+      "nome": "Monza",
+      "partite": 5,
+      "gialli": 9,
       "rossi": 0,
-      "mediaGialli": 1.5,
+      "mediaGialli": 1.8,
+      "mediaRossi": 0.0,
+      "mediaFalli": 13.2,
+      "mediaGialliCasa": 2.5,
+      "mediaGialliOspite": 1.33,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 9,
+          "rossi": 0,
+          "mediaGialli": 1.8,
+          "mediaRossi": 0.0,
+          "mediaFalli": 13.2,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": 1.33
+        }
+      ]
+    },
+    {
+      "nome": "Roma",
+      "partite": 5,
+      "gialli": 9,
+      "rossi": 0,
+      "mediaGialli": 1.8,
       "mediaRossi": 0.0,
       "mediaFalli": 13.0,
-      "mediaGialliCasa": 1.5,
+      "mediaGialliCasa": 2.0,
       "mediaGialliOspite": 1.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 6,
+          "partite": 5,
+          "gialli": 9,
           "rossi": 0,
-          "mediaGialli": 1.5,
+          "mediaGialli": 1.8,
           "mediaRossi": 0.0,
           "mediaFalli": 13.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.5
+        }
+      ]
+    },
+    {
+      "nome": "Bologna",
+      "partite": 5,
+      "gialli": 8,
+      "rossi": 0,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.0,
+      "mediaFalli": 14.6,
+      "mediaGialliCasa": 2.33,
+      "mediaGialliOspite": 0.5,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 8,
+          "rossi": 0,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 14.6,
+          "mediaGialliCasa": 2.33,
+          "mediaGialliOspite": 0.5
+        }
+      ]
+    },
+    {
+      "nome": "Inter",
+      "partite": 5,
+      "gialli": 8,
+      "rossi": 0,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.0,
+      "mediaFalli": 6.6,
+      "mediaGialliCasa": 1.33,
+      "mediaGialliOspite": 2.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 8,
+          "rossi": 0,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 6.6,
+          "mediaGialliCasa": 1.33,
+          "mediaGialliOspite": 2.0
+        }
+      ]
+    },
+    {
+      "nome": "Juventus",
+      "partite": 5,
+      "gialli": 8,
+      "rossi": 0,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.0,
+      "mediaFalli": 14.8,
+      "mediaGialliCasa": 1.33,
+      "mediaGialliOspite": 2.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 8,
+          "rossi": 0,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 14.8,
+          "mediaGialliCasa": 1.33,
+          "mediaGialliOspite": 2.0
+        }
+      ]
+    },
+    {
+      "nome": "Lazio",
+      "partite": 5,
+      "gialli": 8,
+      "rossi": 0,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.0,
+      "mediaFalli": 13.8,
+      "mediaGialliCasa": 1.5,
+      "mediaGialliOspite": 1.67,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 8,
+          "rossi": 0,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 13.8,
           "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 1.67
+        }
+      ]
+    },
+    {
+      "nome": "Milan",
+      "partite": 5,
+      "gialli": 8,
+      "rossi": 0,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.0,
+      "mediaFalli": 10.2,
+      "mediaGialliCasa": 0.5,
+      "mediaGialliOspite": 2.33,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 8,
+          "rossi": 0,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.2,
+          "mediaGialliCasa": 0.5,
+          "mediaGialliOspite": 2.33
+        }
+      ]
+    },
+    {
+      "nome": "Parma",
+      "partite": 5,
+      "gialli": 8,
+      "rossi": 0,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.0,
+      "mediaFalli": 11.0,
+      "mediaGialliCasa": 1.67,
+      "mediaGialliOspite": 1.5,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 8,
+          "rossi": 0,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.0,
+          "mediaGialliCasa": 1.67,
           "mediaGialliOspite": 1.5
         }
       ]
     },
     {
       "nome": "Sassuolo",
-      "partite": 4,
-      "gialli": 6,
+      "partite": 5,
+      "gialli": 7,
       "rossi": 0,
-      "mediaGialli": 1.5,
+      "mediaGialli": 1.4,
       "mediaRossi": 0.0,
-      "mediaFalli": 9.5,
+      "mediaFalli": 8.8,
       "mediaGialliCasa": 2.5,
-      "mediaGialliOspite": 0.5,
+      "mediaGialliOspite": 0.67,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 6,
+          "partite": 5,
+          "gialli": 7,
           "rossi": 0,
-          "mediaGialli": 1.5,
+          "mediaGialli": 1.4,
           "mediaRossi": 0.0,
-          "mediaFalli": 9.5,
+          "mediaFalli": 8.8,
           "mediaGialliCasa": 2.5,
-          "mediaGialliOspite": 0.5
+          "mediaGialliOspite": 0.67
         }
       ]
     },
     {
       "nome": "Cagliari",
-      "partite": 4,
+      "partite": 5,
       "gialli": 5,
-      "rossi": 0,
-      "mediaGialli": 1.25,
-      "mediaRossi": 0.0,
-      "mediaFalli": 10.8,
-      "mediaGialliCasa": 1.5,
-      "mediaGialliOspite": 1.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 5,
-          "rossi": 0,
-          "mediaGialli": 1.25,
-          "mediaRossi": 0.0,
-          "mediaFalli": 10.8,
-          "mediaGialliCasa": 1.5,
-          "mediaGialliOspite": 1.0
-        }
-      ]
-    },
-    {
-      "nome": "Inter",
-      "partite": 4,
-      "gialli": 5,
-      "rossi": 0,
-      "mediaGialli": 1.25,
-      "mediaRossi": 0.0,
-      "mediaFalli": 6.5,
-      "mediaGialliCasa": 1.33,
-      "mediaGialliOspite": 1.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 5,
-          "rossi": 0,
-          "mediaGialli": 1.25,
-          "mediaRossi": 0.0,
-          "mediaFalli": 6.5,
-          "mediaGialliCasa": 1.33,
-          "mediaGialliOspite": 1.0
-        }
-      ]
-    },
-    {
-      "nome": "Monza",
-      "partite": 4,
-      "gialli": 5,
-      "rossi": 0,
-      "mediaGialli": 1.25,
-      "mediaRossi": 0.0,
-      "mediaFalli": 13.2,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 1.33,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 5,
-          "rossi": 0,
-          "mediaGialli": 1.25,
-          "mediaRossi": 0.0,
-          "mediaFalli": 13.2,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 1.33
-        }
-      ]
-    },
-    {
-      "nome": "Parma",
-      "partite": 4,
-      "gialli": 5,
-      "rossi": 0,
-      "mediaGialli": 1.25,
-      "mediaRossi": 0.0,
-      "mediaFalli": 9.5,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 1.5,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 5,
-          "rossi": 0,
-          "mediaGialli": 1.25,
-          "mediaRossi": 0.0,
-          "mediaFalli": 9.5,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 1.5
-        }
-      ]
-    },
-    {
-      "nome": "Napoli",
-      "partite": 4,
-      "gialli": 4,
       "rossi": 0,
       "mediaGialli": 1.0,
       "mediaRossi": 0.0,
-      "mediaFalli": 9.8,
-      "mediaGialliCasa": 0.5,
-      "mediaGialliOspite": 1.5,
+      "mediaFalli": 10.2,
+      "mediaGialliCasa": 1.5,
+      "mediaGialliOspite": 0.67,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 4,
+          "partite": 5,
+          "gialli": 5,
           "rossi": 0,
           "mediaGialli": 1.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 9.8,
-          "mediaGialliCasa": 0.5,
-          "mediaGialliOspite": 1.5
+          "mediaFalli": 10.2,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 0.67
         }
       ]
     },
     {
       "nome": "Atalanta",
-      "partite": 4,
-      "gialli": 2,
+      "partite": 5,
+      "gialli": 4,
       "rossi": 1,
-      "mediaGialli": 0.5,
-      "mediaRossi": 0.25,
-      "mediaFalli": 9.5,
+      "mediaGialli": 0.8,
+      "mediaRossi": 0.2,
+      "mediaFalli": 9.6,
       "mediaGialliCasa": 0.33,
-      "mediaGialliOspite": 1.0,
+      "mediaGialliOspite": 1.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 2,
+          "partite": 5,
+          "gialli": 4,
           "rossi": 1,
-          "mediaGialli": 0.5,
-          "mediaRossi": 0.25,
-          "mediaFalli": 9.5,
+          "mediaGialli": 0.8,
+          "mediaRossi": 0.2,
+          "mediaFalli": 9.6,
           "mediaGialliCasa": 0.33,
-          "mediaGialliOspite": 1.0
+          "mediaGialliOspite": 1.5
         }
       ]
     },
     {
       "nome": "Como",
-      "partite": 4,
-      "gialli": 2,
+      "partite": 5,
+      "gialli": 4,
       "rossi": 0,
-      "mediaGialli": 0.5,
+      "mediaGialli": 0.8,
       "mediaRossi": 0.0,
       "mediaFalli": 7.8,
       "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 0.33,
+      "mediaGialliOspite": 0.75,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 2,
+          "partite": 5,
+          "gialli": 4,
           "rossi": 0,
-          "mediaGialli": 0.5,
+          "mediaGialli": 0.8,
           "mediaRossi": 0.0,
           "mediaFalli": 7.8,
           "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 0.33
+          "mediaGialliOspite": 0.75
+        }
+      ]
+    },
+    {
+      "nome": "Napoli",
+      "partite": 5,
+      "gialli": 4,
+      "rossi": 0,
+      "mediaGialli": 0.8,
+      "mediaRossi": 0.0,
+      "mediaFalli": 9.6,
+      "mediaGialliCasa": 0.5,
+      "mediaGialliOspite": 1.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 4,
+          "rossi": 0,
+          "mediaGialli": 0.8,
+          "mediaRossi": 0.0,
+          "mediaFalli": 9.6,
+          "mediaGialliCasa": 0.5,
+          "mediaGialliOspite": 1.0
         }
       ]
     },
     {
       "nome": "Torino",
-      "partite": 4,
-      "gialli": 1,
+      "partite": 5,
+      "gialli": 4,
       "rossi": 0,
-      "mediaGialli": 0.25,
+      "mediaGialli": 0.8,
       "mediaRossi": 0.0,
-      "mediaFalli": 8.8,
+      "mediaFalli": 9.4,
       "mediaGialliCasa": 0.0,
-      "mediaGialliOspite": 0.5,
+      "mediaGialliOspite": 1.33,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 1,
+          "partite": 5,
+          "gialli": 4,
           "rossi": 0,
-          "mediaGialli": 0.25,
+          "mediaGialli": 0.8,
           "mediaRossi": 0.0,
-          "mediaFalli": 8.8,
+          "mediaFalli": 9.4,
           "mediaGialliCasa": 0.0,
-          "mediaGialliOspite": 0.5
+          "mediaGialliOspite": 1.33
         }
       ]
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "20/09/2026",
+      "casa": "Parma",
+      "ospite": "Genoa",
+      "gc": 2,
+      "go": 1,
+      "arbitro": "",
+      "gialliCasa": 3,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 17,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "20/09/2026",
+      "casa": "Milan",
+      "ospite": "Lecce",
+      "gc": 3,
+      "go": 0,
+      "arbitro": "",
+      "gialliCasa": 0,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 9,
+      "falliOspite": 15
+    },
+    {
+      "stagione": "2026/27",
+      "data": "20/09/2026",
+      "casa": "Juventus",
+      "ospite": "Atalanta",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 10,
+      "falliOspite": 10
+    },
+    {
+      "stagione": "2026/27",
+      "data": "20/09/2026",
+      "casa": "Frosinone",
+      "ospite": "Como",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "",
+      "gialliCasa": 3,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 21,
+      "falliOspite": 8
+    },
+    {
+      "stagione": "2026/27",
+      "data": "20/09/2026",
+      "casa": "Fiorentina",
+      "ospite": "Napoli",
+      "gc": 1,
+      "go": 1,
+      "arbitro": "",
+      "gialliCasa": 3,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 11,
+      "falliOspite": 9
+    },
+    {
+      "stagione": "2026/27",
+      "data": "19/09/2026",
+      "casa": "Venezia",
+      "ospite": "Lazio",
+      "gc": 0,
+      "go": 2,
+      "arbitro": "Sozza",
+      "gialliCasa": 6,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 14,
+      "falliOspite": 8
+    },
+    {
+      "stagione": "2026/27",
+      "data": "19/09/2026",
+      "casa": "Udinese",
+      "ospite": "Cagliari",
+      "gc": 0,
+      "go": 1,
+      "arbitro": "Manganiello",
+      "gialliCasa": 2,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 10,
+      "falliOspite": 8
+    },
+    {
+      "stagione": "2026/27",
+      "data": "19/09/2026",
+      "casa": "Roma",
+      "ospite": "Inter",
+      "gc": 2,
+      "go": 2,
+      "arbitro": "",
+      "gialliCasa": 3,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 13,
+      "falliOspite": 7
+    },
+    {
+      "stagione": "2026/27",
+      "data": "19/09/2026",
+      "casa": "Bologna",
+      "ospite": "Torino",
+      "gc": 1,
+      "go": 1,
+      "arbitro": "Guida",
+      "gialliCasa": 0,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 18,
+      "falliOspite": 12
+    },
+    {
+      "stagione": "2026/27",
+      "data": "18/09/2026",
+      "casa": "Monza",
+      "ospite": "Sassuolo",
+      "gc": 2,
+      "go": 1,
+      "arbitro": "Perenzoni",
+      "gialliCasa": 4,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 13,
+      "falliOspite": 6
+    },
     {
       "stagione": "2026/27",
       "data": "14/09/2026",
@@ -3630,156 +3845,6 @@
       "rossiOspite": 0,
       "falliCasa": 8,
       "falliOspite": 11
-    },
-    {
-      "stagione": "2026/27",
-      "data": "24/08/2026",
-      "casa": "Roma",
-      "ospite": "Fiorentina",
-      "gc": 4,
-      "go": 0,
-      "arbitro": "Marcenaro",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 15,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2026/27",
-      "data": "24/08/2026",
-      "casa": "Bologna",
-      "ospite": "Lazio",
-      "gc": 0,
-      "go": 1,
-      "arbitro": "Maresca F.",
-      "gialliCasa": 4,
-      "gialliOspite": 4,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 18,
-      "falliOspite": 19
-    },
-    {
-      "stagione": "2026/27",
-      "data": "23/08/2026",
-      "casa": "Venezia",
-      "ospite": "Lecce",
-      "gc": 0,
-      "go": 2,
-      "arbitro": "Rapuano",
-      "gialliCasa": 1,
-      "gialliOspite": 3,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 8,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2026/27",
-      "data": "23/08/2026",
-      "casa": "Torino",
-      "ospite": "Milan",
-      "gc": 1,
-      "go": 2,
-      "arbitro": "Zufferli",
-      "gialliCasa": 0,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 10,
-      "falliOspite": 9
-    },
-    {
-      "stagione": "2026/27",
-      "data": "23/08/2026",
-      "casa": "Frosinone",
-      "ospite": "Juventus",
-      "gc": 0,
-      "go": 1,
-      "arbitro": "Ayroldi",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 15,
-      "falliOspite": 18
-    },
-    {
-      "stagione": "2026/27",
-      "data": "23/08/2026",
-      "casa": "Atalanta",
-      "ospite": "Sassuolo",
-      "gc": 2,
-      "go": 1,
-      "arbitro": "Crezzini",
-      "gialliCasa": 0,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 9,
-      "falliOspite": 10
-    },
-    {
-      "stagione": "2026/27",
-      "data": "22/08/2026",
-      "casa": "Udinese",
-      "ospite": "Como",
-      "gc": 1,
-      "go": 1,
-      "arbitro": "Arena",
-      "gialliCasa": 3,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 13,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2026/27",
-      "data": "22/08/2026",
-      "casa": "Parma",
-      "ospite": "Cagliari",
-      "gc": 0,
-      "go": 1,
-      "arbitro": "Perenzoni",
-      "gialliCasa": 0,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 6,
-      "falliOspite": 20
-    },
-    {
-      "stagione": "2026/27",
-      "data": "22/08/2026",
-      "casa": "Inter",
-      "ospite": "Monza",
-      "gc": 4,
-      "go": 1,
-      "arbitro": "Marinelli",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 5,
-      "falliOspite": 14
-    },
-    {
-      "stagione": "2026/27",
-      "data": "22/08/2026",
-      "casa": "Genoa",
-      "ospite": "Napoli",
-      "gc": 0,
-      "go": 2,
-      "arbitro": "Di Bello",
-      "gialliCasa": 2,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 10,
-      "falliOspite": 8
     }
   ],
   "prossimeDesignazioni": [
@@ -3859,50 +3924,6 @@
       "quartoUomo": "Maresca",
       "var": "Mazzoleni",
       "avar": "Di Paolo"
-    },
-    {
-      "giornata": null,
-      "data": "2026-09-18",
-      "ora": "20:45",
-      "casa": "Monza",
-      "ospite": "Sassuolo",
-      "arbitro": "Perenzoni",
-      "quartoUomo": "Pairetto",
-      "var": "Aureliano",
-      "avar": "Baroni"
-    },
-    {
-      "giornata": null,
-      "data": "2026-09-19",
-      "ora": "15:00",
-      "casa": "Bologna",
-      "ospite": "Torino",
-      "arbitro": "Guida",
-      "quartoUomo": "Allegretta",
-      "var": "Santoro",
-      "avar": "Camplone"
-    },
-    {
-      "giornata": null,
-      "data": "2026-09-19",
-      "ora": "15:00",
-      "casa": "Udinese",
-      "ospite": "Cagliari",
-      "arbitro": "Manganiello",
-      "quartoUomo": "Rapuano",
-      "var": "Cosso",
-      "avar": "Ghersini"
-    },
-    {
-      "giornata": null,
-      "data": "2026-09-19",
-      "ora": "20:45",
-      "casa": "Venezia",
-      "ospite": "Lazio",
-      "arbitro": "Sozza",
-      "quartoUomo": "Bonacina",
-      "var": "Pezzuto",
-      "avar": "Piccinini"
     },
     {
       "giornata": 1,
@@ -4002,6 +4023,17 @@
       "quartoUomo": "Marcenaro",
       "var": "Doveri",
       "avar": "La"
+    },
+    {
+      "giornata": 1,
+      "data": "2027-04-22",
+      "ora": "21:00",
+      "casa": "Atalanta",
+      "ospite": "Lazio",
+      "arbitro": "Colomb...",
+      "quartoUomo": "Striamo",
+      "var": "Di Paolo",
+      "avar": "Giua"
     }
   ]
 }
