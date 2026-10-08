@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-05T23:05:25.990502+00:00",
+  "aggiornato": "2026-10-08T21:53:02.063913+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -2364,7 +2364,21 @@
           "falliOspite": 11
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 8,
+          "data": "2026-10-09",
+          "ora": "21:00",
+          "casa": "Malaga",
+          "ospite": "Espanol",
+          "arbitro": "Francisco José Hernández",
+          "quartoUomo": "Manuel García",
+          "var": "José Antonio López",
+          "avar": "Álvaro Moreno",
+          "assistente1": "Iván Massó",
+          "assistente2": "Abraham Pérez"
+        }
+      ]
     }
   ],
   "squadre": [
@@ -4461,6 +4475,19 @@
       "avar": "José Antonio López",
       "assistente1": "Guillermo Santiago",
       "assistente2": "José Francisco García"
+    },
+    {
+      "giornata": 8,
+      "data": "2026-10-09",
+      "ora": "21:00",
+      "casa": "Malaga",
+      "ospite": "Espanol",
+      "arbitro": "Francisco José Hernández",
+      "quartoUomo": "Manuel García",
+      "var": "José Antonio López",
+      "avar": "Álvaro Moreno",
+      "assistente1": "Iván Massó",
+      "assistente2": "Abraham Pérez"
     }
   ]
 }
