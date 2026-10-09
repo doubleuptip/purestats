@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-08T21:53:02.063913+00:00",
+  "aggiornato": "2026-10-09T21:30:59.452207+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -837,7 +837,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 8,
+          "data": "2026-10-10",
+          "ora": "21:00",
+          "casa": "Real Madrid",
+          "ospite": "Villarreal",
+          "arbitro": "Isidro Díaz De Mera",
+          "quartoUomo": "Francisco García",
+          "var": "Alejandro Muñiz",
+          "avar": "Juan Luis Pulido",
+          "assistente1": "Diego Santaúrsula",
+          "assistente2": "Rubén Campo"
+        }
+      ]
     },
     {
       "nome": "Javier Alberola",
@@ -1102,7 +1116,21 @@
           "falliOspite": 17
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 8,
+          "data": "2026-10-10",
+          "ora": "18:30",
+          "casa": "Barcelona",
+          "ospite": "Getafe",
+          "arbitro": "Jesús Gil",
+          "quartoUomo": "Alfredo Ramo",
+          "var": "Daniel Jesús Trujillo",
+          "avar": "Luis Mario Milla",
+          "assistente1": "Guadalupe Porras",
+          "assistente2": "Javier Martínez"
+        }
+      ]
     },
     {
       "nome": "Ricardo De Burgos",
@@ -1329,6 +1357,19 @@
           "quartoUomo": "Pol Arenas",
           "var": "Luis Mario Milla",
           "avar": "José Antonio López",
+          "assistente1": "Guillermo Santiago",
+          "assistente2": "José Francisco García"
+        },
+        {
+          "giornata": 8,
+          "data": "2026-10-10",
+          "ora": "16:15",
+          "casa": "Alaves",
+          "ospite": "Ath Madrid",
+          "arbitro": "Alejandro Quintero",
+          "quartoUomo": "Imanol Irurtzun",
+          "var": "Juan Luis Pulido",
+          "avar": "Alejandro Muñiz",
           "assistente1": "Guillermo Santiago",
           "assistente2": "José Francisco García"
         }
@@ -1754,7 +1795,21 @@
           "falliOspite": 7
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 8,
+          "data": "2026-10-10",
+          "ora": "14:00",
+          "casa": "Vallecano",
+          "ospite": "Ath Bilbao",
+          "arbitro": "José María Sánchez",
+          "quartoUomo": "Gonzalo González",
+          "var": "Javier Iglesias",
+          "avar": "Daniel Jesús Trujillo",
+          "assistente1": "Íñigo Prieto",
+          "assistente2": "Juan José López"
+        }
+      ]
     },
     {
       "nome": "Juan Martínez",
@@ -4488,6 +4543,58 @@
       "avar": "Álvaro Moreno",
       "assistente1": "Iván Massó",
       "assistente2": "Abraham Pérez"
+    },
+    {
+      "giornata": 8,
+      "data": "2026-10-10",
+      "ora": "14:00",
+      "casa": "Vallecano",
+      "ospite": "Ath Bilbao",
+      "arbitro": "José María Sánchez",
+      "quartoUomo": "Gonzalo González",
+      "var": "Javier Iglesias",
+      "avar": "Daniel Jesús Trujillo",
+      "assistente1": "Íñigo Prieto",
+      "assistente2": "Juan José López"
+    },
+    {
+      "giornata": 8,
+      "data": "2026-10-10",
+      "ora": "16:15",
+      "casa": "Alaves",
+      "ospite": "Ath Madrid",
+      "arbitro": "Alejandro Quintero",
+      "quartoUomo": "Imanol Irurtzun",
+      "var": "Juan Luis Pulido",
+      "avar": "Alejandro Muñiz",
+      "assistente1": "Guillermo Santiago",
+      "assistente2": "José Francisco García"
+    },
+    {
+      "giornata": 8,
+      "data": "2026-10-10",
+      "ora": "18:30",
+      "casa": "Barcelona",
+      "ospite": "Getafe",
+      "arbitro": "Jesús Gil",
+      "quartoUomo": "Alfredo Ramo",
+      "var": "Daniel Jesús Trujillo",
+      "avar": "Luis Mario Milla",
+      "assistente1": "Guadalupe Porras",
+      "assistente2": "Javier Martínez"
+    },
+    {
+      "giornata": 8,
+      "data": "2026-10-10",
+      "ora": "21:00",
+      "casa": "Real Madrid",
+      "ospite": "Villarreal",
+      "arbitro": "Isidro Díaz De Mera",
+      "quartoUomo": "Francisco García",
+      "var": "Alejandro Muñiz",
+      "avar": "Juan Luis Pulido",
+      "assistente1": "Diego Santaúrsula",
+      "assistente2": "Rubén Campo"
     }
   ]
 }
