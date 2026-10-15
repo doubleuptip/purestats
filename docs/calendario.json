@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-14T09:54:44.316779+00:00",
+  "aggiornato": "2026-10-15T09:35:29.057378+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -12,51 +12,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-10-11",
-          "ora": "12:30",
-          "casa": "Como",
-          "ospite": "Roma",
-          "daDesignazioni": true,
-          "arbitro": "Fabbri",
-          "var": "Gariglio"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "15:00",
-          "casa": "Lazio",
-          "ospite": "Monza",
-          "daDesignazioni": true,
-          "arbitro": "Collu",
-          "var": "Di Paolo"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "15:00",
-          "casa": "Lecce",
-          "ospite": "Bologna",
-          "daDesignazioni": true,
-          "arbitro": "Pairetto",
-          "var": "Mazzoleni"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "18:00",
-          "casa": "Sassuolo",
-          "ospite": "Milan",
-          "daDesignazioni": true,
-          "arbitro": "Fourneau",
-          "var": "Santoro"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "20:45",
-          "casa": "Cagliari",
-          "ospite": "Juventus",
-          "daDesignazioni": true,
-          "arbitro": "Marcenaro",
-          "var": "Camplone"
-        },
         {
           "data": "2026-10-12",
           "ora": "18:30",
@@ -81,42 +36,6 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-10-11",
-          "ora": "14:00",
-          "casa": "Elche",
-          "ospite": "Celta",
-          "daDesignazioni": true,
-          "arbitro": "Javier Alberola",
-          "var": "Carlos Del Cerro"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "16:15",
-          "casa": "Sociedad",
-          "ospite": "La Coruna",
-          "daDesignazioni": true,
-          "arbitro": "Miguel Sesma",
-          "var": "Juan Luis Pulido"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "18:30",
-          "casa": "Betis",
-          "ospite": "Osasuna",
-          "daDesignazioni": true,
-          "arbitro": "Carlos Muñiz",
-          "var": "Javier Iglesias"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "21:00",
-          "casa": "Santander",
-          "ospite": "Valencia",
-          "daDesignazioni": true,
-          "arbitro": "Luis Bestard",
-          "var": "Luis Mario Milla"
-        },
-        {
           "data": "2026-10-12",
           "ora": "21:00",
           "casa": "Levante",
@@ -133,86 +52,15 @@
     },
     "bundesliga": {
       "nome": "Bundesliga",
-      "partite": [
-        {
-          "data": "2026-10-11",
-          "ora": "15:30",
-          "casa": "FC Koln",
-          "ospite": "M'gladbach",
-          "daDesignazioni": true,
-          "arbitro": "Florian Badstübner",
-          "var": "Patrick Hanslbauer"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "17:30",
-          "casa": "Freiburg",
-          "ospite": "Schalke 04",
-          "daDesignazioni": true,
-          "arbitro": "Martin Petersen",
-          "var": "Johann Pfeifer"
-        }
-      ]
+      "partite": []
     },
     "bundesliga_2": {
       "nome": "2. Bundesliga",
-      "partite": [
-        {
-          "data": "2026-10-11",
-          "ora": "13:30",
-          "casa": "St Pauli",
-          "ospite": "Karlsruhe",
-          "daDesignazioni": true,
-          "arbitro": "Lukas Benen",
-          "var": "Bastian Dankert"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "13:30",
-          "casa": "Hertha",
-          "ospite": "Greuther Furth",
-          "daDesignazioni": true,
-          "arbitro": "Tobias Stieler",
-          "var": "Timo Gerach"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "13:30",
-          "casa": "Bochum",
-          "ospite": "Bielefeld",
-          "daDesignazioni": true,
-          "arbitro": "Konrad Oldhafer",
-          "var": "Katrin Rafalski"
-        }
-      ]
+      "partite": []
     },
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
-        {
-          "data": "2026-10-11",
-          "ora": "13:30",
-          "casa": "Konyaspor",
-          "ospite": "Buyuksehyr",
-          "daDesignazioni": true,
-          "arbitro": "Batuhan Kolak"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "16:00",
-          "casa": "Gaziantep",
-          "ospite": "Corum",
-          "daDesignazioni": true,
-          "arbitro": "Gürcan Hasova"
-        },
-        {
-          "data": "2026-10-11",
-          "ora": "19:00",
-          "casa": "Besiktas",
-          "ospite": "Kocaelispor",
-          "daDesignazioni": true,
-          "arbitro": "Abdullah Buğra Taşkınsoy"
-        },
         {
           "data": "2026-10-12",
           "ora": "20:00",
