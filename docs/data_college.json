@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-12T21:02:39.872340+00:00",
+  "aggiornato": "2026-10-16T04:12:09.346891+00:00",
   "campionato": "College Football",
   "fonte": "CollegeFootballData.com",
   "stagioni": [
@@ -9,8 +9,8 @@
     "2023",
     "2022"
   ],
-  "totalePartite": 4567,
-  "partiteGiocate": 4107,
+  "totalePartite": 4568,
+  "partiteGiocate": 4114,
   "squadre": [
     {
       "nome": "Georgia",
@@ -2733,6 +2733,86 @@
       ]
     },
     {
+      "nome": "Jacksonville State",
+      "nomeCompleto": "Jacksonville State",
+      "conference": "Conference USA",
+      "conferenza": "Conference USA",
+      "partite": 48,
+      "vittorie": 32,
+      "sconfitte": 16,
+      "pareggi": 0,
+      "percVittorie": 66.7,
+      "mediaFatti": 30.9,
+      "mediaSubiti": 24.0,
+      "differenza": 328,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Conference USA",
+          "partite": 7,
+          "vittorie": 5,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 71.4,
+          "mediaFatti": 27.3,
+          "mediaSubiti": 22.7,
+          "differenza": 32,
+          "vittorieCasa": 4,
+          "partiteCasa": 4,
+          "vittorieFuori": 1,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Conference USA",
+          "partite": 14,
+          "vittorie": 9,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 64.3,
+          "mediaFatti": 28.1,
+          "mediaSubiti": 25.2,
+          "differenza": 41,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Conference USA",
+          "partite": 14,
+          "vittorie": 9,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 64.3,
+          "mediaFatti": 36.0,
+          "mediaSubiti": 26.1,
+          "differenza": 138,
+          "vittorieCasa": 6,
+          "partiteCasa": 8,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Conference USA",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 30.2,
+          "mediaSubiti": 21.2,
+          "differenza": 117,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        }
+      ]
+    },
+    {
       "nome": "Liberty",
       "nomeCompleto": "Liberty",
       "conference": "Conference USA",
@@ -3112,86 +3192,6 @@
           "vittorieCasa": 6,
           "partiteCasa": 7,
           "vittorieFuori": 5,
-          "partiteFuori": 7
-        }
-      ]
-    },
-    {
-      "nome": "Jacksonville State",
-      "nomeCompleto": "Jacksonville State",
-      "conference": "Conference USA",
-      "conferenza": "Conference USA",
-      "partite": 47,
-      "vittorie": 31,
-      "sconfitte": 16,
-      "pareggi": 0,
-      "percVittorie": 66.0,
-      "mediaFatti": 30.9,
-      "mediaSubiti": 24.0,
-      "differenza": 325,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Conference USA",
-          "partite": 6,
-          "vittorie": 4,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 66.7,
-          "mediaFatti": 27.3,
-          "mediaSubiti": 22.5,
-          "differenza": 29,
-          "vittorieCasa": 3,
-          "partiteCasa": 3,
-          "vittorieFuori": 1,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Conference USA",
-          "partite": 14,
-          "vittorie": 9,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 64.3,
-          "mediaFatti": 28.1,
-          "mediaSubiti": 25.2,
-          "differenza": 41,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Conference USA",
-          "partite": 14,
-          "vittorie": 9,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 64.3,
-          "mediaFatti": 36.0,
-          "mediaSubiti": 26.1,
-          "differenza": 138,
-          "vittorieCasa": 6,
-          "partiteCasa": 8,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 30.2,
-          "mediaSubiti": 21.2,
-          "differenza": 117,
-          "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
           "partiteFuori": 7
         }
       ]
@@ -3965,6 +3965,102 @@
       ]
     },
     {
+      "nome": "Western Kentucky",
+      "nomeCompleto": "Western Kentucky",
+      "conference": "Conference USA",
+      "conferenza": "Conference USA",
+      "partite": 61,
+      "vittorie": 37,
+      "sconfitte": 24,
+      "pareggi": 0,
+      "percVittorie": 60.7,
+      "mediaFatti": 29.3,
+      "mediaSubiti": 25.5,
+      "differenza": 231,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Conference USA",
+          "partite": 7,
+          "vittorie": 3,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 42.9,
+          "mediaFatti": 21.3,
+          "mediaSubiti": 30.6,
+          "differenza": -65,
+          "vittorieCasa": 2,
+          "partiteCasa": 2,
+          "vittorieFuori": 1,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Conference USA",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 29.5,
+          "mediaSubiti": 22.8,
+          "differenza": 87,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Conference USA",
+          "partite": 14,
+          "vittorie": 8,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 57.1,
+          "mediaFatti": 24.9,
+          "mediaSubiti": 24.6,
+          "differenza": 4,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 8
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Conference USA",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 30.5,
+          "mediaSubiti": 28.7,
+          "differenza": 23,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Conference USA",
+          "partite": 14,
+          "vittorie": 9,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 64.3,
+          "mediaFatti": 36.4,
+          "mediaSubiti": 23.4,
+          "differenza": 182,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 5,
+          "partiteFuori": 8
+        }
+      ]
+    },
+    {
       "nome": "Minnesota",
       "nomeCompleto": "Minnesota",
       "conference": "Big Ten",
@@ -4057,102 +4153,6 @@
           "partiteCasa": 8,
           "vittorieFuori": 3,
           "partiteFuori": 5
-        }
-      ]
-    },
-    {
-      "nome": "Western Kentucky",
-      "nomeCompleto": "Western Kentucky",
-      "conference": "Conference USA",
-      "conferenza": "Conference USA",
-      "partite": 60,
-      "vittorie": 36,
-      "sconfitte": 24,
-      "pareggi": 0,
-      "percVittorie": 60.0,
-      "mediaFatti": 29.5,
-      "mediaSubiti": 25.9,
-      "differenza": 218,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Conference USA",
-          "partite": 6,
-          "vittorie": 2,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 22.2,
-          "mediaSubiti": 35.2,
-          "differenza": -78,
-          "vittorieCasa": 2,
-          "partiteCasa": 2,
-          "vittorieFuori": 0,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 29.5,
-          "mediaSubiti": 22.8,
-          "differenza": 87,
-          "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Conference USA",
-          "partite": 14,
-          "vittorie": 8,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 57.1,
-          "mediaFatti": 24.9,
-          "mediaSubiti": 24.6,
-          "differenza": 4,
-          "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 8
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 30.5,
-          "mediaSubiti": 28.7,
-          "differenza": 23,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Conference USA",
-          "partite": 14,
-          "vittorie": 9,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 64.3,
-          "mediaFatti": 36.4,
-          "mediaSubiti": 23.4,
-          "differenza": 182,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 5,
-          "partiteFuori": 8
         }
       ]
     },
@@ -5597,102 +5597,6 @@
       ]
     },
     {
-      "nome": "East Carolina",
-      "nomeCompleto": "East Carolina",
-      "conference": "American Athletic",
-      "conferenza": "American Athletic",
-      "partite": 56,
-      "vittorie": 30,
-      "sconfitte": 26,
-      "pareggi": 0,
-      "percVittorie": 53.6,
-      "mediaFatti": 28.5,
-      "mediaSubiti": 24.1,
-      "differenza": 245,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "American Athletic",
-          "partite": 5,
-          "vittorie": 3,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 60.0,
-          "mediaFatti": 24.8,
-          "mediaSubiti": 22.6,
-          "differenza": 11,
-          "vittorieCasa": 2,
-          "partiteCasa": 3,
-          "vittorieFuori": 1,
-          "partiteFuori": 2
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 32.7,
-          "mediaSubiti": 20.1,
-          "differenza": 164,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 32.0,
-          "mediaSubiti": 27.3,
-          "differenza": 61,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "American Athletic",
-          "partite": 12,
-          "vittorie": 2,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 16.7,
-          "mediaFatti": 17.3,
-          "mediaSubiti": 22.4,
-          "differenza": -61,
-          "vittorieCasa": 1,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 32.5,
-          "mediaSubiti": 27.2,
-          "differenza": 70,
-          "vittorieCasa": 5,
-          "partiteCasa": 8,
-          "vittorieFuori": 3,
-          "partiteFuori": 5
-        }
-      ]
-    },
-    {
       "nome": "Georgia Tech",
       "nomeCompleto": "Georgia Tech",
       "conference": "ACC",
@@ -5981,6 +5885,102 @@
       ]
     },
     {
+      "nome": "East Carolina",
+      "nomeCompleto": "East Carolina",
+      "conference": "American Athletic",
+      "conferenza": "American Athletic",
+      "partite": 57,
+      "vittorie": 30,
+      "sconfitte": 27,
+      "pareggi": 0,
+      "percVittorie": 52.6,
+      "mediaFatti": 28.3,
+      "mediaSubiti": 24.2,
+      "differenza": 232,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "American Athletic",
+          "partite": 6,
+          "vittorie": 3,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 50.0,
+          "mediaFatti": 23.5,
+          "mediaSubiti": 23.8,
+          "differenza": -2,
+          "vittorieCasa": 2,
+          "partiteCasa": 3,
+          "vittorieFuori": 1,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 32.7,
+          "mediaSubiti": 20.1,
+          "differenza": 164,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 32.0,
+          "mediaSubiti": 27.3,
+          "differenza": 61,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "American Athletic",
+          "partite": 12,
+          "vittorie": 2,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 16.7,
+          "mediaFatti": 17.3,
+          "mediaSubiti": 22.4,
+          "differenza": -61,
+          "vittorieCasa": 1,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 32.5,
+          "mediaSubiti": 27.2,
+          "differenza": 70,
+          "vittorieCasa": 5,
+          "partiteCasa": 8,
+          "vittorieFuori": 3,
+          "partiteFuori": 5
+        }
+      ]
+    },
+    {
       "nome": "North Carolina",
       "nomeCompleto": "North Carolina",
       "conference": "ACC",
@@ -6072,6 +6072,102 @@
           "vittorieCasa": 3,
           "partiteCasa": 8,
           "vittorieFuori": 6,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "Texas State",
+      "nomeCompleto": "Texas State",
+      "conference": "Pac-12",
+      "conferenza": "Pac-12",
+      "partite": 57,
+      "vittorie": 30,
+      "sconfitte": 27,
+      "pareggi": 0,
+      "percVittorie": 52.6,
+      "mediaFatti": 33.7,
+      "mediaSubiti": 28.6,
+      "differenza": 287,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Pac-12",
+          "partite": 6,
+          "vittorie": 3,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 50.0,
+          "mediaFatti": 40.0,
+          "mediaSubiti": 32.2,
+          "differenza": 47,
+          "vittorieCasa": 3,
+          "partiteCasa": 4,
+          "vittorieFuori": 0,
+          "partiteFuori": 2
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 36.5,
+          "mediaSubiti": 29.0,
+          "differenza": 97,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 36.5,
+          "mediaSubiti": 24.5,
+          "differenza": 156,
+          "vittorieCasa": 5,
+          "partiteCasa": 8,
+          "vittorieFuori": 3,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 36.7,
+          "mediaSubiti": 32.8,
+          "differenza": 50,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Sun Belt",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 21.1,
+          "mediaSubiti": 26.3,
+          "differenza": -63,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 0,
           "partiteFuori": 6
         }
       ]
@@ -6365,102 +6461,6 @@
       ]
     },
     {
-      "nome": "Texas State",
-      "nomeCompleto": "Texas State",
-      "conference": "Pac-12",
-      "conferenza": "Pac-12",
-      "partite": 56,
-      "vittorie": 29,
-      "sconfitte": 27,
-      "pareggi": 0,
-      "percVittorie": 51.8,
-      "mediaFatti": 33.1,
-      "mediaSubiti": 28.7,
-      "differenza": 248,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Pac-12",
-          "partite": 5,
-          "vittorie": 2,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 40.0,
-          "mediaFatti": 34.8,
-          "mediaSubiti": 33.2,
-          "differenza": 8,
-          "vittorieCasa": 2,
-          "partiteCasa": 3,
-          "vittorieFuori": 0,
-          "partiteFuori": 2
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 36.5,
-          "mediaSubiti": 29.0,
-          "differenza": 97,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 36.5,
-          "mediaSubiti": 24.5,
-          "differenza": 156,
-          "vittorieCasa": 5,
-          "partiteCasa": 8,
-          "vittorieFuori": 3,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 36.7,
-          "mediaSubiti": 32.8,
-          "differenza": 50,
-          "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Sun Belt",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 21.1,
-          "mediaSubiti": 26.3,
-          "differenza": -63,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "App State",
       "nomeCompleto": "App State",
       "conference": "Sun Belt",
@@ -6749,6 +6749,102 @@
       ]
     },
     {
+      "nome": "Georgia Southern",
+      "nomeCompleto": "Georgia Southern",
+      "conference": "Sun Belt",
+      "conferenza": "Sun Belt",
+      "partite": 59,
+      "vittorie": 30,
+      "sconfitte": 29,
+      "pareggi": 0,
+      "percVittorie": 50.8,
+      "mediaFatti": 29.1,
+      "mediaSubiti": 29.6,
+      "differenza": -32,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Sun Belt",
+          "partite": 7,
+          "vittorie": 3,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 42.9,
+          "mediaFatti": 24.4,
+          "mediaSubiti": 23.0,
+          "differenza": 10,
+          "vittorieCasa": 1,
+          "partiteCasa": 3,
+          "vittorieFuori": 2,
+          "partiteFuori": 4
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 27.9,
+          "mediaSubiti": 32.3,
+          "differenza": -57,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 28.0,
+          "mediaSubiti": 27.6,
+          "differenza": 5,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 30.2,
+          "mediaSubiti": 30.5,
+          "differenza": -4,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 32.7,
+          "mediaSubiti": 31.6,
+          "differenza": 14,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 7
+        }
+      ]
+    },
+    {
       "nome": "Arizona State",
       "nomeCompleto": "Arizona State",
       "conference": "Big 12",
@@ -6841,150 +6937,6 @@
           "partiteCasa": 6,
           "vittorieFuori": 1,
           "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Delaware",
-      "nomeCompleto": "Delaware",
-      "conference": "Conference USA",
-      "conferenza": "Conference USA",
-      "partite": 18,
-      "vittorie": 9,
-      "sconfitte": 9,
-      "pareggi": 0,
-      "percVittorie": 50.0,
-      "mediaFatti": 26.9,
-      "mediaSubiti": 29.5,
-      "differenza": -47,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Conference USA",
-          "partite": 5,
-          "vittorie": 2,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 40.0,
-          "mediaFatti": 21.4,
-          "mediaSubiti": 25.6,
-          "differenza": -21,
-          "vittorieCasa": 2,
-          "partiteCasa": 3,
-          "vittorieFuori": 0,
-          "partiteFuori": 2
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 29.0,
-          "mediaSubiti": 31.0,
-          "differenza": -26,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Georgia Southern",
-      "nomeCompleto": "Georgia Southern",
-      "conference": "Sun Belt",
-      "conferenza": "Sun Belt",
-      "partite": 58,
-      "vittorie": 29,
-      "sconfitte": 29,
-      "pareggi": 0,
-      "percVittorie": 50.0,
-      "mediaFatti": 29.2,
-      "mediaSubiti": 29.9,
-      "differenza": -40,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Sun Belt",
-          "partite": 6,
-          "vittorie": 2,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 24.7,
-          "mediaSubiti": 24.3,
-          "differenza": 2,
-          "vittorieCasa": 1,
-          "partiteCasa": 3,
-          "vittorieFuori": 1,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 27.9,
-          "mediaSubiti": 32.3,
-          "differenza": -57,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 28.0,
-          "mediaSubiti": 27.6,
-          "differenza": 5,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 30.2,
-          "mediaSubiti": 30.5,
-          "differenza": -4,
-          "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 32.7,
-          "mediaSubiti": 31.6,
-          "differenza": 14,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 7
         }
       ]
     },
@@ -8333,6 +8285,102 @@
       ]
     },
     {
+      "nome": "Delaware",
+      "nomeCompleto": "Delaware",
+      "conference": "Conference USA",
+      "conferenza": "Conference USA",
+      "partite": 19,
+      "vittorie": 9,
+      "sconfitte": 10,
+      "pareggi": 0,
+      "percVittorie": 47.4,
+      "mediaFatti": 27.1,
+      "mediaSubiti": 29.7,
+      "differenza": -50,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Conference USA",
+          "partite": 6,
+          "vittorie": 2,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 22.8,
+          "mediaSubiti": 26.8,
+          "differenza": -24,
+          "vittorieCasa": 2,
+          "partiteCasa": 3,
+          "vittorieFuori": 0,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Conference USA",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 29.0,
+          "mediaSubiti": 31.0,
+          "differenza": -26,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "Missouri State",
+      "nomeCompleto": "Missouri State",
+      "conference": "Conference USA",
+      "conferenza": "Conference USA",
+      "partite": 19,
+      "vittorie": 9,
+      "sconfitte": 10,
+      "pareggi": 0,
+      "percVittorie": 47.4,
+      "mediaFatti": 24.5,
+      "mediaSubiti": 29.3,
+      "differenza": -91,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Conference USA",
+          "partite": 6,
+          "vittorie": 2,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 22.2,
+          "mediaSubiti": 30.5,
+          "differenza": -50,
+          "vittorieCasa": 2,
+          "partiteCasa": 3,
+          "vittorieFuori": 0,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Conference USA",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 25.6,
+          "mediaSubiti": 28.8,
+          "differenza": -41,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        }
+      ]
+    },
+    {
       "nome": "UCF",
       "nomeCompleto": "UCF",
       "conference": "Big 12",
@@ -8616,102 +8664,6 @@
           "vittorieCasa": 5,
           "partiteCasa": 7,
           "vittorieFuori": 3,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Old Dominion",
-      "nomeCompleto": "Old Dominion",
-      "conference": "Sun Belt",
-      "conferenza": "Sun Belt",
-      "partite": 56,
-      "vittorie": 26,
-      "sconfitte": 30,
-      "pareggi": 0,
-      "percVittorie": 46.4,
-      "mediaFatti": 25.1,
-      "mediaSubiti": 25.2,
-      "differenza": -9,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Sun Belt",
-          "partite": 6,
-          "vittorie": 2,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 18.2,
-          "mediaSubiti": 27.5,
-          "differenza": -56,
-          "vittorieCasa": 1,
-          "partiteCasa": 3,
-          "vittorieFuori": 1,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 10,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 76.9,
-          "mediaFatti": 32.0,
-          "mediaSubiti": 18.5,
-          "differenza": 175,
-          "vittorieCasa": 6,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Sun Belt",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 28.0,
-          "mediaSubiti": 28.0,
-          "differenza": 0,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 23.8,
-          "mediaSubiti": 27.2,
-          "differenza": -43,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Sun Belt",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 19.5,
-          "mediaSubiti": 26.6,
-          "differenza": -85,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
           "partiteFuori": 6
         }
       ]
@@ -9097,6 +9049,102 @@
           "partiteCasa": 7,
           "vittorieFuori": 0,
           "partiteFuori": 5
+        }
+      ]
+    },
+    {
+      "nome": "Old Dominion",
+      "nomeCompleto": "Old Dominion",
+      "conference": "Sun Belt",
+      "conferenza": "Sun Belt",
+      "partite": 57,
+      "vittorie": 26,
+      "sconfitte": 31,
+      "pareggi": 0,
+      "percVittorie": 45.6,
+      "mediaFatti": 24.9,
+      "mediaSubiti": 25.2,
+      "differenza": -17,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Sun Belt",
+          "partite": 7,
+          "vittorie": 2,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 28.6,
+          "mediaFatti": 17.7,
+          "mediaSubiti": 26.9,
+          "differenza": -64,
+          "vittorieCasa": 1,
+          "partiteCasa": 4,
+          "vittorieFuori": 1,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 10,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 76.9,
+          "mediaFatti": 32.0,
+          "mediaSubiti": 18.5,
+          "differenza": 175,
+          "vittorieCasa": 6,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Sun Belt",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 28.0,
+          "mediaSubiti": 28.0,
+          "differenza": 0,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 23.8,
+          "mediaSubiti": 27.2,
+          "differenza": -43,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Sun Belt",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 19.5,
+          "mediaSubiti": 26.6,
+          "differenza": -85,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
         }
       ]
     },
@@ -9581,54 +9629,6 @@
       ]
     },
     {
-      "nome": "Missouri State",
-      "nomeCompleto": "Missouri State",
-      "conference": "Conference USA",
-      "conferenza": "Conference USA",
-      "partite": 18,
-      "vittorie": 8,
-      "sconfitte": 10,
-      "pareggi": 0,
-      "percVittorie": 44.4,
-      "mediaFatti": 24.6,
-      "mediaSubiti": 29.8,
-      "differenza": -94,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Conference USA",
-          "partite": 5,
-          "vittorie": 1,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 20.0,
-          "mediaFatti": 21.8,
-          "mediaSubiti": 32.4,
-          "differenza": -53,
-          "vittorieCasa": 1,
-          "partiteCasa": 2,
-          "vittorieFuori": 0,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 25.6,
-          "mediaSubiti": 28.8,
-          "differenza": -41,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        }
-      ]
-    },
-    {
       "nome": "New Mexico",
       "nomeCompleto": "New Mexico",
       "conference": "Mountain West",
@@ -10013,70 +10013,6 @@
       ]
     },
     {
-      "nome": "Kennesaw State",
-      "nomeCompleto": "Kennesaw State",
-      "conference": "Conference USA",
-      "conferenza": "Conference USA",
-      "partite": 31,
-      "vittorie": 13,
-      "sconfitte": 18,
-      "pareggi": 0,
-      "percVittorie": 41.9,
-      "mediaFatti": 22.1,
-      "mediaSubiti": 27.4,
-      "differenza": -163,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Conference USA",
-          "partite": 5,
-          "vittorie": 1,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 20.0,
-          "mediaFatti": 22.6,
-          "mediaSubiti": 23.4,
-          "differenza": -4,
-          "vittorieCasa": 1,
-          "partiteCasa": 3,
-          "vittorieFuori": 0,
-          "partiteFuori": 2
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Conference USA",
-          "partite": 14,
-          "vittorie": 10,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 71.4,
-          "mediaFatti": 26.7,
-          "mediaSubiti": 25.5,
-          "differenza": 17,
-          "vittorieCasa": 6,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 8
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Conference USA",
-          "partite": 12,
-          "vittorie": 2,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 16.7,
-          "mediaFatti": 16.5,
-          "mediaSubiti": 31.2,
-          "differenza": -176,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "Central Michigan",
       "nomeCompleto": "Central Michigan",
       "conference": "Mid-American",
@@ -10269,97 +10205,65 @@
       ]
     },
     {
-      "nome": "Florida International",
-      "nomeCompleto": "Florida International",
+      "nome": "Kennesaw State",
+      "nomeCompleto": "Kennesaw State",
       "conference": "Conference USA",
       "conferenza": "Conference USA",
-      "partite": 54,
-      "vittorie": 22,
-      "sconfitte": 32,
+      "partite": 32,
+      "vittorie": 13,
+      "sconfitte": 19,
       "pareggi": 0,
-      "percVittorie": 40.7,
-      "mediaFatti": 23.1,
-      "mediaSubiti": 29.4,
-      "differenza": -343,
+      "percVittorie": 40.6,
+      "mediaFatti": 22.1,
+      "mediaSubiti": 27.2,
+      "differenza": -166,
       "perStagione": [
         {
           "stagione": "2026",
           "conferenza": "Conference USA",
-          "partite": 5,
-          "vittorie": 3,
-          "sconfitte": 2,
+          "partite": 6,
+          "vittorie": 1,
+          "sconfitte": 5,
           "pareggi": 0,
-          "percVittorie": 60.0,
-          "mediaFatti": 18.8,
-          "mediaSubiti": 12.2,
-          "differenza": 33,
-          "vittorieCasa": 3,
+          "percVittorie": 16.7,
+          "mediaFatti": 22.3,
+          "mediaSubiti": 23.5,
+          "differenza": -7,
+          "vittorieCasa": 1,
           "partiteCasa": 3,
           "vittorieFuori": 0,
-          "partiteFuori": 2
+          "partiteFuori": 3
         },
         {
           "stagione": "2025",
           "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
+          "partite": 14,
+          "vittorie": 10,
+          "sconfitte": 4,
           "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 28.5,
-          "mediaSubiti": 30.0,
-          "differenza": -19,
-          "vittorieCasa": 4,
+          "percVittorie": 71.4,
+          "mediaFatti": 26.7,
+          "mediaSubiti": 25.5,
+          "differenza": 17,
+          "vittorieCasa": 6,
           "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
+          "vittorieFuori": 4,
+          "partiteFuori": 8
         },
         {
           "stagione": "2024",
           "conferenza": "Conference USA",
           "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
+          "vittorie": 2,
+          "sconfitte": 10,
           "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 26.3,
-          "mediaSubiti": 25.8,
-          "differenza": 7,
-          "vittorieCasa": 4,
+          "percVittorie": 16.7,
+          "mediaFatti": 16.5,
+          "mediaSubiti": 31.2,
+          "differenza": -176,
+          "vittorieCasa": 2,
           "partiteCasa": 6,
           "vittorieFuori": 0,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Conference USA",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 20.1,
-          "mediaSubiti": 31.8,
-          "differenza": -141,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Conference USA",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 18.7,
-          "mediaSubiti": 37.2,
-          "differenza": -223,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
           "partiteFuori": 6
         }
       ]
@@ -10456,6 +10360,102 @@
           "vittorieCasa": 3,
           "partiteCasa": 7,
           "vittorieFuori": 0,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "Florida International",
+      "nomeCompleto": "Florida International",
+      "conference": "Conference USA",
+      "conferenza": "Conference USA",
+      "partite": 55,
+      "vittorie": 22,
+      "sconfitte": 33,
+      "pareggi": 0,
+      "percVittorie": 40.0,
+      "mediaFatti": 23.1,
+      "mediaSubiti": 29.4,
+      "differenza": -346,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Conference USA",
+          "partite": 6,
+          "vittorie": 3,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 50.0,
+          "mediaFatti": 19.7,
+          "mediaSubiti": 14.7,
+          "differenza": 30,
+          "vittorieCasa": 3,
+          "partiteCasa": 3,
+          "vittorieFuori": 0,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Conference USA",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 28.5,
+          "mediaSubiti": 30.0,
+          "differenza": -19,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Conference USA",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 26.3,
+          "mediaSubiti": 25.8,
+          "differenza": 7,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 0,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Conference USA",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 20.1,
+          "mediaSubiti": 31.8,
+          "differenza": -141,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Conference USA",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 18.7,
+          "mediaSubiti": 37.2,
+          "differenza": -223,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
           "partiteFuori": 6
         }
       ]
@@ -10653,6 +10653,102 @@
       ]
     },
     {
+      "nome": "UAB",
+      "nomeCompleto": "UAB",
+      "conference": "American Athletic",
+      "conferenza": "American Athletic",
+      "partite": 56,
+      "vittorie": 22,
+      "sconfitte": 34,
+      "pareggi": 0,
+      "percVittorie": 39.3,
+      "mediaFatti": 27.6,
+      "mediaSubiti": 31.9,
+      "differenza": -242,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "American Athletic",
+          "partite": 7,
+          "vittorie": 4,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 57.1,
+          "mediaFatti": 23.3,
+          "mediaSubiti": 24.6,
+          "differenza": -9,
+          "vittorieCasa": 4,
+          "partiteCasa": 4,
+          "vittorieFuori": 0,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "American Athletic",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 26.4,
+          "mediaSubiti": 38.2,
+          "differenza": -142,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "American Athletic",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 26.2,
+          "mediaSubiti": 34.2,
+          "differenza": -97,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 0,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "American Athletic",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 29.9,
+          "mediaSubiti": 36.9,
+          "differenza": -84,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 0,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Conference USA",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 30.1,
+          "mediaSubiti": 23.2,
+          "differenza": 90,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
       "nome": "Boston College",
       "nomeCompleto": "Boston College",
       "conference": "ACC",
@@ -10749,6 +10845,102 @@
       ]
     },
     {
+      "nome": "Middle Tennessee",
+      "nomeCompleto": "Middle Tennessee",
+      "conference": "Conference USA",
+      "conferenza": "Conference USA",
+      "partite": 55,
+      "vittorie": 21,
+      "sconfitte": 34,
+      "pareggi": 0,
+      "percVittorie": 38.2,
+      "mediaFatti": 23.4,
+      "mediaSubiti": 30.0,
+      "differenza": -360,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Conference USA",
+          "partite": 6,
+          "vittorie": 3,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 50.0,
+          "mediaFatti": 22.8,
+          "mediaSubiti": 28.3,
+          "differenza": -33,
+          "vittorieCasa": 3,
+          "partiteCasa": 3,
+          "vittorieFuori": 0,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Conference USA",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 22.4,
+          "mediaSubiti": 30.9,
+          "differenza": -102,
+          "vittorieCasa": 1,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Conference USA",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 18.1,
+          "mediaSubiti": 34.2,
+          "differenza": -194,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Conference USA",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 24.2,
+          "mediaSubiti": 28.1,
+          "differenza": -46,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 0,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Conference USA",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 28.8,
+          "mediaSubiti": 27.7,
+          "differenza": 15,
+          "vittorieCasa": 3,
+          "partiteCasa": 5,
+          "vittorieFuori": 5,
+          "partiteFuori": 8
+        }
+      ]
+    },
+    {
       "nome": "Northern Illinois",
       "nomeCompleto": "Northern Illinois",
       "conference": "Mountain West",
@@ -10840,182 +11032,6 @@
           "vittorieCasa": 1,
           "partiteCasa": 6,
           "vittorieFuori": 2,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "UAB",
-      "nomeCompleto": "UAB",
-      "conference": "American Athletic",
-      "conferenza": "American Athletic",
-      "partite": 55,
-      "vittorie": 21,
-      "sconfitte": 34,
-      "pareggi": 0,
-      "percVittorie": 38.2,
-      "mediaFatti": 27.5,
-      "mediaSubiti": 32.2,
-      "differenza": -255,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "American Athletic",
-          "partite": 6,
-          "vittorie": 3,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 50.0,
-          "mediaFatti": 22.2,
-          "mediaSubiti": 25.8,
-          "differenza": -22,
-          "vittorieCasa": 3,
-          "partiteCasa": 3,
-          "vittorieFuori": 0,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "American Athletic",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 26.4,
-          "mediaSubiti": 38.2,
-          "differenza": -142,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "American Athletic",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 26.2,
-          "mediaSubiti": 34.2,
-          "differenza": -97,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "American Athletic",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 29.9,
-          "mediaSubiti": 36.9,
-          "differenza": -84,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 30.1,
-          "mediaSubiti": 23.2,
-          "differenza": 90,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Sam Houston",
-      "nomeCompleto": "Sam Houston",
-      "conference": "Conference USA",
-      "conferenza": "Conference USA",
-      "partite": 42,
-      "vittorie": 16,
-      "sconfitte": 26,
-      "pareggi": 0,
-      "percVittorie": 38.1,
-      "mediaFatti": 20.9,
-      "mediaSubiti": 27.7,
-      "differenza": -289,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Conference USA",
-          "partite": 5,
-          "vittorie": 1,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 20.0,
-          "mediaFatti": 22.8,
-          "mediaSubiti": 26.2,
-          "differenza": -17,
-          "vittorieCasa": 1,
-          "partiteCasa": 2,
-          "vittorieFuori": 0,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Conference USA",
-          "partite": 12,
-          "vittorie": 2,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 16.7,
-          "mediaFatti": 17.8,
-          "mediaSubiti": 37.8,
-          "differenza": -241,
-          "vittorieCasa": 1,
-          "partiteCasa": 5,
-          "vittorieFuori": 1,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 10,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 76.9,
-          "mediaFatti": 23.8,
-          "mediaSubiti": 20.5,
-          "differenza": 43,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Conference USA",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 20.0,
-          "mediaSubiti": 26.2,
-          "differenza": -74,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
           "partiteFuori": 6
         }
       ]
@@ -11117,94 +11133,78 @@
       ]
     },
     {
-      "nome": "Colorado State",
-      "nomeCompleto": "Colorado State",
-      "conference": "Pac-12",
-      "conferenza": "Pac-12",
-      "partite": 54,
-      "vittorie": 20,
-      "sconfitte": 34,
+      "nome": "Sam Houston",
+      "nomeCompleto": "Sam Houston",
+      "conference": "Conference USA",
+      "conferenza": "Conference USA",
+      "partite": 43,
+      "vittorie": 16,
+      "sconfitte": 27,
       "pareggi": 0,
-      "percVittorie": 37.0,
-      "mediaFatti": 22.2,
-      "mediaSubiti": 29.2,
-      "differenza": -379,
+      "percVittorie": 37.2,
+      "mediaFatti": 20.4,
+      "mediaSubiti": 27.5,
+      "differenza": -302,
       "perStagione": [
         {
           "stagione": "2026",
-          "conferenza": "Pac-12",
-          "partite": 5,
-          "vittorie": 2,
-          "sconfitte": 3,
+          "conferenza": "Conference USA",
+          "partite": 6,
+          "vittorie": 1,
+          "sconfitte": 5,
           "pareggi": 0,
-          "percVittorie": 40.0,
-          "mediaFatti": 37.4,
-          "mediaSubiti": 38.6,
-          "differenza": -6,
-          "vittorieCasa": 2,
-          "partiteCasa": 4,
+          "percVittorie": 16.7,
+          "mediaFatti": 19.5,
+          "mediaSubiti": 24.5,
+          "differenza": -30,
+          "vittorieCasa": 1,
+          "partiteCasa": 3,
           "vittorieFuori": 0,
-          "partiteFuori": 1
+          "partiteFuori": 3
         },
         {
           "stagione": "2025",
-          "conferenza": "Mountain West",
+          "conferenza": "Conference USA",
           "partite": 12,
           "vittorie": 2,
           "sconfitte": 10,
           "pareggi": 0,
           "percVittorie": 16.7,
-          "mediaFatti": 18.5,
-          "mediaSubiti": 30.8,
-          "differenza": -148,
-          "vittorieCasa": 2,
-          "partiteCasa": 7,
-          "vittorieFuori": 0,
-          "partiteFuori": 5
+          "mediaFatti": 17.8,
+          "mediaSubiti": 37.8,
+          "differenza": -241,
+          "vittorieCasa": 1,
+          "partiteCasa": 5,
+          "vittorieFuori": 1,
+          "partiteFuori": 7
         },
         {
           "stagione": "2024",
-          "conferenza": "Mountain West",
+          "conferenza": "Conference USA",
           "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
+          "vittorie": 10,
+          "sconfitte": 3,
           "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 24.4,
-          "mediaSubiti": 25.8,
-          "differenza": -18,
+          "percVittorie": 76.9,
+          "mediaFatti": 23.8,
+          "mediaSubiti": 20.5,
+          "differenza": 43,
           "vittorieCasa": 6,
-          "partiteCasa": 8,
-          "vittorieFuori": 2,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Mountain West",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 26.1,
-          "mediaSubiti": 29.6,
-          "differenza": -42,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
           "partiteFuori": 6
         },
         {
-          "stagione": "2022",
-          "conferenza": "Mountain West",
+          "stagione": "2023",
+          "conferenza": "Conference USA",
           "partite": 12,
           "vittorie": 3,
           "sconfitte": 9,
           "pareggi": 0,
           "percVittorie": 25.0,
-          "mediaFatti": 13.2,
-          "mediaSubiti": 26.9,
-          "differenza": -165,
+          "mediaFatti": 20.0,
+          "mediaSubiti": 26.2,
+          "differenza": -74,
           "vittorieCasa": 2,
           "partiteCasa": 6,
           "vittorieFuori": 1,
@@ -11309,102 +11309,6 @@
       ]
     },
     {
-      "nome": "Middle Tennessee",
-      "nomeCompleto": "Middle Tennessee",
-      "conference": "Conference USA",
-      "conferenza": "Conference USA",
-      "partite": 54,
-      "vittorie": 20,
-      "sconfitte": 34,
-      "pareggi": 0,
-      "percVittorie": 37.0,
-      "mediaFatti": 23.3,
-      "mediaSubiti": 30.0,
-      "differenza": -363,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Conference USA",
-          "partite": 5,
-          "vittorie": 2,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 40.0,
-          "mediaFatti": 20.8,
-          "mediaSubiti": 28.0,
-          "differenza": -36,
-          "vittorieCasa": 2,
-          "partiteCasa": 2,
-          "vittorieFuori": 0,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Conference USA",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 22.4,
-          "mediaSubiti": 30.9,
-          "differenza": -102,
-          "vittorieCasa": 1,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Conference USA",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 18.1,
-          "mediaSubiti": 34.2,
-          "differenza": -194,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Conference USA",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 24.2,
-          "mediaSubiti": 28.1,
-          "differenza": -46,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Conference USA",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 28.8,
-          "mediaSubiti": 27.7,
-          "differenza": 15,
-          "vittorieCasa": 3,
-          "partiteCasa": 5,
-          "vittorieFuori": 5,
-          "partiteFuori": 8
-        }
-      ]
-    },
-    {
       "nome": "Rice",
       "nomeCompleto": "Rice",
       "conference": "American Athletic",
@@ -11497,6 +11401,102 @@
           "partiteCasa": 6,
           "vittorieFuori": 1,
           "partiteFuori": 7
+        }
+      ]
+    },
+    {
+      "nome": "Colorado State",
+      "nomeCompleto": "Colorado State",
+      "conference": "Pac-12",
+      "conferenza": "Pac-12",
+      "partite": 55,
+      "vittorie": 20,
+      "sconfitte": 35,
+      "pareggi": 0,
+      "percVittorie": 36.4,
+      "mediaFatti": 22.3,
+      "mediaSubiti": 29.9,
+      "differenza": -418,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Pac-12",
+          "partite": 6,
+          "vittorie": 2,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 35.7,
+          "mediaSubiti": 43.2,
+          "differenza": -45,
+          "vittorieCasa": 2,
+          "partiteCasa": 4,
+          "vittorieFuori": 0,
+          "partiteFuori": 2
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 2,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 16.7,
+          "mediaFatti": 18.5,
+          "mediaSubiti": 30.8,
+          "differenza": -148,
+          "vittorieCasa": 2,
+          "partiteCasa": 7,
+          "vittorieFuori": 0,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Mountain West",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 24.4,
+          "mediaSubiti": 25.8,
+          "differenza": -18,
+          "vittorieCasa": 6,
+          "partiteCasa": 8,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 26.1,
+          "mediaSubiti": 29.6,
+          "differenza": -42,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 13.2,
+          "mediaSubiti": 26.9,
+          "differenza": -165,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
         }
       ]
     },
@@ -48785,33 +48785,34 @@
         {
           "nome": "Hunter Watson",
           "ruolo": "QB",
-          "valore": 101,
+          "valore": 209,
           "misura": "yard passate",
-          "dettagli": []
+          "dettagli": [
+            "1 INT"
+          ]
         },
         {
-          "nome": "Landan Brown",
+          "nome": "Hunter Watson",
           "ruolo": "RB",
-          "valore": 85,
+          "valore": 91,
           "misura": "yard corse",
           "dettagli": [
             "1 TD"
           ]
         },
         {
-          "nome": "Tim Burns Jr.",
+          "nome": "Elijah Green",
           "ruolo": "WR",
-          "valore": 59,
+          "valore": 61,
           "misura": "yard ricevute",
           "dettagli": [
-            "1 ric.",
-            "1 TD"
+            "7 ric."
           ]
         },
         {
-          "nome": "Malik Phillips",
+          "nome": "Grady O'Neill",
           "ruolo": "WR",
-          "valore": 28,
+          "valore": 50,
           "misura": "yard ricevute",
           "dettagli": [
             "3 ric."
@@ -52636,33 +52637,34 @@
         {
           "nome": "Hunter Watson",
           "ruolo": "QB",
-          "valore": 101,
+          "valore": 209,
           "misura": "yard passate",
-          "dettagli": []
+          "dettagli": [
+            "1 INT"
+          ]
         },
         {
-          "nome": "Landan Brown",
+          "nome": "Hunter Watson",
           "ruolo": "RB",
-          "valore": 85,
+          "valore": 91,
           "misura": "yard corse",
           "dettagli": [
             "1 TD"
           ]
         },
         {
-          "nome": "Tim Burns Jr.",
+          "nome": "Elijah Green",
           "ruolo": "WR",
-          "valore": 59,
+          "valore": 61,
           "misura": "yard ricevute",
           "dettagli": [
-            "1 ric.",
-            "1 TD"
+            "7 ric."
           ]
         },
         {
-          "nome": "Malik Phillips",
+          "nome": "Grady O'Neill",
           "ruolo": "WR",
-          "valore": 28,
+          "valore": 50,
           "misura": "yard ricevute",
           "dettagli": [
             "3 ric."
@@ -160421,12 +160423,87 @@
       "data": "2026-10-13",
       "casa": "Middle Tennessee",
       "ospite": "Delaware",
-      "pc": null,
-      "po": null,
+      "pc": 33,
+      "po": 30,
       "conferenzaCasa": "Conference USA",
       "stadio": "Johnny \"Red\" Floyd Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Roman Gagliano",
+          "ruolo": "QB",
+          "valore": 291,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Antonio Martin",
+          "ruolo": "RB",
+          "valore": 48,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Koraun Perdue",
+          "ruolo": "WR",
+          "valore": 103,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Neo Clifton",
+          "ruolo": "WR",
+          "valore": 64,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "2 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Tyler Bell",
+          "ruolo": "QB",
+          "valore": 306,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Viron Ellison Jr.",
+          "ruolo": "RB",
+          "valore": 19,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Donovan Lewis",
+          "ruolo": "WR",
+          "valore": 83,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "Kaderris Roberts",
+          "ruolo": "WR",
+          "valore": 45,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -160434,12 +160511,88 @@
       "data": "2026-10-14",
       "casa": "Jacksonville State",
       "ospite": "Florida International",
-      "pc": null,
-      "po": null,
+      "pc": 27,
+      "po": 24,
       "conferenzaCasa": "Conference USA",
       "stadio": "AmFirst Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Caden Creel",
+          "ruolo": "QB",
+          "valore": 214,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Caden Creel",
+          "ruolo": "RB",
+          "valore": 95,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Deondre Johnson",
+          "ruolo": "WR",
+          "valore": 93,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Luke Gilbert",
+          "ruolo": "WR",
+          "valore": 55,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "J.J. Kohl",
+          "ruolo": "QB",
+          "valore": 278,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Devonte Lyons",
+          "ruolo": "RB",
+          "valore": 73,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Maguire Anderson",
+          "ruolo": "WR",
+          "valore": 133,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric.",
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "James Resar",
+          "ruolo": "WR",
+          "valore": 46,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -160447,12 +160600,87 @@
       "data": "2026-10-14",
       "casa": "Missouri State",
       "ospite": "Kennesaw State",
-      "pc": null,
-      "po": null,
+      "pc": 24,
+      "po": 21,
       "conferenzaCasa": "Conference USA",
       "stadio": "Plaster Sports Complex",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Henry Belin IV",
+          "ruolo": "QB",
+          "valore": 300,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Connor Lair",
+          "ruolo": "RB",
+          "valore": 65,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Isaiah Myers",
+          "ruolo": "WR",
+          "valore": 135,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric.",
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Jmariyae Robinson",
+          "ruolo": "WR",
+          "valore": 77,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Rickie Collins",
+          "ruolo": "QB",
+          "valore": 260,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Alan Woods III",
+          "ruolo": "RB",
+          "valore": 47,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Dylan Gary",
+          "ruolo": "WR",
+          "valore": 135,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "10 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Javon Rogers",
+          "ruolo": "WR",
+          "valore": 79,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -160460,12 +160688,84 @@
       "data": "2026-10-15",
       "casa": "Old Dominion",
       "ospite": "Georgia Southern",
-      "pc": null,
-      "po": null,
+      "pc": 15,
+      "po": 23,
       "conferenzaCasa": "Sun Belt",
       "stadio": "S.B. Ballard Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Ryan Huff",
+          "ruolo": "QB",
+          "valore": 115,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Maurki James",
+          "ruolo": "RB",
+          "valore": 29,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "TJ Johnson",
+          "ruolo": "WR",
+          "valore": 83,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Kendall Harris",
+          "ruolo": "WR",
+          "valore": 47,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Turner Helton",
+          "ruolo": "QB",
+          "valore": 205,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Tyrese Woodgett",
+          "ruolo": "RB",
+          "valore": 77,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Alex Taylor",
+          "ruolo": "WR",
+          "valore": 75,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        },
+        {
+          "nome": "Andre Greene Jr.",
+          "ruolo": "WR",
+          "valore": 61,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -160473,12 +160773,82 @@
       "data": "2026-10-15",
       "casa": "Sam Houston",
       "ospite": "Western Kentucky",
-      "pc": null,
-      "po": null,
+      "pc": 3,
+      "po": 16,
       "conferenzaCasa": "Conference USA",
       "stadio": "Elliott T. Bowers Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Landyn Locke",
+          "ruolo": "QB",
+          "valore": 112,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "MJ Dowdy",
+          "ruolo": "RB",
+          "valore": 55,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Chris Reed",
+          "ruolo": "WR",
+          "valore": 51,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Kyan Berry-Johnson",
+          "ruolo": "WR",
+          "valore": 26,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Brock Glenn",
+          "ruolo": "QB",
+          "valore": 127,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Brock Glenn",
+          "ruolo": "RB",
+          "valore": 54,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jonathan Stafford Jr.",
+          "ruolo": "WR",
+          "valore": 37,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Moussa Barry",
+          "ruolo": "WR",
+          "valore": 36,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -160486,12 +160856,83 @@
       "data": "2026-10-15",
       "casa": "UAB",
       "ospite": "East Carolina",
-      "pc": null,
-      "po": null,
+      "pc": 30,
+      "po": 17,
       "conferenzaCasa": "American Athletic",
       "stadio": "Protective Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Ryder Burton",
+          "ruolo": "QB",
+          "valore": 262,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Roderick Robinson II",
+          "ruolo": "RB",
+          "valore": 33,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "C.J. Smith",
+          "ruolo": "WR",
+          "valore": 119,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric."
+          ]
+        },
+        {
+          "nome": "Tiaquelin Mims",
+          "ruolo": "WR",
+          "valore": 47,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Emory Williams",
+          "ruolo": "QB",
+          "valore": 126,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "TJ Engleman",
+          "ruolo": "RB",
+          "valore": 104,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jason Dickerson",
+          "ruolo": "WR",
+          "valore": 26,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Ismael Smith Flores",
+          "ruolo": "WR",
+          "valore": 22,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -160499,12 +160940,84 @@
       "data": "2026-10-16",
       "casa": "Texas State",
       "ospite": "Colorado State",
-      "pc": null,
-      "po": null,
+      "pc": 66,
+      "po": 27,
       "conferenzaCasa": "Pac-12",
       "stadio": "Bobcat Stadium (TX)",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Brad Jackson",
+          "ruolo": "QB",
+          "valore": 213,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Torrance Burgess Jr.",
+          "ruolo": "RB",
+          "valore": 224,
+          "misura": "yard corse",
+          "dettagli": [
+            "4 TD"
+          ]
+        },
+        {
+          "nome": "Beau Sparks",
+          "ruolo": "WR",
+          "valore": 57,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Torrance Burgess Jr.",
+          "ruolo": "WR",
+          "valore": 52,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Ksaan Farrar",
+          "ruolo": "QB",
+          "valore": 282,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Oliver Lundberg-Coleman",
+          "ruolo": "RB",
+          "valore": 46,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jackson Harper",
+          "ruolo": "WR",
+          "valore": 91,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Tommy Maher",
+          "ruolo": "WR",
+          "valore": 66,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -162037,6 +162550,19 @@
       "po": null,
       "conferenzaCasa": "Mountain West",
       "stadio": "University Stadium (NM)",
+      "giocatoriCasa": [],
+      "giocatoriOspite": []
+    },
+    {
+      "stagione": "2026",
+      "settimana": "8",
+      "data": "2026-10-25",
+      "casa": "Tulane",
+      "ospite": "UTSA",
+      "pc": null,
+      "po": null,
+      "conferenzaCasa": "American Athletic",
+      "stadio": "Yulman Stadium",
       "giocatoriCasa": [],
       "giocatoriOspite": []
     },
