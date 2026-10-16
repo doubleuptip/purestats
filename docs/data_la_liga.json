@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-15T20:13:20.635340+00:00",
+  "aggiornato": "2026-10-16T19:50:35.686268+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -77,7 +77,21 @@
           "falliOspite": 17
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-17",
+          "ora": "21:00",
+          "casa": "Valencia",
+          "ospite": "Ath Bilbao",
+          "arbitro": "Adrián Cordero",
+          "quartoUomo": "Álvaro Cánovas",
+          "var": "David Gálvez",
+          "avar": "Jorge Figueroa",
+          "assistente1": "Israel Bárcena",
+          "assistente2": "Samuel García"
+        }
+      ]
     },
     {
       "nome": "Alejandro José Hernández",
@@ -199,7 +213,21 @@
           "falliOspite": 13
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-17",
+          "ora": "14:00",
+          "casa": "Espanol",
+          "ospite": "Ath Madrid",
+          "arbitro": "Alejandro José Hernández",
+          "quartoUomo": "Víctor Manuel Broncano",
+          "var": "Jorge Figueroa",
+          "avar": "José María Sánchez",
+          "assistente1": "José Enrique Naranjo",
+          "assistente2": "Marcos Cerdán"
+        }
+      ]
     },
     {
       "nome": "Isidro Díaz De Mera",
@@ -1437,7 +1465,21 @@
           "falliOspite": 7
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-17",
+          "ora": "18:30",
+          "casa": "Betis",
+          "ospite": "Barcelona",
+          "arbitro": "Ricardo De Burgos",
+          "quartoUomo": "Alejandro Clemente",
+          "var": "Carlos Del Cerro",
+          "avar": "Iván Caparrós",
+          "assistente1": "Iker De Francisco",
+          "assistente2": "Asier Pérez De Mendiola"
+        }
+      ]
     },
     {
       "nome": "Alejandro Quintero",
@@ -2675,7 +2717,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-17",
+          "ora": "16:15",
+          "casa": "Villarreal",
+          "ospite": "Elche",
+          "arbitro": "Víctor García",
+          "quartoUomo": "Armando Ramo",
+          "var": "Álvaro Moreno",
+          "avar": "David Gálvez",
+          "assistente1": "Diego Sánchez",
+          "assistente2": "Julián Villaseñor"
+        }
+      ]
     }
   ],
   "squadre": [
@@ -4798,6 +4854,58 @@
       "avar": "Jorge Figueroa",
       "assistente1": "Roberto Tejero",
       "assistente2": "Rubén Becerril"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-17",
+      "ora": "14:00",
+      "casa": "Espanol",
+      "ospite": "Ath Madrid",
+      "arbitro": "Alejandro José Hernández",
+      "quartoUomo": "Víctor Manuel Broncano",
+      "var": "Jorge Figueroa",
+      "avar": "José María Sánchez",
+      "assistente1": "José Enrique Naranjo",
+      "assistente2": "Marcos Cerdán"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-17",
+      "ora": "16:15",
+      "casa": "Villarreal",
+      "ospite": "Elche",
+      "arbitro": "Víctor García",
+      "quartoUomo": "Armando Ramo",
+      "var": "Álvaro Moreno",
+      "avar": "David Gálvez",
+      "assistente1": "Diego Sánchez",
+      "assistente2": "Julián Villaseñor"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-17",
+      "ora": "18:30",
+      "casa": "Betis",
+      "ospite": "Barcelona",
+      "arbitro": "Ricardo De Burgos",
+      "quartoUomo": "Alejandro Clemente",
+      "var": "Carlos Del Cerro",
+      "avar": "Iván Caparrós",
+      "assistente1": "Iker De Francisco",
+      "assistente2": "Asier Pérez De Mendiola"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-17",
+      "ora": "21:00",
+      "casa": "Valencia",
+      "ospite": "Ath Bilbao",
+      "arbitro": "Adrián Cordero",
+      "quartoUomo": "Álvaro Cánovas",
+      "var": "David Gálvez",
+      "avar": "Jorge Figueroa",
+      "assistente1": "Israel Bárcena",
+      "assistente2": "Samuel García"
     }
   ]
 }
