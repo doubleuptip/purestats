@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-16T19:50:35.686268+00:00",
+  "aggiornato": "2026-10-19T21:23:40.953986+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -642,7 +642,21 @@
           "falliOspite": 11
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-18",
+          "ora": "18:30",
+          "casa": "Malaga",
+          "ospite": "Sociedad",
+          "arbitro": "Luis Bestard",
+          "quartoUomo": "Jorge Tárraga",
+          "var": "Iván Caparrós",
+          "avar": "Daniel Jesús Trujillo",
+          "assistente1": "Álvaro Granel",
+          "assistente2": "Carlos Martínez"
+        }
+      ]
     },
     {
       "nome": "Manuel Jesús Orellana",
@@ -900,7 +914,21 @@
           "falliOspite": 14
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-19",
+          "ora": "21:00",
+          "casa": "Getafe",
+          "ospite": "Vallecano",
+          "arbitro": "Jon Ander González",
+          "quartoUomo": "Antonio Sánchez",
+          "var": "Alejandro Muñiz",
+          "avar": "David Gálvez",
+          "assistente1": "Ignacio Alonso",
+          "assistente2": "Judit Romano"
+        }
+      ]
     },
     {
       "nome": "Miguel Sesma",
@@ -2187,7 +2215,21 @@
           "falliOspite": 13
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-18",
+          "ora": "16:15",
+          "casa": "Celta",
+          "ospite": "Alaves",
+          "arbitro": "José Luis Munuera",
+          "quartoUomo": "Pedro Oreiro",
+          "var": "Rubén Ávalos",
+          "avar": "Juan Luis Pulido",
+          "assistente1": "Adrián Díaz",
+          "assistente2": "Antonio Ramón Martínez"
+        }
+      ]
     },
     {
       "nome": "José María Sánchez",
@@ -2473,7 +2515,21 @@
           "falliOspite": 17
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-18",
+          "ora": "14:00",
+          "casa": "Osasuna",
+          "ospite": "Santander",
+          "arbitro": "Juan Martínez",
+          "quartoUomo": "Ekaitz Ikiñi García",
+          "var": "Daniel Jesús Trujillo",
+          "avar": "José María Sánchez",
+          "assistente1": "Diego Barbero",
+          "assistente2": "Miguel Martínez"
+        }
+      ]
     },
     {
       "nome": "Mateo Busquets",
@@ -2595,7 +2651,21 @@
           "falliOspite": 17
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 9,
+          "data": "2026-10-18",
+          "ora": "21:00",
+          "casa": "Real Madrid",
+          "ospite": "Sevilla",
+          "arbitro": "Mateo Busquets",
+          "quartoUomo": "Néstor Holgueras",
+          "var": "Guillermo Cuadra",
+          "avar": "Rubén Ávalos",
+          "assistente1": "Íñigo Prieto",
+          "assistente2": "Gonzalo García"
+        }
+      ]
     },
     {
       "nome": "Víctor García",
@@ -4906,6 +4976,71 @@
       "avar": "Jorge Figueroa",
       "assistente1": "Israel Bárcena",
       "assistente2": "Samuel García"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-18",
+      "ora": "14:00",
+      "casa": "Osasuna",
+      "ospite": "Santander",
+      "arbitro": "Juan Martínez",
+      "quartoUomo": "Ekaitz Ikiñi García",
+      "var": "Daniel Jesús Trujillo",
+      "avar": "José María Sánchez",
+      "assistente1": "Diego Barbero",
+      "assistente2": "Miguel Martínez"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-18",
+      "ora": "16:15",
+      "casa": "Celta",
+      "ospite": "Alaves",
+      "arbitro": "José Luis Munuera",
+      "quartoUomo": "Pedro Oreiro",
+      "var": "Rubén Ávalos",
+      "avar": "Juan Luis Pulido",
+      "assistente1": "Adrián Díaz",
+      "assistente2": "Antonio Ramón Martínez"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-18",
+      "ora": "18:30",
+      "casa": "Malaga",
+      "ospite": "Sociedad",
+      "arbitro": "Luis Bestard",
+      "quartoUomo": "Jorge Tárraga",
+      "var": "Iván Caparrós",
+      "avar": "Daniel Jesús Trujillo",
+      "assistente1": "Álvaro Granel",
+      "assistente2": "Carlos Martínez"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-18",
+      "ora": "21:00",
+      "casa": "Real Madrid",
+      "ospite": "Sevilla",
+      "arbitro": "Mateo Busquets",
+      "quartoUomo": "Néstor Holgueras",
+      "var": "Guillermo Cuadra",
+      "avar": "Rubén Ávalos",
+      "assistente1": "Íñigo Prieto",
+      "assistente2": "Gonzalo García"
+    },
+    {
+      "giornata": 9,
+      "data": "2026-10-19",
+      "ora": "21:00",
+      "casa": "Getafe",
+      "ospite": "Vallecano",
+      "arbitro": "Jon Ander González",
+      "quartoUomo": "Antonio Sánchez",
+      "var": "Alejandro Muñiz",
+      "avar": "David Gálvez",
+      "assistente1": "Ignacio Alonso",
+      "assistente2": "Judit Romano"
     }
   ]
 }
