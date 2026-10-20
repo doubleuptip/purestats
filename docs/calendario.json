@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-19T10:29:20.905337+00:00",
+  "aggiornato": "2026-10-20T09:47:32.365270+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -74,12 +74,6 @@
       "nome": "Serie A",
       "partite": [
         {
-          "data": "2026-10-16",
-          "ora": "20:45",
-          "casa": "Frosinone",
-          "ospite": "Sassuolo"
-        },
-        {
           "data": "2026-10-17",
           "ora": "15:00",
           "casa": "Venezia",
@@ -139,14 +133,6 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-10-16",
-          "ora": "21:00",
-          "casa": "La Coruna",
-          "ospite": "Levante",
-          "arbitro": "Manuel Jesús Orellana",
-          "var": "Valentín Pizarro"
-        },
-        {
           "data": "2026-10-17",
           "ora": "14:00",
           "casa": "Espanol",
@@ -182,43 +168,47 @@
           "data": "2026-10-18",
           "ora": "14:00",
           "casa": "Osasuna",
-          "ospite": "Santander"
+          "ospite": "Santander",
+          "arbitro": "Juan Martínez",
+          "var": "Daniel Jesús Trujillo"
         },
         {
           "data": "2026-10-18",
           "ora": "16:15",
           "casa": "Celta",
-          "ospite": "Alaves"
+          "ospite": "Alaves",
+          "arbitro": "José Luis Munuera",
+          "var": "Rubén Ávalos"
         },
         {
           "data": "2026-10-18",
           "ora": "18:30",
           "casa": "Malaga",
-          "ospite": "Sociedad"
+          "ospite": "Sociedad",
+          "arbitro": "Luis Bestard",
+          "var": "Iván Caparrós"
         },
         {
           "data": "2026-10-18",
           "ora": "21:00",
           "casa": "Real Madrid",
-          "ospite": "Sevilla"
+          "ospite": "Sevilla",
+          "arbitro": "Mateo Busquets",
+          "var": "Guillermo Cuadra"
         },
         {
           "data": "2026-10-19",
           "ora": "21:00",
           "casa": "Getafe",
-          "ospite": "Vallecano"
+          "ospite": "Vallecano",
+          "arbitro": "Jon Ander González",
+          "var": "Alejandro Muñiz"
         }
       ]
     },
     "ligue_1": {
       "nome": "Ligue 1",
       "partite": [
-        {
-          "data": "2026-10-16",
-          "ora": "20:45",
-          "casa": "Le Mans",
-          "ospite": "Toulouse"
-        },
         {
           "data": "2026-10-17",
           "ora": "17:15",
@@ -272,14 +262,6 @@
     "bundesliga": {
       "nome": "Bundesliga",
       "partite": [
-        {
-          "data": "2026-10-16",
-          "ora": "20:30",
-          "casa": "Ein Frankfurt",
-          "ospite": "FC Koln",
-          "arbitro": "Benjamin Brand",
-          "var": "Pascal Müller"
-        },
         {
           "data": "2026-10-17",
           "ora": "15:30",
@@ -350,22 +332,6 @@
       "nome": "2. Bundesliga",
       "partite": [
         {
-          "data": "2026-10-16",
-          "ora": "18:30",
-          "casa": "Cottbus",
-          "ospite": "Nurnberg",
-          "arbitro": "Felix Bickel",
-          "var": "Tobias Welz"
-        },
-        {
-          "data": "2026-10-16",
-          "ora": "18:30",
-          "casa": "Holstein Kiel",
-          "ospite": "Hertha",
-          "arbitro": "Jarno Wienefeld",
-          "var": "Günter Perl"
-        },
-        {
           "data": "2026-10-17",
           "ora": "13:00",
           "casa": "Greuther Furth",
@@ -433,13 +399,6 @@
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
-        {
-          "data": "2026-10-16",
-          "ora": "19:00",
-          "casa": "Corum",
-          "ospite": "Rizespor",
-          "arbitro": "Davut Dakul Çelik"
-        },
         {
           "data": "2026-10-17",
           "ora": "12:30",
