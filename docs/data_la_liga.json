@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-23T20:15:10.543187+00:00",
+  "aggiornato": "2026-10-26T21:30:08.263231+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -562,7 +562,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-25",
+          "ora": "16:15",
+          "casa": "Celta",
+          "ospite": "Betis",
+          "arbitro": "Isidro Díaz De Mera",
+          "quartoUomo": "Roberto Gonzalo",
+          "var": "Iván Caparrós",
+          "avar": "José Luis Munuera",
+          "assistente1": "Diego Santaúrsula",
+          "assistente2": "Rubén Campo"
+        }
+      ]
     },
     {
       "nome": "César Soto",
@@ -1305,7 +1319,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-25",
+          "ora": "18:30",
+          "casa": "Sociedad",
+          "ospite": "Levante",
+          "arbitro": "Javier Alberola",
+          "quartoUomo": "Alfredo Ramo",
+          "var": "Guillermo Cuadra",
+          "avar": "Alejandro Muñiz",
+          "assistente1": "Alfredo Rodríguez",
+          "assistente2": "Jorge Bueno"
+        }
+      ]
     },
     {
       "nome": "Luis Bestard",
@@ -2026,7 +2054,21 @@
           "falliOspite": 5
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-26",
+          "ora": "21:00",
+          "casa": "Sevilla",
+          "ospite": "Osasuna",
+          "arbitro": "Miguel Ángel Ortiz",
+          "quartoUomo": "José María Aranda",
+          "var": "Rubén Ávalos",
+          "avar": "Víctor García",
+          "assistente1": "José Antonio Garrido",
+          "assistente2": "Alejandro Estévez"
+        }
+      ]
     },
     {
       "nome": "Francisco José Hernández",
@@ -2176,7 +2218,21 @@
           "falliOspite": 11
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-25",
+          "ora": "14:00",
+          "casa": "Ath Bilbao",
+          "ospite": "Getafe",
+          "arbitro": "Francisco José Hernández",
+          "quartoUomo": "Guillermo Conejero",
+          "var": "Alejandro Muñiz",
+          "avar": "Juan Luis Pulido",
+          "assistente1": "Iván Massó",
+          "assistente2": "Abraham Pérez"
+        }
+      ]
     },
     {
       "nome": "Juan Martínez",
@@ -2347,7 +2403,21 @@
           "falliOspite": 17
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-25",
+          "ora": "21:00",
+          "casa": "Barcelona",
+          "ospite": "Real Madrid",
+          "arbitro": "Juan Martínez",
+          "quartoUomo": "José Antonio Palomares",
+          "var": "Javier Iglesias",
+          "avar": "José Antonio López",
+          "assistente1": "Diego Barbero",
+          "assistente2": "Miguel Martínez"
+        }
+      ]
     },
     {
       "nome": "José Luis Munuera",
@@ -5135,6 +5205,71 @@
       "avar": "Raúl Martín González",
       "assistente1": "Raúl Cabañero",
       "assistente2": "Juan José López"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-25",
+      "ora": "14:00",
+      "casa": "Ath Bilbao",
+      "ospite": "Getafe",
+      "arbitro": "Francisco José Hernández",
+      "quartoUomo": "Guillermo Conejero",
+      "var": "Alejandro Muñiz",
+      "avar": "Juan Luis Pulido",
+      "assistente1": "Iván Massó",
+      "assistente2": "Abraham Pérez"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-25",
+      "ora": "16:15",
+      "casa": "Celta",
+      "ospite": "Betis",
+      "arbitro": "Isidro Díaz De Mera",
+      "quartoUomo": "Roberto Gonzalo",
+      "var": "Iván Caparrós",
+      "avar": "José Luis Munuera",
+      "assistente1": "Diego Santaúrsula",
+      "assistente2": "Rubén Campo"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-25",
+      "ora": "18:30",
+      "casa": "Sociedad",
+      "ospite": "Levante",
+      "arbitro": "Javier Alberola",
+      "quartoUomo": "Alfredo Ramo",
+      "var": "Guillermo Cuadra",
+      "avar": "Alejandro Muñiz",
+      "assistente1": "Alfredo Rodríguez",
+      "assistente2": "Jorge Bueno"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-25",
+      "ora": "21:00",
+      "casa": "Barcelona",
+      "ospite": "Real Madrid",
+      "arbitro": "Juan Martínez",
+      "quartoUomo": "José Antonio Palomares",
+      "var": "Javier Iglesias",
+      "avar": "José Antonio López",
+      "assistente1": "Diego Barbero",
+      "assistente2": "Miguel Martínez"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-26",
+      "ora": "21:00",
+      "casa": "Sevilla",
+      "ospite": "Osasuna",
+      "arbitro": "Miguel Ángel Ortiz",
+      "quartoUomo": "José María Aranda",
+      "var": "Rubén Ávalos",
+      "avar": "Víctor García",
+      "assistente1": "José Antonio Garrido",
+      "assistente2": "Alejandro Estévez"
     }
   ]
 }
