@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-26T10:44:31.598491+00:00",
+  "aggiornato": "2026-10-27T10:11:26.318299+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -8,12 +8,6 @@
     "premier": {
       "nome": "Premier League",
       "partite": [
-        {
-          "data": "2026-10-23",
-          "ora": "21:00",
-          "casa": "Ipswich",
-          "ospite": "Nott'm Forest"
-        },
         {
           "data": "2026-10-24",
           "ora": "13:30",
@@ -74,12 +68,6 @@
       "nome": "Serie A",
       "partite": [
         {
-          "data": "2026-10-23",
-          "ora": "20:45",
-          "casa": "Torino",
-          "ospite": "Monza"
-        },
-        {
           "data": "2026-10-24",
           "ora": "15:00",
           "casa": "Cagliari",
@@ -139,14 +127,6 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-10-23",
-          "ora": "21:00",
-          "casa": "Alaves",
-          "ospite": "Malaga",
-          "arbitro": "Carlos Muñiz",
-          "var": "Carlos Del Cerro"
-        },
-        {
           "data": "2026-10-24",
           "ora": "14:00",
           "casa": "Vallecano",
@@ -182,43 +162,47 @@
           "data": "2026-10-25",
           "ora": "14:00",
           "casa": "Ath Bilbao",
-          "ospite": "Getafe"
+          "ospite": "Getafe",
+          "arbitro": "Francisco José Hernández",
+          "var": "Alejandro Muñiz"
         },
         {
           "data": "2026-10-25",
           "ora": "16:15",
           "casa": "Celta",
-          "ospite": "Betis"
+          "ospite": "Betis",
+          "arbitro": "Isidro Díaz De Mera",
+          "var": "Iván Caparrós"
         },
         {
           "data": "2026-10-25",
           "ora": "18:30",
           "casa": "Sociedad",
-          "ospite": "Levante"
+          "ospite": "Levante",
+          "arbitro": "Javier Alberola",
+          "var": "Guillermo Cuadra"
         },
         {
           "data": "2026-10-25",
           "ora": "21:00",
           "casa": "Barcelona",
-          "ospite": "Real Madrid"
+          "ospite": "Real Madrid",
+          "arbitro": "Juan Martínez",
+          "var": "Javier Iglesias"
         },
         {
           "data": "2026-10-26",
           "ora": "21:00",
           "casa": "Sevilla",
-          "ospite": "Osasuna"
+          "ospite": "Osasuna",
+          "arbitro": "Miguel Ángel Ortiz",
+          "var": "Rubén Ávalos"
         }
       ]
     },
     "ligue_1": {
       "nome": "Ligue 1",
       "partite": [
-        {
-          "data": "2026-10-23",
-          "ora": "20:45",
-          "casa": "Brest",
-          "ospite": "Nice"
-        },
         {
           "data": "2026-10-24",
           "ora": "20:45",
@@ -272,14 +256,6 @@
     "bundesliga": {
       "nome": "Bundesliga",
       "partite": [
-        {
-          "data": "2026-10-23",
-          "ora": "20:30",
-          "casa": "Stuttgart",
-          "ospite": "M'gladbach",
-          "arbitro": "Dr. Matthias Jöllenbeck",
-          "var": "Tobias Stieler"
-        },
         {
           "data": "2026-10-24",
           "ora": "15:30",
@@ -350,22 +326,6 @@
       "nome": "2. Bundesliga",
       "partite": [
         {
-          "data": "2026-10-23",
-          "ora": "18:30",
-          "casa": "Bochum",
-          "ospite": "Wolfsburg",
-          "arbitro": "Eric Weisbach",
-          "var": "Guido Winkmann"
-        },
-        {
-          "data": "2026-10-23",
-          "ora": "18:30",
-          "casa": "Darmstadt",
-          "ospite": "St Pauli",
-          "arbitro": "Timo Gansloweit",
-          "var": "Michael Bacher"
-        },
-        {
           "data": "2026-10-24",
           "ora": "13:00",
           "casa": "Heidenheim",
@@ -433,13 +393,6 @@
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
-        {
-          "data": "2026-10-23",
-          "ora": "19:00",
-          "casa": "Alanyaspor",
-          "ospite": "Kocaelispor",
-          "arbitro": "Ali Şansalan"
-        },
         {
           "data": "2026-10-24",
           "ora": "12:30",
