@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-27T10:11:26.318299+00:00",
+  "aggiornato": "2026-10-28T10:56:53.273452+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -7,119 +7,70 @@
   "campionati": {
     "premier": {
       "nome": "Premier League",
-      "partite": [
-        {
-          "data": "2026-10-24",
-          "ora": "13:30",
-          "casa": "Aston Villa",
-          "ospite": "Man City"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "16:00",
-          "casa": "Arsenal",
-          "ospite": "Everton"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "16:00",
-          "casa": "Coventry",
-          "ospite": "Fulham"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "18:30",
-          "casa": "Chelsea",
-          "ospite": "Tottenham"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "15:00",
-          "casa": "Crystal Palace",
-          "ospite": "Newcastle"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "15:00",
-          "casa": "Hull",
-          "ospite": "Brentford"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "15:00",
-          "casa": "Liverpool",
-          "ospite": "Brighton"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "15:00",
-          "casa": "Man United",
-          "ospite": "Bournemouth"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "17:30",
-          "casa": "Sunderland",
-          "ospite": "Leeds"
-        }
-      ]
+      "partite": []
     },
     "serie_a": {
       "nome": "Serie A",
       "partite": [
         {
-          "data": "2026-10-24",
-          "ora": "15:00",
-          "casa": "Cagliari",
+          "data": "2026-10-27",
+          "ora": "18:30",
+          "casa": "Sassuolo",
+          "ospite": "Lazio"
+        },
+        {
+          "data": "2026-10-27",
+          "ora": "20:45",
+          "casa": "Roma",
+          "ospite": "Cagliari"
+        },
+        {
+          "data": "2026-10-27",
+          "ora": "20:45",
+          "casa": "Torino",
+          "ospite": "Como"
+        },
+        {
+          "data": "2026-10-28",
+          "ora": "18:30",
+          "casa": "Milan",
           "ospite": "Bologna"
         },
         {
-          "data": "2026-10-24",
-          "ora": "15:00",
-          "casa": "Como",
-          "ospite": "Sassuolo"
+          "data": "2026-10-28",
+          "ora": "18:30",
+          "casa": "Parma",
+          "ospite": "Udinese"
         },
         {
-          "data": "2026-10-24",
-          "ora": "18:00",
-          "casa": "Napoli",
-          "ospite": "Roma"
+          "data": "2026-10-28",
+          "ora": "18:30",
+          "casa": "Venezia",
+          "ospite": "Inter"
         },
         {
-          "data": "2026-10-24",
+          "data": "2026-10-28",
           "ora": "20:45",
-          "casa": "Lazio",
-          "ospite": "Parma"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "12:30",
-          "casa": "Inter",
-          "ospite": "Fiorentina"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "15:00",
-          "casa": "Atalanta",
-          "ospite": "Frosinone"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "15:00",
           "casa": "Genoa",
-          "ospite": "Venezia"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "18:00",
-          "casa": "Lecce",
           "ospite": "Juventus"
         },
         {
-          "data": "2026-10-25",
+          "data": "2026-10-28",
           "ora": "20:45",
-          "casa": "Udinese",
-          "ospite": "Milan"
+          "casa": "Monza",
+          "ospite": "Napoli"
+        },
+        {
+          "data": "2026-10-29",
+          "ora": "18:30",
+          "casa": "Frosinone",
+          "ospite": "Lecce"
+        },
+        {
+          "data": "2026-10-29",
+          "ora": "20:45",
+          "casa": "Fiorentina",
+          "ospite": "Atalanta"
         }
       ]
     },
@@ -127,42 +78,11 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-10-24",
-          "ora": "14:00",
-          "casa": "Vallecano",
-          "ospite": "Elche",
-          "arbitro": "Miguel Sesma",
-          "var": "Jorge Figueroa"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "16:15",
-          "casa": "Santander",
-          "ospite": "Espanol",
-          "arbitro": "Jesús Gil",
-          "var": "Raúl Martín González"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "18:30",
-          "casa": "Valencia",
-          "ospite": "Villarreal",
-          "arbitro": "Alejandro Quintero",
-          "var": "José Antonio López"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "21:00",
-          "casa": "Ath Madrid",
-          "ospite": "La Coruna",
-          "arbitro": "José María Sánchez",
-          "var": "Juan Luis Pulido"
-        },
-        {
           "data": "2026-10-25",
           "ora": "14:00",
           "casa": "Ath Bilbao",
           "ospite": "Getafe",
+          "daDesignazioni": true,
           "arbitro": "Francisco José Hernández",
           "var": "Alejandro Muñiz"
         },
@@ -171,6 +91,7 @@
           "ora": "16:15",
           "casa": "Celta",
           "ospite": "Betis",
+          "daDesignazioni": true,
           "arbitro": "Isidro Díaz De Mera",
           "var": "Iván Caparrós"
         },
@@ -179,6 +100,7 @@
           "ora": "18:30",
           "casa": "Sociedad",
           "ospite": "Levante",
+          "daDesignazioni": true,
           "arbitro": "Javier Alberola",
           "var": "Guillermo Cuadra"
         },
@@ -187,6 +109,7 @@
           "ora": "21:00",
           "casa": "Barcelona",
           "ospite": "Real Madrid",
+          "daDesignazioni": true,
           "arbitro": "Juan Martínez",
           "var": "Javier Iglesias"
         },
@@ -195,6 +118,7 @@
           "ora": "21:00",
           "casa": "Sevilla",
           "ospite": "Osasuna",
+          "daDesignazioni": true,
           "arbitro": "Miguel Ángel Ortiz",
           "var": "Rubén Ávalos"
         }
@@ -202,113 +126,17 @@
     },
     "ligue_1": {
       "nome": "Ligue 1",
-      "partite": [
-        {
-          "data": "2026-10-24",
-          "ora": "20:45",
-          "casa": "Lens",
-          "ospite": "Paris FC"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "15:00",
-          "casa": "Monaco",
-          "ospite": "Lille"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "17:15",
-          "casa": "Angers",
-          "ospite": "Lorient"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "17:15",
-          "casa": "Auxerre",
-          "ospite": "Le Mans"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "17:15",
-          "casa": "Marseille",
-          "ospite": "Le Havre"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "17:15",
-          "casa": "Rennes",
-          "ospite": "Strasbourg"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "17:15",
-          "casa": "Toulouse",
-          "ospite": "Troyes"
-        },
-        {
-          "data": "2026-10-26",
-          "ora": "20:30",
-          "casa": "Paris SG",
-          "ospite": "Lyon"
-        }
-      ]
+      "partite": []
     },
     "bundesliga": {
       "nome": "Bundesliga",
       "partite": [
         {
-          "data": "2026-10-24",
-          "ora": "15:30",
-          "casa": "Augsburg",
-          "ospite": "Union Berlin",
-          "arbitro": "Dr. Robin Braun",
-          "var": "Patrick Hanslbauer"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "15:30",
-          "casa": "FC Koln",
-          "ospite": "Schalke 04",
-          "arbitro": "Harm Osmers",
-          "var": "Johann Pfeifer"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "15:30",
-          "casa": "Mainz",
-          "ospite": "Werder Bremen",
-          "arbitro": "Florian Badstübner",
-          "var": "Nicolas Winter"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "15:30",
-          "casa": "Paderborn",
-          "ospite": "Hamburg",
-          "arbitro": "Martin Petersen",
-          "var": "Tobias Welz"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "15:30",
-          "casa": "RB Leipzig",
-          "ospite": "Elversberg",
-          "arbitro": "Bastian Dankert",
-          "var": "Pascal Müller"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "18:30",
-          "casa": "Dortmund",
-          "ospite": "Ein Frankfurt",
-          "arbitro": "Sven Jablonski",
-          "var": "Sören Storks"
-        },
-        {
           "data": "2026-10-25",
           "ora": "15:30",
           "casa": "Hoffenheim",
           "ospite": "Leverkusen",
+          "daDesignazioni": true,
           "arbitro": "Daniel Siebert",
           "var": "Benjamin Cortus"
         },
@@ -317,6 +145,7 @@
           "ora": "17:30",
           "casa": "Freiburg",
           "ospite": "Bayern Munich",
+          "daDesignazioni": true,
           "arbitro": "Felix Zwayer",
           "var": "Christian Dingert"
         }
@@ -326,60 +155,6 @@
       "nome": "2. Bundesliga",
       "partite": [
         {
-          "data": "2026-10-24",
-          "ora": "13:00",
-          "casa": "Heidenheim",
-          "ospite": "Cottbus",
-          "arbitro": "Patrick Schwengers",
-          "var": "Patrick Alt"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "13:00",
-          "casa": "Hertha",
-          "ospite": "Bielefeld",
-          "arbitro": "Cristian Ballweg",
-          "var": "Tobias Stieler"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "13:00",
-          "casa": "Magdeburg",
-          "ospite": "Karlsruhe",
-          "arbitro": "Felix Wagner",
-          "var": "Dr. Robert Kampka"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "20:30",
-          "casa": "Nurnberg",
-          "ospite": "Kaiserslautern",
-          "arbitro": "Dr. Max Burda",
-          "var": "Günter Perl"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Braunschweig",
-          "ospite": "Hannover",
-          "arbitro": "Tobias Reichel",
-          "var": "Katrin Rafalski"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Holstein Kiel",
-          "ospite": "Dresden"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Osnabruck",
-          "ospite": "Greuther Furth",
-          "arbitro": "Justin Hasmann",
-          "var": "Patrick Alt"
-        },
-        {
           "data": "2026-10-25",
           "ora": "13:30",
           "casa": "Holstein Kiel",
@@ -387,6 +162,24 @@
           "daDesignazioni": true,
           "arbitro": "Timo Gerach",
           "var": "Günter Perl"
+        },
+        {
+          "data": "2026-10-25",
+          "ora": "13:30",
+          "casa": "Braunschweig",
+          "ospite": "Hannover",
+          "daDesignazioni": true,
+          "arbitro": "Tobias Reichel",
+          "var": "Katrin Rafalski"
+        },
+        {
+          "data": "2026-10-25",
+          "ora": "13:30",
+          "casa": "Osnabruck",
+          "ospite": "Greuther Furth",
+          "daDesignazioni": true,
+          "arbitro": "Justin Hasmann",
+          "var": "Patrick Alt"
         }
       ]
     },
@@ -394,59 +187,43 @@
       "nome": "Süper Lig",
       "partite": [
         {
-          "data": "2026-10-24",
-          "ora": "12:30",
-          "casa": "Eyupspor",
-          "ospite": "Kasimpasa",
-          "arbitro": "Alper Akarsu"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "15:00",
-          "casa": "Gaziantep",
-          "ospite": "Erzurumspor",
-          "arbitro": "Melek Dakan"
-        },
-        {
-          "data": "2026-10-24",
-          "ora": "18:00",
-          "casa": "Samsunspor",
-          "ospite": "Amedspor",
-          "arbitro": "Kadir Sağlam"
-        },
-        {
           "data": "2026-10-25",
-          "ora": "14:00",
+          "ora": "16:00",
           "casa": "Konyaspor",
           "ospite": "Genclerbirligi",
+          "daDesignazioni": true,
           "arbitro": "Oğuzhan Çakır"
         },
         {
           "data": "2026-10-25",
-          "ora": "17:00",
+          "ora": "19:00",
           "casa": "Goztep",
           "ospite": "Corum",
+          "daDesignazioni": true,
           "arbitro": "Mehmet Türkmen"
         },
         {
           "data": "2026-10-26",
-          "ora": "17:00",
-          "casa": "Besiktas",
-          "ospite": "Buyuksehyr",
-          "arbitro": "Ümit Öztürk"
-        },
-        {
-          "data": "2026-10-26",
-          "ora": "17:00",
+          "ora": "19:00",
           "casa": "Rizespor",
           "ospite": "Trabzonspor",
+          "daDesignazioni": true,
           "arbitro": "Halil Umut Meler"
         },
         {
           "data": "2026-10-26",
-          "ora": "19:30",
+          "ora": "19:00",
+          "casa": "Besiktas",
+          "ospite": "Buyuksehyr",
+          "daDesignazioni": true,
+          "arbitro": "Ümit Öztürk"
+        },
+        {
+          "data": "2026-10-26",
+          "ora": "21:30",
           "casa": "Galatasaray",
           "ospite": "Fenerbahce",
+          "daDesignazioni": true,
           "arbitro": "Atilla Karaoğlan"
         }
       ]
