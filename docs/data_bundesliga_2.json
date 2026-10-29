@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-26T17:06:39.306537+00:00",
+  "aggiornato": "2026-10-29T17:17:54.159348+00:00",
   "campionato": "2. Bundesliga",
   "fonte": "football-data.co.uk (PDDL) · designazioni DFB Datencenter",
   "stagioni": [
@@ -7,9 +7,9 @@
     "2025/26",
     "2026/27"
   ],
-  "totalePartite": 684,
-  "partiteConDisciplina": 684,
-  "partiteConArbitro": 45,
+  "totalePartite": 693,
+  "partiteConDisciplina": 693,
+  "partiteConArbitro": 54,
   "arbitri": [
     {
       "nome": "Dr. Florian Exner",
@@ -172,99 +172,85 @@
       "prossime": []
     },
     {
-      "nome": "Felix Wagner",
+      "nome": "Timo Gerach",
       "partite": 1,
-      "gialli": 7,
+      "gialli": 6,
       "rossi": 0,
-      "mediaGialli": 7.0,
+      "mediaGialli": 6.0,
       "mediaRossi": 0.0,
-      "mediaCartellini": 7.0,
-      "mediaFalli": 22.0,
-      "gialliPerFallo": 31.8,
-      "squilibrioCasaOspite": 1.0,
-      "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 4.0,
-      "vittorieCasa": 0,
-      "pareggi": 1,
+      "mediaCartellini": 6.0,
+      "mediaFalli": 16.0,
+      "gialliPerFallo": 37.5,
+      "squilibrioCasaOspite": -4.0,
+      "mediaGialliCasa": 5.0,
+      "mediaGialliOspite": 1.0,
+      "vittorieCasa": 1,
+      "pareggi": 0,
       "vittorieOspite": 0,
-      "percVittorieCasa": 0.0,
+      "percVittorieCasa": 100.0,
       "perSquadra": [
         {
-          "squadra": "Heidenheim",
+          "squadra": "Holstein Kiel",
           "partite": 1,
-          "gialli": 4,
+          "gialli": 5,
           "rossi": 0,
-          "media": 4.0
+          "media": 5.0
         },
         {
-          "squadra": "Bielefeld",
+          "squadra": "Dynamo Dresden",
           "partite": 1,
-          "gialli": 3,
+          "gialli": 1,
           "rossi": 0,
-          "media": 3.0
+          "media": 1.0
         }
       ],
       "perStagione": [
         {
           "stagione": "2026/27",
           "partite": 1,
-          "gialli": 7,
+          "gialli": 6,
           "rossi": 0,
-          "media": 7.0,
-          "mediaGialli": 7.0,
+          "media": 6.0,
+          "mediaGialli": 6.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 22.0,
-          "squilibrio": 1.0,
-          "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 4.0
+          "mediaFalli": 16.0,
+          "squilibrio": -4.0,
+          "mediaGialliCasa": 5.0,
+          "mediaGialliOspite": 1.0
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "20/09/2026",
-          "casa": "Bielefeld",
-          "ospite": "Heidenheim",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 3,
-          "gialliOspite": 4,
+          "data": "25/10/2026",
+          "casa": "Holstein Kiel",
+          "ospite": "Dynamo Dresden",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 5,
+          "gialliOspite": 1,
           "rossiCasa": 0,
           "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 9
+          "falliCasa": 11,
+          "falliOspite": 5
         }
       ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-24",
-          "ora": "13:00",
-          "casa": "Magdeburg",
-          "ospite": "Karlsruhe",
-          "arbitro": "Felix Wagner",
-          "assistente1": "Martin Speckner",
-          "assistente2": "Simon Schreiner",
-          "quartoUomo": "Lasse Koslowski",
-          "var": "Dr. Robert Kampka",
-          "avar": "Vanessa Kaminski"
-        }
-      ]
+      "prossime": []
     },
     {
-      "nome": "Eric Weisbach",
-      "partite": 2,
-      "gialli": 12,
+      "nome": "Tobias Reichel",
+      "partite": 1,
+      "gialli": 6,
       "rossi": 0,
       "mediaGialli": 6.0,
       "mediaRossi": 0.0,
       "mediaCartellini": 6.0,
-      "mediaFalli": 29.5,
-      "gialliPerFallo": 20.3,
-      "squilibrioCasaOspite": -1.0,
-      "mediaGialliCasa": 3.5,
-      "mediaGialliOspite": 2.5,
-      "vittorieCasa": 2,
+      "mediaFalli": 31.0,
+      "gialliPerFallo": 19.4,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 3.0,
+      "mediaGialliOspite": 3.0,
+      "vittorieCasa": 1,
       "pareggi": 0,
       "vittorieOspite": 0,
       "percVittorieCasa": 100.0,
@@ -272,92 +258,50 @@
         {
           "squadra": "Braunschweig",
           "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0
-        },
-        {
-          "squadra": "Darmstadt",
-          "partite": 1,
           "gialli": 3,
           "rossi": 0,
           "media": 3.0
         },
         {
-          "squadra": "Holstein Kiel",
+          "squadra": "Hannover",
           "partite": 1,
           "gialli": 3,
           "rossi": 0,
           "media": 3.0
-        },
-        {
-          "squadra": "Bielefeld",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
         }
       ],
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 12,
+          "partite": 1,
+          "gialli": 6,
           "rossi": 0,
           "media": 6.0,
           "mediaGialli": 6.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 29.5,
-          "squilibrio": -1.0,
-          "mediaGialliCasa": 3.5,
-          "mediaGialliOspite": 2.5
+          "mediaFalli": 31.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 3.0,
+          "mediaGialliOspite": 3.0
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "09/10/2026",
+          "data": "25/10/2026",
           "casa": "Braunschweig",
-          "ospite": "Holstein Kiel",
-          "gc": 1,
+          "ospite": "Hannover",
+          "gc": 2,
           "go": 0,
-          "gialliCasa": 4,
+          "gialliCasa": 3,
           "gialliOspite": 3,
           "rossiCasa": 0,
           "rossiOspite": 0,
-          "falliCasa": 12,
-          "falliOspite": 13
-        },
-        {
-          "stagione": "2026/27",
-          "data": "11/09/2026",
-          "casa": "Darmstadt",
-          "ospite": "Bielefeld",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 3,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 17,
-          "falliOspite": 17
+          "falliCasa": 15,
+          "falliOspite": 16
         }
       ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-23",
-          "ora": "18:30",
-          "casa": "Bochum",
-          "ospite": "Wolfsburg",
-          "arbitro": "Eric Weisbach",
-          "assistente1": "Sven Waschitzki-Günther",
-          "assistente2": "Hannes Ventzke",
-          "quartoUomo": "Jonah Besong",
-          "var": "Guido Winkmann",
-          "avar": "Felix-Benjamin Schwermer"
-        }
-      ]
+      "prossime": []
     },
     {
       "nome": "Tom Bauer",
@@ -573,7 +517,21 @@
           "falliOspite": 13
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-11-01",
+          "ora": "13:30",
+          "casa": "Greuther Furth",
+          "ospite": "Holstein Kiel",
+          "arbitro": "Lars Erbst",
+          "assistente1": "Manuel Bergmann",
+          "assistente2": "Cengiz Kabalakli",
+          "quartoUomo": "Assad Nouhoum",
+          "var": "Patrick Alt",
+          "avar": "Michael Bacher"
+        }
+      ]
     },
     {
       "nome": "Lukas Benen",
@@ -667,32 +625,46 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-31",
+          "ora": "13:00",
+          "casa": "Darmstadt",
+          "ospite": "Magdeburg",
+          "arbitro": "Lukas Benen",
+          "assistente1": "Fynn Kohn",
+          "assistente2": "Lennart Kernchen",
+          "quartoUomo": "Tobias Endriß",
+          "var": "Benjamin Cortus",
+          "avar": "Dr. Henrik Bramlage"
+        }
+      ]
     },
     {
-      "nome": "Justin Hasmann",
+      "nome": "Timo Gansloweit",
       "partite": 2,
-      "gialli": 9,
-      "rossi": 1,
-      "mediaGialli": 4.5,
-      "mediaRossi": 0.5,
-      "mediaCartellini": 5.0,
-      "mediaFalli": 22.5,
-      "gialliPerFallo": 20.0,
-      "squilibrioCasaOspite": 0.5,
-      "mediaGialliCasa": 2.0,
+      "gialli": 11,
+      "rossi": 0,
+      "mediaGialli": 5.5,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 5.5,
+      "mediaFalli": 26.5,
+      "gialliPerFallo": 20.8,
+      "squilibrioCasaOspite": -0.5,
+      "mediaGialliCasa": 3.0,
       "mediaGialliOspite": 2.5,
-      "vittorieCasa": 2,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 100.0,
+      "vittorieCasa": 0,
+      "pareggi": 1,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
       "perSquadra": [
         {
-          "squadra": "Cottbus",
+          "squadra": "St Pauli",
           "partite": 1,
-          "gialli": 3,
+          "gialli": 4,
           "rossi": 0,
-          "media": 3.0
+          "media": 4.0
         },
         {
           "squadra": "Darmstadt",
@@ -702,14 +674,14 @@
           "media": 3.0
         },
         {
-          "squadra": "Holstein Kiel",
+          "squadra": "Karlsruhe",
           "partite": 1,
-          "gialli": 2,
-          "rossi": 1,
-          "media": 2.0
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
         },
         {
-          "squadra": "Heidenheim",
+          "squadra": "Nurnberg",
           "partite": 1,
           "gialli": 1,
           "rossi": 0,
@@ -720,62 +692,208 @@
         {
           "stagione": "2026/27",
           "partite": 2,
-          "gialli": 9,
-          "rossi": 1,
-          "media": 5.0,
-          "mediaGialli": 4.5,
-          "mediaRossi": 0.5,
-          "mediaFalli": 22.5,
-          "squilibrio": 0.5,
-          "mediaGialliCasa": 2.0,
+          "gialli": 11,
+          "rossi": 0,
+          "media": 5.5,
+          "mediaGialli": 5.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 26.5,
+          "squilibrio": -0.5,
+          "mediaGialliCasa": 3.0,
           "mediaGialliOspite": 2.5
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "10/10/2026",
+          "data": "23/10/2026",
           "casa": "Darmstadt",
-          "ospite": "Cottbus",
-          "gc": 3,
-          "go": 1,
+          "ospite": "St Pauli",
+          "gc": 0,
+          "go": 0,
           "gialliCasa": 3,
-          "gialliOspite": 3,
+          "gialliOspite": 4,
           "rossiCasa": 0,
           "rossiOspite": 0,
-          "falliCasa": 12,
-          "falliOspite": 10
+          "falliCasa": 13,
+          "falliOspite": 13
         },
         {
           "stagione": "2026/27",
-          "data": "13/09/2026",
-          "casa": "Heidenheim",
-          "ospite": "Holstein Kiel",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
+          "data": "19/09/2026",
+          "casa": "Karlsruhe",
+          "ospite": "Nurnberg",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 3,
+          "gialliOspite": 1,
           "rossiCasa": 0,
-          "rossiOspite": 1,
-          "falliCasa": 11,
-          "falliOspite": 12
+          "rossiOspite": 0,
+          "falliCasa": 16,
+          "falliOspite": 11
         }
       ],
-      "prossime": [
+      "prossime": []
+    },
+    {
+      "nome": "Dr. Max Burda",
+      "partite": 1,
+      "gialli": 5,
+      "rossi": 0,
+      "mediaGialli": 5.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 5.0,
+      "mediaFalli": 25.0,
+      "gialliPerFallo": 20.0,
+      "squilibrioCasaOspite": 5.0,
+      "mediaGialliCasa": 0.0,
+      "mediaGialliOspite": 5.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
         {
-          "giornata": 9,
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Osnabruck",
-          "ospite": "Greuther Furth",
-          "arbitro": "Justin Hasmann",
-          "assistente1": "Benedikt Kempkes",
-          "assistente2": "Marco Achmüller",
-          "quartoUomo": "Cengiz Kabalakli",
-          "var": "Patrick Alt",
-          "avar": "Markus Wollenweber"
+          "squadra": "Kaiserslautern",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 5.0
+        },
+        {
+          "squadra": "Nurnberg",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
         }
-      ]
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 25.0,
+          "squilibrio": 5.0,
+          "mediaGialliCasa": 0.0,
+          "mediaGialliOspite": 5.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "24/10/2026",
+          "casa": "Nurnberg",
+          "ospite": "Kaiserslautern",
+          "gc": 0,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 5,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 16
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Felix Wagner",
+      "partite": 2,
+      "gialli": 10,
+      "rossi": 0,
+      "mediaGialli": 5.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 5.0,
+      "mediaFalli": 20.5,
+      "gialliPerFallo": 24.4,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 2.5,
+      "mediaGialliOspite": 2.5,
+      "vittorieCasa": 1,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 50.0,
+      "perSquadra": [
+        {
+          "squadra": "Heidenheim",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Bielefeld",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Magdeburg",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Karlsruhe",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 10,
+          "rossi": 0,
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 20.5,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": 2.5
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "24/10/2026",
+          "casa": "Magdeburg",
+          "ospite": "Karlsruhe",
+          "gc": 6,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 5,
+          "falliOspite": 14
+        },
+        {
+          "stagione": "2026/27",
+          "data": "20/09/2026",
+          "casa": "Bielefeld",
+          "ospite": "Heidenheim",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 3,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 9
+        }
+      ],
+      "prossime": []
     },
     {
       "nome": "Martin Petersen",
@@ -842,86 +960,6 @@
         }
       ],
       "prossime": []
-    },
-    {
-      "nome": "Patrick Schwengers",
-      "partite": 1,
-      "gialli": 5,
-      "rossi": 0,
-      "mediaGialli": 5.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 5.0,
-      "mediaFalli": 22.0,
-      "gialliPerFallo": 22.7,
-      "squilibrioCasaOspite": -1.0,
-      "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 2.0,
-      "vittorieCasa": 1,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 100.0,
-      "perSquadra": [
-        {
-          "squadra": "Hannover",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
-        },
-        {
-          "squadra": "Bochum",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 5,
-          "rossi": 0,
-          "media": 5.0,
-          "mediaGialli": 5.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 22.0,
-          "squilibrio": -1.0,
-          "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 2.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "20/09/2026",
-          "casa": "Hannover",
-          "ospite": "Bochum",
-          "gc": 2,
-          "go": 1,
-          "gialliCasa": 3,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 12,
-          "falliOspite": 10
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-24",
-          "ora": "13:00",
-          "casa": "Heidenheim",
-          "ospite": "Cottbus",
-          "arbitro": "Patrick Schwengers",
-          "assistente1": "Mitja Stegemann",
-          "assistente2": "Alexander Roppelt",
-          "quartoUomo": "Wolfgang Haslberger",
-          "var": "Patrick Alt",
-          "avar": "Dr. Riem Hussein"
-        }
-      ]
     },
     {
       "nome": "Wolfgang Haslberger",
@@ -1013,6 +1051,128 @@
           "rossiOspite": 0,
           "falliCasa": 11,
           "falliOspite": 13
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Eric Weisbach",
+      "partite": 3,
+      "gialli": 14,
+      "rossi": 0,
+      "mediaGialli": 4.67,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.67,
+      "mediaFalli": 29.0,
+      "gialliPerFallo": 16.1,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 2.33,
+      "mediaGialliOspite": 2.33,
+      "vittorieCasa": 2,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 66.7,
+      "perSquadra": [
+        {
+          "squadra": "Braunschweig",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Darmstadt",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Holstein Kiel",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Bielefeld",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Wolfsburg",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Bochum",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 14,
+          "rossi": 0,
+          "media": 4.67,
+          "mediaGialli": 4.67,
+          "mediaRossi": 0.0,
+          "mediaFalli": 29.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.33,
+          "mediaGialliOspite": 2.33
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/10/2026",
+          "casa": "Bochum",
+          "ospite": "Wolfsburg",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 19,
+          "falliOspite": 9
+        },
+        {
+          "stagione": "2026/27",
+          "data": "09/10/2026",
+          "casa": "Braunschweig",
+          "ospite": "Holstein Kiel",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 4,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 13
+        },
+        {
+          "stagione": "2026/27",
+          "data": "11/09/2026",
+          "casa": "Darmstadt",
+          "ospite": "Bielefeld",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 3,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 17,
+          "falliOspite": 17
         }
       ],
       "prossime": []
@@ -1135,6 +1295,100 @@
           "rossiOspite": 0,
           "falliCasa": 19,
           "falliOspite": 14
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Patrick Schwengers",
+      "partite": 2,
+      "gialli": 9,
+      "rossi": 0,
+      "mediaGialli": 4.5,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.5,
+      "mediaFalli": 17.5,
+      "gialliPerFallo": 25.7,
+      "squilibrioCasaOspite": -0.5,
+      "mediaGialliCasa": 2.5,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 1,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 50.0,
+      "perSquadra": [
+        {
+          "squadra": "Hannover",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Bochum",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Cottbus",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Heidenheim",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 9,
+          "rossi": 0,
+          "media": 4.5,
+          "mediaGialli": 4.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 17.5,
+          "squilibrio": -0.5,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "24/10/2026",
+          "casa": "Heidenheim",
+          "ospite": "Cottbus",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 6,
+          "falliOspite": 7
+        },
+        {
+          "stagione": "2026/27",
+          "data": "20/09/2026",
+          "casa": "Hannover",
+          "ospite": "Bochum",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 3,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 10
         }
       ],
       "prossime": []
@@ -1300,86 +1554,6 @@
       "prossime": []
     },
     {
-      "nome": "Cristian Ballweg",
-      "partite": 1,
-      "gialli": 4,
-      "rossi": 0,
-      "mediaGialli": 4.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 4.0,
-      "mediaFalli": 18.0,
-      "gialliPerFallo": 22.2,
-      "squilibrioCasaOspite": -2.0,
-      "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 1.0,
-      "vittorieCasa": 0,
-      "pareggi": 1,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 0.0,
-      "perSquadra": [
-        {
-          "squadra": "Greuther Furth",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
-        },
-        {
-          "squadra": "Magdeburg",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0,
-          "mediaGialli": 4.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 18.0,
-          "squilibrio": -2.0,
-          "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 1.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "18/09/2026",
-          "casa": "Greuther Furth",
-          "ospite": "Magdeburg",
-          "gc": 1,
-          "go": 1,
-          "gialliCasa": 3,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 9,
-          "falliOspite": 9
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-24",
-          "ora": "13:00",
-          "casa": "Hertha",
-          "ospite": "Bielefeld",
-          "arbitro": "Cristian Ballweg",
-          "assistente1": "Thomas Stein",
-          "assistente2": "Roy Dingler",
-          "quartoUomo": "Lennart Kernchen",
-          "var": "Tobias Stieler",
-          "avar": "Mike Pickel"
-        }
-      ]
-    },
-    {
       "nome": "Felix Bickel",
       "partite": 2,
       "gialli": 7,
@@ -1471,7 +1645,21 @@
           "falliOspite": 7
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-31",
+          "ora": "13:00",
+          "casa": "Kaiserslautern",
+          "ospite": "Hertha",
+          "arbitro": "Felix Bickel",
+          "assistente1": "Philipp Hüwe",
+          "assistente2": "Christoph Kluge",
+          "quartoUomo": "Maximilian Lotz",
+          "var": "Michael Bacher",
+          "avar": "Franz Bokop"
+        }
+      ]
     },
     {
       "nome": "Felix Prigan",
@@ -1624,35 +1812,185 @@
           "falliOspite": 8
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-31",
+          "ora": "20:30",
+          "casa": "Karlsruhe",
+          "ospite": "Heidenheim",
+          "arbitro": "Sören Storks",
+          "assistente1": "Markus Schüller",
+          "assistente2": "Nico Fuchs",
+          "quartoUomo": "Justin Hasmann",
+          "var": "Pascal Müller",
+          "avar": "Guido Kleve"
+        }
+      ]
     },
     {
-      "nome": "Timo Gansloweit",
-      "partite": 1,
-      "gialli": 4,
-      "rossi": 0,
-      "mediaGialli": 4.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 4.0,
-      "mediaFalli": 27.0,
-      "gialliPerFallo": 14.8,
-      "squilibrioCasaOspite": -2.0,
-      "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 1.0,
-      "vittorieCasa": 0,
+      "nome": "Justin Hasmann",
+      "partite": 3,
+      "gialli": 10,
+      "rossi": 1,
+      "mediaGialli": 3.33,
+      "mediaRossi": 0.33,
+      "mediaCartellini": 3.67,
+      "mediaFalli": 19.7,
+      "gialliPerFallo": 16.9,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 1.67,
+      "mediaGialliOspite": 1.67,
+      "vittorieCasa": 3,
       "pareggi": 0,
-      "vittorieOspite": 1,
-      "percVittorieCasa": 0.0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
       "perSquadra": [
         {
-          "squadra": "Karlsruhe",
+          "squadra": "Cottbus",
           "partite": 1,
           "gialli": 3,
           "rossi": 0,
           "media": 3.0
         },
         {
-          "squadra": "Nurnberg",
+          "squadra": "Darmstadt",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Holstein Kiel",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 1,
+          "media": 2.0
+        },
+        {
+          "squadra": "Heidenheim",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Osnabruck",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Greuther Furth",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 10,
+          "rossi": 1,
+          "media": 3.67,
+          "mediaGialli": 3.33,
+          "mediaRossi": 0.33,
+          "mediaFalli": 19.7,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 1.67,
+          "mediaGialliOspite": 1.67
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "25/10/2026",
+          "casa": "Osnabruck",
+          "ospite": "Greuther Furth",
+          "gc": 3,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 8,
+          "falliOspite": 6
+        },
+        {
+          "stagione": "2026/27",
+          "data": "10/10/2026",
+          "casa": "Darmstadt",
+          "ospite": "Cottbus",
+          "gc": 3,
+          "go": 1,
+          "gialliCasa": 3,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2026/27",
+          "data": "13/09/2026",
+          "casa": "Heidenheim",
+          "ospite": "Holstein Kiel",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 11,
+          "falliOspite": 12
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Cristian Ballweg",
+      "partite": 2,
+      "gialli": 7,
+      "rossi": 0,
+      "mediaGialli": 3.5,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.5,
+      "mediaFalli": 20.0,
+      "gialliPerFallo": 17.5,
+      "squilibrioCasaOspite": -0.5,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 1.5,
+      "vittorieCasa": 1,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 50.0,
+      "perSquadra": [
+        {
+          "squadra": "Greuther Furth",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Bielefeld",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Hertha",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Magdeburg",
           "partite": 1,
           "gialli": 1,
           "rossi": 0,
@@ -1662,49 +2000,49 @@
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 4,
+          "partite": 2,
+          "gialli": 7,
           "rossi": 0,
-          "media": 4.0,
-          "mediaGialli": 4.0,
+          "media": 3.5,
+          "mediaGialli": 3.5,
           "mediaRossi": 0.0,
-          "mediaFalli": 27.0,
-          "squilibrio": -2.0,
-          "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 1.0
+          "mediaFalli": 20.0,
+          "squilibrio": -0.5,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.5
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "19/09/2026",
-          "casa": "Karlsruhe",
-          "ospite": "Nurnberg",
-          "gc": 0,
+          "data": "24/10/2026",
+          "casa": "Hertha",
+          "ospite": "Bielefeld",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2026/27",
+          "data": "18/09/2026",
+          "casa": "Greuther Furth",
+          "ospite": "Magdeburg",
+          "gc": 1,
           "go": 1,
           "gialliCasa": 3,
           "gialliOspite": 1,
           "rossiCasa": 0,
           "rossiOspite": 0,
-          "falliCasa": 16,
-          "falliOspite": 11
+          "falliCasa": 9,
+          "falliOspite": 9
         }
       ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-23",
-          "ora": "18:30",
-          "casa": "Darmstadt",
-          "ospite": "St Pauli",
-          "arbitro": "Timo Gansloweit",
-          "assistente1": "Fabian Maibaum",
-          "assistente2": "Tobias Severins",
-          "quartoUomo": "Leonidas Exuzidis",
-          "var": "Michael Bacher",
-          "avar": "Franz Bokop"
-        }
-      ]
+      "prossime": []
     },
     {
       "nome": "Jarno Wienefeld",
@@ -1798,7 +2136,21 @@
           "falliOspite": 6
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-30",
+          "ora": "18:30",
+          "casa": "Bielefeld",
+          "ospite": "Braunschweig",
+          "arbitro": "Jarno Wienefeld",
+          "assistente1": "Jonas Weickenmeier",
+          "assistente2": "Luca Jürgensen",
+          "quartoUomo": "Patrick Schwengers",
+          "var": "Guido Winkmann",
+          "avar": "Markus Häcker"
+        }
+      ]
     },
     {
       "nome": "Konrad Oldhafer",
@@ -1892,7 +2244,21 @@
           "falliOspite": 11
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-31",
+          "ora": "13:00",
+          "casa": "Wolfsburg",
+          "ospite": "Osnabruck",
+          "arbitro": "Konrad Oldhafer",
+          "assistente1": "Tim Kohnert",
+          "assistente2": "Ben Henry Uhrig",
+          "quartoUomo": "Hannes Ventzke",
+          "var": "Martin Petersen",
+          "avar": "Markus Sinn"
+        }
+      ]
     },
     {
       "nome": "Marc Philip Eckermann",
@@ -2052,7 +2418,21 @@
           "falliOspite": 16
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-11-01",
+          "ora": "13:30",
+          "casa": "St Pauli",
+          "ospite": "Nurnberg",
+          "arbitro": "Robert Hartmann",
+          "assistente1": "Tobias Schultes",
+          "assistente2": "Martin Speckner",
+          "quartoUomo": "Niclas Rose",
+          "var": "Nicolas Winter",
+          "avar": "Dr. Riem Hussein"
+        }
+      ]
     },
     {
       "nome": "Sascha Stegemann",
@@ -2212,7 +2592,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-11-01",
+          "ora": "13:30",
+          "casa": "Hannover",
+          "ospite": "Dynamo Dresden",
+          "arbitro": "Felix Weller",
+          "assistente1": "Jonah Besong",
+          "assistente2": "Daniel Bartnitzki",
+          "quartoUomo": "Sven Waschitzki-Günther",
+          "var": "Pascal Müller",
+          "avar": "Markus Wollenweber"
+        }
+      ]
     },
     {
       "nome": "Florian Lechner",
@@ -2306,7 +2700,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-30",
+          "ora": "18:30",
+          "casa": "Cottbus",
+          "ospite": "Bochum",
+          "arbitro": "Florian Lechner",
+          "assistente1": "Kevin Behrens",
+          "assistente2": "Thorben Siewer",
+          "quartoUomo": "Robert Wessel",
+          "var": "Robert Schröder",
+          "avar": "Martin Petersen"
+        }
+      ]
     },
     {
       "nome": "Dr. Robin Braun",
@@ -2373,161 +2781,18 @@
         }
       ],
       "prossime": []
-    },
-    {
-      "nome": "Dr. Max Burda",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-24",
-          "ora": "20:30",
-          "casa": "Nurnberg",
-          "ospite": "Kaiserslautern",
-          "arbitro": "Dr. Max Burda",
-          "assistente1": "Julius Martenstein",
-          "assistente2": "Christoph Kluge",
-          "quartoUomo": "Felix Weller",
-          "var": "Günter Perl",
-          "avar": "Christian Fischer"
-        }
-      ]
-    },
-    {
-      "nome": "Timo Gerach",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Holstein Kiel",
-          "ospite": "Dynamo Dresden",
-          "arbitro": "Timo Gerach",
-          "assistente1": "Patrick Kessel",
-          "assistente2": "Tobias Endriß",
-          "quartoUomo": "Konrad Oldhafer",
-          "var": "Günter Perl",
-          "avar": "Dr. Riem Hussein"
-        }
-      ]
-    },
-    {
-      "nome": "Tobias Reichel",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Braunschweig",
-          "ospite": "Hannover",
-          "arbitro": "Tobias Reichel",
-          "assistente1": "Christian Bandurski",
-          "assistente2": "Mario Hildenbrand",
-          "quartoUomo": "Florian Lechner",
-          "var": "Katrin Rafalski",
-          "avar": "Markus Sinn"
-        }
-      ]
     }
   ],
   "squadre": [
     {
-      "nome": "Bochum",
-      "partite": 42,
-      "gialli": 125,
-      "rossi": 2,
-      "mediaGialli": 2.98,
-      "mediaRossi": 0.05,
-      "mediaFalli": 13.2,
-      "mediaGialliCasa": 2.9,
-      "mediaGialliOspite": 3.05,
-      "perStagione": [
-        {
-          "stagione": "2025/26",
-          "partite": 34,
-          "gialli": 101,
-          "rossi": 1,
-          "mediaGialli": 2.97,
-          "mediaRossi": 0.03,
-          "mediaFalli": 13.4,
-          "mediaGialliCasa": 3.06,
-          "mediaGialliOspite": 2.88
-        },
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 24,
-          "rossi": 1,
-          "mediaGialli": 3.0,
-          "mediaRossi": 0.12,
-          "mediaFalli": 12.2,
-          "mediaGialliCasa": 2.25,
-          "mediaGialliOspite": 3.75
-        }
-      ]
-    },
-    {
       "nome": "Holstein Kiel",
-      "partite": 42,
-      "gialli": 123,
+      "partite": 43,
+      "gialli": 128,
       "rossi": 7,
-      "mediaGialli": 2.93,
-      "mediaRossi": 0.17,
-      "mediaFalli": 14.4,
-      "mediaGialliCasa": 2.29,
+      "mediaGialli": 2.98,
+      "mediaRossi": 0.16,
+      "mediaFalli": 14.3,
+      "mediaGialliCasa": 2.41,
       "mediaGialliOspite": 3.57,
       "perStagione": [
         {
@@ -2543,14 +2808,49 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 23,
+          "partite": 9,
+          "gialli": 28,
           "rossi": 2,
-          "mediaGialli": 2.88,
-          "mediaRossi": 0.25,
-          "mediaFalli": 14.8,
-          "mediaGialliCasa": 2.75,
+          "mediaGialli": 3.11,
+          "mediaRossi": 0.22,
+          "mediaFalli": 14.3,
+          "mediaGialliCasa": 3.2,
           "mediaGialliOspite": 3.0
+        }
+      ]
+    },
+    {
+      "nome": "Bochum",
+      "partite": 43,
+      "gialli": 125,
+      "rossi": 2,
+      "mediaGialli": 2.91,
+      "mediaRossi": 0.05,
+      "mediaFalli": 13.3,
+      "mediaGialliCasa": 2.77,
+      "mediaGialliOspite": 3.05,
+      "perStagione": [
+        {
+          "stagione": "2025/26",
+          "partite": 34,
+          "gialli": 101,
+          "rossi": 1,
+          "mediaGialli": 2.97,
+          "mediaRossi": 0.03,
+          "mediaFalli": 13.4,
+          "mediaGialliCasa": 3.06,
+          "mediaGialliOspite": 2.88
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 24,
+          "rossi": 1,
+          "mediaGialli": 2.67,
+          "mediaRossi": 0.11,
+          "mediaFalli": 13.0,
+          "mediaGialliCasa": 1.8,
+          "mediaGialliOspite": 3.75
         }
       ]
     },
@@ -2626,14 +2926,14 @@
     },
     {
       "nome": "Karlsruhe",
-      "partite": 76,
-      "gialli": 188,
+      "partite": 77,
+      "gialli": 189,
       "rossi": 2,
-      "mediaGialli": 2.47,
+      "mediaGialli": 2.45,
       "mediaRossi": 0.03,
       "mediaFalli": 12.0,
       "mediaGialliCasa": 2.54,
-      "mediaGialliOspite": 2.41,
+      "mediaGialliOspite": 2.37,
       "perStagione": [
         {
           "stagione": "2024/25",
@@ -2659,26 +2959,26 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 14,
+          "partite": 9,
+          "gialli": 15,
           "rossi": 0,
-          "mediaGialli": 1.75,
+          "mediaGialli": 1.67,
           "mediaRossi": 0.0,
-          "mediaFalli": 14.8,
+          "mediaFalli": 14.7,
           "mediaGialliCasa": 1.4,
-          "mediaGialliOspite": 2.33
+          "mediaGialliOspite": 2.0
         }
       ]
     },
     {
       "nome": "Braunschweig",
-      "partite": 76,
-      "gialli": 182,
+      "partite": 77,
+      "gialli": 185,
       "rossi": 12,
-      "mediaGialli": 2.39,
+      "mediaGialli": 2.4,
       "mediaRossi": 0.16,
       "mediaFalli": 11.7,
-      "mediaGialliCasa": 2.37,
+      "mediaGialliCasa": 2.38,
       "mediaGialliOspite": 2.42,
       "perStagione": [
         {
@@ -2705,26 +3005,72 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 19,
+          "partite": 9,
+          "gialli": 22,
           "rossi": 0,
-          "mediaGialli": 2.38,
+          "mediaGialli": 2.44,
           "mediaRossi": 0.0,
-          "mediaFalli": 9.6,
-          "mediaGialliCasa": 2.75,
+          "mediaFalli": 10.2,
+          "mediaGialliCasa": 2.8,
           "mediaGialliOspite": 2.0
         }
       ]
     },
     {
+      "nome": "Kaiserslautern",
+      "partite": 77,
+      "gialli": 185,
+      "rossi": 3,
+      "mediaGialli": 2.4,
+      "mediaRossi": 0.04,
+      "mediaFalli": 12.2,
+      "mediaGialliCasa": 2.32,
+      "mediaGialliOspite": 2.49,
+      "perStagione": [
+        {
+          "stagione": "2024/25",
+          "partite": 34,
+          "gialli": 79,
+          "rossi": 1,
+          "mediaGialli": 2.32,
+          "mediaRossi": 0.03,
+          "mediaFalli": 12.4,
+          "mediaGialliCasa": 2.12,
+          "mediaGialliOspite": 2.53
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 34,
+          "gialli": 86,
+          "rossi": 2,
+          "mediaGialli": 2.53,
+          "mediaRossi": 0.06,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 2.59,
+          "mediaGialliOspite": 2.47
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 20,
+          "rossi": 0,
+          "mediaGialli": 2.22,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.4
+        }
+      ]
+    },
+    {
       "nome": "Magdeburg",
-      "partite": 76,
-      "gialli": 182,
+      "partite": 77,
+      "gialli": 184,
       "rossi": 7,
       "mediaGialli": 2.39,
       "mediaRossi": 0.09,
-      "mediaFalli": 11.3,
-      "mediaGialliCasa": 2.34,
+      "mediaFalli": 11.2,
+      "mediaGialliCasa": 2.33,
       "mediaGialliOspite": 2.45,
       "perStagione": [
         {
@@ -2751,96 +3097,50 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 16,
+          "partite": 9,
+          "gialli": 18,
           "rossi": 2,
           "mediaGialli": 2.0,
-          "mediaRossi": 0.25,
-          "mediaFalli": 10.5,
-          "mediaGialliCasa": 2.75,
+          "mediaRossi": 0.22,
+          "mediaFalli": 9.9,
+          "mediaGialliCasa": 2.6,
           "mediaGialliOspite": 1.25
         }
       ]
     },
     {
-      "nome": "Nurnberg",
-      "partite": 76,
-      "gialli": 181,
-      "rossi": 5,
-      "mediaGialli": 2.38,
-      "mediaRossi": 0.07,
-      "mediaFalli": 11.3,
-      "mediaGialliCasa": 2.13,
-      "mediaGialliOspite": 2.63,
+      "nome": "Hamburg",
+      "partite": 34,
+      "gialli": 80,
+      "rossi": 4,
+      "mediaGialli": 2.35,
+      "mediaRossi": 0.12,
+      "mediaFalli": 12.4,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 2.71,
       "perStagione": [
         {
           "stagione": "2024/25",
           "partite": 34,
           "gialli": 80,
-          "rossi": 3,
+          "rossi": 4,
           "mediaGialli": 2.35,
-          "mediaRossi": 0.09,
-          "mediaFalli": 10.8,
-          "mediaGialliCasa": 2.18,
-          "mediaGialliOspite": 2.53
-        },
-        {
-          "stagione": "2025/26",
-          "partite": 34,
-          "gialli": 83,
-          "rossi": 2,
-          "mediaGialli": 2.44,
-          "mediaRossi": 0.06,
-          "mediaFalli": 11.9,
-          "mediaGialliCasa": 2.12,
-          "mediaGialliOspite": 2.76
-        },
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 18,
-          "rossi": 0,
-          "mediaGialli": 2.25,
-          "mediaRossi": 0.0,
-          "mediaFalli": 10.9,
+          "mediaRossi": 0.12,
+          "mediaFalli": 12.4,
           "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 2.5
-        }
-      ]
-    },
-    {
-      "nome": "Osnabruck",
-      "partite": 8,
-      "gialli": 19,
-      "rossi": 0,
-      "mediaGialli": 2.38,
-      "mediaRossi": 0.0,
-      "mediaFalli": 10.8,
-      "mediaGialliCasa": 2.25,
-      "mediaGialliOspite": 2.5,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 19,
-          "rossi": 0,
-          "mediaGialli": 2.38,
-          "mediaRossi": 0.0,
-          "mediaFalli": 10.8,
-          "mediaGialliCasa": 2.25,
-          "mediaGialliOspite": 2.5
+          "mediaGialliOspite": 2.71
         }
       ]
     },
     {
       "nome": "Hertha",
-      "partite": 76,
-      "gialli": 180,
+      "partite": 77,
+      "gialli": 181,
       "rossi": 10,
-      "mediaGialli": 2.37,
+      "mediaGialli": 2.35,
       "mediaRossi": 0.13,
       "mediaFalli": 12.7,
-      "mediaGialliCasa": 2.19,
+      "mediaGialliCasa": 2.16,
       "mediaGialliOspite": 2.54,
       "perStagione": [
         {
@@ -2867,84 +3167,60 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 21,
+          "partite": 9,
+          "gialli": 22,
           "rossi": 2,
-          "mediaGialli": 2.62,
-          "mediaRossi": 0.25,
-          "mediaFalli": 12.8,
-          "mediaGialliCasa": 2.0,
+          "mediaGialli": 2.44,
+          "mediaRossi": 0.22,
+          "mediaFalli": 12.6,
+          "mediaGialliCasa": 1.75,
           "mediaGialliOspite": 3.0
         }
       ]
     },
     {
-      "nome": "Kaiserslautern",
-      "partite": 76,
-      "gialli": 180,
-      "rossi": 3,
-      "mediaGialli": 2.37,
-      "mediaRossi": 0.04,
-      "mediaFalli": 12.2,
-      "mediaGialliCasa": 2.32,
-      "mediaGialliOspite": 2.42,
-      "perStagione": [
-        {
-          "stagione": "2024/25",
-          "partite": 34,
-          "gialli": 79,
-          "rossi": 1,
-          "mediaGialli": 2.32,
-          "mediaRossi": 0.03,
-          "mediaFalli": 12.4,
-          "mediaGialliCasa": 2.12,
-          "mediaGialliOspite": 2.53
-        },
-        {
-          "stagione": "2025/26",
-          "partite": 34,
-          "gialli": 86,
-          "rossi": 2,
-          "mediaGialli": 2.53,
-          "mediaRossi": 0.06,
-          "mediaFalli": 12.2,
-          "mediaGialliCasa": 2.59,
-          "mediaGialliOspite": 2.47
-        },
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 15,
-          "rossi": 0,
-          "mediaGialli": 1.88,
-          "mediaRossi": 0.0,
-          "mediaFalli": 11.1,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 1.75
-        }
-      ]
-    },
-    {
-      "nome": "Hamburg",
-      "partite": 34,
-      "gialli": 80,
-      "rossi": 4,
+      "nome": "Nurnberg",
+      "partite": 77,
+      "gialli": 181,
+      "rossi": 5,
       "mediaGialli": 2.35,
-      "mediaRossi": 0.12,
-      "mediaFalli": 12.4,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 2.71,
+      "mediaRossi": 0.06,
+      "mediaFalli": 11.3,
+      "mediaGialliCasa": 2.08,
+      "mediaGialliOspite": 2.63,
       "perStagione": [
         {
           "stagione": "2024/25",
           "partite": 34,
           "gialli": 80,
-          "rossi": 4,
+          "rossi": 3,
           "mediaGialli": 2.35,
-          "mediaRossi": 0.12,
-          "mediaFalli": 12.4,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 2.71
+          "mediaRossi": 0.09,
+          "mediaFalli": 10.8,
+          "mediaGialliCasa": 2.18,
+          "mediaGialliOspite": 2.53
+        },
+        {
+          "stagione": "2025/26",
+          "partite": 34,
+          "gialli": 83,
+          "rossi": 2,
+          "mediaGialli": 2.44,
+          "mediaRossi": 0.06,
+          "mediaFalli": 11.9,
+          "mediaGialliCasa": 2.12,
+          "mediaGialliOspite": 2.76
+        },
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 18,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.7,
+          "mediaGialliCasa": 1.6,
+          "mediaGialliOspite": 2.5
         }
       ]
     },
@@ -3008,63 +3284,15 @@
       ]
     },
     {
-      "nome": "Cottbus",
-      "partite": 8,
-      "gialli": 18,
-      "rossi": 0,
-      "mediaGialli": 2.25,
-      "mediaRossi": 0.0,
-      "mediaFalli": 12.5,
-      "mediaGialliCasa": 1.75,
-      "mediaGialliOspite": 2.75,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 18,
-          "rossi": 0,
-          "mediaGialli": 2.25,
-          "mediaRossi": 0.0,
-          "mediaFalli": 12.5,
-          "mediaGialliCasa": 1.75,
-          "mediaGialliOspite": 2.75
-        }
-      ]
-    },
-    {
-      "nome": "Wolfsburg",
-      "partite": 8,
-      "gialli": 18,
-      "rossi": 1,
-      "mediaGialli": 2.25,
-      "mediaRossi": 0.12,
-      "mediaFalli": 14.9,
-      "mediaGialliCasa": 2.5,
-      "mediaGialliOspite": 2.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 18,
-          "rossi": 1,
-          "mediaGialli": 2.25,
-          "mediaRossi": 0.12,
-          "mediaFalli": 14.9,
-          "mediaGialliCasa": 2.5,
-          "mediaGialliOspite": 2.0
-        }
-      ]
-    },
-    {
       "nome": "Hannover",
-      "partite": 76,
-      "gialli": 170,
+      "partite": 77,
+      "gialli": 173,
       "rossi": 5,
-      "mediaGialli": 2.24,
-      "mediaRossi": 0.07,
+      "mediaGialli": 2.25,
+      "mediaRossi": 0.06,
       "mediaFalli": 12.8,
       "mediaGialliCasa": 2.21,
-      "mediaGialliOspite": 2.26,
+      "mediaGialliOspite": 2.28,
       "perStagione": [
         {
           "stagione": "2024/25",
@@ -3090,14 +3318,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 17,
+          "partite": 9,
+          "gialli": 20,
           "rossi": 0,
-          "mediaGialli": 2.12,
+          "mediaGialli": 2.22,
           "mediaRossi": 0.0,
-          "mediaFalli": 11.9,
+          "mediaFalli": 12.3,
           "mediaGialliCasa": 2.5,
-          "mediaGialliOspite": 1.75
+          "mediaGialliOspite": 2.0
         }
       ]
     },
@@ -3126,38 +3354,110 @@
       ]
     },
     {
-      "nome": "FC Koln",
-      "partite": 34,
-      "gialli": 73,
-      "rossi": 1,
-      "mediaGialli": 2.15,
-      "mediaRossi": 0.03,
-      "mediaFalli": 12.4,
-      "mediaGialliCasa": 1.71,
-      "mediaGialliOspite": 2.59,
+      "nome": "Cottbus",
+      "partite": 9,
+      "gialli": 20,
+      "rossi": 0,
+      "mediaGialli": 2.22,
+      "mediaRossi": 0.0,
+      "mediaFalli": 11.9,
+      "mediaGialliCasa": 1.75,
+      "mediaGialliOspite": 2.6,
       "perStagione": [
         {
-          "stagione": "2024/25",
-          "partite": 34,
-          "gialli": 73,
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 20,
+          "rossi": 0,
+          "mediaGialli": 2.22,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.9,
+          "mediaGialliCasa": 1.75,
+          "mediaGialliOspite": 2.6
+        }
+      ]
+    },
+    {
+      "nome": "Osnabruck",
+      "partite": 9,
+      "gialli": 20,
+      "rossi": 0,
+      "mediaGialli": 2.22,
+      "mediaRossi": 0.0,
+      "mediaFalli": 10.4,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 2.5,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 20,
+          "rossi": 0,
+          "mediaGialli": 2.22,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.4,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 2.5
+        }
+      ]
+    },
+    {
+      "nome": "St Pauli",
+      "partite": 9,
+      "gialli": 20,
+      "rossi": 1,
+      "mediaGialli": 2.22,
+      "mediaRossi": 0.11,
+      "mediaFalli": 11.2,
+      "mediaGialliCasa": 1.75,
+      "mediaGialliOspite": 2.6,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 20,
           "rossi": 1,
-          "mediaGialli": 2.15,
-          "mediaRossi": 0.03,
-          "mediaFalli": 12.4,
-          "mediaGialliCasa": 1.71,
-          "mediaGialliOspite": 2.59
+          "mediaGialli": 2.22,
+          "mediaRossi": 0.11,
+          "mediaFalli": 11.2,
+          "mediaGialliCasa": 1.75,
+          "mediaGialliOspite": 2.6
+        }
+      ]
+    },
+    {
+      "nome": "Wolfsburg",
+      "partite": 9,
+      "gialli": 20,
+      "rossi": 1,
+      "mediaGialli": 2.22,
+      "mediaRossi": 0.11,
+      "mediaFalli": 14.2,
+      "mediaGialliCasa": 2.5,
+      "mediaGialliOspite": 2.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 20,
+          "rossi": 1,
+          "mediaGialli": 2.22,
+          "mediaRossi": 0.11,
+          "mediaFalli": 14.2,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": 2.0
         }
       ]
     },
     {
       "nome": "Darmstadt",
-      "partite": 76,
-      "gialli": 163,
+      "partite": 77,
+      "gialli": 166,
       "rossi": 9,
-      "mediaGialli": 2.14,
+      "mediaGialli": 2.16,
       "mediaRossi": 0.12,
-      "mediaFalli": 11.4,
-      "mediaGialliCasa": 2.08,
+      "mediaFalli": 11.5,
+      "mediaGialliCasa": 2.1,
       "mediaGialliOspite": 2.21,
       "perStagione": [
         {
@@ -3184,38 +3484,38 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 18,
+          "partite": 9,
+          "gialli": 21,
           "rossi": 2,
-          "mediaGialli": 2.25,
-          "mediaRossi": 0.25,
-          "mediaFalli": 12.1,
-          "mediaGialliCasa": 2.25,
+          "mediaGialli": 2.33,
+          "mediaRossi": 0.22,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 2.4,
           "mediaGialliOspite": 2.25
         }
       ]
     },
     {
-      "nome": "St Pauli",
-      "partite": 8,
-      "gialli": 16,
+      "nome": "FC Koln",
+      "partite": 34,
+      "gialli": 73,
       "rossi": 1,
-      "mediaGialli": 2.0,
-      "mediaRossi": 0.12,
-      "mediaFalli": 11.0,
-      "mediaGialliCasa": 1.75,
-      "mediaGialliOspite": 2.25,
+      "mediaGialli": 2.15,
+      "mediaRossi": 0.03,
+      "mediaFalli": 12.4,
+      "mediaGialliCasa": 1.71,
+      "mediaGialliOspite": 2.59,
       "perStagione": [
         {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 16,
+          "stagione": "2024/25",
+          "partite": 34,
+          "gialli": 73,
           "rossi": 1,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.12,
-          "mediaFalli": 11.0,
-          "mediaGialliCasa": 1.75,
-          "mediaGialliOspite": 2.25
+          "mediaGialli": 2.15,
+          "mediaRossi": 0.03,
+          "mediaFalli": 12.4,
+          "mediaGialliCasa": 1.71,
+          "mediaGialliOspite": 2.59
         }
       ]
     },
@@ -3256,14 +3556,14 @@
     },
     {
       "nome": "Bielefeld",
-      "partite": 42,
-      "gialli": 82,
+      "partite": 43,
+      "gialli": 84,
       "rossi": 3,
       "mediaGialli": 1.95,
       "mediaRossi": 0.07,
-      "mediaFalli": 12.8,
+      "mediaFalli": 12.7,
       "mediaGialliCasa": 2.1,
-      "mediaGialliOspite": 1.81,
+      "mediaGialliOspite": 1.82,
       "perStagione": [
         {
           "stagione": "2025/26",
@@ -3278,27 +3578,27 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 16,
+          "partite": 9,
+          "gialli": 18,
           "rossi": 0,
           "mediaGialli": 2.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.5,
+          "mediaFalli": 12.3,
           "mediaGialliCasa": 2.5,
-          "mediaGialliOspite": 1.5
+          "mediaGialliOspite": 1.6
         }
       ]
     },
     {
       "nome": "Greuther Furth",
-      "partite": 76,
+      "partite": 77,
       "gialli": 146,
       "rossi": 5,
-      "mediaGialli": 1.92,
-      "mediaRossi": 0.07,
+      "mediaGialli": 1.9,
+      "mediaRossi": 0.06,
       "mediaFalli": 10.9,
       "mediaGialliCasa": 1.89,
-      "mediaGialliOspite": 1.95,
+      "mediaGialliOspite": 1.9,
       "perStagione": [
         {
           "stagione": "2024/25",
@@ -3324,27 +3624,27 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
+          "partite": 9,
           "gialli": 8,
           "rossi": 0,
-          "mediaGialli": 1.0,
+          "mediaGialli": 0.89,
           "mediaRossi": 0.0,
-          "mediaFalli": 8.6,
+          "mediaFalli": 8.3,
           "mediaGialliCasa": 1.5,
-          "mediaGialliOspite": 0.5
+          "mediaGialliOspite": 0.4
         }
       ]
     },
     {
       "nome": "Dynamo Dresden",
-      "partite": 42,
-      "gialli": 78,
+      "partite": 43,
+      "gialli": 79,
       "rossi": 5,
-      "mediaGialli": 1.86,
+      "mediaGialli": 1.84,
       "mediaRossi": 0.12,
-      "mediaFalli": 10.7,
+      "mediaFalli": 10.5,
       "mediaGialliCasa": 1.86,
-      "mediaGialliOspite": 1.86,
+      "mediaGialliOspite": 1.82,
       "perStagione": [
         {
           "stagione": "2025/26",
@@ -3359,14 +3659,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 16,
+          "partite": 9,
+          "gialli": 17,
           "rossi": 1,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.12,
-          "mediaFalli": 10.2,
+          "mediaGialli": 1.89,
+          "mediaRossi": 0.11,
+          "mediaFalli": 9.7,
           "mediaGialliCasa": 1.25,
-          "mediaGialliOspite": 2.75
+          "mediaGialliOspite": 2.4
         }
       ]
     },
@@ -3407,30 +3707,165 @@
     },
     {
       "nome": "Heidenheim",
-      "partite": 8,
-      "gialli": 12,
+      "partite": 9,
+      "gialli": 14,
       "rossi": 0,
-      "mediaGialli": 1.5,
+      "mediaGialli": 1.56,
       "mediaRossi": 0.0,
-      "mediaFalli": 10.1,
-      "mediaGialliCasa": 1.0,
+      "mediaFalli": 9.7,
+      "mediaGialliCasa": 1.2,
       "mediaGialliOspite": 2.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 12,
+          "partite": 9,
+          "gialli": 14,
           "rossi": 0,
-          "mediaGialli": 1.5,
+          "mediaGialli": 1.56,
           "mediaRossi": 0.0,
-          "mediaFalli": 10.1,
-          "mediaGialliCasa": 1.0,
+          "mediaFalli": 9.7,
+          "mediaGialliCasa": 1.2,
           "mediaGialliOspite": 2.0
         }
       ]
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "25/10/2026",
+      "casa": "Osnabruck",
+      "ospite": "Greuther Furth",
+      "gc": 3,
+      "go": 0,
+      "arbitro": "Justin Hasmann",
+      "gialliCasa": 1,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 8,
+      "falliOspite": 6
+    },
+    {
+      "stagione": "2026/27",
+      "data": "25/10/2026",
+      "casa": "Holstein Kiel",
+      "ospite": "Dynamo Dresden",
+      "gc": 3,
+      "go": 0,
+      "arbitro": "Timo Gerach",
+      "gialliCasa": 5,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 11,
+      "falliOspite": 5
+    },
+    {
+      "stagione": "2026/27",
+      "data": "25/10/2026",
+      "casa": "Braunschweig",
+      "ospite": "Hannover",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "Tobias Reichel",
+      "gialliCasa": 3,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 15,
+      "falliOspite": 16
+    },
+    {
+      "stagione": "2026/27",
+      "data": "24/10/2026",
+      "casa": "Nurnberg",
+      "ospite": "Kaiserslautern",
+      "gc": 0,
+      "go": 1,
+      "arbitro": "Dr. Max Burda",
+      "gialliCasa": 0,
+      "gialliOspite": 5,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 9,
+      "falliOspite": 16
+    },
+    {
+      "stagione": "2026/27",
+      "data": "24/10/2026",
+      "casa": "Magdeburg",
+      "ospite": "Karlsruhe",
+      "gc": 6,
+      "go": 1,
+      "arbitro": "Felix Wagner",
+      "gialliCasa": 2,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 5,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "24/10/2026",
+      "casa": "Hertha",
+      "ospite": "Bielefeld",
+      "gc": 1,
+      "go": 0,
+      "arbitro": "Cristian Ballweg",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 11,
+      "falliOspite": 11
+    },
+    {
+      "stagione": "2026/27",
+      "data": "24/10/2026",
+      "casa": "Heidenheim",
+      "ospite": "Cottbus",
+      "gc": 1,
+      "go": 1,
+      "arbitro": "Patrick Schwengers",
+      "gialliCasa": 2,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 6,
+      "falliOspite": 7
+    },
+    {
+      "stagione": "2026/27",
+      "data": "23/10/2026",
+      "casa": "Darmstadt",
+      "ospite": "St Pauli",
+      "gc": 0,
+      "go": 0,
+      "arbitro": "Timo Gansloweit",
+      "gialliCasa": 3,
+      "gialliOspite": 4,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 13,
+      "falliOspite": 13
+    },
+    {
+      "stagione": "2026/27",
+      "data": "23/10/2026",
+      "casa": "Bochum",
+      "ospite": "Wolfsburg",
+      "gc": 1,
+      "go": 1,
+      "arbitro": "Eric Weisbach",
+      "gialliCasa": 0,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 19,
+      "falliOspite": 9
+    },
     {
       "stagione": "2026/27",
       "data": "18/10/2026",
@@ -3895,260 +4330,125 @@
       "rossiOspite": 0,
       "falliCasa": 12,
       "falliOspite": 8
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/09/2026",
-      "casa": "Magdeburg",
-      "ospite": "Kaiserslautern",
-      "gc": 3,
-      "go": 0,
-      "arbitro": "Marc Philip Eckermann",
-      "gialliCasa": 1,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 9,
-      "falliOspite": 5
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/09/2026",
-      "casa": "Braunschweig",
-      "ospite": "Dynamo Dresden",
-      "gc": 2,
-      "go": 2,
-      "arbitro": "Lars Erbst",
-      "gialliCasa": 3,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 8,
-      "falliOspite": 13
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/09/2026",
-      "casa": "Bochum",
-      "ospite": "Greuther Furth",
-      "gc": 1,
-      "go": 1,
-      "arbitro": "Felix Bickel",
-      "gialliCasa": 2,
-      "gialliOspite": 0,
-      "rossiCasa": 1,
-      "rossiOspite": 0,
-      "falliCasa": 7,
-      "falliOspite": 7
-    },
-    {
-      "stagione": "2026/27",
-      "data": "11/09/2026",
-      "casa": "Nurnberg",
-      "ospite": "Hannover",
-      "gc": 2,
-      "go": 1,
-      "arbitro": "Florian Lechner",
-      "gialliCasa": 3,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 10,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2026/27",
-      "data": "11/09/2026",
-      "casa": "Darmstadt",
-      "ospite": "Bielefeld",
-      "gc": 2,
-      "go": 1,
-      "arbitro": "Eric Weisbach",
-      "gialliCasa": 3,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 17,
-      "falliOspite": 17
-    },
-    {
-      "stagione": "2026/27",
-      "data": "06/09/2026",
-      "casa": "Osnabruck",
-      "ospite": "Braunschweig",
-      "gc": 3,
-      "go": 1,
-      "arbitro": "Wolfgang Haslberger",
-      "gialliCasa": 1,
-      "gialliOspite": 5,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 11,
-      "falliOspite": 13
-    },
-    {
-      "stagione": "2026/27",
-      "data": "06/09/2026",
-      "casa": "Hertha",
-      "ospite": "Magdeburg",
-      "gc": 2,
-      "go": 1,
-      "arbitro": "Dr. Florian Exner",
-      "gialliCasa": 3,
-      "gialliOspite": 3,
-      "rossiCasa": 1,
-      "rossiOspite": 1,
-      "falliCasa": 17,
-      "falliOspite": 10
-    },
-    {
-      "stagione": "2026/27",
-      "data": "06/09/2026",
-      "casa": "Greuther Furth",
-      "ospite": "Heidenheim",
-      "gc": 0,
-      "go": 1,
-      "arbitro": "Konrad Oldhafer",
-      "gialliCasa": 1,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 7,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2026/27",
-      "data": "05/09/2026",
-      "casa": "Wolfsburg",
-      "ospite": "Cottbus",
-      "gc": 4,
-      "go": 4,
-      "arbitro": "Lukas Benen",
-      "gialliCasa": 3,
-      "gialliOspite": 4,
-      "rossiCasa": 1,
-      "rossiOspite": 0,
-      "falliCasa": 13,
-      "falliOspite": 12
     }
   ],
   "prossimeDesignazioni": [
     {
-      "giornata": 9,
-      "data": "2026-10-23",
+      "giornata": 10,
+      "data": "2026-10-30",
       "ora": "18:30",
+      "casa": "Bielefeld",
+      "ospite": "Braunschweig",
+      "arbitro": "Jarno Wienefeld",
+      "assistente1": "Jonas Weickenmeier",
+      "assistente2": "Luca Jürgensen",
+      "quartoUomo": "Patrick Schwengers",
+      "var": "Guido Winkmann",
+      "avar": "Markus Häcker"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-30",
+      "ora": "18:30",
+      "casa": "Cottbus",
+      "ospite": "Bochum",
+      "arbitro": "Florian Lechner",
+      "assistente1": "Kevin Behrens",
+      "assistente2": "Thorben Siewer",
+      "quartoUomo": "Robert Wessel",
+      "var": "Robert Schröder",
+      "avar": "Martin Petersen"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-31",
+      "ora": "13:00",
+      "casa": "Wolfsburg",
+      "ospite": "Osnabruck",
+      "arbitro": "Konrad Oldhafer",
+      "assistente1": "Tim Kohnert",
+      "assistente2": "Ben Henry Uhrig",
+      "quartoUomo": "Hannes Ventzke",
+      "var": "Martin Petersen",
+      "avar": "Markus Sinn"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-31",
+      "ora": "13:00",
       "casa": "Darmstadt",
-      "ospite": "St Pauli",
-      "arbitro": "Timo Gansloweit",
-      "assistente1": "Fabian Maibaum",
-      "assistente2": "Tobias Severins",
-      "quartoUomo": "Leonidas Exuzidis",
+      "ospite": "Magdeburg",
+      "arbitro": "Lukas Benen",
+      "assistente1": "Fynn Kohn",
+      "assistente2": "Lennart Kernchen",
+      "quartoUomo": "Tobias Endriß",
+      "var": "Benjamin Cortus",
+      "avar": "Dr. Henrik Bramlage"
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-31",
+      "ora": "13:00",
+      "casa": "Kaiserslautern",
+      "ospite": "Hertha",
+      "arbitro": "Felix Bickel",
+      "assistente1": "Philipp Hüwe",
+      "assistente2": "Christoph Kluge",
+      "quartoUomo": "Maximilian Lotz",
       "var": "Michael Bacher",
       "avar": "Franz Bokop"
     },
     {
-      "giornata": 9,
-      "data": "2026-10-23",
-      "ora": "18:30",
-      "casa": "Bochum",
-      "ospite": "Wolfsburg",
-      "arbitro": "Eric Weisbach",
-      "assistente1": "Sven Waschitzki-Günther",
-      "assistente2": "Hannes Ventzke",
-      "quartoUomo": "Jonah Besong",
-      "var": "Guido Winkmann",
-      "avar": "Felix-Benjamin Schwermer"
-    },
-    {
-      "giornata": 9,
-      "data": "2026-10-24",
-      "ora": "13:00",
-      "casa": "Heidenheim",
-      "ospite": "Cottbus",
-      "arbitro": "Patrick Schwengers",
-      "assistente1": "Mitja Stegemann",
-      "assistente2": "Alexander Roppelt",
-      "quartoUomo": "Wolfgang Haslberger",
-      "var": "Patrick Alt",
-      "avar": "Dr. Riem Hussein"
-    },
-    {
-      "giornata": 9,
-      "data": "2026-10-24",
-      "ora": "13:00",
-      "casa": "Hertha",
-      "ospite": "Bielefeld",
-      "arbitro": "Cristian Ballweg",
-      "assistente1": "Thomas Stein",
-      "assistente2": "Roy Dingler",
-      "quartoUomo": "Lennart Kernchen",
-      "var": "Tobias Stieler",
-      "avar": "Mike Pickel"
-    },
-    {
-      "giornata": 9,
-      "data": "2026-10-24",
-      "ora": "13:00",
-      "casa": "Magdeburg",
-      "ospite": "Karlsruhe",
-      "arbitro": "Felix Wagner",
-      "assistente1": "Martin Speckner",
-      "assistente2": "Simon Schreiner",
-      "quartoUomo": "Lasse Koslowski",
-      "var": "Dr. Robert Kampka",
-      "avar": "Vanessa Kaminski"
-    },
-    {
-      "giornata": 9,
-      "data": "2026-10-24",
+      "giornata": 10,
+      "data": "2026-10-31",
       "ora": "20:30",
-      "casa": "Nurnberg",
-      "ospite": "Kaiserslautern",
-      "arbitro": "Dr. Max Burda",
-      "assistente1": "Julius Martenstein",
-      "assistente2": "Christoph Kluge",
-      "quartoUomo": "Felix Weller",
-      "var": "Günter Perl",
-      "avar": "Christian Fischer"
+      "casa": "Karlsruhe",
+      "ospite": "Heidenheim",
+      "arbitro": "Sören Storks",
+      "assistente1": "Markus Schüller",
+      "assistente2": "Nico Fuchs",
+      "quartoUomo": "Justin Hasmann",
+      "var": "Pascal Müller",
+      "avar": "Guido Kleve"
     },
     {
-      "giornata": 9,
-      "data": "2026-10-25",
+      "giornata": 10,
+      "data": "2026-11-01",
       "ora": "13:30",
-      "casa": "Holstein Kiel",
-      "ospite": "Dynamo Dresden",
-      "arbitro": "Timo Gerach",
-      "assistente1": "Patrick Kessel",
-      "assistente2": "Tobias Endriß",
-      "quartoUomo": "Konrad Oldhafer",
-      "var": "Günter Perl",
+      "casa": "St Pauli",
+      "ospite": "Nurnberg",
+      "arbitro": "Robert Hartmann",
+      "assistente1": "Tobias Schultes",
+      "assistente2": "Martin Speckner",
+      "quartoUomo": "Niclas Rose",
+      "var": "Nicolas Winter",
       "avar": "Dr. Riem Hussein"
     },
     {
-      "giornata": 9,
-      "data": "2026-10-25",
+      "giornata": 10,
+      "data": "2026-11-01",
       "ora": "13:30",
-      "casa": "Braunschweig",
-      "ospite": "Hannover",
-      "arbitro": "Tobias Reichel",
-      "assistente1": "Christian Bandurski",
-      "assistente2": "Mario Hildenbrand",
-      "quartoUomo": "Florian Lechner",
-      "var": "Katrin Rafalski",
-      "avar": "Markus Sinn"
+      "casa": "Hannover",
+      "ospite": "Dynamo Dresden",
+      "arbitro": "Felix Weller",
+      "assistente1": "Jonah Besong",
+      "assistente2": "Daniel Bartnitzki",
+      "quartoUomo": "Sven Waschitzki-Günther",
+      "var": "Pascal Müller",
+      "avar": "Markus Wollenweber"
     },
     {
-      "giornata": 9,
-      "data": "2026-10-25",
+      "giornata": 10,
+      "data": "2026-11-01",
       "ora": "13:30",
-      "casa": "Osnabruck",
-      "ospite": "Greuther Furth",
-      "arbitro": "Justin Hasmann",
-      "assistente1": "Benedikt Kempkes",
-      "assistente2": "Marco Achmüller",
-      "quartoUomo": "Cengiz Kabalakli",
+      "casa": "Greuther Furth",
+      "ospite": "Holstein Kiel",
+      "arbitro": "Lars Erbst",
+      "assistente1": "Manuel Bergmann",
+      "assistente2": "Cengiz Kabalakli",
+      "quartoUomo": "Assad Nouhoum",
       "var": "Patrick Alt",
-      "avar": "Markus Wollenweber"
+      "avar": "Michael Bacher"
     }
   ]
 }
