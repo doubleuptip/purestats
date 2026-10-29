@@ -1,14 +1,122 @@
 {
-  "aggiornato": "2026-10-26T15:54:30.633508+00:00",
+  "aggiornato": "2026-10-29T15:53:59.781083+00:00",
   "campionato": "Süper Lig",
   "fonte": "football-data.co.uk (PDDL) · designazioni TFF",
   "stagioni": [
     "2026/27"
   ],
-  "totalePartite": 72,
-  "partiteConDisciplina": 72,
-  "partiteConArbitro": 36,
+  "totalePartite": 81,
+  "partiteConDisciplina": 81,
+  "partiteConArbitro": 45,
   "arbitri": [
+    {
+      "nome": "Kadir Sağlam",
+      "partite": 2,
+      "gialli": 15,
+      "rossi": 3,
+      "mediaGialli": 7.5,
+      "mediaRossi": 1.5,
+      "mediaCartellini": 9.0,
+      "mediaFalli": 30.0,
+      "gialliPerFallo": 25.0,
+      "squilibrioCasaOspite": 0.5,
+      "mediaGialliCasa": 3.5,
+      "mediaGialliOspite": 4.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 2,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Amedspor",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 1,
+          "media": 5.0
+        },
+        {
+          "squadra": "Samsunspor",
+          "partite": 1,
+          "gialli": 5,
+          "rossi": 1,
+          "media": 5.0
+        },
+        {
+          "squadra": "Galatasaray",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Buyuksehyr",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 1,
+          "media": 2.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 15,
+          "rossi": 3,
+          "media": 9.0,
+          "mediaGialli": 7.5,
+          "mediaRossi": 1.5,
+          "mediaFalli": 30.0,
+          "squilibrio": 0.5,
+          "mediaGialliCasa": 3.5,
+          "mediaGialliOspite": 4.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "24/10/2026",
+          "casa": "Samsunspor",
+          "ospite": "Amedspor",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 5,
+          "gialliOspite": 5,
+          "rossiCasa": 1,
+          "rossiOspite": 1,
+          "falliCasa": 15,
+          "falliOspite": 16
+        },
+        {
+          "stagione": "2026/27",
+          "data": "04/09/2026",
+          "casa": "Buyuksehyr",
+          "ospite": "Galatasaray",
+          "gc": 2,
+          "go": 3,
+          "gialliCasa": 2,
+          "gialliOspite": 3,
+          "rossiCasa": 1,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 15
+        }
+      ],
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-31",
+          "ora": "13:30",
+          "casa": "Erzurumspor",
+          "ospite": "Corum",
+          "arbitro": "Kadir Sağlam",
+          "assistente1": "Murat Altan",
+          "assistente2": "Suat Güz",
+          "quartoUomo": "Melih Aldemir",
+          "var": null,
+          "avar": null
+        }
+      ]
+    },
     {
       "nome": "Alpaslan Şen",
       "partite": 1,
@@ -73,25 +181,39 @@
           "falliOspite": 15
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-11-01",
+          "ora": "13:30",
+          "casa": "Amedspor",
+          "ospite": "Eyupspor",
+          "arbitro": "Alpaslan Şen",
+          "assistente1": "İbrahim Çağlar Uyarcan",
+          "assistente2": "Ogün Kamacı",
+          "quartoUomo": "Muhammet Ali Metoğlu",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Halil Umut Meler",
-      "partite": 2,
-      "gialli": 13,
+      "partite": 3,
+      "gialli": 17,
       "rossi": 1,
-      "mediaGialli": 6.5,
-      "mediaRossi": 0.5,
-      "mediaCartellini": 7.0,
-      "mediaFalli": 33.0,
-      "gialliPerFallo": 19.7,
-      "squilibrioCasaOspite": 0.5,
-      "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 3.5,
+      "mediaGialli": 5.67,
+      "mediaRossi": 0.33,
+      "mediaCartellini": 6.0,
+      "mediaFalli": 31.0,
+      "gialliPerFallo": 18.3,
+      "squilibrioCasaOspite": 0.33,
+      "mediaGialliCasa": 2.67,
+      "mediaGialliOspite": 3.0,
       "vittorieCasa": 1,
       "pareggi": 0,
-      "vittorieOspite": 1,
-      "percVittorieCasa": 50.0,
+      "vittorieOspite": 2,
+      "percVittorieCasa": 33.3,
       "perSquadra": [
         {
           "squadra": "Fenerbahce",
@@ -120,24 +242,52 @@
           "gialli": 2,
           "rossi": 1,
           "media": 2.0
+        },
+        {
+          "squadra": "Rizespor",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Trabzonspor",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
         }
       ],
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 13,
+          "partite": 3,
+          "gialli": 17,
           "rossi": 1,
-          "media": 7.0,
-          "mediaGialli": 6.5,
-          "mediaRossi": 0.5,
-          "mediaFalli": 33.0,
-          "squilibrio": 0.5,
-          "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 3.5
+          "media": 6.0,
+          "mediaGialli": 5.67,
+          "mediaRossi": 0.33,
+          "mediaFalli": 31.0,
+          "squilibrio": 0.33,
+          "mediaGialliCasa": 2.67,
+          "mediaGialliOspite": 3.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "26/10/2026",
+          "casa": "Rizespor",
+          "ospite": "Trabzonspor",
+          "gc": 3,
+          "go": 4,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 14
+        },
         {
           "stagione": "2026/27",
           "data": "09/10/2026",
@@ -167,289 +317,7 @@
           "falliOspite": 21
         }
       ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-26",
-          "ora": "19:00",
-          "casa": "Rizespor",
-          "ospite": "Trabzonspor",
-          "arbitro": "Halil Umut Meler",
-          "assistente1": "Murat Tuğberk Curbay",
-          "assistente2": "Esat Sancaktar",
-          "quartoUomo": "Fatih Tokail",
-          "var": null,
-          "avar": null
-        }
-      ]
-    },
-    {
-      "nome": "Mehmet Türkmen",
-      "partite": 1,
-      "gialli": 7,
-      "rossi": 0,
-      "mediaGialli": 7.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 7.0,
-      "mediaFalli": 24.0,
-      "gialliPerFallo": 29.2,
-      "squilibrioCasaOspite": -1.0,
-      "mediaGialliCasa": 4.0,
-      "mediaGialliOspite": 3.0,
-      "vittorieCasa": 0,
-      "pareggi": 1,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 0.0,
-      "perSquadra": [
-        {
-          "squadra": "Gaziantep",
-          "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0
-        },
-        {
-          "squadra": "Fenerbahce",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 7,
-          "rossi": 0,
-          "media": 7.0,
-          "mediaGialli": 7.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 24.0,
-          "squilibrio": -1.0,
-          "mediaGialliCasa": 4.0,
-          "mediaGialliOspite": 3.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "14/09/2026",
-          "casa": "Gaziantep",
-          "ospite": "Fenerbahce",
-          "gc": 0,
-          "go": 0,
-          "gialliCasa": 4,
-          "gialliOspite": 3,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 16,
-          "falliOspite": 8
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-25",
-          "ora": "19:00",
-          "casa": "Goztep",
-          "ospite": "Corum",
-          "arbitro": "Mehmet Türkmen",
-          "assistente1": "Gökhan Barcın",
-          "assistente2": "Selahattin Altay",
-          "quartoUomo": "Süleyman Bahadır",
-          "var": null,
-          "avar": null
-        }
-      ]
-    },
-    {
-      "nome": "Ümit Öztürk",
-      "partite": 2,
-      "gialli": 13,
-      "rossi": 1,
-      "mediaGialli": 6.5,
-      "mediaRossi": 0.5,
-      "mediaCartellini": 7.0,
-      "mediaFalli": 26.5,
-      "gialliPerFallo": 24.5,
-      "squilibrioCasaOspite": -0.5,
-      "mediaGialliCasa": 3.5,
-      "mediaGialliOspite": 3.0,
-      "vittorieCasa": 0,
-      "pareggi": 1,
-      "vittorieOspite": 1,
-      "percVittorieCasa": 0.0,
-      "perSquadra": [
-        {
-          "squadra": "Amedspor",
-          "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0
-        },
-        {
-          "squadra": "Genclerbirligi",
-          "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0
-        },
-        {
-          "squadra": "Goztep",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 1,
-          "media": 3.0
-        },
-        {
-          "squadra": "Gaziantep",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 13,
-          "rossi": 1,
-          "media": 7.0,
-          "mediaGialli": 6.5,
-          "mediaRossi": 0.5,
-          "mediaFalli": 26.5,
-          "squilibrio": -0.5,
-          "mediaGialliCasa": 3.5,
-          "mediaGialliOspite": 3.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "10/10/2026",
-          "casa": "Genclerbirligi",
-          "ospite": "Amedspor",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 4,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 14,
-          "falliOspite": 11
-        },
-        {
-          "stagione": "2026/27",
-          "data": "07/09/2026",
-          "casa": "Goztep",
-          "ospite": "Gaziantep",
-          "gc": 2,
-          "go": 4,
-          "gialliCasa": 3,
-          "gialliOspite": 2,
-          "rossiCasa": 1,
-          "rossiOspite": 0,
-          "falliCasa": 18,
-          "falliOspite": 10
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-26",
-          "ora": "19:00",
-          "casa": "Besiktas",
-          "ospite": "Buyuksehyr",
-          "arbitro": "Ümit Öztürk",
-          "assistente1": "Kerem Ersoy",
-          "assistente2": "Candaş Elbil",
-          "quartoUomo": "Reşat Onur Coşkunses",
-          "var": null,
-          "avar": null
-        }
-      ]
-    },
-    {
-      "nome": "Kadir Sağlam",
-      "partite": 1,
-      "gialli": 5,
-      "rossi": 1,
-      "mediaGialli": 5.0,
-      "mediaRossi": 1.0,
-      "mediaCartellini": 6.0,
-      "mediaFalli": 29.0,
-      "gialliPerFallo": 17.2,
-      "squilibrioCasaOspite": 1.0,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 3.0,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 1,
-      "percVittorieCasa": 0.0,
-      "perSquadra": [
-        {
-          "squadra": "Galatasaray",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
-        },
-        {
-          "squadra": "Buyuksehyr",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 1,
-          "media": 2.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 5,
-          "rossi": 1,
-          "media": 6.0,
-          "mediaGialli": 5.0,
-          "mediaRossi": 1.0,
-          "mediaFalli": 29.0,
-          "squilibrio": 1.0,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 3.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "04/09/2026",
-          "casa": "Buyuksehyr",
-          "ospite": "Galatasaray",
-          "gc": 2,
-          "go": 3,
-          "gialliCasa": 2,
-          "gialliOspite": 3,
-          "rossiCasa": 1,
-          "rossiOspite": 0,
-          "falliCasa": 14,
-          "falliOspite": 15
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-24",
-          "ora": "19:00",
-          "casa": "Samsunspor",
-          "ospite": "Amedspor",
-          "arbitro": "Kadir Sağlam",
-          "assistente1": "Mustafa Savranlar",
-          "assistente2": "Suat Güz",
-          "quartoUomo": "Burak Demirkıran",
-          "var": null,
-          "avar": null
-        }
-      ]
+      "prossime": []
     },
     {
       "nome": "Yasin Kol",
@@ -547,28 +415,35 @@
     },
     {
       "nome": "Atilla Karaoğlan",
-      "partite": 2,
-      "gialli": 9,
+      "partite": 3,
+      "gialli": 16,
       "rossi": 1,
-      "mediaGialli": 4.5,
-      "mediaRossi": 0.5,
-      "mediaCartellini": 5.0,
-      "mediaFalli": 24.0,
-      "gialliPerFallo": 18.8,
-      "squilibrioCasaOspite": -0.5,
-      "mediaGialliCasa": 2.5,
-      "mediaGialliOspite": 2.0,
-      "vittorieCasa": 1,
+      "mediaGialli": 5.33,
+      "mediaRossi": 0.33,
+      "mediaCartellini": 5.67,
+      "mediaFalli": 25.3,
+      "gialliPerFallo": 21.1,
+      "squilibrioCasaOspite": 0.67,
+      "mediaGialliCasa": 2.33,
+      "mediaGialliOspite": 3.0,
+      "vittorieCasa": 2,
       "pareggi": 0,
       "vittorieOspite": 1,
-      "percVittorieCasa": 50.0,
+      "percVittorieCasa": 66.7,
       "perSquadra": [
         {
-          "squadra": "Galatasaray",
+          "squadra": "Fenerbahce",
           "partite": 1,
-          "gialli": 3,
+          "gialli": 5,
           "rossi": 0,
-          "media": 3.0
+          "media": 5.0
+        },
+        {
+          "squadra": "Galatasaray",
+          "partite": 2,
+          "gialli": 5,
+          "rossi": 0,
+          "media": 2.5
         },
         {
           "squadra": "Eyupspor",
@@ -595,19 +470,33 @@
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 9,
+          "partite": 3,
+          "gialli": 16,
           "rossi": 1,
-          "media": 5.0,
-          "mediaGialli": 4.5,
-          "mediaRossi": 0.5,
-          "mediaFalli": 24.0,
-          "squilibrio": -0.5,
-          "mediaGialliCasa": 2.5,
-          "mediaGialliOspite": 2.0
+          "media": 5.67,
+          "mediaGialli": 5.33,
+          "mediaRossi": 0.33,
+          "mediaFalli": 25.3,
+          "squilibrio": 0.67,
+          "mediaGialliCasa": 2.33,
+          "mediaGialliOspite": 3.0
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "26/10/2026",
+          "casa": "Galatasaray",
+          "ospite": "Fenerbahce",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 2,
+          "gialliOspite": 5,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 18
+        },
         {
           "stagione": "2026/27",
           "data": "12/10/2026",
@@ -637,39 +526,241 @@
           "falliOspite": 10
         }
       ],
-      "prossime": [
+      "prossime": []
+    },
+    {
+      "nome": "Ümit Öztürk",
+      "partite": 3,
+      "gialli": 16,
+      "rossi": 1,
+      "mediaGialli": 5.33,
+      "mediaRossi": 0.33,
+      "mediaCartellini": 5.67,
+      "mediaFalli": 26.3,
+      "gialliPerFallo": 20.3,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 2.67,
+      "mediaGialliOspite": 2.67,
+      "vittorieCasa": 1,
+      "pareggi": 1,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 33.3,
+      "perSquadra": [
         {
-          "giornata": 9,
-          "data": "2026-10-26",
-          "ora": "21:30",
-          "casa": "Galatasaray",
-          "ospite": "Fenerbahce",
-          "arbitro": "Atilla Karaoğlan",
-          "assistente1": "Ceyhun Sesigüzel",
-          "assistente2": "Süleyman Özay",
-          "quartoUomo": "Abdullah Buğra Taşkınsoy",
-          "var": null,
-          "avar": null
+          "squadra": "Amedspor",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Genclerbirligi",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Goztep",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 1,
+          "media": 3.0
+        },
+        {
+          "squadra": "Buyuksehyr",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Gaziantep",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Besiktas",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
         }
-      ]
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 3,
+          "gialli": 16,
+          "rossi": 1,
+          "media": 5.67,
+          "mediaGialli": 5.33,
+          "mediaRossi": 0.33,
+          "mediaFalli": 26.3,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.67,
+          "mediaGialliOspite": 2.67
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "26/10/2026",
+          "casa": "Besiktas",
+          "ospite": "Buyuksehyr",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 9,
+          "falliOspite": 17
+        },
+        {
+          "stagione": "2026/27",
+          "data": "10/10/2026",
+          "casa": "Genclerbirligi",
+          "ospite": "Amedspor",
+          "gc": 2,
+          "go": 2,
+          "gialliCasa": 4,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 14,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2026/27",
+          "data": "07/09/2026",
+          "casa": "Goztep",
+          "ospite": "Gaziantep",
+          "gc": 2,
+          "go": 4,
+          "gialliCasa": 3,
+          "gialliOspite": 2,
+          "rossiCasa": 1,
+          "rossiOspite": 0,
+          "falliCasa": 18,
+          "falliOspite": 10
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Ali Şansalan",
+      "partite": 2,
+      "gialli": 10,
+      "rossi": 0,
+      "mediaGialli": 5.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 5.0,
+      "mediaFalli": 28.5,
+      "gialliPerFallo": 17.5,
+      "squilibrioCasaOspite": 2.0,
+      "mediaGialliCasa": 1.5,
+      "mediaGialliOspite": 3.5,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 2,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Kocaelispor",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Alanyaspor",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Corum",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Samsunspor",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 10,
+          "rossi": 0,
+          "media": 5.0,
+          "mediaGialli": 5.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 28.5,
+          "squilibrio": 2.0,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 3.5
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "23/10/2026",
+          "casa": "Alanyaspor",
+          "ospite": "Kocaelispor",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 3,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 16,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2026/27",
+          "data": "12/09/2026",
+          "casa": "Samsunspor",
+          "ospite": "Corum",
+          "gc": 1,
+          "go": 5,
+          "gialliCasa": 0,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 18
+        }
+      ],
+      "prossime": []
     },
     {
       "nome": "Oğuzhan Çakır",
-      "partite": 2,
-      "gialli": 9,
+      "partite": 3,
+      "gialli": 13,
       "rossi": 1,
-      "mediaGialli": 4.5,
-      "mediaRossi": 0.5,
-      "mediaCartellini": 5.0,
-      "mediaFalli": 26.5,
-      "gialliPerFallo": 17.0,
-      "squilibrioCasaOspite": -2.5,
-      "mediaGialliCasa": 3.5,
-      "mediaGialliOspite": 1.0,
-      "vittorieCasa": 0,
+      "mediaGialli": 4.33,
+      "mediaRossi": 0.33,
+      "mediaCartellini": 4.67,
+      "mediaFalli": 28.0,
+      "gialliPerFallo": 15.5,
+      "squilibrioCasaOspite": -1.0,
+      "mediaGialliCasa": 2.67,
+      "mediaGialliOspite": 1.67,
+      "vittorieCasa": 1,
       "pareggi": 1,
       "vittorieOspite": 1,
-      "percVittorieCasa": 0.0,
+      "percVittorieCasa": 33.3,
       "perSquadra": [
         {
           "squadra": "Kasimpasa",
@@ -677,6 +768,13 @@
           "gialli": 5,
           "rossi": 0,
           "media": 5.0
+        },
+        {
+          "squadra": "Genclerbirligi",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
         },
         {
           "squadra": "Amedspor",
@@ -693,6 +791,13 @@
           "media": 2.0
         },
         {
+          "squadra": "Konyaspor",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
           "squadra": "Trabzonspor",
           "partite": 1,
           "gialli": 0,
@@ -703,19 +808,33 @@
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 2,
-          "gialli": 9,
+          "partite": 3,
+          "gialli": 13,
           "rossi": 1,
-          "media": 5.0,
-          "mediaGialli": 4.5,
-          "mediaRossi": 0.5,
-          "mediaFalli": 26.5,
-          "squilibrio": -2.5,
-          "mediaGialliCasa": 3.5,
-          "mediaGialliOspite": 1.0
+          "media": 4.67,
+          "mediaGialli": 4.33,
+          "mediaRossi": 0.33,
+          "mediaFalli": 28.0,
+          "squilibrio": -1.0,
+          "mediaGialliCasa": 2.67,
+          "mediaGialliOspite": 1.67
         }
       ],
       "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "25/10/2026",
+          "casa": "Konyaspor",
+          "ospite": "Genclerbirligi",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 19
+        },
         {
           "stagione": "2026/27",
           "data": "10/10/2026",
@@ -747,19 +866,113 @@
       ],
       "prossime": [
         {
-          "giornata": 9,
-          "data": "2026-10-25",
-          "ora": "16:00",
-          "casa": "Konyaspor",
-          "ospite": "Genclerbirligi",
+          "giornata": 10,
+          "data": "2026-10-31",
+          "ora": "19:00",
+          "casa": "Fenerbahce",
+          "ospite": "Goztep",
           "arbitro": "Oğuzhan Çakır",
-          "assistente1": "İbrahim Çağlar Uyarcan",
-          "assistente2": "Bahtiyar Birinci",
-          "quartoUomo": "Alpaslan Şen",
+          "assistente1": "Mehmet Kısal",
+          "assistente2": "Kerem Ersoy",
+          "quartoUomo": "Gürcan Hasova",
           "var": null,
           "avar": null
         }
       ]
+    },
+    {
+      "nome": "Mehmet Türkmen",
+      "partite": 2,
+      "gialli": 9,
+      "rossi": 0,
+      "mediaGialli": 4.5,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 4.5,
+      "mediaFalli": 27.0,
+      "gialliPerFallo": 16.7,
+      "squilibrioCasaOspite": -0.5,
+      "mediaGialliCasa": 2.5,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 1,
+      "pareggi": 1,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 50.0,
+      "perSquadra": [
+        {
+          "squadra": "Gaziantep",
+          "partite": 1,
+          "gialli": 4,
+          "rossi": 0,
+          "media": 4.0
+        },
+        {
+          "squadra": "Fenerbahce",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Corum",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Goztep",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 9,
+          "rossi": 0,
+          "media": 4.5,
+          "mediaGialli": 4.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 27.0,
+          "squilibrio": -0.5,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "25/10/2026",
+          "casa": "Goztep",
+          "ospite": "Corum",
+          "gc": 2,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 21,
+          "falliOspite": 9
+        },
+        {
+          "stagione": "2026/27",
+          "data": "14/09/2026",
+          "casa": "Gaziantep",
+          "ospite": "Fenerbahce",
+          "gc": 0,
+          "go": 0,
+          "gialliCasa": 4,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 16,
+          "falliOspite": 8
+        }
+      ],
+      "prossime": []
     },
     {
       "nome": "Davut Dakul Çelik",
@@ -877,86 +1090,6 @@
       "prossime": []
     },
     {
-      "nome": "Alper Akarsu",
-      "partite": 1,
-      "gialli": 4,
-      "rossi": 0,
-      "mediaGialli": 4.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 4.0,
-      "mediaFalli": 38.0,
-      "gialliPerFallo": 10.5,
-      "squilibrioCasaOspite": 0.0,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 2.0,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 1,
-      "percVittorieCasa": 0.0,
-      "perSquadra": [
-        {
-          "squadra": "Goztep",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Kocaelispor",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0,
-          "mediaGialli": 4.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 38.0,
-          "squilibrio": 0.0,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 2.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "18/10/2026",
-          "casa": "Kocaelispor",
-          "ospite": "Goztep",
-          "gc": 1,
-          "go": 2,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 25
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-24",
-          "ora": "13:30",
-          "casa": "Eyupspor",
-          "ospite": "Kasimpasa",
-          "arbitro": "Alper Akarsu",
-          "assistente1": "Ali Can Alp",
-          "assistente2": "Selim Şenöz",
-          "quartoUomo": "Turgut Doman",
-          "var": null,
-          "avar": null
-        }
-      ]
-    },
-    {
       "nome": "Cihan Aydın",
       "partite": 2,
       "gialli": 8,
@@ -1048,7 +1181,21 @@
           "falliOspite": 9
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-10-30",
+          "ora": "20:00",
+          "casa": "Konyaspor",
+          "ospite": "Galatasaray",
+          "arbitro": "Cihan Aydın",
+          "assistente1": "Anıl Usta",
+          "assistente2": "Mehmet Salih Mazlum",
+          "quartoUomo": "Ömer Tolga Güldibi",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Gürcan Hasova",
@@ -1211,32 +1358,46 @@
       "prossime": []
     },
     {
-      "nome": "Ali Şansalan",
-      "partite": 1,
-      "gialli": 3,
+      "nome": "Alper Akarsu",
+      "partite": 2,
+      "gialli": 6,
       "rossi": 0,
       "mediaGialli": 3.0,
       "mediaRossi": 0.0,
       "mediaCartellini": 3.0,
-      "mediaFalli": 30.0,
-      "gialliPerFallo": 10.0,
-      "squilibrioCasaOspite": 3.0,
-      "mediaGialliCasa": 0.0,
-      "mediaGialliOspite": 3.0,
+      "mediaFalli": 35.5,
+      "gialliPerFallo": 8.5,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 2.0,
       "vittorieCasa": 0,
       "pareggi": 0,
-      "vittorieOspite": 1,
+      "vittorieOspite": 2,
       "percVittorieCasa": 0.0,
       "perSquadra": [
         {
-          "squadra": "Corum",
+          "squadra": "Goztep",
           "partite": 1,
-          "gialli": 3,
+          "gialli": 2,
           "rossi": 0,
-          "media": 3.0
+          "media": 2.0
         },
         {
-          "squadra": "Samsunspor",
+          "squadra": "Kasimpasa",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Kocaelispor",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Eyupspor",
           "partite": 1,
           "gialli": 0,
           "rossi": 0,
@@ -1246,49 +1407,49 @@
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 3,
+          "partite": 2,
+          "gialli": 6,
           "rossi": 0,
           "media": 3.0,
           "mediaGialli": 3.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 30.0,
-          "squilibrio": 3.0,
-          "mediaGialliCasa": 0.0,
-          "mediaGialliOspite": 3.0
+          "mediaFalli": 35.5,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "12/09/2026",
-          "casa": "Samsunspor",
-          "ospite": "Corum",
-          "gc": 1,
-          "go": 5,
+          "data": "24/10/2026",
+          "casa": "Eyupspor",
+          "ospite": "Kasimpasa",
+          "gc": 0,
+          "go": 1,
           "gialliCasa": 0,
-          "gialliOspite": 3,
+          "gialliOspite": 2,
           "rossiCasa": 0,
           "rossiOspite": 0,
           "falliCasa": 12,
-          "falliOspite": 18
+          "falliOspite": 21
+        },
+        {
+          "stagione": "2026/27",
+          "data": "18/10/2026",
+          "casa": "Kocaelispor",
+          "ospite": "Goztep",
+          "gc": 1,
+          "go": 2,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 25
         }
       ],
-      "prossime": [
-        {
-          "giornata": 9,
-          "data": "2026-10-23",
-          "ora": "20:00",
-          "casa": "Alanyaspor",
-          "ospite": "Kocaelispor",
-          "arbitro": "Ali Şansalan",
-          "assistente1": "Mehmet Emin Tuğral",
-          "assistente2": "Mehmet Salih Mazlum",
-          "quartoUomo": "Yiğit Arslan",
-          "var": null,
-          "avar": null
-        }
-      ]
+      "prossime": []
     },
     {
       "nome": "Fatih Tokail",
@@ -1354,7 +1515,21 @@
           "falliOspite": 20
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-11-02",
+          "ora": "20:00",
+          "casa": "Genclerbirligi",
+          "ospite": "Alanyaspor",
+          "arbitro": "Fatih Tokail",
+          "assistente1": "Ceyhun Sesigüzel",
+          "assistente2": "Murat Temel",
+          "quartoUomo": "İlker Yasin Avcı",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Ozan Ergün",
@@ -1476,7 +1651,21 @@
           "falliOspite": 10
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-11-01",
+          "ora": "16:00",
+          "casa": "Buyuksehyr",
+          "ospite": "Samsunspor",
+          "arbitro": "Ozan Ergün",
+          "assistente1": "Abdullah Bora Özkara",
+          "assistente2": "Murat Şener",
+          "quartoUomo": "Çağdaş Altay",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Reşat Onur Coşkunses",
@@ -1598,7 +1787,21 @@
           "falliOspite": 14
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-11-01",
+          "ora": "19:00",
+          "casa": "Kasimpasa",
+          "ospite": "Besiktas",
+          "arbitro": "Reşat Onur Coşkunses",
+          "assistente1": "Bilal Gölen",
+          "assistente2": "Hüseyin Aylak",
+          "quartoUomo": "Ali Yılmaz",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Abdullah Buğra Taşkınsoy",
@@ -1692,7 +1895,21 @@
           "falliOspite": 15
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 10,
+          "data": "2026-11-01",
+          "ora": "16:00",
+          "casa": "Trabzonspor",
+          "ospite": "Gaziantep",
+          "arbitro": "Abdullah Buğra Taşkınsoy",
+          "assistente1": "Mehmet Emin Tuğral",
+          "assistente2": "Osman Gökhan Bilir",
+          "quartoUomo": "Alper Akarsu",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Çağdaş Altay",
@@ -1784,6 +2001,72 @@
           "rossiOspite": 0,
           "falliCasa": 12,
           "falliOspite": 12
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Melek Dakan",
+      "partite": 1,
+      "gialli": 2,
+      "rossi": 0,
+      "mediaGialli": 2.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 2.0,
+      "mediaFalli": 17.0,
+      "gialliPerFallo": 11.8,
+      "squilibrioCasaOspite": -2.0,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 0.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Gaziantep",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Erzurumspor",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 17.0,
+          "squilibrio": -2.0,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 0.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "24/10/2026",
+          "casa": "Gaziantep",
+          "ospite": "Erzurumspor",
+          "gc": 1,
+          "go": 3,
+          "gialliCasa": 2,
+          "gialliOspite": 0,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 10,
+          "falliOspite": 7
         }
       ],
       "prossime": []
@@ -1918,39 +2201,17 @@
           "falliOspite": 11
         }
       ],
-      "prossime": []
-    },
-    {
-      "nome": "Melek Dakan",
-      "partite": 0,
-      "gialli": 0,
-      "rossi": 0,
-      "mediaGialli": null,
-      "mediaRossi": null,
-      "mediaCartellini": null,
-      "mediaFalli": null,
-      "gialliPerFallo": null,
-      "squilibrioCasaOspite": null,
-      "mediaGialliCasa": null,
-      "mediaGialliOspite": null,
-      "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": null,
-      "perSquadra": [],
-      "perStagione": [],
-      "elenco": [],
       "prossime": [
         {
-          "giornata": 9,
-          "data": "2026-10-24",
+          "giornata": 10,
+          "data": "2026-10-31",
           "ora": "16:00",
-          "casa": "Gaziantep",
-          "ospite": "Erzurumspor",
-          "arbitro": "Melek Dakan",
-          "assistente1": "Furkan Ürün",
-          "assistente2": "Özcan Sultanoğlu",
-          "quartoUomo": "Direnç Tonusluoğlu",
+          "casa": "Kocaelispor",
+          "ospite": "Rizespor",
+          "arbitro": "Batuhan Kolak",
+          "assistente1": "Erkan Akbulut",
+          "assistente2": "Yusuf Susuz",
+          "quartoUomo": "Erdem Mertoğlu",
           "var": null,
           "avar": null
         }
@@ -1960,119 +2221,95 @@
   "squadre": [
     {
       "nome": "Amedspor",
-      "partite": 8,
-      "gialli": 23,
-      "rossi": 1,
-      "mediaGialli": 2.88,
-      "mediaRossi": 0.12,
-      "mediaFalli": 14.5,
+      "partite": 9,
+      "gialli": 28,
+      "rossi": 2,
+      "mediaGialli": 3.11,
+      "mediaRossi": 0.22,
+      "mediaFalli": 14.7,
       "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 2.67,
+      "mediaGialliOspite": 3.25,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 23,
-          "rossi": 1,
-          "mediaGialli": 2.88,
-          "mediaRossi": 0.12,
-          "mediaFalli": 14.5,
+          "partite": 9,
+          "gialli": 28,
+          "rossi": 2,
+          "mediaGialli": 3.11,
+          "mediaRossi": 0.22,
+          "mediaFalli": 14.7,
           "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 2.67
+          "mediaGialliOspite": 3.25
         }
       ]
     },
     {
       "nome": "Kasimpasa",
-      "partite": 8,
-      "gialli": 22,
+      "partite": 9,
+      "gialli": 24,
       "rossi": 0,
-      "mediaGialli": 2.75,
+      "mediaGialli": 2.67,
       "mediaRossi": 0.0,
-      "mediaFalli": 14.6,
+      "mediaFalli": 15.3,
       "mediaGialliCasa": 2.75,
-      "mediaGialliOspite": 2.75,
+      "mediaGialliOspite": 2.6,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 22,
+          "partite": 9,
+          "gialli": 24,
           "rossi": 0,
-          "mediaGialli": 2.75,
+          "mediaGialli": 2.67,
           "mediaRossi": 0.0,
-          "mediaFalli": 14.6,
+          "mediaFalli": 15.3,
           "mediaGialliCasa": 2.75,
-          "mediaGialliOspite": 2.75
+          "mediaGialliOspite": 2.6
         }
       ]
     },
     {
       "nome": "Besiktas",
-      "partite": 8,
-      "gialli": 20,
+      "partite": 9,
+      "gialli": 21,
       "rossi": 0,
-      "mediaGialli": 2.5,
+      "mediaGialli": 2.33,
       "mediaRossi": 0.0,
-      "mediaFalli": 13.8,
-      "mediaGialliCasa": 2.0,
+      "mediaFalli": 13.2,
+      "mediaGialliCasa": 1.8,
       "mediaGialliOspite": 3.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 20,
+          "partite": 9,
+          "gialli": 21,
           "rossi": 0,
-          "mediaGialli": 2.5,
+          "mediaGialli": 2.33,
           "mediaRossi": 0.0,
-          "mediaFalli": 13.8,
-          "mediaGialliCasa": 2.0,
+          "mediaFalli": 13.2,
+          "mediaGialliCasa": 1.8,
           "mediaGialliOspite": 3.0
         }
       ]
     },
     {
-      "nome": "Goztep",
-      "partite": 8,
-      "gialli": 20,
-      "rossi": 1,
-      "mediaGialli": 2.5,
-      "mediaRossi": 0.12,
-      "mediaFalli": 15.6,
-      "mediaGialliCasa": 3.0,
-      "mediaGialliOspite": 2.2,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 20,
-          "rossi": 1,
-          "mediaGialli": 2.5,
-          "mediaRossi": 0.12,
-          "mediaFalli": 15.6,
-          "mediaGialliCasa": 3.0,
-          "mediaGialliOspite": 2.2
-        }
-      ]
-    },
-    {
       "nome": "Buyuksehyr",
-      "partite": 8,
-      "gialli": 19,
+      "partite": 9,
+      "gialli": 21,
       "rossi": 1,
-      "mediaGialli": 2.38,
-      "mediaRossi": 0.12,
-      "mediaFalli": 14.5,
+      "mediaGialli": 2.33,
+      "mediaRossi": 0.11,
+      "mediaFalli": 14.8,
       "mediaGialliCasa": 2.6,
       "mediaGialliOspite": 2.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 19,
+          "partite": 9,
+          "gialli": 21,
           "rossi": 1,
-          "mediaGialli": 2.38,
-          "mediaRossi": 0.12,
-          "mediaFalli": 14.5,
+          "mediaGialli": 2.33,
+          "mediaRossi": 0.11,
+          "mediaFalli": 14.8,
           "mediaGialliCasa": 2.6,
           "mediaGialliOspite": 2.0
         }
@@ -2080,318 +2317,477 @@
     },
     {
       "nome": "Gaziantep",
-      "partite": 8,
-      "gialli": 19,
+      "partite": 9,
+      "gialli": 21,
       "rossi": 1,
-      "mediaGialli": 2.38,
-      "mediaRossi": 0.12,
-      "mediaFalli": 12.5,
-      "mediaGialliCasa": 2.5,
+      "mediaGialli": 2.33,
+      "mediaRossi": 0.11,
+      "mediaFalli": 12.2,
+      "mediaGialliCasa": 2.4,
       "mediaGialliOspite": 2.25,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 19,
+          "partite": 9,
+          "gialli": 21,
           "rossi": 1,
-          "mediaGialli": 2.38,
-          "mediaRossi": 0.12,
-          "mediaFalli": 12.5,
-          "mediaGialliCasa": 2.5,
+          "mediaGialli": 2.33,
+          "mediaRossi": 0.11,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 2.4,
           "mediaGialliOspite": 2.25
         }
       ]
     },
     {
-      "nome": "Konyaspor",
-      "partite": 8,
-      "gialli": 19,
+      "nome": "Goztep",
+      "partite": 9,
+      "gialli": 21,
       "rossi": 1,
-      "mediaGialli": 2.38,
-      "mediaRossi": 0.12,
-      "mediaFalli": 12.4,
-      "mediaGialliCasa": 1.25,
+      "mediaGialli": 2.33,
+      "mediaRossi": 0.11,
+      "mediaFalli": 16.2,
+      "mediaGialliCasa": 2.5,
+      "mediaGialliOspite": 2.2,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 21,
+          "rossi": 1,
+          "mediaGialli": 2.33,
+          "mediaRossi": 0.11,
+          "mediaFalli": 16.2,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": 2.2
+        }
+      ]
+    },
+    {
+      "nome": "Konyaspor",
+      "partite": 9,
+      "gialli": 20,
+      "rossi": 1,
+      "mediaGialli": 2.22,
+      "mediaRossi": 0.11,
+      "mediaFalli": 12.3,
+      "mediaGialliCasa": 1.2,
       "mediaGialliOspite": 3.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 19,
+          "partite": 9,
+          "gialli": 20,
           "rossi": 1,
-          "mediaGialli": 2.38,
-          "mediaRossi": 0.12,
-          "mediaFalli": 12.4,
-          "mediaGialliCasa": 1.25,
+          "mediaGialli": 2.22,
+          "mediaRossi": 0.11,
+          "mediaFalli": 12.3,
+          "mediaGialliCasa": 1.2,
           "mediaGialliOspite": 3.5
         }
       ]
     },
     {
       "nome": "Corum",
-      "partite": 8,
-      "gialli": 18,
+      "partite": 9,
+      "gialli": 19,
       "rossi": 1,
-      "mediaGialli": 2.25,
-      "mediaRossi": 0.12,
-      "mediaFalli": 14.1,
+      "mediaGialli": 2.11,
+      "mediaRossi": 0.11,
+      "mediaFalli": 13.6,
       "mediaGialliCasa": 2.25,
-      "mediaGialliOspite": 2.25,
+      "mediaGialliOspite": 2.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 18,
+          "partite": 9,
+          "gialli": 19,
           "rossi": 1,
-          "mediaGialli": 2.25,
-          "mediaRossi": 0.12,
-          "mediaFalli": 14.1,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.11,
+          "mediaFalli": 13.6,
           "mediaGialliCasa": 2.25,
-          "mediaGialliOspite": 2.25
+          "mediaGialliOspite": 2.0
         }
       ]
     },
     {
       "nome": "Trabzonspor",
-      "partite": 8,
-      "gialli": 17,
+      "partite": 9,
+      "gialli": 19,
       "rossi": 1,
-      "mediaGialli": 2.12,
-      "mediaRossi": 0.12,
-      "mediaFalli": 10.6,
+      "mediaGialli": 2.11,
+      "mediaRossi": 0.11,
+      "mediaFalli": 11.0,
       "mediaGialliCasa": 2.75,
-      "mediaGialliOspite": 1.5,
+      "mediaGialliOspite": 1.6,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 17,
+          "partite": 9,
+          "gialli": 19,
           "rossi": 1,
-          "mediaGialli": 2.12,
-          "mediaRossi": 0.12,
-          "mediaFalli": 10.6,
+          "mediaGialli": 2.11,
+          "mediaRossi": 0.11,
+          "mediaFalli": 11.0,
           "mediaGialliCasa": 2.75,
-          "mediaGialliOspite": 1.5
+          "mediaGialliOspite": 1.6
         }
       ]
     },
     {
       "nome": "Genclerbirligi",
-      "partite": 8,
-      "gialli": 15,
+      "partite": 9,
+      "gialli": 18,
       "rossi": 0,
-      "mediaGialli": 1.88,
+      "mediaGialli": 2.0,
       "mediaRossi": 0.0,
-      "mediaFalli": 12.4,
+      "mediaFalli": 13.1,
       "mediaGialliCasa": 2.2,
-      "mediaGialliOspite": 1.33,
+      "mediaGialliOspite": 1.75,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 15,
+          "partite": 9,
+          "gialli": 18,
           "rossi": 0,
-          "mediaGialli": 1.88,
+          "mediaGialli": 2.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.4,
+          "mediaFalli": 13.1,
           "mediaGialliCasa": 2.2,
-          "mediaGialliOspite": 1.33
+          "mediaGialliOspite": 1.75
+        }
+      ]
+    },
+    {
+      "nome": "Kocaelispor",
+      "partite": 9,
+      "gialli": 17,
+      "rossi": 0,
+      "mediaGialli": 1.89,
+      "mediaRossi": 0.0,
+      "mediaFalli": 12.3,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 2.6,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 17,
+          "rossi": 0,
+          "mediaGialli": 1.89,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.3,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.6
+        }
+      ]
+    },
+    {
+      "nome": "Fenerbahce",
+      "partite": 9,
+      "gialli": 16,
+      "rossi": 0,
+      "mediaGialli": 1.78,
+      "mediaRossi": 0.0,
+      "mediaFalli": 13.2,
+      "mediaGialliCasa": 1.5,
+      "mediaGialliOspite": 2.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 16,
+          "rossi": 0,
+          "mediaGialli": 1.78,
+          "mediaRossi": 0.0,
+          "mediaFalli": 13.2,
+          "mediaGialliCasa": 1.5,
+          "mediaGialliOspite": 2.0
         }
       ]
     },
     {
       "nome": "Rizespor",
-      "partite": 8,
-      "gialli": 14,
+      "partite": 9,
+      "gialli": 16,
       "rossi": 1,
-      "mediaGialli": 1.75,
-      "mediaRossi": 0.12,
-      "mediaFalli": 10.5,
-      "mediaGialliCasa": 0.67,
+      "mediaGialli": 1.78,
+      "mediaRossi": 0.11,
+      "mediaFalli": 10.8,
+      "mediaGialliCasa": 1.0,
       "mediaGialliOspite": 2.4,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 14,
+          "partite": 9,
+          "gialli": 16,
           "rossi": 1,
-          "mediaGialli": 1.75,
-          "mediaRossi": 0.12,
-          "mediaFalli": 10.5,
-          "mediaGialliCasa": 0.67,
+          "mediaGialli": 1.78,
+          "mediaRossi": 0.11,
+          "mediaFalli": 10.8,
+          "mediaGialliCasa": 1.0,
           "mediaGialliOspite": 2.4
         }
       ]
     },
     {
       "nome": "Galatasaray",
-      "partite": 8,
-      "gialli": 13,
+      "partite": 9,
+      "gialli": 15,
       "rossi": 2,
-      "mediaGialli": 1.62,
-      "mediaRossi": 0.25,
-      "mediaFalli": 12.0,
+      "mediaGialli": 1.67,
+      "mediaRossi": 0.22,
+      "mediaFalli": 11.8,
       "mediaGialliCasa": 2.0,
       "mediaGialliOspite": 1.25,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 13,
+          "partite": 9,
+          "gialli": 15,
           "rossi": 2,
-          "mediaGialli": 1.62,
-          "mediaRossi": 0.25,
-          "mediaFalli": 12.0,
+          "mediaGialli": 1.67,
+          "mediaRossi": 0.22,
+          "mediaFalli": 11.8,
           "mediaGialliCasa": 2.0,
           "mediaGialliOspite": 1.25
         }
       ]
     },
     {
-      "nome": "Kocaelispor",
-      "partite": 8,
+      "nome": "Alanyaspor",
+      "partite": 9,
       "gialli": 13,
       "rossi": 0,
-      "mediaGialli": 1.62,
+      "mediaGialli": 1.44,
       "mediaRossi": 0.0,
-      "mediaFalli": 12.5,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 2.25,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 13,
-          "rossi": 0,
-          "mediaGialli": 1.62,
-          "mediaRossi": 0.0,
-          "mediaFalli": 12.5,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 2.25
-        }
-      ]
-    },
-    {
-      "nome": "Eyupspor",
-      "partite": 8,
-      "gialli": 12,
-      "rossi": 3,
-      "mediaGialli": 1.5,
-      "mediaRossi": 0.38,
-      "mediaFalli": 10.9,
-      "mediaGialliCasa": 1.25,
-      "mediaGialliOspite": 1.75,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 12,
-          "rossi": 3,
-          "mediaGialli": 1.5,
-          "mediaRossi": 0.38,
-          "mediaFalli": 10.9,
-          "mediaGialliCasa": 1.25,
-          "mediaGialliOspite": 1.75
-        }
-      ]
-    },
-    {
-      "nome": "Erzurumspor",
-      "partite": 8,
-      "gialli": 11,
-      "rossi": 0,
-      "mediaGialli": 1.38,
-      "mediaRossi": 0.0,
-      "mediaFalli": 12.4,
-      "mediaGialliCasa": 1.25,
-      "mediaGialliOspite": 1.5,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 11,
-          "rossi": 0,
-          "mediaGialli": 1.38,
-          "mediaRossi": 0.0,
-          "mediaFalli": 12.4,
-          "mediaGialliCasa": 1.25,
-          "mediaGialliOspite": 1.5
-        }
-      ]
-    },
-    {
-      "nome": "Fenerbahce",
-      "partite": 8,
-      "gialli": 11,
-      "rossi": 0,
-      "mediaGialli": 1.38,
-      "mediaRossi": 0.0,
-      "mediaFalli": 12.6,
-      "mediaGialliCasa": 1.5,
-      "mediaGialliOspite": 1.25,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 11,
-          "rossi": 0,
-          "mediaGialli": 1.38,
-          "mediaRossi": 0.0,
-          "mediaFalli": 12.6,
-          "mediaGialliCasa": 1.5,
-          "mediaGialliOspite": 1.25
-        }
-      ]
-    },
-    {
-      "nome": "Alanyaspor",
-      "partite": 8,
-      "gialli": 10,
-      "rossi": 0,
-      "mediaGialli": 1.25,
-      "mediaRossi": 0.0,
-      "mediaFalli": 12.9,
-      "mediaGialliCasa": 1.67,
+      "mediaFalli": 13.2,
+      "mediaGialliCasa": 2.0,
       "mediaGialliOspite": 1.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 10,
+          "partite": 9,
+          "gialli": 13,
           "rossi": 0,
-          "mediaGialli": 1.25,
+          "mediaGialli": 1.44,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.9,
-          "mediaGialliCasa": 1.67,
+          "mediaFalli": 13.2,
+          "mediaGialliCasa": 2.0,
           "mediaGialliOspite": 1.0
         }
       ]
     },
     {
       "nome": "Samsunspor",
-      "partite": 8,
-      "gialli": 8,
-      "rossi": 0,
-      "mediaGialli": 1.0,
-      "mediaRossi": 0.0,
-      "mediaFalli": 14.2,
-      "mediaGialliCasa": 0.75,
+      "partite": 9,
+      "gialli": 13,
+      "rossi": 1,
+      "mediaGialli": 1.44,
+      "mediaRossi": 0.11,
+      "mediaFalli": 14.3,
+      "mediaGialliCasa": 1.6,
       "mediaGialliOspite": 1.25,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 8,
-          "gialli": 8,
-          "rossi": 0,
-          "mediaGialli": 1.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 14.2,
-          "mediaGialliCasa": 0.75,
+          "partite": 9,
+          "gialli": 13,
+          "rossi": 1,
+          "mediaGialli": 1.44,
+          "mediaRossi": 0.11,
+          "mediaFalli": 14.3,
+          "mediaGialliCasa": 1.6,
           "mediaGialliOspite": 1.25
+        }
+      ]
+    },
+    {
+      "nome": "Eyupspor",
+      "partite": 9,
+      "gialli": 12,
+      "rossi": 3,
+      "mediaGialli": 1.33,
+      "mediaRossi": 0.33,
+      "mediaFalli": 11.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 1.75,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 12,
+          "rossi": 3,
+          "mediaGialli": 1.33,
+          "mediaRossi": 0.33,
+          "mediaFalli": 11.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 1.75
+        }
+      ]
+    },
+    {
+      "nome": "Erzurumspor",
+      "partite": 9,
+      "gialli": 11,
+      "rossi": 0,
+      "mediaGialli": 1.22,
+      "mediaRossi": 0.0,
+      "mediaFalli": 11.8,
+      "mediaGialliCasa": 1.25,
+      "mediaGialliOspite": 1.2,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 9,
+          "gialli": 11,
+          "rossi": 0,
+          "mediaGialli": 1.22,
+          "mediaRossi": 0.0,
+          "mediaFalli": 11.8,
+          "mediaGialliCasa": 1.25,
+          "mediaGialliOspite": 1.2
         }
       ]
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "26/10/2026",
+      "casa": "Rizespor",
+      "ospite": "Trabzonspor",
+      "gc": 3,
+      "go": 4,
+      "arbitro": "Halil Umut Meler",
+      "gialliCasa": 2,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 13,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "26/10/2026",
+      "casa": "Galatasaray",
+      "ospite": "Fenerbahce",
+      "gc": 2,
+      "go": 1,
+      "arbitro": "Atilla Karaoğlan",
+      "gialliCasa": 2,
+      "gialliOspite": 5,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 10,
+      "falliOspite": 18
+    },
+    {
+      "stagione": "2026/27",
+      "data": "26/10/2026",
+      "casa": "Besiktas",
+      "ospite": "Buyuksehyr",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "Ümit Öztürk",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 9,
+      "falliOspite": 17
+    },
+    {
+      "stagione": "2026/27",
+      "data": "25/10/2026",
+      "casa": "Konyaspor",
+      "ospite": "Genclerbirligi",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "Oğuzhan Çakır",
+      "gialliCasa": 1,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 12,
+      "falliOspite": 19
+    },
+    {
+      "stagione": "2026/27",
+      "data": "25/10/2026",
+      "casa": "Goztep",
+      "ospite": "Corum",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "Mehmet Türkmen",
+      "gialliCasa": 1,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 21,
+      "falliOspite": 9
+    },
+    {
+      "stagione": "2026/27",
+      "data": "24/10/2026",
+      "casa": "Samsunspor",
+      "ospite": "Amedspor",
+      "gc": 1,
+      "go": 2,
+      "arbitro": "Kadir Sağlam",
+      "gialliCasa": 5,
+      "gialliOspite": 5,
+      "rossiCasa": 1,
+      "rossiOspite": 1,
+      "falliCasa": 15,
+      "falliOspite": 16
+    },
+    {
+      "stagione": "2026/27",
+      "data": "24/10/2026",
+      "casa": "Gaziantep",
+      "ospite": "Erzurumspor",
+      "gc": 1,
+      "go": 3,
+      "arbitro": "Melek Dakan",
+      "gialliCasa": 2,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 10,
+      "falliOspite": 7
+    },
+    {
+      "stagione": "2026/27",
+      "data": "24/10/2026",
+      "casa": "Eyupspor",
+      "ospite": "Kasimpasa",
+      "gc": 0,
+      "go": 1,
+      "arbitro": "Alper Akarsu",
+      "gialliCasa": 0,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 12,
+      "falliOspite": 21
+    },
+    {
+      "stagione": "2026/27",
+      "data": "23/10/2026",
+      "casa": "Alanyaspor",
+      "ospite": "Kocaelispor",
+      "gc": 1,
+      "go": 2,
+      "arbitro": "Ali Şansalan",
+      "gialliCasa": 3,
+      "gialliOspite": 4,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 16,
+      "falliOspite": 11
+    },
     {
       "stagione": "2026/27",
       "data": "19/10/2026",
@@ -2856,258 +3252,123 @@
       "rossiOspite": 0,
       "falliCasa": 9,
       "falliOspite": 9
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/09/2026",
-      "casa": "Samsunspor",
-      "ospite": "Corum",
-      "gc": 1,
-      "go": 5,
-      "arbitro": "Ali Şansalan",
-      "gialliCasa": 0,
-      "gialliOspite": 3,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 12,
-      "falliOspite": 18
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/09/2026",
-      "casa": "Konyaspor",
-      "ospite": "Trabzonspor",
-      "gc": 1,
-      "go": 0,
-      "arbitro": "Reşat Onur Coşkunses",
-      "gialliCasa": 3,
-      "gialliOspite": 3,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 16,
-      "falliOspite": 9
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/09/2026",
-      "casa": "Eyupspor",
-      "ospite": "Rizespor",
-      "gc": 0,
-      "go": 2,
-      "arbitro": "Oğuzhan Aksu",
-      "gialliCasa": 0,
-      "gialliOspite": 3,
-      "rossiCasa": 0,
-      "rossiOspite": 1,
-      "falliCasa": 13,
-      "falliOspite": 10
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/09/2026",
-      "casa": "Alanyaspor",
-      "ospite": "Goztep",
-      "gc": 2,
-      "go": 2,
-      "arbitro": "Ozan Ergün",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 8,
-      "falliOspite": 10
-    },
-    {
-      "stagione": "2026/27",
-      "data": "11/09/2026",
-      "casa": "Besiktas",
-      "ospite": "Erzurumspor",
-      "gc": 3,
-      "go": 0,
-      "arbitro": "Gürcan Hasova",
-      "gialliCasa": 3,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 11,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2026/27",
-      "data": "07/09/2026",
-      "casa": "Rizespor",
-      "ospite": "Alanyaspor",
-      "gc": 0,
-      "go": 1,
-      "arbitro": "Abdullah Buğra Taşkınsoy",
-      "gialliCasa": 1,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 8,
-      "falliOspite": 15
-    },
-    {
-      "stagione": "2026/27",
-      "data": "07/09/2026",
-      "casa": "Goztep",
-      "ospite": "Gaziantep",
-      "gc": 2,
-      "go": 4,
-      "arbitro": "Ümit Öztürk",
-      "gialliCasa": 3,
-      "gialliOspite": 2,
-      "rossiCasa": 1,
-      "rossiOspite": 0,
-      "falliCasa": 18,
-      "falliOspite": 10
-    },
-    {
-      "stagione": "2026/27",
-      "data": "06/09/2026",
-      "casa": "Trabzonspor",
-      "ospite": "Genclerbirligi",
-      "gc": 5,
-      "go": 0,
-      "arbitro": "Çağdaş Altay",
-      "gialliCasa": 3,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 12,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2026/27",
-      "data": "06/09/2026",
-      "casa": "Kocaelispor",
-      "ospite": "Samsunspor",
-      "gc": 1,
-      "go": 0,
-      "arbitro": "Reşat Onur Coşkunses",
-      "gialliCasa": 1,
-      "gialliOspite": 0,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 13,
-      "falliOspite": 14
     }
   ],
   "prossimeDesignazioni": [
     {
-      "giornata": 9,
-      "data": "2026-10-23",
+      "giornata": 10,
+      "data": "2026-10-30",
       "ora": "20:00",
-      "casa": "Alanyaspor",
-      "ospite": "Kocaelispor",
-      "arbitro": "Ali Şansalan",
-      "assistente1": "Mehmet Emin Tuğral",
-      "assistente2": "Mehmet Salih Mazlum",
-      "quartoUomo": "Yiğit Arslan",
-      "var": null,
-      "avar": null
-    },
-    {
-      "giornata": 9,
-      "data": "2026-10-24",
-      "ora": "13:30",
-      "casa": "Eyupspor",
-      "ospite": "Kasimpasa",
-      "arbitro": "Alper Akarsu",
-      "assistente1": "Ali Can Alp",
-      "assistente2": "Selim Şenöz",
-      "quartoUomo": "Turgut Doman",
-      "var": null,
-      "avar": null
-    },
-    {
-      "giornata": 9,
-      "data": "2026-10-24",
-      "ora": "16:00",
-      "casa": "Gaziantep",
-      "ospite": "Erzurumspor",
-      "arbitro": "Melek Dakan",
-      "assistente1": "Furkan Ürün",
-      "assistente2": "Özcan Sultanoğlu",
-      "quartoUomo": "Direnç Tonusluoğlu",
-      "var": null,
-      "avar": null
-    },
-    {
-      "giornata": 9,
-      "data": "2026-10-24",
-      "ora": "19:00",
-      "casa": "Samsunspor",
-      "ospite": "Amedspor",
-      "arbitro": "Kadir Sağlam",
-      "assistente1": "Mustafa Savranlar",
-      "assistente2": "Suat Güz",
-      "quartoUomo": "Burak Demirkıran",
-      "var": null,
-      "avar": null
-    },
-    {
-      "giornata": 9,
-      "data": "2026-10-25",
-      "ora": "16:00",
       "casa": "Konyaspor",
-      "ospite": "Genclerbirligi",
-      "arbitro": "Oğuzhan Çakır",
-      "assistente1": "İbrahim Çağlar Uyarcan",
-      "assistente2": "Bahtiyar Birinci",
-      "quartoUomo": "Alpaslan Şen",
+      "ospite": "Galatasaray",
+      "arbitro": "Cihan Aydın",
+      "assistente1": "Anıl Usta",
+      "assistente2": "Mehmet Salih Mazlum",
+      "quartoUomo": "Ömer Tolga Güldibi",
       "var": null,
       "avar": null
     },
     {
-      "giornata": 9,
-      "data": "2026-10-25",
-      "ora": "19:00",
-      "casa": "Goztep",
+      "giornata": 10,
+      "data": "2026-10-31",
+      "ora": "13:30",
+      "casa": "Erzurumspor",
       "ospite": "Corum",
-      "arbitro": "Mehmet Türkmen",
-      "assistente1": "Gökhan Barcın",
-      "assistente2": "Selahattin Altay",
-      "quartoUomo": "Süleyman Bahadır",
+      "arbitro": "Kadir Sağlam",
+      "assistente1": "Murat Altan",
+      "assistente2": "Suat Güz",
+      "quartoUomo": "Melih Aldemir",
       "var": null,
       "avar": null
     },
     {
-      "giornata": 9,
-      "data": "2026-10-26",
+      "giornata": 10,
+      "data": "2026-10-31",
+      "ora": "16:00",
+      "casa": "Kocaelispor",
+      "ospite": "Rizespor",
+      "arbitro": "Batuhan Kolak",
+      "assistente1": "Erkan Akbulut",
+      "assistente2": "Yusuf Susuz",
+      "quartoUomo": "Erdem Mertoğlu",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 10,
+      "data": "2026-10-31",
       "ora": "19:00",
-      "casa": "Rizespor",
-      "ospite": "Trabzonspor",
-      "arbitro": "Halil Umut Meler",
-      "assistente1": "Murat Tuğberk Curbay",
-      "assistente2": "Esat Sancaktar",
-      "quartoUomo": "Fatih Tokail",
+      "casa": "Fenerbahce",
+      "ospite": "Goztep",
+      "arbitro": "Oğuzhan Çakır",
+      "assistente1": "Mehmet Kısal",
+      "assistente2": "Kerem Ersoy",
+      "quartoUomo": "Gürcan Hasova",
       "var": null,
       "avar": null
     },
     {
-      "giornata": 9,
-      "data": "2026-10-26",
+      "giornata": 10,
+      "data": "2026-11-01",
+      "ora": "13:30",
+      "casa": "Amedspor",
+      "ospite": "Eyupspor",
+      "arbitro": "Alpaslan Şen",
+      "assistente1": "İbrahim Çağlar Uyarcan",
+      "assistente2": "Ogün Kamacı",
+      "quartoUomo": "Muhammet Ali Metoğlu",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 10,
+      "data": "2026-11-01",
+      "ora": "16:00",
+      "casa": "Buyuksehyr",
+      "ospite": "Samsunspor",
+      "arbitro": "Ozan Ergün",
+      "assistente1": "Abdullah Bora Özkara",
+      "assistente2": "Murat Şener",
+      "quartoUomo": "Çağdaş Altay",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 10,
+      "data": "2026-11-01",
+      "ora": "16:00",
+      "casa": "Trabzonspor",
+      "ospite": "Gaziantep",
+      "arbitro": "Abdullah Buğra Taşkınsoy",
+      "assistente1": "Mehmet Emin Tuğral",
+      "assistente2": "Osman Gökhan Bilir",
+      "quartoUomo": "Alper Akarsu",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 10,
+      "data": "2026-11-01",
       "ora": "19:00",
-      "casa": "Besiktas",
-      "ospite": "Buyuksehyr",
-      "arbitro": "Ümit Öztürk",
-      "assistente1": "Kerem Ersoy",
-      "assistente2": "Candaş Elbil",
-      "quartoUomo": "Reşat Onur Coşkunses",
+      "casa": "Kasimpasa",
+      "ospite": "Besiktas",
+      "arbitro": "Reşat Onur Coşkunses",
+      "assistente1": "Bilal Gölen",
+      "assistente2": "Hüseyin Aylak",
+      "quartoUomo": "Ali Yılmaz",
       "var": null,
       "avar": null
     },
     {
-      "giornata": 9,
-      "data": "2026-10-26",
-      "ora": "21:30",
-      "casa": "Galatasaray",
-      "ospite": "Fenerbahce",
-      "arbitro": "Atilla Karaoğlan",
+      "giornata": 10,
+      "data": "2026-11-02",
+      "ora": "20:00",
+      "casa": "Genclerbirligi",
+      "ospite": "Alanyaspor",
+      "arbitro": "Fatih Tokail",
       "assistente1": "Ceyhun Sesigüzel",
-      "assistente2": "Süleyman Özay",
-      "quartoUomo": "Abdullah Buğra Taşkınsoy",
+      "assistente2": "Murat Temel",
+      "quartoUomo": "İlker Yasin Avcı",
       "var": null,
       "avar": null
     }
