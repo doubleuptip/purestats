@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-28T10:56:53.273452+00:00",
+  "aggiornato": "2026-10-29T11:17:00.180851+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -78,42 +78,6 @@
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-10-25",
-          "ora": "14:00",
-          "casa": "Ath Bilbao",
-          "ospite": "Getafe",
-          "daDesignazioni": true,
-          "arbitro": "Francisco José Hernández",
-          "var": "Alejandro Muñiz"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "16:15",
-          "casa": "Celta",
-          "ospite": "Betis",
-          "daDesignazioni": true,
-          "arbitro": "Isidro Díaz De Mera",
-          "var": "Iván Caparrós"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "18:30",
-          "casa": "Sociedad",
-          "ospite": "Levante",
-          "daDesignazioni": true,
-          "arbitro": "Javier Alberola",
-          "var": "Guillermo Cuadra"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "21:00",
-          "casa": "Barcelona",
-          "ospite": "Real Madrid",
-          "daDesignazioni": true,
-          "arbitro": "Juan Martínez",
-          "var": "Javier Iglesias"
-        },
-        {
           "data": "2026-10-26",
           "ora": "21:00",
           "casa": "Sevilla",
@@ -130,78 +94,15 @@
     },
     "bundesliga": {
       "nome": "Bundesliga",
-      "partite": [
-        {
-          "data": "2026-10-25",
-          "ora": "15:30",
-          "casa": "Hoffenheim",
-          "ospite": "Leverkusen",
-          "daDesignazioni": true,
-          "arbitro": "Daniel Siebert",
-          "var": "Benjamin Cortus"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "17:30",
-          "casa": "Freiburg",
-          "ospite": "Bayern Munich",
-          "daDesignazioni": true,
-          "arbitro": "Felix Zwayer",
-          "var": "Christian Dingert"
-        }
-      ]
+      "partite": []
     },
     "bundesliga_2": {
       "nome": "2. Bundesliga",
-      "partite": [
-        {
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Holstein Kiel",
-          "ospite": "Dynamo Dresden",
-          "daDesignazioni": true,
-          "arbitro": "Timo Gerach",
-          "var": "Günter Perl"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Braunschweig",
-          "ospite": "Hannover",
-          "daDesignazioni": true,
-          "arbitro": "Tobias Reichel",
-          "var": "Katrin Rafalski"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "13:30",
-          "casa": "Osnabruck",
-          "ospite": "Greuther Furth",
-          "daDesignazioni": true,
-          "arbitro": "Justin Hasmann",
-          "var": "Patrick Alt"
-        }
-      ]
+      "partite": []
     },
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
-        {
-          "data": "2026-10-25",
-          "ora": "16:00",
-          "casa": "Konyaspor",
-          "ospite": "Genclerbirligi",
-          "daDesignazioni": true,
-          "arbitro": "Oğuzhan Çakır"
-        },
-        {
-          "data": "2026-10-25",
-          "ora": "19:00",
-          "casa": "Goztep",
-          "ospite": "Corum",
-          "daDesignazioni": true,
-          "arbitro": "Mehmet Türkmen"
-        },
         {
           "data": "2026-10-26",
           "ora": "19:00",
