@@ -36,7 +36,7 @@ jobs:
         env:
           UAL_API_ID: ${{ secrets.UAL_API_ID }}
           UAL_API_SECRET: ${{ secrets.UAL_API_SECRET }}
-          STAGIONE_ALEAGUE: ${{ vars.STAGIONE_ALEAGUE }}
+          STAGIONI_ALEAGUE: ${{ vars.STAGIONI_ALEAGUE }}
         run: python scripts/fetch_aleague.py
 
       - name: Committa le modifiche
