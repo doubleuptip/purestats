@@ -251,6 +251,19 @@ def stagioni_richieste():
     return [s.strip() for s in grezzo.replace(";", ",").split(",") if s.strip()]
 
 
+def storico_archiviato(archivio):
+    """Le stagioni già scaricate in passato, conservate nell'archivio.
+
+    Serve a non richiedere di nuovo una stagione conclusa: i suoi numeri
+    non cambiano più, e la licenza chiede proprio di conservare i dati
+    invece di riscaricarli.
+    """
+    storico = archivio.get("storicoStagioni")
+    if not isinstance(storico, dict):
+        return {}
+    return {k: v for k, v in storico.items() if isinstance(v, list) and v}
+
+
 def main():
     print("=" * 58)
     print("ARCHIVIO A-LEAGUE — ARBITRI")
@@ -262,16 +275,35 @@ def main():
     arbitri = leggi_stagione(None)
 
     # Le singole stagioni servono a ricostruire l'andamento nel tempo.
-    # Ogni stagione costa quattro chiamate, quindi si richiedono solo
-    # quelle indicate esplicitamente.
+    # Ogni stagione costa quattro chiamate, quindi se ne scarica solo
+    # quella in corso: le altre, essendo concluse, restano come sono e si
+    # rileggono dall'archivio.
+    richieste = stagioni_richieste()
+    in_archivio = storico_archiviato(archivio)
+    in_corso = max(richieste) if richieste else None
+
     per_stagione = {}
-    for stagione in stagioni_richieste():
-        print(f"\nStagione {stagione}")
+    for stagione in richieste:
+        if stagione != in_corso and stagione in in_archivio:
+            per_stagione[stagione] = in_archivio[stagione]
+            print(f"\nStagione {stagione}: dall'archivio "
+                  f"({len(in_archivio[stagione])} arbitri), nessuna chiamata")
+            continue
+
+        motivo = "in corso" if stagione == in_corso else "non ancora in archivio"
+        print(f"\nStagione {stagione} ({motivo})")
         dati_stagione = leggi_stagione(stagione)
         if not dati_stagione:
             print("  Nessun dato: forse il formato della stagione non è corretto.")
+            if stagione in in_archivio:
+                per_stagione[stagione] = in_archivio[stagione]
+                print("  Conservo quanto già presente in archivio.")
             continue
         per_stagione[stagione] = calcola(dati_stagione)
+
+    # le stagioni già scaricate in passato ma non più richieste non si buttano
+    for stagione, elenco_vecchio in in_archivio.items():
+        per_stagione.setdefault(stagione, elenco_vecchio)
 
     if not arbitri:
         print("\nNessun dato ottenuto: conservo l'archivio precedente.")
@@ -311,7 +343,11 @@ def main():
         "arbitri": elenco,
     }
 
-    salva_archivio(dati)
+    # L'archivio conserva anche le classifiche stagione per stagione: è
+    # quello che permette, alla prossima esecuzione, di non richiedere le
+    # stagioni già concluse. La pagina non ne ha bisogno, perché lo storico
+    # è già allegato a ogni arbitro, quindi lì non viene scritto.
+    salva_archivio(dict(dati, storicoStagioni=per_stagione))
     USCITA.parent.mkdir(parents=True, exist_ok=True)
     USCITA.write_text(json.dumps(dati, ensure_ascii=False, indent=2),
                       encoding="utf-8")
