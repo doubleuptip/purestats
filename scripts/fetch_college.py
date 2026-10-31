@@ -23,6 +23,7 @@ from urllib.error import HTTPError, URLError
 
 RADICE = Path(__file__).resolve().parent.parent
 ARCHIVIO = RADICE / "data" / "college.csv"
+ARCHIVIO_GIOCATORI = RADICE / "data" / "college_giocatori.json"
 USCITA = RADICE / "docs" / "data_college.json"
 
 BASE = "https://api.collegefootballdata.com"
@@ -123,14 +124,30 @@ def num(valore):
         return None
 
 
-def stagioni_da_scaricare():
-    esplicite = os.environ.get("STAGIONI", "").strip()
-    if esplicite:
-        return [int(s) for s in esplicite.replace(",", " ").split() if s.isdigit()]
+def stagione_corrente():
     oggi = datetime.now(timezone.utc)
     # la stagione comincia ad agosto e prende il nome dell'anno d'inizio
-    corrente = oggi.year if oggi.month >= 8 else oggi.year - 1
+    return oggi.year if oggi.month >= 8 else oggi.year - 1
+
+
+def stagioni_forzate():
+    """Stagioni da riscaricare comunque, indicate con la variabile STAGIONI."""
+    esplicite = os.environ.get("STAGIONI", "").strip()
+    return [int(s) for s in esplicite.replace(",", " ").split() if s.isdigit()]
+
+
+def stagioni_da_scaricare():
+    forzate = stagioni_forzate()
+    if forzate:
+        return forzate
+    corrente = stagione_corrente()
     return list(range(corrente, corrente - MAX_STAGIONI, -1))
+
+
+# Sotto questa soglia una stagione passata si considera incompleta e viene
+# riscaricata: una stagione intera di prima divisione conta circa ottocento
+# partite, quindi un archivio più povero segnala un download interrotto.
+MINIMO_PARTITE_STAGIONE = 400
 
 
 def normalizza(partite, stagione):
@@ -211,26 +228,64 @@ def _numero(valore):
         return 0
 
 
-def carica_giocatori(stagioni):
+def carica_archivio_giocatori():
+    if not ARCHIVIO_GIOCATORI.exists():
+        return {}
+    try:
+        dati = json.loads(ARCHIVIO_GIOCATORI.read_text(encoding="utf-8"))
+        return dati if isinstance(dati, dict) else {}
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def salva_archivio_giocatori(dati):
+    ARCHIVIO_GIOCATORI.parent.mkdir(parents=True, exist_ok=True)
+    ARCHIVIO_GIOCATORI.write_text(json.dumps(dati, ensure_ascii=False),
+                                  encoding="utf-8")
+
+
+def carica_giocatori(stagioni, forzate=()):
     """I migliori giocatori di ogni partita, per categoria.
 
     Restituisce: {stagione: {settimana: {squadra: [giocatori]}}}
+
+    Quel che è già stato scaricato resta: una stagione conclusa non si
+    richiede più, e della stagione in corso si riprendono solo le settimane
+    non ancora archiviate più le due più recenti, perché i tabellini delle
+    ultime partite possono ancora essere corretti.
     """
-    per_partita = {}
+    per_partita = carica_archivio_giocatori()
     if STAGIONI_CON_GIOCATORI <= 0:
         print("  Statistiche giocatori disattivate")
         return per_partita
 
+    corrente = stagione_corrente()
     scelte = stagioni[:STAGIONI_CON_GIOCATORI]
-    print(f"  Stagioni arricchite: {scelte} "
-          f"(fino a {SETTIMANE_MAX} chiamate ciascuna)")
+    print(f"  Stagioni arricchite: {scelte}")
 
     for stagione in scelte:
+        note = {int(s) for s in per_partita.get(str(stagione), {}) if str(s).isdigit()}
+
+        if stagione < corrente and note and stagione not in forzate:
+            print(f"    stagione {stagione}: dall'archivio "
+                  f"({len(note)} settimane), nessuna chiamata")
+            continue
+
+        # delle settimane già archiviate si rifanno solo le ultime due
+        ultima = max(note) if note else 0
+        da_rifare = {w for w in note if w >= ultima - 1}
+        if stagione in forzate:
+            note, da_rifare = set(), set()
+
         trovate = 0
         fallite = 0
         vuote = 0
+        saltate = 0
         campione = None      # prima risposta utile, per la diagnostica
         for settimana in range(1, SETTIMANE_MAX + 1):
+            if settimana in note and settimana not in da_rifare:
+                saltate += 1
+                continue
             time.sleep(PAUSA)
             partite = chiama("games/players", year=stagione,
                              seasonType="regular", week=settimana)
@@ -295,6 +350,8 @@ def carica_giocatori(stagioni):
         settimane = len(per_partita.get(str(stagione), {}))
         print(f"    stagione {stagione}: {settimane} settimane, "
               f"{trovate} prestazioni di rilievo")
+        if saltate:
+            print(f"      {saltate} settimane prese dall'archivio, non richieste")
         if fallite or vuote:
             print(f"      {fallite} chiamate non riuscite, "
                   f"{vuote} risposte senza partite")
@@ -361,13 +418,63 @@ def salva_archivio(righe):
     ARCHIVIO.parent.mkdir(parents=True, exist_ok=True)
     with ARCHIVIO.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=COLONNE, extrasaction="ignore")
-        w.writeheader()
         w.writerows(righe)
     return righe
 
 
+def _settimana(r):
+    """La settimana come numero, per confronti e ordinamenti."""
+    try:
+        return int(float(r.get("Settimana") or 0))
+    except (ValueError, TypeError):
+        return 0
+
+
 def chiave(r):
-    return (r.get("Stagione"), r.get("Data"), r.get("Casa"), r.get("Ospite"))
+    """Cosa identifica una partita, una volta per tutte.
+
+    La data NON ne fa parte, ed è il punto. CollegeFootballData corregge
+    l'orario d'inizio dopo che la partita è stata giocata, e l'orario è in
+    UTC: per gli incontri serali della costa occidentale lo scarto fa
+    cambiare il giorno. Con la data nella chiave la stessa partita entrava
+    due volte — una vuota, con il giorno previsto, e una con il punteggio —
+    e la prima restava in archivio per sempre.
+
+    Stagione, tipo, settimana e squadre invece non cambiano mai.
+    """
+    return (str(r.get("Stagione") or ""),
+            (r.get("Tipo") or "").strip().lower(),
+            _settimana(r),
+            (r.get("Casa") or "").strip(),
+            (r.get("Ospite") or "").strip())
+
+
+def _con_risultato(r):
+    return num(r.get("PuntiCasa")) is not None and num(r.get("PuntiOspite")) is not None
+
+
+def unisci_doppioni(righe):
+    """Tiene una sola riga per partita, preferendo quella con il punteggio.
+
+    Serve a ripulire una volta per tutte i doppioni lasciati dalla chiave
+    precedente. A regime non ne trova più.
+    """
+    migliori = {}
+    ordine = []
+    uniti = 0
+    for r in righe:
+        k = chiave(r)
+        if k not in migliori:
+            migliori[k] = r
+            ordine.append(k)
+            continue
+        uniti += 1
+        vecchia = migliori[k]
+        if _con_risultato(r) and not _con_risultato(vecchia):
+            migliori[k] = r
+        elif _con_risultato(r) == _con_risultato(vecchia) and r.get("Data", "") > vecchia.get("Data", ""):
+            migliori[k] = r
+    return [migliori[k] for k in ordine], uniti
 
 
 def calcola_statistiche(righe, giocatori=None):
@@ -504,14 +611,36 @@ def main():
 
     archivio = carica_archivio()
     print(f"\nArchivio esistente: {len(archivio)} partite")
+
+    archivio, uniti = unisci_doppioni(archivio)
+    if uniti:
+        print(f"  {uniti} doppioni uniti (stessa partita con due date): "
+              f"restano {len(archivio)} partite")
+
     indice = {chiave(r): r for r in archivio}
     prima = len(indice)
 
+    corrente = stagione_corrente()
+    forzate = set(stagioni_forzate())
     stagioni = stagioni_da_scaricare()
-    print(f"Stagioni da scaricare: {stagioni[-1]}–{stagioni[0]} ({len(stagioni)})")
+    print(f"Stagioni in archivio: {stagioni[-1]}–{stagioni[0]} ({len(stagioni)})")
+
+    # Quante partite risultano già archiviate per ciascuna stagione: serve a
+    # capire quali sono complete.
+    quante = defaultdict(int)
+    for r in archivio:
+        quante[str(r.get("Stagione"))] += 1
 
     scaricate = 0
     for i, anno in enumerate(stagioni):
+        # Una stagione passata non cambia più: se è già in archivio per
+        # intero non la si richiede. Con STAGIONI si forza comunque.
+        if (anno < corrente and anno not in forzate
+                and quante[str(anno)] >= MINIMO_PARTITE_STAGIONE):
+            print(f"\nStagione {anno}: conclusa, {quante[str(anno)]} partite "
+                  f"dall'archivio, nessuna chiamata")
+            continue
+
         if i:
             time.sleep(PAUSA)
         print(f"\nStagione {anno}")
@@ -526,11 +655,16 @@ def main():
             righe = normalizza(partite, anno)
             nuove = sum(1 for r in righe if chiave(r) not in indice)
             for r in righe:
-                indice[chiave(r)] = r
+                k = chiave(r)
+                # un punteggio già in archivio non viene cancellato da una
+                # risposta che, per qualunque motivo, torna senza
+                if k in indice and _con_risultato(indice[k]) and not _con_risultato(r):
+                    continue
+                indice[k] = r
             print(f"    {tipo}: {len(righe)} partite ({nuove} nuove)")
             scaricate += len(righe)
 
-    if not scaricate and prima == 0:
+    if not scaricate and prima == 0 and not uniti:
         print("\nNessun dato scaricato e archivio vuoto: esco.")
         raise SystemExit(1)
 
@@ -545,7 +679,8 @@ def main():
     print(f"Archivio salvato: {len(righe)} partite ({len(righe) - prima:+d})")
 
     print("\nGiocatori di riferimento")
-    giocatori = carica_giocatori(stagioni)
+    giocatori = carica_giocatori(stagioni, forzate)
+    salva_archivio_giocatori(giocatori)
 
     stats = calcola_statistiche(righe, giocatori)
     USCITA.parent.mkdir(parents=True, exist_ok=True)
