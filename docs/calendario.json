@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-30T11:09:56.313508+00:00",
+  "aggiornato": "2026-10-31T10:42:48.502458+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -73,33 +73,6 @@
     "serie_a": {
       "nome": "Serie A",
       "partite": [
-        {
-          "data": "2026-10-27",
-          "ora": "18:30",
-          "casa": "Sassuolo",
-          "ospite": "Lazio",
-          "daDesignazioni": true,
-          "arbitro": "Zufferli",
-          "var": "Cosso"
-        },
-        {
-          "data": "2026-10-27",
-          "ora": "20:45",
-          "casa": "Roma",
-          "ospite": "Cagliari",
-          "daDesignazioni": true,
-          "arbitro": "Feliciani",
-          "var": "Ghersini"
-        },
-        {
-          "data": "2026-10-27",
-          "ora": "20:45",
-          "casa": "Torino",
-          "ospite": "Como",
-          "daDesignazioni": true,
-          "arbitro": "Collu",
-          "var": "Marini"
-        },
         {
           "data": "2026-10-28",
           "ora": "18:30",
@@ -240,25 +213,33 @@
           "data": "2026-10-31",
           "ora": "14:00",
           "casa": "Levante",
-          "ospite": "Ath Madrid"
+          "ospite": "Ath Madrid",
+          "arbitro": "Ricardo De Burgos",
+          "var": "Guillermo Cuadra"
         },
         {
           "data": "2026-10-31",
           "ora": "16:15",
           "casa": "Vallecano",
-          "ospite": "Celta"
+          "ospite": "Celta",
+          "arbitro": "Manuel Jesús Orellana",
+          "var": "Iván Caparrós"
         },
         {
           "data": "2026-10-31",
           "ora": "18:30",
           "casa": "Betis",
-          "ospite": "Malaga"
+          "ospite": "Malaga",
+          "arbitro": "Mateo Busquets",
+          "var": "Javier Iglesias"
         },
         {
           "data": "2026-10-31",
           "ora": "21:00",
           "casa": "Barcelona",
-          "ospite": "Alaves"
+          "ospite": "Alaves",
+          "arbitro": "Adrián Cordero",
+          "var": "Valentín Pizarro"
         },
         {
           "data": "2026-11-01",
