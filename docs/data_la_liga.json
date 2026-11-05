@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-02T23:49:16.590141+00:00",
+  "aggiornato": "2026-11-05T22:37:06.117741+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -9,9 +9,9 @@
     "2025/26",
     "2026/27"
   ],
-  "totalePartite": 1628,
-  "partiteConDisciplina": 1628,
-  "partiteConArbitro": 96,
+  "totalePartite": 1629,
+  "partiteConDisciplina": 1629,
+  "partiteConArbitro": 97,
   "arbitri": [
     {
       "nome": "Alejandro José Hernández",
@@ -185,163 +185,6 @@
       "prossime": []
     },
     {
-      "nome": "Jon Ander González",
-      "partite": 4,
-      "gialli": 24,
-      "rossi": 2,
-      "mediaGialli": 6.0,
-      "mediaRossi": 0.5,
-      "mediaCartellini": 6.5,
-      "mediaFalli": 24.2,
-      "gialliPerFallo": 24.7,
-      "squilibrioCasaOspite": -1.0,
-      "mediaGialliCasa": 3.5,
-      "mediaGialliOspite": 2.5,
-      "vittorieCasa": 1,
-      "pareggi": 1,
-      "vittorieOspite": 2,
-      "percVittorieCasa": 25.0,
-      "perSquadra": [
-        {
-          "squadra": "Getafe",
-          "partite": 2,
-          "gialli": 10,
-          "rossi": 1,
-          "media": 5.0
-        },
-        {
-          "squadra": "Osasuna",
-          "partite": 1,
-          "gialli": 5,
-          "rossi": 0,
-          "media": 5.0
-        },
-        {
-          "squadra": "Vallecano",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0
-        },
-        {
-          "squadra": "Elche",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 1,
-          "media": 2.0
-        },
-        {
-          "squadra": "Espanol",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Barcelona",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        },
-        {
-          "squadra": "Levante",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 4,
-          "gialli": 24,
-          "rossi": 2,
-          "media": 6.5,
-          "mediaGialli": 6.0,
-          "mediaRossi": 0.5,
-          "mediaFalli": 24.2,
-          "squilibrio": -1.0,
-          "mediaGialliCasa": 3.5,
-          "mediaGialliOspite": 2.5
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "19/10/2026",
-          "casa": "Getafe",
-          "ospite": "Vallecano",
-          "gc": 1,
-          "go": 1,
-          "gialliCasa": 6,
-          "gialliOspite": 3,
-          "rossiCasa": 1,
-          "rossiOspite": 0,
-          "falliCasa": 12,
-          "falliOspite": 9
-        },
-        {
-          "stagione": "2026/27",
-          "data": "18/09/2026",
-          "casa": "Espanol",
-          "ospite": "Elche",
-          "gc": 1,
-          "go": 3,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 1,
-          "falliCasa": 14,
-          "falliOspite": 9
-        },
-        {
-          "stagione": "2026/27",
-          "data": "13/09/2026",
-          "casa": "Levante",
-          "ospite": "Barcelona",
-          "gc": 2,
-          "go": 4,
-          "gialliCasa": 1,
-          "gialliOspite": 1,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 11,
-          "falliOspite": 11
-        },
-        {
-          "stagione": "2026/27",
-          "data": "31/08/2026",
-          "casa": "Osasuna",
-          "ospite": "Getafe",
-          "gc": 1,
-          "go": 0,
-          "gialliCasa": 5,
-          "gialliOspite": 4,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 17,
-          "falliOspite": 14
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": 11,
-          "data": "2026-11-02",
-          "ora": "21:00",
-          "casa": "La Coruna",
-          "ospite": "Osasuna",
-          "arbitro": "Jon Ander González",
-          "quartoUomo": "Álvaro Juncal",
-          "var": "Raúl Martín González",
-          "avar": "Valentín Pizarro",
-          "assistente1": "Carlos Álvarez",
-          "assistente2": "Judit Romano"
-        }
-      ]
-    },
-    {
       "nome": "Adrián Cordero",
       "partite": 3,
       "gialli": 17,
@@ -459,6 +302,170 @@
           "rossiOspite": 1,
           "falliCasa": 7,
           "falliOspite": 17
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Jon Ander González",
+      "partite": 5,
+      "gialli": 28,
+      "rossi": 2,
+      "mediaGialli": 5.6,
+      "mediaRossi": 0.4,
+      "mediaCartellini": 6.0,
+      "mediaFalli": 23.0,
+      "gialliPerFallo": 24.3,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 2.8,
+      "mediaGialliOspite": 2.8,
+      "vittorieCasa": 2,
+      "pareggi": 1,
+      "vittorieOspite": 2,
+      "percVittorieCasa": 40.0,
+      "perSquadra": [
+        {
+          "squadra": "Getafe",
+          "partite": 2,
+          "gialli": 10,
+          "rossi": 1,
+          "media": 5.0
+        },
+        {
+          "squadra": "Osasuna",
+          "partite": 2,
+          "gialli": 9,
+          "rossi": 0,
+          "media": 4.5
+        },
+        {
+          "squadra": "Vallecano",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Elche",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 1,
+          "media": 2.0
+        },
+        {
+          "squadra": "Espanol",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Barcelona",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Levante",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "La Coruna",
+          "partite": 1,
+          "gialli": 0,
+          "rossi": 0,
+          "media": 0.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 5,
+          "gialli": 28,
+          "rossi": 2,
+          "media": 6.0,
+          "mediaGialli": 5.6,
+          "mediaRossi": 0.4,
+          "mediaFalli": 23.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.8,
+          "mediaGialliOspite": 2.8
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "02/11/2026",
+          "casa": "La Coruna",
+          "ospite": "Osasuna",
+          "gc": 2,
+          "go": 1,
+          "gialliCasa": 0,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 5,
+          "falliOspite": 13
+        },
+        {
+          "stagione": "2026/27",
+          "data": "19/10/2026",
+          "casa": "Getafe",
+          "ospite": "Vallecano",
+          "gc": 1,
+          "go": 1,
+          "gialliCasa": 6,
+          "gialliOspite": 3,
+          "rossiCasa": 1,
+          "rossiOspite": 0,
+          "falliCasa": 12,
+          "falliOspite": 9
+        },
+        {
+          "stagione": "2026/27",
+          "data": "18/09/2026",
+          "casa": "Espanol",
+          "ospite": "Elche",
+          "gc": 1,
+          "go": 3,
+          "gialliCasa": 2,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 1,
+          "falliCasa": 14,
+          "falliOspite": 9
+        },
+        {
+          "stagione": "2026/27",
+          "data": "13/09/2026",
+          "casa": "Levante",
+          "ospite": "Barcelona",
+          "gc": 2,
+          "go": 4,
+          "gialliCasa": 1,
+          "gialliOspite": 1,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 11,
+          "falliOspite": 11
+        },
+        {
+          "stagione": "2026/27",
+          "data": "31/08/2026",
+          "casa": "Osasuna",
+          "ospite": "Getafe",
+          "gc": 1,
+          "go": 0,
+          "gialliCasa": 5,
+          "gialliOspite": 4,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 17,
+          "falliOspite": 14
         }
       ],
       "prossime": []
@@ -1431,7 +1438,21 @@
           "falliOspite": 11
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-06",
+          "ora": "21:00",
+          "casa": "Sevilla",
+          "ospite": "Alaves",
+          "arbitro": "Luis Bestard",
+          "quartoUomo": "Manuel Camacho",
+          "var": "José Antonio López",
+          "avar": "Iván Caparrós",
+          "assistente1": "Álvaro Granel",
+          "assistente2": "Carlos Martínez"
+        }
+      ]
     },
     {
       "nome": "Javier Alberola",
@@ -4126,14 +4147,14 @@
     },
     {
       "nome": "Osasuna",
-      "partite": 162,
-      "gialli": 373,
+      "partite": 163,
+      "gialli": 377,
       "rossi": 18,
-      "mediaGialli": 2.3,
+      "mediaGialli": 2.31,
       "mediaRossi": 0.11,
       "mediaFalli": 13.7,
       "mediaGialliCasa": 2.35,
-      "mediaGialliOspite": 2.26,
+      "mediaGialliOspite": 2.28,
       "perStagione": [
         {
           "stagione": "2022/23",
@@ -4181,14 +4202,14 @@
         },
         {
           "stagione": "2026/27",
-          "partite": 10,
-          "gialli": 26,
+          "partite": 11,
+          "gialli": 30,
           "rossi": 0,
-          "mediaGialli": 2.6,
+          "mediaGialli": 2.73,
           "mediaRossi": 0.0,
-          "mediaFalli": 14.0,
+          "mediaFalli": 13.9,
           "mediaGialliCasa": 2.8,
-          "mediaGialliOspite": 2.4
+          "mediaGialliOspite": 2.67
         }
       ]
     },
@@ -4765,30 +4786,6 @@
       ]
     },
     {
-      "nome": "La Coruna",
-      "partite": 10,
-      "gialli": 19,
-      "rossi": 3,
-      "mediaGialli": 1.9,
-      "mediaRossi": 0.3,
-      "mediaFalli": 12.3,
-      "mediaGialliCasa": 1.6,
-      "mediaGialliOspite": 2.2,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 10,
-          "gialli": 19,
-          "rossi": 3,
-          "mediaGialli": 1.9,
-          "mediaRossi": 0.3,
-          "mediaFalli": 12.3,
-          "mediaGialliCasa": 1.6,
-          "mediaGialliOspite": 2.2
-        }
-      ]
-    },
-    {
       "nome": "Real Madrid",
       "partite": 163,
       "gialli": 290,
@@ -4855,9 +4852,48 @@
           "mediaGialliOspite": 2.17
         }
       ]
+    },
+    {
+      "nome": "La Coruna",
+      "partite": 11,
+      "gialli": 19,
+      "rossi": 3,
+      "mediaGialli": 1.73,
+      "mediaRossi": 0.27,
+      "mediaFalli": 11.6,
+      "mediaGialliCasa": 1.33,
+      "mediaGialliOspite": 2.2,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 11,
+          "gialli": 19,
+          "rossi": 3,
+          "mediaGialli": 1.73,
+          "mediaRossi": 0.27,
+          "mediaFalli": 11.6,
+          "mediaGialliCasa": 1.33,
+          "mediaGialliOspite": 2.2
+        }
+      ]
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "02/11/2026",
+      "casa": "La Coruna",
+      "ospite": "Osasuna",
+      "gc": 2,
+      "go": 1,
+      "arbitro": "Jon Ander González",
+      "gialliCasa": 0,
+      "gialliOspite": 4,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 5,
+      "falliOspite": 13
+    },
     {
       "stagione": "2026/27",
       "data": "01/11/2026",
@@ -5442,21 +5478,6 @@
       "rossiOspite": 0,
       "falliCasa": 10,
       "falliOspite": 15
-    },
-    {
-      "stagione": "2026/27",
-      "data": "20/09/2026",
-      "casa": "Villarreal",
-      "ospite": "Levante",
-      "gc": 3,
-      "go": 1,
-      "arbitro": "Mateo Busquets",
-      "gialliCasa": 1,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 9,
-      "falliOspite": 10
     }
   ],
   "prossimeDesignazioni": [
@@ -5487,17 +5508,17 @@
       "assistente2": "Juan José López"
     },
     {
-      "giornata": 11,
-      "data": "2026-11-02",
+      "giornata": 12,
+      "data": "2026-11-06",
       "ora": "21:00",
-      "casa": "La Coruna",
-      "ospite": "Osasuna",
-      "arbitro": "Jon Ander González",
-      "quartoUomo": "Álvaro Juncal",
-      "var": "Raúl Martín González",
-      "avar": "Valentín Pizarro",
-      "assistente1": "Carlos Álvarez",
-      "assistente2": "Judit Romano"
+      "casa": "Sevilla",
+      "ospite": "Alaves",
+      "arbitro": "Luis Bestard",
+      "quartoUomo": "Manuel Camacho",
+      "var": "José Antonio López",
+      "avar": "Iván Caparrós",
+      "assistente1": "Álvaro Granel",
+      "assistente2": "Carlos Martínez"
     }
   ]
 }
