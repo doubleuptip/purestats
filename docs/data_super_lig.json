@@ -1,13 +1,13 @@
 {
-  "aggiornato": "2026-11-02T19:14:25.985412+00:00",
+  "aggiornato": "2026-11-05T17:09:20.943006+00:00",
   "campionato": "Süper Lig",
   "fonte": "football-data.co.uk (PDDL) · designazioni TFF",
   "stagioni": [
     "2026/27"
   ],
-  "totalePartite": 89,
-  "partiteConDisciplina": 89,
-  "partiteConArbitro": 53,
+  "totalePartite": 90,
+  "partiteConDisciplina": 90,
+  "partiteConArbitro": 54,
   "arbitri": [
     {
       "nome": "Kadir Sağlam",
@@ -251,7 +251,21 @@
           "falliOspite": 21
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-07",
+          "ora": "19:00",
+          "casa": "Galatasaray",
+          "ospite": "Amedspor",
+          "arbitro": "Halil Umut Meler",
+          "assistente1": "İbrahim Çağlar Uyarcan",
+          "assistente2": "Abdullah Bora Özkara",
+          "quartoUomo": "Kadir Sağlam",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Yasin Kol",
@@ -460,7 +474,21 @@
           "falliOspite": 10
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-08",
+          "ora": "21:00",
+          "casa": "Besiktas",
+          "ospite": "Genclerbirligi",
+          "arbitro": "Atilla Karaoğlan",
+          "assistente1": "Gökhan Barcın",
+          "assistente2": "Murat Ergin Gözütok",
+          "quartoUomo": "Alpaslan Şen",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Ümit Öztürk",
@@ -582,7 +610,21 @@
           "falliOspite": 10
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-06",
+          "ora": "20:00",
+          "casa": "Gaziantep",
+          "ospite": "Kasimpasa",
+          "arbitro": "Ümit Öztürk",
+          "assistente1": "Gökmen Baltacı",
+          "assistente2": "Yusuf Susuz",
+          "quartoUomo": "Erdem Mertoğlu",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Ali Şansalan",
@@ -920,7 +962,21 @@
           "falliOspite": 10
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-08",
+          "ora": "18:30",
+          "casa": "Alanyaspor",
+          "ospite": "Trabzonspor",
+          "arbitro": "Oğuzhan Çakır",
+          "assistente1": "Erkan Akbulut",
+          "assistente2": "Özcan Sultanoğlu",
+          "quartoUomo": "Fatih Tokail",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Mehmet Türkmen",
@@ -1223,7 +1279,21 @@
           "falliOspite": 11
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-07",
+          "ora": "16:00",
+          "casa": "Samsunspor",
+          "ospite": "Konyaspor",
+          "arbitro": "Gürcan Hasova",
+          "assistente1": "Mert Bulut",
+          "assistente2": "Selim Şenöz",
+          "quartoUomo": "İlker Yasin Avcı",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Oğuzhan Aksu",
@@ -1508,6 +1578,100 @@
       "prossime": []
     },
     {
+      "nome": "Fatih Tokail",
+      "partite": 2,
+      "gialli": 7,
+      "rossi": 0,
+      "mediaGialli": 3.5,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.5,
+      "mediaFalli": 29.0,
+      "gialliPerFallo": 12.1,
+      "squilibrioCasaOspite": 1.5,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 2.5,
+      "vittorieCasa": 2,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": 100.0,
+      "perSquadra": [
+        {
+          "squadra": "Alanyaspor",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0
+        },
+        {
+          "squadra": "Samsunspor",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Genclerbirligi",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        },
+        {
+          "squadra": "Kasimpasa",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 2,
+          "gialli": 7,
+          "rossi": 0,
+          "media": 3.5,
+          "mediaGialli": 3.5,
+          "mediaRossi": 0.0,
+          "mediaFalli": 29.0,
+          "squilibrio": 1.5,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.5
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "02/11/2026",
+          "casa": "Genclerbirligi",
+          "ospite": "Alanyaspor",
+          "gc": 5,
+          "go": 0,
+          "gialliCasa": 1,
+          "gialliOspite": 3,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 10
+        },
+        {
+          "stagione": "2026/27",
+          "data": "18/10/2026",
+          "casa": "Kasimpasa",
+          "ospite": "Samsunspor",
+          "gc": 4,
+          "go": 1,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 13,
+          "falliOspite": 20
+        }
+      ],
+      "prossime": []
+    },
+    {
       "nome": "Alper Akarsu",
       "partite": 2,
       "gialli": 6,
@@ -1600,86 +1764,6 @@
         }
       ],
       "prossime": []
-    },
-    {
-      "nome": "Fatih Tokail",
-      "partite": 1,
-      "gialli": 3,
-      "rossi": 0,
-      "mediaGialli": 3.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 3.0,
-      "mediaFalli": 33.0,
-      "gialliPerFallo": 9.1,
-      "squilibrioCasaOspite": 1.0,
-      "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 2.0,
-      "vittorieCasa": 1,
-      "pareggi": 0,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 100.0,
-      "perSquadra": [
-        {
-          "squadra": "Samsunspor",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Kasimpasa",
-          "partite": 1,
-          "gialli": 1,
-          "rossi": 0,
-          "media": 1.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 3,
-          "rossi": 0,
-          "media": 3.0,
-          "mediaGialli": 3.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 33.0,
-          "squilibrio": 1.0,
-          "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 2.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "18/10/2026",
-          "casa": "Kasimpasa",
-          "ospite": "Samsunspor",
-          "gc": 4,
-          "go": 1,
-          "gialliCasa": 1,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 13,
-          "falliOspite": 20
-        }
-      ],
-      "prossime": [
-        {
-          "giornata": 10,
-          "data": "2026-11-02",
-          "ora": "20:00",
-          "casa": "Genclerbirligi",
-          "ospite": "Alanyaspor",
-          "arbitro": "Fatih Tokail",
-          "assistente1": "Ceyhun Sesigüzel",
-          "assistente2": "Murat Temel",
-          "quartoUomo": "İlker Yasin Avcı",
-          "var": null,
-          "avar": null
-        }
-      ]
     },
     {
       "nome": "Ozan Ergün",
@@ -2073,7 +2157,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-07",
+          "ora": "19:00",
+          "casa": "Goztep",
+          "ospite": "Buyuksehyr",
+          "arbitro": "Çağdaş Altay",
+          "assistente1": "Samet Çavuş",
+          "assistente2": "Kerem İlitangil",
+          "quartoUomo": "Oğuzhan Aksu",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Abdullah Buğra Taşkınsoy",
@@ -2195,7 +2293,21 @@
           "falliOspite": 15
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-08",
+          "ora": "16:00",
+          "casa": "Corum",
+          "ospite": "Fenerbahce",
+          "arbitro": "Abdullah Buğra Taşkınsoy",
+          "assistente1": "Bersan Duran",
+          "assistente2": "Mustafa Savranlar",
+          "quartoUomo": "Alper Akarsu",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Melek Dakan",
@@ -2261,7 +2373,21 @@
           "falliOspite": 7
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-07",
+          "ora": "13:30",
+          "casa": "Eyupspor",
+          "ospite": "Kocaelispor",
+          "arbitro": "Melek Dakan",
+          "assistente1": "Selahattin Altay",
+          "assistente2": "Samet Çiçek",
+          "quartoUomo": "Yiğit Arslan",
+          "var": null,
+          "avar": null
+        }
+      ]
     },
     {
       "nome": "Erdem Mertoğlu",
@@ -2328,6 +2454,42 @@
         }
       ],
       "prossime": []
+    },
+    {
+      "nome": "Direnç Tonusluoğlu",
+      "partite": 0,
+      "gialli": 0,
+      "rossi": 0,
+      "mediaGialli": null,
+      "mediaRossi": null,
+      "mediaCartellini": null,
+      "mediaFalli": null,
+      "gialliPerFallo": null,
+      "squilibrioCasaOspite": null,
+      "mediaGialliCasa": null,
+      "mediaGialliOspite": null,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 0,
+      "percVittorieCasa": null,
+      "perSquadra": [],
+      "perStagione": [],
+      "elenco": [],
+      "prossime": [
+        {
+          "giornata": 11,
+          "data": "2026-11-08",
+          "ora": "13:30",
+          "casa": "Rizespor",
+          "ospite": "Erzurumspor",
+          "arbitro": "Direnç Tonusluoğlu",
+          "assistente1": "Ali Can Alp",
+          "assistente2": "Mücahid Adem Çelebi",
+          "quartoUomo": "Burak Pakkan",
+          "var": null,
+          "avar": null
+        }
+      ]
     }
   ],
   "squadre": [
@@ -2549,24 +2711,24 @@
     },
     {
       "nome": "Genclerbirligi",
-      "partite": 9,
-      "gialli": 18,
+      "partite": 10,
+      "gialli": 19,
       "rossi": 0,
-      "mediaGialli": 2.0,
+      "mediaGialli": 1.9,
       "mediaRossi": 0.0,
-      "mediaFalli": 13.1,
-      "mediaGialliCasa": 2.2,
+      "mediaFalli": 13.3,
+      "mediaGialliCasa": 2.0,
       "mediaGialliOspite": 1.75,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 18,
+          "partite": 10,
+          "gialli": 19,
           "rossi": 0,
-          "mediaGialli": 2.0,
+          "mediaGialli": 1.9,
           "mediaRossi": 0.0,
-          "mediaFalli": 13.1,
-          "mediaGialliCasa": 2.2,
+          "mediaFalli": 13.3,
+          "mediaGialliCasa": 2.0,
           "mediaGialliOspite": 1.75
         }
       ]
@@ -2644,6 +2806,30 @@
       ]
     },
     {
+      "nome": "Alanyaspor",
+      "partite": 10,
+      "gialli": 16,
+      "rossi": 0,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.0,
+      "mediaFalli": 12.9,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 1.33,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 10,
+          "gialli": 16,
+          "rossi": 0,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.9,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.33
+        }
+      ]
+    },
+    {
       "nome": "Galatasaray",
       "partite": 10,
       "gialli": 16,
@@ -2688,30 +2874,6 @@
           "mediaFalli": 14.3,
           "mediaGialliCasa": 1.6,
           "mediaGialliOspite": 1.4
-        }
-      ]
-    },
-    {
-      "nome": "Alanyaspor",
-      "partite": 9,
-      "gialli": 13,
-      "rossi": 0,
-      "mediaGialli": 1.44,
-      "mediaRossi": 0.0,
-      "mediaFalli": 13.2,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 1.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 13,
-          "rossi": 0,
-          "mediaGialli": 1.44,
-          "mediaRossi": 0.0,
-          "mediaFalli": 13.2,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 1.0
         }
       ]
     },
@@ -2765,6 +2927,21 @@
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "02/11/2026",
+      "casa": "Genclerbirligi",
+      "ospite": "Alanyaspor",
+      "gc": 5,
+      "go": 0,
+      "arbitro": "Fatih Tokail",
+      "gialliCasa": 1,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 15,
+      "falliOspite": 10
+    },
     {
       "stagione": "2026/27",
       "data": "01/11/2026",
@@ -3349,34 +3526,123 @@
       "rossiOspite": 0,
       "falliCasa": 25,
       "falliOspite": 7
-    },
-    {
-      "stagione": "2026/27",
-      "data": "19/09/2026",
-      "casa": "Trabzonspor",
-      "ospite": "Galatasaray",
-      "gc": 4,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 4,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 1,
-      "falliCasa": 15,
-      "falliOspite": 18
     }
   ],
   "prossimeDesignazioni": [
     {
-      "giornata": 10,
-      "data": "2026-11-02",
+      "giornata": 11,
+      "data": "2026-11-06",
       "ora": "20:00",
-      "casa": "Genclerbirligi",
-      "ospite": "Alanyaspor",
-      "arbitro": "Fatih Tokail",
-      "assistente1": "Ceyhun Sesigüzel",
-      "assistente2": "Murat Temel",
+      "casa": "Gaziantep",
+      "ospite": "Kasimpasa",
+      "arbitro": "Ümit Öztürk",
+      "assistente1": "Gökmen Baltacı",
+      "assistente2": "Yusuf Susuz",
+      "quartoUomo": "Erdem Mertoğlu",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 11,
+      "data": "2026-11-07",
+      "ora": "13:30",
+      "casa": "Eyupspor",
+      "ospite": "Kocaelispor",
+      "arbitro": "Melek Dakan",
+      "assistente1": "Selahattin Altay",
+      "assistente2": "Samet Çiçek",
+      "quartoUomo": "Yiğit Arslan",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 11,
+      "data": "2026-11-07",
+      "ora": "16:00",
+      "casa": "Samsunspor",
+      "ospite": "Konyaspor",
+      "arbitro": "Gürcan Hasova",
+      "assistente1": "Mert Bulut",
+      "assistente2": "Selim Şenöz",
       "quartoUomo": "İlker Yasin Avcı",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 11,
+      "data": "2026-11-07",
+      "ora": "19:00",
+      "casa": "Goztep",
+      "ospite": "Buyuksehyr",
+      "arbitro": "Çağdaş Altay",
+      "assistente1": "Samet Çavuş",
+      "assistente2": "Kerem İlitangil",
+      "quartoUomo": "Oğuzhan Aksu",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 11,
+      "data": "2026-11-07",
+      "ora": "19:00",
+      "casa": "Galatasaray",
+      "ospite": "Amedspor",
+      "arbitro": "Halil Umut Meler",
+      "assistente1": "İbrahim Çağlar Uyarcan",
+      "assistente2": "Abdullah Bora Özkara",
+      "quartoUomo": "Kadir Sağlam",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 11,
+      "data": "2026-11-08",
+      "ora": "13:30",
+      "casa": "Rizespor",
+      "ospite": "Erzurumspor",
+      "arbitro": "Direnç Tonusluoğlu",
+      "assistente1": "Ali Can Alp",
+      "assistente2": "Mücahid Adem Çelebi",
+      "quartoUomo": "Burak Pakkan",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 11,
+      "data": "2026-11-08",
+      "ora": "16:00",
+      "casa": "Corum",
+      "ospite": "Fenerbahce",
+      "arbitro": "Abdullah Buğra Taşkınsoy",
+      "assistente1": "Bersan Duran",
+      "assistente2": "Mustafa Savranlar",
+      "quartoUomo": "Alper Akarsu",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 11,
+      "data": "2026-11-08",
+      "ora": "18:30",
+      "casa": "Alanyaspor",
+      "ospite": "Trabzonspor",
+      "arbitro": "Oğuzhan Çakır",
+      "assistente1": "Erkan Akbulut",
+      "assistente2": "Özcan Sultanoğlu",
+      "quartoUomo": "Fatih Tokail",
+      "var": null,
+      "avar": null
+    },
+    {
+      "giornata": 11,
+      "data": "2026-11-08",
+      "ora": "21:00",
+      "casa": "Besiktas",
+      "ospite": "Genclerbirligi",
+      "arbitro": "Atilla Karaoğlan",
+      "assistente1": "Gökhan Barcın",
+      "assistente2": "Murat Ergin Gözütok",
+      "quartoUomo": "Alpaslan Şen",
       "var": null,
       "avar": null
     }
