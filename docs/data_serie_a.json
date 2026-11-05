@@ -1,12 +1,12 @@
 {
-  "aggiornato": "2026-11-02T19:05:13.634585+00:00",
+  "aggiornato": "2026-11-05T17:03:31.240319+00:00",
   "campionato": "Serie A",
   "fonte": "football-data.co.uk (PDDL) · designazioni AIA/Lega Serie A",
   "stagioni": [
     "2026/27"
   ],
-  "totalePartite": 98,
-  "partiteConDisciplina": 98,
+  "totalePartite": 100,
+  "partiteConDisciplina": 100,
   "partiteConArbitro": 74,
   "arbitri": [
     {
@@ -3678,25 +3678,25 @@
   "squadre": [
     {
       "nome": "Fiorentina",
-      "partite": 9,
-      "gialli": 20,
+      "partite": 10,
+      "gialli": 23,
       "rossi": 0,
-      "mediaGialli": 2.22,
+      "mediaGialli": 2.3,
       "mediaRossi": 0.0,
-      "mediaFalli": 11.2,
+      "mediaFalli": 11.6,
       "mediaGialliCasa": 2.2,
-      "mediaGialliOspite": 2.25,
+      "mediaGialliOspite": 2.4,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 20,
+          "partite": 10,
+          "gialli": 23,
           "rossi": 0,
-          "mediaGialli": 2.22,
+          "mediaGialli": 2.3,
           "mediaRossi": 0.0,
-          "mediaFalli": 11.2,
+          "mediaFalli": 11.6,
           "mediaGialliCasa": 2.2,
-          "mediaGialliOspite": 2.25
+          "mediaGialliOspite": 2.4
         }
       ]
     },
@@ -3965,30 +3965,6 @@
       ]
     },
     {
-      "nome": "Parma",
-      "partite": 9,
-      "gialli": 13,
-      "rossi": 0,
-      "mediaGialli": 1.44,
-      "mediaRossi": 0.0,
-      "mediaFalli": 10.6,
-      "mediaGialliCasa": 1.8,
-      "mediaGialliOspite": 1.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 13,
-          "rossi": 0,
-          "mediaGialli": 1.44,
-          "mediaRossi": 0.0,
-          "mediaFalli": 10.6,
-          "mediaGialliCasa": 1.8,
-          "mediaGialliOspite": 1.0
-        }
-      ]
-    },
-    {
       "nome": "Inter",
       "partite": 10,
       "gialli": 14,
@@ -4014,24 +3990,24 @@
     },
     {
       "nome": "Sassuolo",
-      "partite": 9,
-      "gialli": 12,
+      "partite": 10,
+      "gialli": 14,
       "rossi": 1,
-      "mediaGialli": 1.33,
-      "mediaRossi": 0.11,
-      "mediaFalli": 9.4,
-      "mediaGialliCasa": 1.75,
+      "mediaGialli": 1.4,
+      "mediaRossi": 0.1,
+      "mediaFalli": 9.7,
+      "mediaGialliCasa": 1.8,
       "mediaGialliOspite": 1.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 12,
+          "partite": 10,
+          "gialli": 14,
           "rossi": 1,
-          "mediaGialli": 1.33,
-          "mediaRossi": 0.11,
-          "mediaFalli": 9.4,
-          "mediaGialliCasa": 1.75,
+          "mediaGialli": 1.4,
+          "mediaRossi": 0.1,
+          "mediaFalli": 9.7,
+          "mediaGialliCasa": 1.8,
           "mediaGialliOspite": 1.0
         }
       ]
@@ -4057,6 +4033,30 @@
           "mediaFalli": 11.9,
           "mediaGialliCasa": 1.4,
           "mediaGialliOspite": 1.2
+        }
+      ]
+    },
+    {
+      "nome": "Parma",
+      "partite": 10,
+      "gialli": 13,
+      "rossi": 0,
+      "mediaGialli": 1.3,
+      "mediaRossi": 0.0,
+      "mediaFalli": 10.5,
+      "mediaGialliCasa": 1.8,
+      "mediaGialliOspite": 0.8,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 10,
+          "gialli": 13,
+          "rossi": 0,
+          "mediaGialli": 1.3,
+          "mediaRossi": 0.0,
+          "mediaFalli": 10.5,
+          "mediaGialliCasa": 1.8,
+          "mediaGialliOspite": 0.8
         }
       ]
     },
@@ -4109,30 +4109,6 @@
       ]
     },
     {
-      "nome": "Atalanta",
-      "partite": 9,
-      "gialli": 9,
-      "rossi": 2,
-      "mediaGialli": 1.0,
-      "mediaRossi": 0.22,
-      "mediaFalli": 10.2,
-      "mediaGialliCasa": 0.4,
-      "mediaGialliOspite": 1.75,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 9,
-          "rossi": 2,
-          "mediaGialli": 1.0,
-          "mediaRossi": 0.22,
-          "mediaFalli": 10.2,
-          "mediaGialliCasa": 0.4,
-          "mediaGialliOspite": 1.75
-        }
-      ]
-    },
-    {
       "nome": "Napoli",
       "partite": 10,
       "gialli": 10,
@@ -4155,9 +4131,63 @@
           "mediaGialliOspite": 1.0
         }
       ]
+    },
+    {
+      "nome": "Atalanta",
+      "partite": 10,
+      "gialli": 9,
+      "rossi": 2,
+      "mediaGialli": 0.9,
+      "mediaRossi": 0.2,
+      "mediaFalli": 10.0,
+      "mediaGialliCasa": 0.33,
+      "mediaGialliOspite": 1.75,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 10,
+          "gialli": 9,
+          "rossi": 2,
+          "mediaGialli": 0.9,
+          "mediaRossi": 0.2,
+          "mediaFalli": 10.0,
+          "mediaGialliCasa": 0.33,
+          "mediaGialliOspite": 1.75
+        }
+      ]
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "02/11/2026",
+      "casa": "Sassuolo",
+      "ospite": "Fiorentina",
+      "gc": 2,
+      "go": 4,
+      "arbitro": "",
+      "gialliCasa": 2,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 12,
+      "falliOspite": 15
+    },
+    {
+      "stagione": "2026/27",
+      "data": "02/11/2026",
+      "casa": "Atalanta",
+      "ospite": "Parma",
+      "gc": 0,
+      "go": 3,
+      "arbitro": "",
+      "gialliCasa": 0,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 8,
+      "falliOspite": 10
+    },
     {
       "stagione": "2026/27",
       "data": "01/11/2026",
@@ -4727,36 +4757,6 @@
       "rossiOspite": 0,
       "falliCasa": 13,
       "falliOspite": 11
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/10/2026",
-      "casa": "Torino",
-      "ospite": "Udinese",
-      "gc": 2,
-      "go": 1,
-      "arbitro": "Crezzini",
-      "gialliCasa": 0,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 4,
-      "falliOspite": 10
-    },
-    {
-      "stagione": "2026/27",
-      "data": "12/10/2026",
-      "casa": "Atalanta",
-      "ospite": "Venezia",
-      "gc": 3,
-      "go": 1,
-      "arbitro": "Tremolada",
-      "gialliCasa": 0,
-      "gialliOspite": 2,
-      "rossiCasa": 1,
-      "rossiOspite": 0,
-      "falliCasa": 14,
-      "falliOspite": 6
     }
   ],
   "prossimeDesignazioni": [
