@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-05T12:54:58.170092+00:00",
+  "aggiornato": "2026-11-06T06:05:43.158989+00:00",
   "fonte": "football-data.co.uk (licenza PDDL)",
   "fusoOrario": "ora dell'Europa centrale (come nella fonte)",
   "fuso": "orari italiani",
@@ -11,19 +11,110 @@
     },
     "serie_a": {
       "nome": "Serie A",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-11-06",
+          "ora": "20:45",
+          "casa": "Venezia",
+          "ospite": "Udinese",
+          "daDesignazioni": true,
+          "arbitro": "Sacchi J.L.",
+          "var": "Gariglio"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "15:00",
+          "casa": "Cagliari",
+          "ospite": "Frosinone",
+          "daDesignazioni": true,
+          "arbitro": "Ayroldi",
+          "var": "Marini"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "15:00",
+          "casa": "Torino",
+          "ospite": "Lecce",
+          "daDesignazioni": true,
+          "arbitro": "Feliciani",
+          "var": "Mazzoleni"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "18:00",
+          "casa": "Parma",
+          "ospite": "Bologna",
+          "daDesignazioni": true,
+          "arbitro": "Zufferli",
+          "var": "Meraviglia"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "20:45",
+          "casa": "Roma",
+          "ospite": "Sassuolo",
+          "daDesignazioni": true,
+          "arbitro": "Di Bello",
+          "var": "Pezzuto"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "12:30",
+          "casa": "Napoli",
+          "ospite": "Lazio",
+          "daDesignazioni": true,
+          "arbitro": "Pairetto",
+          "var": "Aureliano"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "15:00",
+          "casa": "Genoa",
+          "ospite": "Milan",
+          "daDesignazioni": true,
+          "arbitro": "Massa",
+          "var": "Camplone"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "15:00",
+          "casa": "Monza",
+          "ospite": "Atalanta",
+          "daDesignazioni": true,
+          "arbitro": "Allegretta",
+          "var": "La Penna"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "18:00",
+          "casa": "Inter",
+          "ospite": "Como",
+          "daDesignazioni": true,
+          "arbitro": "Chiffi",
+          "var": "Paterna"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "20:45",
+          "casa": "Fiorentina",
+          "ospite": "Juventus",
+          "daDesignazioni": true,
+          "arbitro": "Colombo",
+          "var": "Di Paolo"
+        }
+      ]
     },
     "la_liga": {
       "nome": "LaLiga",
       "partite": [
         {
-          "data": "2026-11-02",
+          "data": "2026-11-06",
           "ora": "21:00",
-          "casa": "La Coruna",
-          "ospite": "Osasuna",
+          "casa": "Sevilla",
+          "ospite": "Alaves",
           "daDesignazioni": true,
-          "arbitro": "Jon Ander González",
-          "var": "Raúl Martín González"
+          "arbitro": "Luis Bestard",
+          "var": "José Antonio López"
         }
       ]
     },
@@ -33,22 +124,250 @@
     },
     "bundesliga": {
       "nome": "Bundesliga",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-11-06",
+          "ora": "20:30",
+          "casa": "Hamburg",
+          "ospite": "M'gladbach",
+          "daDesignazioni": true,
+          "arbitro": "Sven Jablonski",
+          "var": "Günter Perl"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "15:30",
+          "casa": "Dortmund",
+          "ospite": "Elversberg",
+          "daDesignazioni": true,
+          "arbitro": "Harm Osmers",
+          "var": "Patrick Hanslbauer"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "15:30",
+          "casa": "RB Leipzig",
+          "ospite": "Augsburg",
+          "daDesignazioni": true,
+          "arbitro": "Daniel Schlager",
+          "var": "Pascal Müller"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "15:30",
+          "casa": "Mainz",
+          "ospite": "Bayern Munich",
+          "daDesignazioni": true,
+          "arbitro": "Robert Schröder",
+          "var": "Johann Pfeifer"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "15:30",
+          "casa": "Paderborn",
+          "ospite": "Ein Frankfurt",
+          "daDesignazioni": true,
+          "arbitro": "Bastian Dankert",
+          "var": "Daniel Siebert"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "18:30",
+          "casa": "Stuttgart",
+          "ospite": "Werder Bremen",
+          "daDesignazioni": true,
+          "arbitro": "Sören Storks",
+          "var": "Timo Gerach"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "15:30",
+          "casa": "FC Koln",
+          "ospite": "Leverkusen",
+          "daDesignazioni": true,
+          "arbitro": "Felix Zwayer",
+          "var": "Christian Dingert"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "17:30",
+          "casa": "Freiburg",
+          "ospite": "Union Berlin",
+          "daDesignazioni": true,
+          "arbitro": "Sascha Stegemann",
+          "var": "Guido Winkmann"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "19:30",
+          "casa": "Hoffenheim",
+          "ospite": "Schalke 04",
+          "daDesignazioni": true,
+          "arbitro": "Martin Petersen",
+          "var": "Dr. Arne Aarnink"
+        }
+      ]
     },
     "bundesliga_2": {
       "nome": "2. Bundesliga",
-      "partite": []
+      "partite": [
+        {
+          "data": "2026-11-06",
+          "ora": "18:30",
+          "casa": "Dynamo Dresden",
+          "ospite": "Greuther Furth",
+          "daDesignazioni": true,
+          "arbitro": "Michael Bacher",
+          "var": "Tobias Welz"
+        },
+        {
+          "data": "2026-11-06",
+          "ora": "18:30",
+          "casa": "Braunschweig",
+          "ospite": "Cottbus",
+          "daDesignazioni": true,
+          "arbitro": "Timo Gansloweit",
+          "var": "Benjamin Cortus"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "13:00",
+          "casa": "Nurnberg",
+          "ospite": "Darmstadt",
+          "daDesignazioni": true,
+          "arbitro": "Eric Weisbach",
+          "var": "Dr. Robert Kampka"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "13:00",
+          "casa": "Holstein Kiel",
+          "ospite": "Bielefeld",
+          "daDesignazioni": true,
+          "arbitro": "Wolfgang Haslberger",
+          "var": "Tobias Welz"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "13:00",
+          "casa": "Osnabruck",
+          "ospite": "Kaiserslautern",
+          "daDesignazioni": true,
+          "arbitro": "Patrick Schwengers",
+          "var": "Katrin Rafalski"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "20:30",
+          "casa": "Hertha",
+          "ospite": "Wolfsburg",
+          "daDesignazioni": true,
+          "arbitro": "Dr. Matthias Jöllenbeck",
+          "var": "Nicolas Winter"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "13:30",
+          "casa": "Heidenheim",
+          "ospite": "Hannover",
+          "daDesignazioni": true,
+          "arbitro": "Dr. Robin Braun",
+          "var": "Katrin Rafalski"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "13:30",
+          "casa": "Bochum",
+          "ospite": "Karlsruhe",
+          "daDesignazioni": true,
+          "arbitro": "Florian Badstübner",
+          "var": "Nicolas Winter"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "13:30",
+          "casa": "Magdeburg",
+          "ospite": "St Pauli",
+          "daDesignazioni": true,
+          "arbitro": "Tom Bauer",
+          "var": "Patrick Alt"
+        }
+      ]
     },
     "super_lig": {
       "nome": "Süper Lig",
       "partite": [
         {
-          "data": "2026-11-02",
+          "data": "2026-11-06",
           "ora": "20:00",
-          "casa": "Genclerbirligi",
-          "ospite": "Alanyaspor",
+          "casa": "Gaziantep",
+          "ospite": "Kasimpasa",
           "daDesignazioni": true,
-          "arbitro": "Fatih Tokail"
+          "arbitro": "Ümit Öztürk"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "13:30",
+          "casa": "Eyupspor",
+          "ospite": "Kocaelispor",
+          "daDesignazioni": true,
+          "arbitro": "Melek Dakan"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "16:00",
+          "casa": "Samsunspor",
+          "ospite": "Konyaspor",
+          "daDesignazioni": true,
+          "arbitro": "Gürcan Hasova"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "19:00",
+          "casa": "Goztep",
+          "ospite": "Buyuksehyr",
+          "daDesignazioni": true,
+          "arbitro": "Çağdaş Altay"
+        },
+        {
+          "data": "2026-11-07",
+          "ora": "19:00",
+          "casa": "Galatasaray",
+          "ospite": "Amedspor",
+          "daDesignazioni": true,
+          "arbitro": "Halil Umut Meler"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "13:30",
+          "casa": "Rizespor",
+          "ospite": "Erzurumspor",
+          "daDesignazioni": true,
+          "arbitro": "Direnç Tonusluoğlu"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "16:00",
+          "casa": "Corum",
+          "ospite": "Fenerbahce",
+          "daDesignazioni": true,
+          "arbitro": "Abdullah Buğra Taşkınsoy"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "18:30",
+          "casa": "Alanyaspor",
+          "ospite": "Trabzonspor",
+          "daDesignazioni": true,
+          "arbitro": "Oğuzhan Çakır"
+        },
+        {
+          "data": "2026-11-08",
+          "ora": "21:00",
+          "casa": "Besiktas",
+          "ospite": "Genclerbirligi",
+          "daDesignazioni": true,
+          "arbitro": "Atilla Karaoğlan"
         }
       ]
     }
