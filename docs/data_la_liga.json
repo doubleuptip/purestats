@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-05T22:37:06.117741+00:00",
+  "aggiornato": "2026-11-06T21:58:49.434807+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -931,6 +931,19 @@
           "avar": "José Antonio López",
           "assistente1": "Guillermo Santiago",
           "assistente2": "José Francisco García"
+        },
+        {
+          "giornata": 12,
+          "data": "2026-11-07",
+          "ora": "16:15",
+          "casa": "Espanol",
+          "ospite": "La Coruna",
+          "arbitro": "Alejandro Quintero",
+          "quartoUomo": "Manuel Pozueta",
+          "var": "José Antonio López",
+          "avar": "Raúl Martín González",
+          "assistente1": "Guillermo Santiago",
+          "assistente2": "José Francisco García"
         }
       ]
     },
@@ -1082,7 +1095,21 @@
           "falliOspite": 13
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-07",
+          "ora": "18:30",
+          "casa": "Osasuna",
+          "ospite": "Ath Bilbao",
+          "arbitro": "Miguel Sesma",
+          "quartoUomo": "Armando Ramo",
+          "var": "Jorge Figueroa",
+          "avar": "Guillermo Cuadra",
+          "assistente1": "Ion Rodríguez",
+          "assistente2": "Mario Martín-Consuegra"
+        }
+      ]
     },
     {
       "nome": "Isidro Díaz De Mera",
@@ -1274,7 +1301,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-07",
+          "ora": "14:00",
+          "casa": "Malaga",
+          "ospite": "Santander",
+          "arbitro": "Isidro Díaz De Mera",
+          "quartoUomo": "Gonzalo González",
+          "var": "Guillermo Cuadra",
+          "avar": "Valentín Pizarro",
+          "assistente1": "Diego Santaúrsula",
+          "assistente2": "Rubén Campo"
+        }
+      ]
     },
     {
       "nome": "Luis Bestard",
@@ -2185,7 +2226,21 @@
           "falliOspite": 11
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-07",
+          "ora": "21:00",
+          "casa": "Valencia",
+          "ospite": "Real Madrid",
+          "arbitro": "Francisco José Hernández",
+          "quartoUomo": "Juan Antonio Campos",
+          "var": "Raúl Martín González",
+          "avar": "Javier Iglesias",
+          "assistente1": "Iván Massó",
+          "assistente2": "Abraham Pérez"
+        }
+      ]
     },
     {
       "nome": "Ricardo De Burgos",
@@ -5519,6 +5574,58 @@
       "avar": "Iván Caparrós",
       "assistente1": "Álvaro Granel",
       "assistente2": "Carlos Martínez"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-07",
+      "ora": "14:00",
+      "casa": "Malaga",
+      "ospite": "Santander",
+      "arbitro": "Isidro Díaz De Mera",
+      "quartoUomo": "Gonzalo González",
+      "var": "Guillermo Cuadra",
+      "avar": "Valentín Pizarro",
+      "assistente1": "Diego Santaúrsula",
+      "assistente2": "Rubén Campo"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-07",
+      "ora": "16:15",
+      "casa": "Espanol",
+      "ospite": "La Coruna",
+      "arbitro": "Alejandro Quintero",
+      "quartoUomo": "Manuel Pozueta",
+      "var": "José Antonio López",
+      "avar": "Raúl Martín González",
+      "assistente1": "Guillermo Santiago",
+      "assistente2": "José Francisco García"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-07",
+      "ora": "18:30",
+      "casa": "Osasuna",
+      "ospite": "Ath Bilbao",
+      "arbitro": "Miguel Sesma",
+      "quartoUomo": "Armando Ramo",
+      "var": "Jorge Figueroa",
+      "avar": "Guillermo Cuadra",
+      "assistente1": "Ion Rodríguez",
+      "assistente2": "Mario Martín-Consuegra"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-07",
+      "ora": "21:00",
+      "casa": "Valencia",
+      "ospite": "Real Madrid",
+      "arbitro": "Francisco José Hernández",
+      "quartoUomo": "Juan Antonio Campos",
+      "var": "Raúl Martín González",
+      "avar": "Javier Iglesias",
+      "assistente1": "Iván Massó",
+      "assistente2": "Abraham Pérez"
     }
   ]
 }
