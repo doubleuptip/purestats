@@ -385,6 +385,18 @@
     body.fb .fb-classifica .nome.corto{font-size:15px;display:inline-block;max-width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
     body.fb .fb-classifica thead th{white-space:nowrap}
   }
+
+  /* partite: su telefono una squadra per riga con il punteggio a destra (come nelle app di risultati),
+     così i nomi lunghi non si sovrappongono mai al punteggio */
+  .fb-stack{display:none;flex-direction:column;gap:8px}
+  .fb-team .n{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  body.fb .gara-squadre .fb-sq-sx .nome,body.fb .gara-squadre .fb-sq-dx .nome{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  @media (max-width:640px){
+    body.fb .gara .gara-squadre{display:none}
+    body.fb .gara .fb-stack{display:flex}
+    body.fb .gara .fb-team .n{font-size:18px}
+    body.fb .gara .fb-team .s{font-size:26px}
+  }
   /* ---- telefono ---- */
   .fb-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   body.fb .nome{word-break:normal;overflow-wrap:normal}
@@ -1468,7 +1480,11 @@ function vFootballPartite(){
           <span class="vs">${disputata?`${p.po}\u2013${p.pc}`:"@"}</span>
           <span class="fb-sq-dx"><span class="nome lungo">${esc(nomeSquadra(p.casa))}</span><span class="nome corto">${esc(breve(p.casa))}</span>${stemma(p.casa,true)}</span>
         </div>
-        <div class="gara-arb">${esc(dataBreve(p.data))}${p.stadio?" · "+esc(p.stadio):""}</div>
+        <div class="fb-stack">
+          <div class="fb-team${disputata&&p.po>p.pc?" w":""}">${stemma(p.ospite,true)}<span class="n">${esc(breve(p.ospite))}</span><span class="s">${disputata?p.po:""}</span></div>
+          <div class="fb-team${disputata&&p.pc>p.po?" w":""}">${stemma(p.casa,true)}<span class="n">${esc(breve(p.casa))}</span><span class="s">${disputata?p.pc:""}</span></div>
+        </div>
+        <div class="gara-arb">${disputata?"":"da giocare · "}${esc(dataBreve(p.data))}${p.stadio?" · "+esc(p.stadio):""}</div>
         ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
             ${rosaAperta?"▴ NASCONDI":"▾ MIGLIORI DELLA PARTITA"}</button>` : ""}
         ${conRose && rosaAperta
