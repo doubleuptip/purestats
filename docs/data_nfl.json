@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-03T18:12:36.755883+00:00",
+  "aggiornato": "2026-11-09T09:12:05.026738+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -10,13 +10,13 @@
     "2022"
   ],
   "totalePartite": 1411,
-  "partiteGiocate": 1260,
+  "partiteGiocate": 1274,
   "squadre": [
     {
       "nome": "BUF",
       "nomeCompleto": "Buffalo Bills",
-      "conference": null,
-      "division": null,
+      "conference": "AFC",
+      "division": "AFC East",
       "partite": 83,
       "vittorie": 60,
       "sconfitte": 23,
@@ -116,31 +116,31 @@
     {
       "nome": "KC",
       "nomeCompleto": "Kansas City Chiefs",
-      "conference": null,
-      "division": null,
-      "partite": 85,
-      "vittorie": 60,
+      "conference": "AFC",
+      "division": "AFC West",
+      "partite": 86,
+      "vittorie": 61,
       "sconfitte": 25,
       "pareggi": 0,
-      "percVittorie": 70.6,
-      "mediaFatti": 24.0,
-      "mediaSubiti": 19.6,
-      "differenza": 372,
+      "percVittorie": 70.9,
+      "mediaFatti": 24.1,
+      "mediaSubiti": 19.5,
+      "differenza": 395,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 5,
+          "partite": 8,
+          "vittorie": 6,
           "sconfitte": 2,
           "pareggi": 0,
-          "percVittorie": 71.4,
-          "puntiFatti": 167,
-          "puntiSubiti": 131,
-          "mediaFatti": 23.9,
-          "mediaSubiti": 18.7,
-          "differenza": 36,
-          "vittorieCasa": 3,
-          "partiteCasa": 3,
+          "percVittorie": 75.0,
+          "puntiFatti": 202,
+          "puntiSubiti": 143,
+          "mediaFatti": 25.2,
+          "mediaSubiti": 17.9,
+          "differenza": 59,
+          "vittorieCasa": 4,
+          "partiteCasa": 4,
           "vittorieFuori": 2,
           "partiteFuori": 4
         },
@@ -217,31 +217,31 @@
     {
       "nome": "PHI",
       "nomeCompleto": "Philadelphia Eagles",
-      "conference": null,
-      "division": null,
-      "partite": 85,
+      "conference": "NFC",
+      "division": "NFC East",
+      "partite": 86,
       "vittorie": 58,
-      "sconfitte": 27,
+      "sconfitte": 28,
       "pareggi": 0,
-      "percVittorie": 68.2,
-      "mediaFatti": 25.5,
+      "percVittorie": 67.4,
+      "mediaFatti": 25.3,
       "mediaSubiti": 21.0,
-      "differenza": 380,
+      "differenza": 372,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 2,
-          "sconfitte": 6,
+          "sconfitte": 7,
           "pareggi": 0,
-          "percVittorie": 25.0,
-          "puntiFatti": 137,
-          "puntiSubiti": 202,
-          "mediaFatti": 17.1,
-          "mediaSubiti": 25.2,
-          "differenza": -65,
+          "percVittorie": 22.2,
+          "puntiFatti": 148,
+          "puntiSubiti": 221,
+          "mediaFatti": 16.4,
+          "mediaSubiti": 24.6,
+          "differenza": -73,
           "vittorieCasa": 1,
-          "partiteCasa": 4,
+          "partiteCasa": 5,
           "vittorieFuori": 1,
           "partiteFuori": 4
         },
@@ -318,33 +318,33 @@
     {
       "nome": "DET",
       "nomeCompleto": "Detroit Lions",
-      "conference": null,
-      "division": null,
-      "partite": 79,
-      "vittorie": 52,
+      "conference": "NFC",
+      "division": "NFC North",
+      "partite": 80,
+      "vittorie": 53,
       "sconfitte": 27,
       "pareggi": 0,
-      "percVittorie": 65.8,
-      "mediaFatti": 28.8,
-      "mediaSubiti": 23.8,
-      "differenza": 397,
+      "percVittorie": 66.2,
+      "mediaFatti": 28.7,
+      "mediaSubiti": 23.6,
+      "differenza": 407,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 5,
+          "partite": 8,
+          "vittorie": 6,
           "sconfitte": 2,
           "pareggi": 0,
-          "percVittorie": 71.4,
-          "puntiFatti": 203,
-          "puntiSubiti": 180,
-          "mediaFatti": 29.0,
-          "mediaSubiti": 25.7,
-          "differenza": 23,
+          "percVittorie": 75.0,
+          "puntiFatti": 222,
+          "puntiSubiti": 189,
+          "mediaFatti": 27.8,
+          "mediaSubiti": 23.6,
+          "differenza": 33,
           "vittorieCasa": 4,
           "partiteCasa": 4,
-          "vittorieFuori": 1,
-          "partiteFuori": 3
+          "vittorieFuori": 2,
+          "partiteFuori": 4
         },
         {
           "stagione": "2025",
@@ -419,31 +419,31 @@
     {
       "nome": "SF",
       "nomeCompleto": "San Francisco 49ers",
-      "conference": null,
-      "division": null,
-      "partite": 83,
-      "vittorie": 54,
+      "conference": "NFC",
+      "division": "NFC West",
+      "partite": 84,
+      "vittorie": 55,
       "sconfitte": 29,
       "pareggi": 0,
-      "percVittorie": 65.1,
-      "mediaFatti": 25.8,
-      "mediaSubiti": 20.8,
-      "differenza": 416,
+      "percVittorie": 65.5,
+      "mediaFatti": 25.9,
+      "mediaSubiti": 20.7,
+      "differenza": 437,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 6,
+          "partite": 8,
+          "vittorie": 7,
           "sconfitte": 1,
           "pareggi": 0,
-          "percVittorie": 85.7,
-          "puntiFatti": 197,
-          "puntiSubiti": 139,
-          "mediaFatti": 28.1,
-          "mediaSubiti": 19.9,
-          "differenza": 58,
-          "vittorieCasa": 4,
-          "partiteCasa": 4,
+          "percVittorie": 87.5,
+          "puntiFatti": 235,
+          "puntiSubiti": 156,
+          "mediaFatti": 29.4,
+          "mediaSubiti": 19.5,
+          "differenza": 79,
+          "vittorieCasa": 5,
+          "partiteCasa": 5,
           "vittorieFuori": 2,
           "partiteFuori": 3
         },
@@ -520,8 +520,8 @@
     {
       "nome": "MIN",
       "nomeCompleto": "Minnesota Vikings",
-      "conference": null,
-      "division": null,
+      "conference": "NFC",
+      "division": "NFC North",
       "partite": 77,
       "vittorie": 49,
       "sconfitte": 28,
@@ -621,31 +621,31 @@
     {
       "nome": "SEA",
       "nomeCompleto": "Seattle Seahawks",
-      "conference": null,
-      "division": null,
-      "partite": 80,
-      "vittorie": 49,
+      "conference": "NFC",
+      "division": "NFC West",
+      "partite": 81,
+      "vittorie": 50,
       "sconfitte": 31,
       "pareggi": 0,
-      "percVittorie": 61.2,
-      "mediaFatti": 24.2,
-      "mediaSubiti": 21.4,
-      "differenza": 229,
+      "percVittorie": 61.7,
+      "mediaFatti": 24.1,
+      "mediaSubiti": 21.1,
+      "differenza": 243,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
-          "vittorie": 4,
+          "partite": 9,
+          "vittorie": 5,
           "sconfitte": 4,
           "pareggi": 0,
-          "percVittorie": 50.0,
-          "puntiFatti": 185,
-          "puntiSubiti": 159,
-          "mediaFatti": 23.1,
-          "mediaSubiti": 19.9,
-          "differenza": 26,
-          "vittorieCasa": 3,
-          "partiteCasa": 5,
+          "percVittorie": 55.6,
+          "puntiFatti": 202,
+          "puntiSubiti": 162,
+          "mediaFatti": 22.4,
+          "mediaSubiti": 18.0,
+          "differenza": 40,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
           "vittorieFuori": 1,
           "partiteFuori": 3
         },
@@ -722,31 +722,31 @@
     {
       "nome": "BAL",
       "nomeCompleto": "Baltimore Ravens",
-      "conference": null,
-      "division": null,
-      "partite": 81,
+      "conference": "AFC",
+      "division": "AFC North",
+      "partite": 82,
       "vittorie": 49,
-      "sconfitte": 32,
+      "sconfitte": 33,
       "pareggi": 0,
-      "percVittorie": 60.5,
-      "mediaFatti": 25.5,
-      "mediaSubiti": 20.4,
-      "differenza": 419,
+      "percVittorie": 59.8,
+      "mediaFatti": 25.3,
+      "mediaSubiti": 20.5,
+      "differenza": 396,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 4,
-          "sconfitte": 4,
+          "sconfitte": 5,
           "pareggi": 0,
-          "percVittorie": 50.0,
-          "puntiFatti": 179,
-          "puntiSubiti": 203,
-          "mediaFatti": 22.4,
-          "mediaSubiti": 25.4,
-          "differenza": -24,
+          "percVittorie": 44.4,
+          "puntiFatti": 189,
+          "puntiSubiti": 236,
+          "mediaFatti": 21.0,
+          "mediaSubiti": 26.2,
+          "differenza": -47,
           "vittorieCasa": 1,
-          "partiteCasa": 3,
+          "partiteCasa": 4,
           "vittorieFuori": 3,
           "partiteFuori": 5
         },
@@ -823,8 +823,8 @@
     {
       "nome": "PIT",
       "nomeCompleto": "Pittsburgh Steelers",
-      "conference": null,
-      "division": null,
+      "conference": "AFC",
+      "division": "AFC North",
       "partite": 79,
       "vittorie": 45,
       "sconfitte": 34,
@@ -924,33 +924,33 @@
     {
       "nome": "CIN",
       "nomeCompleto": "Cincinnati Bengals",
-      "conference": null,
-      "division": null,
-      "partite": 77,
-      "vittorie": 43,
+      "conference": "AFC",
+      "division": "AFC North",
+      "partite": 78,
+      "vittorie": 44,
       "sconfitte": 34,
       "pareggi": 0,
-      "percVittorie": 55.8,
-      "mediaFatti": 25.3,
-      "mediaSubiti": 23.9,
-      "differenza": 107,
+      "percVittorie": 56.4,
+      "mediaFatti": 25.4,
+      "mediaSubiti": 23.8,
+      "differenza": 124,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 5,
+          "partite": 8,
+          "vittorie": 6,
           "sconfitte": 2,
           "pareggi": 0,
-          "percVittorie": 71.4,
-          "puntiFatti": 206,
-          "puntiSubiti": 158,
-          "mediaFatti": 29.4,
-          "mediaSubiti": 22.6,
-          "differenza": 48,
+          "percVittorie": 75.0,
+          "puntiFatti": 240,
+          "puntiSubiti": 175,
+          "mediaFatti": 30.0,
+          "mediaSubiti": 21.9,
+          "differenza": 65,
           "vittorieCasa": 2,
           "partiteCasa": 3,
-          "vittorieFuori": 3,
-          "partiteFuori": 4
+          "vittorieFuori": 4,
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
@@ -1025,33 +1025,33 @@
     {
       "nome": "DEN",
       "nomeCompleto": "Denver Broncos",
-      "conference": null,
-      "division": null,
-      "partite": 79,
-      "vittorie": 44,
+      "conference": "AFC",
+      "division": "AFC West",
+      "partite": 80,
+      "vittorie": 45,
       "sconfitte": 35,
       "pareggi": 0,
-      "percVittorie": 55.7,
+      "percVittorie": 56.2,
       "mediaFatti": 21.4,
       "mediaSubiti": 20.6,
-      "differenza": 59,
+      "differenza": 64,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
-          "vittorie": 6,
+          "partite": 9,
+          "vittorie": 7,
           "sconfitte": 2,
           "pareggi": 0,
-          "percVittorie": 75.0,
-          "puntiFatti": 172,
-          "puntiSubiti": 165,
-          "mediaFatti": 21.5,
-          "mediaSubiti": 20.6,
-          "differenza": 7,
+          "percVittorie": 77.8,
+          "puntiFatti": 198,
+          "puntiSubiti": 186,
+          "mediaFatti": 22.0,
+          "mediaSubiti": 20.7,
+          "differenza": 12,
           "vittorieCasa": 4,
           "partiteCasa": 4,
-          "vittorieFuori": 2,
-          "partiteFuori": 4
+          "vittorieFuori": 3,
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
@@ -1126,33 +1126,33 @@
     {
       "nome": "GB",
       "nomeCompleto": "Green Bay Packers",
-      "conference": null,
-      "division": null,
-      "partite": 80,
-      "vittorie": 43,
+      "conference": "NFC",
+      "division": "NFC North",
+      "partite": 81,
+      "vittorie": 44,
       "sconfitte": 36,
       "pareggi": 1,
-      "percVittorie": 53.8,
-      "mediaFatti": 23.5,
-      "mediaSubiti": 21.1,
-      "differenza": 189,
+      "percVittorie": 54.3,
+      "mediaFatti": 23.8,
+      "mediaSubiti": 21.2,
+      "differenza": 207,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
-          "vittorie": 5,
+          "partite": 9,
+          "vittorie": 6,
           "sconfitte": 3,
           "pareggi": 0,
-          "percVittorie": 62.5,
-          "puntiFatti": 171,
-          "puntiSubiti": 164,
-          "mediaFatti": 21.4,
-          "mediaSubiti": 20.5,
-          "differenza": 7,
+          "percVittorie": 66.7,
+          "puntiFatti": 216,
+          "puntiSubiti": 191,
+          "mediaFatti": 24.0,
+          "mediaSubiti": 21.2,
+          "differenza": 25,
           "vittorieCasa": 3,
           "partiteCasa": 4,
-          "vittorieFuori": 2,
-          "partiteFuori": 4
+          "vittorieFuori": 3,
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
@@ -1227,33 +1227,33 @@
     {
       "nome": "LA",
       "nomeCompleto": "Los Angeles Rams",
-      "conference": null,
-      "division": null,
-      "partite": 82,
-      "vittorie": 44,
+      "conference": "NFC",
+      "division": "NFC West",
+      "partite": 83,
+      "vittorie": 45,
       "sconfitte": 38,
       "pareggi": 0,
-      "percVittorie": 53.7,
+      "percVittorie": 54.2,
       "mediaFatti": 23.7,
-      "mediaSubiti": 22.0,
-      "differenza": 142,
+      "mediaSubiti": 21.9,
+      "differenza": 149,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
-          "vittorie": 4,
+          "partite": 9,
+          "vittorie": 5,
           "sconfitte": 4,
           "pareggi": 0,
-          "percVittorie": 50.0,
-          "puntiFatti": 194,
-          "puntiSubiti": 168,
-          "mediaFatti": 24.2,
-          "mediaSubiti": 21.0,
-          "differenza": 26,
+          "percVittorie": 55.6,
+          "puntiFatti": 214,
+          "puntiSubiti": 181,
+          "mediaFatti": 23.8,
+          "mediaSubiti": 20.1,
+          "differenza": 33,
           "vittorieCasa": 2,
           "partiteCasa": 5,
-          "vittorieFuori": 2,
-          "partiteFuori": 3
+          "vittorieFuori": 3,
+          "partiteFuori": 4
         },
         {
           "stagione": "2025",
@@ -1328,33 +1328,33 @@
     {
       "nome": "DAL",
       "nomeCompleto": "Dallas Cowboys",
-      "conference": null,
-      "division": null,
-      "partite": 79,
-      "vittorie": 42,
+      "conference": "NFC",
+      "division": "NFC East",
+      "partite": 80,
+      "vittorie": 43,
       "sconfitte": 36,
       "pareggi": 1,
-      "percVittorie": 53.2,
+      "percVittorie": 53.8,
       "mediaFatti": 26.5,
       "mediaSubiti": 24.4,
-      "differenza": 161,
+      "differenza": 165,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
-          "vittorie": 3,
+          "partite": 9,
+          "vittorie": 4,
           "sconfitte": 5,
           "pareggi": 0,
-          "percVittorie": 37.5,
-          "puntiFatti": 219,
-          "puntiSubiti": 213,
-          "mediaFatti": 27.4,
-          "mediaSubiti": 26.6,
-          "differenza": 6,
+          "percVittorie": 44.4,
+          "puntiFatti": 246,
+          "puntiSubiti": 236,
+          "mediaFatti": 27.3,
+          "mediaSubiti": 26.2,
+          "differenza": 10,
           "vittorieCasa": 1,
           "partiteCasa": 4,
-          "vittorieFuori": 2,
-          "partiteFuori": 4
+          "vittorieFuori": 3,
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
@@ -1429,33 +1429,33 @@
     {
       "nome": "JAX",
       "nomeCompleto": "Jacksonville Jaguars",
-      "conference": null,
-      "division": null,
-      "partite": 78,
-      "vittorie": 41,
+      "conference": "AFC",
+      "division": "AFC South",
+      "partite": 79,
+      "vittorie": 42,
       "sconfitte": 37,
       "pareggi": 0,
-      "percVittorie": 52.6,
-      "mediaFatti": 23.7,
-      "mediaSubiti": 21.6,
-      "differenza": 159,
+      "percVittorie": 53.2,
+      "mediaFatti": 23.8,
+      "mediaSubiti": 21.5,
+      "differenza": 182,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 5,
+          "partite": 8,
+          "vittorie": 6,
           "sconfitte": 2,
           "pareggi": 0,
-          "percVittorie": 71.4,
-          "puntiFatti": 196,
-          "puntiSubiti": 111,
-          "mediaFatti": 28.0,
-          "mediaSubiti": 15.9,
-          "differenza": 85,
+          "percVittorie": 75.0,
+          "puntiFatti": 229,
+          "puntiSubiti": 121,
+          "mediaFatti": 28.6,
+          "mediaSubiti": 15.1,
+          "differenza": 108,
           "vittorieCasa": 4,
           "partiteCasa": 5,
-          "vittorieFuori": 1,
-          "partiteFuori": 2
+          "vittorieFuori": 2,
+          "partiteFuori": 3
         },
         {
           "stagione": "2025",
@@ -1530,33 +1530,33 @@
     {
       "nome": "HOU",
       "nomeCompleto": "Houston Texans",
-      "conference": null,
-      "division": null,
-      "partite": 81,
-      "vittorie": 40,
+      "conference": "AFC",
+      "division": "AFC South",
+      "partite": 82,
+      "vittorie": 41,
       "sconfitte": 40,
       "pareggi": 1,
-      "percVittorie": 49.4,
-      "mediaFatti": 21.7,
+      "percVittorie": 50.0,
+      "mediaFatti": 21.9,
       "mediaSubiti": 21.3,
-      "differenza": 27,
+      "differenza": 49,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 2,
+          "partite": 8,
+          "vittorie": 3,
           "sconfitte": 5,
           "pareggi": 0,
-          "percVittorie": 28.6,
-          "puntiFatti": 165,
-          "puntiSubiti": 170,
-          "mediaFatti": 23.6,
-          "mediaSubiti": 24.3,
-          "differenza": -5,
+          "percVittorie": 37.5,
+          "puntiFatti": 209,
+          "puntiSubiti": 192,
+          "mediaFatti": 26.1,
+          "mediaSubiti": 24.0,
+          "differenza": 17,
           "vittorieCasa": 0,
           "partiteCasa": 4,
-          "vittorieFuori": 2,
-          "partiteFuori": 3
+          "vittorieFuori": 3,
+          "partiteFuori": 4
         },
         {
           "stagione": "2025",
@@ -1631,33 +1631,33 @@
     {
       "nome": "TB",
       "nomeCompleto": "Tampa Bay Buccaneers",
-      "conference": null,
-      "division": null,
-      "partite": 80,
+      "conference": "NFC",
+      "division": "NFC South",
+      "partite": 81,
       "vittorie": 39,
-      "sconfitte": 41,
+      "sconfitte": 42,
       "pareggi": 0,
-      "percVittorie": 48.8,
+      "percVittorie": 48.1,
       "mediaFatti": 22.6,
       "mediaSubiti": 21.6,
-      "differenza": 86,
+      "differenza": 83,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 3,
-          "sconfitte": 5,
+          "sconfitte": 6,
           "pareggi": 0,
-          "percVittorie": 37.5,
-          "puntiFatti": 178,
-          "puntiSubiti": 151,
-          "mediaFatti": 22.2,
-          "mediaSubiti": 18.9,
-          "differenza": 27,
+          "percVittorie": 33.3,
+          "puntiFatti": 202,
+          "puntiSubiti": 178,
+          "mediaFatti": 22.4,
+          "mediaSubiti": 19.8,
+          "differenza": 24,
           "vittorieCasa": 1,
           "partiteCasa": 5,
           "vittorieFuori": 2,
-          "partiteFuori": 3
+          "partiteFuori": 4
         },
         {
           "stagione": "2025",
@@ -1732,31 +1732,31 @@
     {
       "nome": "NE",
       "nomeCompleto": "New England Patriots",
-      "conference": null,
-      "division": null,
-      "partite": 80,
+      "conference": "AFC",
+      "division": "AFC East",
+      "partite": 81,
       "vittorie": 38,
-      "sconfitte": 42,
+      "sconfitte": 43,
       "pareggi": 0,
-      "percVittorie": 47.5,
-      "mediaFatti": 20.4,
-      "mediaSubiti": 20.8,
-      "differenza": -37,
+      "percVittorie": 46.9,
+      "mediaFatti": 20.5,
+      "mediaSubiti": 21.1,
+      "differenza": -55,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 5,
-          "sconfitte": 3,
+          "sconfitte": 4,
           "pareggi": 0,
-          "percVittorie": 62.5,
-          "puntiFatti": 184,
-          "puntiSubiti": 162,
-          "mediaFatti": 23.0,
-          "mediaSubiti": 20.2,
-          "differenza": 22,
+          "percVittorie": 55.6,
+          "puntiFatti": 211,
+          "puntiSubiti": 207,
+          "mediaFatti": 23.4,
+          "mediaSubiti": 23.0,
+          "differenza": 4,
           "vittorieCasa": 3,
-          "partiteCasa": 3,
+          "partiteCasa": 4,
           "vittorieFuori": 2,
           "partiteFuori": 5
         },
@@ -1833,31 +1833,31 @@
     {
       "nome": "LAC",
       "nomeCompleto": "Los Angeles Chargers",
-      "conference": null,
-      "division": null,
-      "partite": 78,
+      "conference": "AFC",
+      "division": "AFC West",
+      "partite": 79,
       "vittorie": 37,
-      "sconfitte": 41,
+      "sconfitte": 42,
       "pareggi": 0,
-      "percVittorie": 47.4,
+      "percVittorie": 46.8,
       "mediaFatti": 21.2,
-      "mediaSubiti": 21.5,
-      "differenza": -26,
+      "mediaSubiti": 21.8,
+      "differenza": -48,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
+          "partite": 8,
           "vittorie": 0,
-          "sconfitte": 7,
+          "sconfitte": 8,
           "pareggi": 0,
           "percVittorie": 0.0,
-          "puntiFatti": 99,
-          "puntiSubiti": 175,
-          "mediaFatti": 14.1,
-          "mediaSubiti": 25.0,
-          "differenza": -76,
+          "puntiFatti": 121,
+          "puntiSubiti": 219,
+          "mediaFatti": 15.1,
+          "mediaSubiti": 27.4,
+          "differenza": -98,
           "vittorieCasa": 0,
-          "partiteCasa": 3,
+          "partiteCasa": 4,
           "vittorieFuori": 0,
           "partiteFuori": 4
         },
@@ -1934,31 +1934,31 @@
     {
       "nome": "MIA",
       "nomeCompleto": "Miami Dolphins",
-      "conference": null,
-      "division": null,
-      "partite": 77,
+      "conference": "AFC",
+      "division": "AFC East",
+      "partite": 78,
       "vittorie": 36,
-      "sconfitte": 41,
+      "sconfitte": 42,
       "pareggi": 0,
-      "percVittorie": 46.8,
-      "mediaFatti": 22.6,
+      "percVittorie": 46.2,
+      "mediaFatti": 22.4,
       "mediaSubiti": 23.6,
-      "differenza": -79,
+      "differenza": -89,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
+          "partite": 8,
           "vittorie": 1,
-          "sconfitte": 6,
+          "sconfitte": 7,
           "pareggi": 0,
-          "percVittorie": 14.3,
-          "puntiFatti": 117,
-          "puntiSubiti": 181,
-          "mediaFatti": 16.7,
-          "mediaSubiti": 25.9,
-          "differenza": -64,
+          "percVittorie": 12.5,
+          "puntiFatti": 126,
+          "puntiSubiti": 200,
+          "mediaFatti": 15.8,
+          "mediaSubiti": 25.0,
+          "differenza": -74,
           "vittorieCasa": 0,
-          "partiteCasa": 3,
+          "partiteCasa": 4,
           "vittorieFuori": 1,
           "partiteFuori": 4
         },
@@ -2033,134 +2033,33 @@
       ]
     },
     {
-      "nome": "ATL",
-      "nomeCompleto": "Atlanta Falcons",
-      "conference": null,
-      "division": null,
-      "partite": 76,
-      "vittorie": 33,
-      "sconfitte": 43,
-      "pareggi": 0,
-      "percVittorie": 43.4,
-      "mediaFatti": 21.0,
-      "mediaSubiti": 23.3,
-      "differenza": -173,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "partite": 8,
-          "vittorie": 3,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 37.5,
-          "puntiFatti": 171,
-          "puntiSubiti": 189,
-          "mediaFatti": 21.4,
-          "mediaSubiti": 23.6,
-          "differenza": -18,
-          "vittorieCasa": 1,
-          "partiteCasa": 4,
-          "vittorieFuori": 2,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "partite": 17,
-          "vittorie": 8,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 47.1,
-          "puntiFatti": 353,
-          "puntiSubiti": 401,
-          "mediaFatti": 20.8,
-          "mediaSubiti": 23.6,
-          "differenza": -48,
-          "vittorieCasa": 4,
-          "partiteCasa": 8,
-          "vittorieFuori": 4,
-          "partiteFuori": 9
-        },
-        {
-          "stagione": "2024",
-          "partite": 17,
-          "vittorie": 8,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 47.1,
-          "puntiFatti": 389,
-          "puntiSubiti": 423,
-          "mediaFatti": 22.9,
-          "mediaSubiti": 24.9,
-          "differenza": -34,
-          "vittorieCasa": 4,
-          "partiteCasa": 9,
-          "vittorieFuori": 4,
-          "partiteFuori": 8
-        },
-        {
-          "stagione": "2023",
-          "partite": 17,
-          "vittorie": 7,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 41.2,
-          "puntiFatti": 321,
-          "puntiSubiti": 373,
-          "mediaFatti": 18.9,
-          "mediaSubiti": 21.9,
-          "differenza": -52,
-          "vittorieCasa": 5,
-          "partiteCasa": 8,
-          "vittorieFuori": 2,
-          "partiteFuori": 9
-        },
-        {
-          "stagione": "2022",
-          "partite": 17,
-          "vittorie": 7,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 41.2,
-          "puntiFatti": 365,
-          "puntiSubiti": 386,
-          "mediaFatti": 21.5,
-          "mediaSubiti": 22.7,
-          "differenza": -21,
-          "vittorieCasa": 6,
-          "partiteCasa": 9,
-          "vittorieFuori": 1,
-          "partiteFuori": 8
-        }
-      ]
-    },
-    {
       "nome": "CHI",
       "nomeCompleto": "Chicago Bears",
-      "conference": null,
-      "division": null,
-      "partite": 78,
-      "vittorie": 33,
+      "conference": "NFC",
+      "division": "NFC North",
+      "partite": 79,
+      "vittorie": 34,
       "sconfitte": 45,
       "pareggi": 0,
-      "percVittorie": 42.3,
+      "percVittorie": 43.0,
       "mediaFatti": 21.8,
       "mediaSubiti": 23.5,
-      "differenza": -135,
+      "differenza": -132,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
-          "vittorie": 6,
+          "partite": 9,
+          "vittorie": 7,
           "sconfitte": 2,
           "pareggi": 0,
-          "percVittorie": 75.0,
-          "puntiFatti": 214,
-          "puntiSubiti": 160,
+          "percVittorie": 77.8,
+          "puntiFatti": 241,
+          "puntiSubiti": 184,
           "mediaFatti": 26.8,
-          "mediaSubiti": 20.0,
-          "differenza": 54,
-          "vittorieCasa": 3,
-          "partiteCasa": 4,
+          "mediaSubiti": 20.4,
+          "differenza": 57,
+          "vittorieCasa": 4,
+          "partiteCasa": 5,
           "vittorieFuori": 3,
           "partiteFuori": 4
         },
@@ -2235,33 +2134,134 @@
       ]
     },
     {
-      "nome": "WAS",
-      "nomeCompleto": "Washington Commanders",
-      "conference": null,
-      "division": null,
-      "partite": 78,
+      "nome": "ATL",
+      "nomeCompleto": "Atlanta Falcons",
+      "conference": "NFC",
+      "division": "NFC South",
+      "partite": 77,
       "vittorie": 33,
-      "sconfitte": 43,
-      "pareggi": 2,
-      "percVittorie": 42.3,
-      "mediaFatti": 22.3,
-      "mediaSubiti": 25.5,
-      "differenza": -250,
+      "sconfitte": 44,
+      "pareggi": 0,
+      "percVittorie": 42.9,
+      "mediaFatti": 21.0,
+      "mediaSubiti": 23.5,
+      "differenza": -190,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
+          "partite": 9,
+          "vittorie": 3,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "puntiFatti": 188,
+          "puntiSubiti": 223,
+          "mediaFatti": 20.9,
+          "mediaSubiti": 24.8,
+          "differenza": -35,
+          "vittorieCasa": 1,
+          "partiteCasa": 5,
+          "vittorieFuori": 2,
+          "partiteFuori": 4
+        },
+        {
+          "stagione": "2025",
+          "partite": 17,
+          "vittorie": 8,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 47.1,
+          "puntiFatti": 353,
+          "puntiSubiti": 401,
+          "mediaFatti": 20.8,
+          "mediaSubiti": 23.6,
+          "differenza": -48,
+          "vittorieCasa": 4,
+          "partiteCasa": 8,
+          "vittorieFuori": 4,
+          "partiteFuori": 9
+        },
+        {
+          "stagione": "2024",
+          "partite": 17,
+          "vittorie": 8,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 47.1,
+          "puntiFatti": 389,
+          "puntiSubiti": 423,
+          "mediaFatti": 22.9,
+          "mediaSubiti": 24.9,
+          "differenza": -34,
+          "vittorieCasa": 4,
+          "partiteCasa": 9,
+          "vittorieFuori": 4,
+          "partiteFuori": 8
+        },
+        {
+          "stagione": "2023",
+          "partite": 17,
+          "vittorie": 7,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 41.2,
+          "puntiFatti": 321,
+          "puntiSubiti": 373,
+          "mediaFatti": 18.9,
+          "mediaSubiti": 21.9,
+          "differenza": -52,
+          "vittorieCasa": 5,
+          "partiteCasa": 8,
+          "vittorieFuori": 2,
+          "partiteFuori": 9
+        },
+        {
+          "stagione": "2022",
+          "partite": 17,
+          "vittorie": 7,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 41.2,
+          "puntiFatti": 365,
+          "puntiSubiti": 386,
+          "mediaFatti": 21.5,
+          "mediaSubiti": 22.7,
+          "differenza": -21,
+          "vittorieCasa": 6,
+          "partiteCasa": 9,
+          "vittorieFuori": 1,
+          "partiteFuori": 8
+        }
+      ]
+    },
+    {
+      "nome": "WAS",
+      "nomeCompleto": "Washington Commanders",
+      "conference": "NFC",
+      "division": "NFC East",
+      "partite": 79,
+      "vittorie": 33,
+      "sconfitte": 44,
+      "pareggi": 2,
+      "percVittorie": 41.8,
+      "mediaFatti": 22.2,
+      "mediaSubiti": 25.5,
+      "differenza": -257,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "partite": 8,
           "vittorie": 2,
-          "sconfitte": 4,
+          "sconfitte": 5,
           "pareggi": 1,
-          "percVittorie": 28.6,
-          "puntiFatti": 159,
-          "puntiSubiti": 182,
-          "mediaFatti": 22.7,
-          "mediaSubiti": 26.0,
-          "differenza": -23,
+          "percVittorie": 25.0,
+          "puntiFatti": 172,
+          "puntiSubiti": 202,
+          "mediaFatti": 21.5,
+          "mediaSubiti": 25.2,
+          "differenza": -30,
           "vittorieCasa": 2,
-          "partiteCasa": 4,
+          "partiteCasa": 5,
           "vittorieFuori": 0,
           "partiteFuori": 3
         },
@@ -2338,31 +2338,31 @@
     {
       "nome": "IND",
       "nomeCompleto": "Indianapolis Colts",
-      "conference": null,
-      "division": null,
-      "partite": 76,
+      "conference": "AFC",
+      "division": "AFC South",
+      "partite": 77,
       "vittorie": 31,
-      "sconfitte": 44,
+      "sconfitte": 45,
       "pareggi": 1,
-      "percVittorie": 40.8,
+      "percVittorie": 40.3,
       "mediaFatti": 22.2,
-      "mediaSubiti": 25.0,
-      "differenza": -214,
+      "mediaSubiti": 25.1,
+      "differenza": -218,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 2,
-          "sconfitte": 6,
+          "sconfitte": 7,
           "pareggi": 0,
-          "percVittorie": 25.0,
-          "puntiFatti": 161,
-          "puntiSubiti": 222,
-          "mediaFatti": 20.1,
-          "mediaSubiti": 27.8,
-          "differenza": -61,
+          "percVittorie": 22.2,
+          "puntiFatti": 184,
+          "puntiSubiti": 249,
+          "mediaFatti": 20.4,
+          "mediaSubiti": 27.7,
+          "differenza": -65,
           "vittorieCasa": 1,
-          "partiteCasa": 3,
+          "partiteCasa": 4,
           "vittorieFuori": 1,
           "partiteFuori": 5
         },
@@ -2439,33 +2439,33 @@
     {
       "nome": "CLE",
       "nomeCompleto": "Cleveland Browns",
-      "conference": null,
-      "division": null,
-      "partite": 77,
+      "conference": "AFC",
+      "division": "AFC North",
+      "partite": 78,
       "vittorie": 31,
-      "sconfitte": 46,
+      "sconfitte": 47,
       "pareggi": 0,
-      "percVittorie": 40.3,
+      "percVittorie": 39.7,
       "mediaFatti": 18.8,
       "mediaSubiti": 23.1,
-      "differenza": -328,
+      "differenza": -329,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 5,
-          "sconfitte": 3,
+          "sconfitte": 4,
           "pareggi": 0,
-          "percVittorie": 62.5,
-          "puntiFatti": 139,
-          "puntiSubiti": 173,
-          "mediaFatti": 17.4,
-          "mediaSubiti": 21.6,
-          "differenza": -34,
+          "percVittorie": 55.6,
+          "puntiFatti": 161,
+          "puntiSubiti": 196,
+          "mediaFatti": 17.9,
+          "mediaSubiti": 21.8,
+          "differenza": -35,
           "vittorieCasa": 3,
           "partiteCasa": 3,
           "vittorieFuori": 2,
-          "partiteFuori": 5
+          "partiteFuori": 6
         },
         {
           "stagione": "2025",
@@ -2540,31 +2540,31 @@
     {
       "nome": "NO",
       "nomeCompleto": "New Orleans Saints",
-      "conference": null,
-      "division": null,
-      "partite": 75,
-      "vittorie": 29,
+      "conference": "NFC",
+      "division": "NFC South",
+      "partite": 76,
+      "vittorie": 30,
       "sconfitte": 46,
       "pareggi": 0,
-      "percVittorie": 38.7,
+      "percVittorie": 39.5,
       "mediaFatti": 20.5,
       "mediaSubiti": 22.0,
-      "differenza": -109,
+      "differenza": -108,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 2,
+          "partite": 8,
+          "vittorie": 3,
           "sconfitte": 5,
           "pareggi": 0,
-          "percVittorie": 28.6,
-          "puntiFatti": 162,
-          "puntiSubiti": 194,
+          "percVittorie": 37.5,
+          "puntiFatti": 185,
+          "puntiSubiti": 216,
           "mediaFatti": 23.1,
-          "mediaSubiti": 27.7,
-          "differenza": -32,
-          "vittorieCasa": 0,
-          "partiteCasa": 4,
+          "mediaSubiti": 27.0,
+          "differenza": -31,
+          "vittorieCasa": 1,
+          "partiteCasa": 5,
           "vittorieFuori": 2,
           "partiteFuori": 3
         },
@@ -2641,33 +2641,33 @@
     {
       "nome": "NYG",
       "nomeCompleto": "New York Giants",
-      "conference": null,
-      "division": null,
-      "partite": 77,
-      "vittorie": 27,
+      "conference": "NFC",
+      "division": "NFC East",
+      "partite": 78,
+      "vittorie": 28,
       "sconfitte": 48,
       "pareggi": 2,
-      "percVittorie": 35.1,
+      "percVittorie": 35.9,
       "mediaFatti": 19.3,
-      "mediaSubiti": 24.1,
-      "differenza": -369,
+      "mediaSubiti": 23.9,
+      "differenza": -361,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 4,
+          "partite": 8,
+          "vittorie": 5,
           "sconfitte": 2,
           "pareggi": 1,
-          "percVittorie": 57.1,
-          "puntiFatti": 163,
-          "puntiSubiti": 161,
-          "mediaFatti": 23.3,
-          "mediaSubiti": 23.0,
-          "differenza": 2,
+          "percVittorie": 62.5,
+          "puntiFatti": 182,
+          "puntiSubiti": 172,
+          "mediaFatti": 22.8,
+          "mediaSubiti": 21.5,
+          "differenza": 10,
           "vittorieCasa": 3,
           "partiteCasa": 4,
-          "vittorieFuori": 1,
-          "partiteFuori": 3
+          "vittorieFuori": 2,
+          "partiteFuori": 4
         },
         {
           "stagione": "2025",
@@ -2742,31 +2742,31 @@
     {
       "nome": "CAR",
       "nomeCompleto": "Carolina Panthers",
-      "conference": null,
-      "division": null,
-      "partite": 76,
+      "conference": "NFC",
+      "division": "NFC South",
+      "partite": 77,
       "vittorie": 25,
-      "sconfitte": 51,
+      "sconfitte": 52,
       "pareggi": 0,
-      "percVittorie": 32.9,
+      "percVittorie": 32.5,
       "mediaFatti": 19.0,
       "mediaSubiti": 25.4,
-      "differenza": -487,
+      "differenza": -492,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
+          "partite": 8,
           "vittorie": 3,
-          "sconfitte": 4,
+          "sconfitte": 5,
           "pareggi": 0,
-          "percVittorie": 42.9,
-          "puntiFatti": 178,
-          "puntiSubiti": 193,
-          "mediaFatti": 25.4,
-          "mediaSubiti": 27.6,
-          "differenza": -15,
+          "percVittorie": 37.5,
+          "puntiFatti": 199,
+          "puntiSubiti": 219,
+          "mediaFatti": 24.9,
+          "mediaSubiti": 27.4,
+          "differenza": -20,
           "vittorieCasa": 1,
-          "partiteCasa": 3,
+          "partiteCasa": 4,
           "vittorieFuori": 2,
           "partiteFuori": 4
         },
@@ -2843,33 +2843,33 @@
     {
       "nome": "LV",
       "nomeCompleto": "Las Vegas Raiders",
-      "conference": null,
-      "division": null,
-      "partite": 76,
+      "conference": "AFC",
+      "division": "AFC West",
+      "partite": 77,
       "vittorie": 25,
-      "sconfitte": 51,
+      "sconfitte": 52,
       "pareggi": 0,
-      "percVittorie": 32.9,
+      "percVittorie": 32.5,
       "mediaFatti": 19.7,
-      "mediaSubiti": 24.3,
-      "differenza": -347,
+      "mediaSubiti": 24.5,
+      "differenza": -368,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 4,
-          "sconfitte": 4,
+          "sconfitte": 5,
           "pareggi": 0,
-          "percVittorie": 50.0,
-          "puntiFatti": 221,
-          "puntiSubiti": 230,
-          "mediaFatti": 27.6,
-          "mediaSubiti": 28.8,
-          "differenza": -9,
+          "percVittorie": 44.4,
+          "puntiFatti": 238,
+          "puntiSubiti": 268,
+          "mediaFatti": 26.4,
+          "mediaSubiti": 29.8,
+          "differenza": -30,
           "vittorieCasa": 1,
           "partiteCasa": 4,
           "vittorieFuori": 3,
-          "partiteFuori": 4
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
@@ -2944,33 +2944,33 @@
     {
       "nome": "NYJ",
       "nomeCompleto": "New York Jets",
-      "conference": null,
-      "division": null,
-      "partite": 76,
+      "conference": "AFC",
+      "division": "AFC East",
+      "partite": 77,
       "vittorie": 24,
-      "sconfitte": 52,
+      "sconfitte": 53,
       "pareggi": 0,
-      "percVittorie": 31.6,
-      "mediaFatti": 18.1,
-      "mediaSubiti": 23.2,
-      "differenza": -394,
+      "percVittorie": 31.2,
+      "mediaFatti": 18.0,
+      "mediaSubiti": 23.4,
+      "differenza": -417,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 2,
-          "sconfitte": 6,
+          "sconfitte": 7,
           "pareggi": 0,
-          "percVittorie": 25.0,
-          "puntiFatti": 170,
-          "puntiSubiti": 188,
-          "mediaFatti": 21.2,
-          "mediaSubiti": 23.5,
-          "differenza": -18,
+          "percVittorie": 22.2,
+          "puntiFatti": 182,
+          "puntiSubiti": 223,
+          "mediaFatti": 20.2,
+          "mediaSubiti": 24.8,
+          "differenza": -41,
           "vittorieCasa": 1,
           "partiteCasa": 4,
           "vittorieFuori": 1,
-          "partiteFuori": 4
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
@@ -3045,33 +3045,33 @@
     {
       "nome": "ARI",
       "nomeCompleto": "Arizona Cardinals",
-      "conference": null,
-      "division": null,
-      "partite": 76,
+      "conference": "NFC",
+      "division": "NFC West",
+      "partite": 77,
       "vittorie": 22,
-      "sconfitte": 54,
+      "sconfitte": 55,
       "pareggi": 0,
-      "percVittorie": 28.9,
-      "mediaFatti": 21.1,
-      "mediaSubiti": 26.4,
-      "differenza": -409,
+      "percVittorie": 28.6,
+      "mediaFatti": 20.8,
+      "mediaSubiti": 26.3,
+      "differenza": -423,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 3,
-          "sconfitte": 5,
+          "sconfitte": 6,
           "pareggi": 0,
-          "percVittorie": 37.5,
-          "puntiFatti": 175,
-          "puntiSubiti": 238,
-          "mediaFatti": 21.9,
-          "mediaSubiti": 29.8,
-          "differenza": -63,
+          "percVittorie": 33.3,
+          "puntiFatti": 178,
+          "puntiSubiti": 255,
+          "mediaFatti": 19.8,
+          "mediaSubiti": 28.3,
+          "differenza": -77,
           "vittorieCasa": 0,
           "partiteCasa": 3,
           "vittorieFuori": 3,
-          "partiteFuori": 5
+          "partiteFuori": 6
         },
         {
           "stagione": "2025",
@@ -3146,8 +3146,8 @@
     {
       "nome": "TEN",
       "nomeCompleto": "Tennessee Titans",
-      "conference": null,
-      "division": null,
+      "conference": "AFC",
+      "division": "AFC South",
       "partite": 76,
       "vittorie": 20,
       "sconfitte": 56,
@@ -3245,8 +3245,20 @@
       ]
     }
   ],
-  "conferences": [],
-  "divisions": [],
+  "conferences": [
+    "AFC",
+    "NFC"
+  ],
+  "divisions": [
+    "AFC East",
+    "AFC North",
+    "AFC South",
+    "AFC West",
+    "NFC East",
+    "NFC North",
+    "NFC South",
+    "NFC West"
+  ],
   "ultimePartite": [
     {
       "stagione": "2022",
@@ -134017,11 +134029,100 @@
       "ora": "20:15",
       "casa": "BAL",
       "ospite": "JAX",
-      "pc": null,
-      "po": null,
+      "pc": 10,
+      "po": 33,
       "stadio": "M&T Bank Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Joe Fagnano",
+          "ruolo": "QB",
+          "valore": 60,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Justice Hill",
+          "ruolo": "RB",
+          "valore": 85,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "LaJohntay Wester",
+          "ruolo": "WR",
+          "valore": 14,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Rashod Bateman",
+          "ruolo": "WR",
+          "valore": 6,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Mark Andrews",
+          "ruolo": "TE",
+          "valore": 19,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Trevor Lawrence",
+          "ruolo": "QB",
+          "valore": 242,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Ameer Abdullah",
+          "ruolo": "RB",
+          "valore": 30,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jakobi Meyers",
+          "ruolo": "WR",
+          "valore": 65,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Parker Washington",
+          "ruolo": "WR",
+          "valore": 61,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Nate Boerkircher",
+          "ruolo": "TE",
+          "valore": 61,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134031,11 +134132,102 @@
       "ora": "09:30",
       "casa": "ATL",
       "ospite": "CIN",
-      "pc": null,
-      "po": null,
+      "pc": 17,
+      "po": 34,
       "stadio": "Bernabeu",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Michael Penix Jr.",
+          "ruolo": "QB",
+          "valore": 162,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Bijan Robinson",
+          "ruolo": "RB",
+          "valore": 100,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Drake London",
+          "ruolo": "WR",
+          "valore": 68,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Jahan Dotson",
+          "ruolo": "WR",
+          "valore": 16,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Kyle Pitts",
+          "ruolo": "TE",
+          "valore": 23,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Joe Burrow",
+          "ruolo": "QB",
+          "valore": 271,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Chase Brown",
+          "ruolo": "RB",
+          "valore": 57,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Ja'Marr Chase",
+          "ruolo": "WR",
+          "valore": 155,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "10 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Dohnte Meyers",
+          "ruolo": "WR",
+          "valore": 47,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Mike Gesicki",
+          "ruolo": "TE",
+          "valore": 11,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134045,11 +134237,105 @@
       "ora": "13:00",
       "casa": "CAR",
       "ospite": "DEN",
-      "pc": null,
-      "po": null,
+      "pc": 21,
+      "po": 26,
       "stadio": "Bank of America Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Bryce Young",
+          "ruolo": "QB",
+          "valore": 276,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Chuba Hubbard",
+          "ruolo": "RB",
+          "valore": 79,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Tetairoa McMillan",
+          "ruolo": "WR",
+          "valore": 56,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "John Metchie III",
+          "ruolo": "WR",
+          "valore": 40,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Darren Waller",
+          "ruolo": "TE",
+          "valore": 90,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Bo Nix",
+          "ruolo": "QB",
+          "valore": 237,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Jonah Coleman",
+          "ruolo": "RB",
+          "valore": 57,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Pat Bryant",
+          "ruolo": "WR",
+          "valore": 56,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Courtland Sutton",
+          "ruolo": "WR",
+          "valore": 45,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Evan Engram",
+          "ruolo": "TE",
+          "valore": 33,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134059,8 +134345,8 @@
       "ora": "20:20",
       "casa": "CHI",
       "ospite": "TB",
-      "pc": null,
-      "po": null,
+      "pc": 27,
+      "po": 24,
       "stadio": "Soldier Field",
       "giocatoriCasa": [],
       "giocatoriOspite": []
@@ -134073,11 +134359,104 @@
       "ora": "13:00",
       "casa": "IND",
       "ospite": "DAL",
-      "pc": null,
-      "po": null,
+      "pc": 23,
+      "po": 27,
       "stadio": "Lucas Oil Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Daniel Jones",
+          "ruolo": "QB",
+          "valore": 180,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Jonathan Taylor",
+          "ruolo": "RB",
+          "valore": 46,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Ashton Dulin",
+          "ruolo": "WR",
+          "valore": 55,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Keenan Allen",
+          "ruolo": "WR",
+          "valore": 26,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Tyler Warren",
+          "ruolo": "TE",
+          "valore": 44,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Dak Prescott",
+          "ruolo": "QB",
+          "valore": 335,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Javonte Williams",
+          "ruolo": "RB",
+          "valore": 101,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "CeeDee Lamb",
+          "ruolo": "WR",
+          "valore": 195,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "10 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Ryan Flournoy",
+          "ruolo": "WR",
+          "valore": 53,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Jake Ferguson",
+          "ruolo": "TE",
+          "valore": 21,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134087,11 +134466,90 @@
       "ora": "13:00",
       "casa": "KC",
       "ospite": "NYJ",
-      "pc": null,
-      "po": null,
+      "pc": 35,
+      "po": 12,
       "stadio": "GEHA Field at Arrowhead Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Patrick Mahomes",
+          "ruolo": "QB",
+          "valore": 242,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Kenneth Walker III",
+          "ruolo": "RB",
+          "valore": 102,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Rashee Rice",
+          "ruolo": "WR",
+          "valore": 49,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Xavier Worthy",
+          "ruolo": "WR",
+          "valore": 48,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "Travis Kelce",
+          "ruolo": "TE",
+          "valore": 72,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Geno Smith",
+          "ruolo": "QB",
+          "valore": 165,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Breece Hall",
+          "ruolo": "RB",
+          "valore": 61,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Omar Cooper Jr.",
+          "ruolo": "WR",
+          "valore": 58,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric."
+          ]
+        },
+        {
+          "nome": "Kenyon Sadiq",
+          "ruolo": "TE",
+          "valore": 49,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134101,11 +134559,102 @@
       "ora": "16:05",
       "casa": "LAC",
       "ospite": "HOU",
-      "pc": null,
-      "po": null,
+      "pc": 22,
+      "po": 44,
       "stadio": "SoFi Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Justin Herbert",
+          "ruolo": "QB",
+          "valore": 193,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Omarion Hampton",
+          "ruolo": "RB",
+          "valore": 60,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Quentin Johnston",
+          "ruolo": "WR",
+          "valore": 58,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "KeAndre Lambert-Smith",
+          "ruolo": "WR",
+          "valore": 50,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Charlie Kolar",
+          "ruolo": "TE",
+          "valore": 31,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "C.J. Stroud",
+          "ruolo": "QB",
+          "valore": 384,
+          "misura": "yard passate",
+          "dettagli": [
+            "5 TD"
+          ]
+        },
+        {
+          "nome": "Woody Marks",
+          "ruolo": "RB",
+          "valore": 70,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Kayshon Boutte",
+          "ruolo": "WR",
+          "valore": 125,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Tank Dell",
+          "ruolo": "WR",
+          "valore": 105,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Dalton Schultz",
+          "ruolo": "TE",
+          "valore": 42,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134115,11 +134664,97 @@
       "ora": "13:00",
       "casa": "MIA",
       "ospite": "DET",
-      "pc": null,
-      "po": null,
+      "pc": 9,
+      "po": 19,
       "stadio": "Hard Rock Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Malik Willis",
+          "ruolo": "QB",
+          "valore": 128,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Ollie Gordon II",
+          "ruolo": "RB",
+          "valore": 55,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Caleb Douglas",
+          "ruolo": "WR",
+          "valore": 70,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "Malik Washington",
+          "ruolo": "WR",
+          "valore": 21,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Greg Dulcich",
+          "ruolo": "TE",
+          "valore": 14,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Jared Goff",
+          "ruolo": "QB",
+          "valore": 170,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Jahmyr Gibbs",
+          "ruolo": "RB",
+          "valore": 74,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Amon-Ra St. Brown",
+          "ruolo": "WR",
+          "valore": 86,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric."
+          ]
+        },
+        {
+          "nome": "Jameson Williams",
+          "ruolo": "WR",
+          "valore": 31,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Sam LaPorta",
+          "ruolo": "TE",
+          "valore": 32,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134129,11 +134764,106 @@
       "ora": "16:25",
       "casa": "NE",
       "ospite": "GB",
-      "pc": null,
-      "po": null,
+      "pc": 27,
+      "po": 45,
       "stadio": "Gillette Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Drake Maye",
+          "ruolo": "QB",
+          "valore": 299,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Corey Kiner",
+          "ruolo": "RB",
+          "valore": 55,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "DeMario Douglas",
+          "ruolo": "WR",
+          "valore": 102,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Efton Chism III",
+          "ruolo": "WR",
+          "valore": 49,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Eli Raridon",
+          "ruolo": "TE",
+          "valore": 52,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Jordan Love",
+          "ruolo": "QB",
+          "valore": 372,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Kaleb Johnson",
+          "ruolo": "RB",
+          "valore": 68,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Christian Watson",
+          "ruolo": "WR",
+          "valore": 171,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Matthew Golden",
+          "ruolo": "WR",
+          "valore": 164,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "10 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Tucker Kraft",
+          "ruolo": "TE",
+          "valore": 1,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134143,11 +134873,104 @@
       "ora": "13:00",
       "casa": "NO",
       "ospite": "CLE",
-      "pc": null,
-      "po": null,
+      "pc": 23,
+      "po": 22,
       "stadio": "Caesars Superdome",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Tyler Shough",
+          "ruolo": "QB",
+          "valore": 265,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Audric Estimé",
+          "ruolo": "RB",
+          "valore": 72,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Chris Olave",
+          "ruolo": "WR",
+          "valore": 98,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        },
+        {
+          "nome": "Barion Brown",
+          "ruolo": "WR",
+          "valore": 52,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Juwan Johnson",
+          "ruolo": "TE",
+          "valore": 34,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Shedeur Sanders",
+          "ruolo": "QB",
+          "valore": 297,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Quinshon Judkins",
+          "ruolo": "RB",
+          "valore": 43,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Denzel Boston",
+          "ruolo": "WR",
+          "valore": 98,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "KC Concepcion",
+          "ruolo": "WR",
+          "valore": 85,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Harold Fannin Jr.",
+          "ruolo": "TE",
+          "valore": 42,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134157,11 +134980,98 @@
       "ora": "13:00",
       "casa": "PHI",
       "ospite": "NYG",
-      "pc": null,
-      "po": null,
+      "pc": 11,
+      "po": 19,
       "stadio": "Lincoln Financial Field",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Joe Milton III",
+          "ruolo": "QB",
+          "valore": 169,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Saquon Barkley",
+          "ruolo": "RB",
+          "valore": 22,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Makai Lemon",
+          "ruolo": "WR",
+          "valore": 61,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "Darius Cooper",
+          "ruolo": "WR",
+          "valore": 25,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Dallas Goedert",
+          "ruolo": "TE",
+          "valore": 50,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "J.J. McCarthy",
+          "ruolo": "QB",
+          "valore": 127,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Devin Singletary",
+          "ruolo": "RB",
+          "valore": 31,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Darnell Mooney",
+          "ruolo": "WR",
+          "valore": 54,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Malik Nabers",
+          "ruolo": "WR",
+          "valore": 43,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Isaiah Likely",
+          "ruolo": "TE",
+          "valore": 53,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134171,11 +135081,98 @@
       "ora": "16:25",
       "casa": "SEA",
       "ospite": "ARI",
-      "pc": null,
-      "po": null,
+      "pc": 17,
+      "po": 3,
       "stadio": "Lumen Field",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Drew Lock",
+          "ruolo": "QB",
+          "valore": 175,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Zach Charbonnet",
+          "ruolo": "RB",
+          "valore": 77,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jaxon Smith-Njigba",
+          "ruolo": "WR",
+          "valore": 51,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        },
+        {
+          "nome": "Cooper Kupp",
+          "ruolo": "WR",
+          "valore": 32,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "AJ Barner",
+          "ruolo": "TE",
+          "valore": 7,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Gardner Minshew",
+          "ruolo": "QB",
+          "valore": 166,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Tyler Allgeier",
+          "ruolo": "RB",
+          "valore": 46,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Michael Wilson",
+          "ruolo": "WR",
+          "valore": 60,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "Reggie Virgil",
+          "ruolo": "WR",
+          "valore": 25,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Trey McBride",
+          "ruolo": "TE",
+          "valore": 54,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134185,11 +135182,101 @@
       "ora": "16:05",
       "casa": "SF",
       "ospite": "LV",
-      "pc": null,
-      "po": null,
+      "pc": 38,
+      "po": 17,
       "stadio": "Levi's Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Brock Purdy",
+          "ruolo": "QB",
+          "valore": 232,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Kaelon Black",
+          "ruolo": "RB",
+          "valore": 70,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jordan Watkins",
+          "ruolo": "WR",
+          "valore": 86,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Brandin Cooks",
+          "ruolo": "WR",
+          "valore": 25,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "George Kittle",
+          "ruolo": "TE",
+          "valore": 58,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Kirk Cousins",
+          "ruolo": "QB",
+          "valore": 216,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Ashton Jeanty",
+          "ruolo": "RB",
+          "valore": 25,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Tre Tucker",
+          "ruolo": "WR",
+          "valore": 55,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Jalen Nailor",
+          "ruolo": "WR",
+          "valore": 9,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Brock Bowers",
+          "ruolo": "TE",
+          "valore": 111,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -134199,11 +135286,103 @@
       "ora": "13:00",
       "casa": "WAS",
       "ospite": "LA",
-      "pc": null,
-      "po": null,
+      "pc": 13,
+      "po": 20,
       "stadio": "Northwest Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Jayden Daniels",
+          "ruolo": "QB",
+          "valore": 273,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Rachaad White",
+          "ruolo": "RB",
+          "valore": 28,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Van Jefferson",
+          "ruolo": "WR",
+          "valore": 58,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Stefon Diggs",
+          "ruolo": "WR",
+          "valore": 51,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Chig Okonkwo",
+          "ruolo": "TE",
+          "valore": 56,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Matthew Stafford",
+          "ruolo": "QB",
+          "valore": 228,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Blake Corum",
+          "ruolo": "RB",
+          "valore": 58,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Puka Nacua",
+          "ruolo": "WR",
+          "valore": 150,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "14 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Konata Mumpfield",
+          "ruolo": "WR",
+          "valore": 20,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Tyler Higbee",
+          "ruolo": "TE",
+          "valore": 13,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -136123,5 +137302,1405 @@
       "giocatoriCasa": [],
       "giocatoriOspite": []
     }
-  ]
+  ],
+  "giornata": {
+    "stagione": 2026,
+    "settimana": 9,
+    "partite": [
+      {
+        "data": "2026-11-05",
+        "ora": "20:15",
+        "casa": "BAL",
+        "ospite": "JAX",
+        "pc": 10,
+        "po": 33,
+        "favorita": "JAX",
+        "linea": 8.5,
+        "totaleLinea": 40.5,
+        "battutaDa": "JAX",
+        "totaleEsito": "over",
+        "scartoLinea": 14.5,
+        "stadio": "M&T Bank Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "09:30",
+        "casa": "ATL",
+        "ospite": "CIN",
+        "pc": 17,
+        "po": 34,
+        "favorita": "CIN",
+        "linea": 3.0,
+        "totaleLinea": 52.5,
+        "battutaDa": "CIN",
+        "totaleEsito": "under",
+        "scartoLinea": 14.0,
+        "stadio": "Bernabeu"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "13:00",
+        "casa": "CAR",
+        "ospite": "DEN",
+        "pc": 21,
+        "po": 26,
+        "favorita": "DEN",
+        "linea": 3.0,
+        "totaleLinea": 44.5,
+        "battutaDa": "DEN",
+        "totaleEsito": "over",
+        "scartoLinea": 2.0,
+        "stadio": "Bank of America Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "13:00",
+        "casa": "IND",
+        "ospite": "DAL",
+        "pc": 23,
+        "po": 27,
+        "favorita": "DAL",
+        "linea": 4.5,
+        "totaleLinea": 51.5,
+        "battutaDa": "IND",
+        "totaleEsito": "under",
+        "scartoLinea": 0.5,
+        "stadio": "Lucas Oil Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "13:00",
+        "casa": "KC",
+        "ospite": "NYJ",
+        "pc": 35,
+        "po": 12,
+        "favorita": "KC",
+        "linea": 9.5,
+        "totaleLinea": 47.5,
+        "battutaDa": "KC",
+        "totaleEsito": "under",
+        "scartoLinea": 13.5,
+        "stadio": "GEHA Field at Arrowhead Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "13:00",
+        "casa": "MIA",
+        "ospite": "DET",
+        "pc": 9,
+        "po": 19,
+        "favorita": "DET",
+        "linea": 6.5,
+        "totaleLinea": 49.5,
+        "battutaDa": "DET",
+        "totaleEsito": "under",
+        "scartoLinea": 3.5,
+        "stadio": "Hard Rock Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "13:00",
+        "casa": "NO",
+        "ospite": "CLE",
+        "pc": 23,
+        "po": 22,
+        "favorita": "NO",
+        "linea": 4.5,
+        "totaleLinea": 43.5,
+        "battutaDa": "CLE",
+        "totaleEsito": "over",
+        "scartoLinea": 3.5,
+        "stadio": "Caesars Superdome"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "13:00",
+        "casa": "PHI",
+        "ospite": "NYG",
+        "pc": 11,
+        "po": 19,
+        "favorita": "NYG",
+        "linea": 3.0,
+        "totaleLinea": 38.5,
+        "battutaDa": "NYG",
+        "totaleEsito": "under",
+        "scartoLinea": 5.0,
+        "stadio": "Lincoln Financial Field"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "13:00",
+        "casa": "WAS",
+        "ospite": "LA",
+        "pc": 13,
+        "po": 20,
+        "favorita": "LA",
+        "linea": 4.5,
+        "totaleLinea": 48.5,
+        "battutaDa": "LA",
+        "totaleEsito": "under",
+        "scartoLinea": 2.5,
+        "stadio": "Northwest Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "16:05",
+        "casa": "LAC",
+        "ospite": "HOU",
+        "pc": 22,
+        "po": 44,
+        "favorita": "HOU",
+        "linea": 5.5,
+        "totaleLinea": 40.5,
+        "battutaDa": "HOU",
+        "totaleEsito": "over",
+        "scartoLinea": 16.5,
+        "stadio": "SoFi Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "16:05",
+        "casa": "SF",
+        "ospite": "LV",
+        "pc": 38,
+        "po": 17,
+        "favorita": "SF",
+        "linea": 8.5,
+        "totaleLinea": 51.5,
+        "battutaDa": "SF",
+        "totaleEsito": "over",
+        "scartoLinea": 12.5,
+        "stadio": "Levi's Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "16:25",
+        "casa": "NE",
+        "ospite": "GB",
+        "pc": 27,
+        "po": 45,
+        "favorita": "NE",
+        "linea": 3.0,
+        "totaleLinea": 44.5,
+        "battutaDa": "GB",
+        "totaleEsito": "over",
+        "scartoLinea": 21.0,
+        "stadio": "Gillette Stadium"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "16:25",
+        "casa": "SEA",
+        "ospite": "ARI",
+        "pc": 17,
+        "po": 3,
+        "favorita": "SEA",
+        "linea": 8.5,
+        "totaleLinea": 39.5,
+        "battutaDa": "SEA",
+        "totaleEsito": "under",
+        "scartoLinea": 5.5,
+        "stadio": "Lumen Field"
+      },
+      {
+        "data": "2026-11-08",
+        "ora": "20:20",
+        "casa": "CHI",
+        "ospite": "TB",
+        "pc": 27,
+        "po": 24,
+        "favorita": "CHI",
+        "linea": 6.5,
+        "totaleLinea": 47.5,
+        "battutaDa": "TB",
+        "totaleEsito": "over",
+        "scartoLinea": 3.5,
+        "stadio": "Soldier Field"
+      },
+      {
+        "data": "2026-11-09",
+        "ora": "20:15",
+        "casa": "MIN",
+        "ospite": "BUF",
+        "pc": null,
+        "po": null,
+        "favorita": "BUF",
+        "linea": 3.0,
+        "totaleLinea": 43.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "U.S. Bank Stadium"
+      }
+    ],
+    "sorprese": [
+      {
+        "casa": "NE",
+        "ospite": "GB",
+        "scarto": 21.0,
+        "battutaDa": "GB"
+      },
+      {
+        "casa": "LAC",
+        "ospite": "HOU",
+        "scarto": 16.5,
+        "battutaDa": "HOU"
+      },
+      {
+        "casa": "BAL",
+        "ospite": "JAX",
+        "scarto": 14.5,
+        "battutaDa": "JAX"
+      }
+    ],
+    "completa": false,
+    "riepilogo": {
+      "partite": 14,
+      "favoriteCoperte": 10,
+      "over": 7,
+      "under": 7
+    },
+    "prestazioni": {
+      "lanci": [
+        {
+          "nome": "C.J. Stroud",
+          "ruolo": "QB",
+          "squadra": "HOU",
+          "avversario": "LAC",
+          "valore": 384,
+          "dettagli": "5 TD · 1 INT"
+        },
+        {
+          "nome": "Jordan Love",
+          "ruolo": "QB",
+          "squadra": "GB",
+          "avversario": "NE",
+          "valore": 372,
+          "dettagli": "3 TD"
+        },
+        {
+          "nome": "Dak Prescott",
+          "ruolo": "QB",
+          "squadra": "DAL",
+          "avversario": "IND",
+          "valore": 335,
+          "dettagli": "2 TD"
+        },
+        {
+          "nome": "Drake Maye",
+          "ruolo": "QB",
+          "squadra": "NE",
+          "avversario": "GB",
+          "valore": 299,
+          "dettagli": "3 TD · 3 INT"
+        },
+        {
+          "nome": "Shedeur Sanders",
+          "ruolo": "QB",
+          "squadra": "CLE",
+          "avversario": "NO",
+          "valore": 297,
+          "dettagli": "2 TD"
+        }
+      ],
+      "corse": [
+        {
+          "nome": "Kenneth Walker III",
+          "ruolo": "RB",
+          "squadra": "KC",
+          "avversario": "NYJ",
+          "valore": 102,
+          "dettagli": "18 corse · 1 TD"
+        },
+        {
+          "nome": "Javonte Williams",
+          "ruolo": "RB",
+          "squadra": "DAL",
+          "avversario": "IND",
+          "valore": 101,
+          "dettagli": "20 corse · 1 TD"
+        },
+        {
+          "nome": "Bijan Robinson",
+          "ruolo": "RB",
+          "squadra": "ATL",
+          "avversario": "CIN",
+          "valore": 100,
+          "dettagli": "19 corse · 1 TD"
+        },
+        {
+          "nome": "Justice Hill",
+          "ruolo": "RB",
+          "squadra": "BAL",
+          "avversario": "JAX",
+          "valore": 85,
+          "dettagli": "9 corse · 1 TD"
+        },
+        {
+          "nome": "Chuba Hubbard",
+          "ruolo": "RB",
+          "squadra": "CAR",
+          "avversario": "DEN",
+          "valore": 79,
+          "dettagli": "16 corse"
+        }
+      ],
+      "ricezioni": [
+        {
+          "nome": "CeeDee Lamb",
+          "ruolo": "WR",
+          "squadra": "DAL",
+          "avversario": "IND",
+          "valore": 195,
+          "dettagli": "10 ricezioni · 1 TD"
+        },
+        {
+          "nome": "Christian Watson",
+          "ruolo": "WR",
+          "squadra": "GB",
+          "avversario": "NE",
+          "valore": 171,
+          "dettagli": "7 ricezioni · 1 TD"
+        },
+        {
+          "nome": "Matthew Golden",
+          "ruolo": "WR",
+          "squadra": "GB",
+          "avversario": "NE",
+          "valore": 164,
+          "dettagli": "10 ricezioni · 1 TD"
+        },
+        {
+          "nome": "Ja'Marr Chase",
+          "ruolo": "WR",
+          "squadra": "CIN",
+          "avversario": "ATL",
+          "valore": 155,
+          "dettagli": "10 ricezioni · 1 TD"
+        },
+        {
+          "nome": "Puka Nacua",
+          "ruolo": "WR",
+          "squadra": "LA",
+          "avversario": "WAS",
+          "valore": 150,
+          "dettagli": "14 ricezioni · 1 TD"
+        }
+      ]
+    }
+  },
+  "prossima": {
+    "stagione": 2026,
+    "settimana": 10,
+    "partite": [
+      {
+        "data": "2026-11-12",
+        "ora": "20:15",
+        "casa": "NYG",
+        "ospite": "WAS",
+        "pc": null,
+        "po": null,
+        "favorita": "NYG",
+        "linea": 1.5,
+        "totaleLinea": 43.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "MetLife Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "09:30",
+        "casa": "DET",
+        "ospite": "NE",
+        "pc": null,
+        "po": null,
+        "favorita": "DET",
+        "linea": 2.5,
+        "totaleLinea": 51.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "FC Bayern Munich Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "13:00",
+        "casa": "ATL",
+        "ospite": "KC",
+        "pc": null,
+        "po": null,
+        "favorita": "KC",
+        "linea": 3.5,
+        "totaleLinea": 45.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Mercedes-Benz Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "13:00",
+        "casa": "CLE",
+        "ospite": "HOU",
+        "pc": null,
+        "po": null,
+        "favorita": "HOU",
+        "linea": 4.5,
+        "totaleLinea": 39.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Huntington Bank Field"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "13:00",
+        "casa": "GB",
+        "ospite": "MIN",
+        "pc": null,
+        "po": null,
+        "favorita": "GB",
+        "linea": 3.0,
+        "totaleLinea": 42.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Lambeau Field"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "13:00",
+        "casa": "IND",
+        "ospite": "MIA",
+        "pc": null,
+        "po": null,
+        "favorita": "IND",
+        "linea": 2.5,
+        "totaleLinea": 40.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Lucas Oil Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "13:00",
+        "casa": "NO",
+        "ospite": "CAR",
+        "pc": null,
+        "po": null,
+        "favorita": "NO",
+        "linea": 1.5,
+        "totaleLinea": 47.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Caesars Superdome"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "13:00",
+        "casa": "NYJ",
+        "ospite": "BUF",
+        "pc": null,
+        "po": null,
+        "favorita": "BUF",
+        "linea": 7.5,
+        "totaleLinea": 51.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "MetLife Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "13:00",
+        "casa": "TEN",
+        "ospite": "JAX",
+        "pc": null,
+        "po": null,
+        "favorita": "JAX",
+        "linea": 9.5,
+        "totaleLinea": 47.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Nissan Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "16:05",
+        "casa": "ARI",
+        "ospite": "LA",
+        "pc": null,
+        "po": null,
+        "favorita": "LA",
+        "linea": 7.0,
+        "totaleLinea": 44.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "State Farm Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "16:05",
+        "casa": "LV",
+        "ospite": "SEA",
+        "pc": null,
+        "po": null,
+        "favorita": "SEA",
+        "linea": 3.0,
+        "totaleLinea": 43.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Allegiant Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "16:25",
+        "casa": "DAL",
+        "ospite": "SF",
+        "pc": null,
+        "po": null,
+        "favorita": "SF",
+        "linea": 3.5,
+        "totaleLinea": 55.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "AT&T Stadium"
+      },
+      {
+        "data": "2026-11-15",
+        "ora": "20:20",
+        "casa": "CIN",
+        "ospite": "PIT",
+        "pc": null,
+        "po": null,
+        "favorita": "CIN",
+        "linea": 3.5,
+        "totaleLinea": 47.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Paycor Stadium"
+      },
+      {
+        "data": "2026-11-16",
+        "ora": "20:15",
+        "casa": "BAL",
+        "ospite": "LAC",
+        "pc": null,
+        "po": null,
+        "favorita": "BAL",
+        "linea": 5.5,
+        "totaleLinea": 38.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "M&T Bank Stadium"
+      }
+    ]
+  },
+  "indici": {
+    "stagione": 2026,
+    "squadre": [
+      {
+        "squadra": "JAX",
+        "nome": "Jacksonville Jaguars",
+        "attacco": 0.042,
+        "difesa": 0.053,
+        "netto": 0.096,
+        "attPass": 0.069,
+        "attCorsa": 0.01,
+        "difPass": 0.08,
+        "difCorsa": 0.017,
+        "posizione": 1,
+        "puntiPartita": 6.0
+      },
+      {
+        "squadra": "LA",
+        "nome": "Los Angeles Rams",
+        "attacco": 0.039,
+        "difesa": 0.039,
+        "netto": 0.078,
+        "attPass": 0.042,
+        "attCorsa": 0.032,
+        "difPass": 0.049,
+        "difCorsa": 0.025,
+        "posizione": 2,
+        "puntiPartita": 4.8
+      },
+      {
+        "squadra": "GB",
+        "nome": "Green Bay Packers",
+        "attacco": 0.058,
+        "difesa": 0.019,
+        "netto": 0.076,
+        "attPass": 0.104,
+        "attCorsa": -0.032,
+        "difPass": 0.033,
+        "difCorsa": -0.001,
+        "posizione": 3,
+        "puntiPartita": 4.7
+      },
+      {
+        "squadra": "SEA",
+        "nome": "Seattle Seahawks",
+        "attacco": 0.011,
+        "difesa": 0.064,
+        "netto": 0.075,
+        "attPass": 0.035,
+        "attCorsa": -0.021,
+        "difPass": 0.094,
+        "difCorsa": 0.023,
+        "posizione": 4,
+        "puntiPartita": 4.6
+      },
+      {
+        "squadra": "BUF",
+        "nome": "Buffalo Bills",
+        "attacco": 0.074,
+        "difesa": -0.012,
+        "netto": 0.062,
+        "attPass": 0.1,
+        "attCorsa": 0.039,
+        "difPass": -0.008,
+        "difCorsa": -0.017,
+        "posizione": 5,
+        "puntiPartita": 3.8
+      },
+      {
+        "squadra": "SF",
+        "nome": "San Francisco 49ers",
+        "attacco": 0.059,
+        "difesa": 0.0,
+        "netto": 0.06,
+        "attPass": 0.088,
+        "attCorsa": 0.022,
+        "difPass": -0.01,
+        "difCorsa": 0.014,
+        "posizione": 6,
+        "puntiPartita": 3.7
+      },
+      {
+        "squadra": "HOU",
+        "nome": "Houston Texans",
+        "attacco": 0.019,
+        "difesa": 0.029,
+        "netto": 0.048,
+        "attPass": 0.041,
+        "attCorsa": -0.022,
+        "difPass": 0.043,
+        "difCorsa": 0.011,
+        "posizione": 7,
+        "puntiPartita": 3.0
+      },
+      {
+        "squadra": "NE",
+        "nome": "New England Patriots",
+        "attacco": 0.035,
+        "difesa": 0.011,
+        "netto": 0.047,
+        "attPass": 0.066,
+        "attCorsa": -0.013,
+        "difPass": 0.012,
+        "difCorsa": 0.011,
+        "posizione": 8,
+        "puntiPartita": 2.9
+      },
+      {
+        "squadra": "CHI",
+        "nome": "Chicago Bears",
+        "attacco": 0.041,
+        "difesa": 0.003,
+        "netto": 0.044,
+        "attPass": 0.057,
+        "attCorsa": 0.02,
+        "difPass": 0.009,
+        "difCorsa": -0.005,
+        "posizione": 9,
+        "puntiPartita": 2.7
+      },
+      {
+        "squadra": "DEN",
+        "nome": "Denver Broncos",
+        "attacco": 0.01,
+        "difesa": 0.028,
+        "netto": 0.038,
+        "attPass": 0.018,
+        "attCorsa": -0.002,
+        "difPass": 0.051,
+        "difCorsa": -0.005,
+        "posizione": 10,
+        "puntiPartita": 2.4
+      },
+      {
+        "squadra": "KC",
+        "nome": "Kansas City Chiefs",
+        "attacco": 0.025,
+        "difesa": 0.01,
+        "netto": 0.035,
+        "attPass": 0.022,
+        "attCorsa": 0.029,
+        "difPass": 0.003,
+        "difCorsa": 0.02,
+        "posizione": 11,
+        "puntiPartita": 2.2
+      },
+      {
+        "squadra": "MIN",
+        "nome": "Minnesota Vikings",
+        "attacco": -0.048,
+        "difesa": 0.079,
+        "netto": 0.031,
+        "attPass": -0.068,
+        "attCorsa": -0.018,
+        "difPass": 0.127,
+        "difCorsa": 0.013,
+        "posizione": 12,
+        "puntiPartita": 1.9
+      },
+      {
+        "squadra": "CIN",
+        "nome": "Cincinnati Bengals",
+        "attacco": 0.051,
+        "difesa": -0.024,
+        "netto": 0.027,
+        "attPass": 0.071,
+        "attCorsa": 0.009,
+        "difPass": -0.027,
+        "difCorsa": -0.02,
+        "posizione": 13,
+        "puntiPartita": 1.7
+      },
+      {
+        "squadra": "DET",
+        "nome": "Detroit Lions",
+        "attacco": 0.044,
+        "difesa": -0.019,
+        "netto": 0.025,
+        "attPass": 0.076,
+        "attCorsa": 0.001,
+        "difPass": -0.031,
+        "difCorsa": -0.002,
+        "posizione": 14,
+        "puntiPartita": 1.6
+      },
+      {
+        "squadra": "TB",
+        "nome": "Tampa Bay Buccaneers",
+        "attacco": -0.03,
+        "difesa": 0.048,
+        "netto": 0.018,
+        "attPass": -0.065,
+        "attCorsa": 0.011,
+        "difPass": 0.07,
+        "difCorsa": 0.017,
+        "posizione": 15,
+        "puntiPartita": 1.1
+      },
+      {
+        "squadra": "NYG",
+        "nome": "New York Giants",
+        "attacco": 0.01,
+        "difesa": -0.001,
+        "netto": 0.009,
+        "attPass": 0.019,
+        "attCorsa": -0.003,
+        "difPass": 0.01,
+        "difCorsa": -0.016,
+        "posizione": 16,
+        "puntiPartita": 0.6
+      },
+      {
+        "squadra": "DAL",
+        "nome": "Dallas Cowboys",
+        "attacco": 0.052,
+        "difesa": -0.06,
+        "netto": -0.008,
+        "attPass": 0.07,
+        "attCorsa": 0.021,
+        "difPass": -0.084,
+        "difCorsa": -0.027,
+        "posizione": 17,
+        "puntiPartita": -0.5
+      },
+      {
+        "squadra": "PIT",
+        "nome": "Pittsburgh Steelers",
+        "attacco": -0.022,
+        "difesa": 0.012,
+        "netto": -0.01,
+        "attPass": -0.057,
+        "attCorsa": 0.042,
+        "difPass": 0.015,
+        "difCorsa": 0.007,
+        "posizione": 18,
+        "puntiPartita": -0.6
+      },
+      {
+        "squadra": "BAL",
+        "nome": "Baltimore Ravens",
+        "attacco": -0.009,
+        "difesa": -0.008,
+        "netto": -0.016,
+        "attPass": -0.027,
+        "attCorsa": 0.014,
+        "difPass": -0.021,
+        "difCorsa": 0.011,
+        "posizione": 19,
+        "puntiPartita": -1.0
+      },
+      {
+        "squadra": "ATL",
+        "nome": "Atlanta Falcons",
+        "attacco": -0.027,
+        "difesa": 0.006,
+        "netto": -0.02,
+        "attPass": -0.061,
+        "attCorsa": 0.017,
+        "difPass": 0.016,
+        "difCorsa": -0.007,
+        "posizione": 20,
+        "puntiPartita": -1.2
+      },
+      {
+        "squadra": "CAR",
+        "nome": "Carolina Panthers",
+        "attacco": 0.002,
+        "difesa": -0.027,
+        "netto": -0.024,
+        "attPass": 0.003,
+        "attCorsa": -0.0,
+        "difPass": -0.037,
+        "difCorsa": -0.012,
+        "posizione": 21,
+        "puntiPartita": -1.5
+      },
+      {
+        "squadra": "WAS",
+        "nome": "Washington Commanders",
+        "attacco": -0.003,
+        "difesa": -0.031,
+        "netto": -0.034,
+        "attPass": -0.002,
+        "attCorsa": -0.006,
+        "difPass": -0.039,
+        "difCorsa": -0.019,
+        "posizione": 22,
+        "puntiPartita": -2.1
+      },
+      {
+        "squadra": "NO",
+        "nome": "New Orleans Saints",
+        "attacco": -0.028,
+        "difesa": -0.008,
+        "netto": -0.035,
+        "attPass": -0.032,
+        "attCorsa": -0.02,
+        "difPass": -0.013,
+        "difCorsa": -0.0,
+        "posizione": 23,
+        "puntiPartita": -2.2
+      },
+      {
+        "squadra": "CLE",
+        "nome": "Cleveland Browns",
+        "attacco": -0.068,
+        "difesa": 0.026,
+        "netto": -0.041,
+        "attPass": -0.088,
+        "attCorsa": -0.031,
+        "difPass": 0.056,
+        "difCorsa": -0.014,
+        "posizione": 24,
+        "puntiPartita": -2.5
+      },
+      {
+        "squadra": "PHI",
+        "nome": "Philadelphia Eagles",
+        "attacco": -0.048,
+        "difesa": -0.004,
+        "netto": -0.052,
+        "attPass": -0.068,
+        "attCorsa": -0.011,
+        "difPass": -0.001,
+        "difCorsa": -0.009,
+        "posizione": 25,
+        "puntiPartita": -3.2
+      },
+      {
+        "squadra": "LAC",
+        "nome": "Los Angeles Chargers",
+        "attacco": -0.076,
+        "difesa": 0.019,
+        "netto": -0.057,
+        "attPass": -0.102,
+        "attCorsa": -0.035,
+        "difPass": 0.03,
+        "difCorsa": 0.004,
+        "posizione": 26,
+        "puntiPartita": -3.5
+      },
+      {
+        "squadra": "ARI",
+        "nome": "Arizona Cardinals",
+        "attacco": -0.014,
+        "difesa": -0.048,
+        "netto": -0.061,
+        "attPass": -0.02,
+        "attCorsa": -0.002,
+        "difPass": -0.089,
+        "difCorsa": 0.009,
+        "posizione": 27,
+        "puntiPartita": -3.8
+      },
+      {
+        "squadra": "LV",
+        "nome": "Las Vegas Raiders",
+        "attacco": -0.026,
+        "difesa": -0.036,
+        "netto": -0.062,
+        "attPass": -0.011,
+        "attCorsa": -0.052,
+        "difPass": -0.057,
+        "difCorsa": -0.006,
+        "posizione": 28,
+        "puntiPartita": -3.8
+      },
+      {
+        "squadra": "IND",
+        "nome": "Indianapolis Colts",
+        "attacco": -0.047,
+        "difesa": -0.016,
+        "netto": -0.063,
+        "attPass": -0.097,
+        "attCorsa": 0.027,
+        "difPass": -0.021,
+        "difCorsa": -0.009,
+        "posizione": 29,
+        "puntiPartita": -3.9
+      },
+      {
+        "squadra": "MIA",
+        "nome": "Miami Dolphins",
+        "attacco": -0.03,
+        "difesa": -0.049,
+        "netto": -0.08,
+        "attPass": -0.048,
+        "attCorsa": -0.004,
+        "difPass": -0.077,
+        "difCorsa": -0.011,
+        "posizione": 30,
+        "puntiPartita": -5.0
+      },
+      {
+        "squadra": "NYJ",
+        "nome": "New York Jets",
+        "attacco": -0.034,
+        "difesa": -0.06,
+        "netto": -0.094,
+        "attPass": -0.046,
+        "attCorsa": -0.014,
+        "difPass": -0.104,
+        "difCorsa": 0.0,
+        "posizione": 31,
+        "puntiPartita": -5.8
+      },
+      {
+        "squadra": "TEN",
+        "nome": "Tennessee Titans",
+        "attacco": -0.058,
+        "difesa": -0.045,
+        "netto": -0.103,
+        "attPass": -0.089,
+        "attCorsa": -0.006,
+        "difPass": -0.077,
+        "difCorsa": -0.002,
+        "posizione": 32,
+        "puntiPartita": -6.4
+      }
+    ],
+    "quarterback": [
+      {
+        "nome": "L.Jackson",
+        "squadra": "BAL",
+        "lanci": 102,
+        "epaLancio": 0.356
+      },
+      {
+        "nome": "T.Lawrence",
+        "squadra": "JAX",
+        "lanci": 237,
+        "epaLancio": 0.284
+      },
+      {
+        "nome": "J.Burrow",
+        "squadra": "CIN",
+        "lanci": 312,
+        "epaLancio": 0.253
+      },
+      {
+        "nome": "B.Purdy",
+        "squadra": "SF",
+        "lanci": 243,
+        "epaLancio": 0.251
+      },
+      {
+        "nome": "C.Williams",
+        "squadra": "CHI",
+        "lanci": 171,
+        "epaLancio": 0.248
+      },
+      {
+        "nome": "J.Allen",
+        "squadra": "BUF",
+        "lanci": 222,
+        "epaLancio": 0.216
+      },
+      {
+        "nome": "J.Goff",
+        "squadra": "DET",
+        "lanci": 292,
+        "epaLancio": 0.212
+      },
+      {
+        "nome": "J.Love",
+        "squadra": "GB",
+        "lanci": 359,
+        "epaLancio": 0.178
+      },
+      {
+        "nome": "C.Stroud",
+        "squadra": "HOU",
+        "lanci": 295,
+        "epaLancio": 0.166
+      },
+      {
+        "nome": "D.Prescott",
+        "squadra": "DAL",
+        "lanci": 353,
+        "epaLancio": 0.151
+      },
+      {
+        "nome": "P.Mahomes",
+        "squadra": "KC",
+        "lanci": 275,
+        "epaLancio": 0.148
+      },
+      {
+        "nome": "K.Cousins",
+        "squadra": "LV",
+        "lanci": 328,
+        "epaLancio": 0.112
+      },
+      {
+        "nome": "D.Maye",
+        "squadra": "NE",
+        "lanci": 292,
+        "epaLancio": 0.101
+      },
+      {
+        "nome": "G.Smith",
+        "squadra": "NYJ",
+        "lanci": 301,
+        "epaLancio": 0.084
+      },
+      {
+        "nome": "B.Young",
+        "squadra": "CAR",
+        "lanci": 334,
+        "epaLancio": 0.056
+      },
+      {
+        "nome": "M.Stafford",
+        "squadra": "LA",
+        "lanci": 357,
+        "epaLancio": 0.052
+      },
+      {
+        "nome": "B.Nix",
+        "squadra": "DEN",
+        "lanci": 302,
+        "epaLancio": 0.014
+      },
+      {
+        "nome": "M.Penix",
+        "squadra": "ATL",
+        "lanci": 210,
+        "epaLancio": 0.005
+      },
+      {
+        "nome": "T.Shough",
+        "squadra": "NO",
+        "lanci": 328,
+        "epaLancio": -0.016
+      },
+      {
+        "nome": "J.Daniels",
+        "squadra": "WAS",
+        "lanci": 195,
+        "epaLancio": -0.017
+      },
+      {
+        "nome": "T.Huntley",
+        "squadra": "BAL",
+        "lanci": 122,
+        "epaLancio": -0.039
+      },
+      {
+        "nome": "D.Watson",
+        "squadra": "CLE",
+        "lanci": 283,
+        "epaLancio": -0.04
+      },
+      {
+        "nome": "S.Darnold",
+        "squadra": "SEA",
+        "lanci": 228,
+        "epaLancio": -0.071
+      },
+      {
+        "nome": "J.Brissett",
+        "squadra": "ARI",
+        "lanci": 322,
+        "epaLancio": -0.077
+      },
+      {
+        "nome": "J.Hurts",
+        "squadra": "PHI",
+        "lanci": 167,
+        "epaLancio": -0.08
+      },
+      {
+        "nome": "J.Winston",
+        "squadra": "NYG",
+        "lanci": 183,
+        "epaLancio": -0.085
+      },
+      {
+        "nome": "A.Rodgers",
+        "squadra": "PIT",
+        "lanci": 308,
+        "epaLancio": -0.109
+      },
+      {
+        "nome": "K.Murray",
+        "squadra": "MIN",
+        "lanci": 169,
+        "epaLancio": -0.121
+      },
+      {
+        "nome": "C.Ward",
+        "squadra": "TEN",
+        "lanci": 263,
+        "epaLancio": -0.121
+      },
+      {
+        "nome": "M.Willis",
+        "squadra": "MIA",
+        "lanci": 232,
+        "epaLancio": -0.123
+      },
+      {
+        "nome": "T.McKee",
+        "squadra": "PHI",
+        "lanci": 124,
+        "epaLancio": -0.182
+      },
+      {
+        "nome": "J.Daniels",
+        "squadra": "TB",
+        "lanci": 107,
+        "epaLancio": -0.193
+      }
+    ],
+    "nota": "EPA = punti attesi aggiunti per azione. Forza corretta per gli avversari; le partite recenti pesano di più e la stagione precedente conta un po' meno. puntiPartita = margine indicativo contro una squadra media."
+  },
+  "loghi": {
+    "ARI": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png",
+      "colore": "#97233F",
+      "breve": "Cardinals"
+    },
+    "ATL": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+      "colore": "#A71930",
+      "breve": "Falcons"
+    },
+    "BAL": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+      "colore": "#241773",
+      "breve": "Ravens"
+    },
+    "BUF": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+      "colore": "#00338D",
+      "breve": "Bills"
+    },
+    "CAR": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/car.png",
+      "colore": "#0085CA",
+      "breve": "Panthers"
+    },
+    "CHI": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+      "colore": "#0B162A",
+      "breve": "Bears"
+    },
+    "CIN": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+      "colore": "#FB4F14",
+      "breve": "Bengals"
+    },
+    "CLE": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png",
+      "colore": "#FF3C00",
+      "breve": "Browns"
+    },
+    "DAL": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+      "colore": "#002244",
+      "breve": "Cowboys"
+    },
+    "DEN": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png",
+      "colore": "#002244",
+      "breve": "Broncos"
+    },
+    "DET": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+      "colore": "#0076B6",
+      "breve": "Lions"
+    },
+    "GB": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+      "colore": "#203731",
+      "breve": "Packers"
+    },
+    "HOU": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+      "colore": "#03202F",
+      "breve": "Texans"
+    },
+    "IND": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
+      "colore": "#002C5F",
+      "breve": "Colts"
+    },
+    "JAX": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
+      "colore": "#006778",
+      "breve": "Jaguars"
+    },
+    "KC": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+      "colore": "#E31837",
+      "breve": "Chiefs"
+    },
+    "LA": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+      "colore": "#003594",
+      "breve": "Rams"
+    },
+    "LAC": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png",
+      "colore": "#007BC7",
+      "breve": "Chargers"
+    },
+    "LAR": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+      "colore": "#003594",
+      "breve": "Rams"
+    },
+    "LV": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
+      "colore": "#000000",
+      "breve": "Raiders"
+    },
+    "MIA": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+      "colore": "#008E97",
+      "breve": "Dolphins"
+    },
+    "MIN": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+      "colore": "#4F2683",
+      "breve": "Vikings"
+    },
+    "NE": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+      "colore": "#002244",
+      "breve": "Patriots"
+    },
+    "NO": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png",
+      "colore": "#D3BC8D",
+      "breve": "Saints"
+    },
+    "NYG": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png",
+      "colore": "#0B2265",
+      "breve": "Giants"
+    },
+    "NYJ": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+      "colore": "#003F2D",
+      "breve": "Jets"
+    },
+    "OAK": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
+      "colore": "#000000",
+      "breve": "Raiders"
+    },
+    "PHI": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+      "colore": "#004C54",
+      "breve": "Eagles"
+    },
+    "PIT": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+      "colore": "#000000",
+      "breve": "Steelers"
+    },
+    "SD": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png",
+      "colore": "#007BC7",
+      "breve": "Chargers"
+    },
+    "SEA": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+      "colore": "#002244",
+      "breve": "Seahawks"
+    },
+    "SF": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+      "colore": "#AA0000",
+      "breve": "49ers"
+    },
+    "STL": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+      "colore": "#003594",
+      "breve": "Rams"
+    },
+    "TB": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+      "colore": "#A71930",
+      "breve": "Buccaneers"
+    },
+    "TEN": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png",
+      "colore": "#4495D2",
+      "breve": "Titans"
+    },
+    "WAS": {
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png",
+      "colore": "#5A1414",
+      "breve": "Commanders"
+    }
+  }
 }
