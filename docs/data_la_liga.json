@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-06T21:58:49.434807+00:00",
+  "aggiornato": "2026-11-09T09:17:41.366416+00:00",
   "campionato": "LaLiga",
   "fonte": "football-data.co.uk (PDDL) · designazioni RFEF/CTA",
   "stagioni": [
@@ -590,7 +590,21 @@
           "falliOspite": 16
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-08",
+          "ora": "14:00",
+          "casa": "Elche",
+          "ospite": "Betis",
+          "arbitro": "César Soto",
+          "quartoUomo": "José David Martínez",
+          "var": "Carlos Del Cerro",
+          "avar": "David Gálvez",
+          "assistente1": "Carlos Álvarez",
+          "assistente2": "Rubén Becerril"
+        }
+      ]
     },
     {
       "nome": "Jesús Gil",
@@ -1692,7 +1706,21 @@
           "falliOspite": 12
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-08",
+          "ora": "21:00",
+          "casa": "Ath Madrid",
+          "ospite": "Barcelona",
+          "arbitro": "Javier Alberola",
+          "quartoUomo": "Roberto Gonzalo",
+          "var": "Javier Iglesias",
+          "avar": "Guillermo Cuadra",
+          "assistente1": "Alfredo Rodríguez",
+          "assistente2": "Jorge Bueno"
+        }
+      ]
     },
     {
       "nome": "Manuel Jesús Orellana",
@@ -2725,7 +2753,21 @@
           "falliOspite": 19
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-08",
+          "ora": "18:30",
+          "casa": "Villarreal",
+          "ospite": "Getafe",
+          "arbitro": "Carlos Muñiz",
+          "quartoUomo": "Pablo Monterrubio",
+          "var": "Daniel Jesús Trujillo",
+          "avar": "Luis Bestard",
+          "assistente1": "Fernando Estela",
+          "assistente2": "Ignacio Alonso"
+        }
+      ]
     },
     {
       "nome": "Juan Martínez",
@@ -2910,7 +2952,21 @@
           "falliOspite": 17
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-08",
+          "ora": "16:15",
+          "casa": "Sociedad",
+          "ospite": "Vallecano",
+          "arbitro": "Juan Martínez",
+          "quartoUomo": "Pedro Oreiro",
+          "var": "Iván Caparrós",
+          "avar": "Javier Iglesias",
+          "assistente1": "Diego Barbero",
+          "assistente2": "Miguel Martínez"
+        }
+      ]
     },
     {
       "nome": "Miguel Ángel Ortiz",
@@ -3088,7 +3144,21 @@
           "falliOspite": 5
         }
       ],
-      "prossime": []
+      "prossime": [
+        {
+          "giornata": 12,
+          "data": "2026-11-08",
+          "ora": "18:30",
+          "casa": "Celta",
+          "ospite": "Levante",
+          "arbitro": "Miguel Ángel Ortiz",
+          "quartoUomo": "Francisco García",
+          "var": "Valentín Pizarro",
+          "avar": "Mateo Busquets",
+          "assistente1": "José Antonio Garrido",
+          "assistente2": "Alejandro Estévez"
+        }
+      ]
     },
     {
       "nome": "Mateo Busquets",
@@ -5626,6 +5696,71 @@
       "avar": "Javier Iglesias",
       "assistente1": "Iván Massó",
       "assistente2": "Abraham Pérez"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-08",
+      "ora": "14:00",
+      "casa": "Elche",
+      "ospite": "Betis",
+      "arbitro": "César Soto",
+      "quartoUomo": "José David Martínez",
+      "var": "Carlos Del Cerro",
+      "avar": "David Gálvez",
+      "assistente1": "Carlos Álvarez",
+      "assistente2": "Rubén Becerril"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-08",
+      "ora": "16:15",
+      "casa": "Sociedad",
+      "ospite": "Vallecano",
+      "arbitro": "Juan Martínez",
+      "quartoUomo": "Pedro Oreiro",
+      "var": "Iván Caparrós",
+      "avar": "Javier Iglesias",
+      "assistente1": "Diego Barbero",
+      "assistente2": "Miguel Martínez"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-08",
+      "ora": "18:30",
+      "casa": "Celta",
+      "ospite": "Levante",
+      "arbitro": "Miguel Ángel Ortiz",
+      "quartoUomo": "Francisco García",
+      "var": "Valentín Pizarro",
+      "avar": "Mateo Busquets",
+      "assistente1": "José Antonio Garrido",
+      "assistente2": "Alejandro Estévez"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-08",
+      "ora": "18:30",
+      "casa": "Villarreal",
+      "ospite": "Getafe",
+      "arbitro": "Carlos Muñiz",
+      "quartoUomo": "Pablo Monterrubio",
+      "var": "Daniel Jesús Trujillo",
+      "avar": "Luis Bestard",
+      "assistente1": "Fernando Estela",
+      "assistente2": "Ignacio Alonso"
+    },
+    {
+      "giornata": 12,
+      "data": "2026-11-08",
+      "ora": "21:00",
+      "casa": "Ath Madrid",
+      "ospite": "Barcelona",
+      "arbitro": "Javier Alberola",
+      "quartoUomo": "Roberto Gonzalo",
+      "var": "Javier Iglesias",
+      "avar": "Guillermo Cuadra",
+      "assistente1": "Alfredo Rodríguez",
+      "assistente2": "Jorge Bueno"
     }
   ]
 }
