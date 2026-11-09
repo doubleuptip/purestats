@@ -419,13 +419,28 @@ def main():
         raise SystemExit(1)
 
     print()
-    anagrafica = carica_anagrafica()
+    # L'anagrafica di nfldata non riporta più conference e division (risultavano vuote):
+    # si usa quella di nflverse, che ha anche loghi e colori. La vecchia resta come riserva.
+    import nfl_indici
+    anagrafica = nfl_indici.anagrafica() or carica_anagrafica()
 
     print("\nGiocatori di riferimento")
     giocatori = carica_giocatori(stagioni)
 
     righe = salva_archivio(righe)
     stats = calcola_statistiche(righe, anagrafica, giocatori)
+
+    # Giornata, prossimo turno e indici di forza: blocchi aggiuntivi, ognuno può mancare
+    print("\nGiornata, prossimo turno e indici")
+    try:
+        extra = nfl_indici.calcola(anagrafica if "logo" in next(iter(anagrafica.values()), {}) else None)
+        for chiave in ("giornata", "prossima", "indici"):
+            stats[chiave] = extra.get(chiave)
+        loghi = {s: {"logo": v.get("logo"), "colore": v.get("colore"), "breve": v.get("breve")}
+                 for s, v in (extra.get("anagrafica") or {}).items()}
+        stats["loghi"] = loghi
+    except Exception as e:      # i blocchi extra non devono mai impedire l'aggiornamento dell'archivio
+        print(f"  Blocchi aggiuntivi non calcolati: {type(e).__name__}: {e}. L'archivio è comunque aggiornato.")
 
     USCITA.parent.mkdir(parents=True, exist_ok=True)
     USCITA.write_text(json.dumps(stats, ensure_ascii=False, indent=2),

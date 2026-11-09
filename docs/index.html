@@ -250,6 +250,8 @@
     <button id="n-squ" onclick="vai('squadre')">SQUADRE</button>
     <button id="n-par" onclick="vai('partite')">PARTITE</button>
     <button id="n-cal" onclick="vai('calendario')">CALENDARIO</button>
+    <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
+    <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
   </nav>
 </header>
 
@@ -571,6 +573,13 @@ function render(){
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
+  // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
+  const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici;
+  [["n-gio",conGio],["n-ind",conInd]].forEach(([id,visibile])=>{
+    const b=document.getElementById(id);
+    if(b) b.style.display = visibile ? "" : "none";
+  });
+  if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)) vista = soloFootball ? "squadre" : "arbitri";
   if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista="squadre";
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
@@ -581,13 +590,17 @@ function render(){
   document.getElementById("n-squ").className = vista==="squadre"?"on":"";
   document.getElementById("n-par").className = vista==="partite"?"on":"";
   const bc=document.getElementById("n-cal"); if(bc) bc.className = vista==="calendario"?"on":"";
+  document.getElementById("n-gio").className = vista==="giornata"?"on":"";
+  document.getElementById("n-ind").className = vista==="indici"?"on":"";
 
   const app=document.getElementById("app"); app.className="";
   if(soloArbitri()){
     app.innerHTML = arbitroAleague ? vSchedaAleague() : vArbitriAleague();
   }
   else if(eFootball()){
-    app.innerHTML = vista==="partite" ? vFootballPartite()
+    app.innerHTML = vista==="giornata" ? vFootballGiornata()
+                  : vista==="indici" ? vFootballIndici()
+                  : vista==="partite" ? vFootballPartite()
                   : squadraAperta ? vSquadraFootball() : vFootballSquadre();
   }
   else if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
@@ -1285,6 +1298,119 @@ function vFootballPartite(){
     });
     h += `</div>`;
   });
+  return h;
+}
+
+/* ---------- GIORNATA E INDICI (NFL) ----------
+   Dati statistici e di mercato pubblici: risultati con la linea di chiusura,
+   prestazioni migliori, forza delle squadre dall'EPA. Nessuna giocata. */
+
+function logoSq(sigla, lato){
+  const l=(D.loghi||{})[sigla];
+  const px=lato||20;
+  return l && l.logo && /^https:\/\//.test(l.logo)
+    ? `<img src="${esc(l.logo)}" alt="" width="${px}" height="${px}" onerror="this.remove()"
+         style="vertical-align:middle;object-fit:contain;margin:0 5px">`
+    : "";
+}
+
+function rigaGara(g, conEsito){
+  const giocata = g.pc!==null && g.pc!==undefined;
+  const linea = g.favorita
+    ? `${esc(g.favorita)} −${n(g.linea)}` : (g.linea===0?"alla pari":"—");
+  let esito = "";
+  if(conEsito && giocata){
+    const chi = g.battutaDa ? `battuta da <b>${esc(g.battutaDa)}</b>` : "linea in parità";
+    const tot = g.totaleEsito ? ` · <b>${g.totaleEsito.toUpperCase()}</b>` : "";
+    esito = `<div class="gara-arb" style="color:var(--testo)">${chi}${tot}</div>`;
+  }
+  return `<div class="gara">
+    <div class="gara-squadre">
+      <span>${logoSq(g.ospite)}${esc(nomeSquadra(g.ospite))}</span>
+      <span class="vs">${giocata?`${g.po}\u2013${g.pc}`:"@"}</span>
+      <span style="text-align:right">${esc(nomeSquadra(g.casa))}${logoSq(g.casa)}</span>
+    </div>
+    <div class="gara-arb">${esc(dataBreve(g.data))} ${esc(g.ora||"")}${g.stadio?" · "+esc(g.stadio):""}</div>
+    <div class="gara-arb">Linea: ${linea}${g.totaleLinea!==null&&g.totaleLinea!==undefined?" · totale "+n(g.totaleLinea):""}${
+      giocata?"":" · da giocare"}</div>
+    ${esito}
+  </div>`;
+}
+
+function tabPrestazioni(titolo, lista, misura){
+  if(!lista || !lista.length) return "";
+  return `<div class="titolo-sub" style="margin-top:12px"><b>${titolo}</b></div>
+  <table class="tab"><thead><tr><th>Giocatore</th><th>Squadra</th><th>${misura}</th><th>Dettagli</th></tr></thead><tbody>
+  ${lista.map(x=>`<tr><td><span class="nome">${esc(x.nome)}</span>
+      <span style="display:block;font-size:8px;color:${MUTED}">${esc(x.ruolo)} · contro ${esc(x.avversario||"")}</span></td>
+    <td>${logoSq(x.squadra,16)}${esc(x.squadra)}</td><td class="big">${n(x.valore)}</td>
+    <td>${esc(x.dettagli||"")}</td></tr>`).join("")}
+  </tbody></table>`;
+}
+
+function vFootballGiornata(){
+  const G=D.giornata, P=D.prossima;
+  if(!G) return `<div class="sub" style="margin-top:0">Nessuna giornata disponibile</div>`;
+  const r=G.riepilogo||{};
+  let h=`<div class="sub" style="margin-top:0">Stagione ${esc(G.stagione)} · Week ${esc(G.settimana)}${
+      G.completa?"":" (in corso)"} · risultati con la linea di chiusura del mercato</div>
+  <div class="dati">
+    <div class="dato"><b>${n(r.partite)}</b><span>PARTITE<br>GIOCATE</span></div>
+    <div class="dato"><b>${n(r.favoriteCoperte)}</b><span>FAVORITE<br>OLTRE LA LINEA</span></div>
+    <div class="dato"><b>${n(r.over)}</b><span>OVER</span></div>
+    <div class="dato"><b>${n(r.under)}</b><span>UNDER</span></div>
+  </div>`;
+  if((G.sorprese||[]).length){
+    h+=`<div class="titolo"><i></i><span>SORPRESE DELLA WEEK</span></div>
+    <div class="titolo-sub">Partite finite più lontano dalla linea del mercato</div>
+    <table class="tab"><thead><tr><th>Partita</th><th>Scarto</th><th>Battuta da</th></tr></thead><tbody>
+    ${G.sorprese.map(x=>`<tr><td>${esc(x.ospite)} @ ${esc(x.casa)}</td><td class="big">${n(x.scarto)}</td>
+      <td>${logoSq(x.battutaDa,16)}${esc(x.battutaDa||"—")}</td></tr>`).join("")}
+    </tbody></table>`;
+  }
+  const pr=G.prestazioni||{};
+  if(pr.lanci||pr.corse||pr.ricezioni){
+    h+=`<div class="titolo"><i></i><span>MIGLIORI PRESTAZIONI</span></div>`
+      + tabPrestazioni("Yard lanciate", pr.lanci, "YARD")
+      + tabPrestazioni("Yard di corsa", pr.corse, "YARD")
+      + tabPrestazioni("Yard ricevute", pr.ricezioni, "YARD");
+  }
+  h+=`<div class="titolo"><i></i><span>RISULTATI</span></div><div class="grid">`
+    + (G.partite||[]).map(g=>rigaGara(g,true)).join("") + `</div>`;
+  if(P && (P.partite||[]).length){
+    h+=`<div class="titolo"><i></i><span>PROSSIMA: WEEK ${esc(P.settimana)}</span></div>
+    <div class="titolo-sub">Linee del mercato al momento dell'aggiornamento</div><div class="grid">`
+      + P.partite.map(g=>rigaGara(g,false)).join("") + `</div>`;
+  }
+  return h;
+}
+
+function vFootballIndici(){
+  const I=D.indici;
+  if(!I) return `<div class="sub" style="margin-top:0">Indici non disponibili</div>`;
+  const dec = I.decimali===undefined ? 3 : I.decimali;
+  const segn=(v,c)=> v===null||v===undefined ? "—" : (v>0?"+":"")+Number(v).toFixed(c===undefined?dec:c);
+  const et = I.etichette || {};
+  const lista = (I.squadre||[]).filter(x=>gruppoFootball==="tutti" || x.conference===gruppoFootball);
+  const conPunti = !et.netto;   // per il college SP+ è già in punti: la colonna sarebbe doppia
+  let h=`<div class="sub" style="margin-top:0">Stagione ${esc(I.stagione)} · ${esc(I.nota||"")}</div>
+  ${(I.squadre||[]).some(x=>x.conference) ? barraGruppi() : ""}
+  <div class="titolo"><i></i><span>${esc(et.titolo||"FORZA DELLE SQUADRE")}</span></div>
+  <div class="titolo-sub">${esc(et.sotto||"EPA per azione: attacco (più alto = meglio), difesa (più alto = toglie più punti)")}</div>
+  <table class="tab"><thead><tr><th>#</th><th>Squadra</th><th>${esc(et.netto||"Netto")}</th><th>Att.</th><th>Dif.</th>${conPunti?"<th>Pt/part.</th>":""}</tr></thead><tbody>
+  ${lista.map(x=>`<tr><td>${x.posizione}</td>
+    <td>${logoSq(x.squadra,18)}<span class="nome">${esc(x.squadra)}</span></td>
+    <td class="big" style="color:${x.netto<0?ROSSO:"var(--acc)"}">${segn(x.netto)}</td>
+    <td>${segn(x.attacco)}</td><td>${segn(x.difesa)}</td>${conPunti?`<td>${segn(x.puntiPartita,1)}</td>`:""}</tr>`).join("")}
+  </tbody></table>`;
+  if((I.quarterback||[]).length){
+    h+=`<div class="titolo"><i></i><span>QUARTERBACK</span></div>
+    <div class="titolo-sub">EPA per lancio nella stagione (almeno 100 lanci)</div>
+    <table class="tab"><thead><tr><th>#</th><th>QB</th><th>Squadra</th><th>EPA/lancio</th><th>Lanci</th></tr></thead><tbody>
+    ${I.quarterback.map((q,i)=>`<tr><td>${i+1}</td><td><span class="nome">${esc(q.nome)}</span></td>
+      <td>${logoSq(q.squadra,16)}${esc(q.squadra)}</td><td class="big">${segn(q.epaLancio)}</td><td>${n(q.lanci)}</td></tr>`).join("")}
+    </tbody></table>`;
+  }
   return h;
 }
 

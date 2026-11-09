@@ -2,13 +2,15 @@ name: Aggiorna archivio NFL
 
 on:
   schedule:
-    # Martedì: le partite NFL si concludono lunedì sera negli Stati Uniti.
-    - cron: '0 11 * * 2'
+    # Ogni giorno: risultati del giovedì, della domenica e del lunedì arrivano
+    # in giorni diversi, e le linee del turno successivo cambiano in settimana.
+    - cron: '0 11 * * *'
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - 'scripts/fetch_nfl.py'
+      - 'scripts/nfl_indici.py'
       - '.github/workflows/update-nfl.yml'
 
 permissions:
