@@ -242,12 +242,12 @@
      Chiaro di giorno, scuro di notte: segue l'impostazione del dispositivo
      (come il tema automatico di Windows, Android e iOS). Il calcio non cambia. */
   body.fb{
-    --fb-bg:#F3F4F6; --fb-card:#FFFFFF; --fb-text:#111827; --fb-muted:#4B5563; --fb-border:#E5E7EB;
+    --fb-bg:#E9EDF2; --fb-card:#FFFFFF; --fb-text:#111827; --fb-muted:#4B5563; --fb-border:#CDD4DE;
     --fb-acc:#B91C1C; --fb-acc-text:#FFFFFF; --fb-pill:#E5E7EB; --fb-okbg:#DCFCE7; --fb-ok:#166534;
     --fb-chip:#EEF0F3; --fb-chiptext:#374151; --fb-lose:#6B7280; --fb-head:'Archivo',sans-serif;
     --nero:var(--fb-bg); --card:var(--fb-card); --card2:var(--fb-pill); --bordo:var(--fb-border);
     --testo:var(--fb-text); --muted:var(--fb-muted); --acc:var(--fb-acc); --acc2:var(--fb-acc);
-    --acc-rgb:185,28,28; --data:var(--fb-muted);
+    --acc-rgb:185,28,28; --data:var(--fb-muted); --rosso:#C81E1E;
     font-family:'Inter',sans-serif;
   }
   @media (prefers-color-scheme: dark){
@@ -255,7 +255,7 @@
       --fb-bg:#0B0F1A; --fb-card:#131A2B; --fb-text:#F5F7FB; --fb-muted:#A3ADC2; --fb-border:#232C42;
       --fb-acc:#FF8A3D; --fb-acc-text:#1A0E05; --fb-pill:#1B2338; --fb-okbg:#3A2412; --fb-ok:#FFB27A;
       --fb-chip:#1F2840; --fb-chiptext:#C9D1E3; --fb-lose:#8D97AD; --fb-head:'Barlow Condensed',sans-serif;
-      --acc-rgb:255,138,61;
+      --acc-rgb:255,138,61; --rosso:#FF7A7A;
     }
   }
   body.fb header{background:var(--fb-bg)}
@@ -271,6 +271,13 @@
   body.fb .tab{font-size:16px}
   body.fb .tab thead th{font-size:13px}
   body.fb .tab tbody td{padding:12px 8px;border-bottom:1px solid var(--fb-border)}
+  body.fb .tab tbody tr{background:var(--fb-card)}
+  body.fb .kpi,body.fb .cerca,body.fb .gara,body.fb .scheda-top,body.fb .gruppo{border:1px solid var(--fb-border);background:var(--fb-card)}
+  body.fb .kpi span{font-size:13px}
+  body.fb .stagioni button,body.fb .sottomenu button{border:1px solid var(--fb-border);background:var(--fb-card)}
+  body.fb .stagioni button.on,body.fb .sottomenu button.on{background:var(--fb-acc);color:var(--fb-acc-text);border-color:var(--fb-acc)}
+  .fb-mini{display:block;font-size:13px;color:var(--fb-muted);margin-top:2px}
+  body.fb .fb-box,body.fb .fb-game,body.fb .fb-tile,body.fb .fb-duel{box-shadow:0 1px 2px rgba(15,23,42,.06)}
   body.fb .nome{font-family:'Inter',sans-serif;font-weight:600;font-size:17px}
   body.fb .big{font-size:16px}
   body.fb .pos{font-size:14px}
@@ -1254,7 +1261,7 @@ function vFootballSquadre(){
     </div>`;
 
   if(!lista.length){
-    return h+`<div class="empty"><div style="font-size:10px;color:${MUTED};line-height:1.8">
+    return h+`<div class="empty"><div class="fb-note">
       Nessuna squadra ha giocato in questa stagione.</div></div>`;
   }
 
@@ -1277,7 +1284,7 @@ function vFootballSquadre(){
     h+=`<tr class="click" onclick="apriSquadra('${esc(x.nome).replace(/'/g,"\\'")}')">
       <td><span class="pos">${i+1}</span><span class="nome">${esc(x.sq.nomeCompleto||x.nome)}</span>${
         (x.sq.division||x.conferenza)
-          ? `<span style="display:block;font-size:8px;color:${MUTED}">${esc(x.sq.division||x.conferenza)}</span>`
+          ? `<span class="fb-mini">${esc(x.sq.division||x.conferenza)}</span>`
           : ""}</td>
       <td>${n(x.partite)}</td>
       <td class="big">${n(x.vittorie)}</td>
@@ -1350,7 +1357,7 @@ function vFootballPartite(){
     </div>`;
 
   if(!sue.length){
-    return h+`<div class="empty"><div style="font-size:10px;color:${MUTED};line-height:1.8">
+    return h+`<div class="empty"><div class="fb-note">
       Nessuna partita in questa stagione.</div></div>`;
   }
 
@@ -1629,7 +1636,7 @@ function vSquadraFootball(){
 
   <div class="conf">
     <span class="conf-lab">DIFFERENZA PUNTI COMPLESSIVA</span>
-    <span class="conf-val" style="color:${s.differenza<0?ROSSO:FLUO}">${seg(s.differenza)}</span>
+    <span class="conf-val" style="color:${s.differenza<0?"var(--rosso)":"var(--acc)"}">${seg(s.differenza)}</span>
   </div>
 
   <div class="titolo"><i></i><span>STAGIONE PER STAGIONE</span></div>
@@ -1642,7 +1649,7 @@ function vSquadraFootball(){
   (s.perStagione||[]).forEach(x=>{
     h+=`<tr>
       <td><span class="nome">${esc(x.stagione)}</span>${
-        x.conferenza?`<span style="display:block;font-size:8px;color:${MUTED}">${esc(x.conferenza)}</span>`:""}</td>
+        x.conferenza?`<span class="fb-mini">${esc(x.conferenza)}</span>`:""}</td>
       <td>${n(x.partite)}</td>
       <td class="big">${n(x.vittorie)}</td>
       <td>${n(x.sconfitte)}</td>
