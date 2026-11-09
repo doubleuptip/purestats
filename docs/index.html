@@ -357,6 +357,34 @@
   .fb-pl .m{display:block;font-size:14px;color:var(--fb-muted);margin-top:3px;line-height:1.5}
   .fb-note{font-size:14px;color:var(--fb-muted);line-height:1.6;margin-top:10px}
 
+
+  .fb-cella-sq{display:inline-flex;align-items:center;gap:10px}
+  .fb-sq-sx,.fb-sq-dx{display:inline-flex;align-items:center;gap:8px;min-width:0}
+  .fb-sq-dx{justify-content:flex-end;text-align:right}
+  .fb-logo.xl{width:72px;height:72px}
+  @media (max-width:900px){ .fb-logo{width:36px;height:36px} .fb-badge{width:36px;height:36px} .fb-logo.s,.fb-badge.s{width:28px;height:28px} }
+  @media (max-width:640px){
+    .fb-logo.s,.fb-badge.s{width:24px;height:24px;font-size:10px}
+    .fb-logo.xl{width:56px;height:56px}
+    .fb-cella-sq{gap:7px}
+    body.fb .fb-stagioni th:nth-child(2),body.fb .fb-stagioni td:nth-child(2),
+    body.fb .fb-stagioni th:nth-child(5),body.fb .fb-stagioni td:nth-child(5){display:none}
+    body.fb .fb-stagioni td,body.fb .fb-stagioni th{padding:10px 5px;font-size:15px}
+  }
+
+  body.fb .gara-squadre .fb-badge,body.fb .gara-squadre .fb-logo{flex:none;width:28px;height:28px;min-width:28px;font-size:11px;padding:0;border-radius:50%}
+  body.fb .gara-squadre .fb-logo{border-radius:0}
+  body.fb .gara-squadre{gap:10px}
+  body.fb .gara-squadre .vs{font-family:var(--fb-head);font-size:22px;font-weight:800;color:var(--fb-text);flex:none}
+  body.fb .gara-squadre .fb-sq-sx,body.fb .gara-squadre .fb-sq-dx{display:flex;align-items:center;gap:8px;min-width:0}
+  body.fb .gara-squadre .fb-sq-dx{justify-content:flex-end}
+  body.fb .fb-cella-sq{max-width:100%;min-width:0}
+  body.fb .fb-cella-sq>span:last-child{min-width:0;overflow:hidden}
+  @media (max-width:640px){
+    body.fb .gara-squadre .fb-badge,body.fb .gara-squadre .fb-logo{width:24px;height:24px;min-width:24px;font-size:10px}
+    body.fb .fb-classifica .nome.corto{font-size:15px;display:inline-block;max-width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
+    body.fb .fb-classifica thead th{white-space:nowrap}
+  }
   /* ---- telefono ---- */
   .fb-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   body.fb .nome{word-break:normal;overflow-wrap:normal}
@@ -372,7 +400,9 @@
     body.fb .fb-classifica th:nth-child(2),body.fb .fb-classifica td:nth-child(2),
     body.fb .fb-classifica th:nth-child(5),body.fb .fb-classifica td:nth-child(5),
     body.fb .fb-classifica th:nth-child(9),body.fb .fb-classifica td:nth-child(9){display:none}
-    body.fb .fb-classifica td,body.fb .fb-classifica th{padding:10px 5px;font-size:15px}
+    body.fb .fb-classifica td,body.fb .fb-classifica th{padding:10px 3px;font-size:14px}
+    body.fb .fb-classifica td:first-child{padding-left:4px}
+    body.fb .fb-classifica .pos{font-size:12px;min-width:16px}
     body.fb .fb-classifica td:first-child{white-space:nowrap}
     body.fb .titolo span{font-size:26px}
     body.fb .kpi b,body.fb .dato b{font-size:26px}
@@ -1315,10 +1345,10 @@ function vFootballSquadre(){
 
   lista.forEach((x,i)=>{
     h+=`<tr class="click" onclick="apriSquadra('${esc(x.nome).replace(/'/g,"\\'")}')">
-      <td><span class="pos">${i+1}</span><span class="nome lungo">${esc(x.sq.nomeCompleto||x.nome)}</span><span class="nome corto">${esc(breve(x.nome))}</span>${
+      <td><span class="fb-cella-sq"><span class="pos">${i+1}</span>${stemma(x.nome,true)}<span><span class="nome lungo">${esc(x.sq.nomeCompleto||x.nome)}</span><span class="nome corto">${esc(breve(x.nome))}</span>${
         (x.sq.division||x.conferenza)
           ? `<span class="fb-mini">${esc(x.sq.division||x.conferenza)}</span>`
-          : ""}</td>
+          : ""}</span></span></td>
       <td>${n(x.partite)}</td>
       <td class="big">${n(x.vittorie)}</td>
       <td>${n(x.sconfitte)}</td>
@@ -1434,9 +1464,9 @@ function vFootballPartite(){
 
       h += `<div class="gara">
         <div class="gara-squadre">
-          <span>${esc(nomeSquadra(p.ospite))}</span>
+          <span class="fb-sq-sx">${stemma(p.ospite,true)}<span class="nome lungo">${esc(nomeSquadra(p.ospite))}</span><span class="nome corto">${esc(breve(p.ospite))}</span></span>
           <span class="vs">${disputata?`${p.po}\u2013${p.pc}`:"@"}</span>
-          <span style="text-align:right">${esc(nomeSquadra(p.casa))}</span>
+          <span class="fb-sq-dx"><span class="nome lungo">${esc(nomeSquadra(p.casa))}</span><span class="nome corto">${esc(breve(p.casa))}</span>${stemma(p.casa,true)}</span>
         </div>
         <div class="gara-arb">${esc(dataBreve(p.data))}${p.stadio?" · "+esc(p.stadio):""}</div>
         ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
@@ -1682,7 +1712,7 @@ function vSquadraFootball(){
 
   <div class="scheda-top">
     <div class="scheda-testa">
-      ${avatar(s.nomeCompleto||s.nome, 54)}
+      ${((D.loghi||{})[s.nome]||{}).logo ? stemma(s.nome).replace('class="fb-logo"','class="fb-logo xl"') : avatar(s.nomeCompleto||s.nome, 54)}
       <div>
         <div class="scheda-nome">${esc(s.nomeCompleto||s.nome)}</div>
         <div class="scheda-meta">${s.division||s.conference||""} · ${pos}° per percentuale vittorie</div>
@@ -1704,7 +1734,7 @@ function vSquadraFootball(){
 
   <div class="titolo"><i></i><span>STAGIONE PER STAGIONE</span></div>
   <div class="titolo-sub">CASA e FUORI = vittorie sulle partite giocate</div>
-  <table class="tab"><thead><tr>
+  <div class="fb-scroll"><table class="tab fb-stagioni"><thead><tr>
     <th>Stagione</th><th>PG</th><th>V</th><th>S</th><th>%</th>
     <th>PF</th><th>PS</th><th>CASA</th><th>FUORI</th>
   </tr></thead><tbody>`;
@@ -1723,7 +1753,7 @@ function vSquadraFootball(){
       <td>${x.vittorieFuori!==null&&x.vittorieFuori!==undefined?`${x.vittorieFuori}/${x.partiteFuori}`:"—"}</td>
     </tr>`;
   });
-  return h+`</tbody></table>`;
+  return h+`</tbody></table></div>`;
 }
 
 /* ================= A-LEAGUE ================= */
