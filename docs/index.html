@@ -327,6 +327,12 @@
   .fb-chips{display:flex;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:1px solid var(--fb-border)}
   .fb-chip{font-size:14px;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--fb-chip);color:var(--fb-chiptext)}
   .fb-chip.ok{background:var(--fb-okbg);color:var(--fb-ok)}
+  .fb-video{position:relative;display:block;width:100%;padding:0;border:0;border-radius:10px;overflow:hidden;cursor:pointer;background:#000;aspect-ratio:16/9}
+  .fb-video img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+  .fb-video .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--fb-acc);color:var(--fb-acc-text);display:flex;align-items:center;justify-content:center}
+  .fb-video .tit{position:absolute;left:12px;bottom:10px;color:#fff;font-size:14px;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+  .fb-video-box{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000}
+  .fb-video-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .fb-mom{border-top:1px solid var(--fb-border);padding-top:8px}
   .fb-mom summary{cursor:pointer;font-size:15px;font-weight:600;color:var(--fb-text);min-height:36px;display:flex;align-items:center}
   .fb-mom ol{margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:10px}
@@ -1475,24 +1481,61 @@ function schedaRisultato(g){
       ? `<span class="fb-chip">Totale ${numIt(g.totaleLinea)} · ${g.totaleEsito.toUpperCase()} (${g.pc+g.po})</span>`
       : `<span class="fb-chip">Totale ${numIt(g.totaleLinea)}</span>`;
   }
+  // video ufficiale trovato: anteprima che diventa il lettore al tocco (si carica solo se lo si guarda)
+  const vid = g.video && /^[A-Za-z0-9_-]{6,20}$/.test(g.video.id||"") ? g.video.id : "";
+  if(vid){
+    return `<article class="fb-game">
+    <div class="fb-when">${esc(giornoIt(g.data))}${g.ora?" · "+esc(g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
+    ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
+    ${chips?`<div class="fb-chips">${chips}</div>`:""}
+    <button class="fb-video" type="button" data-video="${vid}" onclick="apriVideo(this)" aria-label="Guarda gli highlights: ${esc(g.video.titolo||"")}">
+      <img src="https://i.ytimg.com/vi/${vid}/hqdefault.jpg" alt="" loading="lazy">
+      <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></span>
+      <span class="tit">Highlights ufficiali NFL</span>
+    </button>
+    ${momenti(g)}
+  </article>`;
+  }
   const hl = g.highlights && /^https:\/\/www\.youtube\.com\//.test(g.highlights)
     ? `<a class="fb-hl" href="${esc(g.highlights)}" target="_blank" rel="noopener">
          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
          Cerca il video degli highlights</a>` : "";
-  // momenti decisivi: le azioni che hanno spostato di più la probabilità di vittoria (dall'azione per azione)
-  const mom = (g.momenti||[]).length ? `<details class="fb-mom"><summary>Momenti decisivi (${g.momenti.length})</summary>
-    <ol>${g.momenti.map(m=>{
-      const casa=breve(g.casa);
-      const freccia = m.casaDopo>m.casaPrima ? "▲" : "▼";
-      return `<li><span class="q">${esc(m.quarto)}° quarto · ${esc(m.tempo)} · ${esc(m.squadra||"")}${m.touchdown?" · TOUCHDOWN":""}</span>
-        ${esc(m.descrizione)}
-        <span class="wp">Probabilità di vittoria ${esc(casa)}: ${m.casaPrima}% ${freccia} ${m.casaDopo}%</span></li>`;}).join("")}</ol></details>` : "";
+  const mom = momenti(g);
   return `<article class="fb-game">
     <div class="fb-when">${esc(giornoIt(g.data))}${g.ora?" · "+esc(g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${chips?`<div class="fb-chips">${chips}</div>`:""}
     ${mom}${hl}
   </article>`;
+}
+
+/* momenti decisivi: le azioni che hanno spostato di più la probabilità di vittoria (dall'azione per azione) */
+function momenti(g){
+  return (g.momenti||[]).length ? `<details class="fb-mom"><summary>Momenti decisivi (${g.momenti.length})</summary>
+    <ol>${g.momenti.map(m=>{
+      const casa=breve(g.casa);
+      const freccia = m.casaDopo>m.casaPrima ? "▲" : "▼";
+      return `<li><span class="q">${esc(m.quarto)}° quarto · ${esc(m.tempo)} · ${esc(m.squadra||"")}${m.touchdown?" · TOUCHDOWN":""}</span>
+        ${esc(m.descrizione)}
+        <span class="wp">Probabilità di vittoria ${esc(casa)}: ${m.casaPrima}% ${freccia} ${m.casaDopo}%</span></li>`;}).join("")}</ol></details>` : "";
+}
+
+/* Al tocco l'anteprima diventa il lettore YouTube (dominio senza cookie di profilazione) */
+function apriVideo(b){
+  const id=b.getAttribute("data-video");
+  if(!/^[A-Za-z0-9_-]{6,20}$/.test(id||"")) return;
+  const box=document.createElement("div");
+  box.className="fb-video-box";
+  const f=document.createElement("iframe");
+  f.src="https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0";
+  f.title="Highlights ufficiali NFL";
+  f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
+  f.allowFullscreen=true;
+  box.appendChild(f);
+  const a=document.createElement("a");
+  a.href="https://www.youtube.com/watch?v="+id; a.target="_blank"; a.rel="noopener";
+  a.className="fb-hl"; a.textContent="Non parte? Aprilo su YouTube";
+  b.replaceWith(box); box.after(a);
 }
 
 function listaLeader(titolo, lista){

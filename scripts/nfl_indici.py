@@ -326,6 +326,11 @@ def calcola(info=None):
                 g["highlights"] = link_highlights((info.get(g["ospite"]) or {}).get("nomeCompleto", g["ospite"]),
                                                   (info.get(g["casa"]) or {}).get("nomeCompleto", g["casa"]),
                                                   g["data"])
+    if giorn:
+        try:
+            video_ufficiali(giorn, info)
+        except Exception as e:      # i video non devono mai bloccare il resto
+            print(f"  Video non cercati: {type(e).__name__}: {e}")
     if prossima:
         try:
             duelli, giovani = anteprima(prossima, prossima["stagione"])
@@ -510,3 +515,76 @@ def anteprima(prossima, stagione):
     giovani["RB"].sort(key=lambda p: -(p["mediaStagione"] or 0))
     giovani["RIC"].sort(key=lambda p: -(p["mediaStagione"] or 0))
     return duelli, {k: v[:5] for k, v in giovani.items()}
+
+
+# ------------------------------------------------------------------ video ufficiali (YouTube)
+import json as _json
+import os as _os
+from pathlib import Path as _Path
+
+CANALE_NFL = "UCDVYQ4Zhbm3S2dlz7P1GBDg"      # canale YouTube ufficiale della NFL
+ARCHIVIO_VIDEO = _Path(__file__).resolve().parent.parent / "data" / "nfl_video.json"
+MAX_RICERCHE = 20                            # 100 unità l'una: 2.000 delle 10.000 giornaliere gratuite
+
+
+def video_ufficiali(giornata, info):
+    """Per ogni partita giocata, il video degli highlights sul canale ufficiale NFL.
+    Una ricerca per partita, poi resta in archivio: le partite già trovate non costano più nulla.
+    Senza chiave (secret YOUTUBE_API_KEY) non fa nulla e resta il link di ricerca."""
+    chiave = _os.environ.get("YOUTUBE_API_KEY", "").strip()
+    archivio = {}
+    if ARCHIVIO_VIDEO.exists():
+        try:
+            archivio = _json.loads(ARCHIVIO_VIDEO.read_text(encoding="utf-8"))
+        except _json.JSONDecodeError:
+            archivio = {}
+    fatte = 0
+    from datetime import datetime as _dt, timedelta as _td, timezone as _tz
+    from urllib.parse import urlencode
+    adesso = _dt.now(_tz.utc)
+    for g in giornata["partite"]:
+        if g["pc"] is None:
+            continue
+        gid = f"{giornata['stagione']}_{int(giornata['settimana']):02d}_{g['ospite']}_{g['casa']}"
+        voce = archivio.get(gid)
+        if voce and voce.get("id"):
+            g["video"] = voce
+            continue
+        if not chiave or fatte >= MAX_RICERCHE:
+            continue
+        # se una ricerca non ha trovato nulla si riprova dopo 6 ore (il video esce qualche ora dopo la partita)
+        if voce and voce.get("cercato") and adesso - _dt.fromisoformat(voce["cercato"]) < _td(hours=6):
+            continue
+        osp = (info.get(g["ospite"]) or {}).get("breve") or g["ospite"]
+        casa = (info.get(g["casa"]) or {}).get("breve") or g["casa"]
+        params = {"part": "snippet", "channelId": CANALE_NFL, "type": "video", "maxResults": 5, "order": "relevance",
+                  "q": f"{osp} vs. {casa} highlights", "publishedAfter": f"{g['data']}T00:00:00Z", "key": chiave}
+        fatte += 1
+        try:
+            with urlopen(Request("https://www.googleapis.com/youtube/v3/search?" + urlencode(params),
+                                 headers={"User-Agent": UA}), timeout=30) as r:
+                risultati = _json.loads(r.read().decode()).get("items") or []
+        except (HTTPError, URLError, TimeoutError) as e:
+            print(f"  Video {gid}: ricerca non riuscita ({e}); resta il link di ricerca")
+            continue
+        scelto = None
+        for it in risultati:
+            titolo = (it.get("snippet") or {}).get("title") or ""
+            t = titolo.lower()
+            # deve nominare entrambe le squadre ed essere un video di highlights, non un'intervista
+            if osp.lower() in t and casa.lower() in t and "highlight" in t:
+                scelto = {"id": (it.get("id") or {}).get("videoId"), "titolo": titolo}
+                break
+        if scelto and scelto["id"]:
+            archivio[gid] = scelto
+            g["video"] = scelto
+            print(f"  Video {gid}: {scelto['titolo']}")
+        else:
+            archivio[gid] = {"cercato": adesso.isoformat()}
+            print(f"  Video {gid}: non ancora pubblicato o titolo non riconosciuto; riprovo più tardi")
+    ARCHIVIO_VIDEO.parent.mkdir(parents=True, exist_ok=True)
+    tmp = ARCHIVIO_VIDEO.with_suffix(".tmp")
+    tmp.write_text(_json.dumps(archivio, ensure_ascii=False, indent=0), encoding="utf-8")
+    _os.replace(tmp, ARCHIVIO_VIDEO)
+    if fatte:
+        print(f"  Ricerche YouTube in questo aggiornamento: {fatte} (circa {fatte * 100} unità su 10.000 al giorno)")
