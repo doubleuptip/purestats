@@ -589,6 +589,7 @@ def video_ufficiali(giornata, info):
             print(f"  Video {gid}: non ancora pubblicato o titolo non riconosciuto; riprovo più tardi")
     # clip delle singole giocate: solo touchdown, una ricerca per giocata, poi in archivio
     clip_fatte = 0
+    usati = {v["id"] for k, v in archivio.items() if "|" in k and v.get("id")}
     for g in giornata["partite"]:
         gid = f"{giornata['stagione']}_{int(giornata['settimana']):02d}_{g['ospite']}_{g['casa']}"
         for m in g.get("momenti") or []:
@@ -606,7 +607,7 @@ def video_ufficiali(giornata, info):
             yard = int(m["yard"]) if m.get("yard") is not None else None
             fine = (_dt.fromisoformat(g["data"]) + _td(days=4)).strftime("%Y-%m-%dT00:00:00Z")
             params = {"part": "snippet", "channelId": CANALE_NFL, "type": "video", "maxResults": 5,
-                      "q": f"{autore} {yard}-yard touchdown" if yard else f"{autore} touchdown",
+                      "q": f"{autore} touchdown",
                       "publishedAfter": f"{g['data']}T00:00:00Z", "publishedBefore": fine, "key": chiave}
             clip_fatte += 1
             try:
@@ -616,16 +617,23 @@ def video_ufficiali(giornata, info):
             except (HTTPError, URLError, TimeoutError) as e:
                 print(f"  Clip {chiave_m}: ricerca non riuscita ({e})")
                 continue
-            scelto = None
+            # I titoli delle clip NFL sono informali ("CJ Stroud to Xavier Hutchinson for the TD",
+            # "Tank Dell down the sideline"): basta che nominino chi ha segnato, purché non siano
+            # raccolte (highlights della partita, migliori giocate, ogni lancio...). Tra le valide si
+            # preferisce quella che parla di touchdown; una clip non si assegna a due momenti.
+            raccolte = ("game highlights", "best plays", "top plays", "every throw", "every catch", "every run",
+                        "highlights", " vs ", " vs. ", "week ")
+            validi = []
             for it in risultati:
                 titolo = (it.get("snippet") or {}).get("title") or ""
-                t = titolo.lower()
-                # il titolo deve nominare chi ha segnato e le yard (o almeno "TD"/"touchdown"),
-                # e non essere il video intero della partita
-                if (autore.lower() in t and ("touchdown" in t or " td" in t)
-                        and (yard is None or str(yard) in t) and "game highlights" not in t):
-                    scelto = {"id": (it.get("id") or {}).get("videoId"), "titolo": titolo}
-                    break
+                t = " " + titolo.lower().replace("&#39;", "'") + " "
+                vid = (it.get("id") or {}).get("videoId")
+                if autore.lower() in t and not any(x in t for x in raccolte) and vid and vid not in usati:
+                    segna = any(x in t for x in (" td", "touchdown", "pick-6", "pick 6", "score", "to the house"))
+                    validi.append((0 if segna else 1, {"id": vid, "titolo": titolo}))
+            scelto = sorted(validi, key=lambda x: x[0])[0][1] if validi else None
+            if scelto:
+                usati.add(scelto["id"])
             if scelto and scelto["id"]:
                 archivio[chiave_m] = scelto
                 m["clip"] = scelto
