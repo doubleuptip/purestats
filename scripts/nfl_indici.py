@@ -632,6 +632,8 @@ def video_ufficiali(giornata, info):
                 print(f"  Clip {chiave_m}: {scelto['titolo']}")
             else:
                 archivio[chiave_m] = {"cercato": adesso.isoformat()}
+                vicini = " | ".join(((it.get("snippet") or {}).get("title") or "")[:70] for it in risultati[:3])
+                print(f"  Clip {chiave_m} ({params['q']}): nessuna corrispondenza. Primi risultati: {vicini or 'nessuno'}")
     if clip_fatte:
         print(f"  Ricerche clip dei touchdown: {clip_fatte}")
 
