@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-09T13:01:49.631867+00:00",
+  "aggiornato": "2026-11-09T13:35:07.596154+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -137412,16 +137412,18 @@
         "scartoLinea": 14.5,
         "stadio": "M&T Bank Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Jacksonville+Jaguars+vs.+Baltimore+Ravens+highlights+November+5%2C+2026+NFL",
-        "video": {
-          "id": "TRUoUtxPZIU",
-          "titolo": "Jacksonville Jaguars vs Baltimore Ravens Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "14:17",
             "squadra": "JAX",
             "descrizione": "16-T.Lawrence pass deep right to 87-N.Boerkircher to BAL 21 for 52 yards (44-M.Humphrey).",
+            "testo": "Lawrence lancia lungo a destra per Boerkircher, 52 yard",
+            "chi": [
+              "Lawrence",
+              "Boerkircher"
+            ],
+            "yard": 52.0,
             "touchdown": false,
             "casaPrima": 58,
             "casaDopo": 44
@@ -137431,6 +137433,12 @@
             "tempo": "12:44",
             "squadra": "JAX",
             "descrizione": "16-T.Lawrence pass short left to 3-J.Meyers pushed ob at BAL 1 for 16 yards (3-C.Awuzie).",
+            "testo": "Lawrence lancia corto a sinistra per Meyers, 16 yard",
+            "chi": [
+              "Lawrence",
+              "Meyers"
+            ],
+            "yard": 16.0,
             "touchdown": false,
             "casaPrima": 45,
             "casaDopo": 38
@@ -137440,6 +137448,12 @@
             "tempo": "08:03",
             "squadra": "JAX",
             "descrizione": "16-T.Lawrence pass short middle to 3-J.Meyers to JAX 21 for 14 yards (25-K.Wallace).",
+            "testo": "Lawrence lancia corto al centro per Meyers, 14 yard",
+            "chi": [
+              "Lawrence",
+              "Meyers"
+            ],
+            "yard": 14.0,
             "touchdown": false,
             "casaPrima": 39,
             "casaDopo": 34
@@ -137449,6 +137463,11 @@
             "tempo": "04:37",
             "squadra": "BAL",
             "descrizione": "76-C.Vinson reported in as eligible. 22-D.Henry right end to BAL 33 for 4 yards (25-R.Lane).",
+            "testo": "Henry corre sull'esterno destro, 4 yard",
+            "chi": [
+              "Henry"
+            ],
+            "yard": 4.0,
             "touchdown": false,
             "casaPrima": 30,
             "casaDopo": 37
@@ -137458,11 +137477,21 @@
             "tempo": "01:06",
             "squadra": "JAX",
             "descrizione": "16-T.Lawrence pass deep left to 11-P.Washington for 50 yards, TOUCHDOWN.",
+            "testo": "Lawrence lancia lungo a sinistra per Washington, 50 yard: touchdown",
+            "chi": [
+              "Lawrence",
+              "Washington"
+            ],
+            "yard": 50.0,
             "touchdown": true,
             "casaPrima": 27,
             "casaDopo": 16
           }
-        ]
+        ],
+        "video": {
+          "id": "TRUoUtxPZIU",
+          "titolo": "Jacksonville Jaguars vs Baltimore Ravens Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -137479,16 +137508,17 @@
         "scartoLinea": 14.0,
         "stadio": "Bernabeu",
         "highlights": "https://www.youtube.com/results?search_query=Cincinnati+Bengals+vs.+Atlanta+Falcons+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "IFMku2Sz3bA",
-          "titolo": "Cincinnati Bengals vs. Atlanta Falcons Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "12:31",
             "squadra": "ATL",
             "descrizione": "7-B.Robinson left end to CIN 19 for 21 yards (99-M.Murphy; 49-B.Carter).",
+            "testo": "Robinson corre sull'esterno sinistro, 21 yard",
+            "chi": [
+              "Robinson"
+            ],
+            "yard": 21.0,
             "touchdown": false,
             "casaPrima": 61,
             "casaDopo": 66
@@ -137498,6 +137528,12 @@
             "tempo": "08:55",
             "squadra": "CIN",
             "descrizione": "9-J.Burrow pass deep right to 1-J.Chase for 47 yards, TOUCHDOWN.",
+            "testo": "Burrow lancia lungo a destra per Chase, 47 yard: touchdown",
+            "chi": [
+              "Burrow",
+              "Chase"
+            ],
+            "yard": 47.0,
             "touchdown": true,
             "casaPrima": 68,
             "casaDopo": 55
@@ -137507,6 +137543,11 @@
             "tempo": "07:14",
             "squadra": "ATL",
             "descrizione": "9-M.Penix scrambles left tackle to CIN 17 for 23 yards (0-D.Turner).",
+            "testo": "Penix esce dalla tasca e corre a sinistra, 23 yard",
+            "chi": [
+              "Penix"
+            ],
+            "yard": 23.0,
             "touchdown": false,
             "casaPrima": 58,
             "casaDopo": 66
@@ -137516,6 +137557,12 @@
             "tempo": "00:42",
             "squadra": "CIN",
             "descrizione": "(:42) 9-J.Burrow pass short middle to 1-J.Chase to ATL 41 for 13 yards (53-K.Daniels).",
+            "testo": "Burrow lancia corto al centro per Chase, 13 yard",
+            "chi": [
+              "Burrow",
+              "Chase"
+            ],
+            "yard": 13.0,
             "touchdown": false,
             "casaPrima": 57,
             "casaDopo": 50
@@ -137525,11 +137572,21 @@
             "tempo": "10:46",
             "squadra": "CIN",
             "descrizione": "9-J.Burrow pass short right to 1-J.Chase pushed ob at CIN 43 for 31 yards (3-J.Bates).",
+            "testo": "Burrow lancia corto a destra per Chase, 31 yard",
+            "chi": [
+              "Burrow",
+              "Chase"
+            ],
+            "yard": 31.0,
             "touchdown": false,
             "casaPrima": 37,
             "casaDopo": 31
           }
-        ]
+        ],
+        "video": {
+          "id": "IFMku2Sz3bA",
+          "titolo": "Cincinnati Bengals vs. Atlanta Falcons Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -137546,16 +137603,18 @@
         "scartoLinea": 2.0,
         "stadio": "Bank of America Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Denver+Broncos+vs.+Carolina+Panthers+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "owBZ7u9L6B8",
-          "titolo": "Denver Broncos vs. Carolina Panthers Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "2",
             "tempo": "07:38",
             "squadra": "DEN",
             "descrizione": "10-B.Nix pass short right intended for 14-C.Sutton INTERCEPTED by 31-C.Thornton at CAR 5. 31-C.Thornton to CAR 14 for 9 yards (77-Q.Meinerz).",
+            "testo": "Nix intercettato da Thornton",
+            "chi": [
+              "Nix",
+              "Thornton"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 15,
             "casaDopo": 26
@@ -137565,6 +137624,12 @@
             "tempo": "11:36",
             "squadra": "CAR",
             "descrizione": "9-B.Young pass short middle to 88-D.Waller for 15 yards, TOUCHDOWN.",
+            "testo": "Young lancia corto al centro per Waller, 15 yard: touchdown",
+            "chi": [
+              "Young",
+              "Waller"
+            ],
+            "yard": 15.0,
             "touchdown": true,
             "casaPrima": 40,
             "casaDopo": 55
@@ -137574,6 +137639,11 @@
             "tempo": "01:35",
             "squadra": "CAR",
             "descrizione": "73-S.Forsythe reported in as eligible. 9-B.Young pass incomplete short left to 82-T.Tremble (40-J.Strnad). Denver challenged the incomplete pass ruling, and the play was REVERSED. 73-S.Forsythe reported in as eligible. 9",
+            "testo": "Young: lancio corto a sinistra per Tremble incompleto",
+            "chi": [
+              "Young"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 81,
             "casaDopo": 56
@@ -137583,6 +137653,11 @@
             "tempo": "02:00",
             "squadra": "DEN",
             "descrizione": "16-J.Crawshaw punts 51 yards to CAR 35, Center-48-M.Fraboni. 23-T.Etienne to CAR 44 for 9 yards (45-N.Adkins).",
+            "testo": "Crawshaw calcia un punt da 51 yard",
+            "chi": [
+              "Crawshaw"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 17,
             "casaDopo": 29
@@ -137592,11 +137667,20 @@
             "tempo": "01:24",
             "squadra": "CAR",
             "descrizione": "9-B.Young sacked at DEN 44 for -8 yards (15-N.Bonitto). FUMBLES (15-N.Bonitto) [15-N.Bonitto], RECOVERED by DEN-15-N.Bonitto at DEN 44. The Replay Official reviewed the fumble ruling, and the play was Upheld. The ruling ",
+            "testo": "Young subisce un sack, -8 yard (perdita), fumble, recuperato da Bonitto (DEN)",
+            "chi": [
+              "Young"
+            ],
+            "yard": -8.0,
             "touchdown": false,
             "casaPrima": 35,
             "casaDopo": 3
           }
-        ]
+        ],
+        "video": {
+          "id": "owBZ7u9L6B8",
+          "titolo": "Denver Broncos vs. Carolina Panthers Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -137613,16 +137697,18 @@
         "scartoLinea": 0.5,
         "stadio": "Lucas Oil Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Dallas+Cowboys+vs.+Indianapolis+Colts+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "Wb-pcRK-LH8",
-          "titolo": "Dallas Cowboys vs. Indianapolis Colts Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "3",
             "tempo": "01:27",
             "squadra": "IND",
             "descrizione": "17-D.Jones pass short left to 16-A.Dulin for 55 yards, TOUCHDOWN.",
+            "testo": "Jones lancia corto a sinistra per Dulin, 55 yard: touchdown",
+            "chi": [
+              "Jones",
+              "Dulin"
+            ],
+            "yard": 55.0,
             "touchdown": true,
             "casaPrima": 19,
             "casaDopo": 35
@@ -137632,6 +137718,11 @@
             "tempo": "09:55",
             "squadra": "IND",
             "descrizione": "28-J.Taylor up the middle to DAL 20 for -2 yards (92-Q.Williams). FUMBLES (92-Q.Williams), RECOVERED by DAL-50-S.James at DAL 19. 50-S.James to DAL 30 for 11 yards (17-D.Jones). PENALTY on DAL, Unsportsmanlike Conduct, 1",
+            "testo": "Taylor corre centralmente, -2 yard (perdita), fumble, recuperato da James (DAL)",
+            "chi": [
+              "Taylor"
+            ],
+            "yard": -1.0,
             "touchdown": false,
             "casaPrima": 59,
             "casaDopo": 31
@@ -137641,6 +137732,11 @@
             "tempo": "06:01",
             "squadra": "IND",
             "descrizione": "3-S.Shrader 59 yard field goal is GOOD, Center-46-L.Rhodes, Holder-8-R.Sanchez.",
+            "testo": "Shrader: field goal da 59 yard riuscito",
+            "chi": [
+              "Shrader"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 38,
             "casaDopo": 53
@@ -137650,6 +137746,12 @@
             "tempo": "01:37",
             "squadra": "DAL",
             "descrizione": "4-D.Prescott pass deep right to 19-R.Flournoy to IND 19 for 46 yards (1-A.Gardner).",
+            "testo": "Prescott lancia lungo a destra per Flournoy, 46 yard",
+            "chi": [
+              "Prescott",
+              "Flournoy"
+            ],
+            "yard": 46.0,
             "touchdown": false,
             "casaPrima": 72,
             "casaDopo": 44
@@ -137659,11 +137761,20 @@
             "tempo": "01:03",
             "squadra": "IND",
             "descrizione": "17-D.Jones pass incomplete deep right. PENALTY on IND-17-D.Jones, Intentional Grounding, 12 yards, enforced at IND 26. 10-second runoff.",
+            "testo": "Jones: lancio lungo a destra incompleto",
+            "chi": [
+              "Jones"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 29,
             "casaDopo": 14
           }
-        ]
+        ],
+        "video": {
+          "id": "Wb-pcRK-LH8",
+          "titolo": "Dallas Cowboys vs. Indianapolis Colts Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -137680,16 +137791,17 @@
         "scartoLinea": 13.5,
         "stadio": "GEHA Field at Arrowhead Stadium",
         "highlights": "https://www.youtube.com/results?search_query=New+York+Jets+vs.+Kansas+City+Chiefs+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "wlsz9L78_o8",
-          "titolo": "New York Jets vs. Kansas City Chiefs Game Highlights | NFL 2026 Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "05:40",
             "squadra": "KC",
             "descrizione": "64-H.Nourzad reported in as eligible. 6-J.Fields up the middle to KC 34 for no gain (52-K.Enagbare). New York Jets challenged the runner was down by contact ruling, and the play was REVERSED. 64-H.Nourzad reported in as ",
+            "testo": "Fields corre centralmente, nessun guadagno, fumble, recuperato da Davis (NYJ)",
+            "chi": [
+              "Fields"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 52,
             "casaDopo": 38
@@ -137699,6 +137811,11 @@
             "tempo": "06:29",
             "squadra": "NYJ",
             "descrizione": "0-B.Allen up the middle to NYJ 26 for 5 yards (32-N.Bolton). FUMBLES (32-N.Bolton), RECOVERED by KC-17-A.Gilman at NYJ 26. 17-A.Gilman to NYJ 24 for 2 yards (7-G.Smith).",
+            "testo": "Allen corre centralmente, 5 yard, fumble, recuperato da Gilman (KC)",
+            "chi": [
+              "Allen"
+            ],
+            "yard": 5.0,
             "touchdown": false,
             "casaPrima": 45,
             "casaDopo": 67
@@ -137708,6 +137825,11 @@
             "tempo": "01:41",
             "squadra": "KC",
             "descrizione": "15-P.Mahomes sacked at KC 27 for -10 yards (31-D.Bailey). FUMBLES (31-D.Bailey) [31-D.Bailey], RECOVERED by NYJ-9-W.McDonald at KC 30. KC-15-P.Mahomes was injured during the play.",
+            "testo": "Mahomes subisce un sack, -10 yard (perdita), fumble, recuperato da McDonald (NYJ)",
+            "chi": [
+              "Mahomes"
+            ],
+            "yard": -7.0,
             "touchdown": false,
             "casaPrima": 73,
             "casaDopo": 52
@@ -137717,6 +137839,11 @@
             "tempo": "00:42",
             "squadra": "NYJ",
             "descrizione": "(:42) 7-G.Smith sacked at KC 35 for -9 yards (95-C.Jones).",
+            "testo": "Smith subisce un sack, -9 yard (perdita)",
+            "chi": [
+              "Smith"
+            ],
+            "yard": -9.0,
             "touchdown": false,
             "casaPrima": 52,
             "casaDopo": 62
@@ -137726,11 +137853,20 @@
             "tempo": "00:37",
             "squadra": "NYJ",
             "descrizione": "(:37) 19-J.Sanders 53 yard field goal is No Good, Wide Left, Center-42-T.Hennessy, Holder-14-A.McNamara.",
+            "testo": "Sanders: field goal da 53 yard sbagliato",
+            "chi": [
+              "Sanders"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 62,
             "casaDopo": 75
           }
-        ]
+        ],
+        "video": {
+          "id": "wlsz9L78_o8",
+          "titolo": "New York Jets vs. Kansas City Chiefs Game Highlights | NFL 2026 Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -137747,16 +137883,18 @@
         "scartoLinea": 3.5,
         "stadio": "Hard Rock Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Detroit+Lions+vs.+Miami+Dolphins+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "cfpgrM5JfsQ",
-          "titolo": "Detroit Lions vs. Miami Dolphins Game Highlights | NFL 2026 Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "13:48",
             "squadra": "DET",
             "descrizione": "16-J.Goff pass short middle to 14-A.St. Brown to MIA 38 for 16 yards (10-J.Rodriguez).",
+            "testo": "Goff lancia corto al centro per St, 16 yard",
+            "chi": [
+              "Goff",
+              "St"
+            ],
+            "yard": 16.0,
             "touchdown": false,
             "casaPrima": 57,
             "casaDopo": 47
@@ -137766,6 +137904,12 @@
             "tempo": "11:36",
             "squadra": "DET",
             "descrizione": "16-J.Goff pass short left to 18-I.TeSlaa to MIA 22 for 9 yards (9-J.Uche).",
+            "testo": "Goff lancia corto a sinistra per TeSlaa, 9 yard",
+            "chi": [
+              "Goff",
+              "TeSlaa"
+            ],
+            "yard": 9.0,
             "touchdown": false,
             "casaPrima": 55,
             "casaDopo": 44
@@ -137775,6 +137919,12 @@
             "tempo": "05:14",
             "squadra": "DET",
             "descrizione": "16-J.Goff pass short right intended for 14-A.St. Brown INTERCEPTED by 3-C.Johnson (9-J.Uche) [9-J.Uche] at MIA 40. 3-C.Johnson to DET 39 for 21 yards (14-A.St. Brown).",
+            "testo": "Goff intercettato da Johnson",
+            "chi": [
+              "Goff",
+              "Johnson"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 42,
             "casaDopo": 60
@@ -137784,6 +137934,12 @@
             "tempo": "07:13",
             "squadra": "MIA",
             "descrizione": "2-M.Willis pass short left to 7-C.Douglas pushed ob at DET 38 for 12 yards (36-C.Clark).",
+            "testo": "Willis lancia corto a sinistra per Douglas, 12 yard",
+            "chi": [
+              "Willis",
+              "Douglas"
+            ],
+            "yard": 12.0,
             "touchdown": false,
             "casaPrima": 28,
             "casaDopo": 39
@@ -137793,11 +137949,21 @@
             "tempo": "14:55",
             "squadra": "MIA",
             "descrizione": "(Punt formation) 48-B.Pinion pass short middle to 30-K.Allen to DET 18 for 46 yards (35-J.Bachie; 17-T.Martin).",
+            "testo": "Pinion lancia corto al centro per Allen, 46 yard",
+            "chi": [
+              "Pinion",
+              "Allen"
+            ],
+            "yard": 46.0,
             "touchdown": false,
             "casaPrima": 13,
             "casaDopo": 31
           }
-        ]
+        ],
+        "video": {
+          "id": "cfpgrM5JfsQ",
+          "titolo": "Detroit Lions vs. Miami Dolphins Game Highlights | NFL 2026 Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -137814,16 +137980,17 @@
         "scartoLinea": 3.5,
         "stadio": "Caesars Superdome",
         "highlights": "https://www.youtube.com/results?search_query=Cleveland+Browns+vs.+New+Orleans+Saints+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "yidVkmPmxcU",
-          "titolo": "Cleveland Browns vs. New Orleans Saints Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "2",
             "tempo": "04:12",
             "squadra": "CLE",
             "descrizione": "13-C.Bojorquez punts 57 yards to NO 23, Center-50-R.Sunahara. 19-B.Brown to NO 20 for -3 yards (98-A.Huntington). FUMBLES (98-A.Huntington), RECOVERED by CLE-31-D.McMillon at NO 19. ** Injury Update: CLE-34-M.Burton has ",
+            "testo": "Bojorquez calcia un punt da 57 yard, fumble, recuperato da McMillon (CLE)",
+            "chi": [
+              "Bojorquez"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 64,
             "casaDopo": 42
@@ -137833,6 +138000,12 @@
             "tempo": "05:33",
             "squadra": "CLE",
             "descrizione": "2-S.Sanders pass deep right to 1-K.Concepcion for 64 yards, TOUCHDOWN [55-K.Elliss].",
+            "testo": "Sanders lancia lungo a destra per Concepcion, 64 yard: touchdown",
+            "chi": [
+              "Sanders",
+              "Concepcion"
+            ],
+            "yard": 64.0,
             "touchdown": true,
             "casaPrima": 66,
             "casaDopo": 31
@@ -137842,6 +138015,11 @@
             "tempo": "00:12",
             "squadra": "CLE",
             "descrizione": "(:12) 25-A.Szmyt 51 yard field goal is GOOD, Center-50-R.Sunahara, Holder-13-C.Bojorquez.",
+            "testo": "Szmyt: field goal da 51 yard riuscito",
+            "chi": [
+              "Szmyt"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 79,
             "casaDopo": 56
@@ -137851,6 +138029,12 @@
             "tempo": "01:11",
             "squadra": "CLE",
             "descrizione": "2-S.Sanders pass short right to 44-H.Fannin for 39 yards, TOUCHDOWN [1-K.McKinstry].",
+            "testo": "Sanders lancia corto a destra per Fannin, 39 yard: touchdown",
+            "chi": [
+              "Sanders",
+              "Fannin"
+            ],
+            "yard": 39.0,
             "touchdown": true,
             "casaPrima": 87,
             "casaDopo": 53
@@ -137860,11 +138044,18 @@
             "tempo": "01:00",
             "squadra": "CLE",
             "descrizione": "TWO-POINT CONVERSION ATTEMPT. 2-S.Sanders pass to 12-D.Boston is incomplete. ATTEMPT FAILS. Penalty on CLE-71-T.Howard, Offensive Holding, declined.",
+            "testo": "Trasformazione da due punti fallita",
+            "chi": [],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 53,
             "casaDopo": 100
           }
-        ]
+        ],
+        "video": {
+          "id": "yidVkmPmxcU",
+          "titolo": "Cleveland Browns vs. New Orleans Saints Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -137881,16 +138072,18 @@
         "scartoLinea": 5.0,
         "stadio": "Lincoln Financial Field",
         "highlights": "https://www.youtube.com/results?search_query=New+York+Giants+vs.+Philadelphia+Eagles+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "znF3q5lZYC4",
-          "titolo": "New York Giants vs. Philadelphia Eagles Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "12:01",
             "squadra": "NYG",
             "descrizione": "18-J.McCarthy pass short left to 17-D.Mooney ran ob at PHI 33 for 17 yards.",
+            "testo": "McCarthy lancia corto a sinistra per Mooney, 17 yard",
+            "chi": [
+              "McCarthy",
+              "Mooney"
+            ],
+            "yard": 17.0,
             "touchdown": false,
             "casaPrima": 58,
             "casaDopo": 47
@@ -137900,6 +138093,11 @@
             "tempo": "14:21",
             "squadra": "PHI",
             "descrizione": "10-B.Mann punts 44 yards to NYG 42, Center-41-R.Underwood. 89-C.Jones MUFFS catch, RECOVERED by PHI-41-R.Underwood at NYG 47. Penalty on NYG-31-N.Jones, Offensive Holding, declined.",
+            "testo": "Mann calcia un punt da 44 yard",
+            "chi": [
+              "Mann"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 66,
             "casaDopo": 76
@@ -137909,6 +138107,11 @@
             "tempo": "13:37",
             "squadra": "PHI",
             "descrizione": "14-J.Milton sacked at 50 for -8 yards (52-A.Reese). FUMBLES (52-A.Reese) [52-A.Reese], RECOVERED by NYG-41-M.McFadden at 50.",
+            "testo": "Milton subisce un sack, -8 yard (perdita), fumble, recuperato da McFadden (NYG)",
+            "chi": [
+              "Milton"
+            ],
+            "yard": -8.0,
             "touchdown": false,
             "casaPrima": 73,
             "casaDopo": 58
@@ -137918,6 +138121,11 @@
             "tempo": "02:00",
             "squadra": "PHI",
             "descrizione": "26-S.Barkley up the middle to NYG 41 for -1 yards (8-J.Holland).",
+            "testo": "Barkley corre centralmente, -1 yard (perdita)",
+            "chi": [
+              "Barkley"
+            ],
+            "yard": -1.0,
             "touchdown": false,
             "casaPrima": 71,
             "casaDopo": 60
@@ -137927,11 +138135,21 @@
             "tempo": "04:57",
             "squadra": "NYG",
             "descrizione": "19-J.Winston pass deep right to 17-D.Mooney to PHI 19 for 27 yards (33-C.DeJean) [52-J.Greenard].",
+            "testo": "Winston lancia lungo a destra per Mooney, 27 yard",
+            "chi": [
+              "Winston",
+              "Mooney"
+            ],
+            "yard": 27.0,
             "touchdown": false,
             "casaPrima": 55,
             "casaDopo": 44
           }
-        ]
+        ],
+        "video": {
+          "id": "znF3q5lZYC4",
+          "titolo": "New York Giants vs. Philadelphia Eagles Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -137948,16 +138166,18 @@
         "scartoLinea": 2.5,
         "stadio": "Northwest Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Los+Angeles+Rams+vs.+Washington+Commanders+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "N9qwPsA9FI0",
-          "titolo": "Los Angeles Rams vs. Washington Commanders Game Highlights | NFL 2026 Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "2",
             "tempo": "02:46",
             "squadra": "LA",
             "descrizione": "9-M.Stafford pass short left to 12-P.Nacua to WAS 41 for no gain (45-K.Chaisson). FUMBLES (45-K.Chaisson), touched at WAS 42, RECOVERED by WAS-25-N.Cross at WAS 45. 25-N.Cross to LA 40 for 15 yards (71-W.McClendon).",
+            "testo": "Stafford lancia corto a sinistra per Nacua, 15 yard, fumble, recuperato da Cross (WAS)",
+            "chi": [
+              "Stafford",
+              "Nacua"
+            ],
+            "yard": -1.0,
             "touchdown": false,
             "casaPrima": 70,
             "casaDopo": 83
@@ -137967,6 +138187,11 @@
             "tempo": "02:20",
             "squadra": "WAS",
             "descrizione": "5-J.Daniels sacked at WAS 44 for -6 yards (95-M.Garrett). FUMBLES (95-M.Garrett), RECOVERED by LA-48-O.Speights at WAS 46. 48-O.Speights to WAS 45 for 1 yard (1-R.White).",
+            "testo": "Daniels subisce un sack, -6 yard (perdita), fumble, recuperato da Speights (LA)",
+            "chi": [
+              "Daniels"
+            ],
+            "yard": -4.0,
             "touchdown": false,
             "casaPrima": 80,
             "casaDopo": 67
@@ -137976,6 +138201,12 @@
             "tempo": "00:19",
             "squadra": "LA",
             "descrizione": "(:19) 9-M.Stafford pass deep right to 12-P.Nacua to WAS 17 for 19 yards (20-Q.Martin).",
+            "testo": "Stafford lancia lungo a destra per Nacua, 19 yard",
+            "chi": [
+              "Stafford",
+              "Nacua"
+            ],
+            "yard": 19.0,
             "touchdown": false,
             "casaPrima": 49,
             "casaDopo": 38
@@ -137985,6 +138216,12 @@
             "tempo": "12:57",
             "squadra": "LA",
             "descrizione": "9-M.Stafford pass short left to 12-P.Nacua for 7 yards, TOUCHDOWN.",
+            "testo": "Stafford lancia corto a sinistra per Nacua, 7 yard: touchdown",
+            "chi": [
+              "Stafford",
+              "Nacua"
+            ],
+            "yard": 7.0,
             "touchdown": true,
             "casaPrima": 36,
             "casaDopo": 19
@@ -137994,11 +138231,20 @@
             "tempo": "02:31",
             "squadra": "WAS",
             "descrizione": "5-J.Daniels sacked at 50 for -12 yards (95-M.Garrett).",
+            "testo": "Daniels subisce un sack, -12 yard (perdita)",
+            "chi": [
+              "Daniels"
+            ],
+            "yard": -12.0,
             "touchdown": false,
             "casaPrima": 18,
             "casaDopo": 7
           }
-        ]
+        ],
+        "video": {
+          "id": "N9qwPsA9FI0",
+          "titolo": "Los Angeles Rams vs. Washington Commanders Game Highlights | NFL 2026 Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -138015,16 +138261,18 @@
         "scartoLinea": 16.5,
         "stadio": "SoFi Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Houston+Texans+vs.+Los+Angeles+Chargers+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "04k2ARJ05UU",
-          "titolo": "Houston Texans vs. Los Angeles Chargers Game Highlights | NFL 2026 Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "10:21",
             "squadra": "HOU",
             "descrizione": "7-C.Stroud pass deep right to 19-X.Hutchinson for 17 yards, TOUCHDOWN.",
+            "testo": "Stroud lancia lungo a destra per Hutchinson, 17 yard: touchdown",
+            "chi": [
+              "Stroud",
+              "Hutchinson"
+            ],
+            "yard": 17.0,
             "touchdown": true,
             "casaPrima": 47,
             "casaDopo": 39
@@ -138034,6 +138282,11 @@
             "tempo": "03:21",
             "squadra": "HOU",
             "descrizione": "7-C.Stroud pass incomplete deep middle to 18-M.Harrison.",
+            "testo": "Stroud: lancio lungo al centro per Harrison incompleto",
+            "chi": [
+              "Stroud"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 37,
             "casaDopo": 43
@@ -138043,6 +138296,12 @@
             "tempo": "07:32",
             "squadra": "HOU",
             "descrizione": "7-C.Stroud pass short middle intended for 14-K.Boutte INTERCEPTED by 0-D.Henley (58-M.Wax) at LAC 44. 0-D.Henley to HOU 38 for 18 yards (86-D.Schultz).",
+            "testo": "Stroud intercettato da Henley",
+            "chi": [
+              "Stroud",
+              "Henley"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 39,
             "casaDopo": 55
@@ -138052,6 +138311,12 @@
             "tempo": "04:37",
             "squadra": "HOU",
             "descrizione": "7-C.Stroud pass deep right to 1-T.Dell for 63 yards, TOUCHDOWN.",
+            "testo": "Stroud lancia lungo a destra per Dell, 63 yard: touchdown",
+            "chi": [
+              "Stroud",
+              "Dell"
+            ],
+            "yard": 63.0,
             "touchdown": true,
             "casaPrima": 48,
             "casaDopo": 29
@@ -138061,11 +138326,21 @@
             "tempo": "00:43",
             "squadra": "HOU",
             "descrizione": "(:43) 7-C.Stroud pass deep right to 14-K.Boutte to LAC 12 for 35 yards (2-E.Molden). Penalty on LAC-4-T.Still, Illegal Contact, declined. Penalty on LAC-26-D.Jackson, Defensive Holding, declined.",
+            "testo": "Stroud lancia lungo a destra per Boutte, 35 yard",
+            "chi": [
+              "Stroud",
+              "Boutte"
+            ],
+            "yard": 35.0,
             "touchdown": false,
             "casaPrima": 21,
             "casaDopo": 15
           }
-        ]
+        ],
+        "video": {
+          "id": "04k2ARJ05UU",
+          "titolo": "Houston Texans vs. Los Angeles Chargers Game Highlights | NFL 2026 Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -138082,16 +138357,18 @@
         "scartoLinea": 12.5,
         "stadio": "Levi's Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Las+Vegas+Raiders+vs.+San+Francisco+49ers+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "sNQJenFh30k",
-          "titolo": "Las Vegas Raiders vs. San Francisco 49ers Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "13:26",
             "squadra": "SF",
             "descrizione": "13-B.Purdy pass short left to 85-G.Kittle to LV 41 for 4 yards (31-T.Stukes).",
+            "testo": "Purdy lancia corto a sinistra per Kittle, 4 yard",
+            "chi": [
+              "Purdy",
+              "Kittle"
+            ],
+            "yard": 4.0,
             "touchdown": false,
             "casaPrima": 51,
             "casaDopo": 60
@@ -138101,6 +138378,11 @@
             "tempo": "12:43",
             "squadra": "LV",
             "descrizione": "8-K.Cousins up the middle for 2 yards, TOUCHDOWN.",
+            "testo": "Cousins corre centralmente, 2 yard: touchdown",
+            "chi": [
+              "Cousins"
+            ],
+            "yard": 2.0,
             "touchdown": true,
             "casaPrima": 80,
             "casaDopo": 73
@@ -138110,6 +138392,9 @@
             "tempo": "14:54",
             "squadra": "LV",
             "descrizione": "8-K.Cousins to LV 24 for -6 yards. FUMBLES, and recovers at LV 23. 8-K.Cousins pass intended for 1-T.Tucker INTERCEPTED by 53-J.Dugger at LV 35. 53-J.Dugger for 35 yards, TOUCHDOWN.",
+            "testo": "K.Cousins to LV 24 for -6 yards. FUMBLES, and recovers at LV 23. K.Cousins pass intended for T.Tucker INTERCEPTED by J.Dugger at LV 35. J.Dugger for 35 yards, TOUCHDOWN.",
+            "chi": [],
+            "yard": 0.0,
             "touchdown": true,
             "casaPrima": 84,
             "casaDopo": 93
@@ -138119,6 +138404,12 @@
             "tempo": "08:01",
             "squadra": "SF",
             "descrizione": "13-B.Purdy pass deep right intended for 85-G.Kittle INTERCEPTED by 31-T.Stukes at LV 43. 31-T.Stukes to SF 31 for 26 yards (75-C.Colby).",
+            "testo": "Purdy intercettato da Stukes",
+            "chi": [
+              "Purdy",
+              "Stukes"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 90,
             "casaDopo": 82
@@ -138128,11 +138419,21 @@
             "tempo": "04:19",
             "squadra": "LV",
             "descrizione": "8-K.Cousins pass deep middle to 87-M.Mayer to SF 1 for 24 yards (20-U.Stout; 27-J.Brown). FUMBLES (20-U.Stout), RECOVERED by SF-54-F.Warner at SF -2. Touchback.",
+            "testo": "Cousins lancia lungo al centro per Mayer, 24 yard, fumble, recuperato da Warner (SF)",
+            "chi": [
+              "Cousins",
+              "Mayer"
+            ],
+            "yard": 24.0,
             "touchdown": false,
             "casaPrima": 82,
             "casaDopo": 90
           }
-        ]
+        ],
+        "video": {
+          "id": "sNQJenFh30k",
+          "titolo": "Las Vegas Raiders vs. San Francisco 49ers Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -138149,16 +138450,18 @@
         "scartoLinea": 21.0,
         "stadio": "Gillette Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Green+Bay+Packers+vs.+New+England+Patriots+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "ONX73PsPFD8",
-          "titolo": "Green Bay Packers vs. New England Patriots Game Highlights | NFL 2026 Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "14:32",
             "squadra": "NE",
             "descrizione": "10-D.Maye pass deep left intended for 13-M.Hollins INTERCEPTED by 29-X.McKinney at 50. 29-X.McKinney pushed ob at NE 14 for 36 yards (65-M.Pryor).",
+            "testo": "Maye intercettato da McKinney",
+            "chi": [
+              "Maye",
+              "McKinney"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 53,
             "casaDopo": 38
@@ -138168,6 +138471,11 @@
             "tempo": "11:58",
             "squadra": "NE",
             "descrizione": "19-M.Wishnowsky punts 58 yards to GB 14, Center-47-J.Ashby, downed by NE-33-M.Brown.",
+            "testo": "Wishnowsky calcia un punt da 58 yard",
+            "chi": [
+              "Wishnowsky"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 26,
             "casaDopo": 36
@@ -138177,6 +138485,12 @@
             "tempo": "10:50",
             "squadra": "GB",
             "descrizione": "10-J.Love pass deep right to 0-M.Golden to NE 18 for 49 yards (31-K.Byard).",
+            "testo": "Love lancia lungo a destra per Golden, 49 yard",
+            "chi": [
+              "Love",
+              "Golden"
+            ],
+            "yard": 49.0,
             "touchdown": false,
             "casaPrima": 29,
             "casaDopo": 21
@@ -138186,6 +138500,12 @@
             "tempo": "05:47",
             "squadra": "NE",
             "descrizione": "10-D.Maye pass short left intended for 82-E.Raridon INTERCEPTED by 29-X.McKinney at GB 29. 29-X.McKinney to GB 31 for 2 yards (85-H.Henry).",
+            "testo": "Maye intercettato da McKinney",
+            "chi": [
+              "Maye",
+              "McKinney"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 25,
             "casaDopo": 18
@@ -138195,11 +138515,20 @@
             "tempo": "01:52",
             "squadra": "GB",
             "descrizione": "10-J.Love pass incomplete short middle to 83-S.Williams (0-C.Gonzalez). NE-7-C.Davis was injured during the play.",
+            "testo": "Love: lancio corto al centro per Williams incompleto",
+            "chi": [
+              "Love"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 17,
             "casaDopo": 24
           }
-        ]
+        ],
+        "video": {
+          "id": "ONX73PsPFD8",
+          "titolo": "Green Bay Packers vs. New England Patriots Game Highlights | NFL 2026 Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -138216,16 +138545,17 @@
         "scartoLinea": 5.5,
         "stadio": "Lumen Field",
         "highlights": "https://www.youtube.com/results?search_query=Arizona+Cardinals+vs.+Seattle+Seahawks+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "de07dP1hlt8",
-          "titolo": "Arizona Cardinals vs. Seattle Seahawks Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "1",
             "tempo": "08:04",
             "squadra": "SEA",
             "descrizione": "2-D.Lock scrambles right end ran ob at SEA 40 for 14 yards (1-Ma.Wilson). PENALTY on ARI-16-M.Melton, Defensive Holding, 5 yards, enforced at SEA 40.",
+            "testo": "Lock esce dalla tasca e corre sull'esterno destro, 14 yard",
+            "chi": [
+              "Lock"
+            ],
+            "yard": 14.0,
             "touchdown": false,
             "casaPrima": 40,
             "casaDopo": 46
@@ -138235,6 +138565,11 @@
             "tempo": "07:06",
             "squadra": "SEA",
             "descrizione": "26-Z.Charbonnet right guard to ARI 49 for -2 yards (51-R.Lopez, 55-D.Stills).",
+            "testo": "Charbonnet corre a destra, in mezzo, -2 yard (perdita)",
+            "chi": [
+              "Charbonnet"
+            ],
+            "yard": -2.0,
             "touchdown": false,
             "casaPrima": 49,
             "casaDopo": 43
@@ -138244,6 +138579,12 @@
             "tempo": "03:58",
             "squadra": "SEA",
             "descrizione": "2-D.Lock pass short left to 8-J.Price pushed ob at ARI 41 for 15 yards (5-B.Browning).",
+            "testo": "Lock lancia corto a sinistra per Price, 15 yard",
+            "chi": [
+              "Lock",
+              "Price"
+            ],
+            "yard": 15.0,
             "touchdown": false,
             "casaPrima": 41,
             "casaDopo": 51
@@ -138253,6 +138594,11 @@
             "tempo": "11:52",
             "squadra": "ARI",
             "descrizione": "12-B.Gillikin punts 55 yards to SEA 24, Center-59-C.Kreiter. 15-T.Horton to SEA 27 for 3 yards (42-D.Taylor-Demerson). PENALTY on SEA-27-A.Smith, Offensive Holding, 10 yards, enforced at SEA 24.",
+            "testo": "Gillikin calcia un punt da 55 yard",
+            "chi": [
+              "Gillikin"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 70,
             "casaDopo": 63
@@ -138262,11 +138608,20 @@
             "tempo": "06:17",
             "squadra": "ARI",
             "descrizione": "15-G.Minshew sacked at SEA 43 for -6 yards (91-B.Murphy).",
+            "testo": "Minshew subisce un sack, -6 yard (perdita)",
+            "chi": [
+              "Minshew"
+            ],
+            "yard": -6.0,
             "touchdown": false,
             "casaPrima": 58,
             "casaDopo": 65
           }
-        ]
+        ],
+        "video": {
+          "id": "de07dP1hlt8",
+          "titolo": "Arizona Cardinals vs. Seattle Seahawks Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-08",
@@ -138283,16 +138638,18 @@
         "scartoLinea": 3.5,
         "stadio": "Soldier Field",
         "highlights": "https://www.youtube.com/results?search_query=Tampa+Bay+Buccaneers+vs.+Chicago+Bears+highlights+November+8%2C+2026+NFL",
-        "video": {
-          "id": "O1fZ6Zkabgc",
-          "titolo": "Tampa Bay Buccaneers vs Chicago Bears Game Highlights | 2026 NFL Season Week 9"
-        },
         "momenti": [
           {
             "quarto": "3",
             "tempo": "04:38",
             "squadra": "CHI",
             "descrizione": "18-C.Williams pass short left intended for 10-L.Burden INTERCEPTED by 34-A.Anzalone (25-J.Parrish) at CHI 43. 34-A.Anzalone pushed ob at CHI 37 for 6 yards (10-L.Burden).",
+            "testo": "Williams intercettato da Anzalone",
+            "chi": [
+              "Williams",
+              "Anzalone"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 75,
             "casaDopo": 58
@@ -138302,6 +138659,12 @@
             "tempo": "03:50",
             "squadra": "TB",
             "descrizione": "6-B.Mayfield pass short right intended for 88-C.Otton INTERCEPTED by 1-J.Johnson at CHI 33. 1-J.Johnson for 67 yards, TOUCHDOWN.",
+            "testo": "Mayfield intercettato da Johnson: touchdown",
+            "chi": [
+              "Mayfield",
+              "Johnson"
+            ],
+            "yard": 0.0,
             "touchdown": true,
             "casaPrima": 60,
             "casaDopo": 88
@@ -138311,6 +138674,11 @@
             "tempo": "02:56",
             "squadra": "TB",
             "descrizione": "7-B.Irving left guard for 6 yards, TOUCHDOWN.",
+            "testo": "Irving corre a sinistra, in mezzo, 6 yard: touchdown",
+            "chi": [
+              "Irving"
+            ],
+            "yard": 6.0,
             "touchdown": true,
             "casaPrima": 83,
             "casaDopo": 69
@@ -138320,6 +138688,12 @@
             "tempo": "00:47",
             "squadra": "CHI",
             "descrizione": "(:47) 18-C.Williams pass deep left to 84-C.Loveland pushed ob at TB 16 for 38 yards (5-I.Melifonwu).",
+            "testo": "Williams lancia lungo a sinistra per Loveland, 38 yard",
+            "chi": [
+              "Williams",
+              "Loveland"
+            ],
+            "yard": 38.0,
             "touchdown": false,
             "casaPrima": 69,
             "casaDopo": 85
@@ -138329,11 +138703,20 @@
             "tempo": "00:03",
             "squadra": "CHI",
             "descrizione": "(:03) 8-C.Santos 38 yard field goal is GOOD, Center-46-S.Daly, Holder-19-T.Taylor. Penalty on TB-91-A.Robinson, Unnecessary Roughness, declined.",
+            "testo": "Santos: field goal da 38 yard riuscito",
+            "chi": [
+              "Santos"
+            ],
+            "yard": 0.0,
             "touchdown": false,
             "casaPrima": 79,
             "casaDopo": 100
           }
-        ]
+        ],
+        "video": {
+          "id": "O1fZ6Zkabgc",
+          "titolo": "Tampa Bay Buccaneers vs Chicago Bears Game Highlights | 2026 NFL Season Week 9"
+        }
       },
       {
         "data": "2026-11-09",
@@ -138344,7 +138727,7 @@
         "po": null,
         "favorita": "BUF",
         "linea": 3.0,
-        "totaleLinea": 43.5,
+        "totaleLinea": 44.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -138579,7 +138962,7 @@
         "pc": null,
         "po": null,
         "favorita": "GB",
-        "linea": 3.0,
+        "linea": 3.5,
         "totaleLinea": 42.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -138669,7 +139052,7 @@
         "pc": null,
         "po": null,
         "favorita": "SEA",
-        "linea": 3.0,
+        "linea": 3.5,
         "totaleLinea": 43.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -139237,7 +139620,7 @@
         "data": "2026-11-15",
         "ora": "13:00",
         "favorita": "GB",
-        "linea": 3.0,
+        "linea": 3.5,
         "totaleLinea": 42.5,
         "giocatoriOspite": [
           {
@@ -139999,7 +140382,7 @@
         "data": "2026-11-15",
         "ora": "16:05",
         "favorita": "SEA",
-        "linea": 3.0,
+        "linea": 3.5,
         "totaleLinea": 43.5,
         "giocatoriOspite": [
           {
