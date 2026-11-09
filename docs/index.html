@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PureStats · Premier League</title>
-<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Archivo:wght@600;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root{
@@ -237,6 +237,111 @@
   .pie-legale li{margin-bottom:4px}
   .pie-legale b{color:var(--testo);font-weight:700}
   code{color:var(--acc);font-size:9px}
+
+  /* ============ FOOTBALL: NUOVO ASPETTO ============
+     Chiaro di giorno, scuro di notte: segue l'impostazione del dispositivo
+     (come il tema automatico di Windows, Android e iOS). Il calcio non cambia. */
+  body.fb{
+    --fb-bg:#F3F4F6; --fb-card:#FFFFFF; --fb-text:#111827; --fb-muted:#4B5563; --fb-border:#E5E7EB;
+    --fb-acc:#B91C1C; --fb-acc-text:#FFFFFF; --fb-pill:#E5E7EB; --fb-okbg:#DCFCE7; --fb-ok:#166534;
+    --fb-chip:#EEF0F3; --fb-chiptext:#374151; --fb-lose:#6B7280; --fb-head:'Archivo',sans-serif;
+    --nero:var(--fb-bg); --card:var(--fb-card); --card2:var(--fb-pill); --bordo:var(--fb-border);
+    --testo:var(--fb-text); --muted:var(--fb-muted); --acc:var(--fb-acc); --acc2:var(--fb-acc);
+    --acc-rgb:185,28,28; --data:var(--fb-muted);
+    font-family:'Inter',sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    body.fb{
+      --fb-bg:#0B0F1A; --fb-card:#131A2B; --fb-text:#F5F7FB; --fb-muted:#A3ADC2; --fb-border:#232C42;
+      --fb-acc:#FF8A3D; --fb-acc-text:#1A0E05; --fb-pill:#1B2338; --fb-okbg:#3A2412; --fb-ok:#FFB27A;
+      --fb-chip:#1F2840; --fb-chiptext:#C9D1E3; --fb-lose:#8D97AD; --fb-head:'Barlow Condensed',sans-serif;
+      --acc-rgb:255,138,61;
+    }
+  }
+  body.fb header{background:var(--fb-bg)}
+  body.fb .logo span{font-family:var(--fb-head);font-weight:800;color:var(--fb-text)}
+  body.fb .dot{box-shadow:none}
+  body.fb .lega button{font-family:'Inter',sans-serif;font-size:15px;font-weight:600}
+  body.fb nav button{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:10px 16px}
+  body.fb main{max-width:1200px;margin:0 auto;padding:24px 16px 0}
+  body.fb .sub{font-size:16px;line-height:1.6}
+  body.fb .titolo span{font-family:var(--fb-head);font-weight:800;font-size:30px}
+  body.fb .titolo i{box-shadow:none}
+  body.fb .titolo-sub{font-size:15px}
+  body.fb .tab{font-size:16px}
+  body.fb .tab thead th{font-size:13px}
+  body.fb .tab tbody td{padding:12px 8px;border-bottom:1px solid var(--fb-border)}
+  body.fb .nome{font-family:'Inter',sans-serif;font-weight:600;font-size:17px}
+  body.fb .big{font-size:16px}
+  body.fb .pos{font-size:14px}
+  body.fb .gara{border-radius:14px;padding:16px 18px}
+  body.fb .gara-squadre span{font-family:'Inter',sans-serif;font-weight:600;font-size:18px}
+  body.fb .gara-arb,body.fb .gara-quando{font-size:14px}
+  body.fb .gruppo-tit{font-family:var(--fb-head);font-size:24px}
+  body.fb .gruppo-sub,body.fb .conteggio{font-size:14px}
+  body.fb .stagioni button,body.fb .sottomenu button{font-family:'Inter',sans-serif;font-size:14px;padding:8px 12px}
+  body.fb .cerca{font-family:'Inter',sans-serif;font-size:16px}
+  body.fb .dato b,body.fb .kpi b{font-family:var(--fb-head)}
+  body.fb .dato span,body.fb .kpi span{font-size:13px}
+  body.fb .scheda-nome{font-family:var(--fb-head);font-weight:800}
+  body.fb .scheda-meta,body.fb .conf-lab{font-size:14px}
+  body.fb .rosa-tit{font-size:13px} body.fb .gio-n{font-size:15px} body.fb .gio-v{font-size:13px} body.fb .gio-r{font-size:12px}
+  body.fb .toggle-gio,body.fb .back{font-family:'Inter',sans-serif;font-size:14px}
+  body.fb #pie{font-family:'Inter',sans-serif}
+
+  /* blocchi nuovi */
+  .fb-h1{font-family:var(--fb-head);font-weight:800;font-size:44px;line-height:1.05;color:var(--fb-text);margin:4px 0}
+  .fb-h2{font-family:var(--fb-head);font-weight:800;font-size:28px;color:var(--fb-text);margin:0 0 6px}
+  .fb-h3{font-size:14px;font-weight:700;color:var(--fb-muted);letter-spacing:.04em;margin:16px 0 4px}
+  .fb-lead{font-size:17px;color:var(--fb-muted);margin:0 0 18px}
+  .fb-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:24px}
+  .fb-tile{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:18px 20px}
+  .fb-tile b{display:block;font-family:var(--fb-head);font-size:40px;font-weight:800;line-height:1;color:var(--fb-text)}
+  .fb-tile span{display:block;font-size:15px;color:var(--fb-muted);margin-top:6px}
+  .fb-cols{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+  .fb-side{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:20px}
+  /* su schermo largo la colonna laterale sta a sinistra; su telefono viene dopo il contenuto principale */
+  @media (min-width:960px){ .fb-side{order:-1} }
+  .fb-main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:14px}
+  .fb-box{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:20px}
+  .fb-list{list-style:none;margin:0;padding:0}
+  .fb-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--fb-border)}
+  .fb-row-t{flex:1;min-width:0;font-size:16px;font-weight:600;color:var(--fb-text)}
+  .fb-row-t small{display:block;font-size:14px;font-weight:400;color:var(--fb-muted);margin-top:2px}
+  .fb-num{font-family:var(--fb-head);font-size:26px;font-weight:800;color:var(--fb-text)}
+  .fb-num.acc{color:var(--fb-acc)}
+  .fb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .fb-game{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+  .fb-when{font-size:14px;color:var(--fb-muted)}
+  .fb-team{display:flex;align-items:center;gap:12px}
+  .fb-team .n{flex:1;font-size:18px;font-weight:500;color:var(--fb-lose)}
+  .fb-team .s{font-family:var(--fb-head);font-size:28px;font-weight:800;color:var(--fb-lose)}
+  .fb-team.w .n{font-weight:700;color:var(--fb-text)} .fb-team.w .s{color:var(--fb-text)}
+  .fb-chips{display:flex;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:1px solid var(--fb-border)}
+  .fb-chip{font-size:14px;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--fb-chip);color:var(--fb-chiptext)}
+  .fb-chip.ok{background:var(--fb-okbg);color:var(--fb-ok)}
+  .fb-hl{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:var(--fb-acc);text-decoration:none;min-height:44px}
+  .fb-hl:hover{text-decoration:underline}
+  .fb-logo{flex:none;width:40px;height:40px;object-fit:contain}
+  .fb-badge{flex:none;width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+  .fb-logo.s,.fb-badge.s{width:32px;height:32px;font-size:11px}
+  .fb-tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:2px;background:var(--fb-pill);color:var(--fb-text)}
+  .fb-tag.g{background:var(--fb-acc);color:var(--fb-acc-text)}
+  .fb-tag.up{background:var(--fb-okbg);color:var(--fb-ok)}
+  .fb-duel{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:18px;margin-bottom:16px}
+  .fb-duel-head{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+  .fb-duel-when{font-size:14px;color:var(--fb-muted);margin:0 0 12px}
+  .fb-duel-head .t{font-family:var(--fb-head);font-weight:800;font-size:24px;color:var(--fb-text)}
+  .fb-vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .fb-pl{padding:10px 0;border-top:1px solid var(--fb-border);font-size:15px;color:var(--fb-text)}
+  .fb-pl b{font-size:16px}
+  .fb-pl .m{display:block;font-size:14px;color:var(--fb-muted);margin-top:3px;line-height:1.5}
+  .fb-note{font-size:14px;color:var(--fb-muted);line-height:1.6;margin-top:10px}
+  @media (max-width:640px){
+    .fb-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .fb-vs{grid-template-columns:minmax(0,1fr)}
+    .fb-h1{font-size:34px}
+  }
 </style>
 </head>
 <body>
@@ -251,6 +356,7 @@
     <button id="n-par" onclick="vai('partite')">PARTITE</button>
     <button id="n-cal" onclick="vai('calendario')">CALENDARIO</button>
     <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
+    <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
   </nav>
 </header>
@@ -563,7 +669,7 @@ function render(){
   disegnaMenu();
 
   // L'accento passa all'arancio per le leghe di football americano
-  document.body.className = eFootball() ? "arancio" : "";
+  document.body.className = eFootball() ? "arancio fb" : "";
 
   // Le schede del calcio non hanno senso per il football: si nascondono
   const soloFootball = eFootball();
@@ -574,12 +680,13 @@ function render(){
     if(b) b.style.display = visibile ? "" : "none";
   });
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
-  const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici;
-  [["n-gio",conGio],["n-ind",conInd]].forEach(([id,visibile])=>{
+  const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
+        conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
+  [["n-gio",conGio],["n-ind",conInd],["n-pro",conPro]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
-  if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)) vista = soloFootball ? "squadre" : "arbitri";
+  if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)||(vista==="prossima"&&!conPro)) vista = soloFootball ? "squadre" : "arbitri";
   if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista="squadre";
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
@@ -592,6 +699,7 @@ function render(){
   const bc=document.getElementById("n-cal"); if(bc) bc.className = vista==="calendario"?"on":"";
   document.getElementById("n-gio").className = vista==="giornata"?"on":"";
   document.getElementById("n-ind").className = vista==="indici"?"on":"";
+  document.getElementById("n-pro").className = vista==="prossima"?"on":"";
 
   const app=document.getElementById("app"); app.className="";
   if(soloArbitri()){
@@ -600,6 +708,7 @@ function render(){
   else if(eFootball()){
     app.innerHTML = vista==="giornata" ? vFootballGiornata()
                   : vista==="indici" ? vFootballIndici()
+                  : vista==="prossima" ? vFootballProssima()
                   : vista==="partite" ? vFootballPartite()
                   : squadraAperta ? vSquadraFootball() : vFootballSquadre();
   }
@@ -1301,121 +1410,193 @@ function vFootballPartite(){
   return h;
 }
 
-/* ---------- GIORNATA E INDICI (NFL) ----------
+/* ---------- GIORNATA, PROSSIMA E INDICI (football) ----------
    Dati statistici e di mercato pubblici: risultati con la linea di chiusura,
-   prestazioni migliori, forza delle squadre dall'EPA. Nessuna giocata. */
+   prestazioni migliori, confronti tra giocatori, forza delle squadre.
+   Nessuna giocata e nessuna segnalazione di valore. */
 
-function logoSq(sigla, lato){
-  const l=(D.loghi||{})[sigla];
-  const px=lato||20;
-  return l && l.logo && /^https:\/\//.test(l.logo)
-    ? `<img src="${esc(l.logo)}" alt="" width="${px}" height="${px}" onerror="this.remove()"
-         style="vertical-align:middle;object-fit:contain;margin:0 5px">`
-    : "";
+function _lum(hex){
+  const h=(hex||"#555555").replace("#","");
+  const c=[0,2,4].map(i=>parseInt(h.substr(i,2),16)/255).map(v=>v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4));
+  return 0.2126*c[0]+0.7152*c[1]+0.0722*c[2];
+}
+/* Logo ufficiale se c'è; altrimenti un cerchio con il colore e la sigla della squadra */
+function stemma(sigla, piccolo){
+  const l=(D.loghi||{})[sigla]||{};
+  const cl=piccolo?" s":"";
+  if(l.logo && /^https:\/\//.test(l.logo))
+    return `<img class="fb-logo${cl}" src="${esc(l.logo)}" alt="" onerror="this.style.visibility='hidden'">`;
+  const col=l.colore||"#555555", fg=_lum(col)>0.35?"#111111":"#FFFFFF";
+  const sig=String(sigla||"").slice(0,4).toUpperCase();
+  return `<span class="fb-badge${cl}" aria-hidden="true" style="background:${esc(col)};color:${fg}">${esc(sig)}</span>`;
+}
+function breve(sigla){ const l=(D.loghi||{})[sigla]; return (l&&l.breve)||nomeSquadra(sigla); }
+function numIt(x,dec){
+  if(x===null||x===undefined) return "—";
+  const d = dec===undefined ? 1 : dec;
+  let t=Number(x).toFixed(d).replace(".",",");
+  if(d===1 && t.endsWith(",0")) t=t.slice(0,-2);
+  return t;
+}
+const GIORNI_IT=["dom","lun","mar","mer","gio","ven","sab"], MESI_IT=["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
+function giornoIt(iso){
+  if(!iso) return "";
+  const d=new Date(iso+"T12:00:00");
+  return `${GIORNI_IT[d.getDay()]} ${d.getDate()} ${MESI_IT[d.getMonth()]}`;
 }
 
-function rigaGara(g, conEsito){
+function schedaRisultato(g){
   const giocata = g.pc!==null && g.pc!==undefined;
-  const linea = g.favorita
-    ? `${esc(g.favorita)} −${n(g.linea)}` : (g.linea===0?"alla pari":"—");
-  let esito = "";
-  if(conEsito && giocata){
-    const chi = g.battutaDa ? `battuta da <b>${esc(g.battutaDa)}</b>` : "linea in parità";
-    const tot = g.totaleEsito ? ` · <b>${g.totaleEsito.toUpperCase()}</b>` : "";
-    esito = `<div class="gara-arb" style="color:var(--testo)">${chi}${tot}</div>`;
+  const vinceOsp = giocata && g.po>g.pc, vinceCasa = giocata && g.pc>g.po;
+  const riga=(sig,pt,w)=>`<div class="fb-team${w?" w":""}">${stemma(sig)}<span class="n">${esc(breve(sig))}</span><span class="s">${giocata?pt:""}</span></div>`;
+  let chips="";
+  if(giocata && g.favorita){
+    const ok = g.battutaDa && g.battutaDa===g.favorita;
+    chips += `<span class="fb-chip${ok?" ok":""}">Linea ${esc(g.favorita)} −${numIt(g.linea)} · ${
+      ok?"rispettata":(g.battutaDa?"ribaltata da "+esc(g.battutaDa):"pari")}</span>`;
+  } else if(g.favorita){
+    chips += `<span class="fb-chip">Favorita ${esc(g.favorita)} di ${numIt(g.linea)}</span>`;
   }
-  return `<div class="gara">
-    <div class="gara-squadre">
-      <span>${logoSq(g.ospite)}${esc(nomeSquadra(g.ospite))}</span>
-      <span class="vs">${giocata?`${g.po}\u2013${g.pc}`:"@"}</span>
-      <span style="text-align:right">${esc(nomeSquadra(g.casa))}${logoSq(g.casa)}</span>
-    </div>
-    <div class="gara-arb">${esc(dataBreve(g.data))} ${esc(g.ora||"")}${g.stadio?" · "+esc(g.stadio):""}</div>
-    <div class="gara-arb">Linea: ${linea}${g.totaleLinea!==null&&g.totaleLinea!==undefined?" · totale "+n(g.totaleLinea):""}${
-      giocata?"":" · da giocare"}</div>
-    ${esito}
-  </div>`;
+  if(g.totaleLinea!==null && g.totaleLinea!==undefined){
+    chips += giocata && g.totaleEsito
+      ? `<span class="fb-chip">Totale ${numIt(g.totaleLinea)} · ${g.totaleEsito.toUpperCase()} (${g.pc+g.po})</span>`
+      : `<span class="fb-chip">Totale ${numIt(g.totaleLinea)}</span>`;
+  }
+  const hl = g.highlights && /^https:\/\/www\.youtube\.com\//.test(g.highlights)
+    ? `<a class="fb-hl" href="${esc(g.highlights)}" target="_blank" rel="noopener">
+         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+         Guarda gli highlights</a>` : "";
+  return `<article class="fb-game">
+    <div class="fb-when">${esc(giornoIt(g.data))}${g.ora?" · "+esc(g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
+    ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
+    ${chips?`<div class="fb-chips">${chips}</div>`:""}
+    ${hl}
+  </article>`;
 }
 
-function tabPrestazioni(titolo, lista, misura){
+function listaLeader(titolo, lista){
   if(!lista || !lista.length) return "";
-  return `<div class="titolo-sub" style="margin-top:12px"><b>${titolo}</b></div>
-  <table class="tab"><thead><tr><th>Giocatore</th><th>Squadra</th><th>${misura}</th><th>Dettagli</th></tr></thead><tbody>
-  ${lista.map(x=>`<tr><td><span class="nome">${esc(x.nome)}</span>
-      <span style="display:block;font-size:8px;color:${MUTED}">${esc(x.ruolo)} · contro ${esc(x.avversario||"")}</span></td>
-    <td>${logoSq(x.squadra,16)}${esc(x.squadra)}</td><td class="big">${n(x.valore)}</td>
-    <td>${esc(x.dettagli||"")}</td></tr>`).join("")}
-  </tbody></table>`;
+  return `<h3 class="fb-h3">${titolo}</h3><ul class="fb-list">${lista.slice(0,3).map(x=>`
+    <li class="fb-row">${stemma(x.squadra,true)}
+      <span class="fb-row-t">${esc(x.nome)}<small>contro ${esc(x.avversario||"")}${x.dettagli?" · "+esc(x.dettagli):""}</small></span>
+      <span class="fb-num">${n(x.valore)}</span></li>`).join("")}</ul>`;
 }
 
 function vFootballGiornata(){
-  const G=D.giornata, P=D.prossima;
-  if(!G) return `<div class="sub" style="margin-top:0">Nessuna giornata disponibile</div>`;
-  const r=G.riepilogo||{};
-  let h=`<div class="sub" style="margin-top:0">Stagione ${esc(G.stagione)} · Week ${esc(G.settimana)}${
-      G.completa?"":" (in corso)"} · risultati con la linea di chiusura del mercato</div>
-  <div class="dati">
-    <div class="dato"><b>${n(r.partite)}</b><span>PARTITE<br>GIOCATE</span></div>
-    <div class="dato"><b>${n(r.favoriteCoperte)}</b><span>FAVORITE<br>OLTRE LA LINEA</span></div>
-    <div class="dato"><b>${n(r.over)}</b><span>OVER</span></div>
-    <div class="dato"><b>${n(r.under)}</b><span>UNDER</span></div>
+  const G=D.giornata;
+  if(!G) return `<p class="fb-lead">Nessuna giornata disponibile</p>`;
+  const r=G.riepilogo||{}, pr=G.prestazioni||{};
+  const conConf=(G.partite||[]).some(g=>g.confCasa);
+  const nelGruppo=g=>gruppoFootball==="tutti"||g.confCasa===gruppoFootball||g.confOspite===gruppoFootball;
+  const ris=(G.partite||[]).filter(nelGruppo);
+  const sorp=(G.sorprese||[]).map(x=>`
+    <li class="fb-row">${stemma(x.battutaDa,true)}
+      <span class="fb-row-t">${esc(breve(x.ospite))} @ ${esc(breve(x.casa))}<small>${esc(breve(x.battutaDa))} oltre la linea</small></span>
+      <span class="fb-num acc">+${numIt(x.scarto)}</span></li>`).join("");
+  return `
+  <h1 class="fb-h1">${esc(D.campionato||"")} · Week ${esc(G.settimana)}${G.completa?"":" (in corso)"}</h1>
+  <p class="fb-lead">Stagione ${esc(G.stagione)} · risultati con la linea di chiusura del mercato</p>
+  <div class="fb-tiles">
+    <div class="fb-tile"><b>${n(r.partite)}</b><span>Partite giocate</span></div>
+    <div class="fb-tile"><b>${n(r.favoriteCoperte)}</b><span>Favorite oltre la linea</span></div>
+    <div class="fb-tile"><b>${n(r.over)}</b><span>Over</span></div>
+    <div class="fb-tile"><b>${n(r.under)}</b><span>Under</span></div>
+  </div>
+  <div class="fb-cols">
+    <section class="fb-main">
+      <h2 class="fb-h2">Risultati</h2>
+      ${conConf?barraGruppi():""}
+      <p class="fb-note" style="margin-top:0">${ris.length} partite</p>
+      <div class="fb-grid">${ris.map(schedaRisultato).join("")}</div>
+    </section>
+    <aside class="fb-side">
+      ${sorp?`<section class="fb-box"><h2 class="fb-h2">Sorprese della week</h2>
+        <p class="fb-note" style="margin-top:0">Partite finite più lontano dalla linea del mercato (punti)</p>
+        <ul class="fb-list">${sorp}</ul></section>`:""}
+      <section class="fb-box"><h2 class="fb-h2">Leader della week</h2>
+        ${listaLeader("YARD LANCIATE",pr.lanci)}${listaLeader("YARD DI CORSA",pr.corse)}${listaLeader("YARD RICEVUTE",pr.ricezioni)}
+      </section>
+    </aside>
   </div>`;
-  if((G.sorprese||[]).length){
-    h+=`<div class="titolo"><i></i><span>SORPRESE DELLA WEEK</span></div>
-    <div class="titolo-sub">Partite finite più lontano dalla linea del mercato</div>
-    <table class="tab"><thead><tr><th>Partita</th><th>Scarto</th><th>Battuta da</th></tr></thead><tbody>
-    ${G.sorprese.map(x=>`<tr><td>${esc(x.ospite)} @ ${esc(x.casa)}</td><td class="big">${n(x.scarto)}</td>
-      <td>${logoSq(x.battutaDa,16)}${esc(x.battutaDa||"—")}</td></tr>`).join("")}
-    </tbody></table>`;
+}
+
+/* Un giocatore nel confronto: rendimento stagione, ultime 3, passato, esperienza e forma */
+function rigaGiocatore(p){
+  const tagEsp = p.esperienza ? `<span class="fb-tag${p.giovane?" g":""}">${esc(p.esperienza)}</span>` : "";
+  const tagForma = p.forma==="in forma" ? `<span class="fb-tag up">▲ in forma</span>`
+                 : p.forma==="in calo" ? `<span class="fb-tag">▼ in calo</span>` : "";
+  let m = `${esc(p.misura)}: stagione ${numIt(p.mediaStagione)} · ultime 3 ${numIt(p.mediaUltime3)}`
+        + (p.mediaPassato!==null && p.mediaPassato!==undefined ? ` · stagioni prima ${numIt(p.mediaPassato)}` : "");
+  if(p.ruolo==="QB"){
+    m += `<br>EPA a lancio: stagione ${p.epaLancio===null?"—":numIt(p.epaLancio,3)} · ultime 3 ${
+      p.epaLancioUltime3===null?"—":numIt(p.epaLancioUltime3,3)}${
+      p.epaLancioPassato!==null&&p.epaLancioPassato!==undefined?" · prima "+numIt(p.epaLancioPassato,3):""} · ${n(p.td)} TD, ${n(p.int)} INT`;
   }
-  const pr=G.prestazioni||{};
-  if(pr.lanci||pr.corse||pr.ricezioni){
-    h+=`<div class="titolo"><i></i><span>MIGLIORI PRESTAZIONI</span></div>`
-      + tabPrestazioni("Yard lanciate", pr.lanci, "YARD")
-      + tabPrestazioni("Yard di corsa", pr.corse, "YARD")
-      + tabPrestazioni("Yard ricevute", pr.ricezioni, "YARD");
-  }
-  // college: molte partite per week, si filtrano per conference (stessa barra della classifica)
-  const conConf = (G.partite||[]).some(g=>g.confCasa);
-  const nelGruppo = g => gruppoFootball==="tutti" || g.confCasa===gruppoFootball || g.confOspite===gruppoFootball;
-  const ris = (G.partite||[]).filter(nelGruppo);
-  h+=`<div class="titolo"><i></i><span>RISULTATI</span></div>${conConf?barraGruppi():""}
-    <div class="titolo-sub">${ris.length} partite</div><div class="grid">`
-    + ris.map(g=>rigaGara(g,true)).join("") + `</div>`;
-  if(P && (P.partite||[]).length){
-    const pro = P.partite.filter(nelGruppo);
-    h+=`<div class="titolo"><i></i><span>PROSSIMA: WEEK ${esc(P.settimana)}</span></div>
-    <div class="titolo-sub">${pro.length} partite · linee del mercato al momento dell'aggiornamento</div><div class="grid">`
-      + pro.map(g=>rigaGara(g,false)).join("") + `</div>`;
-  }
-  return h;
+  return `<div class="fb-pl"><b>${esc(p.nome)}</b> <span class="fb-tag">${esc(p.ruolo)}</span>${tagEsp}${tagForma}<span class="m">${m}</span></div>`;
+}
+
+function vFootballProssima(){
+  const P=D.prossima;
+  if(!P) return `<p class="fb-lead">Nessun turno in programma</p>`;
+  const conConf=(P.partite||[]).some(g=>g.confCasa);
+  const nelGruppo=g=>gruppoFootball==="tutti"||g.confCasa===gruppoFootball||g.confOspite===gruppoFootball;
+  const duelli=(P.duelli||[]);
+  const gv=P.giovani||{};
+  const listaGiovani=(tit,lista,qb)=> (lista&&lista.length)?`<h3 class="fb-h3">${tit}</h3><ul class="fb-list">${lista.map(p=>`
+    <li class="fb-row">${stemma(p.squadra,true)}
+      <span class="fb-row-t">${esc(p.nome)} <span class="fb-tag g">${esc(p.esperienza||"")}</span>${p.forma==="in forma"?'<span class="fb-tag up">▲</span>':""}
+        <small>${qb?"EPA a lancio "+numIt(p.epaLancio,3)+" · ":""}${numIt(p.mediaStagione)} ${esc(p.misura)} a partita</small></span></li>`).join("")}</ul>`:"";
+  const blocchiDuelli = duelli.length ? duelli.map(d=>`
+    <article class="fb-duel">
+      <div class="fb-duel-head">${stemma(d.ospite)}<span class="t">${esc(breve(d.ospite))} @ ${esc(breve(d.casa))}</span>${stemma(d.casa)}</div>
+      <p class="fb-duel-when">${esc(giornoIt(d.data))}${d.ora?" · "+esc(d.ora):""}${
+          d.favorita?" · favorita "+esc(d.favorita)+" di "+numIt(d.linea):""}${d.totaleLinea!=null?" · totale "+numIt(d.totaleLinea):""}</p>
+      <div class="fb-vs">
+        <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.ospite))}</h3>${(d.giocatoriOspite||[]).map(rigaGiocatore).join("")}</div>
+        <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.casa))}</h3>${(d.giocatoriCasa||[]).map(rigaGiocatore).join("")}</div>
+      </div>
+    </article>`).join("")
+    : `<div class="fb-grid">${(P.partite||[]).filter(nelGruppo).map(schedaRisultato).join("")}</div>`;
+  return `
+  <h1 class="fb-h1">${esc(D.campionato||"")} · Week ${esc(P.settimana)}</h1>
+  <p class="fb-lead">Il prossimo turno: giocatori chiave a confronto, con esperienza e forma.
+    <span class="fb-tag g">Rookie · 2° · 3° anno</span> = giovani, <span class="fb-tag up">▲ in forma</span> = ultime 3 partite almeno il 25% sopra il suo solito.</p>
+  ${conConf && !duelli.length ? barraGruppi() : ""}
+  <div class="fb-cols">
+    <section class="fb-main">${blocchiDuelli}</section>
+    ${(gv.QB||gv.RB||gv.RIC) ? `<aside class="fb-side"><section class="fb-box"><h2 class="fb-h2">Giovani che spiccano</h2>
+      <p class="fb-note" style="margin-top:0">Rookie, 2° e 3° anno con il miglior rendimento della stagione</p>
+      ${listaGiovani("QUARTERBACK",gv.QB,true)}${listaGiovani("RUNNING BACK",gv.RB)}${listaGiovani("RICEVITORI",gv.RIC)}
+      </section></aside>` : ""}
+  </div>`;
 }
 
 function vFootballIndici(){
   const I=D.indici;
-  if(!I) return `<div class="sub" style="margin-top:0">Indici non disponibili</div>`;
+  if(!I) return `<p class="fb-lead">Indici non disponibili</p>`;
   const dec = I.decimali===undefined ? 3 : I.decimali;
-  const segn=(v,c)=> v===null||v===undefined ? "—" : (v>0?"+":"")+Number(v).toFixed(c===undefined?dec:c);
+  const segn=(v,c)=> v===null||v===undefined ? "—" : (v>0?"+":"")+numIt(v,c===undefined?dec:c);
   const et = I.etichette || {};
   const lista = (I.squadre||[]).filter(x=>gruppoFootball==="tutti" || x.conference===gruppoFootball);
-  const conPunti = !et.netto;   // per il college SP+ è già in punti: la colonna sarebbe doppia
-  let h=`<div class="sub" style="margin-top:0">Stagione ${esc(I.stagione)} · ${esc(I.nota||"")}</div>
+  const conPunti = !et.netto;
+  let h=`<h1 class="fb-h1">${esc(D.campionato||"")} · Indici</h1>
+  <p class="fb-lead">Stagione ${esc(I.stagione)} · ${esc(I.nota||"")}</p>
   ${(I.squadre||[]).some(x=>x.conference) ? barraGruppi() : ""}
-  <div class="titolo"><i></i><span>${esc(et.titolo||"FORZA DELLE SQUADRE")}</span></div>
-  <div class="titolo-sub">${esc(et.sotto||"EPA per azione: attacco (più alto = meglio), difesa (più alto = toglie più punti)")}</div>
-  <table class="tab"><thead><tr><th>#</th><th>Squadra</th><th>${esc(et.netto||"Netto")}</th><th>Att.</th><th>Dif.</th>${conPunti?"<th>Pt/part.</th>":""}</tr></thead><tbody>
-  ${lista.map(x=>`<tr><td>${x.posizione}</td>
-    <td>${logoSq(x.squadra,18)}<span class="nome">${esc(x.squadra)}</span></td>
-    <td class="big" style="color:${x.netto<0?ROSSO:"var(--acc)"}">${segn(x.netto)}</td>
-    <td>${segn(x.attacco)}</td><td>${segn(x.difesa)}</td>${conPunti?`<td>${segn(x.puntiPartita,1)}</td>`:""}</tr>`).join("")}
-  </tbody></table>`;
+  <section class="fb-box"><h2 class="fb-h2">${esc(et.titolo||"Forza delle squadre")}</h2>
+  <p class="fb-note" style="margin-top:0">${esc(et.sotto||"EPA per azione: attacco e difesa, più alto = meglio. Pt/partita = margine indicativo contro una squadra media")}</p>
+  <div style="overflow-x:auto"><table class="tab"><thead><tr><th>#</th><th>Squadra</th><th>${esc(et.netto||"Netto")}</th><th>Attacco</th><th>Difesa</th>${conPunti?"<th>Pt/partita</th>":""}</tr></thead><tbody>
+  ${lista.map(x=>`<tr><td><span class="pos">${x.posizione}</span></td>
+    <td><span style="display:inline-flex;align-items:center;gap:10px">${stemma(x.squadra,true)}<span class="nome">${esc(breve(x.squadra))}</span></span></td>
+    <td class="big">${segn(x.netto)}</td><td>${segn(x.attacco)}</td><td>${segn(x.difesa)}</td>${conPunti?`<td>${segn(x.puntiPartita,1)}</td>`:""}</tr>`).join("")}
+  </tbody></table></div></section>`;
   if((I.quarterback||[]).length){
-    h+=`<div class="titolo"><i></i><span>QUARTERBACK</span></div>
-    <div class="titolo-sub">EPA per lancio nella stagione (almeno 100 lanci)</div>
-    <table class="tab"><thead><tr><th>#</th><th>QB</th><th>Squadra</th><th>EPA/lancio</th><th>Lanci</th></tr></thead><tbody>
-    ${I.quarterback.map((q,i)=>`<tr><td>${i+1}</td><td><span class="nome">${esc(q.nome)}</span></td>
-      <td>${logoSq(q.squadra,16)}${esc(q.squadra)}</td><td class="big">${segn(q.epaLancio)}</td><td>${n(q.lanci)}</td></tr>`).join("")}
-    </tbody></table>`;
+    h+=`<section class="fb-box" style="margin-top:20px"><h2 class="fb-h2">Quarterback</h2>
+    <p class="fb-note" style="margin-top:0">EPA per lancio nella stagione (almeno 100 lanci)</p>
+    <div style="overflow-x:auto"><table class="tab"><thead><tr><th>#</th><th>QB</th><th>EPA/lancio</th><th>Lanci</th></tr></thead><tbody>
+    ${I.quarterback.map((q,i)=>`<tr><td><span class="pos">${i+1}</span></td>
+      <td><span style="display:inline-flex;align-items:center;gap:10px">${stemma(q.squadra,true)}<span class="nome">${esc(q.nome)}</span></span></td>
+      <td class="big">${segn(q.epaLancio)}</td><td>${n(q.lanci)}</td></tr>`).join("")}
+    </tbody></table></div></section>`;
   }
   return h;
 }

@@ -55,7 +55,12 @@ def _riga(g):
         t = pc + po
         tot = "over" if t > totale else "under" if t < totale else "pari"
     data = (g.get("startDate") or "")[:10]
-    return {"data": data, "ora": "", "casa": casa, "ospite": ospite, "pc": pc, "po": po,
+    hl = None
+    if pc is not None and po is not None:
+        from urllib.parse import quote_plus
+        hl = "https://www.youtube.com/results?search_query=" + quote_plus(
+            f"{ospite} vs {casa} highlights college football week {g.get('week')} {g.get('season')}")
+    return {"highlights": hl, "data": data, "ora": "", "casa": casa, "ospite": ospite, "pc": pc, "po": po,
             "favorita": fav, "linea": None if margine is None else abs(margine), "totaleLinea": totale,
             "battutaDa": chi, "totaleEsito": tot, "scartoLinea": scarto, "stadio": "",
             "confCasa": g.get("homeConference"), "confOspite": g.get("awayConference")}
@@ -94,7 +99,7 @@ def _loghi(chiama, stagione):
     for t in dati:
         loghi = [u for u in (t.get("logos") or []) if isinstance(u, str) and u.startswith("https://")]
         squadre[t.get("school")] = {"logo": loghi[0] if loghi else None, "colore": t.get("color"),
-                                    "breve": t.get("mascot") or t.get("school")}
+                                    "breve": t.get("school")}
     SQUADRE.parent.mkdir(parents=True, exist_ok=True)
     SQUADRE.write_text(json.dumps({"stagione": stagione, "squadre": squadre}, ensure_ascii=False), encoding="utf-8")
     return squadre

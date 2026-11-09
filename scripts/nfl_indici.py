@@ -303,6 +303,161 @@ def calcola(info=None):
     giorn, prossima = giornata_e_prossima(tutte, info)
     if giorn:
         giorn["prestazioni"] = prestazioni(giorn["stagione"], giorn["settimana"])
+        for g in giorn["partite"]:
+            if g["pc"] is not None:
+                g["highlights"] = link_highlights((info.get(g["ospite"]) or {}).get("nomeCompleto", g["ospite"]),
+                                                  (info.get(g["casa"]) or {}).get("nomeCompleto", g["casa"]),
+                                                  giorn["stagione"], giorn["settimana"])
+    if prossima:
+        try:
+            duelli, giovani = anteprima(prossima, prossima["stagione"])
+            prossima["duelli"] = duelli
+            prossima["giovani"] = giovani
+        except Exception as e:      # l'anteprima non deve mai bloccare il resto
+            print(f"  Anteprima non calcolata: {type(e).__name__}: {e}")
     stagione = max((p["stagione"] for p in tutte if p["pc"] is not None), default=None)
     ind = indici(stagione, info) if stagione else None
     return {"anagrafica": info, "giornata": giorn, "prossima": prossima, "indici": ind}
+
+
+# ------------------------------------------------------------------ highlights
+def link_highlights(ospite_nome, casa_nome, stagione, settimana):
+    """Ricerca su YouTube degli highlights della partita (nessuna chiave: è un normale link di ricerca)."""
+    from urllib.parse import quote_plus
+    q = f"{ospite_nome} vs {casa_nome} highlights week {settimana} {stagione}"
+    return "https://www.youtube.com/results?search_query=" + quote_plus(q)
+
+
+# ------------------------------------------------------------------ prossimo turno: duelli e giovani
+PLAYERS_URL = f"{REL}/players/players.csv"
+ETICHETTA_ANNO = {0: "Rookie", 1: "2° anno", 2: "3° anno"}
+
+
+def _esperienza():
+    """{gsis_id: stagione da rookie}."""
+    testo = scarica(PLAYERS_URL, "anagrafica giocatori")
+    if not testo:
+        return {}
+    out = {}
+    for r in csv.DictReader(io.StringIO(testo)):
+        rs = (r.get("rookie_season") or r.get("draft_year") or "").strip()
+        if r.get("gsis_id") and rs.isdigit():
+            out[r["gsis_id"]] = int(rs)
+    return out
+
+
+def _settimane(stagione):
+    """Righe settimanali dei giocatori di una stagione (solo regular season e playoff)."""
+    testo = scarica(GIOCATORI_URL.format(s=stagione), f"giocatori {stagione}")
+    if not testo:
+        return []
+    return [r for r in csv.DictReader(io.StringIO(testo))
+            if r.get("position") in ("QB", "RB", "WR", "TE") and r.get("season_type", "REG") in ("REG", "POST")]
+
+
+def _misura(ruolo):
+    return {"QB": ("passing_yards", "yard lanciate"), "RB": ("rushing_yards", "yard di corsa")}.get(
+        ruolo, ("receiving_yards", "yard ricevute"))
+
+
+def _profilo(pid, righe_correnti, righe_passate, rookie, stagione):
+    """Rendimento del giocatore: stagione, ultime 3, stagioni precedenti, esperienza, forma."""
+    cur = sorted((r for r in righe_correnti if r["player_id"] == pid), key=lambda r: int(r["week"]))
+    if not cur:
+        return None
+    r0 = cur[-1]
+    ruolo = r0["position"]
+    col, cosa = _misura(ruolo)
+    val = lambda rs: [f(r.get(col)) or 0 for r in rs]
+    stag = val(cur)
+    ult3 = val(cur[-3:])
+    passate = val([r for r in righe_passate if r["player_id"] == pid])
+    media = lambda xs: round(sum(xs) / len(xs), 1) if xs else None
+    out = {"nome": r0.get("player_display_name") or r0.get("player_name"), "ruolo": ruolo, "squadra": r0.get("team"),
+           "misura": cosa, "partite": len(cur), "mediaStagione": media(stag), "mediaUltime3": media(ult3),
+           "mediaPassato": media(passate) if len(passate) >= 6 else None}
+    if ruolo == "QB":
+        att = sum(f(r.get("attempts")) or 0 for r in cur)
+        epa = sum(f(r.get("passing_epa")) or 0 for r in cur)
+        att3 = sum(f(r.get("attempts")) or 0 for r in cur[-3:])
+        epa3 = sum(f(r.get("passing_epa")) or 0 for r in cur[-3:])
+        attp = sum(f(r.get("attempts")) or 0 for r in righe_passate if r["player_id"] == pid)
+        epap = sum(f(r.get("passing_epa")) or 0 for r in righe_passate if r["player_id"] == pid)
+        out.update({"epaLancio": round(epa / att, 3) if att >= 30 else None,
+                    "epaLancioUltime3": round(epa3 / att3, 3) if att3 >= 30 else None,
+                    "epaLancioPassato": round(epap / attp, 3) if attp >= 150 else None,
+                    "td": int(sum(f(r.get("passing_tds")) or 0 for r in cur)),
+                    "int": int(sum(f(r.get("passing_interceptions")) or 0 for r in cur))})
+    anni = stagione - rookie[pid] if pid in rookie else None
+    out["esperienza"] = ETICHETTA_ANNO.get(anni) if anni is not None and anni <= 2 else (f"{anni + 1}° anno" if anni is not None else None)
+    out["giovane"] = anni is not None and anni <= 2
+    # forma: ultime 3 rispetto al riferimento (stagioni passate se ci sono, altrimenti la stagione in corso)
+    rif = out["mediaPassato"] if out["mediaPassato"] is not None else out["mediaStagione"]
+    forma = None
+    if rif and out["mediaUltime3"] is not None and len(cur) >= 4:
+        d = (out["mediaUltime3"] - rif) / max(rif, 1)
+        forma = "in forma" if d >= 0.25 else "in calo" if d <= -0.25 else None
+    out["forma"] = forma
+    return out
+
+
+def _chiave_squadra(righe, squadra):
+    """Giocatori chiave nelle ultime 3 partite della squadra: QB con più lanci, RB con più corse,
+    i 2 ricevitori con più bersagli."""
+    sett = sorted({int(r["week"]) for r in righe if r.get("team") == squadra})[-3:]
+    uso = defaultdict(float)
+    ruoli = {}
+    for r in righe:
+        if r.get("team") != squadra or int(r["week"]) not in sett:
+            continue
+        p = r["position"]
+        uso[r["player_id"]] += f(r.get("attempts") if p == "QB" else r.get("carries") if p == "RB" else r.get("targets")) or 0
+        ruoli[r["player_id"]] = p
+    scelta = []
+    for ruolo, n in (("QB", 1), ("RB", 1)):
+        scelta += sorted((p for p in uso if ruoli[p] == ruolo), key=lambda p: -uso[p])[:n]
+    scelta += sorted((p for p in uso if ruoli[p] in ("WR", "TE")), key=lambda p: -uso[p])[:2]
+    return scelta
+
+
+def anteprima(prossima, stagione):
+    """Per ogni partita del prossimo turno: confronto tra i giocatori chiave, con esperienza e forma.
+    Più i giovani (rookie, 2° e 3° anno) che spiccano in tutta la lega."""
+    if not prossima:
+        return None, None
+    rookie = _esperienza()
+    correnti = _settimane(stagione)
+    passate = []
+    for s in (stagione - 1, stagione - 2):
+        passate += _settimane(s)
+    if not correnti:
+        return None, None
+    duelli = []
+    for g in prossima["partite"]:
+        lati = {}
+        for lato in ("ospite", "casa"):
+            ids = _chiave_squadra(correnti, g[lato])
+            lati[lato] = [p for p in (_profilo(i, correnti, passate, rookie, stagione) for i in ids) if p]
+        duelli.append({"casa": g["casa"], "ospite": g["ospite"], "data": g["data"], "ora": g["ora"],
+                       "favorita": g["favorita"], "linea": g["linea"], "totaleLinea": g["totaleLinea"],
+                       "giocatoriOspite": lati["ospite"], "giocatoriCasa": lati["casa"]})
+    # giovani che spiccano
+    per_giocatore = defaultdict(list)
+    for r in correnti:
+        per_giocatore[r["player_id"]].append(r)
+    giovani = {"QB": [], "RB": [], "RIC": []}
+    for pid, rs in per_giocatore.items():
+        if pid not in rookie or stagione - rookie[pid] > 2 or len(rs) < 4:
+            continue
+        p = _profilo(pid, correnti, passate, rookie, stagione)
+        if not p:
+            continue
+        if p["ruolo"] == "QB":
+            if p.get("epaLancio") is not None and sum(f(r.get("attempts")) or 0 for r in rs) >= 100:
+                giovani["QB"].append(p)
+        else:
+            giovani["RB" if p["ruolo"] == "RB" else "RIC"].append(p)
+    giovani["QB"].sort(key=lambda p: -p["epaLancio"])
+    giovani["RB"].sort(key=lambda p: -(p["mediaStagione"] or 0))
+    giovani["RIC"].sort(key=lambda p: -(p["mediaStagione"] or 0))
+    return duelli, {k: v[:5] for k, v in giovani.items()}
