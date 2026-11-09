@@ -327,7 +327,7 @@
   .fb-chips{display:flex;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:1px solid var(--fb-border)}
   .fb-chip{font-size:14px;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--fb-chip);color:var(--fb-chiptext)}
   .fb-chip.ok{background:var(--fb-okbg);color:var(--fb-ok)}
-  .fb-video{position:relative;display:block;width:100%;padding:0;border:0;border-radius:10px;overflow:hidden;cursor:pointer;background:#000;aspect-ratio:16/9}
+  .fb-video{position:relative;display:block;width:100%;padding:0;border:0;text-decoration:none;border-radius:10px;overflow:hidden;cursor:pointer;background:#000;aspect-ratio:16/9}
   .fb-video img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
   .fb-video .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--fb-acc);color:var(--fb-acc-text);display:flex;align-items:center;justify-content:center}
   .fb-video .tit{position:absolute;left:12px;bottom:10px;color:#fff;font-size:14px;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.8)}
@@ -356,6 +356,27 @@
   .fb-pl b{font-size:16px}
   .fb-pl .m{display:block;font-size:14px;color:var(--fb-muted);margin-top:3px;line-height:1.5}
   .fb-note{font-size:14px;color:var(--fb-muted);line-height:1.6;margin-top:10px}
+
+  /* ---- telefono ---- */
+  .fb-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  body.fb .nome{word-break:normal;overflow-wrap:normal}
+  body.fb .nome.corto{display:none}
+  @media (max-width:640px){
+    body.fb header{position:static}
+    body.fb nav{flex-wrap:nowrap;overflow-x:auto;gap:6px;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+    body.fb nav button{flex:none;font-size:14px;padding:9px 12px}
+    body.fb .lega button{font-size:14px}
+    body.fb main{padding:16px 10px 0}
+    body.fb .nome.lungo{display:none}
+    body.fb .nome.corto{display:inline}
+    body.fb .fb-classifica th:nth-child(2),body.fb .fb-classifica td:nth-child(2),
+    body.fb .fb-classifica th:nth-child(5),body.fb .fb-classifica td:nth-child(5),
+    body.fb .fb-classifica th:nth-child(9),body.fb .fb-classifica td:nth-child(9){display:none}
+    body.fb .fb-classifica td,body.fb .fb-classifica th{padding:10px 5px;font-size:15px}
+    body.fb .fb-classifica td:first-child{white-space:nowrap}
+    body.fb .titolo span{font-size:26px}
+    body.fb .kpi b,body.fb .dato b{font-size:26px}
+  }
   @media (max-width:640px){
     .fb-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
     .fb-vs{grid-template-columns:minmax(0,1fr)}
@@ -1280,7 +1301,7 @@ function vFootballSquadre(){
   h+=`${kpi([lista.length,"SQUADRE"],[gio,"PARTITE"],[pf,"PUNTI MEDI"])}
     <div class="titolo"><i></i><span>CLASSIFICA</span></div>
     <div class="titolo-sub">Tocca un'intestazione per ordinare · PF e PS = punti fatti e subiti a partita</div>
-    <table class="tab"><thead><tr>
+    <div class="fb-scroll"><table class="tab fb-classifica"><thead><tr>
       ${th("squadre","nome","Squadra",true)}
       ${th("squadre","partite","PG")}
       ${th("squadre","vittorie","V")}
@@ -1294,7 +1315,7 @@ function vFootballSquadre(){
 
   lista.forEach((x,i)=>{
     h+=`<tr class="click" onclick="apriSquadra('${esc(x.nome).replace(/'/g,"\\'")}')">
-      <td><span class="pos">${i+1}</span><span class="nome">${esc(x.sq.nomeCompleto||x.nome)}</span>${
+      <td><span class="pos">${i+1}</span><span class="nome lungo">${esc(x.sq.nomeCompleto||x.nome)}</span><span class="nome corto">${esc(breve(x.nome))}</span>${
         (x.sq.division||x.conferenza)
           ? `<span class="fb-mini">${esc(x.sq.division||x.conferenza)}</span>`
           : ""}</td>
@@ -1308,7 +1329,7 @@ function vFootballSquadre(){
       <td class="freccia">›</td>
     </tr>`;
   });
-  return h+`</tbody></table>`;
+  return h+`</tbody></table></div>`;
 }
 
 /* Elenco compatto dei giocatori di riferimento di una squadra.
@@ -1488,11 +1509,11 @@ function schedaRisultato(g){
     <div class="fb-when">${esc(giornoIt(g.data))}${g.ora?" · "+esc(g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${chips?`<div class="fb-chips">${chips}</div>`:""}
-    <button class="fb-video" type="button" data-video="${vid}" onclick="apriVideo(this)" aria-label="Guarda gli highlights: ${esc(g.video.titolo||"")}">
+    <a class="fb-video" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener" aria-label="Guarda gli highlights su YouTube: ${esc(g.video.titolo||"")}">
       <img src="https://i.ytimg.com/vi/${vid}/hqdefault.jpg" alt="" loading="lazy">
       <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></span>
-      <span class="tit">Highlights ufficiali NFL</span>
-    </button>
+      <span class="tit">Highlights ufficiali NFL · si apre su YouTube</span>
+    </a>
     ${momenti(g)}
   </article>`;
   }
@@ -1520,23 +1541,8 @@ function momenti(g){
         <span class="wp">Probabilità di vittoria ${esc(casa)}: ${m.casaPrima}% ${freccia} ${m.casaDopo}%</span></li>`;}).join("")}</ol></details>` : "";
 }
 
-/* Al tocco l'anteprima diventa il lettore YouTube (dominio senza cookie di profilazione) */
-function apriVideo(b){
-  const id=b.getAttribute("data-video");
-  if(!/^[A-Za-z0-9_-]{6,20}$/.test(id||"")) return;
-  const box=document.createElement("div");
-  box.className="fb-video-box";
-  const f=document.createElement("iframe");
-  f.src="https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0";
-  f.title="Highlights ufficiali NFL";
-  f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
-  f.allowFullscreen=true;
-  box.appendChild(f);
-  const a=document.createElement("a");
-  a.href="https://www.youtube.com/watch?v="+id; a.target="_blank"; a.rel="noopener";
-  a.className="fb-hl"; a.textContent="Non parte? Aprilo su YouTube";
-  b.replaceWith(box); box.after(a);
-}
+/* La NFL non permette di guardare i suoi video fuori da YouTube: l'anteprima apre il video
+   su YouTube (sul telefono nell'app, se installata). */
 
 function listaLeader(titolo, lista){
   if(!lista || !lista.length) return "";
