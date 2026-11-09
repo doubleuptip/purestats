@@ -20,6 +20,7 @@ Fonte: nflverse (CC-BY-SA 4.0). Solo libreria standard.
 
 import csv
 import gzip
+import re
 import io
 import math
 from collections import defaultdict
@@ -194,14 +195,31 @@ def prestazioni(stagione, settimana):
 
 
 # ------------------------------------------------------------------ indici di forza (EPA)
-def _riassunto_pbp(stagione):
-    """Per squadra e partita: azioni ed EPA in attacco e in difesa, passaggi e corse separati; EPA dei QB."""
+MOMENTI_PER_PARTITA = 5
+
+
+def _riassunto_pbp(stagione, settimana_momenti=None, momenti=None):
+    """Per squadra e partita: azioni ed EPA in attacco e in difesa, passaggi e corse separati; EPA dei QB.
+    Se `settimana_momenti` è indicata, raccoglie in `momenti` le azioni che hanno spostato di più la
+    probabilità di vittoria in ogni partita di quella settimana (i momenti decisivi)."""
     testo = scarica(PBP_URL.format(s=stagione), f"azioni {stagione}")
     if not testo:
         return [], {}
     sq = {}
     qb = defaultdict(lambda: [0, 0.0, "", ""])
     for r in csv.DictReader(io.StringIO(testo)):
+        if settimana_momenti is not None and momenti is not None and r.get("week") == str(settimana_momenti):
+            wpa, hw, hwp = f(r.get("wpa")), f(r.get("home_wp")), f(r.get("home_wp_post"))
+            desc = r.get("desc") or ""
+            if (wpa is not None and hw is not None and hwp is not None and desc
+                    and not any(x in desc for x in ("No Play", "Timeout", "kneels", "END QUARTER", "END GAME"))):
+                # tolgo dal testo l'orario e le indicazioni di formazione, già mostrati o inutili
+                desc = re.sub(r"^\(\d+:\d+\)\s*", "", desc)
+                desc = re.sub(r"\((?:Shotgun|No Huddle|No Huddle, Shotgun|Pistol|Run formation)\)\s*", "", desc)
+                momenti[r["game_id"]].append({
+                    "quarto": r.get("qtr"), "tempo": r.get("time"), "squadra": r.get("posteam"),
+                    "descrizione": desc[:220], "touchdown": r.get("touchdown") == "1",
+                    "casaPrima": round(hw * 100), "casaDopo": round(hwp * 100), "peso": abs(hwp - hw)})
         if r.get("season_type") not in ("REG", "POST"):
             continue
         tipo = "pass" if r.get("pass") == "1" else "rush" if r.get("rush") == "1" else None
@@ -250,8 +268,8 @@ def _stima(lati, prudenza, giri=40):
     return A, D
 
 
-def indici(stagione, info):
-    corrente, qb = _riassunto_pbp(stagione)
+def indici(stagione, info, settimana_momenti=None, momenti=None):
+    corrente, qb = _riassunto_pbp(stagione, settimana_momenti, momenti)
     if not corrente:
         return None
     precedente, _ = _riassunto_pbp(stagione - 1)
@@ -307,7 +325,7 @@ def calcola(info=None):
             if g["pc"] is not None:
                 g["highlights"] = link_highlights((info.get(g["ospite"]) or {}).get("nomeCompleto", g["ospite"]),
                                                   (info.get(g["casa"]) or {}).get("nomeCompleto", g["casa"]),
-                                                  giorn["stagione"], giorn["settimana"])
+                                                  g["data"])
     if prossima:
         try:
             duelli, giovani = anteprima(prossima, prossima["stagione"])
@@ -316,15 +334,46 @@ def calcola(info=None):
         except Exception as e:      # l'anteprima non deve mai bloccare il resto
             print(f"  Anteprima non calcolata: {type(e).__name__}: {e}")
     stagione = max((p["stagione"] for p in tutte if p["pc"] is not None), default=None)
-    ind = indici(stagione, info) if stagione else None
+    momenti = defaultdict(list)
+    sett = giorn["settimana"] if giorn and giorn["stagione"] == stagione else None
+    ind = indici(stagione, info, sett, momenti) if stagione else None
+    if giorn and momenti:
+        # abbinamento alla partita con la sigla nflverse del game_id: <stagione>_<settimana>_<ospite>_<casa>
+        for g in giorn["partite"]:
+            gid = f"{giorn['stagione']}_{int(giorn['settimana']):02d}_{g['ospite']}_{g['casa']}"
+            scelti = sorted(momenti.get(gid, []), key=lambda m: -m["peso"])[:MOMENTI_PER_PARTITA]
+            scelti.sort(key=lambda m: (int(m["quarto"] or 0), -_secondi(m["tempo"])))
+            for m in scelti:
+                m.pop("peso", None)
+            if scelti:
+                g["momenti"] = scelti
     return {"anagrafica": info, "giornata": giorn, "prossima": prossima, "indici": ind}
 
 
 # ------------------------------------------------------------------ highlights
-def link_highlights(ospite_nome, casa_nome, stagione, settimana):
-    """Ricerca su YouTube degli highlights della partita (nessuna chiave: è un normale link di ricerca)."""
+MESI_EN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+           "November", "December"]
+
+
+def _secondi(tempo):
+    try:
+        m, sec = (tempo or "0:0").split(":")
+        return int(m) * 60 + int(sec)
+    except ValueError:
+        return 0
+
+
+def link_highlights(ospite_nome, casa_nome, data_iso):
+    """Ricerca su YouTube degli highlights ufficiali, con la data esatta della partita (i titoli dei video
+    NFL la riportano in inglese, es. "November 8, 2026"): riduce i risultati di stagioni passate.
+    È un link di ricerca, non un video preciso: per quello servirebbe la chiave gratuita di YouTube."""
     from urllib.parse import quote_plus
-    q = f"{ospite_nome} vs {casa_nome} highlights week {settimana} {stagione}"
+    try:
+        a, me, g = (int(x) for x in data_iso.split("-"))
+        quando = f"{MESI_EN[me - 1]} {g}, {a}"
+    except (ValueError, AttributeError, IndexError):
+        quando = data_iso or ""
+    q = f"{ospite_nome} vs. {casa_nome} highlights {quando} NFL"
     return "https://www.youtube.com/results?search_query=" + quote_plus(q)
 
 

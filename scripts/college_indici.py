@@ -58,8 +58,16 @@ def _riga(g):
     hl = None
     if pc is not None and po is not None:
         from urllib.parse import quote_plus
+        mesi = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+                "October", "November", "December"]
+        d = (g.get("startDate") or "")[:10]
+        try:
+            a, me, gg = (int(x) for x in d.split("-"))
+            quando = f"{mesi[me - 1]} {gg}, {a}"
+        except ValueError:
+            quando = f"{g.get('season')}"
         hl = "https://www.youtube.com/results?search_query=" + quote_plus(
-            f"{ospite} vs {casa} highlights college football week {g.get('week')} {g.get('season')}")
+            f"{ospite} vs {casa} football highlights {quando}")
     return {"highlights": hl, "data": data, "ora": "", "casa": casa, "ospite": ospite, "pc": pc, "po": po,
             "favorita": fav, "linea": None if margine is None else abs(margine), "totaleLinea": totale,
             "battutaDa": chi, "totaleEsito": tot, "scartoLinea": scarto, "stadio": "",
