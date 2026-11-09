@@ -683,6 +683,18 @@ def main():
     salva_archivio_giocatori(giocatori)
 
     stats = calcola_statistiche(righe, giocatori)
+
+    # Giornata, prossimo turno e indici: 3 chiamate (più 1 a stagione per i loghi).
+    # Blocchi aggiuntivi: se non riescono, l'archivio si aggiorna lo stesso.
+    print("\nGiornata, prossimo turno e indici")
+    try:
+        import college_indici
+        extra = college_indici.calcola(chiama, stats, corrente)
+        for k in ("giornata", "prossima", "indici", "loghi"):
+            stats[k] = extra.get(k)
+    except Exception as e:
+        print(f"  Blocchi aggiuntivi non calcolati: {type(e).__name__}: {e}. L'archivio è comunque aggiornato.")
+
     USCITA.parent.mkdir(parents=True, exist_ok=True)
     USCITA.write_text(json.dumps(stats, ensure_ascii=False, indent=2),
                       encoding="utf-8")

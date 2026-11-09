@@ -2,13 +2,16 @@ name: Aggiorna archivio College Football
 
 on:
   schedule:
-    # Lunedì: il college jgioca prevalentemente il sabato.
-    - cron: '0 12 * * 1'
+    # Domenica, martedì e giovedì: risultati del sabato, poi le linee del turno
+    # successivo man mano che escono. Circa 7 chiamate a esecuzione, ~90 al mese,
+    # sullo stesso budget mensile (1.000) usato anche dal bot.
+    - cron: '0 12 * * 0,2,4'
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - 'scripts/fetch_college.py'
+      - 'scripts/college_indici.py'
       - '.github/workflows/update-college.yml'
 
 permissions:
@@ -40,7 +43,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/college.csv docs/data_college.json
+          git add data/college.csv docs/data_college.json data/college_squadre.json
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
             exit 0

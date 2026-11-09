@@ -1375,12 +1375,18 @@ function vFootballGiornata(){
       + tabPrestazioni("Yard di corsa", pr.corse, "YARD")
       + tabPrestazioni("Yard ricevute", pr.ricezioni, "YARD");
   }
-  h+=`<div class="titolo"><i></i><span>RISULTATI</span></div><div class="grid">`
-    + (G.partite||[]).map(g=>rigaGara(g,true)).join("") + `</div>`;
+  // college: molte partite per week, si filtrano per conference (stessa barra della classifica)
+  const conConf = (G.partite||[]).some(g=>g.confCasa);
+  const nelGruppo = g => gruppoFootball==="tutti" || g.confCasa===gruppoFootball || g.confOspite===gruppoFootball;
+  const ris = (G.partite||[]).filter(nelGruppo);
+  h+=`<div class="titolo"><i></i><span>RISULTATI</span></div>${conConf?barraGruppi():""}
+    <div class="titolo-sub">${ris.length} partite</div><div class="grid">`
+    + ris.map(g=>rigaGara(g,true)).join("") + `</div>`;
   if(P && (P.partite||[]).length){
+    const pro = P.partite.filter(nelGruppo);
     h+=`<div class="titolo"><i></i><span>PROSSIMA: WEEK ${esc(P.settimana)}</span></div>
-    <div class="titolo-sub">Linee del mercato al momento dell'aggiornamento</div><div class="grid">`
-      + P.partite.map(g=>rigaGara(g,false)).join("") + `</div>`;
+    <div class="titolo-sub">${pro.length} partite · linee del mercato al momento dell'aggiornamento</div><div class="grid">`
+      + pro.map(g=>rigaGara(g,false)).join("") + `</div>`;
   }
   return h;
 }
