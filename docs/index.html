@@ -338,6 +338,8 @@
   .fb-mom ol{margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:10px}
   .fb-mom li{font-size:14px;line-height:1.5;color:var(--fb-text)}
   .fb-mom .q{display:block;font-size:13px;font-weight:700;color:var(--fb-acc)}
+  .fb-clip{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-size:14px;font-weight:600;color:var(--fb-acc);text-decoration:none;min-height:32px}
+  .fb-clip:hover{text-decoration:underline}
   .fb-mom .wp{display:block;font-size:13px;color:var(--fb-muted)}
   .fb-hl{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:var(--fb-acc);text-decoration:none;min-height:44px}
   .fb-hl:hover{text-decoration:underline}
@@ -1582,8 +1584,12 @@ function momenti(g){
     <ol>${g.momenti.map(m=>{
       const casa=breve(g.casa);
       const freccia = m.casaDopo>m.casaPrima ? "▲" : "▼";
+      const clip = m.clip && /^[A-Za-z0-9_-]{6,20}$/.test(m.clip.id||"")
+        ? `<a class="fb-clip" href="https://www.youtube.com/watch?v=${m.clip.id}" target="_blank" rel="noopener">
+             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+             Guarda la giocata</a>` : "";
       return `<li><span class="q">${esc(m.quarto)}° quarto · ${esc(m.tempo)} · ${esc(m.squadra||"")}${m.touchdown?" · TOUCHDOWN":""}</span>
-        ${esc(m.descrizione)}
+        ${esc(m.testo||m.descrizione)}${clip}
         <span class="wp">Probabilità di vittoria ${esc(casa)}: ${m.casaPrima}% ${freccia} ${m.casaDopo}%</span></li>`;}).join("")}</ol></details>` : "";
 }
 

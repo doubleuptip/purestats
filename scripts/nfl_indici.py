@@ -21,6 +21,8 @@ Fonte: nflverse (CC-BY-SA 4.0). Solo libreria standard.
 import csv
 import gzip
 import re
+
+import nfl_racconto
 import io
 import math
 from collections import defaultdict
@@ -216,9 +218,11 @@ def _riassunto_pbp(stagione, settimana_momenti=None, momenti=None):
                 # tolgo dal testo l'orario e le indicazioni di formazione, già mostrati o inutili
                 desc = re.sub(r"^\(\d+:\d+\)\s*", "", desc)
                 desc = re.sub(r"\((?:Shotgun|No Huddle|No Huddle, Shotgun|Pistol|Run formation)\)\s*", "", desc)
+                testo, chi, _ = nfl_racconto.traduci(r["desc"])
                 momenti[r["game_id"]].append({
                     "quarto": r.get("qtr"), "tempo": r.get("time"), "squadra": r.get("posteam"),
-                    "descrizione": desc[:220], "touchdown": r.get("touchdown") == "1",
+                    "descrizione": desc[:220], "testo": testo[:220], "chi": chi,
+                    "yard": f(r.get("yards_gained")), "touchdown": r.get("touchdown") == "1",
                     "casaPrima": round(hw * 100), "casaDopo": round(hwp * 100), "peso": abs(hwp - hw)})
         if r.get("season_type") not in ("REG", "POST"):
             continue
@@ -326,11 +330,6 @@ def calcola(info=None):
                 g["highlights"] = link_highlights((info.get(g["ospite"]) or {}).get("nomeCompleto", g["ospite"]),
                                                   (info.get(g["casa"]) or {}).get("nomeCompleto", g["casa"]),
                                                   g["data"])
-    if giorn:
-        try:
-            video_ufficiali(giorn, info)
-        except Exception as e:      # i video non devono mai bloccare il resto
-            print(f"  Video non cercati: {type(e).__name__}: {e}")
     if prossima:
         try:
             duelli, giovani = anteprima(prossima, prossima["stagione"])
@@ -352,6 +351,12 @@ def calcola(info=None):
                 m.pop("peso", None)
             if scelti:
                 g["momenti"] = scelti
+    # video dopo i momenti decisivi: servono per cercare le clip dei touchdown
+    if giorn:
+        try:
+            video_ufficiali(giorn, info)
+        except Exception as e:      # i video non devono mai bloccare il resto
+            print(f"  Video non cercati: {type(e).__name__}: {e}")
     return {"anagrafica": info, "giornata": giorn, "prossima": prossima, "indici": ind}
 
 
@@ -524,7 +529,7 @@ from pathlib import Path as _Path
 
 CANALE_NFL = "UCDVYQ4Zhbm3S2dlz7P1GBDg"      # canale YouTube ufficiale della NFL
 ARCHIVIO_VIDEO = _Path(__file__).resolve().parent.parent / "data" / "nfl_video.json"
-MAX_RICERCHE = 20                            # 100 unità l'una: 2.000 delle 10.000 giornaliere gratuite
+MAX_RICERCHE = 30                            # per tipo (partite e clip): al massimo 6.000 delle 10.000 unità giornaliere
 
 
 def video_ufficiali(giornata, info):
@@ -582,6 +587,54 @@ def video_ufficiali(giornata, info):
         else:
             archivio[gid] = {"cercato": adesso.isoformat()}
             print(f"  Video {gid}: non ancora pubblicato o titolo non riconosciuto; riprovo più tardi")
+    # clip delle singole giocate: solo touchdown, una ricerca per giocata, poi in archivio
+    clip_fatte = 0
+    for g in giornata["partite"]:
+        gid = f"{giornata['stagione']}_{int(giornata['settimana']):02d}_{g['ospite']}_{g['casa']}"
+        for m in g.get("momenti") or []:
+            if not m.get("touchdown") or not m.get("chi"):
+                continue
+            chiave_m = f"{gid}|{m['quarto']}|{m['tempo']}"
+            voce = archivio.get(chiave_m)
+            if voce and voce.get("id"):
+                m["clip"] = voce
+                continue
+            if not chiave or clip_fatte >= MAX_RICERCHE or (voce and voce.get("cercato")
+                                                             and adesso - _dt.fromisoformat(voce["cercato"]) < _td(hours=12)):
+                continue
+            autore = m["chi"][-1]                     # chi segna: il ricevitore nei lanci, chi corre nelle corse
+            yard = int(m["yard"]) if m.get("yard") is not None else None
+            fine = (_dt.fromisoformat(g["data"]) + _td(days=4)).strftime("%Y-%m-%dT00:00:00Z")
+            params = {"part": "snippet", "channelId": CANALE_NFL, "type": "video", "maxResults": 5,
+                      "q": f"{autore} {yard}-yard touchdown" if yard else f"{autore} touchdown",
+                      "publishedAfter": f"{g['data']}T00:00:00Z", "publishedBefore": fine, "key": chiave}
+            clip_fatte += 1
+            try:
+                with urlopen(Request("https://www.googleapis.com/youtube/v3/search?" + urlencode(params),
+                                     headers={"User-Agent": UA}), timeout=30) as r:
+                    risultati = _json.loads(r.read().decode()).get("items") or []
+            except (HTTPError, URLError, TimeoutError) as e:
+                print(f"  Clip {chiave_m}: ricerca non riuscita ({e})")
+                continue
+            scelto = None
+            for it in risultati:
+                titolo = (it.get("snippet") or {}).get("title") or ""
+                t = titolo.lower()
+                # il titolo deve nominare chi ha segnato e le yard (o almeno "TD"/"touchdown"),
+                # e non essere il video intero della partita
+                if (autore.lower() in t and ("touchdown" in t or " td" in t)
+                        and (yard is None or str(yard) in t) and "game highlights" not in t):
+                    scelto = {"id": (it.get("id") or {}).get("videoId"), "titolo": titolo}
+                    break
+            if scelto and scelto["id"]:
+                archivio[chiave_m] = scelto
+                m["clip"] = scelto
+                print(f"  Clip {chiave_m}: {scelto['titolo']}")
+            else:
+                archivio[chiave_m] = {"cercato": adesso.isoformat()}
+    if clip_fatte:
+        print(f"  Ricerche clip dei touchdown: {clip_fatte}")
+
     ARCHIVIO_VIDEO.parent.mkdir(parents=True, exist_ok=True)
     tmp = ARCHIVIO_VIDEO.with_suffix(".tmp")
     tmp.write_text(_json.dumps(archivio, ensure_ascii=False, indent=0), encoding="utf-8")
