@@ -1,16 +1,16 @@
 {
-  "aggiornato": "2026-11-03T15:46:26.548833+00:00",
+  "aggiornato": "2026-11-10T11:08:51.481147+00:00",
   "campionato": "Ligue 1",
   "fonte": "football-data.co.uk (PDDL) · designazioni ufficiali LFP",
   "stagioni": [
     "2026/27"
   ],
-  "totalePartite": 81,
-  "partiteConDisciplina": 81,
+  "totalePartite": 90,
+  "partiteConDisciplina": 90,
   "partiteConArbitro": 9,
   "arbitri": [
     {
-      "nome": "Jérémie Pignard",
+      "nome": "Mehdi Mokhtari",
       "partite": 1,
       "gialli": 5,
       "rossi": 0,
@@ -76,73 +76,7 @@
       "prossime": []
     },
     {
-      "nome": "Bastien Dechepy",
-      "partite": 1,
-      "gialli": 4,
-      "rossi": 0,
-      "mediaGialli": 4.0,
-      "mediaRossi": 0.0,
-      "mediaCartellini": 4.0,
-      "mediaFalli": 13.0,
-      "gialliPerFallo": 30.8,
-      "squilibrioCasaOspite": 0.0,
-      "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 2.0,
-      "vittorieCasa": 0,
-      "pareggi": 1,
-      "vittorieOspite": 0,
-      "percVittorieCasa": 0.0,
-      "perSquadra": [
-        {
-          "squadra": "Paris SG",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        },
-        {
-          "squadra": "Rennes",
-          "partite": 1,
-          "gialli": 2,
-          "rossi": 0,
-          "media": 2.0
-        }
-      ],
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 1,
-          "gialli": 4,
-          "rossi": 0,
-          "media": 4.0,
-          "mediaGialli": 4.0,
-          "mediaRossi": 0.0,
-          "mediaFalli": 13.0,
-          "squilibrio": 0.0,
-          "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 2.0
-        }
-      ],
-      "elenco": [
-        {
-          "stagione": "2026/27",
-          "data": "23/08/2026",
-          "casa": "Rennes",
-          "ospite": "Paris SG",
-          "gc": 2,
-          "go": 2,
-          "gialliCasa": 2,
-          "gialliOspite": 2,
-          "rossiCasa": 0,
-          "rossiOspite": 0,
-          "falliCasa": 7,
-          "falliOspite": 6
-        }
-      ],
-      "prossime": []
-    },
-    {
-      "nome": "Jérémy Stinat",
+      "nome": "Bruno Coué",
       "partite": 1,
       "gialli": 4,
       "rossi": 0,
@@ -208,7 +142,7 @@
       "prossime": []
     },
     {
-      "nome": "Ruddy Buquet",
+      "nome": "Cédric Dos Santos",
       "partite": 1,
       "gialli": 3,
       "rossi": 1,
@@ -274,67 +208,67 @@
       "prossime": []
     },
     {
-      "nome": "Guillaume Paradis",
+      "nome": "Wilfried Bien",
       "partite": 1,
-      "gialli": 3,
+      "gialli": 4,
       "rossi": 0,
-      "mediaGialli": 3.0,
+      "mediaGialli": 4.0,
       "mediaRossi": 0.0,
-      "mediaCartellini": 3.0,
-      "mediaFalli": 30.0,
-      "gialliPerFallo": 10.0,
-      "squilibrioCasaOspite": 1.0,
-      "mediaGialliCasa": 1.0,
+      "mediaCartellini": 4.0,
+      "mediaFalli": 13.0,
+      "gialliPerFallo": 30.8,
+      "squilibrioCasaOspite": 0.0,
+      "mediaGialliCasa": 2.0,
       "mediaGialliOspite": 2.0,
       "vittorieCasa": 0,
-      "pareggi": 0,
-      "vittorieOspite": 1,
+      "pareggi": 1,
+      "vittorieOspite": 0,
       "percVittorieCasa": 0.0,
       "perSquadra": [
         {
-          "squadra": "Lyon",
+          "squadra": "Paris SG",
           "partite": 1,
           "gialli": 2,
           "rossi": 0,
           "media": 2.0
         },
         {
-          "squadra": "Toulouse",
+          "squadra": "Rennes",
           "partite": 1,
-          "gialli": 1,
+          "gialli": 2,
           "rossi": 0,
-          "media": 1.0
+          "media": 2.0
         }
       ],
       "perStagione": [
         {
           "stagione": "2026/27",
           "partite": 1,
-          "gialli": 3,
+          "gialli": 4,
           "rossi": 0,
-          "media": 3.0,
-          "mediaGialli": 3.0,
+          "media": 4.0,
+          "mediaGialli": 4.0,
           "mediaRossi": 0.0,
-          "mediaFalli": 30.0,
-          "squilibrio": 1.0,
-          "mediaGialliCasa": 1.0,
+          "mediaFalli": 13.0,
+          "squilibrio": 0.0,
+          "mediaGialliCasa": 2.0,
           "mediaGialliOspite": 2.0
         }
       ],
       "elenco": [
         {
           "stagione": "2026/27",
-          "data": "22/08/2026",
-          "casa": "Toulouse",
-          "ospite": "Lyon",
-          "gc": 0,
+          "data": "23/08/2026",
+          "casa": "Rennes",
+          "ospite": "Paris SG",
+          "gc": 2,
           "go": 2,
-          "gialliCasa": 1,
+          "gialliCasa": 2,
           "gialliOspite": 2,
           "rossiCasa": 0,
           "rossiOspite": 0,
-          "falliCasa": 15,
-          "falliOspite": 15
+          "falliCasa": 7,
+          "falliOspite": 6
         }
       ],
       "prossime": []
@@ -406,7 +340,7 @@
       "prossime": []
     },
     {
-      "nome": "Mathieu Vernice",
+      "nome": "Mathieu Grosbost",
       "partite": 1,
       "gialli": 2,
       "rossi": 1,
@@ -472,7 +406,73 @@
       "prossime": []
     },
     {
-      "nome": "Aurélien Petit",
+      "nome": "William Lavis",
+      "partite": 1,
+      "gialli": 3,
+      "rossi": 0,
+      "mediaGialli": 3.0,
+      "mediaRossi": 0.0,
+      "mediaCartellini": 3.0,
+      "mediaFalli": 30.0,
+      "gialliPerFallo": 10.0,
+      "squilibrioCasaOspite": 1.0,
+      "mediaGialliCasa": 1.0,
+      "mediaGialliOspite": 2.0,
+      "vittorieCasa": 0,
+      "pareggi": 0,
+      "vittorieOspite": 1,
+      "percVittorieCasa": 0.0,
+      "perSquadra": [
+        {
+          "squadra": "Lyon",
+          "partite": 1,
+          "gialli": 2,
+          "rossi": 0,
+          "media": 2.0
+        },
+        {
+          "squadra": "Toulouse",
+          "partite": 1,
+          "gialli": 1,
+          "rossi": 0,
+          "media": 1.0
+        }
+      ],
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 1,
+          "gialli": 3,
+          "rossi": 0,
+          "media": 3.0,
+          "mediaGialli": 3.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 30.0,
+          "squilibrio": 1.0,
+          "mediaGialliCasa": 1.0,
+          "mediaGialliOspite": 2.0
+        }
+      ],
+      "elenco": [
+        {
+          "stagione": "2026/27",
+          "data": "22/08/2026",
+          "casa": "Toulouse",
+          "ospite": "Lyon",
+          "gc": 0,
+          "go": 2,
+          "gialliCasa": 1,
+          "gialliOspite": 2,
+          "rossiCasa": 0,
+          "rossiOspite": 0,
+          "falliCasa": 15,
+          "falliOspite": 15
+        }
+      ],
+      "prossime": []
+    },
+    {
+      "nome": "Victoria Beyer",
       "partite": 1,
       "gialli": 2,
       "rossi": 0,
@@ -538,7 +538,7 @@
       "prossime": []
     },
     {
-      "nome": "Romain Lissorgue",
+      "nome": "Yann Flament",
       "partite": 1,
       "gialli": 1,
       "rossi": 0,
@@ -607,438 +607,573 @@
   "squadre": [
     {
       "nome": "Le Mans",
-      "partite": 9,
+      "partite": 10,
       "gialli": 23,
       "rossi": 1,
-      "mediaGialli": 2.56,
-      "mediaRossi": 0.11,
-      "mediaFalli": 14.7,
-      "mediaGialliCasa": 2.0,
+      "mediaGialli": 2.3,
+      "mediaRossi": 0.1,
+      "mediaFalli": 14.8,
+      "mediaGialliCasa": 1.6,
       "mediaGialliOspite": 3.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
+          "partite": 10,
           "gialli": 23,
           "rossi": 1,
-          "mediaGialli": 2.56,
-          "mediaRossi": 0.11,
-          "mediaFalli": 14.7,
-          "mediaGialliCasa": 2.0,
+          "mediaGialli": 2.3,
+          "mediaRossi": 0.1,
+          "mediaFalli": 14.8,
+          "mediaGialliCasa": 1.6,
           "mediaGialliOspite": 3.0
         }
       ]
     },
     {
       "nome": "Nice",
-      "partite": 9,
-      "gialli": 22,
+      "partite": 10,
+      "gialli": 23,
       "rossi": 0,
-      "mediaGialli": 2.44,
+      "mediaGialli": 2.3,
       "mediaRossi": 0.0,
-      "mediaFalli": 9.9,
+      "mediaFalli": 9.5,
       "mediaGialliCasa": 2.2,
-      "mediaGialliOspite": 2.75,
+      "mediaGialliOspite": 2.4,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 22,
+          "partite": 10,
+          "gialli": 23,
           "rossi": 0,
-          "mediaGialli": 2.44,
+          "mediaGialli": 2.3,
           "mediaRossi": 0.0,
-          "mediaFalli": 9.9,
+          "mediaFalli": 9.5,
           "mediaGialliCasa": 2.2,
-          "mediaGialliOspite": 2.75
+          "mediaGialliOspite": 2.4
         }
       ]
     },
     {
       "nome": "Paris FC",
-      "partite": 9,
-      "gialli": 21,
+      "partite": 10,
+      "gialli": 22,
       "rossi": 0,
-      "mediaGialli": 2.33,
+      "mediaGialli": 2.2,
       "mediaRossi": 0.0,
       "mediaFalli": 13.9,
       "mediaGialliCasa": 2.0,
-      "mediaGialliOspite": 2.75,
+      "mediaGialliOspite": 2.4,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 21,
+          "partite": 10,
+          "gialli": 22,
           "rossi": 0,
-          "mediaGialli": 2.33,
+          "mediaGialli": 2.2,
           "mediaRossi": 0.0,
           "mediaFalli": 13.9,
           "mediaGialliCasa": 2.0,
-          "mediaGialliOspite": 2.75
+          "mediaGialliOspite": 2.4
         }
       ]
     },
     {
       "nome": "Rennes",
-      "partite": 9,
+      "partite": 10,
       "gialli": 21,
       "rossi": 0,
-      "mediaGialli": 2.33,
+      "mediaGialli": 2.1,
       "mediaRossi": 0.0,
-      "mediaFalli": 12.7,
-      "mediaGialliCasa": 2.2,
+      "mediaFalli": 12.1,
+      "mediaGialliCasa": 1.83,
       "mediaGialliOspite": 2.5,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
+          "partite": 10,
           "gialli": 21,
           "rossi": 0,
-          "mediaGialli": 2.33,
+          "mediaGialli": 2.1,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.7,
-          "mediaGialliCasa": 2.2,
+          "mediaFalli": 12.1,
+          "mediaGialliCasa": 1.83,
           "mediaGialliOspite": 2.5
         }
       ]
     },
     {
-      "nome": "Monaco",
-      "partite": 9,
-      "gialli": 20,
-      "rossi": 0,
-      "mediaGialli": 2.22,
-      "mediaRossi": 0.0,
-      "mediaFalli": 12.8,
-      "mediaGialliCasa": 2.5,
-      "mediaGialliOspite": 2.0,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 20,
-          "rossi": 0,
-          "mediaGialli": 2.22,
-          "mediaRossi": 0.0,
-          "mediaFalli": 12.8,
-          "mediaGialliCasa": 2.5,
-          "mediaGialliOspite": 2.0
-        }
-      ]
-    },
-    {
-      "nome": "Lens",
-      "partite": 9,
-      "gialli": 18,
-      "rossi": 2,
-      "mediaGialli": 2.0,
-      "mediaRossi": 0.22,
-      "mediaFalli": 12.4,
-      "mediaGialliCasa": 2.25,
-      "mediaGialliOspite": 1.8,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 18,
-          "rossi": 2,
-          "mediaGialli": 2.0,
-          "mediaRossi": 0.22,
-          "mediaFalli": 12.4,
-          "mediaGialliCasa": 2.25,
-          "mediaGialliOspite": 1.8
-        }
-      ]
-    },
-    {
       "nome": "Toulouse",
-      "partite": 9,
-      "gialli": 18,
+      "partite": 10,
+      "gialli": 21,
       "rossi": 0,
-      "mediaGialli": 2.0,
+      "mediaGialli": 2.1,
       "mediaRossi": 0.0,
       "mediaFalli": 15.8,
-      "mediaGialliCasa": 2.75,
+      "mediaGialliCasa": 2.8,
       "mediaGialliOspite": 1.4,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 18,
+          "partite": 10,
+          "gialli": 21,
           "rossi": 0,
-          "mediaGialli": 2.0,
+          "mediaGialli": 2.1,
           "mediaRossi": 0.0,
           "mediaFalli": 15.8,
-          "mediaGialliCasa": 2.75,
+          "mediaGialliCasa": 2.8,
           "mediaGialliOspite": 1.4
         }
       ]
     },
     {
-      "nome": "Troyes",
-      "partite": 9,
-      "gialli": 16,
+      "nome": "Monaco",
+      "partite": 10,
+      "gialli": 20,
       "rossi": 0,
-      "mediaGialli": 1.78,
+      "mediaGialli": 2.0,
       "mediaRossi": 0.0,
-      "mediaFalli": 12.9,
+      "mediaFalli": 12.3,
+      "mediaGialliCasa": 2.5,
+      "mediaGialliOspite": 1.67,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 10,
+          "gialli": 20,
+          "rossi": 0,
+          "mediaGialli": 2.0,
+          "mediaRossi": 0.0,
+          "mediaFalli": 12.3,
+          "mediaGialliCasa": 2.5,
+          "mediaGialliOspite": 1.67
+        }
+      ]
+    },
+    {
+      "nome": "Lens",
+      "partite": 10,
+      "gialli": 19,
+      "rossi": 2,
+      "mediaGialli": 1.9,
+      "mediaRossi": 0.2,
+      "mediaFalli": 12.7,
+      "mediaGialliCasa": 2.0,
+      "mediaGialliOspite": 1.8,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 10,
+          "gialli": 19,
+          "rossi": 2,
+          "mediaGialli": 1.9,
+          "mediaRossi": 0.2,
+          "mediaFalli": 12.7,
+          "mediaGialliCasa": 2.0,
+          "mediaGialliOspite": 1.8
+        }
+      ]
+    },
+    {
+      "nome": "Auxerre",
+      "partite": 10,
+      "gialli": 18,
+      "rossi": 2,
+      "mediaGialli": 1.8,
+      "mediaRossi": 0.2,
+      "mediaFalli": 16.3,
+      "mediaGialliCasa": 1.8,
+      "mediaGialliOspite": 1.8,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 10,
+          "gialli": 18,
+          "rossi": 2,
+          "mediaGialli": 1.8,
+          "mediaRossi": 0.2,
+          "mediaFalli": 16.3,
+          "mediaGialliCasa": 1.8,
+          "mediaGialliOspite": 1.8
+        }
+      ]
+    },
+    {
+      "nome": "Strasbourg",
+      "partite": 10,
+      "gialli": 17,
+      "rossi": 1,
+      "mediaGialli": 1.7,
+      "mediaRossi": 0.1,
+      "mediaFalli": 12.2,
+      "mediaGialliCasa": 1.25,
+      "mediaGialliOspite": 2.0,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 10,
+          "gialli": 17,
+          "rossi": 1,
+          "mediaGialli": 1.7,
+          "mediaRossi": 0.1,
+          "mediaFalli": 12.2,
+          "mediaGialliCasa": 1.25,
+          "mediaGialliOspite": 2.0
+        }
+      ]
+    },
+    {
+      "nome": "Troyes",
+      "partite": 10,
+      "gialli": 17,
+      "rossi": 0,
+      "mediaGialli": 1.7,
+      "mediaRossi": 0.0,
+      "mediaFalli": 12.3,
       "mediaGialliCasa": 2.4,
       "mediaGialliOspite": 1.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 16,
+          "partite": 10,
+          "gialli": 17,
           "rossi": 0,
-          "mediaGialli": 1.78,
+          "mediaGialli": 1.7,
           "mediaRossi": 0.0,
-          "mediaFalli": 12.9,
+          "mediaFalli": 12.3,
           "mediaGialliCasa": 2.4,
           "mediaGialliOspite": 1.0
         }
       ]
     },
     {
-      "nome": "Auxerre",
-      "partite": 9,
-      "gialli": 15,
-      "rossi": 2,
-      "mediaGialli": 1.67,
-      "mediaRossi": 0.22,
-      "mediaFalli": 15.4,
-      "mediaGialliCasa": 1.5,
-      "mediaGialliOspite": 1.8,
+      "nome": "Angers",
+      "partite": 10,
+      "gialli": 16,
+      "rossi": 1,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.1,
+      "mediaFalli": 10.5,
+      "mediaGialliCasa": 1.83,
+      "mediaGialliOspite": 1.25,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 15,
-          "rossi": 2,
-          "mediaGialli": 1.67,
-          "mediaRossi": 0.22,
-          "mediaFalli": 15.4,
-          "mediaGialliCasa": 1.5,
-          "mediaGialliOspite": 1.8
+          "partite": 10,
+          "gialli": 16,
+          "rossi": 1,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.1,
+          "mediaFalli": 10.5,
+          "mediaGialliCasa": 1.83,
+          "mediaGialliOspite": 1.25
         }
       ]
     },
     {
-      "nome": "Le Havre",
-      "partite": 9,
-      "gialli": 14,
-      "rossi": 2,
-      "mediaGialli": 1.56,
-      "mediaRossi": 0.22,
-      "mediaFalli": 14.1,
+      "nome": "Lille",
+      "partite": 10,
+      "gialli": 16,
+      "rossi": 1,
+      "mediaGialli": 1.6,
+      "mediaRossi": 0.1,
+      "mediaFalli": 11.7,
       "mediaGialliCasa": 1.2,
       "mediaGialliOspite": 2.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 14,
-          "rossi": 2,
-          "mediaGialli": 1.56,
-          "mediaRossi": 0.22,
-          "mediaFalli": 14.1,
+          "partite": 10,
+          "gialli": 16,
+          "rossi": 1,
+          "mediaGialli": 1.6,
+          "mediaRossi": 0.1,
+          "mediaFalli": 11.7,
           "mediaGialliCasa": 1.2,
           "mediaGialliOspite": 2.0
         }
       ]
     },
     {
-      "nome": "Strasbourg",
-      "partite": 9,
-      "gialli": 14,
-      "rossi": 1,
-      "mediaGialli": 1.56,
-      "mediaRossi": 0.11,
-      "mediaFalli": 11.9,
-      "mediaGialliCasa": 1.25,
-      "mediaGialliOspite": 1.8,
+      "nome": "Le Havre",
+      "partite": 10,
+      "gialli": 15,
+      "rossi": 2,
+      "mediaGialli": 1.5,
+      "mediaRossi": 0.2,
+      "mediaFalli": 14.3,
+      "mediaGialliCasa": 1.17,
+      "mediaGialliOspite": 2.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 14,
-          "rossi": 1,
-          "mediaGialli": 1.56,
-          "mediaRossi": 0.11,
-          "mediaFalli": 11.9,
-          "mediaGialliCasa": 1.25,
-          "mediaGialliOspite": 1.8
-        }
-      ]
-    },
-    {
-      "nome": "Angers",
-      "partite": 9,
-      "gialli": 13,
-      "rossi": 1,
-      "mediaGialli": 1.44,
-      "mediaRossi": 0.11,
-      "mediaFalli": 10.6,
-      "mediaGialliCasa": 1.6,
-      "mediaGialliOspite": 1.25,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 13,
-          "rossi": 1,
-          "mediaGialli": 1.44,
-          "mediaRossi": 0.11,
-          "mediaFalli": 10.6,
-          "mediaGialliCasa": 1.6,
-          "mediaGialliOspite": 1.25
+          "partite": 10,
+          "gialli": 15,
+          "rossi": 2,
+          "mediaGialli": 1.5,
+          "mediaRossi": 0.2,
+          "mediaFalli": 14.3,
+          "mediaGialliCasa": 1.17,
+          "mediaGialliOspite": 2.0
         }
       ]
     },
     {
       "nome": "Brest",
-      "partite": 9,
-      "gialli": 13,
+      "partite": 10,
+      "gialli": 14,
       "rossi": 0,
-      "mediaGialli": 1.44,
+      "mediaGialli": 1.4,
       "mediaRossi": 0.0,
       "mediaFalli": 14.4,
-      "mediaGialliCasa": 1.75,
+      "mediaGialliCasa": 1.6,
       "mediaGialliOspite": 1.2,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 13,
+          "partite": 10,
+          "gialli": 14,
           "rossi": 0,
-          "mediaGialli": 1.44,
+          "mediaGialli": 1.4,
           "mediaRossi": 0.0,
           "mediaFalli": 14.4,
-          "mediaGialliCasa": 1.75,
+          "mediaGialliCasa": 1.6,
           "mediaGialliOspite": 1.2
         }
       ]
     },
     {
-      "nome": "Lille",
-      "partite": 9,
-      "gialli": 13,
-      "rossi": 1,
-      "mediaGialli": 1.44,
-      "mediaRossi": 0.11,
-      "mediaFalli": 11.3,
-      "mediaGialliCasa": 1.2,
-      "mediaGialliOspite": 1.75,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 13,
-          "rossi": 1,
-          "mediaGialli": 1.44,
-          "mediaRossi": 0.11,
-          "mediaFalli": 11.3,
-          "mediaGialliCasa": 1.2,
-          "mediaGialliOspite": 1.75
-        }
-      ]
-    },
-    {
       "nome": "Marseille",
-      "partite": 9,
-      "gialli": 12,
+      "partite": 10,
+      "gialli": 14,
       "rossi": 1,
-      "mediaGialli": 1.33,
-      "mediaRossi": 0.11,
-      "mediaFalli": 11.6,
+      "mediaGialli": 1.4,
+      "mediaRossi": 0.1,
+      "mediaFalli": 11.2,
       "mediaGialliCasa": 1.2,
-      "mediaGialliOspite": 1.5,
+      "mediaGialliOspite": 1.6,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 12,
+          "partite": 10,
+          "gialli": 14,
           "rossi": 1,
-          "mediaGialli": 1.33,
-          "mediaRossi": 0.11,
-          "mediaFalli": 11.6,
+          "mediaGialli": 1.4,
+          "mediaRossi": 0.1,
+          "mediaFalli": 11.2,
           "mediaGialliCasa": 1.2,
-          "mediaGialliOspite": 1.5
-        }
-      ]
-    },
-    {
-      "nome": "Lyon",
-      "partite": 9,
-      "gialli": 11,
-      "rossi": 1,
-      "mediaGialli": 1.22,
-      "mediaRossi": 0.11,
-      "mediaFalli": 11.9,
-      "mediaGialliCasa": 1.2,
-      "mediaGialliOspite": 1.25,
-      "perStagione": [
-        {
-          "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 11,
-          "rossi": 1,
-          "mediaGialli": 1.22,
-          "mediaRossi": 0.11,
-          "mediaFalli": 11.9,
-          "mediaGialliCasa": 1.2,
-          "mediaGialliOspite": 1.25
+          "mediaGialliOspite": 1.6
         }
       ]
     },
     {
       "nome": "Lorient",
-      "partite": 9,
-      "gialli": 10,
+      "partite": 10,
+      "gialli": 13,
       "rossi": 0,
-      "mediaGialli": 1.11,
+      "mediaGialli": 1.3,
       "mediaRossi": 0.0,
-      "mediaFalli": 9.4,
+      "mediaFalli": 10.4,
       "mediaGialliCasa": 1.0,
-      "mediaGialliOspite": 1.25,
+      "mediaGialliOspite": 1.6,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 10,
+          "partite": 10,
+          "gialli": 13,
           "rossi": 0,
-          "mediaGialli": 1.11,
+          "mediaGialli": 1.3,
           "mediaRossi": 0.0,
-          "mediaFalli": 9.4,
+          "mediaFalli": 10.4,
           "mediaGialliCasa": 1.0,
-          "mediaGialliOspite": 1.25
+          "mediaGialliOspite": 1.6
+        }
+      ]
+    },
+    {
+      "nome": "Lyon",
+      "partite": 10,
+      "gialli": 13,
+      "rossi": 1,
+      "mediaGialli": 1.3,
+      "mediaRossi": 0.1,
+      "mediaFalli": 11.7,
+      "mediaGialliCasa": 1.2,
+      "mediaGialliOspite": 1.4,
+      "perStagione": [
+        {
+          "stagione": "2026/27",
+          "partite": 10,
+          "gialli": 13,
+          "rossi": 1,
+          "mediaGialli": 1.3,
+          "mediaRossi": 0.1,
+          "mediaFalli": 11.7,
+          "mediaGialliCasa": 1.2,
+          "mediaGialliOspite": 1.4
         }
       ]
     },
     {
       "nome": "Paris SG",
-      "partite": 9,
-      "gialli": 9,
+      "partite": 10,
+      "gialli": 12,
       "rossi": 0,
-      "mediaGialli": 1.0,
+      "mediaGialli": 1.2,
       "mediaRossi": 0.0,
-      "mediaFalli": 6.7,
-      "mediaGialliCasa": 1.0,
+      "mediaFalli": 6.6,
+      "mediaGialliCasa": 1.5,
       "mediaGialliOspite": 1.0,
       "perStagione": [
         {
           "stagione": "2026/27",
-          "partite": 9,
-          "gialli": 9,
+          "partite": 10,
+          "gialli": 12,
           "rossi": 0,
-          "mediaGialli": 1.0,
+          "mediaGialli": 1.2,
           "mediaRossi": 0.0,
-          "mediaFalli": 6.7,
-          "mediaGialliCasa": 1.0,
+          "mediaFalli": 6.6,
+          "mediaGialliCasa": 1.5,
           "mediaGialliOspite": 1.0
         }
       ]
     }
   ],
   "ultimePartite": [
+    {
+      "stagione": "2026/27",
+      "data": "08/11/2026",
+      "casa": "Rennes",
+      "ospite": "Lille",
+      "gc": 1,
+      "go": 2,
+      "arbitro": "",
+      "gialliCasa": 0,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 7,
+      "falliOspite": 15
+    },
+    {
+      "stagione": "2026/27",
+      "data": "08/11/2026",
+      "casa": "Lens",
+      "ospite": "Marseille",
+      "gc": 1,
+      "go": 2,
+      "arbitro": "",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 15,
+      "falliOspite": 8
+    },
+    {
+      "stagione": "2026/27",
+      "data": "08/11/2026",
+      "casa": "Le Mans",
+      "ospite": "Monaco",
+      "gc": 1,
+      "go": 1,
+      "arbitro": "",
+      "gialliCasa": 0,
+      "gialliOspite": 0,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 16,
+      "falliOspite": 8
+    },
+    {
+      "stagione": "2026/27",
+      "data": "08/11/2026",
+      "casa": "Le Havre",
+      "ospite": "Lorient",
+      "gc": 0,
+      "go": 2,
+      "arbitro": "",
+      "gialliCasa": 1,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 16,
+      "falliOspite": 19
+    },
+    {
+      "stagione": "2026/27",
+      "data": "08/11/2026",
+      "casa": "Brest",
+      "ospite": "Lyon",
+      "gc": 2,
+      "go": 0,
+      "arbitro": "",
+      "gialliCasa": 1,
+      "gialliOspite": 2,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 14,
+      "falliOspite": 10
+    },
+    {
+      "stagione": "2026/27",
+      "data": "08/11/2026",
+      "casa": "Angers",
+      "ospite": "Nice",
+      "gc": 0,
+      "go": 2,
+      "arbitro": "",
+      "gialliCasa": 3,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 10,
+      "falliOspite": 6
+    },
+    {
+      "stagione": "2026/27",
+      "data": "07/11/2026",
+      "casa": "Paris SG",
+      "ospite": "Troyes",
+      "gc": 1,
+      "go": 0,
+      "arbitro": "",
+      "gialliCasa": 3,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 6,
+      "falliOspite": 7
+    },
+    {
+      "stagione": "2026/27",
+      "data": "07/11/2026",
+      "casa": "Auxerre",
+      "ospite": "Paris FC",
+      "gc": 0,
+      "go": 1,
+      "arbitro": "",
+      "gialliCasa": 3,
+      "gialliOspite": 1,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 24,
+      "falliOspite": 14
+    },
+    {
+      "stagione": "2026/27",
+      "data": "06/11/2026",
+      "casa": "Toulouse",
+      "ospite": "Strasbourg",
+      "gc": 3,
+      "go": 1,
+      "arbitro": "",
+      "gialliCasa": 3,
+      "gialliOspite": 3,
+      "rossiCasa": 0,
+      "rossiOspite": 0,
+      "falliCasa": 16,
+      "falliOspite": 15
+    },
     {
       "stagione": "2026/27",
       "data": "02/11/2026",
@@ -1503,141 +1638,6 @@
       "rossiOspite": 0,
       "falliCasa": 3,
       "falliOspite": 17
-    },
-    {
-      "stagione": "2026/27",
-      "data": "10/10/2026",
-      "casa": "Monaco",
-      "ospite": "Toulouse",
-      "gc": 2,
-      "go": 2,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 10,
-      "falliOspite": 16
-    },
-    {
-      "stagione": "2026/27",
-      "data": "10/10/2026",
-      "casa": "Lorient",
-      "ospite": "Paris FC",
-      "gc": 1,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 1,
-      "gialliOspite": 5,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 9,
-      "falliOspite": 13
-    },
-    {
-      "stagione": "2026/27",
-      "data": "10/10/2026",
-      "casa": "Lille",
-      "ospite": "Le Havre",
-      "gc": 1,
-      "go": 0,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 2,
-      "rossiCasa": 0,
-      "rossiOspite": 1,
-      "falliCasa": 17,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2026/27",
-      "data": "10/10/2026",
-      "casa": "Brest",
-      "ospite": "Angers",
-      "gc": 5,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 1,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 1,
-      "falliCasa": 5,
-      "falliOspite": 11
-    },
-    {
-      "stagione": "2026/27",
-      "data": "09/10/2026",
-      "casa": "Lens",
-      "ospite": "Lyon",
-      "gc": 2,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 1,
-      "gialliOspite": 1,
-      "rossiCasa": 1,
-      "rossiOspite": 0,
-      "falliCasa": 13,
-      "falliOspite": 12
-    },
-    {
-      "stagione": "2026/27",
-      "data": "20/09/2026",
-      "casa": "Nice",
-      "ospite": "Lille",
-      "gc": 2,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 3,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 16,
-      "falliOspite": 9
-    },
-    {
-      "stagione": "2026/27",
-      "data": "20/09/2026",
-      "casa": "Marseille",
-      "ospite": "Paris SG",
-      "gc": 1,
-      "go": 2,
-      "arbitro": "",
-      "gialliCasa": 2,
-      "gialliOspite": 1,
-      "rossiCasa": 1,
-      "rossiOspite": 0,
-      "falliCasa": 9,
-      "falliOspite": 3
-    },
-    {
-      "stagione": "2026/27",
-      "data": "20/09/2026",
-      "casa": "Auxerre",
-      "ospite": "Brest",
-      "gc": 2,
-      "go": 1,
-      "arbitro": "",
-      "gialliCasa": 1,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 19,
-      "falliOspite": 13
-    },
-    {
-      "stagione": "2026/27",
-      "data": "19/09/2026",
-      "casa": "Toulouse",
-      "ospite": "Le Havre",
-      "gc": 3,
-      "go": 2,
-      "arbitro": "",
-      "gialliCasa": 3,
-      "gialliOspite": 1,
-      "rossiCasa": 0,
-      "rossiOspite": 0,
-      "falliCasa": 17,
-      "falliOspite": 15
     }
   ],
   "prossimeDesignazioni": []
