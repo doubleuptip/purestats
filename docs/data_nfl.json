@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-09T21:18:37.492810+00:00",
+  "aggiornato": "2026-11-10T18:29:03.706833+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -10,38 +10,38 @@
     "2022"
   ],
   "totalePartite": 1411,
-  "partiteGiocate": 1274,
+  "partiteGiocate": 1275,
   "squadre": [
     {
       "nome": "BUF",
       "nomeCompleto": "Buffalo Bills",
       "conference": "AFC",
       "division": "AFC East",
-      "partite": 83,
-      "vittorie": 60,
+      "partite": 84,
+      "vittorie": 61,
       "sconfitte": 23,
       "pareggi": 0,
-      "percVittorie": 72.3,
-      "mediaFatti": 28.8,
-      "mediaSubiti": 20.9,
-      "differenza": 654,
+      "percVittorie": 72.6,
+      "mediaFatti": 28.7,
+      "mediaSubiti": 20.7,
+      "differenza": 671,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
-          "vittorie": 6,
+          "partite": 8,
+          "vittorie": 7,
           "sconfitte": 1,
           "pareggi": 0,
-          "percVittorie": 85.7,
-          "puntiFatti": 233,
-          "puntiSubiti": 181,
-          "mediaFatti": 33.3,
-          "mediaSubiti": 25.9,
-          "differenza": 52,
+          "percVittorie": 87.5,
+          "puntiFatti": 256,
+          "puntiSubiti": 187,
+          "mediaFatti": 32.0,
+          "mediaSubiti": 23.4,
+          "differenza": 69,
           "vittorieCasa": 3,
           "partiteCasa": 4,
-          "vittorieFuori": 3,
-          "partiteFuori": 3
+          "vittorieFuori": 4,
+          "partiteFuori": 4
         },
         {
           "stagione": "2025",
@@ -522,29 +522,29 @@
       "nomeCompleto": "Minnesota Vikings",
       "conference": "NFC",
       "division": "NFC North",
-      "partite": 77,
+      "partite": 78,
       "vittorie": 49,
-      "sconfitte": 28,
+      "sconfitte": 29,
       "pareggi": 0,
-      "percVittorie": 63.6,
-      "mediaFatti": 22.3,
-      "mediaSubiti": 20.8,
-      "differenza": 112,
+      "percVittorie": 62.8,
+      "mediaFatti": 22.1,
+      "mediaSubiti": 20.9,
+      "differenza": 95,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 7,
+          "partite": 8,
           "vittorie": 6,
-          "sconfitte": 1,
+          "sconfitte": 2,
           "pareggi": 0,
-          "percVittorie": 85.7,
-          "puntiFatti": 140,
-          "puntiSubiti": 93,
-          "mediaFatti": 20.0,
-          "mediaSubiti": 13.3,
-          "differenza": 47,
+          "percVittorie": 75.0,
+          "puntiFatti": 146,
+          "puntiSubiti": 116,
+          "mediaFatti": 18.2,
+          "mediaSubiti": 14.5,
+          "differenza": 30,
           "vittorieCasa": 3,
-          "partiteCasa": 3,
+          "partiteCasa": 4,
           "vittorieFuori": 3,
           "partiteFuori": 4
         },
@@ -135482,11 +135482,99 @@
       "ora": "20:15",
       "casa": "MIN",
       "ospite": "BUF",
-      "pc": null,
-      "po": null,
+      "pc": 6,
+      "po": 23,
       "stadio": "U.S. Bank Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Carson Wentz",
+          "ruolo": "QB",
+          "valore": 81,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Jordan Mason",
+          "ruolo": "RB",
+          "valore": 35,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Justin Jefferson",
+          "ruolo": "WR",
+          "valore": 58,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Jordan Addison",
+          "ruolo": "WR",
+          "valore": 28,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "T.J. Hockenson",
+          "ruolo": "TE",
+          "valore": 33,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Josh Allen",
+          "ruolo": "QB",
+          "valore": 234,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "James Cook",
+          "ruolo": "RB",
+          "valore": 107,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Khalil Shakir",
+          "ruolo": "WR",
+          "valore": 58,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "DJ Moore",
+          "ruolo": "WR",
+          "valore": 25,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Dawson Knox",
+          "ruolo": "TE",
+          "valore": 37,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -138244,7 +138332,11 @@
             "yard": 7.0,
             "touchdown": true,
             "casaPrima": 36,
-            "casaDopo": 19
+            "casaDopo": 19,
+            "clip": {
+              "id": "TvlsY8JMJ7I",
+              "titolo": "The NFL Report: Jessie Bates III Heads to Jacksonville + Puka Nacua Adds to Rams&#39; Injury Woes"
+            }
           },
           {
             "quarto": "4",
@@ -138759,15 +138851,96 @@
         "ora": "20:15",
         "casa": "MIN",
         "ospite": "BUF",
-        "pc": null,
-        "po": null,
+        "pc": 6,
+        "po": 23,
         "favorita": "BUF",
-        "linea": 3.5,
+        "linea": 3.0,
         "totaleLinea": 45.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
-        "stadio": "U.S. Bank Stadium"
+        "battutaDa": "BUF",
+        "totaleEsito": "under",
+        "scartoLinea": 14.0,
+        "stadio": "U.S. Bank Stadium",
+        "highlights": "https://www.youtube.com/results?search_query=Buffalo+Bills+vs.+Minnesota+Vikings+highlights+November+9%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "1",
+            "tempo": "05:46",
+            "squadra": "BUF",
+            "descrizione": "17-J.Allen pass deep middle intended for 2-D.Moore INTERCEPTED by 7-B.Murphy at MIN -7. 7-B.Murphy to MIN 47 for 54 yards (68-T.Grable).",
+            "testo": "Allen intercettato da Murphy",
+            "chi": [
+              "Allen",
+              "Murphy"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 52,
+            "casaDopo": 65
+          },
+          {
+            "quarto": "1",
+            "tempo": "05:30",
+            "squadra": "MIN",
+            "descrizione": "11-C.Wentz pass incomplete short right to 18-J.Jefferson. Buffalo challenged the forward pass ruling, and the play was REVERSED. 11-C.Wentz FUMBLES (Aborted) at MIN 43, RECOVERED by BUF-15-G.Rousseau at MIN 44.",
+            "testo": "Wentz: lancio corto a destra per Jefferson incompleto, fumble, recuperato da Rousseau (BUF)",
+            "chi": [
+              "Wentz"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 65,
+            "casaDopo": 51
+          },
+          {
+            "quarto": "3",
+            "tempo": "13:17",
+            "squadra": "MIN",
+            "descrizione": "11-C.Wentz pass deep right intended for 87-T.Hockenson INTERCEPTED by 42-D.Williams at BUF 11. 42-D.Williams to BUF 11 for no gain (87-T.Hockenson).",
+            "testo": "Wentz intercettato da Williams",
+            "chi": [
+              "Wentz",
+              "Williams"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 49,
+            "casaDopo": 39
+          },
+          {
+            "quarto": "3",
+            "tempo": "11:08",
+            "squadra": "BUF",
+            "descrizione": "17-J.Allen pass deep left to 26-T.Johnson to MIN 39 for 36 yards (29-Jac.Thomas).",
+            "testo": "Allen lancia lungo a sinistra per Johnson, 36 yard",
+            "chi": [
+              "Allen",
+              "Johnson"
+            ],
+            "yard": 36.0,
+            "touchdown": false,
+            "casaPrima": 40,
+            "casaDopo": 26
+          },
+          {
+            "quarto": "3",
+            "tempo": "04:10",
+            "squadra": "MIN",
+            "descrizione": "11-C.Wentz pass short middle intended for 18-J.Jefferson INTERCEPTED by 8-T.Bernard at BUF 34. 8-T.Bernard to BUF 39 for 5 yards (75-B.O'Neill).",
+            "testo": "Wentz intercettato da Bernard",
+            "chi": [
+              "Wentz",
+              "Bernard"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 30,
+            "casaDopo": 19
+          }
+        ],
+        "video": {
+          "id": "2_ruHrqYSI4",
+          "titolo": "Buffalo Bills vs Minnesota Vikings Highlights | 2026 NFL Season Week 9"
+        }
       }
     ],
     "sorprese": [
@@ -138790,12 +138963,12 @@
         "battutaDa": "JAX"
       }
     ],
-    "completa": false,
+    "completa": true,
     "riepilogo": {
-      "partite": 14,
-      "favoriteCoperte": 10,
+      "partite": 15,
+      "favoriteCoperte": 11,
       "over": 7,
-      "under": 7
+      "under": 8
     },
     "prestazioni": {
       "lanci": [
@@ -138842,6 +139015,14 @@
       ],
       "corse": [
         {
+          "nome": "James Cook",
+          "ruolo": "RB",
+          "squadra": "BUF",
+          "avversario": "MIN",
+          "valore": 107,
+          "dettagli": "31 corse · 1 TD"
+        },
+        {
           "nome": "Kenneth Walker III",
           "ruolo": "RB",
           "squadra": "KC",
@@ -138872,14 +139053,6 @@
           "avversario": "CHI",
           "valore": 97,
           "dettagli": "20 corse · 2 TD"
-        },
-        {
-          "nome": "Justice Hill",
-          "ruolo": "RB",
-          "squadra": "BAL",
-          "avversario": "JAX",
-          "valore": 85,
-          "dettagli": "9 corse · 1 TD"
         }
       ],
       "ricezioni": [
@@ -138938,8 +139111,8 @@
         "pc": null,
         "po": null,
         "favorita": "NYG",
-        "linea": 1.5,
-        "totaleLinea": 42.5,
+        "linea": 2.5,
+        "totaleLinea": 41.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -138953,7 +139126,7 @@
         "pc": null,
         "po": null,
         "favorita": "DET",
-        "linea": 3.0,
+        "linea": 2.5,
         "totaleLinea": 51.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -138998,8 +139171,8 @@
         "pc": null,
         "po": null,
         "favorita": "GB",
-        "linea": 3.5,
-        "totaleLinea": 42.5,
+        "linea": 5.5,
+        "totaleLinea": 40.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -139029,7 +139202,7 @@
         "po": null,
         "favorita": "NO",
         "linea": 1.5,
-        "totaleLinea": 47.5,
+        "totaleLinea": 48.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -139043,7 +139216,7 @@
         "pc": null,
         "po": null,
         "favorita": "BUF",
-        "linea": 7.5,
+        "linea": 8.5,
         "totaleLinea": 50.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -139058,7 +139231,7 @@
         "pc": null,
         "po": null,
         "favorita": "JAX",
-        "linea": 10.0,
+        "linea": 10.5,
         "totaleLinea": 46.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -139073,8 +139246,8 @@
         "pc": null,
         "po": null,
         "favorita": "LA",
-        "linea": 7.0,
-        "totaleLinea": 43.5,
+        "linea": 9.5,
+        "totaleLinea": 40.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -139088,7 +139261,7 @@
         "pc": null,
         "po": null,
         "favorita": "SEA",
-        "linea": 3.0,
+        "linea": 3.5,
         "totaleLinea": 43.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -139148,8 +139321,8 @@
         "data": "2026-11-12",
         "ora": "20:15",
         "favorita": "NYG",
-        "linea": 1.5,
-        "totaleLinea": 42.5,
+        "linea": 2.5,
+        "totaleLinea": 41.5,
         "giocatoriOspite": [
           {
             "nome": "Jayden Daniels",
@@ -139275,7 +139448,7 @@
         "data": "2026-11-15",
         "ora": "09:30",
         "favorita": "DET",
-        "linea": 3.0,
+        "linea": 2.5,
         "totaleLinea": 51.5,
         "giocatoriOspite": [
           {
@@ -139656,8 +139829,8 @@
         "data": "2026-11-15",
         "ora": "13:00",
         "favorita": "GB",
-        "linea": 3.5,
-        "totaleLinea": 42.5,
+        "linea": 5.5,
+        "totaleLinea": 40.5,
         "giocatoriOspite": [
           {
             "nome": "Kyler Murray",
@@ -139678,26 +139851,26 @@
             "forma": null
           },
           {
-            "nome": "Aaron Jones",
+            "nome": "Jordan Mason",
             "ruolo": "RB",
             "squadra": "MIN",
             "misura": "yard di corsa",
-            "partite": 7,
-            "mediaStagione": 65.4,
-            "mediaUltime3": 53.7,
-            "mediaPassato": 57.8,
-            "esperienza": "10° anno",
+            "partite": 4,
+            "mediaStagione": 45.5,
+            "mediaUltime3": 41.0,
+            "mediaPassato": 55.2,
+            "esperienza": "5° anno",
             "giovane": false,
-            "forma": null
+            "forma": "in calo"
           },
           {
             "nome": "Justin Jefferson",
             "ruolo": "WR",
             "squadra": "MIN",
             "misura": "yard ricevute",
-            "partite": 6,
-            "mediaStagione": 55.8,
-            "mediaUltime3": 52.0,
+            "partite": 7,
+            "mediaStagione": 56.1,
+            "mediaUltime3": 45.0,
             "mediaPassato": 75.4,
             "esperienza": "7° anno",
             "giovane": false,
@@ -139708,9 +139881,9 @@
             "ruolo": "TE",
             "squadra": "MIN",
             "misura": "yard ricevute",
-            "partite": 7,
-            "mediaStagione": 42.1,
-            "mediaUltime3": 33.3,
+            "partite": 8,
+            "mediaStagione": 41.0,
+            "mediaUltime3": 42.0,
             "mediaPassato": 36.8,
             "esperienza": "8° anno",
             "giovane": false,
@@ -139911,7 +140084,7 @@
         "ora": "13:00",
         "favorita": "NO",
         "linea": 1.5,
-        "totaleLinea": 47.5,
+        "totaleLinea": 48.5,
         "giocatoriOspite": [
           {
             "nome": "Bryce Young",
@@ -140037,7 +140210,7 @@
         "data": "2026-11-15",
         "ora": "13:00",
         "favorita": "BUF",
-        "linea": 7.5,
+        "linea": 8.5,
         "totaleLinea": 50.5,
         "giocatoriOspite": [
           {
@@ -140045,15 +140218,15 @@
             "ruolo": "QB",
             "squadra": "BUF",
             "misura": "yard lanciate",
-            "partite": 7,
-            "mediaStagione": 256.1,
-            "mediaUltime3": 251.3,
+            "partite": 8,
+            "mediaStagione": 253.4,
+            "mediaUltime3": 259.3,
             "mediaPassato": 232.2,
-            "epaLancio": 0.29,
-            "epaLancioUltime3": 0.296,
+            "epaLancio": 0.251,
+            "epaLancioUltime3": 0.173,
             "epaLancioPassato": 0.216,
-            "td": 11,
-            "int": 5,
+            "td": 12,
+            "int": 6,
             "esperienza": "9° anno",
             "giovane": false,
             "forma": null
@@ -140063,9 +140236,9 @@
             "ruolo": "RB",
             "squadra": "BUF",
             "misura": "yard di corsa",
-            "partite": 7,
-            "mediaStagione": 101.0,
-            "mediaUltime3": 95.3,
+            "partite": 8,
+            "mediaStagione": 101.8,
+            "mediaUltime3": 94.0,
             "mediaPassato": 80.7,
             "esperienza": "5° anno",
             "giovane": false,
@@ -140076,22 +140249,22 @@
             "ruolo": "TE",
             "squadra": "BUF",
             "misura": "yard ricevute",
-            "partite": 7,
-            "mediaStagione": 57.3,
-            "mediaUltime3": 43.7,
+            "partite": 8,
+            "mediaStagione": 53.6,
+            "mediaUltime3": 50.7,
             "mediaPassato": 40.0,
             "esperienza": "4° anno",
             "giovane": false,
-            "forma": null
+            "forma": "in forma"
           },
           {
             "nome": "Khalil Shakir",
             "ruolo": "WR",
             "squadra": "BUF",
             "misura": "yard ricevute",
-            "partite": 7,
-            "mediaStagione": 50.6,
-            "mediaUltime3": 59.3,
+            "partite": 8,
+            "mediaStagione": 51.5,
+            "mediaUltime3": 52.0,
             "mediaPassato": 52.0,
             "esperienza": "5° anno",
             "giovane": false,
@@ -140164,7 +140337,7 @@
         "data": "2026-11-15",
         "ora": "13:00",
         "favorita": "JAX",
-        "linea": 10.0,
+        "linea": 10.5,
         "totaleLinea": 46.5,
         "giocatoriOspite": [
           {
@@ -140291,8 +140464,8 @@
         "data": "2026-11-15",
         "ora": "16:05",
         "favorita": "LA",
-        "linea": 7.0,
-        "totaleLinea": 43.5,
+        "linea": 9.5,
+        "totaleLinea": 40.5,
         "giocatoriOspite": [
           {
             "nome": "Matthew Stafford",
@@ -140418,7 +140591,7 @@
         "data": "2026-11-15",
         "ora": "16:05",
         "favorita": "SEA",
-        "linea": 3.0,
+        "linea": 3.5,
         "totaleLinea": 43.5,
         "giocatoriOspite": [
           {
@@ -140494,7 +140667,7 @@
             "epaLancioPassato": 0.028,
             "td": 20,
             "int": 8,
-            "esperienza": "14° anno",
+            "esperienza": "15° anno",
             "giovane": false,
             "forma": null
           },
@@ -141156,41 +141329,54 @@
       {
         "squadra": "JAX",
         "nome": "Jacksonville Jaguars",
-        "attacco": 0.042,
+        "attacco": 0.043,
         "difesa": 0.053,
-        "netto": 0.095,
-        "attPass": 0.069,
+        "netto": 0.096,
+        "attPass": 0.071,
         "attCorsa": 0.01,
         "difPass": 0.079,
         "difCorsa": 0.017,
         "posizione": 1,
-        "puntiPartita": 5.9
+        "puntiPartita": 6.0
+      },
+      {
+        "squadra": "BUF",
+        "nome": "Buffalo Bills",
+        "attacco": 0.073,
+        "difesa": 0.009,
+        "netto": 0.082,
+        "attPass": 0.1,
+        "attCorsa": 0.038,
+        "difPass": 0.028,
+        "difCorsa": -0.016,
+        "posizione": 2,
+        "puntiPartita": 5.1
       },
       {
         "squadra": "LA",
         "nome": "Los Angeles Rams",
-        "attacco": 0.039,
+        "attacco": 0.041,
         "difesa": 0.038,
-        "netto": 0.078,
-        "attPass": 0.043,
-        "attCorsa": 0.032,
-        "difPass": 0.048,
+        "netto": 0.079,
+        "attPass": 0.046,
+        "attCorsa": 0.033,
+        "difPass": 0.047,
         "difCorsa": 0.025,
-        "posizione": 2,
-        "puntiPartita": 4.8
+        "posizione": 3,
+        "puntiPartita": 4.9
       },
       {
         "squadra": "GB",
         "nome": "Green Bay Packers",
         "attacco": 0.059,
-        "difesa": 0.017,
-        "netto": 0.076,
-        "attPass": 0.106,
+        "difesa": 0.016,
+        "netto": 0.075,
+        "attPass": 0.107,
         "attCorsa": -0.032,
-        "difPass": 0.031,
+        "difPass": 0.028,
         "difCorsa": -0.001,
-        "posizione": 3,
-        "puntiPartita": 4.7
+        "posizione": 4,
+        "puntiPartita": 4.6
       },
       {
         "squadra": "SEA",
@@ -141198,35 +141384,22 @@
         "attacco": 0.012,
         "difesa": 0.063,
         "netto": 0.075,
-        "attPass": 0.036,
+        "attPass": 0.037,
         "attCorsa": -0.021,
-        "difPass": 0.093,
+        "difPass": 0.092,
         "difCorsa": 0.023,
-        "posizione": 4,
-        "puntiPartita": 4.6
-      },
-      {
-        "squadra": "BUF",
-        "nome": "Buffalo Bills",
-        "attacco": 0.074,
-        "difesa": -0.012,
-        "netto": 0.062,
-        "attPass": 0.101,
-        "attCorsa": 0.039,
-        "difPass": -0.008,
-        "difCorsa": -0.017,
         "posizione": 5,
-        "puntiPartita": 3.8
+        "puntiPartita": 4.6
       },
       {
         "squadra": "SF",
         "nome": "San Francisco 49ers",
         "attacco": 0.06,
-        "difesa": -0.0,
+        "difesa": -0.001,
         "netto": 0.06,
         "attPass": 0.089,
         "attCorsa": 0.022,
-        "difPass": -0.01,
+        "difPass": -0.011,
         "difCorsa": 0.013,
         "posizione": 6,
         "puntiPartita": 3.7
@@ -141234,51 +141407,51 @@
       {
         "squadra": "HOU",
         "nome": "Houston Texans",
-        "attacco": 0.019,
+        "attacco": 0.021,
         "difesa": 0.029,
-        "netto": 0.048,
-        "attPass": 0.041,
+        "netto": 0.05,
+        "attPass": 0.044,
         "attCorsa": -0.021,
-        "difPass": 0.042,
+        "difPass": 0.041,
         "difCorsa": 0.011,
         "posizione": 7,
-        "puntiPartita": 3.0
+        "puntiPartita": 3.1
       },
       {
         "squadra": "NE",
         "nome": "New England Patriots",
-        "attacco": 0.036,
-        "difesa": 0.011,
-        "netto": 0.047,
-        "attPass": 0.067,
+        "attacco": 0.038,
+        "difesa": 0.01,
+        "netto": 0.048,
+        "attPass": 0.07,
         "attCorsa": -0.013,
-        "difPass": 0.011,
+        "difPass": 0.01,
         "difCorsa": 0.01,
         "posizione": 8,
-        "puntiPartita": 2.9
+        "puntiPartita": 3.0
       },
       {
         "squadra": "CHI",
         "nome": "Chicago Bears",
         "attacco": 0.033,
-        "difesa": 0.009,
-        "netto": 0.042,
+        "difesa": 0.008,
+        "netto": 0.041,
         "attPass": 0.045,
         "attCorsa": 0.016,
-        "difPass": 0.02,
+        "difPass": 0.018,
         "difCorsa": -0.006,
         "posizione": 9,
-        "puntiPartita": 2.6
+        "puntiPartita": 2.5
       },
       {
         "squadra": "DEN",
         "nome": "Denver Broncos",
-        "attacco": 0.01,
+        "attacco": 0.011,
         "difesa": 0.027,
         "netto": 0.038,
-        "attPass": 0.018,
+        "attPass": 0.02,
         "attCorsa": -0.002,
-        "difPass": 0.051,
+        "difPass": 0.05,
         "difCorsa": -0.005,
         "posizione": 10,
         "puntiPartita": 2.4
@@ -141286,10 +141459,10 @@
       {
         "squadra": "KC",
         "nome": "Kansas City Chiefs",
-        "attacco": 0.025,
-        "difesa": 0.01,
+        "attacco": 0.026,
+        "difesa": 0.009,
         "netto": 0.035,
-        "attPass": 0.023,
+        "attPass": 0.024,
         "attCorsa": 0.029,
         "difPass": 0.002,
         "difCorsa": 0.02,
@@ -141297,69 +141470,69 @@
         "puntiPartita": 2.2
       },
       {
-        "squadra": "MIN",
-        "nome": "Minnesota Vikings",
-        "attacco": -0.047,
-        "difesa": 0.078,
-        "netto": 0.031,
-        "attPass": -0.067,
-        "attCorsa": -0.018,
-        "difPass": 0.125,
-        "difCorsa": 0.013,
-        "posizione": 12,
-        "puntiPartita": 1.9
-      },
-      {
         "squadra": "CIN",
         "nome": "Cincinnati Bengals",
-        "attacco": 0.052,
+        "attacco": 0.053,
         "difesa": -0.025,
         "netto": 0.027,
-        "attPass": 0.072,
+        "attPass": 0.074,
         "attCorsa": 0.009,
-        "difPass": -0.028,
+        "difPass": -0.029,
         "difCorsa": -0.02,
-        "posizione": 13,
+        "posizione": 12,
         "puntiPartita": 1.7
       },
       {
         "squadra": "DET",
         "nome": "Detroit Lions",
-        "attacco": 0.045,
-        "difesa": -0.019,
+        "attacco": 0.046,
+        "difesa": -0.021,
         "netto": 0.025,
-        "attPass": 0.077,
+        "attPass": 0.079,
         "attCorsa": 0.001,
-        "difPass": -0.032,
+        "difPass": -0.036,
         "difCorsa": -0.002,
-        "posizione": 14,
+        "posizione": 13,
         "puntiPartita": 1.6
       },
       {
         "squadra": "TB",
         "nome": "Tampa Bay Buccaneers",
-        "attacco": -0.037,
-        "difesa": 0.057,
+        "attacco": -0.036,
+        "difesa": 0.056,
         "netto": 0.02,
-        "attPass": -0.078,
+        "attPass": -0.077,
         "attCorsa": 0.011,
-        "difPass": 0.083,
+        "difPass": 0.081,
         "difCorsa": 0.021,
-        "posizione": 15,
+        "posizione": 14,
         "puntiPartita": 1.2
       },
       {
         "squadra": "NYG",
         "nome": "New York Giants",
         "attacco": 0.01,
-        "difesa": -0.001,
-        "netto": 0.009,
-        "attPass": 0.019,
+        "difesa": -0.002,
+        "netto": 0.008,
+        "attPass": 0.02,
         "attCorsa": -0.003,
-        "difPass": 0.009,
+        "difPass": 0.008,
         "difCorsa": -0.016,
+        "posizione": 15,
+        "puntiPartita": 0.5
+      },
+      {
+        "squadra": "MIN",
+        "nome": "Minnesota Vikings",
+        "attacco": -0.073,
+        "difesa": 0.079,
+        "netto": 0.006,
+        "attPass": -0.107,
+        "attCorsa": -0.019,
+        "difPass": 0.126,
+        "difCorsa": 0.014,
         "posizione": 16,
-        "puntiPartita": 0.6
+        "puntiPartita": 0.4
       },
       {
         "squadra": "DAL",
@@ -141369,7 +141542,7 @@
         "netto": -0.008,
         "attPass": 0.071,
         "attCorsa": 0.021,
-        "difPass": -0.085,
+        "difPass": -0.086,
         "difCorsa": -0.027,
         "posizione": 17,
         "puntiPartita": -0.5
@@ -141378,11 +141551,11 @@
         "squadra": "PIT",
         "nome": "Pittsburgh Steelers",
         "attacco": -0.021,
-        "difesa": 0.011,
+        "difesa": 0.01,
         "netto": -0.01,
-        "attPass": -0.056,
+        "attPass": -0.055,
         "attCorsa": 0.042,
-        "difPass": 0.014,
+        "difPass": 0.013,
         "difCorsa": 0.007,
         "posizione": 18,
         "puntiPartita": -0.6
@@ -141390,12 +141563,12 @@
       {
         "squadra": "BAL",
         "nome": "Baltimore Ravens",
-        "attacco": -0.008,
-        "difesa": -0.008,
+        "attacco": -0.007,
+        "difesa": -0.009,
         "netto": -0.016,
-        "attPass": -0.026,
+        "attPass": -0.024,
         "attCorsa": 0.014,
-        "difPass": -0.021,
+        "difPass": -0.023,
         "difCorsa": 0.01,
         "posizione": 19,
         "puntiPartita": -1.0
@@ -141403,12 +141576,12 @@
       {
         "squadra": "ATL",
         "nome": "Atlanta Falcons",
-        "attacco": -0.026,
-        "difesa": 0.006,
+        "attacco": -0.025,
+        "difesa": 0.005,
         "netto": -0.02,
-        "attPass": -0.06,
+        "attPass": -0.059,
         "attCorsa": 0.017,
-        "difPass": 0.015,
+        "difPass": 0.014,
         "difCorsa": -0.007,
         "posizione": 20,
         "puntiPartita": -1.2
@@ -141416,12 +141589,12 @@
       {
         "squadra": "CAR",
         "nome": "Carolina Panthers",
-        "attacco": 0.003,
-        "difesa": -0.027,
+        "attacco": 0.004,
+        "difesa": -0.028,
         "netto": -0.024,
-        "attPass": 0.005,
+        "attPass": 0.006,
         "attCorsa": -0.0,
-        "difPass": -0.038,
+        "difPass": -0.039,
         "difCorsa": -0.012,
         "posizione": 21,
         "puntiPartita": -1.5
@@ -141430,11 +141603,11 @@
         "squadra": "WAS",
         "nome": "Washington Commanders",
         "attacco": -0.003,
-        "difesa": -0.031,
+        "difesa": -0.032,
         "netto": -0.034,
-        "attPass": -0.002,
+        "attPass": -0.001,
         "attCorsa": -0.006,
-        "difPass": -0.039,
+        "difPass": -0.04,
         "difCorsa": -0.019,
         "posizione": 22,
         "puntiPartita": -2.1
@@ -141442,12 +141615,12 @@
       {
         "squadra": "NO",
         "nome": "New Orleans Saints",
-        "attacco": -0.027,
-        "difesa": -0.008,
-        "netto": -0.035,
-        "attPass": -0.031,
+        "attacco": -0.026,
+        "difesa": -0.01,
+        "netto": -0.036,
+        "attPass": -0.03,
         "attCorsa": -0.02,
-        "difPass": -0.014,
+        "difPass": -0.016,
         "difCorsa": -0.0,
         "posizione": 23,
         "puntiPartita": -2.2
@@ -141455,12 +141628,12 @@
       {
         "squadra": "CLE",
         "nome": "Cleveland Browns",
-        "attacco": -0.067,
-        "difesa": 0.026,
+        "attacco": -0.066,
+        "difesa": 0.025,
         "netto": -0.041,
-        "attPass": -0.087,
+        "attPass": -0.086,
         "attCorsa": -0.031,
-        "difPass": 0.055,
+        "difPass": 0.053,
         "difCorsa": -0.014,
         "posizione": 24,
         "puntiPartita": -2.5
@@ -141469,76 +141642,76 @@
         "squadra": "PHI",
         "nome": "Philadelphia Eagles",
         "attacco": -0.047,
-        "difesa": -0.005,
-        "netto": -0.053,
-        "attPass": -0.067,
+        "difesa": -0.006,
+        "netto": -0.052,
+        "attPass": -0.066,
         "attCorsa": -0.011,
-        "difPass": -0.002,
+        "difPass": -0.003,
         "difCorsa": -0.009,
         "posizione": 25,
-        "puntiPartita": -3.3
+        "puntiPartita": -3.2
       },
       {
         "squadra": "LAC",
         "nome": "Los Angeles Chargers",
-        "attacco": -0.075,
-        "difesa": 0.019,
-        "netto": -0.057,
-        "attPass": -0.102,
+        "attacco": -0.074,
+        "difesa": 0.018,
+        "netto": -0.056,
+        "attPass": -0.099,
         "attCorsa": -0.035,
-        "difPass": 0.03,
+        "difPass": 0.029,
         "difCorsa": 0.004,
         "posizione": 26,
         "puntiPartita": -3.5
       },
       {
+        "squadra": "LV",
+        "nome": "Las Vegas Raiders",
+        "attacco": -0.024,
+        "difesa": -0.037,
+        "netto": -0.06,
+        "attPass": -0.008,
+        "attCorsa": -0.052,
+        "difPass": -0.059,
+        "difCorsa": -0.007,
+        "posizione": 27,
+        "puntiPartita": -3.7
+      },
+      {
         "squadra": "ARI",
         "nome": "Arizona Cardinals",
         "attacco": -0.013,
-        "difesa": -0.048,
+        "difesa": -0.049,
         "netto": -0.061,
-        "attPass": -0.019,
+        "attPass": -0.018,
         "attCorsa": -0.002,
         "difPass": -0.09,
         "difCorsa": 0.009,
-        "posizione": 27,
-        "puntiPartita": -3.8
-      },
-      {
-        "squadra": "LV",
-        "nome": "Las Vegas Raiders",
-        "attacco": -0.026,
-        "difesa": -0.036,
-        "netto": -0.062,
-        "attPass": -0.011,
-        "attCorsa": -0.052,
-        "difPass": -0.058,
-        "difCorsa": -0.006,
         "posizione": 28,
         "puntiPartita": -3.8
       },
       {
         "squadra": "IND",
         "nome": "Indianapolis Colts",
-        "attacco": -0.047,
-        "difesa": -0.016,
-        "netto": -0.063,
-        "attPass": -0.096,
+        "attacco": -0.046,
+        "difesa": -0.017,
+        "netto": -0.064,
+        "attPass": -0.095,
         "attCorsa": 0.027,
-        "difPass": -0.021,
+        "difPass": -0.023,
         "difCorsa": -0.009,
         "posizione": 29,
-        "puntiPartita": -3.9
+        "puntiPartita": -4.0
       },
       {
         "squadra": "MIA",
         "nome": "Miami Dolphins",
-        "attacco": -0.03,
-        "difesa": -0.05,
+        "attacco": -0.029,
+        "difesa": -0.051,
         "netto": -0.08,
-        "attPass": -0.048,
+        "attPass": -0.047,
         "attCorsa": -0.004,
-        "difPass": -0.078,
+        "difPass": -0.081,
         "difCorsa": -0.011,
         "posizione": 30,
         "puntiPartita": -5.0
@@ -141546,10 +141719,10 @@
       {
         "squadra": "NYJ",
         "nome": "New York Jets",
-        "attacco": -0.033,
+        "attacco": -0.032,
         "difesa": -0.061,
         "netto": -0.094,
-        "attPass": -0.045,
+        "attPass": -0.044,
         "attCorsa": -0.014,
         "difPass": -0.105,
         "difCorsa": -0.0,
@@ -141559,8 +141732,8 @@
       {
         "squadra": "TEN",
         "nome": "Tennessee Titans",
-        "attacco": -0.058,
-        "difesa": -0.045,
+        "attacco": -0.057,
+        "difesa": -0.046,
         "netto": -0.103,
         "attPass": -0.088,
         "attCorsa": -0.006,
@@ -141596,16 +141769,16 @@
         "epaLancio": 0.251
       },
       {
-        "nome": "J.Allen",
-        "squadra": "BUF",
-        "lanci": 222,
-        "epaLancio": 0.216
-      },
-      {
         "nome": "J.Goff",
         "squadra": "DET",
         "lanci": 292,
         "epaLancio": 0.212
+      },
+      {
+        "nome": "J.Allen",
+        "squadra": "BUF",
+        "lanci": 257,
+        "epaLancio": 0.186
       },
       {
         "nome": "J.Love",
