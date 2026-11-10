@@ -22,6 +22,7 @@ prossima, SP+), più 1 a stagione per i loghi, conservati in archivio.
 Solo libreria standard.
 """
 
+import html
 import json
 import os
 import re
@@ -291,6 +292,9 @@ def video_college(giornata, loghi):
         gid = f"{giornata['stagione']}_{int(giornata['settimana']):02d}_{g['ospite']}_{g['casa']}"
         voce = archivio.get(gid)
         if voce and voce.get("id"):
+            for k in ("titolo", "canale", "etichetta"):        # archivio scritto prima della correzione
+                if voce.get(k):
+                    voce[k] = html.unescape(voce[k])
             g["video"] = voce
             continue
         if not chiave or fatte >= MAX_RICERCHE_VIDEO or not fbs(g):
@@ -319,7 +323,8 @@ def video_college(giornata, loghi):
         verificato = altro = None
         for it in risultati:
             sn = it.get("snippet") or {}
-            titolo, canale = sn.get("title") or "", sn.get("channelTitle") or ""
+            # YouTube restituisce i titoli con le entità HTML («Ragin&#39; Cajuns»)
+            titolo, canale = html.unescape(sn.get("title") or ""), html.unescape(sn.get("channelTitle") or "")
             vid = (it.get("id") or {}).get("videoId")
             # entrambe le squadre nel titolo ed è un video di highlights (non conferenze stampa o anteprime)
             if not vid or "highlight" not in titolo.lower() or not (_nomina(titolo, nomi_o) and _nomina(titolo, nomi_c)):
