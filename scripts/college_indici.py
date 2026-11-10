@@ -8,7 +8,9 @@ dashboard li mostra con le stesse viste:
   mercato (chi l'ha battuta, over o under), le sorprese più grandi e le
   migliori prestazioni individuali (prese dall'archivio giocatori, senza
   chiamate in più).
-- prossima: il turno successivo con linee e totali.
+- prossima: il turno successivo con linee e totali, e il confronto tra i
+  giocatori chiave (QB, RB, 2 ricevitori) preso dall'archivio, con la
+  difesa SP+ dell'avversaria. Nessuna chiamata in più.
 - indici: SP+ calcolato da CollegeFootballData (attacco, difesa, totale).
   Non si calcola in proprio: nel college le conference si incontrano poco
   e un indice corretto per gli avversari con pochi dati sarebbe fragile;
@@ -87,6 +89,110 @@ def _prestazioni(ultime, stagione, settimana):
                 gruppi["RIC" if g["ruolo"] in ("WR", "TE") else g["ruolo"]].append(voce)
     top = lambda x: sorted(x, key=lambda v: -v["valore"])[:5]
     return {"lanci": top(gruppi.get("QB", [])), "corse": top(gruppi.get("RB", [])), "ricezioni": top(gruppi["RIC"])}
+
+
+def _apparizioni(ultime, stagioni):
+    """Dall'archivio partite: per ogni squadra e giocatore, le prestazioni in ordine di settimana.
+
+    L'archivio conserva solo i migliori di ogni partita (1 QB, 1 RB, 2 ricevitori per
+    squadra): una partita in cui il giocatore non è stato tra i migliori non c'è, e
+    non vale zero. Le medie sono quindi "nelle partite in cui è stato il migliore".
+    Restituisce {stagione: {squadra: {(nome, gruppo): [voci]}}} con gruppo QB, RB o RIC."""
+    out = {}
+    for p in ultime:
+        s = str(p.get("stagione"))
+        if s not in stagioni or not str(p.get("settimana", "")).isdigit() or p.get("pc") is None:
+            continue
+        for lato, squadra in (("giocatoriCasa", p["casa"]), ("giocatoriOspite", p["ospite"])):
+            for g in p.get(lato) or []:
+                gruppo = "RIC" if g.get("ruolo") in ("WR", "TE") else g.get("ruolo")
+                if gruppo not in ("QB", "RB", "RIC") or not g.get("nome"):
+                    continue
+                voce = {"settimana": int(p["settimana"]), "valore": g.get("valore") or 0,
+                        "misura": g.get("misura"), "dettagli": g.get("dettagli") or []}
+                out.setdefault(s, {}).setdefault(squadra, {}).setdefault((g["nome"], gruppo), []).append(voce)
+    for squadre in out.values():
+        for giocatori in squadre.values():
+            for voci in giocatori.values():
+                voci.sort(key=lambda v: v["settimana"])
+    return out
+
+
+def _somma_dettaglio(voci, etichetta):
+    """Somma un dettaglio testuale ("2 TD", "1 INT") sulle voci date."""
+    tot = 0
+    for v in voci:
+        for d in v["dettagli"]:
+            parti = str(d).split(" ", 1)
+            if len(parti) == 2 and parti[1] == etichetta:
+                try:
+                    tot += int(float(parti[0]))
+                except ValueError:
+                    pass
+    return tot
+
+
+def _profilo_college(nome, gruppo, voci, passate, partite_squadra):
+    """Profilo nella stessa forma del confronto NFL, senza anno di corso."""
+    media = lambda xs: round(sum(xs) / len(xs), 1) if xs else None
+    valori = [v["valore"] for v in voci]
+    passato = [v["valore"] for v in passate]
+    out = {"nome": nome, "ruolo": "WR" if gruppo == "RIC" else gruppo, "misura": voci[-1]["misura"],
+           "partite": len(voci), "mediaStagione": media(valori), "mediaUltime3": media(valori[-3:]),
+           "mediaPassato": media(passato) if len(passato) >= 6 else None,
+           "esperienza": None, "giovane": False}
+    rif = out["mediaPassato"] if out["mediaPassato"] is not None else out["mediaStagione"]
+    forma = None
+    if rif and len(voci) >= 4:
+        d = (out["mediaUltime3"] - rif) / max(rif, 1)
+        forma = "in forma" if d >= 0.25 else "in calo" if d <= -0.25 else None
+    out["forma"] = forma
+    nota = f"migliore della squadra in {len(voci)} partite su {partite_squadra}"
+    if gruppo == "QB":
+        nota += f" · {_somma_dettaglio(voci, 'TD')} TD, {_somma_dettaglio(voci, 'INT')} INT"
+    elif gruppo == "RIC":
+        nota += f" · {_somma_dettaglio(voci, 'ric.')} ricezioni"
+    out["nota"] = nota
+    return out
+
+
+def _duelli(prossime, ultime, stagione, difese):
+    """Per ogni partita del prossimo turno, i giocatori chiave delle due squadre dall'archivio:
+    il QB e il RB comparsi più spesso tra i migliori nelle ultime 3 partite, e i 2 ricevitori
+    più presenti. A parità conta il rendimento. Nessuna chiamata in più."""
+    s, sp = str(stagione), str(int(stagione) - 1)
+    app = _apparizioni(ultime, {s, sp})
+    correnti, passate = app.get(s, {}), app.get(sp, {})
+    # per la stagione precedente si cerca per nome, ovunque abbia giocato (trasferimenti)
+    passate_nome = {}
+    for giocatori in passate.values():
+        for (nome, gruppo), voci in giocatori.items():
+            passate_nome.setdefault((nome, gruppo), []).extend(voci)
+    duelli = []
+    for g in prossime:
+        lati = {}
+        for lato in ("ospite", "casa"):
+            giocatori = correnti.get(g[lato]) or {}
+            settimane = sorted({v["settimana"] for voci in giocatori.values() for v in voci})
+            ultime3 = set(settimane[-3:])
+            def peso(chiave):
+                voci = giocatori[chiave]
+                return (-sum(1 for v in voci if v["settimana"] in ultime3), -len(voci),
+                        -sum(v["valore"] for v in voci))
+            scelti = []
+            for gruppo, n in (("QB", 1), ("RB", 1), ("RIC", 2)):
+                scelti += sorted((k for k in giocatori if k[1] == gruppo), key=peso)[:n]
+            lati[lato] = [_profilo_college(nome, gruppo, giocatori[(nome, gruppo)],
+                                           passate_nome.get((nome, gruppo), []), len(settimane))
+                          for nome, gruppo in scelti]
+        if not lati["ospite"] and not lati["casa"]:
+            continue
+        duelli.append({"casa": g["casa"], "ospite": g["ospite"], "data": g["data"], "ora": g["ora"],
+                       "favorita": g["favorita"], "linea": g["linea"], "totaleLinea": g["totaleLinea"],
+                       "confCasa": g.get("confCasa"), "confOspite": g.get("confOspite"),
+                       "difesaCasa": difese.get(g["casa"]), "difesaOspite": difese.get(g["ospite"]),
+                       "giocatoriOspite": lati["ospite"], "giocatoriCasa": lati["casa"]})
+    return duelli
 
 
 def _loghi(chiama, stagione):
@@ -175,4 +281,12 @@ def calcola(chiama, stats, stagione):
                           "sotto": "Punti di vantaggio su una squadra media in campo neutro. Attacco e difesa rispetto alla media FBS: più alto = meglio",
                           "netto": "SP+"},
             "nota": "SP+ è calcolato da CollegeFootballData sull'azione per azione completa; qui è riportato com'è."}
+    if out["prossima"]:
+        # difesa SP+ di ogni squadra (rispetto alla media FBS, più alto = meglio), se disponibile
+        difese = {s["squadra"]: s["difesa"] for s in ((out["indici"] or {}).get("squadre") or [])}
+        try:
+            out["prossima"]["duelli"] = _duelli(out["prossima"]["partite"], ultime, stagione, difese)
+        except (KeyError, TypeError, ValueError) as e:
+            # il confronto è un di più: se l'archivio ha una forma inattesa resta la lista partite
+            print(f"  Confronto giocatori college non calcolato: {e!r}. Resta l'elenco delle partite.")
     return out

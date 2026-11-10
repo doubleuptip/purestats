@@ -36,7 +36,9 @@ jobs:
       - name: Scarica dati e designazioni
         env:
           STAGIONI: ${{ vars.STAGIONI_SUPER_LIG }}
-        run: python scripts/fetch_super_lig.py
+        run: |
+          # Se fallisce (fonte giù un momento, rete), riprova una volta dopo 5 minuti.
+          python scripts/fetch_super_lig.py || { echo "Primo tentativo fallito: riprovo tra 5 minuti"; sleep 300; python scripts/fetch_super_lig.py; }
 
       - name: Committa le modifiche
         run: |

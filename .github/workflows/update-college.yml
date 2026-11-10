@@ -37,7 +37,9 @@ jobs:
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
           STAGIONI: ${{ vars.STAGIONI_COLLEGE }}
-        run: python scripts/fetch_college.py
+        run: |
+          # Se fallisce (fonte giù un momento, rete), riprova una volta dopo 5 minuti.
+          python scripts/fetch_college.py || { echo "Primo tentativo fallito: riprovo tra 5 minuti"; sleep 300; python scripts/fetch_college.py; }
 
       - name: Committa le modifiche
         run: |

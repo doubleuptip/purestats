@@ -1649,11 +1649,12 @@ function rigaGiocatore(p){
                  : p.forma==="in calo" ? `<span class="fb-tag">▼ in calo</span>` : "";
   let m = `${esc(p.misura)}: stagione ${numIt(p.mediaStagione)} · ultime 3 ${numIt(p.mediaUltime3)}`
         + (p.mediaPassato!==null && p.mediaPassato!==undefined ? ` · stagioni prima ${numIt(p.mediaPassato)}` : "");
-  if(p.ruolo==="QB"){
+  if(p.ruolo==="QB" && p.epaLancio!==undefined){
     m += `<br>EPA a lancio: stagione ${p.epaLancio===null?"—":numIt(p.epaLancio,3)} · ultime 3 ${
       p.epaLancioUltime3===null?"—":numIt(p.epaLancioUltime3,3)}${
       p.epaLancioPassato!==null&&p.epaLancioPassato!==undefined?" · prima "+numIt(p.epaLancioPassato,3):""} · ${n(p.td)} TD, ${n(p.int)} INT`;
   }
+  if(p.nota) m += `<br>${esc(p.nota)}`;
   return `<div class="fb-pl"><b>${esc(p.nome)}</b> <span class="fb-tag">${esc(p.ruolo)}</span>${tagEsp}${tagForma}<span class="m">${m}</span></div>`;
 }
 
@@ -1662,7 +1663,10 @@ function vFootballProssima(){
   if(!P) return `<p class="fb-lead">Nessun turno in programma</p>`;
   const conConf=(P.partite||[]).some(g=>g.confCasa);
   const nelGruppo=g=>gruppoFootball==="tutti"||g.confCasa===gruppoFootball||g.confOspite===gruppoFootball;
-  const duelli=(P.duelli||[]);
+  // i duelli con conference (college) seguono il filtro; quelli senza (NFL) si vedono sempre
+  const duelli=(P.duelli||[]).filter(d=>(!d.confCasa&&!d.confOspite)||nelGruppo(d));
+  const conEta=duelli.some(d=>[...(d.giocatoriCasa||[]),...(d.giocatoriOspite||[])].some(p=>p.esperienza));
+  const difesa=v=>v===null||v===undefined?"":` <span class="fb-tag">difesa SP+ ${v>0?"+":""}${numIt(v)}</span>`;
   const gv=P.giovani||{};
   const listaGiovani=(tit,lista,qb)=> (lista&&lista.length)?`<h3 class="fb-h3">${tit}</h3><ul class="fb-list">${lista.map(p=>`
     <li class="fb-row">${stemma(p.squadra,true)}
@@ -1674,16 +1678,17 @@ function vFootballProssima(){
       <p class="fb-duel-when">${esc(giornoIt(d.data))}${d.ora?" · "+esc(d.ora):""}${
           d.favorita?" · favorita "+esc(d.favorita)+" di "+numIt(d.linea):""}${d.totaleLinea!=null?" · totale "+numIt(d.totaleLinea):""}</p>
       <div class="fb-vs">
-        <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.ospite))}</h3>${(d.giocatoriOspite||[]).map(rigaGiocatore).join("")}</div>
-        <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.casa))}</h3>${(d.giocatoriCasa||[]).map(rigaGiocatore).join("")}</div>
+        <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.ospite))}${difesa(d.difesaOspite)}</h3>${(d.giocatoriOspite||[]).map(rigaGiocatore).join("")}</div>
+        <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.casa))}${difesa(d.difesaCasa)}</h3>${(d.giocatoriCasa||[]).map(rigaGiocatore).join("")}</div>
       </div>
     </article>`).join("")
     : `<div class="fb-grid">${(P.partite||[]).filter(nelGruppo).map(schedaRisultato).join("")}</div>`;
   return `
   <h1 class="fb-h1">${esc(D.campionato||"")} · Week ${esc(P.settimana)}</h1>
-  <p class="fb-lead">Il prossimo turno: giocatori chiave a confronto, con esperienza e forma.
-    <span class="fb-tag g">Rookie · 2° · 3° anno</span> = giovani, <span class="fb-tag up">▲ in forma</span> = ultime 3 partite almeno il 25% sopra il suo solito.</p>
-  ${conConf && !duelli.length ? barraGruppi() : ""}
+  <p class="fb-lead">Il prossimo turno: giocatori chiave a confronto, con ${conEta?"esperienza e ":""}forma.
+    ${conEta?'<span class="fb-tag g">Rookie · 2° · 3° anno</span> = giovani, ':""}<span class="fb-tag up">▲ in forma</span> = ultime 3 partite almeno il 25% sopra il suo solito.${
+    (P.duelli||[]).some(d=>d.difesaCasa!==undefined)?` Medie calcolate solo sulle partite in cui il giocatore è stato il migliore della squadra nel suo ruolo: le altre non sono rilevate. Difesa SP+ = punti rispetto alla media FBS, più alto = più forte.`:""}</p>
+  ${conConf ? barraGruppi() : ""}
   <div class="fb-cols">
     <section class="fb-main">${blocchiDuelli}</section>
     ${(gv.QB||gv.RB||gv.RIC) ? `<aside class="fb-side"><section class="fb-box"><h2 class="fb-h2">Giovani che spiccano</h2>

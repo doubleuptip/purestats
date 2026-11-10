@@ -33,7 +33,9 @@ jobs:
         env:
           STAGIONI: ${{ vars.STAGIONI_LIGUE_1 }}
           GIORNATE: ${{ vars.GIORNATE_LIGUE_1 }}
-        run: python scripts/fetch_ligue_1.py
+        run: |
+          # Se fallisce (fonte giù un momento, rete), riprova una volta dopo 5 minuti.
+          python scripts/fetch_ligue_1.py || { echo "Primo tentativo fallito: riprovo tra 5 minuti"; sleep 300; python scripts/fetch_ligue_1.py; }
 
       - name: Committa le modifiche
         run: |
@@ -44,5 +46,12 @@ jobs:
             echo "Nessuna variazione."
           else
             git commit -m "Ligue 1 aggiornata $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push
+            for tentativo in 1 2 3 4 5; do
+              if git push; then
+                break
+              fi
+              echo "Push rifiutato (remoto avanzato nel frattempo), tentativo $tentativo: rebase e riprovo..."
+              git pull --rebase
+              sleep 5
+            done
           fi
