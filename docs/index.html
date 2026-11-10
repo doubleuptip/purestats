@@ -1560,7 +1560,7 @@ function schedaRisultato(g){
     <a class="fb-video" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener" aria-label="Guarda gli highlights su YouTube: ${esc(g.video.titolo||"")}">
       <img src="https://i.ytimg.com/vi/${vid}/hqdefault.jpg" alt="" loading="lazy">
       <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></span>
-      <span class="tit">Highlights ufficiali NFL · si apre su YouTube</span>
+      <span class="tit">${esc(g.video.etichetta||"Highlights ufficiali NFL · si apre su YouTube")}</span>
     </a>
     ${momenti(g)}
   </article>`;

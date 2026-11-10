@@ -23,11 +23,28 @@ Solo libreria standard.
 """
 
 import json
+import os
+import re
 import statistics
+import unicodedata
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 
 RADICE = Path(__file__).resolve().parent.parent
 SQUADRE = RADICE / "data" / "college_squadre.json"
+ARCHIVIO_VIDEO = RADICE / "data" / "college_video.json"
+# La chiave YouTube è la stessa della NFL (10.000 unità al giorno, 100 per ricerca, fino a 6.000 per la NFL):
+# il college si ferma a 30 ricerche per esecuzione. Le partite trovate restano in archivio e non costano più.
+MAX_RICERCHE_VIDEO = 30
+# Canali verificati: network e conference che hanno i diritti delle partite. Si confronta il nome del canale.
+CANALI_VERIFICATI = ("espn", "espn college football", "cbs sports", "cbs sports college football", "fox sports",
+                     "fox college football", "nbc sports", "peacock", "big ten network", "sec network",
+                     "acc digital network", "acc network", "big 12 conference", "mountain west",
+                     "sun belt conference", "conference usa", "mac sports", "mid american conference",
+                     "american athletic conference", "pac 12", "cw sports")
 
 
 def _linea(gioco):
@@ -203,7 +220,10 @@ def _loghi(chiama, stagione):
             salvati = json.loads(SQUADRE.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             salvati = {}
-    if salvati.get("stagione") == stagione and salvati.get("squadre"):
+    # dalla 2026 si conserva anche la mascotte (serve a riconoscere i titoli dei video): un archivio senza
+    # mascotte si aggiorna una volta sola
+    con_mascotte = any("mascotte" in v for v in (salvati.get("squadre") or {}).values())
+    if salvati.get("stagione") == stagione and salvati.get("squadre") and con_mascotte:
         print(f"  Loghi {stagione}: dall'archivio, nessuna chiamata")
         return salvati["squadre"]
     dati = chiama("teams/fbs", year=stagione)
@@ -213,10 +233,126 @@ def _loghi(chiama, stagione):
     for t in dati:
         loghi = [u for u in (t.get("logos") or []) if isinstance(u, str) and u.startswith("https://")]
         squadre[t.get("school")] = {"logo": loghi[0] if loghi else None, "colore": t.get("color"),
-                                    "breve": t.get("school")}
+                                    "breve": t.get("school"), "mascotte": t.get("mascot") or ""}
     SQUADRE.parent.mkdir(parents=True, exist_ok=True)
     SQUADRE.write_text(json.dumps({"stagione": stagione, "squadre": squadre}, ensure_ascii=False), encoding="utf-8")
     return squadre
+
+
+def _norm(t):
+    t = unicodedata.normalize("NFKD", t or "").encode("ascii", "ignore").decode().lower()
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]", " ", t)).strip()
+
+
+def _nomi(squadra, loghi):
+    """Modi in cui un titolo può chiamare la squadra: nome della scuola e mascotte. Con la parentesi
+    («Miami (OH)») il nome da solo è ambiguo e non basta: serve la forma completa o la mascotte."""
+    nomi = {_norm(squadra)}
+    if "(" in squadra:
+        nomi.add(_norm(squadra.replace("(OH)", "(Ohio)").replace("(FL)", "(Florida)")))
+    else:
+        nomi.add(_norm(squadra))
+    m = _norm((loghi.get(squadra) or {}).get("mascotte"))
+    if m:
+        nomi.add(m)
+    return {n for n in nomi if len(n) >= 3}
+
+
+def _nomina(testo, nomi):
+    """Il titolo nomina la squadra? «Ohio» non vale dentro «Ohio State», «Michigan» non dentro «Michigan State»."""
+    t = f" {_norm(testo)} "
+    for n in nomi:
+        for m in re.finditer(rf" {re.escape(n)} ", t):
+            dopo = t[m.end():]
+            if not (dopo.startswith("state ") or dopo.startswith("st ")) or n.endswith(" state"):
+                return True
+    return False
+
+
+def video_college(giornata, loghi):
+    """Highlights su YouTube per ogni partita giocata della giornata. Prima i canali verificati (network,
+    conference, canali delle due squadre); se nessuno ha il video, un video il cui titolo nomina entrambe le
+    squadre, segnato come non ufficiale. Altrimenti resta il link di ricerca. Senza chiave non fa nulla."""
+    chiave = os.environ.get("YOUTUBE_API_KEY", "").strip()
+    archivio = {}
+    if ARCHIVIO_VIDEO.exists():
+        try:
+            archivio = json.loads(ARCHIVIO_VIDEO.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            archivio = {}
+    adesso = datetime.now(timezone.utc)
+    fatte = 0
+    # prima le partite tra due squadre FBS, poi quelle con una sola; le partite tra squadre FCS non si cercano
+    # (quasi mai hanno highlights pubblicati e consumerebbero ricerche): resta il link di ricerca
+    fbs = lambda g: (g["casa"] in loghi) + (g["ospite"] in loghi)
+    for g in sorted(giornata["partite"], key=lambda g: -fbs(g)):
+        if g["pc"] is None:
+            continue
+        gid = f"{giornata['stagione']}_{int(giornata['settimana']):02d}_{g['ospite']}_{g['casa']}"
+        voce = archivio.get(gid)
+        if voce and voce.get("id"):
+            g["video"] = voce
+            continue
+        if not chiave or fatte >= MAX_RICERCHE_VIDEO or not fbs(g):
+            continue
+        # ricerca senza risultato: si riprova al giro successivo, ma non prima di 12 ore
+        if voce and voce.get("cercato") and adesso - datetime.fromisoformat(voce["cercato"]) < timedelta(hours=12):
+            continue
+        nomi_o, nomi_c = _nomi(g["ospite"], loghi), _nomi(g["casa"], loghi)
+        params = {"part": "snippet", "type": "video", "maxResults": 10, "order": "relevance",
+                  "q": f"{g['ospite']} vs {g['casa']} football highlights",
+                  "publishedAfter": f"{g['data']}T00:00:00Z", "key": chiave}
+        fatte += 1
+        try:
+            with urlopen(Request("https://www.googleapis.com/youtube/v3/search?" + urlencode(params),
+                                 headers={"User-Agent": "PureStats"}), timeout=30) as r:
+                risultati = json.loads(r.read().decode()).get("items") or []
+        except HTTPError as e:
+            print(f"  Video college {gid}: YouTube ha risposto {e.code}"
+                  + (" (quota giornaliera esaurita: riprovo al prossimo aggiornamento)" if e.code == 403 else ""))
+            if e.code == 403:
+                break
+            continue
+        except (URLError, TimeoutError) as e:
+            print(f"  Video college {gid}: ricerca non riuscita ({e}); resta il link di ricerca")
+            continue
+        verificato = altro = None
+        for it in risultati:
+            sn = it.get("snippet") or {}
+            titolo, canale = sn.get("title") or "", sn.get("channelTitle") or ""
+            vid = (it.get("id") or {}).get("videoId")
+            # entrambe le squadre nel titolo ed è un video di highlights (non conferenze stampa o anteprime)
+            if not vid or "highlight" not in titolo.lower() or not (_nomina(titolo, nomi_o) and _nomina(titolo, nomi_c)):
+                continue
+            c = _norm(canale)
+            ufficiale = any(c == v or c.startswith(v + " ") for v in CANALI_VERIFICATI) \
+                or _nomina(canale, nomi_o) or _nomina(canale, nomi_c)
+            voce = {"id": vid, "titolo": titolo, "canale": canale, "ufficiale": ufficiale}
+            if ufficiale and not verificato:
+                verificato = voce
+            elif not ufficiale and not altro:
+                altro = voce
+        scelto = verificato or altro
+        if scelto:
+            scelto["etichetta"] = (f"Highlights · {canale_breve(scelto['canale'])}" if scelto["ufficiale"]
+                                   else f"Highlights non ufficiali · {canale_breve(scelto['canale'])}") + " · si apre su YouTube"
+            archivio[gid] = scelto
+            g["video"] = scelto
+            print(f"  Video college {gid}: {scelto['titolo']} ({scelto['canale']}"
+                  + ("" if scelto["ufficiale"] else ", non ufficiale") + ")")
+        else:
+            archivio[gid] = {"cercato": adesso.isoformat()}
+            print(f"  Video college {gid}: nessun video affidabile per ora; resta il link di ricerca")
+    if fatte:
+        print(f"  Video college: {fatte} ricerche YouTube in questa esecuzione (massimo {MAX_RICERCHE_VIDEO})")
+    ARCHIVIO_VIDEO.parent.mkdir(parents=True, exist_ok=True)
+    tmp = ARCHIVIO_VIDEO.with_suffix(".tmp")
+    tmp.write_text(json.dumps(archivio, ensure_ascii=False, indent=1), encoding="utf-8")
+    os.replace(tmp, ARCHIVIO_VIDEO)
+
+
+def canale_breve(c):
+    return c if len(c) <= 30 else c[:29] + "…"
 
 
 def calcola(chiama, stats, stagione):
@@ -244,6 +380,11 @@ def calcola(chiama, stats, stagione):
                           "under": sum(1 for g in gare if g["totaleEsito"] == "under")},
             "prestazioni": _prestazioni(ultime, stagione, w),
         }
+        try:
+            video_college(out["giornata"], out["loghi"] or {})
+        except (KeyError, TypeError, ValueError, OSError) as e:
+            # i video sono un di più: senza, resta il link di ricerca
+            print(f"  Video college non cercati: {e!r}. Restano i link di ricerca.")
     prossime = chiama("lines", year=stagione, week=w + 1, seasonType="regular")
     if prossime:
         out["prossima"] = {"stagione": stagione, "settimana": w + 1,

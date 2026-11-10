@@ -36,6 +36,7 @@ jobs:
       - name: Scarica i dati College
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           STAGIONI: ${{ vars.STAGIONI_COLLEGE }}
         run: |
           # Se fallisce (fonte giù un momento, rete), riprova una volta dopo 5 minuti.
@@ -45,7 +46,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/college.csv docs/data_college.json data/college_squadre.json
+          git add data/college.csv docs/data_college.json data/college_squadre.json data/college_video.json
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
             exit 0
