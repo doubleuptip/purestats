@@ -604,6 +604,21 @@ def calcola_statistiche(righe, giocatori=None):
     }
 
 
+
+PRIVATO = Path(__file__).resolve().parent.parent / "data" / "privato_college.json"
+
+
+def salva_privato(extra):
+    """Blocchi della sezione privata (prossimo turno, indici, giocatori della giornata in corso).
+    Il file è in .gitignore: lo legge fetch_duelli.py nello stesso workflow e lo cifra."""
+    giornata = extra.get("giornata") or {}
+    privato = {"prossima": extra.get("prossima"), "indici": extra.get("indici"),
+               "duelliGiornata": giornata.pop("duelli", None)}
+    PRIVATO.parent.mkdir(parents=True, exist_ok=True)
+    tmp = PRIVATO.with_suffix(".tmp")
+    tmp.write_text(json.dumps(privato, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(PRIVATO)
+
 def main():
     print("=" * 58)
     print("ARCHIVIO COLLEGE FOOTBALL")
@@ -690,8 +705,11 @@ def main():
     try:
         import college_indici
         extra = college_indici.calcola(chiama, stats, corrente)
-        for k in ("giornata", "prossima", "indici", "loghi"):
+        # Prossimo turno, indici e giocatori chiave vanno solo nella sezione privata (cifrata da
+        # fetch_duelli.py): qui restano in un file locale che non viene mai committato.
+        for k in ("giornata", "loghi"):
             stats[k] = extra.get(k)
+        salva_privato(extra)
     except Exception as e:
         print(f"  Blocchi aggiuntivi non calcolati: {type(e).__name__}: {e}. L'archivio è comunque aggiornato.")
 

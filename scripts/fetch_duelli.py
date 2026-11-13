@@ -7,7 +7,11 @@ nessuna quota, nessuna indicazione di gioco.
 I calcoli sono quelli del bot Radar Assenze (scripts/motore_duelli è una copia esatta dei suoi moduli),
 così posizioni e punteggi coincidono con i messaggi Telegram.
 
-Il risultato viene CIFRATO con la password nel secret DUELLI_PASSWORD e scritto in docs/duelli.dat.
+Uso: python scripts/fetch_duelli.py nfl|college, subito dopo fetch_nfl.py / fetch_college.py nello
+stesso workflow: legge il file locale data/privato_<lega>.json (prossimo turno, indici, giocatori chiave,
+mai committato) e lo unisce ai duelli di reparto e ai segnali sui giocatori.
+
+Il risultato viene CIFRATO con la password nel secret DUELLI_PASSWORD e scritto in docs/duelli_<lega>.dat.
 Il repository è pubblico: i dati in chiaro non vengono mai scritti su disco né stampati nei log.
 Senza password lo script si ferma senza toccare nulla.
 
@@ -19,7 +23,7 @@ La pagina rifà gli stessi passaggi nel browser con WebCrypto.
 
 Fonti: nflverse (CC-BY-SA 4.0) per l'NFL, CollegeFootballData (secret CFBD_API_KEY) per il college:
 2 chiamate al massimo ogni 20 ore, il resto dei giri riusa data/duelli_cfbd.json.
-Partite e loghi vengono da docs/data_nfl.json e docs/data_college.json, già prodotti dagli altri workflow.
+Partite e loghi vengono da docs/data_<lega>.json, appena scritto dallo script del campionato.
 """
 from __future__ import annotations
 
@@ -42,9 +46,7 @@ from motore_duelli import nfl_data as nd        # noqa: E402
 from motore_duelli import ratings as R          # noqa: E402
 
 RADICE = Path(__file__).resolve().parent.parent
-USCITA = RADICE / "docs" / "duelli.dat"
-NFL_JSON = RADICE / "docs" / "data_nfl.json"
-COLLEGE_JSON = RADICE / "docs" / "data_college.json"
+LEGHE = {"nfl": "NFL", "college": "College"}
 ITERAZIONI = 200_000
 CFBD = "https://api.collegefootballdata.com"
 VERSIONE = 1
@@ -147,18 +149,6 @@ def statistiche_nfl(stagione: int, settimane: list[int]) -> dict[int, dict]:
     return out
 
 
-def da_giocare(dati: dict) -> dict[int, list]:
-    """Partite non ancora giocate della giornata in corso (es. la domenica dopo il giovedì sera)
-    e della prossima. PureStats tiene la giornata in corso in "giornata" appena se ne gioca una."""
-    out: dict[int, list] = {}
-    for blocco in ("giornata", "prossima"):
-        b = dati.get(blocco) or {}
-        resto = [p for p in b.get("partite") or [] if p.get("pc") is None]
-        if resto and b.get("settimana") is not None:
-            out.setdefault(int(b["settimana"]), []).extend(resto)
-    return out
-
-
 # ------------------------------------------------------------------ college
 def chiama_cfbd(percorso: str, chiave: str, **parametri):
     url = f"{CFBD}/{percorso}?{urllib.parse.urlencode(parametri)}"
@@ -227,82 +217,148 @@ def duelli_partita(rk: dict, casa: str, ospite: str) -> list[dict]:
     return out
 
 
-def partite(campionato: str, dati: dict, elenco: list, st: dict) -> list[dict]:
-    if not st:
-        return []
-    rk = F.ranks(st)
-    loghi = dati.get("loghi") or {}
-    out, saltate = [], 0
-    for p in elenco:
-        casa, ospite = p.get("casa"), p.get("ospite")
-        if p.get("pc") is not None or casa not in st or ospite not in st:
-            saltate += 1                 # già giocata, o squadra senza statistiche (es. fuori FBS)
-            continue
-        duelli = duelli_partita(rk, casa, ospite)
-        if not duelli:
-            saltate += 1
-            continue
-        data, ora = orario_roma(p.get("data") or "", p.get("ora") or "")
-        lc, lo = loghi.get(casa) or {}, loghi.get(ospite) or {}
-        out.append({"campionato": campionato, "data": data, "ora": ora, "casa": casa, "ospite": ospite,
-                    "nomeCasa": lc.get("breve") or casa, "nomeOspite": lo.get("breve") or ospite,
-                    "logoCasa": lc.get("logo") or "", "logoOspite": lo.get("logo") or "",
-                    "coloreCasa": lc.get("colore") or "", "coloreOspite": lo.get("colore") or "",
-                    "duelli": duelli})
-    print(f"{campionato}: {len(out)} partite con duelli, {saltate} saltate (già giocate o senza dati).")
+# ------------------------------------------------------------------ segnali sui giocatori
+# Giocatore in forma contro una difesa tra le peggiori del suo reparto -> segnale per l'attacco;
+# giocatore in calo contro una difesa tra le migliori -> segnale per la difesa.
+# Soglie concordate: su 32 squadre "migliori" fino alla 10ª, "peggiori" dalla 22ª; stesse proporzioni nel college.
+REPARTO = {"QB": "passaggi", "WR": "passaggi", "TE": "passaggi", "RIC": "passaggi", "RB": "corse"}
+NETTO = 0.40
+
+
+def soglie(n: int) -> tuple[int, int]:
+    return round(n * 10 / 32), n - round(n * 11 / 32) + 1
+
+
+def giocatori_contro(giocatori: list, avversario: str, rk: dict) -> list[dict]:
+    """Ogni giocatore chiave con la posizione della difesa avversaria nel suo reparto e l'eventuale segnale."""
+    out = []
+    for p in giocatori or []:
+        q = dict(p)
+        area = REPARTO.get(str(p.get("ruolo", "")).upper())
+        r = (rk.get(area) or {}).get(avversario) if area else None
+        q["segnale"] = None
+        if r:
+            _, rd, n = r
+            migliori, peggiori = soglie(n)
+            q.update({"areaDifesa": area, "rangoDifesa": rd, "squadreTotali": n})
+            if p.get("forma") == "in forma" and rd >= peggiori:
+                q["segnale"] = "attacco"
+            elif p.get("forma") == "in calo" and rd <= migliori:
+                q["segnale"] = "difesa"
+        out.append(q)
     return out
 
 
+def indice_squadra(indici: dict, squadra: str):
+    for x in (indici or {}).get("squadre") or []:
+        if x.get("squadra") == squadra:
+            return {"posizione": x.get("posizione"), "netto": x.get("netto"),
+                    "attacco": x.get("attacco"), "difesa": x.get("difesa")}
+    return None
+
+
+def scheda(campionato: str, g: dict, extra: dict | None, rk: dict, loghi: dict, indici: dict) -> dict | None:
+    casa, ospite = g.get("casa"), g.get("ospite")
+    duelli = duelli_partita(rk, casa, ospite)
+    if not duelli:
+        return None
+    data, ora = orario_roma(g.get("data") or "", g.get("ora") or "")
+    lc, lo = loghi.get(casa) or {}, loghi.get(ospite) or {}
+    extra = extra or {}
+    gc = giocatori_contro(extra.get("giocatoriCasa"), ospite, rk)
+    go = giocatori_contro(extra.get("giocatoriOspite"), casa, rk)
+    segnali = []
+    for squadra, gruppo in ((casa, gc), (ospite, go)):
+        for p in gruppo:
+            if p["segnale"]:
+                segnali.append({"tipo": "giocatore", "verso": p["segnale"], "squadra": squadra, "nome": p.get("nome"),
+                                "ruolo": p.get("ruolo"), "forma": p.get("forma"), "misura": p.get("misura"),
+                                "ultime3": p.get("mediaUltime3"), "stagione": p.get("mediaStagione"),
+                                "areaDifesa": p["areaDifesa"], "rangoDifesa": p["rangoDifesa"],
+                                "difesa": ospite if squadra == casa else casa})
+    for d in sorted(duelli, key=lambda d: -abs(d["punteggio"])):
+        if abs(d["punteggio"]) >= NETTO:
+            segnali.append({"tipo": "reparto", "verso": "attacco" if d["punteggio"] > 0 else "difesa", **d})
+    return {"campionato": campionato, "data": data, "ora": ora, "casa": casa, "ospite": ospite,
+            "nomeCasa": lc.get("breve") or casa, "nomeOspite": lo.get("breve") or ospite,
+            "logoCasa": lc.get("logo") or "", "logoOspite": lo.get("logo") or "",
+            "coloreCasa": lc.get("colore") or "", "coloreOspite": lo.get("colore") or "",
+            "conferenceCasa": g.get("confCasa"), "conferenceOspite": g.get("confOspite"),
+            "indiceCasa": indice_squadra(indici, casa), "indiceOspite": indice_squadra(indici, ospite),
+            "giocatoriCasa": gc, "giocatoriOspite": go, "segnali": segnali, "duelli": duelli}
+
+
 def main() -> int:
+    lega = (sys.argv[1] if len(sys.argv) > 1 else "").lower()
+    if lega not in LEGHE:
+        print("Uso: python scripts/fetch_duelli.py nfl|college")
+        return 1
+    campionato = LEGHE[lega]
+    uscita = RADICE / "docs" / f"duelli_{lega}.dat"
     password = os.environ.get("DUELLI_PASSWORD", "")
     if not password:
         print("DUELLI_PASSWORD non impostata nei secret: non scrivo nulla, perché il repository è pubblico "
-              "e i duelli non devono finire in chiaro.")
+              "e la sezione privata non deve finire in chiaro.")
         return 0
     if len(password) < 8:
         print("DUELLI_PASSWORD troppo corta (meno di 8 caratteri): non scrivo nulla. Usa una password più lunga.")
         return 1
 
-    nfl, college = leggi_json(NFL_JSON), leggi_json(COLLEGE_JSON)
-    elenco = []
-    stagione_nfl = (nfl.get("prossima") or nfl.get("giornata") or {}).get("stagione")
-    gare_nfl = da_giocare(nfl)
-    if gare_nfl and stagione_nfl:
-        try:
-            per_settimana = statistiche_nfl(int(stagione_nfl), sorted(gare_nfl))
-            for w, gare in sorted(gare_nfl.items()):
-                elenco += partite("NFL", nfl, gare, per_settimana[w])
-        except Exception as e:         # noqa: BLE001
-            print(f"NFL: duelli non calcolati ({e}).")
-    else:
-        print("NFL: nessuna partita da giocare in data_nfl.json.")
-    stagione_college = (college.get("prossima") or college.get("giornata") or {}).get("stagione")
-    gare_college = [p for gare in da_giocare(college).values() for p in gare]
-    if gare_college and stagione_college:
-        elenco += partite("College", college, gare_college, statistiche_college(int(stagione_college)))
-    else:
-        print("College: nessuna partita da giocare in data_college.json.")
-    pn = {"settimana": sorted(gare_nfl)}
-    pc = {"settimana": sorted(da_giocare(college))}
-
-    if not elenco:
-        print("Nessun duello calcolato: lascio com'è il file pubblicato, per non sostituirlo con uno vuoto.")
+    pubblico = leggi_json(RADICE / "docs" / f"data_{lega}.json")
+    privato = leggi_json(RADICE / "data" / f"privato_{lega}.json")
+    if not privato:
+        print("Manca il file privato del campionato (lo scrive fetch_{0}.py): lascio com'è la sezione "
+              "pubblicata.".format(lega))
         return 1
+    prossima, giornata = privato.get("prossima") or {}, pubblico.get("giornata") or {}
+    # partite senza risultato: resto della giornata in corso, poi il turno successivo
+    gruppi = []
+    for blocco, giocatori in ((giornata, privato.get("duelliGiornata")), (prossima, prossima.get("duelli"))):
+        resto = [p for p in blocco.get("partite") or [] if p.get("pc") is None]
+        if resto and blocco.get("settimana") is not None:
+            per_partita = {(d["casa"], d["ospite"]): d for d in giocatori or []}
+            gruppi.append((int(blocco["settimana"]), resto, per_partita))
+    stagione = prossima.get("stagione") or giornata.get("stagione")
+    if not gruppi or not stagione:
+        print(f"{campionato}: nessuna partita da giocare, la sezione resta com'è.")
+        return 0
 
-    elenco.sort(key=lambda g: (g["campionato"] != "NFL", g["data"], g["ora"] or "99"))
+    if lega == "nfl":
+        st_sett = statistiche_nfl(int(stagione), sorted({w for w, _, _ in gruppi}))
+    else:
+        st = statistiche_college(int(stagione))
+        st_sett = {w: st for w, _, _ in gruppi}
+    loghi, indici = pubblico.get("loghi") or {}, privato.get("indici") or {}
+    schede, saltate = [], 0
+    for w, resto, per_partita in gruppi:
+        st = st_sett.get(w) or {}
+        rk = F.ranks(st) if st else {}
+        for g in resto:
+            sc = scheda(campionato, g, per_partita.get((g["casa"], g["ospite"])), rk, loghi, indici)
+            if sc:
+                schede.append(sc)
+            else:
+                saltate += 1
+    if not schede:
+        print(f"{campionato}: nessuna scheda calcolata ({saltate} partite senza dati): lascio com'è il file pubblicato.")
+        return 1
+    schede.sort(key=lambda g: (g["data"], g["ora"] or "99", g["ospite"]))
     contenuto = {"aggiornato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                 "fonti": "nflverse (CC-BY-SA 4.0), CollegeFootballData",
-                 "settimanaNfl": pn.get("settimana"), "settimanaCollege": pc.get("settimana"),
-                 "partite": elenco}
+                 "campionato": campionato,
+                 "fonti": "nflverse (CC-BY-SA 4.0)" if lega == "nfl" else "CollegeFootballData",
+                 "partite": schede, "indici": indici or None,
+                 "giovani": prossima.get("giovani"), "loghi": loghi}
     testo = json.dumps(contenuto, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
     pacchetto = cifra(testo, password)
     if decifra(pacchetto, password) != testo:
         print("Verifica della cifratura fallita: non scrivo il file.")
         return 1
-    tmp = USCITA.with_suffix(".tmp")
+    tmp = uscita.with_suffix(".tmp")
     tmp.write_text(json.dumps(pacchetto, separators=(",", ":")), encoding="utf-8")
-    os.replace(tmp, USCITA)          # mai un file a metà
-    print(f"Scritto {USCITA.name}: {len(elenco)} partite, {len(testo)} byte cifrati.")
+    os.replace(tmp, uscita)          # mai un file a metà
+    n_segn = sum(len(g["segnali"]) for g in schede)
+    print(f"{campionato}: scritto {uscita.name}, {len(schede)} partite ({saltate} saltate), {n_segn} segnali, "
+          f"{len(testo)} byte cifrati.")
     return 0
 
 

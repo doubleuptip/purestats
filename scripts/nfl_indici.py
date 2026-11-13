@@ -337,6 +337,15 @@ def calcola(info=None):
             prossima["giovani"] = giovani
         except Exception as e:      # l'anteprima non deve mai bloccare il resto
             print(f"  Anteprima non calcolata: {type(e).__name__}: {e}")
+    # Giocatori chiave anche per le partite ancora da giocare della giornata in corso
+    # (es. la domenica dopo il giovedì sera): servono alla sezione privata dei duelli.
+    if giorn:
+        resto = [g for g in giorn["partite"] if g["pc"] is None]
+        if resto:
+            try:
+                giorn["duelli"], _ = anteprima({"partite": resto}, giorn["stagione"])
+            except Exception as e:  # l'anteprima non deve mai bloccare il resto
+                print(f"  Anteprima della giornata in corso non calcolata: {type(e).__name__}: {e}")
     stagione = max((p["stagione"] for p in tutte if p["pc"] is not None), default=None)
     momenti = defaultdict(list)
     sett = giorn["settimana"] if giorn and giorn["stagione"] == stagione else None

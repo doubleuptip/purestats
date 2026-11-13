@@ -435,4 +435,13 @@ def calcola(chiama, stats, stagione):
         except (KeyError, TypeError, ValueError) as e:
             # il confronto è un di più: se l'archivio ha una forma inattesa resta la lista partite
             print(f"  Confronto giocatori college non calcolato: {e!r}. Resta l'elenco delle partite.")
+    if out["giornata"]:
+        # giocatori chiave anche per le partite ancora da giocare della giornata in corso (sezione duelli)
+        difese = {s["squadra"]: s["difesa"] for s in ((out["indici"] or {}).get("squadre") or [])}
+        resto = [g for g in out["giornata"]["partite"] if g["pc"] is None]
+        if resto:
+            try:
+                out["giornata"]["duelli"] = _duelli(resto, ultime, stagione, difese)
+            except (KeyError, TypeError, ValueError) as e:
+                print(f"  Confronto giocatori della giornata in corso non calcolato: {e!r}.")
     return out

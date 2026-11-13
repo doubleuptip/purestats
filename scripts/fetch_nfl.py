@@ -396,6 +396,21 @@ def calcola_statistiche(righe, anagrafica=None, giocatori=None):
     }
 
 
+
+PRIVATO = Path(__file__).resolve().parent.parent / "data" / "privato_nfl.json"
+
+
+def salva_privato(extra):
+    """Blocchi della sezione privata (prossimo turno, indici, giocatori della giornata in corso).
+    Il file è in .gitignore: lo legge fetch_duelli.py nello stesso workflow e lo cifra."""
+    giornata = extra.get("giornata") or {}
+    privato = {"prossima": extra.get("prossima"), "indici": extra.get("indici"),
+               "duelliGiornata": giornata.pop("duelli", None)}
+    PRIVATO.parent.mkdir(parents=True, exist_ok=True)
+    tmp = PRIVATO.with_suffix(".tmp")
+    tmp.write_text(json.dumps(privato, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(PRIVATO)
+
 def main():
     print("=" * 58)
     print("ARCHIVIO NFL")
@@ -434,8 +449,10 @@ def main():
     print("\nGiornata, prossimo turno e indici")
     try:
         extra = nfl_indici.calcola(anagrafica if "logo" in next(iter(anagrafica.values()), {}) else None)
-        for chiave in ("giornata", "prossima", "indici"):
-            stats[chiave] = extra.get(chiave)
+        # Prossimo turno, indici e giocatori chiave vanno solo nella sezione privata (cifrata da
+        # fetch_duelli.py): qui restano in un file locale che non viene mai committato.
+        stats["giornata"] = extra.get("giornata")
+        salva_privato(extra)
         loghi = {s: {"logo": v.get("logo"), "colore": v.get("colore"), "breve": v.get("breve")}
                  for s, v in (extra.get("anagrafica") or {}).items()}
         stats["loghi"] = loghi

@@ -15,6 +15,7 @@
     --fb-acc:#B91C1C; --fb-acc-text:#FFFFFF; --fb-chip:#EEF0F3; --fb-chiptext:#374151;
     --fb-head:'Archivo',sans-serif;
     --buono-bg:#DCFCE7; --buono:#166534; --scarso-bg:#FEE2E2; --scarso:#991B1B;
+    --att:#B91C1C; --dif:#1F2937;
     color-scheme:light;
   }
   @media (prefers-color-scheme: dark){
@@ -23,96 +24,135 @@
       --fb-acc:#FF8A3D; --fb-acc-text:#1A0E05; --fb-chip:#1F2840; --fb-chiptext:#C9D1E3;
       --fb-head:'Barlow Condensed',sans-serif;
       --buono-bg:#14361F; --buono:#86EFAC; --scarso-bg:#3B1518; --scarso:#FCA5A5;
+      --att:#E0552B; --dif:#3B4A6B;
       color-scheme:dark;
     }
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--fb-bg);color:var(--fb-text);font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.5}
-  .pagina{max-width:760px;margin:0 auto;padding:16px 14px 48px}
+  .pagina{max-width:820px;margin:0 auto;padding:16px 14px 48px}
   header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-  .marchio{display:block;font-family:var(--fb-head);font-weight:800;font-size:28px;letter-spacing:.03em;line-height:1}
+  .marchio{display:block;font-family:var(--fb-head);font-weight:800;font-size:28px;letter-spacing:.03em;line-height:1;color:inherit;text-decoration:none}
   .marchio b{color:var(--fb-acc);font-weight:inherit}
   .sotto{font-size:13px;color:var(--fb-muted)}
-  button{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-card);color:var(--fb-text);padding:8px 14px;min-height:40px}
+  button,.bottone{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-card);color:var(--fb-text);padding:8px 14px;min-height:40px;text-decoration:none;display:inline-flex;align-items:center}
   button.on{background:var(--fb-acc);color:var(--fb-acc-text);border-color:var(--fb-acc)}
   .scheda{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:16px;margin-bottom:14px}
   .accesso{max-width:380px;margin:12vh auto 0}
   .accesso input{width:100%;font:inherit;padding:10px 12px;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-bg);color:var(--fb-text);min-height:44px;margin:10px 0}
   .errore{color:var(--scarso);font-size:13px;min-height:20px}
   .barra{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
-  .barra label{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--fb-muted);margin-left:auto}
-  .testa{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-  .testa .nomi{font-family:var(--fb-head);font-weight:800;font-size:20px;line-height:1.1;flex:1;min-width:0}
-  .testa .quando{font-size:12px;color:var(--fb-muted);white-space:nowrap}
+  .barra input[type=search]{flex:1;min-width:160px;font:inherit;padding:8px 12px;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-card);color:var(--fb-text);min-height:40px}
+  .barra label{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--fb-muted)}
+  .riepilogo{font-size:13px;color:var(--fb-muted);margin:-4px 0 12px}
+
+  /* testa della partita */
+  .testa{display:flex;align-items:center;gap:10px}
+  .testa .nomi{font-family:var(--fb-head);font-weight:800;font-size:21px;line-height:1.1;flex:1;min-width:0}
+  .quando{font-size:12px;color:var(--fb-muted);white-space:nowrap}
   .lg{width:32px;height:32px;object-fit:contain;flex:none}
   .lg.s{width:22px;height:22px}
+  .lg.m{width:28px;height:28px}
   .bd{width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex:none}
   .bd.s{width:22px;height:22px;font-size:8px}
-  .conta{display:flex;gap:10px}
-  .conta>div{flex:1;background:var(--fb-chip);border-radius:10px;padding:10px;display:flex;align-items:center;gap:10px}
-  .conta .n{font-size:26px;font-weight:700;line-height:1}
-  .conta .e{font-size:11px;color:var(--fb-muted)}
-  .voce{display:flex;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--fb-border)}
-  .voce .t{font-size:14px;font-weight:600}
-  .voce .d{font-size:12px;color:var(--fb-muted)}
-  .pl{font-size:11px;padding:2px 8px;border-radius:6px;white-space:nowrap;font-weight:600}
-  .pl.legg{background:var(--fb-chip);color:var(--fb-chiptext);font-weight:500}
-  .pari{font-size:12px;color:var(--fb-muted);padding:9px 0;border-top:1px solid var(--fb-border)}
-  details{margin-top:10px;border-top:1px solid var(--fb-border);padding-top:8px}
-  summary{cursor:pointer;font-size:14px;font-weight:600;min-height:32px;display:flex;align-items:center}
-  .blocco{display:flex;align-items:center;gap:8px;margin:12px 0 4px;font-size:14px;font-weight:600}
-  .riga,.int{display:grid;grid-template-columns:minmax(0,1fr) 44px 44px 112px;gap:6px;align-items:center}
-  .int{font-size:11px;color:var(--fb-muted)}
-  .riga{padding:7px 0;border-top:1px solid var(--fb-border);font-size:13px}
-  .rk{text-align:center;font-weight:700;border-radius:6px;padding:2px 0;font-variant-numeric:tabular-nums;background:var(--fb-chip)}
+  .bd.m{width:28px;height:28px;font-size:9px}
+
+  /* indici */
+  .indici{display:flex;gap:10px;margin:12px 0 4px}
+  .indici>div{flex:1;background:var(--fb-chip);border-radius:10px;padding:8px 10px;display:flex;align-items:center;gap:10px}
+  .indici .n{font-size:22px;font-weight:700;line-height:1}
+  .indici .e{font-size:11px;color:var(--fb-muted)}
+
+  /* duelli in evidenza: il cuore della scheda */
+  .titolo{font-family:var(--fb-head);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;margin:16px 0 8px}
+  .duello{border:1px solid var(--fb-border);border-radius:12px;overflow:hidden;margin-bottom:10px}
+  .duello .lati{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);align-items:stretch;margin-top:6px}
+  .lato{padding:10px;display:flex;gap:8px;align-items:center;min-width:0}
+  .lato.d{justify-content:flex-end;text-align:right}
+  .lato .chi{font-size:14px;font-weight:700;line-height:1.2;overflow-wrap:anywhere}
+  .lato .val{font-size:12px;line-height:1.3;opacity:.9}
+  .lato .num{font-size:20px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+  .lato.vince{color:#fff}
+  .lato.vince .su,.lato.vince .giu{color:#fff}
+  .cosa{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--fb-muted);padding:6px 10px 0}
+  .duello.gioc{border-width:2px;border-color:var(--fb-acc)}
+  .tondo{display:inline-flex;background:#fff;border-radius:50%;padding:3px;flex:none}
+  .vs{display:flex;align-items:center;justify-content:center;font-family:var(--fb-head);font-weight:800;font-size:13px;color:var(--fb-muted)}
+  .esito{font-size:12px;font-weight:700;padding:5px 10px;color:#fff;letter-spacing:.02em}
+  .esito.attacco{background:var(--att)} .esito.difesa{background:var(--dif)}
+  .nessuno{font-size:13px;color:var(--fb-muted);padding:8px 0}
+
+  details{margin-top:10px;border-top:1px solid var(--fb-border);padding-top:6px}
+  details.scheda{border-top:1px solid var(--fb-border)}
+  summary{cursor:pointer;font-size:14px;font-weight:600;min-height:36px;display:flex;align-items:center}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td,th{padding:7px 4px;border-top:1px solid var(--fb-border);text-align:center;vertical-align:middle}
+  th{font-size:11px;font-weight:600;color:var(--fb-muted)}
+  td:first-child,th:first-child{text-align:left}
+  tr.segnale td{background:var(--fb-chip)}
+  .rk{display:inline-block;min-width:38px;text-align:center;font-weight:700;border-radius:6px;padding:2px 4px;font-variant-numeric:tabular-nums;background:var(--fb-chip)}
   .rk.buono{background:var(--buono-bg);color:var(--buono)}
   .rk.scarso{background:var(--scarso-bg);color:var(--scarso)}
-  .chi{font-size:12px;text-align:right}
+  .su{color:var(--buono);font-weight:700} .giu{color:var(--scarso);font-weight:700}
+  .blocco{display:flex;align-items:center;gap:8px;margin:12px 0 4px;font-size:14px;font-weight:600}
+  .riga,.int{display:grid;grid-template-columns:minmax(0,1fr) 46px 46px 112px;gap:6px;align-items:center}
+  .int{font-size:11px;color:var(--fb-muted)}
+  .riga{padding:7px 0;border-top:1px solid var(--fb-border);font-size:13px}
+  .chiv{font-size:12px;text-align:right}
   .legenda{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--fb-muted);margin-top:10px}
-  .legenda .rk{padding:1px 6px;display:inline-block}
+  .legenda .rk{min-width:0;padding:1px 6px}
   .vuoto{color:var(--fb-muted);text-align:center;padding:24px}
+  .giocatori{display:grid;grid-template-columns:1fr;gap:4px 18px}
+  @media (min-width:760px){ .giocatori{grid-template-columns:1fr 1fr} }
   footer{font-size:12px;color:var(--fb-muted);text-align:center;margin-top:20px}
-  @media (max-width:420px){ .riga,.int{grid-template-columns:minmax(0,1fr) 38px 38px 96px} .testa .nomi{font-size:18px} }
+  @media (max-width:420px){ .riga,.int{grid-template-columns:minmax(0,1fr) 40px 40px 96px} .testa .nomi{font-size:18px} .lato .num{font-size:18px} }
 </style>
 </head>
 <body>
 <div class="pagina">
   <header>
     <div>
-      <a class="marchio" href="./" style="color:inherit;text-decoration:none" title="Torna a PureStats">PURE<b>STATS</b></a>
-      <div class="sotto">Duelli attacco contro difesa · area privata</div>
+      <a class="marchio" href="./" title="Torna a PureStats">PURE<b>STATS</b></a>
+      <div class="sotto">Partite, forma e duelli · area privata</div>
     </div>
     <div style="display:flex;gap:8px">
-      <a href="./" style="display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-card);color:var(--fb-text);text-decoration:none">← Sito</a>
+      <a class="bottone" href="./">← Sito</a>
       <button id="esci" hidden>Esci</button>
     </div>
   </header>
 
-  <form class="scheda accesso" id="accesso">
+  <form class="scheda accesso" id="accesso" action="#" method="post">
     <div style="font-weight:600">Inserisci la password</div>
-    <input type="password" id="password" autocomplete="current-password" aria-label="Password">
+    <!-- campo utente nascosto: serve al browser per proporre di salvare la password -->
+    <input type="text" name="username" id="utente" autocomplete="username" value="purestats" hidden>
+    <input type="password" name="password" id="password" autocomplete="current-password" aria-label="Password">
     <div class="errore" id="errore" role="alert"></div>
-    <button type="submit" class="on" style="width:100%">Entra</button>
+    <button type="submit" class="on" style="width:100%;justify-content:center">Entra</button>
   </form>
 
   <main id="contenuto" hidden>
     <div class="barra">
       <button data-camp="NFL" class="on">NFL</button>
       <button data-camp="College">College</button>
-      <label><input type="checkbox" id="soloNetti"> solo con duelli netti</label>
+      <input type="search" id="cerca" placeholder="Cerca squadra" aria-label="Cerca squadra">
+      <label><input type="checkbox" id="soloSegnali"> solo con segnali</label>
     </div>
+    <div class="riepilogo" id="riepilogo"></div>
     <div id="elenco"></div>
+    <div id="pannelli"></div>
     <footer id="piede"></footer>
   </main>
 </div>
 
 <script>
-/* Dati cifrati da scripts/fetch_duelli.py: qui si rifanno gli stessi passaggi con WebCrypto.
-   Nessun localStorage: la password va reinserita a ogni visita e non esce mai dal browser. */
+/* Dati cifrati da scripts/fetch_duelli.py (un file per campionato): qui si rifanno gli stessi passaggi
+   con WebCrypto. Nessun localStorage: la password resta nel gestore password del browser, se lo scegli. */
 const AREE = {corse:"Corse", passaggi:"Passaggi", pressione:"Protezione QB", esplosive:"Giocate lunghe", zona_rossa:"Zona rossa"};
+const REPARTO_DIFESA = {corse:"difesa corse", passaggi:"difesa passaggi", pressione:"pressione sul QB", esplosive:"difesa giocate lunghe", zona_rossa:"difesa zona rossa"};
 const ORDINE_AREE = ["corse","passaggi","pressione","esplosive","zona_rossa"];
-const PARI = 0.15, NETTO = 0.40;
-let DATI = null, CAMPIONATO = "NFL";
+const PARI = 0.15, NETTO = 0.40, MAX_EVIDENZA = 5;
+const DATI = {};
+let CAMPIONATO = "NFL";
 
 const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 const unisci = (...parti) => { const n = parti.reduce((t, p) => t + p.length, 0), o = new Uint8Array(n); let i = 0; for (const p of parti) { o.set(p, i); i += p.length; } return o; };
@@ -131,8 +171,14 @@ async function decifra(pacchetto, password){
     richieste.push(sub.digest("SHA-256", unisci(kCif, nonce, c)));
   }
   const flusso = unisci(...(await Promise.all(richieste)).map(x => new Uint8Array(x)));
-  const chiaro = cifrato.map((b, i) => b ^ flusso[i]);
-  return JSON.parse(new TextDecoder().decode(chiaro));
+  return JSON.parse(new TextDecoder().decode(cifrato.map((b, i) => b ^ flusso[i])));
+}
+
+async function scarica(lega, pw){
+  const r = await fetch(`duelli_${lega}.dat?` + Date.now(), {cache:"no-store"});
+  if (r.status === 404) return null;            // campionato non ancora calcolato
+  if (!r.ok) throw new Error("file");
+  return decifra(await r.json(), pw);
 }
 
 document.getElementById("accesso").addEventListener("submit", async ev => {
@@ -142,89 +188,67 @@ document.getElementById("accesso").addEventListener("submit", async ev => {
   err.textContent = "Apro i dati…";
   try {
     if (!window.crypto || !crypto.subtle) throw new Error("browser");
-    const r = await fetch("duelli.dat?" + Date.now(), {cache:"no-store"});
-    if (!r.ok) throw new Error("file");
-    DATI = await decifra(await r.json(), pw);
+    const [nfl, college] = await Promise.all([scarica("nfl", pw), scarica("college", pw)]);
+    if (!nfl && !college) throw new Error("file");
+    if (nfl) DATI.NFL = nfl;
+    if (college) DATI.College = college;
   } catch (e) {
     err.textContent = e.message === "password" ? "Password sbagliata." :
       e.message === "browser" ? "Questo browser non supporta la decifratura: apri la pagina in https." :
       "Non riesco a scaricare i dati. Riprova tra poco.";
     return;
   }
+  // Chrome e Android: proposta esplicita di salvare la password (gli altri browser lo fanno dal modulo)
+  try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats duelli"})); } catch (e) {}
   document.getElementById("password").value = "";
   document.getElementById("accesso").hidden = true;
   document.getElementById("contenuto").hidden = false;
   document.getElementById("esci").hidden = false;
   if (location.hash === "#College") CAMPIONATO = "College";
-  if (!DATI.partite.some(g => g.campionato === CAMPIONATO)) CAMPIONATO = CAMPIONATO === "NFL" ? "College" : "NFL";
+  if (!DATI[CAMPIONATO]) CAMPIONATO = DATI.NFL ? "NFL" : "College";
   disegna();
 });
 document.getElementById("password").addEventListener("input", () => document.getElementById("errore").textContent = "");
 document.getElementById("esci").addEventListener("click", () => location.reload());
 document.querySelectorAll("[data-camp]").forEach(b => b.addEventListener("click", () => { CAMPIONATO = b.dataset.camp; disegna(); }));
-document.getElementById("soloNetti").addEventListener("change", disegna);
+document.getElementById("soloSegnali").addEventListener("change", disegna);
+document.getElementById("cerca").addEventListener("input", disegna);
 
-/* ---------- colori e stemmi ---------- */
+/* ---------- utilità ---------- */
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num = (v, d = 0) => v === null || v === undefined ? "—" : Number(v).toLocaleString("it-IT", {minimumFractionDigits:d, maximumFractionDigits:d});
+const segno = (v, d) => v === null || v === undefined ? "—" : (v > 0 ? "+" : v < 0 ? "−" : "") + num(Math.abs(v), d);
 const scuro = () => matchMedia("(prefers-color-scheme: dark)").matches;
+const valido = h => /^#[0-9a-f]{6}$/i.test(h || "");
+const fondo = hex => valido(hex) ? hex : "#555555";
 function coloreTesto(hex){
-  if (!/^#[0-9a-f]{6}$/i.test(hex || "")) return "var(--fb-text)";
+  if (!valido(hex)) return "var(--fb-text)";
   if (!scuro()) return hex;
   const n = [1,3,5].map(i => parseInt(hex.substr(i, 2), 16));
   return "rgb(" + n.map(v => Math.round(v + (255 - v) * .55)).join(",") + ")";
 }
-const fondo = hex => /^#[0-9a-f]{6}$/i.test(hex || "") ? hex : "#555555";
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+/* fondo del lato che vince il duello: colore della squadra, appena schiarito in modalità scura */
+function fondoVince(hex){
+  if (!valido(hex)) return "var(--att)";
+  if (!scuro()) return hex;
+  const n = [1,3,5].map(i => parseInt(hex.substr(i, 2), 16));
+  return "rgb(" + n.map(v => Math.round(v + (255 - v) * .18)).join(",") + ")";
+}
 function squadra(g, sigla){
   const casa = sigla === g.casa;
   return {sigla, nome: casa ? g.nomeCasa : g.nomeOspite, logo: casa ? g.logoCasa : g.logoOspite, colore: casa ? g.coloreCasa : g.coloreOspite};
 }
-function stemma(t, piccolo){
-  const cl = piccolo ? " s" : "";
+function stemma(t, taglia){
+  const cl = taglia ? " " + taglia : "";
   const cerchio = `<span class="bd${cl}" style="background:${fondo(t.colore)}" aria-hidden="true">${esc(String(t.sigla).slice(0, 4).toUpperCase())}</span>`;
   if (/^https:\/\//.test(t.logo || "")) return `<img class="lg${cl}" src="${esc(t.logo)}" alt="${esc(t.nome)}" loading="lazy" data-ripiego="${esc(cerchio)}" onerror="ripiego(this)">`;
   return cerchio;
 }
 /* Logo non raggiungibile: al suo posto il cerchio con colore e sigla, come in index.html */
 function ripiego(img){ img.insertAdjacentHTML("afterend", img.dataset.ripiego); img.remove(); }
-
-/* ---------- scheda di una partita ---------- */
 const forza = s => Math.abs(s) < PARI ? "pari" : Math.abs(s) >= NETTO ? "netto" : "leggero";
-function classeRank(r, n){ return r <= n / 4 ? "buono" : r > n * 3 / 4 ? "scarso" : ""; }
-
-function scheda(g){
-  const T = {[g.casa]: squadra(g, g.casa), [g.ospite]: squadra(g, g.ospite)};
-  const vinti = {[g.casa]: 0, [g.ospite]: 0}, pari = [], voci = [];
-  for (const d of [...g.duelli].sort((a, b) => Math.abs(b.punteggio) - Math.abs(a.punteggio))) {
-    const f = forza(d.punteggio);
-    if (f === "pari") { pari.push(`${AREE[d.area]} ${esc(T[d.att].nome)}`); continue; }
-    const w = d.punteggio > 0 ? d.att : d.dif; vinti[w]++;
-    const frase = d.punteggio > 0
-      ? `attacco ${esc(T[d.att].nome)} ${d.ra}° contro difesa ${esc(T[d.dif].nome)} ${d.rd}ª`
-      : `difesa ${esc(T[d.dif].nome)} ${d.rd}ª ferma attacco ${esc(T[d.att].nome)} ${d.ra}°`;
-    const pl = f === "netto" ? `<span class="pl" style="background:${fondo(T[w].colore)};color:#fff">netto</span>` : `<span class="pl legg">leggero</span>`;
-    voci.push(`<div class="voce">${stemma(T[w])}<div style="flex:1;min-width:0"><div class="t" style="color:${coloreTesto(T[w].colore)}">${AREE[d.area]}: ${esc(T[w].nome)}</div><div class="d">${frase}</div></div>${pl}</div>`);
-  }
-  const box = s => `<div>${stemma(T[s])}<div><div class="n" style="color:${coloreTesto(T[s].colore)}">${vinti[s]}</div><div class="e">duelli avanti</div></div></div>`;
-  const quando = [g.data ? g.data.split("-").reverse().slice(0, 2).join("/") : "", g.ora].filter(Boolean).join(" ");
-  let h = `<article class="scheda"><div class="testa">${stemma(T[g.ospite], true)}<div class="nomi">${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}</div>${stemma(T[g.casa], true)}<span class="quando">${esc(quando)}</span></div>`;
-  h += `<div class="conta">${box(g.casa)}${box(g.ospite)}</div><div style="margin-top:10px">${voci.join("")}`;
-  if (pari.length) h += `<div class="pari">= Equilibrio: ${pari.join(", ")}</div>`;
-  h += `</div><details><summary>Tabellone completo</summary>`;
-  for (const [a, d] of [[g.casa, g.ospite], [g.ospite, g.casa]]) {
-    h += `<div class="blocco">${stemma(T[a], true)}Attaccano i ${esc(T[a].nome)}</div><div class="int"><span></span><span style="text-align:center">att.</span><span style="text-align:center">dif.</span><span style="text-align:right">chi è avanti</span></div>`;
-    for (const area of ORDINE_AREE) {
-      const x = g.duelli.find(y => y.area === area && y.att === a);
-      if (!x) continue;
-      const f = forza(x.punteggio), w = x.punteggio > 0 ? a : d;
-      const chi = f === "pari" ? `<span style="color:var(--fb-muted)">equilibrio</span>`
-        : `<span style="color:${coloreTesto(T[w].colore)};font-weight:${f === "netto" ? 700 : 400}">${f === "netto" ? "nettamente " : ""}${esc(T[w].nome)}</span>`;
-      h += `<div class="riga"><span>${AREE[area]}</span><span class="rk ${classeRank(x.ra, x.n)}">${x.ra}°</span><span class="rk ${classeRank(x.rd, x.n)}">${x.rd}ª</span><span class="chi">${chi}</span></div>`;
-    }
-  }
-  const n = g.duelli[0].n, q = Math.floor(n / 4);
-  h += `<div class="legenda"><span><span class="rk buono">1–${q}</span> tra i migliori</span><span><span class="rk scarso">${n - q + 1}–${n}</span> tra i peggiori</span><span>su ${n} squadre</span></div></details></article>`;
-  return h;
-}
+const classeRank = (r, n) => r <= Math.round(n * 10 / 32) ? "buono" : r >= n - Math.round(n * 11 / 32) + 1 ? "scarso" : "";
+const freccia = f => f === "in forma" ? '<span class="su">▲</span>' : f === "in calo" ? '<span class="giu">▼</span>' : "";
 
 /* Le partite già cominciate spariscono subito, senza aspettare il prossimo aggiornamento dei dati.
    Data e ora sono italiane; senza ora la partita resta visibile fino alla fine del suo giorno. */
@@ -233,15 +257,123 @@ function iniziata(g){
   const ora = new Intl.DateTimeFormat("sv-SE", {timeZone:"Europe/Rome", year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", hour12:false}).format(new Date()).replace(" ", "T");
   return g.ora ? `${g.data}T${g.ora}` <= ora : g.data < ora.slice(0, 10);
 }
+function quando(g){
+  if (!g.data) return "";
+  const d = new Date(g.data + "T12:00:00");
+  return d.toLocaleDateString("it-IT", {weekday:"short", day:"2-digit", month:"2-digit"}) + (g.ora ? " " + g.ora : "");
+}
+
+/* ---------- duello in evidenza: due lati e un VS, il lato che vince prende il colore della sua squadra ---------- */
+function duelloEvidenza(g, T, s){
+  let sx, dx, cosa;
+  if (s.tipo === "giocatore") {
+    const att = T[s.squadra], dif = T[s.difesa];
+    cosa = `${esc(s.ruolo)} · ${esc(s.misura || "")}`;
+    sx = {t: att, num: `${freccia(s.forma)} ${num(s.ultime3)}`, chi: esc(s.nome), val: `ultime 3 · stagione ${num(s.stagione)}`};
+    dx = {t: dif, num: `${s.rangoDifesa}ª`, chi: `${esc(dif.nome)}`, val: `${REPARTO_DIFESA[s.areaDifesa] || "difesa"} su ${g.n || "—"}`};
+  } else {
+    const att = T[s.att], dif = T[s.dif];
+    cosa = AREE[s.area];
+    sx = {t: att, num: `${s.ra}°`, chi: esc(att.nome), val: "attacco"};
+    dx = {t: dif, num: `${s.rd}ª`, chi: esc(dif.nome), val: "difesa"};
+  }
+  const vinceSx = s.verso === "attacco", vince = vinceSx ? sx.t : dx.t;
+  const lato = (x, destra, v) => `<div class="lato${destra ? " d" : ""}${v ? " vince" : ""}" style="${v ? `background:${fondoVince(x.t.colore)}` : ""}">
+      ${destra ? "" : `<span class="tondo">${stemma(x.t, "m")}</span>`}<div style="min-width:0"><div class="num">${x.num}</div><div class="chi">${x.chi}</div><div class="val">${x.val}</div></div>${destra ? `<span class="tondo">${stemma(x.t, "m")}</span>` : ""}</div>`;
+  const testo = s.tipo === "giocatore"
+    ? (s.verso === "attacco" ? `Segnale attacco · ${esc(s.nome)} in forma contro una difesa tra le peggiori` : `Segnale difesa · ${esc(vince.nome)} tra le migliori contro ${esc(s.nome)} in calo`)
+    : (s.verso === "attacco" ? `Vince l'attacco ${esc(vince.nome)}` : `Vince la difesa ${esc(vince.nome)}`);
+  return `<div class="duello${s.tipo === "giocatore" ? " gioc" : ""}"><div class="cosa">${cosa}</div><div class="lati">${lato(sx, false, vinceSx)}<div class="vs">VS</div>${lato(dx, true, !vinceSx)}</div><div class="esito ${s.verso}">${testo}</div></div>`;
+}
+
+function tabellaGiocatori(g, T){
+  const righe = lista => (lista || []).map(p => `<tr${p.segnale ? ' class="segnale"' : ""}>
+    <td><b>${esc(p.nome)}</b> <span class="sotto">${esc(p.ruolo || "")}</span></td>
+    <td>${num(p.mediaUltime3)} ${freccia(p.forma)}</td><td>${num(p.mediaStagione)}</td>
+    <td>${p.rangoDifesa ? `<span class="rk ${classeRank(p.rangoDifesa, p.squadreTotali)}">${p.rangoDifesa}ª</span>` : "—"}</td></tr>`).join("");
+  const blocco = (lista, sq) => (lista || []).length ? `<div><div class="blocco">${stemma(T[sq], "s")}${esc(T[sq].nome)}</div>
+    <table><tr><th>Giocatore</th><th>ultime 3</th><th>stagione</th><th>difesa avv.</th></tr>${righe(lista)}</table></div>` : "";
+  const h = blocco(g.giocatoriOspite, g.ospite) + blocco(g.giocatoriCasa, g.casa);
+  return h ? `<details><summary>Giocatori chiave</summary><div class="giocatori">${h}</div>
+    <div class="legenda"><span><span class="su">▲</span> ultime 3 almeno il 25% sopra il suo solito (stagioni passate)</span><span><span class="giu">▼</span> almeno il 25% sotto</span><span>difesa avv. = posizione della difesa che trova nel suo reparto</span></div></details>` : "";
+}
+
+function tabellone(g, T){
+  let h = `<details><summary>Tabellone reparti</summary>`;
+  for (const [a, d] of [[g.ospite, g.casa], [g.casa, g.ospite]]) {
+    h += `<div class="blocco">${stemma(T[a], "s")}Attaccano i ${esc(T[a].nome)}</div><div class="int"><span></span><span style="text-align:center">att.</span><span style="text-align:center">dif.</span><span style="text-align:right">chi è avanti</span></div>`;
+    for (const area of ORDINE_AREE) {
+      const x = g.duelli.find(y => y.area === area && y.att === a);
+      if (!x) continue;
+      const f = forza(x.punteggio), w = x.punteggio > 0 ? a : d;
+      const chi = f === "pari" ? `<span style="color:var(--fb-muted)">equilibrio</span>`
+        : `<span style="color:${coloreTesto(T[w].colore)};font-weight:${f === "netto" ? 700 : 400}">${f === "netto" ? "nettamente " : ""}${esc(T[w].nome)}</span>`;
+      h += `<div class="riga"><span>${AREE[area]}</span><span class="rk ${classeRank(x.ra, x.n)}">${x.ra}°</span><span class="rk ${classeRank(x.rd, x.n)}">${x.rd}ª</span><span class="chiv">${chi}</span></div>`;
+    }
+  }
+  const n = g.duelli[0].n, q = Math.round(n * 10 / 32);
+  return h + `<div class="legenda"><span><span class="rk buono">1–${q}</span> tra i migliori</span><span><span class="rk scarso">${n - Math.round(n * 11 / 32) + 1}–${n}</span> tra i peggiori</span><span>su ${n} squadre</span></div></details>`;
+}
+
+function scheda(g){
+  const T = {[g.casa]: squadra(g, g.casa), [g.ospite]: squadra(g, g.ospite)};
+  g.n = (g.duelli[0] || {}).n;
+  const dec = CAMPIONATO === "NFL" ? 3 : 1;
+  const tile = sq => { const i = sq === g.casa ? g.indiceCasa : g.indiceOspite;
+    return `<div>${stemma(T[sq])}<div><div class="n" style="color:${coloreTesto(T[sq].colore)}">${i && i.posizione ? i.posizione + "°" : "—"}</div><div class="e">indice ${i ? segno(i.netto, dec) : "—"}</div></div></div>`; };
+  const evid = (g.segnali || []).slice(0, MAX_EVIDENZA);
+  return `<article class="scheda">
+    <div class="testa">${stemma(T[g.ospite], "s")}<div class="nomi">${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}</div>${stemma(T[g.casa], "s")}<span class="quando">${esc(quando(g))}</span></div>
+    <div class="indici">${tile(g.ospite)}${tile(g.casa)}</div>
+    <div class="titolo">Duelli in evidenza</div>
+    ${evid.length ? evid.map(s => duelloEvidenza(g, T, s)).join("") : `<div class="nessuno">Nessun duello netto: partita in equilibrio sui dati.</div>`}
+    ${(g.segnali || []).length > MAX_EVIDENZA ? `<div class="sotto">Altri ${g.segnali.length - MAX_EVIDENZA} segnali nel tabellone e nei giocatori qui sotto.</div>` : ""}
+    ${tabellaGiocatori(g, T)}
+    ${tabellone(g, T)}
+  </article>`;
+}
+
+/* ---------- pannelli in fondo: classifica indici, quarterback, giovani ---------- */
+function pannelli(D){
+  const loghi = D.loghi || {};
+  const t = sq => ({sigla: sq, nome: (loghi[sq] || {}).breve || sq, logo: (loghi[sq] || {}).logo, colore: (loghi[sq] || {}).colore});
+  let h = "";
+  const I = D.indici;
+  if (I && (I.squadre || []).length) {
+    const dec = I.decimali === undefined ? 3 : I.decimali, et = I.etichette || {};
+    h += `<details class="scheda"><summary>Classifica indici · ${esc(et.titolo || "forza delle squadre")}</summary>
+      <p class="sotto">${esc(et.sotto || "EPA per azione: attacco e difesa, più alto = meglio.")}</p>
+      <table><tr><th>#</th><th style="text-align:left">Squadra</th><th>${esc(et.netto || "Netto")}</th><th>Att.</th><th>Dif.</th></tr>
+      ${I.squadre.map(x => `<tr><td>${x.posizione}</td><td style="text-align:left"><span style="display:inline-flex;gap:8px;align-items:center">${stemma(t(x.squadra), "s")}${esc(t(x.squadra).nome)}</span></td>
+        <td><b>${segno(x.netto, dec)}</b></td><td>${segno(x.attacco, dec)}</td><td>${segno(x.difesa, dec)}</td></tr>`).join("")}</table></details>`;
+  }
+  if (I && (I.quarterback || []).length) {
+    h += `<details class="scheda"><summary>Quarterback · EPA per lancio</summary><table><tr><th>#</th><th style="text-align:left">QB</th><th>EPA/lancio</th><th>Lanci</th></tr>
+      ${I.quarterback.map((q, i) => `<tr><td>${i + 1}</td><td style="text-align:left"><span style="display:inline-flex;gap:8px;align-items:center">${stemma(t(q.squadra), "s")}${esc(q.nome)}</span></td><td><b>${segno(q.epaLancio, 3)}</b></td><td>${num(q.lanci)}</td></tr>`).join("")}</table></details>`;
+  }
+  const G = D.giovani || {};
+  const lista = (tit, l, qb) => (l || []).length ? `<div class="blocco">${tit}</div><table>${l.map(p => `<tr><td><span style="display:inline-flex;gap:8px;align-items:center">${stemma(t(p.squadra), "s")}<b>${esc(p.nome)}</b> ${freccia(p.forma)}</span><div class="sotto">${esc(p.esperienza || "")}</div></td>
+      <td style="text-align:right">${qb ? "EPA/lancio " + segno(p.epaLancio, 3) + "<br>" : ""}${num(p.mediaStagione, 1)} ${esc(p.misura || "")} a partita</td></tr>`).join("")}</table>` : "";
+  if (G.QB || G.RB || G.RIC) h += `<details class="scheda"><summary>Giovani che spiccano</summary><p class="sotto">Rookie, 2° e 3° anno con il miglior rendimento della stagione</p>
+      ${lista("Quarterback", G.QB, true)}${lista("Running back", G.RB)}${lista("Ricevitori", G.RIC)}</details>`;
+  return h;
+}
 
 function disegna(){
-  document.querySelectorAll("[data-camp]").forEach(b => b.classList.toggle("on", b.dataset.camp === CAMPIONATO));
-  const solo = document.getElementById("soloNetti").checked;
-  const elenco = DATI.partite.filter(g => g.campionato === CAMPIONATO && !iniziata(g) && (!solo || g.duelli.some(d => Math.abs(d.punteggio) >= NETTO)));
+  document.querySelectorAll("[data-camp]").forEach(b => { b.classList.toggle("on", b.dataset.camp === CAMPIONATO); b.hidden = !DATI[b.dataset.camp]; });
+  const D = DATI[CAMPIONATO];
+  const solo = document.getElementById("soloSegnali").checked;
+  const q = document.getElementById("cerca").value.trim().toLowerCase();
+  const tutte = D.partite.filter(g => !iniziata(g));
+  const elenco = tutte.filter(g => (!solo || (g.segnali || []).length) &&
+    (!q || [g.casa, g.ospite, g.nomeCasa, g.nomeOspite, g.conferenceCasa, g.conferenceOspite].some(x => String(x || "").toLowerCase().includes(q))));
+  const nSegn = tutte.reduce((t, g) => t + (g.segnali || []).filter(s => s.tipo === "giocatore").length, 0);
+  document.getElementById("riepilogo").textContent = `${elenco.length} partite su ${tutte.length} · ${nSegn} segnali sui giocatori`;
   document.getElementById("elenco").innerHTML = elenco.length ? elenco.map(scheda).join("")
-    : `<div class="scheda vuoto">${solo ? "Nessuna partita con duelli netti." : "Nessuna partita ancora da giocare con dati disponibili."}</div>`;
-  const t = new Date(DATI.aggiornato);
-  document.getElementById("piede").textContent = `Aggiornato il ${t.toLocaleString("it-IT", {timeZone:"Europe/Rome", dateStyle:"short", timeStyle:"short"})} · Fonti: ${DATI.fonti} · Solo statistiche, nessuna quota.`;
+    : `<div class="scheda vuoto">${solo || q ? "Nessuna partita con questi filtri." : "Nessuna partita ancora da giocare con dati disponibili."}</div>`;
+  document.getElementById("pannelli").innerHTML = pannelli(D);
+  const t = new Date(D.aggiornato);
+  document.getElementById("piede").textContent = `Aggiornato il ${t.toLocaleString("it-IT", {timeZone:"Europe/Rome", dateStyle:"short", timeStyle:"short"})} · Fonti: ${D.fonti} · Solo statistiche, nessuna quota.`;
 }
 </script>
 </body>

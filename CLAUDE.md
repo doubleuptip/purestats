@@ -49,6 +49,17 @@ Non sono automatizzabili: il sito della Lega è un'applicazione JavaScript
 con endpoint non più validi, il sito AIA blocca gli accessi automatici e usa
 URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 
+## Sezione privata NFL e College (duelli.html)
+
+- Prossimo turno, indici, giocatori chiave e duelli attacco-difesa stanno **solo** in
+  `docs/duelli_nfl.dat` e `docs/duelli_college.dat`, cifrati con il secret `DUELLI_PASSWORD`
+  e aperti da `docs/duelli.html` con la password (pulsante DUELLI nel sito)
+- `fetch_nfl.py` / `fetch_college.py` scrivono questi blocchi in `data/privato_<lega>.json`
+  (in .gitignore, mai committato); subito dopo, nello stesso workflow, `fetch_duelli.py <lega>`
+  li unisce e li cifra. Il repository è pubblico: nessun dato della sezione in chiaro
+- `scripts/motore_duelli/` è una copia dei moduli del bot Radar Assenze: non modificarla qui
+- Cambio password: aggiornare il secret e rilanciare i workflow NFL e College
+
 ## Vincoli da rispettare
 
 - **Nessuna fonte a pagamento** e nessuno scraping di siti che lo vietano.
