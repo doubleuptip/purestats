@@ -110,6 +110,9 @@
   .atteso .ris b{font-family:var(--fb-head);font-size:26px}
   .atteso .ris span{display:inline-flex;align-items:center;gap:6px}
   .atteso .trat{color:var(--fb-muted)}
+  .pct{font-size:13px;margin-top:4px}
+  .pct b{font-family:var(--fb-head);font-size:18px}
+  .fz2{opacity:.75;font-size:11px}
   .giudizio{margin:12px 0 0;padding:10px 12px;border-left:3px solid var(--fb-acc);background:color-mix(in srgb, var(--fb-acc) 7%, transparent);font-size:14.5px;line-height:1.5}
   .top{width:100%;display:flex;gap:10px;align-items:center;text-align:left;margin-top:8px;padding:10px;line-height:1.35;font-size:14px}
   .top .pos{font-family:var(--fb-head);font-weight:800;font-size:24px;color:var(--fb-acc);min-width:22px}
@@ -296,9 +299,10 @@ function duelloEvidenza(g, T, s){
     cosa = `${esc(s.ruolo)} · ${esc(s.misura || "")}`;
     sx = {t: att, num: `${num(s.previsione)} yd`, chi: esc(s.nome), val: `previste · media ${num(s.media)}`};
     dx = {t: dif, num: `${s.rangoDifesa}ª`, chi: esc(dif.nome), val: `${REPARTO_DIFESA[s.areaDifesa] || "difesa"} su ${s.n}`};
+    const pct = s.pct ? ` · storico: ${s.pct}% delle volte ${s.verso === "attacco" ? "sopra" : "sotto"} la sua media` : "";
     testo = s.verso === "attacco"
-      ? `Vantaggio attacco · ${segnoNum(s.effetto)} yard per la difesa tra le peggiori`
-      : `Vantaggio difesa · ${segnoNum(s.effetto)} yard per la difesa tra le migliori`;
+      ? `Vantaggio attacco · ${segnoNum(s.effetto)} yard per la difesa tra le peggiori${pct}`
+      : `Vantaggio difesa · ${segnoNum(s.effetto)} yard per la difesa tra le migliori${pct}`;
   } else {
     const att = T[s.att], dif = T[s.dif];
     cosa = AREE[s.area];
@@ -317,14 +321,16 @@ function bloccoPartita(g, T){
   const P = g.partita;
   if (!P) return "";
   const favorita = P.margine >= 0 ? g.casa : g.ospite;
-  const tile = (titolo, valore, sotto, forza) => `<div><div class="e">${titolo}</div><div class="n">${valore}</div><div class="e">${sotto} · forza ${num(forza, 2)}</div></div>`;
+  const tile = (titolo, valore, sotto, forza, pct, liv, dove) => `<div><div class="e">${titolo}</div><div class="n">${valore}</div><div class="e">${sotto}</div>${pct ? `<div class="pct"><b>${pct}%</b> delle volte ${dove} · ${liv}</div>` : ""}<div class="e fz2">forza ${num(forza, 2)}</div></div>`;
   const atteso = P.attesoCasa !== undefined && P.attesoCasa !== null ? `<div class="atteso">
     <div class="e">Punteggio atteso dai numeri</div>
     <div class="ris"><span>${stemma(T[g.ospite], "s")} ${esc(T[g.ospite].nome)} <b>${Math.round(P.attesoOspite)}</b></span><span class="trat">–</span><span><b>${Math.round(P.attesoCasa)}</b> ${esc(T[g.casa].nome)} ${stemma(T[g.casa], "s")}</span></div>
     <div class="e">di solito segnano ${num(P.normaOspite, 1)} e ${num(P.normaCasa, 1)} · più l'effetto delle difese · senza vantaggio del campo</div></div>` : "";
   return atteso + `<div class="indici partita">
-    ${tile("Totale", segnoNum(P.totale) + " pt", P.totale >= 0 ? "difese che concedono" : "difese che chiudono", P.forzaTotale)}
-    ${tile("Margine", Math.abs(P.margine) < 0.5 ? "equilibrio" : `${esc(T[favorita].nome)} +${num(Math.abs(P.margine), 1)}`, "rispetto alla norma", P.forzaMargine)}
+    ${tile("Totale", segnoNum(P.totale) + " pt", P.totale >= 0 ? "difese che concedono" : "difese che chiudono", P.forzaTotale,
+           Math.abs(P.totale) < 0.5 ? null : P.pctTotale, P.livelloTotale, P.totale >= 0 ? "sopra la norma" : "sotto la norma")}
+    ${tile("Margine", Math.abs(P.margine) < 0.5 ? "equilibrio" : `${esc(T[favorita].nome)} +${num(Math.abs(P.margine), 1)}`, "rispetto alla norma", P.forzaMargine,
+           Math.abs(P.margine) < 0.5 ? null : P.pctMargine, P.livelloMargine, `da quella parte`)}
   </div>`;
 }
 
@@ -391,27 +397,28 @@ function candidati(){
       const T = {[g.casa]: squadra(g, g.casa), [g.ospite]: squadra(g, g.ospite)};
       const P = g.partita;
       if (P) {
-        out.push({camp, g, tipo: "Totale", forza: P.forzaTotale, testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: totale ${segnoNum(P.totale)} punti rispetto alla norma delle due squadre`});
+        out.push({camp, g, tipo: "Totale", forza: P.forzaTotale, pct: Math.abs(P.totale) < 0.5 ? 0 : (P.pctTotale || 0), testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: totale ${segnoNum(P.totale)} punti rispetto alla norma delle due squadre`});
         const fav = P.margine >= 0 ? g.casa : g.ospite;
-        out.push({camp, g, tipo: "Handicap", forza: P.forzaMargine, testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: ${esc(T[fav].nome)} +${num(Math.abs(P.margine), 1)} punti di margine rispetto alla norma`});
+        out.push({camp, g, tipo: "Handicap", forza: P.forzaMargine, pct: Math.abs(P.margine) < 0.5 ? 0 : (P.pctMargine || 0), testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: ${esc(T[fav].nome)} +${num(Math.abs(P.margine), 1)} punti di margine rispetto alla norma`});
       }
       for (const v of g.vantaggi || []) {
         if (v.tipo !== "giocatore") continue;
-        out.push({camp, g, tipo: "Giocatore", forza: v.forza, testo: `${esc(v.nome)} (${esc(v.ruolo)}, ${esc(T[v.squadra].nome)}): ${num(v.previsione)} ${esc(v.misura || "yard")} previste, media ${num(v.media)}, ${segnoNum(v.effetto)} contro la ${v.rangoDifesa}ª ${REPARTO_DIFESA[v.areaDifesa] || "difesa"}`});
+        out.push({camp, g, tipo: "Giocatore", forza: v.forza, pct: v.pct || 0, testo: `${esc(v.nome)} (${esc(v.ruolo)}, ${esc(T[v.squadra].nome)}): ${num(v.previsione)} ${esc(v.misura || "yard")} previste, media ${num(v.media)}, ${segnoNum(v.effetto)} contro la ${v.rangoDifesa}ª ${REPARTO_DIFESA[v.areaDifesa] || "difesa"}`});
       }
     }
   }
-  return out.sort((a, b) => b.forza - a.forza);
+  // prima quanto spesso, nello storico, finisce dalla parte indicata; a parità, lo sbilanciamento più netto
+  return out.sort((a, b) => (b.pct - a.pct) || (b.forza - a.forza));
 }
 function migliori(){
   const top = candidati().slice(0, 3);
   if (!top.length) return "";
   return `<section class="scheda migliori"><div class="titolo" style="margin-top:0">Le 3 partite più sbilanciate</div>
-    <div class="sotto" style="margin-bottom:8px">NFL e college insieme, tra giocatori, handicap e totali: gli sbilanciamenti più forti rispetto alla variabilità normale.</div>
+    <div class="sotto" style="margin-bottom:8px">NFL e college insieme, tra giocatori, handicap e totali, ordinati per quante volte nello storico 2019–2025 sono finiti dalla parte indicata.</div>
     ${top.map((c, i) => `<button class="top" data-camp-top="${c.camp}" data-id="${idScheda(c.g)}"><span class="pos">${i + 1}</span>
       <span style="flex:1;min-width:0;text-align:left"><span class="chip">${c.camp}</span><span class="chip">${c.tipo}</span><span class="sotto">${esc(quando(c.g))}</span><br>${c.testo}</span>
-      <span class="fz">forza<br><b>${num(c.forza, 2)}</b></span></button>`).join("")}
-    <div class="sotto" style="margin-top:8px">Forza = vantaggio diviso la variabilità normale di quella statistica. Sulle partite è «forte» oltre 0,20 nell'NFL e oltre 0,43 nel college (le squadre del college sono molto più diverse tra loro). Sono effetti medi verificati sullo storico, non consigli di gioco: la verifica contro le linee dei bookmaker (13/11) dice che ne tengono già conto.</div></section>`;
+      <span class="fz">storico<br><b>${c.pct ? c.pct + "%" : "—"}</b><br><span class="fz2">forza ${num(c.forza, 2)}</span></span></button>`).join("")}
+    <div class="sotto" style="margin-top:8px">Percentuale = quante volte, nello storico 2019–2025, la partita o il giocatore è finito dalla parte indicata rispetto alla sua norma (totale e margine delle due squadre, media del giocatore). <b>Contro la linea del bookmaker</b> le stesse indicazioni finiscono dalla parte giusta circa il 50% delle volte (verifica del 13/11): sono una lettura della partita, non consigli di gioco. La forza serve solo a confrontare due casi con la stessa percentuale.</div></section>`;
 }
 
 /* ---------- pannelli in fondo: classifica indici, quarterback, giovani ---------- */

@@ -195,6 +195,18 @@ def reparti_partita(st: dict, casa: str, ospite: str) -> list[dict]:
 # e college 2026 sett. 13). Il college ha valori più alti perché le squadre sono molto più diverse.
 SCALA = {"NFL": {"totale": (0.10, 0.20), "margine": (0.07, 0.14)},
          "College": {"totale": (0.20, 0.43), "margine": (0.22, 0.45)}}
+# Percentuali MISURATE sullo storico 2019-2025 (misure/percentuali.py e percentuali_gioc.py, 13/11):
+# quante volte la partita è finita dalla parte indicata dalle difese rispetto alla norma delle due squadre,
+# per livello di sbilanciamento (1.409 partite NFL, 2.979 college). Contro la linea di chiusura NFL: 47-51%.
+PCT_PARTITA = {"NFL": {"totale": {"lieve": 50, "moderato": 57, "forte": 63},
+                       "margine": {"lieve": 56, "moderato": 56, "forte": 56}},
+               "College": {"totale": {"lieve": 57, "moderato": 63, "forte": 73},
+                           "margine": {"lieve": 56, "moderato": 61, "forte": 73}}}
+# Giocatori (9.997 prestazioni NFL, 19.924 college): con la difesa tra le peggiori, % di partite SOPRA la sua media;
+# con la difesa tra le migliori, % di partite SOTTO la sua media. Le yard sono sbilanciate (poche partite enormi
+# alzano la media), quindi di solito si sta sotto la media più spesso che sopra.
+PCT_GIOCATORE = {"NFL": {"QB": (52, 53), "RB": (51, 61), "WR": (43, 60), "TE": (48, 61)},
+                 "College": {"QB": (51, 59), "RB": (54, 60), "WR": (45, 61), "TE": (45, 67)}}
 GIOCO = {"corse": "il gioco di corse", "passaggi": "il gioco sui passaggi", "pressione": "la protezione del QB",
          "esplosive": "le giocate lunghe"}
 DIFESA = {"corse": "difesa contro le corse", "passaggi": "difesa sui passaggi", "pressione": "pressione sul QB",
@@ -230,16 +242,19 @@ def giudizio(campionato: str, s: dict) -> str:
         if abs(t) < 0.5:
             frasi.append("Per le difese il totale è in linea con la norma delle due squadre.")
         else:
+            liv = parola(campionato, "totale", P["forzaTotale"])
             frasi.append(f"Partita spinta verso {'più' if t > 0 else 'meno'} punti del solito: {'+' if t > 0 else '−'}"
-                         f"{_num(t)} rispetto alla norma delle due squadre, sbilanciamento "
-                         f"{parola(campionato, 'totale', P['forzaTotale'])}.")
+                         f"{_num(t)} rispetto alla norma delle due squadre, sbilanciamento {liv} (nello storico "
+                         f"{PCT_PARTITA[campionato]['totale'][liv]}% delle volte {'sopra' if t > 0 else 'sotto'} la norma).")
         m = P["margine"]
         if abs(m) < 0.5:
             frasi.append("Sul margine le due difese si equivalgono.")
         else:
             fav = s["casa"] if m > 0 else s["ospite"]
-            frasi.append(f"Sul margine le difese favoriscono {nome[fav]} di {_num(m)} punti "
-                         f"(sbilanciamento {parola(campionato, 'margine', P['forzaMargine'])}).")
+            liv = parola(campionato, "margine", P["forzaMargine"])
+            frasi.append(f"Sul margine le difese favoriscono {nome[fav]} di {_num(m)} punti rispetto alla norma "
+                         f"(sbilanciamento {liv}, nello storico {PCT_PARTITA[campionato]['margine'][liv]}% delle volte "
+                         f"da quella parte).")
     netti = [r for r in s.get("reparti") or [] if r["verso"]]
     if netti:
         r = max(netti, key=lambda r: abs((r["rd"] - 1) / max(r["n"] - 1, 1) - 0.5))
@@ -251,10 +266,13 @@ def giudizio(campionato: str, s: dict) -> str:
         v = max(gioc, key=lambda v: v["forza"])
         frasi.append(f"Tra i giocatori spicca {v['nome']} ({v['ruolo']}, {nome.get(v['squadra'], v['squadra'])}): "
                      f"{round(v['previsione'])} {v.get('misura') or 'yard'} previste contro una media di "
-                     f"{round(v['media'])} ({'+' if v['effetto'] > 0 else '−'}{_num(v['effetto'])} per la difesa che trova).")
+                     f"{round(v['media'])} ({'+' if v['effetto'] > 0 else '−'}{_num(v['effetto'])} per la difesa che trova"
+                     + (f"; nello storico {v['pct']}% delle volte {'sopra' if v['verso'] == 'attacco' else 'sotto'} la sua media"
+                        if v.get("pct") else "") + ").")
     if not frasi:
         return ""
-    frasi.append("È una lettura della partita, non un consiglio: il mercato di solito ne tiene già conto.")
+    frasi.append("È una lettura della partita, non un consiglio: contro la linea del bookmaker queste indicazioni "
+                 "finiscono dalla parte giusta circa una volta su due.")
     return " ".join(frasi)
 
 
@@ -274,6 +292,9 @@ def giocatori_contro(campionato: str, giocatori: list, avversario: str, st: dict
             rd, n = d["rango_dif"][area], d["n"]
             migl, pegg = RP.soglie(n)
             effetto = pieno * (d["pct_dif"][area] - 0.5)
+            verso = "attacco" if rd >= pegg else "difesa" if rd <= migl else None
+            pa, pd = PCT_GIOCATORE[campionato][ruolo]
+            q["pct"] = pa if verso == "attacco" else pd if verso == "difesa" else None
             q.update({"areaDifesa": area, "rangoDifesa": rd, "squadreTotali": n,
                       "effetto": round(effetto, 1), "previsione": round(p["mediaStagione"] + effetto),
                       "errore": errore, "forza": round(abs(effetto) / variab, 3),
@@ -309,6 +330,10 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
                    "forzaTotale": round(abs(tot) / tp["var_totale"], 3),
                    "forzaMargine": round(abs(marg) / tp["var_margine"], 3),
                    "puntiCasa": round(tp["totale"] * pc, 1), "puntiOspite": round(tp["totale"] * po, 1)}
+        for tipo, forza in (("totale", partita["forzaTotale"]), ("margine", partita["forzaMargine"])):
+            liv = parola(campionato, tipo, forza)
+            partita["livello" + tipo.capitalize()] = liv
+            partita["pct" + tipo.capitalize()] = PCT_PARTITA[campionato][tipo][liv]
         # punteggio atteso = punti segnati di solito + effetto delle difese diviso tra le due squadre in modo che
         # somma e differenza rispettino le tarature di totale e margine. Senza vantaggio del campo.
         if norma and casa in norma and ospite in norma:
@@ -325,7 +350,8 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
                                  "difesa": ospite if squadra == casa else casa, "nome": p.get("nome"),
                                  "ruolo": p.get("ruolo"), "misura": p.get("misura"), "media": p.get("mediaStagione"),
                                  "previsione": p["previsione"], "effetto": p["effetto"], "forza": p["forza"],
-                                 "areaDifesa": p["areaDifesa"], "rangoDifesa": p["rangoDifesa"], "n": p["squadreTotali"]})
+                                 "areaDifesa": p["areaDifesa"], "rangoDifesa": p["rangoDifesa"], "n": p["squadreTotali"],
+                                 "pct": p.get("pct")})
     for r in rep:
         if r["verso"]:
             # ordine tra i reparti: prima le difese più agli estremi (non entra nei 3 migliori)
