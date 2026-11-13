@@ -51,6 +51,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 
 ## Sezione privata Matchup, NFL e College (duelli.html)
 
+- Contesto (scripts/contesto.py): assenze college da CFBDepth (robots consente, solo stato/ruolo/peso, mai le note),
+  NFL da nflverse injuries; meteo NWS + Open-Meteo; forza squadre dalle azioni. `aggiorna_contesto.py` rifà solo
+  assenze e meteo (workflow update-contesto.yml, ogni ora giovedì-domenica). Percentuali e meteo: misure del 13/11
+
 - Prossimo turno, indici, giocatori chiave e duelli attacco-difesa stanno **solo** in
   `docs/duelli_nfl.dat` e `docs/duelli_college.dat`, cifrati con il secret `DUELLI_PASSWORD`
   e aperti da `docs/duelli.html` con la password (pulsante MATCHUP nel sito; il file resta duelli.html perché il bot ne usa l'indirizzo)

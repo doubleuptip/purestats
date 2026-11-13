@@ -1,0 +1,72 @@
+name: Matchup - assenze e meteo
+
+# Aggiornamento leggero della sezione privata: rifà solo assenze (CFBDepth, nflverse) e meteo (NWS, Open-Meteo)
+# delle partite dei prossimi giorni, senza riscaricare il play-by-play. Più spesso nei giorni di partita.
+on:
+  schedule:
+    - cron: '20 */3 * * 1-3'      # lunedì-mercoledì ogni 3 ore (rapporti di inizio settimana)
+    - cron: '20 * * * 4,5,6,0'    # giovedì-domenica ogni ora (giorni di partita, rapporti ufficiali)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/aggiorna_contesto.py'
+      - '.github/workflows/update-contesto.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  college:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: archivio-college
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Assenze e meteo college
+        continue-on-error: true
+        env:
+          DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python scripts/aggiorna_contesto.py college
+      - name: Committa
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
+          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+          git commit -m "Matchup college: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for t in 1 2 3 4 5; do git push && exit 0; git pull --rebase origin main; sleep 5; done
+          exit 1
+
+  nfl:
+    runs-on: ubuntu-latest
+    needs: college
+    if: always()
+    concurrency:
+      group: archivio-nfl
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Assenze e meteo NFL
+        continue-on-error: true
+        env:
+          DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
+        run: python scripts/aggiorna_contesto.py nfl
+      - name: Committa
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main || true
+          [ -f docs/duelli_nfl.dat ] && git add docs/duelli_nfl.dat
+          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+          git commit -m "Matchup NFL: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for t in 1 2 3 4 5; do git push && exit 0; git pull --rebase origin main; sleep 5; done
+          exit 1

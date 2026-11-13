@@ -20,6 +20,7 @@ on:
       - '.github/workflows/update-nfl.yml'
       - 'scripts/fetch_duelli.py'
       - 'scripts/reparti.py'
+      - 'scripts/contesto.py'
 
 permissions:
   contents: write
@@ -52,6 +53,7 @@ jobs:
         continue-on-error: true
         env:
           DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python scripts/fetch_duelli.py nfl
 
       - name: Committa le modifiche

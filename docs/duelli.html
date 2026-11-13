@@ -113,6 +113,14 @@
   .pct{font-size:13px;margin-top:4px}
   .pct b{font-family:var(--fb-head);font-size:18px}
   .fz2{opacity:.75;font-size:11px}
+  .giud{margin:12px 0 0}
+  .giud summary{cursor:pointer;font-weight:600}
+  .ass{margin:4px 0 0;padding-left:18px;font-size:14px}
+  .ass li.nuovo{color:var(--fb-acc)}
+  .meteo{margin:10px 0 0;padding:8px 10px;border-radius:10px;border:1px solid var(--fb-border);font-size:14px}
+  .meteo.forte{border-color:var(--fb-acc)}
+  table.forza{width:100%;font-size:14px}
+  table.forza td:first-child{text-align:left}
   .giudizio{margin:12px 0 0;padding:10px 12px;border-left:3px solid var(--fb-acc);background:color-mix(in srgb, var(--fb-acc) 7%, transparent);font-size:14.5px;line-height:1.5}
   .top{width:100%;display:flex;gap:10px;align-items:center;text-align:left;margin-top:8px;padding:10px;line-height:1.35;font-size:14px}
   .top .pos{font-family:var(--fb-head);font-weight:800;font-size:24px;color:var(--fb-acc);min-width:22px}
@@ -317,6 +325,48 @@ function duelloEvidenza(g, T, s){
 }
 
 /* margine e totale attesi per effetto delle due difese, in punti tarati sullo storico */
+/* ---------- contesto: giudizio in tendina, assenze, meteo, forza delle squadre ---------- */
+function sommario(g, T){
+  const P = g.partita || {}, pezzi = [];
+  if (P.attesoCasa != null) pezzi.push(`${esc(T[g.ospite].nome)} ${Math.round(P.attesoOspite)} – ${Math.round(P.attesoCasa)} ${esc(T[g.casa].nome)}`);
+  for (const [sq, a] of [[g.ospite, g.assenzeOspite], [g.casa, g.assenzeCasa]])
+    if (a && ((a.rango && a.rango <= 15) || (a.impatto && a.impatto >= 3 && !a.rango))) pezzi.push(`assenze pesanti ${esc(T[sq].nome)}`);
+  if (g.meteo && g.meteo.effetto) pezzi.push(`vento ${Math.round(g.meteo.ventoMph)} mph`);
+  return pezzi.length ? ` · <span class="sotto">${pezzi.join(" · ")}</span>` : "";
+}
+function bloccoAssenze(g, T){
+  if (!g.assenzeCasa && !g.assenzeOspite) return "";
+  const lato = (sq, a) => {
+    if (!a) return `<div><div class="blocco">${stemma(T[sq], "s")}${esc(T[sq].nome)}</div><div class="sotto">nessun dato</div></div>`;
+    const testa = a.rango ? `${a.n || 0} in lista · peso ${a.rango}ª su 138` : `${a.n || 0} in lista${a.impatto ? ` · circa ${Math.round(a.impatto * 10)}% della produzione` : ""}`;
+    const righe = (a.giocatori || []).map(x => `<li${x.nuovo ? ' class="nuovo"' : ""}><b>${esc(x.nome)}</b> <span class="sotto">${esc(x.ruolo || "")}</span> · ${esc(x.statoIt || x.stato)}${x.nuovo ? " · <b>novità</b>" : ""}</li>`).join("");
+    return `<div><div class="blocco">${stemma(T[sq], "s")}${esc(T[sq].nome)} <span class="sotto">${testa}</span></div><ul class="ass">${righe || "<li class='sotto'>nessun assente</li>"}</ul>${a.altri ? `<div class="sotto">e altri ${a.altri}</div>` : ""}</div>`;
+  };
+  return `<div class="titolo">Assenze</div><div class="giocatori">${lato(g.ospite, g.assenzeOspite)}${lato(g.casa, g.assenzeCasa)}</div>
+    <div class="legenda"><span>${g.campionato === "College" ? "fonte CFBDepth (rapporti ufficiali e notizie); peso = quanto conta l'assenza" : "fonte rapporto NFL (nflverse); % = quota delle yard o dei lanci della squadra"}</span>${g.contestoAggiornato ? `<span>aggiornato ${esc(g.contestoAggiornato.slice(11, 16))} UTC</span>` : ""}</div>`;
+}
+function bloccoMeteo(g){
+  const m = g.meteo;
+  if (!m) return "";
+  if (m.coperto) return `<div class="meteo">🏟️ Stadio coperto: il meteo non conta</div>`;
+  const p = [];
+  if (m.tempC != null) p.push(`${m.tempC} °C`);
+  if (m.ventoKmh != null) p.push(`vento ${m.ventoKmh} km/h${m.direzione ? " " + esc(m.direzione) : ""}`);
+  if (m.raffKmh != null) p.push(`raffiche ${m.raffKmh} km/h`);
+  if (m.pioggia != null) p.push(`pioggia ${m.pioggia}%`);
+  return `<div class="meteo${m.effetto ? " forte" : ""}">🌬️ ${p.join(" · ")}${m.cielo ? ` · ${esc(m.cielo)}` : ""}${m.effetto ? `<br><b>${esc(m.effetto.testo)}</b>` : ""} <span class="sotto">(${esc(m.fonte || "")})</span></div>`;
+}
+function bloccoForza(g, T){
+  const a = g.forzaOspite, b = g.forzaCasa;
+  if (!a || !b) return "";
+  const n = a.n, rk = r => `<span class="rk ${classeRank(r, n)}">${r}°</span>`;
+  const riga = (et, k, lato) => `<tr><td>${et}</td><td>${rk(a[lato]["rango_" + k])}</td><td>${rk(b[lato]["rango_" + k])}</td></tr>`;
+  return `<details><summary>Forza delle squadre</summary><table class="forza"><tr><th></th><th>${esc(T[g.ospite].nome)}</th><th>${esc(T[g.casa].nome)}</th></tr>
+    ${riga("Attacco · success rate", "successo", "att")}${riga("Attacco · EPA per passaggio", "epaPass", "att")}${riga("Attacco · EPA per corsa", "epaCorsa", "att")}
+    ${riga("Difesa · success rate concesso", "successo", "dif")}${riga("Difesa · EPA per passaggio", "epaPass", "dif")}${riga("Difesa · EPA per corsa", "epaCorsa", "dif")}</table>
+    <div class="legenda"><span>posizione su ${n} squadre, 1 = la migliore · success rate = azioni con EPA positivo</span></div></details>`;
+}
+
 function bloccoPartita(g, T){
   const P = g.partita;
   if (!P) return "";
@@ -375,7 +425,10 @@ function scheda(g){
   return `<article class="scheda" id="${idScheda(g)}">
     <div class="testa">${stemma(T[g.ospite], "s")}<div class="nomi">${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}</div>${stemma(T[g.casa], "s")}<span class="quando">${esc(quando(g))}</span></div>
     <div class="indici">${tile(g.ospite)}${tile(g.casa)}</div>
-    ${g.giudizio ? `<p class="giudizio">${esc(g.giudizio)}</p>` : ""}
+    ${g.giudizio ? `<details class="giud"><summary>📝 Giudizio${sommario(g, T)}</summary><p class="giudizio">${esc(g.giudizio)}</p></details>` : ""}
+    ${bloccoAssenze(g, T)}
+    ${bloccoMeteo(g)}
+    ${bloccoForza(g, T)}
     <div class="titolo">Partita: effetto delle difese</div>
     ${bloccoPartita(g, T)}
     <div class="titolo">Vantaggi in evidenza</div>

@@ -40,11 +40,12 @@ import shutil
 import sys
 import tempfile
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import reparti as RP  # noqa: E402
+import contesto as C  # noqa: E402
 
 RADICE = Path(__file__).resolve().parent.parent
 LEGHE = {"nfl": "NFL", "college": "College"}
@@ -255,6 +256,45 @@ def giudizio(campionato: str, s: dict) -> str:
             frasi.append(f"Sul margine le difese favoriscono {nome[fav]} di {_num(m)} punti rispetto alla norma "
                          f"(sbilanciamento {liv}, nello storico {PCT_PARTITA[campionato]['margine'][liv]}% delle volte "
                          f"da quella parte).")
+    # assenze: chi è colpito di più (peso totale delle assenze; college con la posizione nazionale)
+    for lato, sq in (("assenzeOspite", s["ospite"]), ("assenzeCasa", s["casa"])):
+        a = s.get(lato)
+        if not a or not a.get("giocatori"):
+            continue
+        fuori = [g for g in a["giocatori"] if g["stato"].upper() in ("O", "OFS", "OUT", "D", "DOUBTFUL", "S")]
+        nomi = ", ".join(f"{g['nome']} ({g['ruolo']})" for g in fuori[:3])
+        nuovi = [g for g in a["giocatori"] if g.get("nuovo")]
+        pezzi = []
+        if campionato == "College" and a.get("rango"):
+            pezzi.append(f"assenze tra le più pesanti d'America ({int(a['rango'])}ª su 138, {int(a['n'] or 0)} in lista)"
+                         if a["rango"] <= 15 else f"{int(a['n'] or 0)} in lista, peso delle assenze {int(a['rango'])}ª su 138")
+        elif a.get("impatto"):
+            pezzi.append(f"assenti per circa il {round(a['impatto'] * 10)}% della produzione")
+        if nomi:
+            pezzi.append("fuori " + nomi)
+        if nuovi:
+            pezzi.append(f"novità della settimana: {', '.join(g['nome'] for g in nuovi[:3])}")
+        if pezzi:
+            frasi.append(f"{nome[sq]}: " + "; ".join(pezzi) + ".")
+    m = s.get("meteo")
+    if m and m.get("coperto"):
+        frasi.append("Stadio coperto: il meteo non conta.")
+    elif m:
+        if m.get("effetto"):
+            frasi.append(f"Meteo: {m['effetto']['testo']}.")
+        elif m.get("tempC") is not None and m["tempC"] <= 0:
+            frasi.append(f"Meteo: {m['tempC']} °C, vento debole; il freddo da solo nello storico non sposta i punti.")
+    fc, fo = s.get("forzaCasa"), s.get("forzaOspite")
+    if fc and fo:
+        n = fc["n"]
+        for att, dif, sa, sd in ((fc, fo, s["casa"], s["ospite"]), (fo, fc, s["ospite"], s["casa"])):
+            ra, rd = att["att"]["rango_successo"], dif["dif"]["rango_successo"]
+            if ra <= n * 0.2 and rd >= n * 0.65:
+                frasi.append(f"Incastro favorevole: l'attacco di {nome[sa]} è {ra}° per success rate, la difesa di "
+                             f"{nome[sd]} {rd}ª su {n}.")
+            elif ra >= n * 0.75 and rd <= n * 0.25:
+                frasi.append(f"Incastro sfavorevole: l'attacco di {nome[sa]} è {ra}° per success rate contro una difesa "
+                             f"{rd}ª su {n}.")
     netti = [r for r in s.get("reparti") or [] if r["verso"]]
     if netti:
         r = max(netti, key=lambda r: abs((r["rd"] - 1) / max(r["n"] - 1, 1) - 0.5))
@@ -317,6 +357,7 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
     if casa not in st or ospite not in st:
         return None
     data, ora = orario_roma(g.get("data") or "", g.get("ora") or "")
+    inizio = C.kickoff_utc(g.get("data") or "", g.get("ora") or "")
     lc, lo = loghi.get(casa) or {}, loghi.get(ospite) or {}
     extra = extra or {}
     gc = giocatori_contro(campionato, extra.get("giocatoriCasa"), ospite, st)
@@ -358,6 +399,7 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
             vantaggi.append({"tipo": "reparto", **r, "forza": round(abs((r["rd"] - 1) / max(r["n"] - 1, 1) - 0.5) / 100, 5)})
     vantaggi.sort(key=lambda v: (v["tipo"] != "giocatore", -v["forza"]))
     out = {"campionato": campionato, "data": data, "ora": ora, "casa": casa, "ospite": ospite,
+           "inizioUtc": inizio.isoformat() if inizio else None,
             "nomeCasa": lc.get("breve") or casa, "nomeOspite": lo.get("breve") or ospite,
             "logoCasa": lc.get("logo") or "", "logoOspite": lo.get("logo") or "",
             "coloreCasa": lc.get("colore") or "", "coloreOspite": lo.get("colore") or "",
@@ -367,6 +409,81 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
             "vantaggi": vantaggi, "reparti": rep}
     out["giudizio"] = giudizio(campionato, out)
     return out
+
+
+# ------------------------------------------------------------------ contesto: forza, assenze, meteo
+ASSENTI_MOSTRATI = 6
+
+
+def _assenze_brevi(d: dict | None) -> dict | None:
+    if not d:
+        return None
+    gio = [g for g in d.get("giocatori") or [] if g.get("stato", "").upper() not in ("P", "PROBABLE", "A")]
+    return {**{k: d.get(k) for k in ("n", "nuovi", "impatto", "rango")}, "giocatori": gio[:ASSENTI_MOSTRATI],
+            "altri": max(0, len(gio) - ASSENTI_MOSTRATI)}
+
+
+def quote_produzione_nfl(stagione: int) -> dict:
+    """{gsis: (quota delle yard di squadra, ruolo)} dalla stagione nflverse: pesa l'assenza di un giocatore NFL.
+    QB: quota dei lanci della squadra; gli altri: quota delle yard da corsa e ricezione."""
+    url = f"https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_{stagione}.csv"
+    righe = list(csv.DictReader(io.StringIO(C._get(url, 120))))
+    tot = defaultdict(lambda: [0.0, 0.0])
+    gio = defaultdict(lambda: [0.0, 0.0, "", ""])
+    for r in righe:
+        if r.get("season_type") != "REG":
+            continue
+        att, yds = (RP._f(r.get("attempts")) or 0), (RP._f(r.get("rushing_yards")) or 0) + (RP._f(r.get("receiving_yards")) or 0)
+        tot[r["team"]][0] += att
+        tot[r["team"]][1] += max(yds, 0)
+        x = gio[r["player_id"]]
+        x[0] += att
+        x[1] += max(yds, 0)
+        x[2], x[3] = r.get("position") or "", r["team"]
+    out = {}
+    for pid, (att, yds, pos, team) in gio.items():
+        t = tot[team]
+        q = (att / t[0]) if pos == "QB" and t[0] else (yds / t[1] if t[1] else 0.0)
+        out[pid] = (round(q, 3), pos)
+    return out
+
+
+def arricchisci(campionato: str, lega: str, schede: list, forza: dict, stagione: int, settimana: int) -> None:
+    """Aggiunge forza delle squadre, assenze e meteo alle schede e rifà il giudizio. Ogni pezzo può mancare."""
+    for sc in schede:
+        sc["forzaCasa"], sc["forzaOspite"] = forza.get(sc["casa"]), forza.get(sc["ospite"])
+    aggiorna_contesto(campionato, lega, schede, stagione, settimana)
+
+
+def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, settimana: int) -> None:
+    """Assenze e meteo: si rifanno anche da soli (scripts/aggiorna_contesto.py) senza ricalcolare tutta la sezione."""
+    ora = datetime.now(timezone.utc)
+    # gentilezza verso le fonti: ogni ora solo le partite delle prossime 48 ore, ogni 6 ore tutta la settimana
+    finestra = timedelta(days=8) if ora.hour % 6 == 0 or os.environ.get("CONTESTO_TUTTO") else timedelta(hours=48)
+    vicine = [sc for sc in schede if sc.get("inizioUtc")
+              and timedelta(hours=-4) < datetime.fromisoformat(sc["inizioUtc"]) - ora < finestra]
+    squadre = {x for sc in vicine for x in (sc["casa"], sc["ospite"])}
+    if lega == "college":
+        inf = C.infortuni_college(squadre)
+        stadi = C.stadi_college(os.environ.get("CFBD_API_KEY", "").strip(), stagione)
+    else:
+        try:
+            inf = C.infortuni_nfl(stagione, settimana, quote_produzione_nfl(stagione))
+        except Exception as e:     # noqa: BLE001
+            print(f"NFL: infortuni non letti ({e})")
+            inf = {}
+        stadi = C.STADI_NFL
+    for sc in vicine:
+        sc["assenzeCasa"], sc["assenzeOspite"] = _assenze_brevi(inf.get(sc["casa"])), _assenze_brevi(inf.get(sc["ospite"]))
+        s = stadi.get(sc["casa"])
+        if s and s[2]:
+            sc["meteo"] = {"coperto": True}
+        elif s:
+            sc["meteo"] = C.meteo(s[0], s[1], datetime.fromisoformat(sc["inizioUtc"]))
+        sc["contestoAggiornato"] = ora.isoformat(timespec="minutes")
+        sc["giudizio"] = giudizio(campionato, sc)
+    print(f"{campionato}: contesto aggiornato per {len(vicine)} partite (assenze {len(inf)} squadre, "
+          f"meteo {sum(1 for sc in vicine if sc.get('meteo'))}).")
 
 
 def main() -> int:
@@ -417,9 +534,16 @@ def main() -> int:
         for g in resto:
             sc = scheda(campionato, g, per_partita.get((g["casa"], g["ospite"])), st, loghi, indici, norma)
             if sc:
+                sc["settimana"] = w
                 schede.append(sc)
             else:
                 saltate.append(f"{g.get('ospite')} @ {g.get('casa')}")
+    os.environ["CONTESTO_TUTTO"] = "1"          # il calcolo completo prende tutta la settimana
+    try:
+        arricchisci(campionato, lega, schede, C.forza_squadre(azioni), int(stagione),
+                    max(w for w, _r, _p in gruppi))
+    except Exception as e:     # noqa: BLE001 - il contesto non deve mai fermare la sezione
+        print(f"{campionato}: contesto (assenze, meteo, forza) non calcolato ({e}): schede senza contesto.")
     if saltate:
         print(f"{campionato}: {len(saltate)} partite senza dati di reparto (meno di {RP.MIN_PARTITE} partite giocate "
               f"o squadra fuori FBS), es. {', '.join(saltate[:5])}")
