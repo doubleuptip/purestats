@@ -442,7 +442,7 @@
     <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
     <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
-    <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata: serve la password">DUELLI 🔒</button>
+    <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata: serve la password">MATCHUP 🔒</button>
   </nav>
 </header>
 
@@ -711,7 +711,7 @@ Promise.all(LEGHE.map(l =>
 });
 
 function vai(v){vista=v;arbitroAperto=null;window.scrollTo(0,0);render();}
-// Duelli attacco-difesa: pagina a parte protetta da password, aperta sul campionato in vista
+// Matchup: sezione privata a parte (duelli.html), protetta da password, aperta sul campionato in vista
 function apriDuelli(){location.href="duelli.html#"+(legaAttiva==="college"?"College":"NFL");}
 function apriArbitro(nome){arbitroAperto=nome;window.scrollTo(0,0);render();}
 function chiudiArbitro(){arbitroAperto=null;window.scrollTo(0,0);render();}

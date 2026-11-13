@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>PureStats · Duelli</title>
+<title>PureStats · Matchup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@600;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
@@ -112,6 +112,10 @@
   .chip{display:inline-block;font-size:11px;font-weight:600;background:var(--fb-chip);color:var(--fb-chiptext);border-radius:6px;padding:1px 7px;margin-right:4px}
   .partita>div{display:block}
   .partita .n{font-size:18px}
+  .su-in-cima{position:fixed;right:16px;bottom:20px;width:48px;height:48px;border-radius:50%;justify-content:center;
+    background:var(--fb-acc);color:var(--fb-acc-text);border:0;font-size:22px;font-weight:700;opacity:0;pointer-events:none;
+    transition:opacity .2s;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:10}
+  .su-in-cima.visibile{opacity:1;pointer-events:auto}
   footer{font-size:12px;color:var(--fb-muted);text-align:center;margin-top:20px}
   @media (max-width:420px){ .riga,.int{grid-template-columns:minmax(0,1fr) 40px 40px 96px} .testa .nomi{font-size:18px} .lato .num{font-size:18px} }
 </style>
@@ -121,7 +125,7 @@
   <header>
     <div>
       <a class="marchio" href="./" title="Torna a PureStats">PURE<b>STATS</b></a>
-      <div class="sotto">Partite, forma e duelli · area privata</div>
+      <div class="sotto">Matchup · partite, vantaggi e giocatori · area privata</div>
     </div>
     <div style="display:flex;gap:8px">
       <a class="bottone" href="./">← Sito</a>
@@ -151,6 +155,7 @@
     <div id="pannelli"></div>
     <footer id="piede"></footer>
   </main>
+  <button class="su-in-cima" id="suInCima" aria-label="Torna in cima" title="Torna in cima">↑</button>
 </div>
 
 <script>
@@ -208,7 +213,7 @@ document.getElementById("accesso").addEventListener("submit", async ev => {
     return;
   }
   // Chrome e Android: proposta esplicita di salvare la password (gli altri browser lo fanno dal modulo)
-  try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats duelli"})); } catch (e) {}
+  try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats Matchup"})); } catch (e) {}
   document.getElementById("password").value = "";
   document.getElementById("accesso").hidden = true;
   document.getElementById("contenuto").hidden = false;
@@ -222,6 +227,10 @@ document.getElementById("esci").addEventListener("click", () => location.reload(
 document.querySelectorAll("[data-camp]").forEach(b => b.addEventListener("click", () => { CAMPIONATO = b.dataset.camp; disegna(); }));
 document.getElementById("soloSegnali").addEventListener("change", disegna);
 document.getElementById("cerca").addEventListener("input", disegna);
+/* Tasto per tornare in cima: compare dopo un po' di scorrimento */
+const suInCima = document.getElementById("suInCima");
+addEventListener("scroll", () => suInCima.classList.toggle("visibile", scrollY > 600), {passive: true});
+suInCima.addEventListener("click", () => scrollTo({top: 0, behavior: "smooth"}));
 
 /* ---------- utilità ---------- */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
