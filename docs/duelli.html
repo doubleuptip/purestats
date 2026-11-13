@@ -387,6 +387,21 @@ function scheda(g){
 }
 
 /* ---------- i 3 migliori: NFL e college insieme, giocatori, handicap e totali, per forza ---------- */
+/* Percentuali misurate (le stesse di fetch_duelli.py): servono solo se un file è di una versione precedente
+   e non le contiene ancora, così una lega non sparisce dalla classifica mentre l'altra è già aggiornata. */
+const SCALA = {NFL: {totale: [0.10, 0.20], margine: [0.07, 0.14]}, College: {totale: [0.20, 0.43], margine: [0.22, 0.45]}};
+const PCT = {NFL: {totale: [50, 57, 63], margine: [56, 56, 56]}, College: {totale: [57, 63, 73], margine: [56, 61, 73]}};
+function pctPartita(camp, tipo, P){
+  const v = tipo === "totale" ? P.totale : P.margine;
+  if (Math.abs(v) < 0.5) return 0;
+  const dato = tipo === "totale" ? P.pctTotale : P.pctMargine;
+  if (dato) return dato;
+  const f = tipo === "totale" ? P.forzaTotale : P.forzaMargine, [b, a] = (SCALA[camp] || SCALA.NFL)[tipo];
+  return (PCT[camp] || PCT.NFL)[tipo][f < b ? 0 : f < a ? 1 : 2];
+}
+const PCT_G = {NFL: {QB: [52, 53], RB: [51, 61], WR: [43, 60], TE: [48, 61]},
+               College: {QB: [51, 59], RB: [54, 60], WR: [45, 61], TE: [45, 67]}};
+const pctGiocatore = (camp, v) => v.pct || (((PCT_G[camp] || PCT_G.NFL)[v.ruolo === "RIC" ? "WR" : v.ruolo] || [0, 0])[v.verso === "attacco" ? 0 : 1]);
 function candidati(){
   const out = [];
   for (const camp of ["NFL", "College"]) {
@@ -397,13 +412,13 @@ function candidati(){
       const T = {[g.casa]: squadra(g, g.casa), [g.ospite]: squadra(g, g.ospite)};
       const P = g.partita;
       if (P) {
-        out.push({camp, g, tipo: "Totale", forza: P.forzaTotale, pct: Math.abs(P.totale) < 0.5 ? 0 : (P.pctTotale || 0), testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: totale ${segnoNum(P.totale)} punti rispetto alla norma delle due squadre`});
+        out.push({camp, g, tipo: "Totale", forza: P.forzaTotale, pct: pctPartita(camp, "totale", P), testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: totale ${segnoNum(P.totale)} punti rispetto alla norma delle due squadre`});
         const fav = P.margine >= 0 ? g.casa : g.ospite;
-        out.push({camp, g, tipo: "Handicap", forza: P.forzaMargine, pct: Math.abs(P.margine) < 0.5 ? 0 : (P.pctMargine || 0), testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: ${esc(T[fav].nome)} +${num(Math.abs(P.margine), 1)} punti di margine rispetto alla norma`});
+        out.push({camp, g, tipo: "Handicap", forza: P.forzaMargine, pct: pctPartita(camp, "margine", P), testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: ${esc(T[fav].nome)} +${num(Math.abs(P.margine), 1)} punti di margine rispetto alla norma`});
       }
       for (const v of g.vantaggi || []) {
         if (v.tipo !== "giocatore") continue;
-        out.push({camp, g, tipo: "Giocatore", forza: v.forza, pct: v.pct || 0, testo: `${esc(v.nome)} (${esc(v.ruolo)}, ${esc(T[v.squadra].nome)}): ${num(v.previsione)} ${esc(v.misura || "yard")} previste, media ${num(v.media)}, ${segnoNum(v.effetto)} contro la ${v.rangoDifesa}ª ${REPARTO_DIFESA[v.areaDifesa] || "difesa"}`});
+        out.push({camp, g, tipo: "Giocatore", forza: v.forza, pct: pctGiocatore(camp, v), testo: `${esc(v.nome)} (${esc(v.ruolo)}, ${esc(T[v.squadra].nome)}): ${num(v.previsione)} ${esc(v.misura || "yard")} previste, media ${num(v.media)}, ${segnoNum(v.effetto)} contro la ${v.rangoDifesa}ª ${REPARTO_DIFESA[v.areaDifesa] || "difesa"}`});
       }
     }
   }
