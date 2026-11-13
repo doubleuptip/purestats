@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-12T18:43:12.096960+00:00",
+  "aggiornato": "2026-11-13T05:44:37.222190+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 1411,
-  "partiteGiocate": 1275,
+  "partiteGiocate": 1276,
   "squadre": [
     {
       "nome": "BUF",
@@ -2239,31 +2239,31 @@
       "nomeCompleto": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "partite": 79,
-      "vittorie": 33,
+      "partite": 80,
+      "vittorie": 34,
       "sconfitte": 44,
       "pareggi": 2,
-      "percVittorie": 41.8,
+      "percVittorie": 42.5,
       "mediaFatti": 22.2,
-      "mediaSubiti": 25.5,
-      "differenza": -257,
+      "mediaSubiti": 25.4,
+      "differenza": -254,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
-          "vittorie": 2,
+          "partite": 9,
+          "vittorie": 3,
           "sconfitte": 5,
           "pareggi": 1,
-          "percVittorie": 25.0,
-          "puntiFatti": 172,
-          "puntiSubiti": 202,
-          "mediaFatti": 21.5,
-          "mediaSubiti": 25.2,
-          "differenza": -30,
+          "percVittorie": 33.3,
+          "puntiFatti": 196,
+          "puntiSubiti": 223,
+          "mediaFatti": 21.8,
+          "mediaSubiti": 24.8,
+          "differenza": -27,
           "vittorieCasa": 2,
           "partiteCasa": 5,
-          "vittorieFuori": 0,
-          "partiteFuori": 3
+          "vittorieFuori": 1,
+          "partiteFuori": 4
         },
         {
           "stagione": "2025",
@@ -2643,29 +2643,29 @@
       "nomeCompleto": "New York Giants",
       "conference": "NFC",
       "division": "NFC East",
-      "partite": 78,
+      "partite": 79,
       "vittorie": 28,
-      "sconfitte": 48,
+      "sconfitte": 49,
       "pareggi": 2,
-      "percVittorie": 35.9,
+      "percVittorie": 35.4,
       "mediaFatti": 19.3,
       "mediaSubiti": 23.9,
-      "differenza": -361,
+      "differenza": -364,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
+          "partite": 9,
           "vittorie": 5,
-          "sconfitte": 2,
+          "sconfitte": 3,
           "pareggi": 1,
-          "percVittorie": 62.5,
-          "puntiFatti": 182,
-          "puntiSubiti": 172,
-          "mediaFatti": 22.8,
-          "mediaSubiti": 21.5,
-          "differenza": 10,
+          "percVittorie": 55.6,
+          "puntiFatti": 203,
+          "puntiSubiti": 196,
+          "mediaFatti": 22.6,
+          "mediaSubiti": 21.8,
+          "differenza": 7,
           "vittorieCasa": 3,
-          "partiteCasa": 4,
+          "partiteCasa": 5,
           "vittorieFuori": 2,
           "partiteFuori": 4
         },
@@ -135584,11 +135584,105 @@
       "ora": "20:15",
       "casa": "NYG",
       "ospite": "WAS",
-      "pc": null,
-      "po": null,
+      "pc": 21,
+      "po": 24,
       "stadio": "MetLife Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "J.J. McCarthy",
+          "ruolo": "QB",
+          "valore": 293,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Cam Skattebo",
+          "ruolo": "RB",
+          "valore": 78,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Malachi Fields",
+          "ruolo": "WR",
+          "valore": 62,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Malik Nabers",
+          "ruolo": "WR",
+          "valore": 44,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Isaiah Likely",
+          "ruolo": "TE",
+          "valore": 127,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "9 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Jayden Daniels",
+          "ruolo": "QB",
+          "valore": 249,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Rachaad White",
+          "ruolo": "RB",
+          "valore": 47,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Stefon Diggs",
+          "ruolo": "WR",
+          "valore": 83,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Antonio Williams",
+          "ruolo": "WR",
+          "valore": 42,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Ben Sinnott",
+          "ruolo": "TE",
+          "valore": 42,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -137483,1624 +137577,6 @@
   ],
   "giornata": {
     "stagione": 2026,
-    "settimana": 9,
-    "partite": [
-      {
-        "data": "2026-11-05",
-        "ora": "20:15",
-        "casa": "BAL",
-        "ospite": "JAX",
-        "pc": 10,
-        "po": 33,
-        "favorita": "JAX",
-        "linea": 8.5,
-        "totaleLinea": 40.5,
-        "battutaDa": "JAX",
-        "totaleEsito": "over",
-        "scartoLinea": 14.5,
-        "stadio": "M&T Bank Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Jacksonville+Jaguars+vs.+Baltimore+Ravens+highlights+November+5%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "14:17",
-            "squadra": "JAX",
-            "descrizione": "16-T.Lawrence pass deep right to 87-N.Boerkircher to BAL 21 for 52 yards (44-M.Humphrey).",
-            "testo": "Lawrence lancia lungo a destra per Boerkircher, 52 yard",
-            "chi": [
-              "Lawrence",
-              "Boerkircher"
-            ],
-            "yard": 52.0,
-            "touchdown": false,
-            "casaPrima": 58,
-            "casaDopo": 44
-          },
-          {
-            "quarto": "1",
-            "tempo": "12:44",
-            "squadra": "JAX",
-            "descrizione": "16-T.Lawrence pass short left to 3-J.Meyers pushed ob at BAL 1 for 16 yards (3-C.Awuzie).",
-            "testo": "Lawrence lancia corto a sinistra per Meyers, 16 yard",
-            "chi": [
-              "Lawrence",
-              "Meyers"
-            ],
-            "yard": 16.0,
-            "touchdown": false,
-            "casaPrima": 45,
-            "casaDopo": 38
-          },
-          {
-            "quarto": "2",
-            "tempo": "08:03",
-            "squadra": "JAX",
-            "descrizione": "16-T.Lawrence pass short middle to 3-J.Meyers to JAX 21 for 14 yards (25-K.Wallace).",
-            "testo": "Lawrence lancia corto al centro per Meyers, 14 yard",
-            "chi": [
-              "Lawrence",
-              "Meyers"
-            ],
-            "yard": 14.0,
-            "touchdown": false,
-            "casaPrima": 39,
-            "casaDopo": 34
-          },
-          {
-            "quarto": "2",
-            "tempo": "04:37",
-            "squadra": "BAL",
-            "descrizione": "76-C.Vinson reported in as eligible. 22-D.Henry right end to BAL 33 for 4 yards (25-R.Lane).",
-            "testo": "Henry corre sull'esterno destro, 4 yard",
-            "chi": [
-              "Henry"
-            ],
-            "yard": 4.0,
-            "touchdown": false,
-            "casaPrima": 30,
-            "casaDopo": 37
-          },
-          {
-            "quarto": "2",
-            "tempo": "01:06",
-            "squadra": "JAX",
-            "descrizione": "16-T.Lawrence pass deep left to 11-P.Washington for 50 yards, TOUCHDOWN.",
-            "testo": "Lawrence lancia lungo a sinistra per Washington, 50 yard: touchdown",
-            "chi": [
-              "Lawrence",
-              "Washington"
-            ],
-            "yard": 50.0,
-            "touchdown": true,
-            "casaPrima": 27,
-            "casaDopo": 16,
-            "clip": {
-              "id": "jNEHTMnmnOc",
-              "titolo": "TD PASS DOWN THE MIDDLE TO PARKER WASHINGTON"
-            }
-          }
-        ],
-        "video": {
-          "id": "TRUoUtxPZIU",
-          "titolo": "Jacksonville Jaguars vs Baltimore Ravens Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "09:30",
-        "casa": "ATL",
-        "ospite": "CIN",
-        "pc": 17,
-        "po": 34,
-        "favorita": "CIN",
-        "linea": 3.0,
-        "totaleLinea": 52.5,
-        "battutaDa": "CIN",
-        "totaleEsito": "under",
-        "scartoLinea": 14.0,
-        "stadio": "Bernabeu",
-        "highlights": "https://www.youtube.com/results?search_query=Cincinnati+Bengals+vs.+Atlanta+Falcons+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "12:31",
-            "squadra": "ATL",
-            "descrizione": "7-B.Robinson left end to CIN 19 for 21 yards (99-M.Murphy; 49-B.Carter).",
-            "testo": "Robinson corre sull'esterno sinistro, 21 yard",
-            "chi": [
-              "Robinson"
-            ],
-            "yard": 21.0,
-            "touchdown": false,
-            "casaPrima": 61,
-            "casaDopo": 66
-          },
-          {
-            "quarto": "1",
-            "tempo": "08:55",
-            "squadra": "CIN",
-            "descrizione": "9-J.Burrow pass deep right to 1-J.Chase for 47 yards, TOUCHDOWN.",
-            "testo": "Burrow lancia lungo a destra per Chase, 47 yard: touchdown",
-            "chi": [
-              "Burrow",
-              "Chase"
-            ],
-            "yard": 47.0,
-            "touchdown": true,
-            "casaPrima": 68,
-            "casaDopo": 55,
-            "clip": {
-              "id": "puAC6v2K4h0",
-              "titolo": "Burrow &amp; Chase waste no time in responding!"
-            }
-          },
-          {
-            "quarto": "1",
-            "tempo": "07:14",
-            "squadra": "ATL",
-            "descrizione": "9-M.Penix scrambles left tackle to CIN 17 for 23 yards (0-D.Turner).",
-            "testo": "Penix esce dalla tasca e corre a sinistra, 23 yard",
-            "chi": [
-              "Penix"
-            ],
-            "yard": 23.0,
-            "touchdown": false,
-            "casaPrima": 58,
-            "casaDopo": 66
-          },
-          {
-            "quarto": "1",
-            "tempo": "00:42",
-            "squadra": "CIN",
-            "descrizione": "(:42) 9-J.Burrow pass short middle to 1-J.Chase to ATL 41 for 13 yards (53-K.Daniels).",
-            "testo": "Burrow lancia corto al centro per Chase, 13 yard",
-            "chi": [
-              "Burrow",
-              "Chase"
-            ],
-            "yard": 13.0,
-            "touchdown": false,
-            "casaPrima": 57,
-            "casaDopo": 50
-          },
-          {
-            "quarto": "2",
-            "tempo": "10:46",
-            "squadra": "CIN",
-            "descrizione": "9-J.Burrow pass short right to 1-J.Chase pushed ob at CIN 43 for 31 yards (3-J.Bates).",
-            "testo": "Burrow lancia corto a destra per Chase, 31 yard",
-            "chi": [
-              "Burrow",
-              "Chase"
-            ],
-            "yard": 31.0,
-            "touchdown": false,
-            "casaPrima": 37,
-            "casaDopo": 31
-          }
-        ],
-        "video": {
-          "id": "IFMku2Sz3bA",
-          "titolo": "Cincinnati Bengals vs. Atlanta Falcons Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "13:00",
-        "casa": "CAR",
-        "ospite": "DEN",
-        "pc": 21,
-        "po": 26,
-        "favorita": "DEN",
-        "linea": 3.0,
-        "totaleLinea": 44.5,
-        "battutaDa": "DEN",
-        "totaleEsito": "over",
-        "scartoLinea": 2.0,
-        "stadio": "Bank of America Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Denver+Broncos+vs.+Carolina+Panthers+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "2",
-            "tempo": "07:38",
-            "squadra": "DEN",
-            "descrizione": "10-B.Nix pass short right intended for 14-C.Sutton INTERCEPTED by 31-C.Thornton at CAR 5. 31-C.Thornton to CAR 14 for 9 yards (77-Q.Meinerz).",
-            "testo": "Nix intercettato da Thornton",
-            "chi": [
-              "Nix",
-              "Thornton"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 15,
-            "casaDopo": 26
-          },
-          {
-            "quarto": "3",
-            "tempo": "11:36",
-            "squadra": "CAR",
-            "descrizione": "9-B.Young pass short middle to 88-D.Waller for 15 yards, TOUCHDOWN.",
-            "testo": "Young lancia corto al centro per Waller, 15 yard: touchdown",
-            "chi": [
-              "Young",
-              "Waller"
-            ],
-            "yard": 15.0,
-            "touchdown": true,
-            "casaPrima": 40,
-            "casaDopo": 55
-          },
-          {
-            "quarto": "3",
-            "tempo": "01:35",
-            "squadra": "CAR",
-            "descrizione": "73-S.Forsythe reported in as eligible. 9-B.Young pass incomplete short left to 82-T.Tremble (40-J.Strnad). Denver challenged the incomplete pass ruling, and the play was REVERSED. 73-S.Forsythe reported in as eligible. 9",
-            "testo": "Young: lancio corto a sinistra per Tremble incompleto",
-            "chi": [
-              "Young"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 81,
-            "casaDopo": 56
-          },
-          {
-            "quarto": "4",
-            "tempo": "02:00",
-            "squadra": "DEN",
-            "descrizione": "16-J.Crawshaw punts 51 yards to CAR 35, Center-48-M.Fraboni. 23-T.Etienne to CAR 44 for 9 yards (45-N.Adkins).",
-            "testo": "Crawshaw calcia un punt da 51 yard",
-            "chi": [
-              "Crawshaw"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 17,
-            "casaDopo": 29
-          },
-          {
-            "quarto": "4",
-            "tempo": "01:24",
-            "squadra": "CAR",
-            "descrizione": "9-B.Young sacked at DEN 44 for -8 yards (15-N.Bonitto). FUMBLES (15-N.Bonitto) [15-N.Bonitto], RECOVERED by DEN-15-N.Bonitto at DEN 44. The Replay Official reviewed the fumble ruling, and the play was Upheld. The ruling ",
-            "testo": "Young subisce un sack, -8 yard (perdita), fumble, recuperato da Bonitto (DEN)",
-            "chi": [
-              "Young"
-            ],
-            "yard": -8.0,
-            "touchdown": false,
-            "casaPrima": 35,
-            "casaDopo": 3
-          }
-        ],
-        "video": {
-          "id": "owBZ7u9L6B8",
-          "titolo": "Denver Broncos vs. Carolina Panthers Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "13:00",
-        "casa": "IND",
-        "ospite": "DAL",
-        "pc": 23,
-        "po": 27,
-        "favorita": "DAL",
-        "linea": 4.5,
-        "totaleLinea": 51.5,
-        "battutaDa": "IND",
-        "totaleEsito": "under",
-        "scartoLinea": 0.5,
-        "stadio": "Lucas Oil Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Dallas+Cowboys+vs.+Indianapolis+Colts+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "3",
-            "tempo": "01:27",
-            "squadra": "IND",
-            "descrizione": "17-D.Jones pass short left to 16-A.Dulin for 55 yards, TOUCHDOWN.",
-            "testo": "Jones lancia corto a sinistra per Dulin, 55 yard: touchdown",
-            "chi": [
-              "Jones",
-              "Dulin"
-            ],
-            "yard": 55.0,
-            "touchdown": true,
-            "casaPrima": 19,
-            "casaDopo": 35,
-            "clip": {
-              "id": "7fW_AU9ap30",
-              "titolo": "DULIN is off to the races for a TD SCORE!"
-            }
-          },
-          {
-            "quarto": "4",
-            "tempo": "09:55",
-            "squadra": "IND",
-            "descrizione": "28-J.Taylor up the middle to DAL 20 for -2 yards (92-Q.Williams). FUMBLES (92-Q.Williams), RECOVERED by DAL-50-S.James at DAL 19. 50-S.James to DAL 30 for 11 yards (17-D.Jones). PENALTY on DAL, Unsportsmanlike Conduct, 1",
-            "testo": "Taylor corre centralmente, -2 yard (perdita), fumble, recuperato da James (DAL)",
-            "chi": [
-              "Taylor"
-            ],
-            "yard": -1.0,
-            "touchdown": false,
-            "casaPrima": 59,
-            "casaDopo": 31
-          },
-          {
-            "quarto": "4",
-            "tempo": "06:01",
-            "squadra": "IND",
-            "descrizione": "3-S.Shrader 59 yard field goal is GOOD, Center-46-L.Rhodes, Holder-8-R.Sanchez.",
-            "testo": "Shrader: field goal da 59 yard riuscito",
-            "chi": [
-              "Shrader"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 38,
-            "casaDopo": 53
-          },
-          {
-            "quarto": "4",
-            "tempo": "01:37",
-            "squadra": "DAL",
-            "descrizione": "4-D.Prescott pass deep right to 19-R.Flournoy to IND 19 for 46 yards (1-A.Gardner).",
-            "testo": "Prescott lancia lungo a destra per Flournoy, 46 yard",
-            "chi": [
-              "Prescott",
-              "Flournoy"
-            ],
-            "yard": 46.0,
-            "touchdown": false,
-            "casaPrima": 72,
-            "casaDopo": 44
-          },
-          {
-            "quarto": "4",
-            "tempo": "01:03",
-            "squadra": "IND",
-            "descrizione": "17-D.Jones pass incomplete deep right. PENALTY on IND-17-D.Jones, Intentional Grounding, 12 yards, enforced at IND 26. 10-second runoff.",
-            "testo": "Jones: lancio lungo a destra incompleto",
-            "chi": [
-              "Jones"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 29,
-            "casaDopo": 14
-          }
-        ],
-        "video": {
-          "id": "Wb-pcRK-LH8",
-          "titolo": "Dallas Cowboys vs. Indianapolis Colts Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "13:00",
-        "casa": "KC",
-        "ospite": "NYJ",
-        "pc": 35,
-        "po": 12,
-        "favorita": "KC",
-        "linea": 9.5,
-        "totaleLinea": 47.5,
-        "battutaDa": "KC",
-        "totaleEsito": "under",
-        "scartoLinea": 13.5,
-        "stadio": "GEHA Field at Arrowhead Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=New+York+Jets+vs.+Kansas+City+Chiefs+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "05:40",
-            "squadra": "KC",
-            "descrizione": "64-H.Nourzad reported in as eligible. 6-J.Fields up the middle to KC 34 for no gain (52-K.Enagbare). New York Jets challenged the runner was down by contact ruling, and the play was REVERSED. 64-H.Nourzad reported in as ",
-            "testo": "Fields corre centralmente, nessun guadagno, fumble, recuperato da Davis (NYJ)",
-            "chi": [
-              "Fields"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 52,
-            "casaDopo": 38
-          },
-          {
-            "quarto": "2",
-            "tempo": "06:29",
-            "squadra": "NYJ",
-            "descrizione": "0-B.Allen up the middle to NYJ 26 for 5 yards (32-N.Bolton). FUMBLES (32-N.Bolton), RECOVERED by KC-17-A.Gilman at NYJ 26. 17-A.Gilman to NYJ 24 for 2 yards (7-G.Smith).",
-            "testo": "Allen corre centralmente, 5 yard, fumble, recuperato da Gilman (KC)",
-            "chi": [
-              "Allen"
-            ],
-            "yard": 5.0,
-            "touchdown": false,
-            "casaPrima": 45,
-            "casaDopo": 67
-          },
-          {
-            "quarto": "2",
-            "tempo": "01:41",
-            "squadra": "KC",
-            "descrizione": "15-P.Mahomes sacked at KC 27 for -10 yards (31-D.Bailey). FUMBLES (31-D.Bailey) [31-D.Bailey], RECOVERED by NYJ-9-W.McDonald at KC 30. KC-15-P.Mahomes was injured during the play.",
-            "testo": "Mahomes subisce un sack, -10 yard (perdita), fumble, recuperato da McDonald (NYJ)",
-            "chi": [
-              "Mahomes"
-            ],
-            "yard": -7.0,
-            "touchdown": false,
-            "casaPrima": 73,
-            "casaDopo": 52
-          },
-          {
-            "quarto": "2",
-            "tempo": "00:42",
-            "squadra": "NYJ",
-            "descrizione": "(:42) 7-G.Smith sacked at KC 35 for -9 yards (95-C.Jones).",
-            "testo": "Smith subisce un sack, -9 yard (perdita)",
-            "chi": [
-              "Smith"
-            ],
-            "yard": -9.0,
-            "touchdown": false,
-            "casaPrima": 52,
-            "casaDopo": 62
-          },
-          {
-            "quarto": "2",
-            "tempo": "00:37",
-            "squadra": "NYJ",
-            "descrizione": "(:37) 19-J.Sanders 53 yard field goal is No Good, Wide Left, Center-42-T.Hennessy, Holder-14-A.McNamara.",
-            "testo": "Sanders: field goal da 53 yard sbagliato",
-            "chi": [
-              "Sanders"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 62,
-            "casaDopo": 75
-          }
-        ],
-        "video": {
-          "id": "wlsz9L78_o8",
-          "titolo": "New York Jets vs. Kansas City Chiefs Game Highlights | NFL 2026 Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "13:00",
-        "casa": "MIA",
-        "ospite": "DET",
-        "pc": 9,
-        "po": 19,
-        "favorita": "DET",
-        "linea": 6.5,
-        "totaleLinea": 49.5,
-        "battutaDa": "DET",
-        "totaleEsito": "under",
-        "scartoLinea": 3.5,
-        "stadio": "Hard Rock Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Detroit+Lions+vs.+Miami+Dolphins+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "13:48",
-            "squadra": "DET",
-            "descrizione": "16-J.Goff pass short middle to 14-A.St. Brown to MIA 38 for 16 yards (10-J.Rodriguez).",
-            "testo": "Goff lancia corto al centro per St, 16 yard",
-            "chi": [
-              "Goff",
-              "St"
-            ],
-            "yard": 16.0,
-            "touchdown": false,
-            "casaPrima": 57,
-            "casaDopo": 47
-          },
-          {
-            "quarto": "1",
-            "tempo": "11:36",
-            "squadra": "DET",
-            "descrizione": "16-J.Goff pass short left to 18-I.TeSlaa to MIA 22 for 9 yards (9-J.Uche).",
-            "testo": "Goff lancia corto a sinistra per TeSlaa, 9 yard",
-            "chi": [
-              "Goff",
-              "TeSlaa"
-            ],
-            "yard": 9.0,
-            "touchdown": false,
-            "casaPrima": 55,
-            "casaDopo": 44
-          },
-          {
-            "quarto": "1",
-            "tempo": "05:14",
-            "squadra": "DET",
-            "descrizione": "16-J.Goff pass short right intended for 14-A.St. Brown INTERCEPTED by 3-C.Johnson (9-J.Uche) [9-J.Uche] at MIA 40. 3-C.Johnson to DET 39 for 21 yards (14-A.St. Brown).",
-            "testo": "Goff intercettato da Johnson",
-            "chi": [
-              "Goff",
-              "Johnson"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 42,
-            "casaDopo": 60
-          },
-          {
-            "quarto": "3",
-            "tempo": "07:13",
-            "squadra": "MIA",
-            "descrizione": "2-M.Willis pass short left to 7-C.Douglas pushed ob at DET 38 for 12 yards (36-C.Clark).",
-            "testo": "Willis lancia corto a sinistra per Douglas, 12 yard",
-            "chi": [
-              "Willis",
-              "Douglas"
-            ],
-            "yard": 12.0,
-            "touchdown": false,
-            "casaPrima": 28,
-            "casaDopo": 39
-          },
-          {
-            "quarto": "4",
-            "tempo": "14:55",
-            "squadra": "MIA",
-            "descrizione": "(Punt formation) 48-B.Pinion pass short middle to 30-K.Allen to DET 18 for 46 yards (35-J.Bachie; 17-T.Martin).",
-            "testo": "Pinion lancia corto al centro per Allen, 46 yard",
-            "chi": [
-              "Pinion",
-              "Allen"
-            ],
-            "yard": 46.0,
-            "touchdown": false,
-            "casaPrima": 13,
-            "casaDopo": 31
-          }
-        ],
-        "video": {
-          "id": "cfpgrM5JfsQ",
-          "titolo": "Detroit Lions vs. Miami Dolphins Game Highlights | NFL 2026 Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "13:00",
-        "casa": "NO",
-        "ospite": "CLE",
-        "pc": 23,
-        "po": 22,
-        "favorita": "NO",
-        "linea": 4.5,
-        "totaleLinea": 43.5,
-        "battutaDa": "CLE",
-        "totaleEsito": "over",
-        "scartoLinea": 3.5,
-        "stadio": "Caesars Superdome",
-        "highlights": "https://www.youtube.com/results?search_query=Cleveland+Browns+vs.+New+Orleans+Saints+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "2",
-            "tempo": "04:12",
-            "squadra": "CLE",
-            "descrizione": "13-C.Bojorquez punts 57 yards to NO 23, Center-50-R.Sunahara. 19-B.Brown to NO 20 for -3 yards (98-A.Huntington). FUMBLES (98-A.Huntington), RECOVERED by CLE-31-D.McMillon at NO 19. ** Injury Update: CLE-34-M.Burton has ",
-            "testo": "Bojorquez calcia un punt da 57 yard, fumble, recuperato da McMillon (CLE)",
-            "chi": [
-              "Bojorquez"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 64,
-            "casaDopo": 42
-          },
-          {
-            "quarto": "4",
-            "tempo": "05:33",
-            "squadra": "CLE",
-            "descrizione": "2-S.Sanders pass deep right to 1-K.Concepcion for 64 yards, TOUCHDOWN [55-K.Elliss].",
-            "testo": "Sanders lancia lungo a destra per Concepcion, 64 yard: touchdown",
-            "chi": [
-              "Sanders",
-              "Concepcion"
-            ],
-            "yard": 64.0,
-            "touchdown": true,
-            "casaPrima": 66,
-            "casaDopo": 31,
-            "clip": {
-              "id": "llThYzNB9m4",
-              "titolo": "Shedeur Sanders goes DEEP to KC Concepcion for the TD"
-            }
-          },
-          {
-            "quarto": "4",
-            "tempo": "00:12",
-            "squadra": "CLE",
-            "descrizione": "(:12) 25-A.Szmyt 51 yard field goal is GOOD, Center-50-R.Sunahara, Holder-13-C.Bojorquez.",
-            "testo": "Szmyt: field goal da 51 yard riuscito",
-            "chi": [
-              "Szmyt"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 79,
-            "casaDopo": 56
-          },
-          {
-            "quarto": "5",
-            "tempo": "01:11",
-            "squadra": "CLE",
-            "descrizione": "2-S.Sanders pass short right to 44-H.Fannin for 39 yards, TOUCHDOWN [1-K.McKinstry].",
-            "testo": "Sanders lancia corto a destra per Fannin, 39 yard: touchdown",
-            "chi": [
-              "Sanders",
-              "Fannin"
-            ],
-            "yard": 39.0,
-            "touchdown": true,
-            "casaPrima": 87,
-            "casaDopo": 53,
-            "clip": {
-              "id": "LJJGKBlKAv4",
-              "titolo": "HAROLD FANNIN DOUBLE STIFF ARM WOW 😱"
-            }
-          },
-          {
-            "quarto": "5",
-            "tempo": "01:00",
-            "squadra": "CLE",
-            "descrizione": "TWO-POINT CONVERSION ATTEMPT. 2-S.Sanders pass to 12-D.Boston is incomplete. ATTEMPT FAILS. Penalty on CLE-71-T.Howard, Offensive Holding, declined.",
-            "testo": "Trasformazione da due punti fallita",
-            "chi": [],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 53,
-            "casaDopo": 100
-          }
-        ],
-        "video": {
-          "id": "yidVkmPmxcU",
-          "titolo": "Cleveland Browns vs. New Orleans Saints Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "13:00",
-        "casa": "PHI",
-        "ospite": "NYG",
-        "pc": 11,
-        "po": 19,
-        "favorita": "NYG",
-        "linea": 3.0,
-        "totaleLinea": 38.5,
-        "battutaDa": "NYG",
-        "totaleEsito": "under",
-        "scartoLinea": 5.0,
-        "stadio": "Lincoln Financial Field",
-        "highlights": "https://www.youtube.com/results?search_query=New+York+Giants+vs.+Philadelphia+Eagles+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "12:01",
-            "squadra": "NYG",
-            "descrizione": "18-J.McCarthy pass short left to 17-D.Mooney ran ob at PHI 33 for 17 yards.",
-            "testo": "McCarthy lancia corto a sinistra per Mooney, 17 yard",
-            "chi": [
-              "McCarthy",
-              "Mooney"
-            ],
-            "yard": 17.0,
-            "touchdown": false,
-            "casaPrima": 58,
-            "casaDopo": 47
-          },
-          {
-            "quarto": "2",
-            "tempo": "14:21",
-            "squadra": "PHI",
-            "descrizione": "10-B.Mann punts 44 yards to NYG 42, Center-41-R.Underwood. 89-C.Jones MUFFS catch, RECOVERED by PHI-41-R.Underwood at NYG 47. Penalty on NYG-31-N.Jones, Offensive Holding, declined.",
-            "testo": "Mann calcia un punt da 44 yard",
-            "chi": [
-              "Mann"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 66,
-            "casaDopo": 76
-          },
-          {
-            "quarto": "2",
-            "tempo": "13:37",
-            "squadra": "PHI",
-            "descrizione": "14-J.Milton sacked at 50 for -8 yards (52-A.Reese). FUMBLES (52-A.Reese) [52-A.Reese], RECOVERED by NYG-41-M.McFadden at 50.",
-            "testo": "Milton subisce un sack, -8 yard (perdita), fumble, recuperato da McFadden (NYG)",
-            "chi": [
-              "Milton"
-            ],
-            "yard": -8.0,
-            "touchdown": false,
-            "casaPrima": 73,
-            "casaDopo": 58
-          },
-          {
-            "quarto": "2",
-            "tempo": "02:00",
-            "squadra": "PHI",
-            "descrizione": "26-S.Barkley up the middle to NYG 41 for -1 yards (8-J.Holland).",
-            "testo": "Barkley corre centralmente, -1 yard (perdita)",
-            "chi": [
-              "Barkley"
-            ],
-            "yard": -1.0,
-            "touchdown": false,
-            "casaPrima": 71,
-            "casaDopo": 60
-          },
-          {
-            "quarto": "3",
-            "tempo": "04:57",
-            "squadra": "NYG",
-            "descrizione": "19-J.Winston pass deep right to 17-D.Mooney to PHI 19 for 27 yards (33-C.DeJean) [52-J.Greenard].",
-            "testo": "Winston lancia lungo a destra per Mooney, 27 yard",
-            "chi": [
-              "Winston",
-              "Mooney"
-            ],
-            "yard": 27.0,
-            "touchdown": false,
-            "casaPrima": 55,
-            "casaDopo": 44
-          }
-        ],
-        "video": {
-          "id": "znF3q5lZYC4",
-          "titolo": "New York Giants vs. Philadelphia Eagles Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "13:00",
-        "casa": "WAS",
-        "ospite": "LA",
-        "pc": 13,
-        "po": 20,
-        "favorita": "LA",
-        "linea": 4.5,
-        "totaleLinea": 48.5,
-        "battutaDa": "LA",
-        "totaleEsito": "under",
-        "scartoLinea": 2.5,
-        "stadio": "Northwest Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Los+Angeles+Rams+vs.+Washington+Commanders+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "2",
-            "tempo": "02:46",
-            "squadra": "LA",
-            "descrizione": "9-M.Stafford pass short left to 12-P.Nacua to WAS 41 for no gain (45-K.Chaisson). FUMBLES (45-K.Chaisson), touched at WAS 42, RECOVERED by WAS-25-N.Cross at WAS 45. 25-N.Cross to LA 40 for 15 yards (71-W.McClendon).",
-            "testo": "Stafford lancia corto a sinistra per Nacua, 15 yard, fumble, recuperato da Cross (WAS)",
-            "chi": [
-              "Stafford",
-              "Nacua"
-            ],
-            "yard": -1.0,
-            "touchdown": false,
-            "casaPrima": 70,
-            "casaDopo": 83
-          },
-          {
-            "quarto": "2",
-            "tempo": "02:20",
-            "squadra": "WAS",
-            "descrizione": "5-J.Daniels sacked at WAS 44 for -6 yards (95-M.Garrett). FUMBLES (95-M.Garrett), RECOVERED by LA-48-O.Speights at WAS 46. 48-O.Speights to WAS 45 for 1 yard (1-R.White).",
-            "testo": "Daniels subisce un sack, -6 yard (perdita), fumble, recuperato da Speights (LA)",
-            "chi": [
-              "Daniels"
-            ],
-            "yard": -4.0,
-            "touchdown": false,
-            "casaPrima": 80,
-            "casaDopo": 67
-          },
-          {
-            "quarto": "3",
-            "tempo": "00:19",
-            "squadra": "LA",
-            "descrizione": "(:19) 9-M.Stafford pass deep right to 12-P.Nacua to WAS 17 for 19 yards (20-Q.Martin).",
-            "testo": "Stafford lancia lungo a destra per Nacua, 19 yard",
-            "chi": [
-              "Stafford",
-              "Nacua"
-            ],
-            "yard": 19.0,
-            "touchdown": false,
-            "casaPrima": 49,
-            "casaDopo": 38
-          },
-          {
-            "quarto": "4",
-            "tempo": "12:57",
-            "squadra": "LA",
-            "descrizione": "9-M.Stafford pass short left to 12-P.Nacua for 7 yards, TOUCHDOWN.",
-            "testo": "Stafford lancia corto a sinistra per Nacua, 7 yard: touchdown",
-            "chi": [
-              "Stafford",
-              "Nacua"
-            ],
-            "yard": 7.0,
-            "touchdown": true,
-            "casaPrima": 36,
-            "casaDopo": 19,
-            "clip": {
-              "id": "TvlsY8JMJ7I",
-              "titolo": "The NFL Report: Jessie Bates III Heads to Jacksonville + Puka Nacua Adds to Rams&#39; Injury Woes"
-            }
-          },
-          {
-            "quarto": "4",
-            "tempo": "02:31",
-            "squadra": "WAS",
-            "descrizione": "5-J.Daniels sacked at 50 for -12 yards (95-M.Garrett).",
-            "testo": "Daniels subisce un sack, -12 yard (perdita)",
-            "chi": [
-              "Daniels"
-            ],
-            "yard": -12.0,
-            "touchdown": false,
-            "casaPrima": 18,
-            "casaDopo": 7
-          }
-        ],
-        "video": {
-          "id": "N9qwPsA9FI0",
-          "titolo": "Los Angeles Rams vs. Washington Commanders Game Highlights | NFL 2026 Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "16:05",
-        "casa": "LAC",
-        "ospite": "HOU",
-        "pc": 22,
-        "po": 44,
-        "favorita": "HOU",
-        "linea": 5.5,
-        "totaleLinea": 40.5,
-        "battutaDa": "HOU",
-        "totaleEsito": "over",
-        "scartoLinea": 16.5,
-        "stadio": "SoFi Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Houston+Texans+vs.+Los+Angeles+Chargers+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "10:21",
-            "squadra": "HOU",
-            "descrizione": "7-C.Stroud pass deep right to 19-X.Hutchinson for 17 yards, TOUCHDOWN.",
-            "testo": "Stroud lancia lungo a destra per Hutchinson, 17 yard: touchdown",
-            "chi": [
-              "Stroud",
-              "Hutchinson"
-            ],
-            "yard": 17.0,
-            "touchdown": true,
-            "casaPrima": 47,
-            "casaDopo": 39,
-            "clip": {
-              "id": "B14w03Hhni8",
-              "titolo": "CJ Stroud to Xavier Hutchinson for the TD"
-            }
-          },
-          {
-            "quarto": "1",
-            "tempo": "03:21",
-            "squadra": "HOU",
-            "descrizione": "7-C.Stroud pass incomplete deep middle to 18-M.Harrison.",
-            "testo": "Stroud: lancio lungo al centro per Harrison incompleto",
-            "chi": [
-              "Stroud"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 37,
-            "casaDopo": 43
-          },
-          {
-            "quarto": "2",
-            "tempo": "07:32",
-            "squadra": "HOU",
-            "descrizione": "7-C.Stroud pass short middle intended for 14-K.Boutte INTERCEPTED by 0-D.Henley (58-M.Wax) at LAC 44. 0-D.Henley to HOU 38 for 18 yards (86-D.Schultz).",
-            "testo": "Stroud intercettato da Henley",
-            "chi": [
-              "Stroud",
-              "Henley"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 39,
-            "casaDopo": 55
-          },
-          {
-            "quarto": "2",
-            "tempo": "04:37",
-            "squadra": "HOU",
-            "descrizione": "7-C.Stroud pass deep right to 1-T.Dell for 63 yards, TOUCHDOWN.",
-            "testo": "Stroud lancia lungo a destra per Dell, 63 yard: touchdown",
-            "chi": [
-              "Stroud",
-              "Dell"
-            ],
-            "yard": 63.0,
-            "touchdown": true,
-            "casaPrima": 48,
-            "casaDopo": 29,
-            "clip": {
-              "id": "26PHM21bM_k",
-              "titolo": "Tank Dell down the sideline"
-            }
-          },
-          {
-            "quarto": "2",
-            "tempo": "00:43",
-            "squadra": "HOU",
-            "descrizione": "(:43) 7-C.Stroud pass deep right to 14-K.Boutte to LAC 12 for 35 yards (2-E.Molden). Penalty on LAC-4-T.Still, Illegal Contact, declined. Penalty on LAC-26-D.Jackson, Defensive Holding, declined.",
-            "testo": "Stroud lancia lungo a destra per Boutte, 35 yard",
-            "chi": [
-              "Stroud",
-              "Boutte"
-            ],
-            "yard": 35.0,
-            "touchdown": false,
-            "casaPrima": 21,
-            "casaDopo": 15
-          }
-        ],
-        "video": {
-          "id": "04k2ARJ05UU",
-          "titolo": "Houston Texans vs. Los Angeles Chargers Game Highlights | NFL 2026 Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "16:25",
-        "casa": "SF",
-        "ospite": "LV",
-        "pc": 38,
-        "po": 17,
-        "favorita": "SF",
-        "linea": 8.5,
-        "totaleLinea": 51.5,
-        "battutaDa": "SF",
-        "totaleEsito": "over",
-        "scartoLinea": 12.5,
-        "stadio": "Levi's Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Las+Vegas+Raiders+vs.+San+Francisco+49ers+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "13:26",
-            "squadra": "SF",
-            "descrizione": "13-B.Purdy pass short left to 85-G.Kittle to LV 41 for 4 yards (31-T.Stukes).",
-            "testo": "Purdy lancia corto a sinistra per Kittle, 4 yard",
-            "chi": [
-              "Purdy",
-              "Kittle"
-            ],
-            "yard": 4.0,
-            "touchdown": false,
-            "casaPrima": 51,
-            "casaDopo": 60
-          },
-          {
-            "quarto": "2",
-            "tempo": "12:43",
-            "squadra": "LV",
-            "descrizione": "8-K.Cousins up the middle for 2 yards, TOUCHDOWN.",
-            "testo": "Cousins corre centralmente, 2 yard: touchdown",
-            "chi": [
-              "Cousins"
-            ],
-            "yard": 2.0,
-            "touchdown": true,
-            "casaPrima": 80,
-            "casaDopo": 73,
-            "clip": {
-              "id": "bzTIXoVpR1w",
-              "titolo": "Cousins highpoints Bowers for a Raiders&#39; TD!"
-            }
-          },
-          {
-            "quarto": "3",
-            "tempo": "14:54",
-            "squadra": "LV",
-            "descrizione": "8-K.Cousins to LV 24 for -6 yards. FUMBLES, and recovers at LV 23. 8-K.Cousins pass intended for 1-T.Tucker INTERCEPTED by 53-J.Dugger at LV 35. 53-J.Dugger for 35 yards, TOUCHDOWN.",
-            "testo": "K.Cousins to LV 24 for -6 yards. FUMBLES, and recovers at LV 23. K.Cousins pass intended for T.Tucker INTERCEPTED by J.Dugger at LV 35. J.Dugger for 35 yards, TOUCHDOWN.",
-            "chi": [],
-            "yard": 0.0,
-            "touchdown": true,
-            "casaPrima": 84,
-            "casaDopo": 93
-          },
-          {
-            "quarto": "3",
-            "tempo": "08:01",
-            "squadra": "SF",
-            "descrizione": "13-B.Purdy pass deep right intended for 85-G.Kittle INTERCEPTED by 31-T.Stukes at LV 43. 31-T.Stukes to SF 31 for 26 yards (75-C.Colby).",
-            "testo": "Purdy intercettato da Stukes",
-            "chi": [
-              "Purdy",
-              "Stukes"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 90,
-            "casaDopo": 82
-          },
-          {
-            "quarto": "3",
-            "tempo": "04:19",
-            "squadra": "LV",
-            "descrizione": "8-K.Cousins pass deep middle to 87-M.Mayer to SF 1 for 24 yards (20-U.Stout; 27-J.Brown). FUMBLES (20-U.Stout), RECOVERED by SF-54-F.Warner at SF -2. Touchback.",
-            "testo": "Cousins lancia lungo al centro per Mayer, 24 yard, fumble, recuperato da Warner (SF)",
-            "chi": [
-              "Cousins",
-              "Mayer"
-            ],
-            "yard": 24.0,
-            "touchdown": false,
-            "casaPrima": 82,
-            "casaDopo": 90
-          }
-        ],
-        "video": {
-          "id": "sNQJenFh30k",
-          "titolo": "Las Vegas Raiders vs. San Francisco 49ers Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "16:25",
-        "casa": "NE",
-        "ospite": "GB",
-        "pc": 27,
-        "po": 45,
-        "favorita": "NE",
-        "linea": 3.0,
-        "totaleLinea": 44.5,
-        "battutaDa": "GB",
-        "totaleEsito": "over",
-        "scartoLinea": 21.0,
-        "stadio": "Gillette Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Green+Bay+Packers+vs.+New+England+Patriots+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "14:32",
-            "squadra": "NE",
-            "descrizione": "10-D.Maye pass deep left intended for 13-M.Hollins INTERCEPTED by 29-X.McKinney at 50. 29-X.McKinney pushed ob at NE 14 for 36 yards (65-M.Pryor).",
-            "testo": "Maye intercettato da McKinney",
-            "chi": [
-              "Maye",
-              "McKinney"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 53,
-            "casaDopo": 38
-          },
-          {
-            "quarto": "1",
-            "tempo": "11:58",
-            "squadra": "NE",
-            "descrizione": "19-M.Wishnowsky punts 58 yards to GB 14, Center-47-J.Ashby, downed by NE-33-M.Brown.",
-            "testo": "Wishnowsky calcia un punt da 58 yard",
-            "chi": [
-              "Wishnowsky"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 26,
-            "casaDopo": 36
-          },
-          {
-            "quarto": "1",
-            "tempo": "10:50",
-            "squadra": "GB",
-            "descrizione": "10-J.Love pass deep right to 0-M.Golden to NE 18 for 49 yards (31-K.Byard).",
-            "testo": "Love lancia lungo a destra per Golden, 49 yard",
-            "chi": [
-              "Love",
-              "Golden"
-            ],
-            "yard": 49.0,
-            "touchdown": false,
-            "casaPrima": 29,
-            "casaDopo": 21
-          },
-          {
-            "quarto": "2",
-            "tempo": "05:47",
-            "squadra": "NE",
-            "descrizione": "10-D.Maye pass short left intended for 82-E.Raridon INTERCEPTED by 29-X.McKinney at GB 29. 29-X.McKinney to GB 31 for 2 yards (85-H.Henry).",
-            "testo": "Maye intercettato da McKinney",
-            "chi": [
-              "Maye",
-              "McKinney"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 25,
-            "casaDopo": 18
-          },
-          {
-            "quarto": "2",
-            "tempo": "01:52",
-            "squadra": "GB",
-            "descrizione": "10-J.Love pass incomplete short middle to 83-S.Williams (0-C.Gonzalez). NE-7-C.Davis was injured during the play.",
-            "testo": "Love: lancio corto al centro per Williams incompleto",
-            "chi": [
-              "Love"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 17,
-            "casaDopo": 24
-          }
-        ],
-        "video": {
-          "id": "ONX73PsPFD8",
-          "titolo": "Green Bay Packers vs. New England Patriots Game Highlights | NFL 2026 Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "16:25",
-        "casa": "SEA",
-        "ospite": "ARI",
-        "pc": 17,
-        "po": 3,
-        "favorita": "SEA",
-        "linea": 8.5,
-        "totaleLinea": 39.5,
-        "battutaDa": "SEA",
-        "totaleEsito": "under",
-        "scartoLinea": 5.5,
-        "stadio": "Lumen Field",
-        "highlights": "https://www.youtube.com/results?search_query=Arizona+Cardinals+vs.+Seattle+Seahawks+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "08:04",
-            "squadra": "SEA",
-            "descrizione": "2-D.Lock scrambles right end ran ob at SEA 40 for 14 yards (1-Ma.Wilson). PENALTY on ARI-16-M.Melton, Defensive Holding, 5 yards, enforced at SEA 40.",
-            "testo": "Lock esce dalla tasca e corre sull'esterno destro, 14 yard",
-            "chi": [
-              "Lock"
-            ],
-            "yard": 14.0,
-            "touchdown": false,
-            "casaPrima": 40,
-            "casaDopo": 46
-          },
-          {
-            "quarto": "1",
-            "tempo": "07:06",
-            "squadra": "SEA",
-            "descrizione": "26-Z.Charbonnet right guard to ARI 49 for -2 yards (51-R.Lopez, 55-D.Stills).",
-            "testo": "Charbonnet corre a destra, in mezzo, -2 yard (perdita)",
-            "chi": [
-              "Charbonnet"
-            ],
-            "yard": -2.0,
-            "touchdown": false,
-            "casaPrima": 49,
-            "casaDopo": 43
-          },
-          {
-            "quarto": "1",
-            "tempo": "03:58",
-            "squadra": "SEA",
-            "descrizione": "2-D.Lock pass short left to 8-J.Price pushed ob at ARI 41 for 15 yards (5-B.Browning).",
-            "testo": "Lock lancia corto a sinistra per Price, 15 yard",
-            "chi": [
-              "Lock",
-              "Price"
-            ],
-            "yard": 15.0,
-            "touchdown": false,
-            "casaPrima": 41,
-            "casaDopo": 51
-          },
-          {
-            "quarto": "2",
-            "tempo": "11:52",
-            "squadra": "ARI",
-            "descrizione": "12-B.Gillikin punts 55 yards to SEA 24, Center-59-C.Kreiter. 15-T.Horton to SEA 27 for 3 yards (42-D.Taylor-Demerson). PENALTY on SEA-27-A.Smith, Offensive Holding, 10 yards, enforced at SEA 24.",
-            "testo": "Gillikin calcia un punt da 55 yard",
-            "chi": [
-              "Gillikin"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 70,
-            "casaDopo": 63
-          },
-          {
-            "quarto": "2",
-            "tempo": "06:17",
-            "squadra": "ARI",
-            "descrizione": "15-G.Minshew sacked at SEA 43 for -6 yards (91-B.Murphy).",
-            "testo": "Minshew subisce un sack, -6 yard (perdita)",
-            "chi": [
-              "Minshew"
-            ],
-            "yard": -6.0,
-            "touchdown": false,
-            "casaPrima": 58,
-            "casaDopo": 65
-          }
-        ],
-        "video": {
-          "id": "de07dP1hlt8",
-          "titolo": "Arizona Cardinals vs. Seattle Seahawks Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-08",
-        "ora": "20:20",
-        "casa": "CHI",
-        "ospite": "TB",
-        "pc": 27,
-        "po": 24,
-        "favorita": "CHI",
-        "linea": 6.5,
-        "totaleLinea": 47.5,
-        "battutaDa": "TB",
-        "totaleEsito": "over",
-        "scartoLinea": 3.5,
-        "stadio": "Soldier Field",
-        "highlights": "https://www.youtube.com/results?search_query=Tampa+Bay+Buccaneers+vs.+Chicago+Bears+highlights+November+8%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "3",
-            "tempo": "04:38",
-            "squadra": "CHI",
-            "descrizione": "18-C.Williams pass short left intended for 10-L.Burden INTERCEPTED by 34-A.Anzalone (25-J.Parrish) at CHI 43. 34-A.Anzalone pushed ob at CHI 37 for 6 yards (10-L.Burden).",
-            "testo": "Williams intercettato da Anzalone",
-            "chi": [
-              "Williams",
-              "Anzalone"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 75,
-            "casaDopo": 58
-          },
-          {
-            "quarto": "3",
-            "tempo": "03:50",
-            "squadra": "TB",
-            "descrizione": "6-B.Mayfield pass short right intended for 88-C.Otton INTERCEPTED by 1-J.Johnson at CHI 33. 1-J.Johnson for 67 yards, TOUCHDOWN.",
-            "testo": "Mayfield intercettato da Johnson: touchdown",
-            "chi": [
-              "Mayfield",
-              "Johnson"
-            ],
-            "yard": 0.0,
-            "touchdown": true,
-            "casaPrima": 60,
-            "casaDopo": 88,
-            "clip": {
-              "id": "puqbc8slyQs",
-              "titolo": "JAYLON JOHNSON PICK-6 😱"
-            }
-          },
-          {
-            "quarto": "4",
-            "tempo": "02:56",
-            "squadra": "TB",
-            "descrizione": "7-B.Irving left guard for 6 yards, TOUCHDOWN.",
-            "testo": "Irving corre a sinistra, in mezzo, 6 yard: touchdown",
-            "chi": [
-              "Irving"
-            ],
-            "yard": 6.0,
-            "touchdown": true,
-            "casaPrima": 83,
-            "casaDopo": 69
-          },
-          {
-            "quarto": "4",
-            "tempo": "00:47",
-            "squadra": "CHI",
-            "descrizione": "(:47) 18-C.Williams pass deep left to 84-C.Loveland pushed ob at TB 16 for 38 yards (5-I.Melifonwu).",
-            "testo": "Williams lancia lungo a sinistra per Loveland, 38 yard",
-            "chi": [
-              "Williams",
-              "Loveland"
-            ],
-            "yard": 38.0,
-            "touchdown": false,
-            "casaPrima": 69,
-            "casaDopo": 85
-          },
-          {
-            "quarto": "4",
-            "tempo": "00:03",
-            "squadra": "CHI",
-            "descrizione": "(:03) 8-C.Santos 38 yard field goal is GOOD, Center-46-S.Daly, Holder-19-T.Taylor. Penalty on TB-91-A.Robinson, Unnecessary Roughness, declined.",
-            "testo": "Santos: field goal da 38 yard riuscito",
-            "chi": [
-              "Santos"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 79,
-            "casaDopo": 100
-          }
-        ],
-        "video": {
-          "id": "O1fZ6Zkabgc",
-          "titolo": "Tampa Bay Buccaneers vs Chicago Bears Game Highlights | 2026 NFL Season Week 9"
-        }
-      },
-      {
-        "data": "2026-11-09",
-        "ora": "20:15",
-        "casa": "MIN",
-        "ospite": "BUF",
-        "pc": 6,
-        "po": 23,
-        "favorita": "BUF",
-        "linea": 3.0,
-        "totaleLinea": 45.5,
-        "battutaDa": "BUF",
-        "totaleEsito": "under",
-        "scartoLinea": 14.0,
-        "stadio": "U.S. Bank Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Buffalo+Bills+vs.+Minnesota+Vikings+highlights+November+9%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "05:46",
-            "squadra": "BUF",
-            "descrizione": "17-J.Allen pass deep middle intended for 2-D.Moore INTERCEPTED by 7-B.Murphy at MIN -7. 7-B.Murphy to MIN 47 for 54 yards (68-T.Grable).",
-            "testo": "Allen intercettato da Murphy",
-            "chi": [
-              "Allen",
-              "Murphy"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 52,
-            "casaDopo": 65
-          },
-          {
-            "quarto": "1",
-            "tempo": "05:30",
-            "squadra": "MIN",
-            "descrizione": "11-C.Wentz pass incomplete short right to 18-J.Jefferson. Buffalo challenged the forward pass ruling, and the play was REVERSED. 11-C.Wentz FUMBLES (Aborted) at MIN 43, RECOVERED by BUF-15-G.Rousseau at MIN 44.",
-            "testo": "Wentz: lancio corto a destra per Jefferson incompleto, fumble, recuperato da Rousseau (BUF)",
-            "chi": [
-              "Wentz"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 65,
-            "casaDopo": 51
-          },
-          {
-            "quarto": "3",
-            "tempo": "13:17",
-            "squadra": "MIN",
-            "descrizione": "11-C.Wentz pass deep right intended for 87-T.Hockenson INTERCEPTED by 42-D.Williams at BUF 11. 42-D.Williams to BUF 11 for no gain (87-T.Hockenson).",
-            "testo": "Wentz intercettato da Williams",
-            "chi": [
-              "Wentz",
-              "Williams"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 49,
-            "casaDopo": 39
-          },
-          {
-            "quarto": "3",
-            "tempo": "11:08",
-            "squadra": "BUF",
-            "descrizione": "17-J.Allen pass deep left to 26-T.Johnson to MIN 39 for 36 yards (29-Jac.Thomas).",
-            "testo": "Allen lancia lungo a sinistra per Johnson, 36 yard",
-            "chi": [
-              "Allen",
-              "Johnson"
-            ],
-            "yard": 36.0,
-            "touchdown": false,
-            "casaPrima": 40,
-            "casaDopo": 26
-          },
-          {
-            "quarto": "3",
-            "tempo": "04:10",
-            "squadra": "MIN",
-            "descrizione": "11-C.Wentz pass short middle intended for 18-J.Jefferson INTERCEPTED by 8-T.Bernard at BUF 34. 8-T.Bernard to BUF 39 for 5 yards (75-B.O'Neill).",
-            "testo": "Wentz intercettato da Bernard",
-            "chi": [
-              "Wentz",
-              "Bernard"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 30,
-            "casaDopo": 19
-          }
-        ],
-        "video": {
-          "id": "2_ruHrqYSI4",
-          "titolo": "Buffalo Bills vs Minnesota Vikings Highlights | 2026 NFL Season Week 9"
-        }
-      }
-    ],
-    "sorprese": [
-      {
-        "casa": "NE",
-        "ospite": "GB",
-        "scarto": 21.0,
-        "battutaDa": "GB"
-      },
-      {
-        "casa": "LAC",
-        "ospite": "HOU",
-        "scarto": 16.5,
-        "battutaDa": "HOU"
-      },
-      {
-        "casa": "BAL",
-        "ospite": "JAX",
-        "scarto": 14.5,
-        "battutaDa": "JAX"
-      }
-    ],
-    "completa": true,
-    "riepilogo": {
-      "partite": 15,
-      "favoriteCoperte": 11,
-      "over": 7,
-      "under": 8
-    },
-    "prestazioni": {
-      "lanci": [
-        {
-          "nome": "C.J. Stroud",
-          "ruolo": "QB",
-          "squadra": "HOU",
-          "avversario": "LAC",
-          "valore": 384,
-          "dettagli": "5 TD · 1 INT"
-        },
-        {
-          "nome": "Jordan Love",
-          "ruolo": "QB",
-          "squadra": "GB",
-          "avversario": "NE",
-          "valore": 372,
-          "dettagli": "3 TD"
-        },
-        {
-          "nome": "Dak Prescott",
-          "ruolo": "QB",
-          "squadra": "DAL",
-          "avversario": "IND",
-          "valore": 335,
-          "dettagli": "2 TD"
-        },
-        {
-          "nome": "Drake Maye",
-          "ruolo": "QB",
-          "squadra": "NE",
-          "avversario": "GB",
-          "valore": 299,
-          "dettagli": "3 TD · 3 INT"
-        },
-        {
-          "nome": "Shedeur Sanders",
-          "ruolo": "QB",
-          "squadra": "CLE",
-          "avversario": "NO",
-          "valore": 297,
-          "dettagli": "2 TD"
-        }
-      ],
-      "corse": [
-        {
-          "nome": "James Cook",
-          "ruolo": "RB",
-          "squadra": "BUF",
-          "avversario": "MIN",
-          "valore": 107,
-          "dettagli": "31 corse · 1 TD"
-        },
-        {
-          "nome": "Kenneth Walker III",
-          "ruolo": "RB",
-          "squadra": "KC",
-          "avversario": "NYJ",
-          "valore": 102,
-          "dettagli": "18 corse · 1 TD"
-        },
-        {
-          "nome": "Javonte Williams",
-          "ruolo": "RB",
-          "squadra": "DAL",
-          "avversario": "IND",
-          "valore": 101,
-          "dettagli": "20 corse · 1 TD"
-        },
-        {
-          "nome": "Bijan Robinson",
-          "ruolo": "RB",
-          "squadra": "ATL",
-          "avversario": "CIN",
-          "valore": 100,
-          "dettagli": "19 corse · 1 TD"
-        },
-        {
-          "nome": "Bucky Irving",
-          "ruolo": "RB",
-          "squadra": "TB",
-          "avversario": "CHI",
-          "valore": 97,
-          "dettagli": "20 corse · 2 TD"
-        }
-      ],
-      "ricezioni": [
-        {
-          "nome": "CeeDee Lamb",
-          "ruolo": "WR",
-          "squadra": "DAL",
-          "avversario": "IND",
-          "valore": 195,
-          "dettagli": "10 ricezioni · 1 TD"
-        },
-        {
-          "nome": "Christian Watson",
-          "ruolo": "WR",
-          "squadra": "GB",
-          "avversario": "NE",
-          "valore": 171,
-          "dettagli": "7 ricezioni · 1 TD"
-        },
-        {
-          "nome": "Matthew Golden",
-          "ruolo": "WR",
-          "squadra": "GB",
-          "avversario": "NE",
-          "valore": 164,
-          "dettagli": "10 ricezioni · 1 TD"
-        },
-        {
-          "nome": "Ja'Marr Chase",
-          "ruolo": "WR",
-          "squadra": "CIN",
-          "avversario": "ATL",
-          "valore": 155,
-          "dettagli": "10 ricezioni · 1 TD"
-        },
-        {
-          "nome": "Puka Nacua",
-          "ruolo": "WR",
-          "squadra": "LA",
-          "avversario": "WAS",
-          "valore": 150,
-          "dettagli": "14 ricezioni · 1 TD"
-        }
-      ]
-    }
-  },
-  "prossima": {
-    "stagione": 2026,
     "settimana": 10,
     "partite": [
       {
@@ -139108,15 +137584,96 @@
         "ora": "20:15",
         "casa": "NYG",
         "ospite": "WAS",
-        "pc": null,
-        "po": null,
+        "pc": 21,
+        "po": 24,
         "favorita": "NYG",
         "linea": 1.5,
         "totaleLinea": 40.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
-        "stadio": "MetLife Stadium"
+        "battutaDa": "WAS",
+        "totaleEsito": "over",
+        "scartoLinea": 4.5,
+        "stadio": "MetLife Stadium",
+        "highlights": "https://www.youtube.com/results?search_query=Washington+Commanders+vs.+New+York+Giants+highlights+November+12%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "4",
+            "tempo": "08:24",
+            "squadra": "NYG",
+            "descrizione": "18-J.McCarthy pass deep middle to 9-I.Likely for 66 yards, TOUCHDOWN.",
+            "testo": "McCarthy lancia lungo al centro per Likely, 66 yard: touchdown",
+            "chi": [
+              "McCarthy",
+              "Likely"
+            ],
+            "yard": 66.0,
+            "touchdown": true,
+            "casaPrima": 38,
+            "casaDopo": 70
+          },
+          {
+            "quarto": "4",
+            "tempo": "05:31",
+            "squadra": "WAS",
+            "descrizione": "5-J.Daniels pass deep left intended for 85-C.Okonkwo INTERCEPTED by 8-J.Holland at NYG 0. Touchback. The Replay Official reviewed the touchback ruling, and the play was REVERSED. 5-J.Daniels pass deep left intended for 8",
+            "testo": "Daniels intercettato da Holland",
+            "chi": [
+              "Daniels",
+              "Holland"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 50,
+            "casaDopo": 74
+          },
+          {
+            "quarto": "4",
+            "tempo": "03:27",
+            "squadra": "NYG",
+            "descrizione": "15-J.Stout punts 68 yards to WAS 25, Center-58-B.Mann. 11-L.McCaffrey ran ob at WAS 37 for 12 yards (46-Z.Barnes).",
+            "testo": "Stout calcia un punt da 68 yard",
+            "chi": [
+              "Stout"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 55,
+            "casaDopo": 72
+          },
+          {
+            "quarto": "4",
+            "tempo": "01:05",
+            "squadra": "WAS",
+            "descrizione": "5-J.Daniels pass short middle to 3-S.Diggs for 32 yards, TOUCHDOWN.",
+            "testo": "Daniels lancia corto al centro per Diggs, 32 yard: touchdown",
+            "chi": [
+              "Daniels",
+              "Diggs"
+            ],
+            "yard": 32.0,
+            "touchdown": true,
+            "casaPrima": 67,
+            "casaDopo": 30
+          },
+          {
+            "quarto": "4",
+            "tempo": "00:34",
+            "squadra": "NYG",
+            "descrizione": "(:34) 18-J.McCarthy pass deep right intended for 1-M.Nabers INTERCEPTED by 29-R.Douglas at WAS 11. 29-R.Douglas to WAS 11 for no gain (1-M.Nabers).",
+            "testo": "McCarthy intercettato da Douglas",
+            "chi": [
+              "McCarthy",
+              "Douglas"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 30,
+            "casaDopo": 9
+          }
+        ],
+        "video": {
+          "id": "7UsUSgeGEqo",
+          "titolo": "Washington Commanders vs New York Giants Highlights | 2026 NFL Season Week 10"
+        }
       },
       {
         "data": "2026-11-15",
@@ -139127,7 +137684,7 @@
         "po": null,
         "favorita": "DET",
         "linea": 2.5,
-        "totaleLinea": 51.5,
+        "totaleLinea": 50.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -139172,7 +137729,7 @@
         "po": null,
         "favorita": "GB",
         "linea": 3.0,
-        "totaleLinea": 42.5,
+        "totaleLinea": 41.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -139314,397 +137871,395 @@
         "stadio": "M&T Bank Stadium"
       }
     ],
-    "duelli": [
+    "sorprese": [
       {
         "casa": "NYG",
         "ospite": "WAS",
-        "data": "2026-11-12",
+        "scarto": 4.5,
+        "battutaDa": "WAS"
+      }
+    ],
+    "completa": false,
+    "riepilogo": {
+      "partite": 1,
+      "favoriteCoperte": 0,
+      "over": 1,
+      "under": 0
+    },
+    "prestazioni": {
+      "lanci": [
+        {
+          "nome": "J.J. McCarthy",
+          "ruolo": "QB",
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "valore": 293,
+          "dettagli": "1 TD · 1 INT"
+        },
+        {
+          "nome": "Jayden Daniels",
+          "ruolo": "QB",
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "valore": 249,
+          "dettagli": "3 TD · 2 INT"
+        }
+      ],
+      "corse": [
+        {
+          "nome": "Cam Skattebo",
+          "ruolo": "RB",
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "valore": 78,
+          "dettagli": "18 corse · 2 TD"
+        },
+        {
+          "nome": "Rachaad White",
+          "ruolo": "RB",
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "valore": 47,
+          "dettagli": "11 corse"
+        },
+        {
+          "nome": "J.J. McCarthy",
+          "ruolo": "QB",
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "valore": 34,
+          "dettagli": "6 corse"
+        },
+        {
+          "nome": "Jayden Daniels",
+          "ruolo": "QB",
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "valore": 28,
+          "dettagli": "11 corse"
+        },
+        {
+          "nome": "Austin Ekeler",
+          "ruolo": "RB",
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "valore": 26,
+          "dettagli": "9 corse"
+        }
+      ],
+      "ricezioni": [
+        {
+          "nome": "Isaiah Likely",
+          "ruolo": "TE",
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "valore": 127,
+          "dettagli": "9 ricezioni · 1 TD"
+        },
+        {
+          "nome": "Stefon Diggs",
+          "ruolo": "WR",
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "valore": 83,
+          "dettagli": "6 ricezioni · 1 TD"
+        },
+        {
+          "nome": "Malachi Fields",
+          "ruolo": "WR",
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "valore": 62,
+          "dettagli": "3 ricezioni"
+        },
+        {
+          "nome": "Malik Nabers",
+          "ruolo": "WR",
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "valore": 44,
+          "dettagli": "5 ricezioni"
+        },
+        {
+          "nome": "Cam Skattebo",
+          "ruolo": "RB",
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "valore": 44,
+          "dettagli": "3 ricezioni"
+        }
+      ]
+    }
+  },
+  "prossima": {
+    "stagione": 2026,
+    "settimana": 11,
+    "partite": [
+      {
+        "data": "2026-11-19",
         "ora": "20:15",
-        "favorita": "NYG",
+        "casa": "HOU",
+        "ospite": "IND",
+        "pc": null,
+        "po": null,
+        "favorita": "HOU",
+        "linea": 10.0,
+        "totaleLinea": 44.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Reliant Stadium"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "casa": "BUF",
+        "ospite": "MIA",
+        "pc": null,
+        "po": null,
+        "favorita": "BUF",
+        "linea": 16.5,
+        "totaleLinea": 46.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Highmark Stadium"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "casa": "CAR",
+        "ospite": "BAL",
+        "pc": null,
+        "po": null,
+        "favorita": "CAR",
         "linea": 1.5,
-        "totaleLinea": 40.5,
+        "totaleLinea": 44.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Bank of America Stadium"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "casa": "CHI",
+        "ospite": "NO",
+        "pc": null,
+        "po": null,
+        "favorita": "CHI",
+        "linea": 9.5,
+        "totaleLinea": 48.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Soldier Field"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "casa": "DAL",
+        "ospite": "TEN",
+        "pc": null,
+        "po": null,
+        "favorita": "DAL",
+        "linea": 7.5,
+        "totaleLinea": 51.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "AT&T Stadium"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "casa": "DET",
+        "ospite": "TB",
+        "pc": null,
+        "po": null,
+        "favorita": "DET",
+        "linea": 3.5,
+        "totaleLinea": 47.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Ford Field"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "casa": "KC",
+        "ospite": "ARI",
+        "pc": null,
+        "po": null,
+        "favorita": "KC",
+        "linea": 14.0,
+        "totaleLinea": 42.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "GEHA Field at Arrowhead Stadium"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "casa": "NYG",
+        "ospite": "JAX",
+        "pc": null,
+        "po": null,
+        "favorita": "JAX",
+        "linea": 6.0,
+        "totaleLinea": 44.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "MetLife Stadium"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "16:05",
+        "casa": "LAC",
+        "ospite": "NYJ",
+        "pc": null,
+        "po": null,
+        "favorita": "LAC",
+        "linea": 1.5,
+        "totaleLinea": 42.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "SoFi Stadium"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "16:25",
+        "casa": "DEN",
+        "ospite": "LV",
+        "pc": null,
+        "po": null,
+        "favorita": "DEN",
+        "linea": 8.5,
+        "totaleLinea": 41.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Empower Field at Mile High"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "16:25",
+        "casa": "PHI",
+        "ospite": "PIT",
+        "pc": null,
+        "po": null,
+        "favorita": "PIT",
+        "linea": 4.5,
+        "totaleLinea": 38.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Lincoln Financial Field"
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "20:20",
+        "casa": "SF",
+        "ospite": "MIN",
+        "pc": null,
+        "po": null,
+        "favorita": "SF",
+        "linea": 3.5,
+        "totaleLinea": 45.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Estadio Banorte"
+      },
+      {
+        "data": "2026-11-23",
+        "ora": "20:15",
+        "casa": "WAS",
+        "ospite": "CIN",
+        "pc": null,
+        "po": null,
+        "favorita": "CIN",
+        "linea": 3.5,
+        "totaleLinea": 51.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Northwest Stadium"
+      }
+    ],
+    "duelli": [
+      {
+        "casa": "HOU",
+        "ospite": "IND",
+        "data": "2026-11-19",
+        "ora": "20:15",
+        "favorita": "HOU",
+        "linea": 10.0,
+        "totaleLinea": 44.5,
         "giocatoriOspite": [
           {
-            "nome": "Jayden Daniels",
+            "nome": "Daniel Jones",
             "ruolo": "QB",
-            "squadra": "WAS",
+            "squadra": "IND",
             "misura": "yard lanciate",
-            "partite": 6,
-            "mediaStagione": 208.3,
-            "mediaUltime3": 263.7,
-            "mediaPassato": 209.3,
-            "epaLancio": 0.016,
-            "epaLancioUltime3": 0.012,
-            "epaLancioPassato": 0.11,
-            "td": 7,
-            "int": 0,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Rachaad White",
-            "ruolo": "RB",
-            "squadra": "WAS",
-            "misura": "yard di corsa",
-            "partite": 7,
-            "mediaStagione": 32.6,
-            "mediaUltime3": 36.7,
-            "mediaPassato": 35.9,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Stefon Diggs",
-            "ruolo": "WR",
-            "squadra": "WAS",
-            "misura": "yard ricevute",
-            "partite": 7,
-            "mediaStagione": 43.3,
-            "mediaUltime3": 44.3,
-            "mediaPassato": 55.8,
-            "esperienza": "12° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Chig Okonkwo",
-            "ruolo": "TE",
-            "squadra": "WAS",
-            "misura": "yard ricevute",
-            "partite": 6,
-            "mediaStagione": 39.8,
-            "mediaUltime3": 52.7,
-            "mediaPassato": 31.5,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": "in forma"
-          }
-        ],
-        "giocatoriCasa": [
-          {
-            "nome": "J.J. McCarthy",
-            "ruolo": "QB",
-            "squadra": "NYG",
-            "misura": "yard lanciate",
-            "partite": 4,
-            "mediaStagione": 155.5,
-            "mediaUltime3": 207.3,
-            "mediaPassato": 163.2,
-            "epaLancio": 0.127,
-            "epaLancioUltime3": 0.127,
-            "epaLancioPassato": -0.223,
-            "td": 1,
-            "int": 1,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Devin Singletary",
-            "ruolo": "RB",
-            "squadra": "NYG",
-            "misura": "yard di corsa",
-            "partite": 5,
-            "mediaStagione": 22.2,
-            "mediaUltime3": 28.7,
-            "mediaPassato": 27.3,
+            "partite": 9,
+            "mediaStagione": 191.3,
+            "mediaUltime3": 144.0,
+            "mediaPassato": 224.8,
+            "epaLancio": -0.203,
+            "epaLancioUltime3": -0.393,
+            "epaLancioPassato": 0.037,
+            "td": 6,
+            "int": 10,
             "esperienza": "8° anno",
             "giovane": false,
-            "forma": null
+            "forma": "in calo"
           },
           {
-            "nome": "Malik Nabers",
-            "ruolo": "WR",
-            "squadra": "NYG",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 81.0,
-            "mediaUltime3": 106.3,
-            "mediaPassato": 77.6,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Isaiah Likely",
-            "ruolo": "TE",
-            "squadra": "NYG",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 56.0,
+            "nome": "Jonathan Taylor",
+            "ruolo": "RB",
+            "squadra": "IND",
+            "misura": "yard di corsa",
+            "partite": 9,
+            "mediaStagione": 72.9,
             "mediaUltime3": 54.7,
-            "mediaPassato": 31.4,
-            "esperienza": "5° anno",
+            "mediaPassato": 97.3,
+            "esperienza": "7° anno",
             "giovane": false,
-            "forma": "in forma"
-          }
-        ]
-      },
-      {
-        "casa": "DET",
-        "ospite": "NE",
-        "data": "2026-11-15",
-        "ora": "09:30",
-        "favorita": "DET",
-        "linea": 2.5,
-        "totaleLinea": 51.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Drake Maye",
-            "ruolo": "QB",
-            "squadra": "NE",
-            "misura": "yard lanciate",
-            "partite": 9,
-            "mediaStagione": 253.6,
-            "mediaUltime3": 273.0,
-            "mediaPassato": 220.5,
-            "epaLancio": 0.171,
-            "epaLancioUltime3": 0.153,
-            "epaLancioPassato": 0.104,
-            "td": 18,
-            "int": 11,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": null
+            "forma": "in calo"
           },
           {
-            "nome": "Rhamondre Stevenson",
-            "ruolo": "RB",
-            "squadra": "NE",
-            "misura": "yard di corsa",
-            "partite": 9,
-            "mediaStagione": 44.3,
-            "mediaUltime3": 45.3,
-            "mediaPassato": 49.1,
-            "esperienza": "6° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "DeMario Douglas",
+            "nome": "Keenan Allen",
             "ruolo": "WR",
-            "squadra": "NE",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 48.2,
-            "mediaUltime3": 67.0,
-            "mediaPassato": 32.0,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Eli Raridon",
-            "ruolo": "TE",
-            "squadra": "NE",
+            "squadra": "IND",
             "misura": "yard ricevute",
             "partite": 8,
-            "mediaStagione": 28.1,
-            "mediaUltime3": 37.7,
-            "mediaPassato": null,
-            "esperienza": "Rookie",
-            "giovane": true,
-            "forma": "in forma"
-          }
-        ],
-        "giocatoriCasa": [
-          {
-            "nome": "Jared Goff",
-            "ruolo": "QB",
-            "squadra": "DET",
-            "misura": "yard lanciate",
-            "partite": 8,
-            "mediaStagione": 266.8,
-            "mediaUltime3": 216.3,
-            "mediaPassato": 271.6,
-            "epaLancio": 0.245,
-            "epaLancioUltime3": 0.02,
-            "epaLancioPassato": 0.234,
-            "td": 15,
-            "int": 2,
-            "esperienza": "11° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Jahmyr Gibbs",
-            "ruolo": "RB",
-            "squadra": "DET",
-            "misura": "yard di corsa",
-            "partite": 8,
-            "mediaStagione": 105.9,
-            "mediaUltime3": 114.3,
-            "mediaPassato": 78.3,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Amon-Ra St. Brown",
-            "ruolo": "WR",
-            "squadra": "DET",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 82.1,
-            "mediaUltime3": 95.0,
-            "mediaPassato": 80.0,
-            "esperienza": "6° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Jameson Williams",
-            "ruolo": "WR",
-            "squadra": "DET",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 58.5,
-            "mediaUltime3": 64.0,
-            "mediaPassato": 64.8,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": null
-          }
-        ]
-      },
-      {
-        "casa": "ATL",
-        "ospite": "KC",
-        "data": "2026-11-15",
-        "ora": "13:00",
-        "favorita": "KC",
-        "linea": 3.0,
-        "totaleLinea": 46.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Patrick Mahomes",
-            "ruolo": "QB",
-            "squadra": "KC",
-            "misura": "yard lanciate",
-            "partite": 8,
-            "mediaStagione": 254.6,
-            "mediaUltime3": 242.7,
-            "mediaPassato": 248.3,
-            "epaLancio": 0.155,
-            "epaLancioUltime3": 0.117,
-            "epaLancioPassato": 0.122,
-            "td": 14,
-            "int": 4,
-            "esperienza": "10° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Kenneth Walker III",
-            "ruolo": "RB",
-            "squadra": "KC",
-            "misura": "yard di corsa",
-            "partite": 8,
-            "mediaStagione": 109.0,
-            "mediaUltime3": 69.0,
-            "mediaPassato": 61.7,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Travis Kelce",
-            "ruolo": "TE",
-            "squadra": "KC",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 60.2,
-            "mediaUltime3": 61.0,
-            "mediaPassato": 51.4,
+            "mediaStagione": 43.9,
+            "mediaUltime3": 41.3,
+            "mediaPassato": 46.8,
             "esperienza": "14° anno",
             "giovane": false,
             "forma": null
           },
           {
-            "nome": "Xavier Worthy",
-            "ruolo": "WR",
-            "squadra": "KC",
+            "nome": "Tyler Warren",
+            "ruolo": "TE",
+            "squadra": "IND",
             "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 34.8,
-            "mediaUltime3": 24.0,
-            "mediaPassato": 44.2,
-            "esperienza": "3° anno",
+            "partite": 7,
+            "mediaStagione": 39.3,
+            "mediaUltime3": 48.3,
+            "mediaPassato": 48.1,
+            "esperienza": "2° anno",
             "giovane": true,
-            "forma": "in calo"
+            "forma": null
           }
         ],
         "giocatoriCasa": [
-          {
-            "nome": "Michael Penix Jr.",
-            "ruolo": "QB",
-            "squadra": "ATL",
-            "misura": "yard lanciate",
-            "partite": 7,
-            "mediaStagione": 206.3,
-            "mediaUltime3": 166.7,
-            "mediaPassato": 196.9,
-            "epaLancio": 0.006,
-            "epaLancioUltime3": -0.189,
-            "epaLancioPassato": 0.052,
-            "td": 10,
-            "int": 6,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": null
-          },
-          {
-            "nome": "Bijan Robinson",
-            "ruolo": "RB",
-            "squadra": "ATL",
-            "misura": "yard di corsa",
-            "partite": 9,
-            "mediaStagione": 97.8,
-            "mediaUltime3": 79.7,
-            "mediaPassato": 86.3,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Drake London",
-            "ruolo": "WR",
-            "squadra": "ATL",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 76.9,
-            "mediaUltime3": 47.3,
-            "mediaPassato": 75.5,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": "in calo"
-          },
-          {
-            "nome": "Kyle Pitts",
-            "ruolo": "TE",
-            "squadra": "ATL",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 24.4,
-            "mediaUltime3": 17.0,
-            "mediaPassato": 45.0,
-            "esperienza": "6° anno",
-            "giovane": false,
-            "forma": "in calo"
-          }
-        ]
-      },
-      {
-        "casa": "CLE",
-        "ospite": "HOU",
-        "data": "2026-11-15",
-        "ora": "13:00",
-        "favorita": "HOU",
-        "linea": 4.5,
-        "totaleLinea": 40.5,
-        "giocatoriOspite": [
           {
             "nome": "C.J. Stroud",
             "ruolo": "QB",
@@ -139762,202 +138317,16 @@
             "giovane": false,
             "forma": "in calo"
           }
-        ],
-        "giocatoriCasa": [
-          {
-            "nome": "Deshaun Watson",
-            "ruolo": "QB",
-            "squadra": "CLE",
-            "misura": "yard lanciate",
-            "partite": 8,
-            "mediaStagione": 225.8,
-            "mediaUltime3": 265.3,
-            "mediaPassato": 164.0,
-            "epaLancio": -0.018,
-            "epaLancioUltime3": -0.086,
-            "epaLancioPassato": -0.285,
-            "td": 7,
-            "int": 3,
-            "esperienza": "10° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Quinshon Judkins",
-            "ruolo": "RB",
-            "squadra": "CLE",
-            "misura": "yard di corsa",
-            "partite": 8,
-            "mediaStagione": 48.1,
-            "mediaUltime3": 54.7,
-            "mediaPassato": 59.1,
-            "esperienza": "2° anno",
-            "giovane": true,
-            "forma": null
-          },
-          {
-            "nome": "Denzel Boston",
-            "ruolo": "WR",
-            "squadra": "CLE",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 56.3,
-            "mediaUltime3": 54.0,
-            "mediaPassato": null,
-            "esperienza": "Rookie",
-            "giovane": true,
-            "forma": null
-          },
-          {
-            "nome": "Harold Fannin Jr.",
-            "ruolo": "TE",
-            "squadra": "CLE",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 50.3,
-            "mediaUltime3": 95.7,
-            "mediaPassato": 45.7,
-            "esperienza": "2° anno",
-            "giovane": true,
-            "forma": "in forma"
-          }
         ]
       },
       {
-        "casa": "GB",
-        "ospite": "MIN",
-        "data": "2026-11-15",
-        "ora": "13:00",
-        "favorita": "GB",
-        "linea": 3.0,
-        "totaleLinea": 42.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Kyler Murray",
-            "ruolo": "QB",
-            "squadra": "MIN",
-            "misura": "yard lanciate",
-            "partite": 6,
-            "mediaStagione": 170.3,
-            "mediaUltime3": 196.3,
-            "mediaPassato": 218.8,
-            "epaLancio": -0.065,
-            "epaLancioUltime3": 0.086,
-            "epaLancioPassato": 0.102,
-            "td": 5,
-            "int": 3,
-            "esperienza": "8° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Jordan Mason",
-            "ruolo": "RB",
-            "squadra": "MIN",
-            "misura": "yard di corsa",
-            "partite": 4,
-            "mediaStagione": 45.5,
-            "mediaUltime3": 41.0,
-            "mediaPassato": 55.2,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": "in calo"
-          },
-          {
-            "nome": "Justin Jefferson",
-            "ruolo": "WR",
-            "squadra": "MIN",
-            "misura": "yard ricevute",
-            "partite": 7,
-            "mediaStagione": 56.1,
-            "mediaUltime3": 45.0,
-            "mediaPassato": 75.4,
-            "esperienza": "7° anno",
-            "giovane": false,
-            "forma": "in calo"
-          },
-          {
-            "nome": "T.J. Hockenson",
-            "ruolo": "TE",
-            "squadra": "MIN",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 41.0,
-            "mediaUltime3": 42.0,
-            "mediaPassato": 36.8,
-            "esperienza": "8° anno",
-            "giovane": false,
-            "forma": null
-          }
-        ],
-        "giocatoriCasa": [
-          {
-            "nome": "Jordan Love",
-            "ruolo": "QB",
-            "squadra": "GB",
-            "misura": "yard lanciate",
-            "partite": 9,
-            "mediaStagione": 290.9,
-            "mediaUltime3": 311.3,
-            "mediaPassato": 228.3,
-            "epaLancio": 0.202,
-            "epaLancioUltime3": 0.359,
-            "epaLancioPassato": 0.196,
-            "td": 19,
-            "int": 6,
-            "esperienza": "7° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Josh Jacobs",
-            "ruolo": "RB",
-            "squadra": "GB",
-            "misura": "yard di corsa",
-            "partite": 3,
-            "mediaStagione": 26.7,
-            "mediaUltime3": 26.7,
-            "mediaPassato": 70.4,
-            "esperienza": "8° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Matthew Golden",
-            "ruolo": "WR",
-            "squadra": "GB",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 87.0,
-            "mediaUltime3": 94.0,
-            "mediaPassato": 29.7,
-            "esperienza": "2° anno",
-            "giovane": true,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Christian Watson",
-            "ruolo": "WR",
-            "squadra": "GB",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 97.7,
-            "mediaUltime3": 113.7,
-            "mediaPassato": 50.7,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": "in forma"
-          }
-        ]
-      },
-      {
-        "casa": "IND",
+        "casa": "BUF",
         "ospite": "MIA",
-        "data": "2026-11-15",
+        "data": "2026-11-22",
         "ora": "13:00",
-        "favorita": "IND",
-        "linea": 3.5,
-        "totaleLinea": 38.5,
+        "favorita": "BUF",
+        "linea": 16.5,
+        "totaleLinea": 46.5,
         "giocatoriOspite": [
           {
             "nome": "Malik Willis",
@@ -140019,73 +138388,132 @@
         ],
         "giocatoriCasa": [
           {
-            "nome": "Daniel Jones",
+            "nome": "Josh Allen",
             "ruolo": "QB",
-            "squadra": "IND",
+            "squadra": "BUF",
             "misura": "yard lanciate",
-            "partite": 9,
-            "mediaStagione": 191.3,
-            "mediaUltime3": 144.0,
-            "mediaPassato": 224.8,
-            "epaLancio": -0.203,
-            "epaLancioUltime3": -0.393,
-            "epaLancioPassato": 0.037,
-            "td": 6,
-            "int": 10,
-            "esperienza": "8° anno",
-            "giovane": false,
-            "forma": "in calo"
-          },
-          {
-            "nome": "Jonathan Taylor",
-            "ruolo": "RB",
-            "squadra": "IND",
-            "misura": "yard di corsa",
-            "partite": 9,
-            "mediaStagione": 72.9,
-            "mediaUltime3": 54.7,
-            "mediaPassato": 97.3,
-            "esperienza": "7° anno",
-            "giovane": false,
-            "forma": "in calo"
-          },
-          {
-            "nome": "Keenan Allen",
-            "ruolo": "WR",
-            "squadra": "IND",
-            "misura": "yard ricevute",
             "partite": 8,
-            "mediaStagione": 43.9,
-            "mediaUltime3": 41.3,
-            "mediaPassato": 46.8,
-            "esperienza": "14° anno",
+            "mediaStagione": 253.4,
+            "mediaUltime3": 259.3,
+            "mediaPassato": 232.2,
+            "epaLancio": 0.251,
+            "epaLancioUltime3": 0.173,
+            "epaLancioPassato": 0.216,
+            "td": 12,
+            "int": 6,
+            "esperienza": "9° anno",
             "giovane": false,
             "forma": null
           },
           {
-            "nome": "Tyler Warren",
+            "nome": "James Cook",
+            "ruolo": "RB",
+            "squadra": "BUF",
+            "misura": "yard di corsa",
+            "partite": 8,
+            "mediaStagione": 101.8,
+            "mediaUltime3": 94.0,
+            "mediaPassato": 80.7,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Dalton Kincaid",
             "ruolo": "TE",
-            "squadra": "IND",
+            "squadra": "BUF",
             "misura": "yard ricevute",
-            "partite": 7,
-            "mediaStagione": 39.3,
-            "mediaUltime3": 48.3,
-            "mediaPassato": 48.1,
-            "esperienza": "2° anno",
-            "giovane": true,
+            "partite": 8,
+            "mediaStagione": 53.6,
+            "mediaUltime3": 50.7,
+            "mediaPassato": 40.0,
+            "esperienza": "4° anno",
+            "giovane": false,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Khalil Shakir",
+            "ruolo": "WR",
+            "squadra": "BUF",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 51.5,
+            "mediaUltime3": 52.0,
+            "mediaPassato": 52.0,
+            "esperienza": "5° anno",
+            "giovane": false,
             "forma": null
           }
         ]
       },
       {
-        "casa": "NO",
-        "ospite": "CAR",
-        "data": "2026-11-15",
+        "casa": "CAR",
+        "ospite": "BAL",
+        "data": "2026-11-22",
         "ora": "13:00",
-        "favorita": "NO",
-        "linea": 2.5,
-        "totaleLinea": 48.5,
+        "favorita": "CAR",
+        "linea": 1.5,
+        "totaleLinea": 44.5,
         "giocatoriOspite": [
+          {
+            "nome": "Joe Fagnano",
+            "ruolo": "QB",
+            "squadra": "BAL",
+            "misura": "yard lanciate",
+            "partite": 2,
+            "mediaStagione": 75.5,
+            "mediaUltime3": 75.5,
+            "mediaPassato": null,
+            "epaLancio": -0.663,
+            "epaLancioUltime3": -0.663,
+            "epaLancioPassato": null,
+            "td": 0,
+            "int": 3,
+            "esperienza": "Rookie",
+            "giovane": true,
+            "forma": null
+          },
+          {
+            "nome": "Derrick Henry",
+            "ruolo": "RB",
+            "squadra": "BAL",
+            "misura": "yard di corsa",
+            "partite": 9,
+            "mediaStagione": 76.6,
+            "mediaUltime3": 51.7,
+            "mediaPassato": 105.2,
+            "esperienza": "11° anno",
+            "giovane": false,
+            "forma": "in calo"
+          },
+          {
+            "nome": "Zay Flowers",
+            "ruolo": "WR",
+            "squadra": "BAL",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 76.8,
+            "mediaUltime3": 47.7,
+            "mediaPassato": 66.8,
+            "esperienza": "4° anno",
+            "giovane": false,
+            "forma": "in calo"
+          },
+          {
+            "nome": "Mark Andrews",
+            "ruolo": "TE",
+            "squadra": "BAL",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 26.3,
+            "mediaUltime3": 18.7,
+            "mediaPassato": 32.9,
+            "esperienza": "9° anno",
+            "giovane": false,
+            "forma": "in calo"
+          }
+        ],
+        "giocatoriCasa": [
           {
             "nome": "Bryce Young",
             "ruolo": "QB",
@@ -140143,8 +138571,17 @@
             "giovane": false,
             "forma": "in forma"
           }
-        ],
-        "giocatoriCasa": [
+        ]
+      },
+      {
+        "casa": "CHI",
+        "ospite": "NO",
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "favorita": "CHI",
+        "linea": 9.5,
+        "totaleLinea": 48.5,
+        "giocatoriOspite": [
           {
             "nome": "Tyler Shough",
             "ruolo": "QB",
@@ -140202,203 +138639,76 @@
             "giovane": true,
             "forma": null
           }
-        ]
-      },
-      {
-        "casa": "NYJ",
-        "ospite": "BUF",
-        "data": "2026-11-15",
-        "ora": "13:00",
-        "favorita": "BUF",
-        "linea": 8.5,
-        "totaleLinea": 50.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Josh Allen",
-            "ruolo": "QB",
-            "squadra": "BUF",
-            "misura": "yard lanciate",
-            "partite": 8,
-            "mediaStagione": 253.4,
-            "mediaUltime3": 259.3,
-            "mediaPassato": 232.2,
-            "epaLancio": 0.251,
-            "epaLancioUltime3": 0.173,
-            "epaLancioPassato": 0.216,
-            "td": 12,
-            "int": 6,
-            "esperienza": "9° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "James Cook",
-            "ruolo": "RB",
-            "squadra": "BUF",
-            "misura": "yard di corsa",
-            "partite": 8,
-            "mediaStagione": 101.8,
-            "mediaUltime3": 94.0,
-            "mediaPassato": 80.7,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Dalton Kincaid",
-            "ruolo": "TE",
-            "squadra": "BUF",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 53.6,
-            "mediaUltime3": 50.7,
-            "mediaPassato": 40.0,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Khalil Shakir",
-            "ruolo": "WR",
-            "squadra": "BUF",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 51.5,
-            "mediaUltime3": 52.0,
-            "mediaPassato": 52.0,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": null
-          }
         ],
         "giocatoriCasa": [
           {
-            "nome": "Geno Smith",
+            "nome": "Caleb Williams",
             "ruolo": "QB",
-            "squadra": "NYJ",
+            "squadra": "CHI",
             "misura": "yard lanciate",
+            "partite": 6,
+            "mediaStagione": 257.7,
+            "mediaUltime3": 278.0,
+            "mediaPassato": 225.0,
+            "epaLancio": 0.213,
+            "epaLancioUltime3": 0.128,
+            "epaLancioPassato": 0.007,
+            "td": 8,
+            "int": 5,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": null
+          },
+          {
+            "nome": "D'Andre Swift",
+            "ruolo": "RB",
+            "squadra": "CHI",
+            "misura": "yard di corsa",
             "partite": 9,
-            "mediaStagione": 230.9,
-            "mediaUltime3": 247.3,
-            "mediaPassato": 229.5,
-            "epaLancio": 0.102,
-            "epaLancioUltime3": 0.14,
-            "epaLancioPassato": -0.05,
-            "td": 12,
-            "int": 3,
-            "esperienza": "14° anno",
+            "mediaStagione": 64.0,
+            "mediaUltime3": 59.3,
+            "mediaPassato": 62.2,
+            "esperienza": "7° anno",
             "giovane": false,
             "forma": null
           },
           {
-            "nome": "Braelon Allen",
-            "ruolo": "RB",
-            "squadra": "NYJ",
-            "misura": "yard di corsa",
+            "nome": "Colston Loveland",
+            "ruolo": "TE",
+            "squadra": "CHI",
+            "misura": "yard ricevute",
             "partite": 9,
-            "mediaStagione": 66.4,
-            "mediaUltime3": 94.7,
-            "mediaPassato": 19.5,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Adonai Mitchell",
-            "ruolo": "WR",
-            "squadra": "NYJ",
-            "misura": "yard ricevute",
-            "partite": 5,
-            "mediaStagione": 53.0,
-            "mediaUltime3": 47.3,
-            "mediaPassato": 23.2,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Omar Cooper Jr.",
-            "ruolo": "WR",
-            "squadra": "NYJ",
-            "misura": "yard ricevute",
-            "partite": 4,
-            "mediaStagione": 76.5,
-            "mediaUltime3": 92.0,
-            "mediaPassato": null,
-            "esperienza": "Rookie",
+            "mediaStagione": 40.3,
+            "mediaUltime3": 62.7,
+            "mediaPassato": 50.3,
+            "esperienza": "2° anno",
             "giovane": true,
             "forma": null
-          }
-        ]
-      },
-      {
-        "casa": "TEN",
-        "ospite": "JAX",
-        "data": "2026-11-15",
-        "ora": "13:00",
-        "favorita": "JAX",
-        "linea": 10.5,
-        "totaleLinea": 46.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Trevor Lawrence",
-            "ruolo": "QB",
-            "squadra": "JAX",
-            "misura": "yard lanciate",
-            "partite": 8,
-            "mediaStagione": 241.5,
-            "mediaUltime3": 252.7,
-            "mediaPassato": 223.5,
-            "epaLancio": 0.321,
-            "epaLancioUltime3": 0.369,
-            "epaLancioPassato": 0.052,
-            "td": 18,
-            "int": 4,
-            "esperienza": "6° anno",
-            "giovane": false,
-            "forma": null
           },
           {
-            "nome": "Bhayshul Tuten",
-            "ruolo": "RB",
-            "squadra": "JAX",
-            "misura": "yard di corsa",
-            "partite": 8,
-            "mediaStagione": 65.1,
-            "mediaUltime3": 57.3,
-            "mediaPassato": 22.4,
+            "nome": "Luther Burden III",
+            "ruolo": "WR",
+            "squadra": "CHI",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 71.6,
+            "mediaUltime3": 94.3,
+            "mediaPassato": 42.2,
             "esperienza": "2° anno",
             "giovane": true,
             "forma": "in forma"
-          },
-          {
-            "nome": "Parker Washington",
-            "ruolo": "WR",
-            "squadra": "JAX",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 61.6,
-            "mediaUltime3": 47.0,
-            "mediaPassato": 43.4,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Jakobi Meyers",
-            "ruolo": "WR",
-            "squadra": "JAX",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 46.8,
-            "mediaUltime3": 57.3,
-            "mediaPassato": 58.6,
-            "esperienza": "8° anno",
-            "giovane": false,
-            "forma": null
           }
-        ],
-        "giocatoriCasa": [
+        ]
+      },
+      {
+        "casa": "DAL",
+        "ospite": "TEN",
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "favorita": "DAL",
+        "linea": 7.5,
+        "totaleLinea": 51.5,
+        "giocatoriOspite": [
           {
             "nome": "Cam Ward",
             "ruolo": "QB",
@@ -140452,328 +138762,6 @@
             "mediaStagione": 26.4,
             "mediaUltime3": 27.0,
             "mediaPassato": 32.2,
-            "esperienza": "2° anno",
-            "giovane": true,
-            "forma": null
-          }
-        ]
-      },
-      {
-        "casa": "ARI",
-        "ospite": "LA",
-        "data": "2026-11-15",
-        "ora": "16:05",
-        "favorita": "LA",
-        "linea": 9.5,
-        "totaleLinea": 39.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Matthew Stafford",
-            "ruolo": "QB",
-            "squadra": "LA",
-            "misura": "yard lanciate",
-            "partite": 9,
-            "mediaStagione": 263.8,
-            "mediaUltime3": 193.3,
-            "mediaPassato": 261.5,
-            "epaLancio": 0.093,
-            "epaLancioUltime3": 0.029,
-            "epaLancioPassato": 0.165,
-            "td": 16,
-            "int": 9,
-            "esperienza": "18° anno",
-            "giovane": false,
-            "forma": "in calo"
-          },
-          {
-            "nome": "Kyren Williams",
-            "ruolo": "RB",
-            "squadra": "LA",
-            "misura": "yard di corsa",
-            "partite": 9,
-            "mediaStagione": 65.9,
-            "mediaUltime3": 66.7,
-            "mediaPassato": 76.7,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Puka Nacua",
-            "ruolo": "WR",
-            "squadra": "LA",
-            "misura": "yard ricevute",
-            "partite": 7,
-            "mediaStagione": 102.1,
-            "mediaUltime3": 99.3,
-            "mediaPassato": 99.3,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Tyler Higbee",
-            "ruolo": "TE",
-            "squadra": "LA",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 35.9,
-            "mediaUltime3": 13.7,
-            "mediaPassato": 30.2,
-            "esperienza": "11° anno",
-            "giovane": false,
-            "forma": "in calo"
-          }
-        ],
-        "giocatoriCasa": [
-          {
-            "nome": "Jacoby Brissett",
-            "ruolo": "QB",
-            "squadra": "ARI",
-            "misura": "yard lanciate",
-            "partite": 8,
-            "mediaStagione": 214.9,
-            "mediaUltime3": 203.0,
-            "mediaPassato": 199.6,
-            "epaLancio": -0.079,
-            "epaLancioUltime3": -0.19,
-            "epaLancioPassato": -0.062,
-            "td": 10,
-            "int": 7,
-            "esperienza": "11° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Tyler Allgeier",
-            "ruolo": "RB",
-            "squadra": "ARI",
-            "misura": "yard di corsa",
-            "partite": 9,
-            "mediaStagione": 41.0,
-            "mediaUltime3": 70.7,
-            "mediaPassato": 34.1,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Michael Wilson",
-            "ruolo": "WR",
-            "squadra": "ARI",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 60.7,
-            "mediaUltime3": 75.3,
-            "mediaPassato": 47.1,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Trey McBride",
-            "ruolo": "TE",
-            "squadra": "ARI",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 66.4,
-            "mediaUltime3": 79.0,
-            "mediaPassato": 72.3,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": null
-          }
-        ]
-      },
-      {
-        "casa": "LV",
-        "ospite": "SEA",
-        "data": "2026-11-15",
-        "ora": "16:05",
-        "favorita": "SEA",
-        "linea": 6.5,
-        "totaleLinea": 40.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Sam Darnold",
-            "ruolo": "QB",
-            "squadra": "SEA",
-            "misura": "yard lanciate",
-            "partite": 7,
-            "mediaStagione": 211.1,
-            "mediaUltime3": 241.0,
-            "mediaPassato": 244.3,
-            "epaLancio": -0.077,
-            "epaLancioUltime3": -0.01,
-            "epaLancioPassato": 0.102,
-            "td": 10,
-            "int": 9,
-            "esperienza": "9° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Emanuel Wilson",
-            "ruolo": "RB",
-            "squadra": "SEA",
-            "misura": "yard di corsa",
-            "partite": 7,
-            "mediaStagione": 57.6,
-            "mediaUltime3": 71.0,
-            "mediaPassato": 28.0,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Jaxon Smith-Njigba",
-            "ruolo": "WR",
-            "squadra": "SEA",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 115.1,
-            "mediaUltime3": 106.3,
-            "mediaPassato": 84.4,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "AJ Barner",
-            "ruolo": "TE",
-            "squadra": "SEA",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 23.3,
-            "mediaUltime3": 24.0,
-            "mediaPassato": 23.7,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": null
-          }
-        ],
-        "giocatoriCasa": [
-          {
-            "nome": "Kirk Cousins",
-            "ruolo": "QB",
-            "squadra": "LV",
-            "misura": "yard lanciate",
-            "partite": 9,
-            "mediaStagione": 260.0,
-            "mediaUltime3": 252.7,
-            "mediaPassato": 217.9,
-            "epaLancio": 0.173,
-            "epaLancioUltime3": 0.084,
-            "epaLancioPassato": 0.028,
-            "td": 20,
-            "int": 8,
-            "esperienza": "15° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Mike Washington Jr.",
-            "ruolo": "RB",
-            "squadra": "LV",
-            "misura": "yard di corsa",
-            "partite": 9,
-            "mediaStagione": 30.6,
-            "mediaUltime3": 35.7,
-            "mediaPassato": null,
-            "esperienza": "Rookie",
-            "giovane": true,
-            "forma": null
-          },
-          {
-            "nome": "Brock Bowers",
-            "ruolo": "TE",
-            "squadra": "LV",
-            "misura": "yard ricevute",
-            "partite": 7,
-            "mediaStagione": 94.0,
-            "mediaUltime3": 92.0,
-            "mediaPassato": 64.6,
-            "esperienza": "3° anno",
-            "giovane": true,
-            "forma": "in forma"
-          },
-          {
-            "nome": "Tre Tucker",
-            "ruolo": "WR",
-            "squadra": "LV",
-            "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 58.8,
-            "mediaUltime3": 52.7,
-            "mediaPassato": 36.3,
-            "esperienza": "4° anno",
-            "giovane": false,
-            "forma": "in forma"
-          }
-        ]
-      },
-      {
-        "casa": "DAL",
-        "ospite": "SF",
-        "data": "2026-11-15",
-        "ora": "16:25",
-        "favorita": "SF",
-        "linea": 3.5,
-        "totaleLinea": 55.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Brock Purdy",
-            "ruolo": "QB",
-            "squadra": "SF",
-            "misura": "yard lanciate",
-            "partite": 8,
-            "mediaStagione": 247.5,
-            "mediaUltime3": 261.3,
-            "mediaPassato": 247.4,
-            "epaLancio": 0.299,
-            "epaLancioUltime3": 0.137,
-            "epaLancioPassato": 0.168,
-            "td": 17,
-            "int": 5,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Christian McCaffrey",
-            "ruolo": "RB",
-            "squadra": "SF",
-            "misura": "yard di corsa",
-            "partite": 8,
-            "mediaStagione": 57.1,
-            "mediaUltime3": 57.0,
-            "mediaPassato": 64.7,
-            "esperienza": "10° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "George Kittle",
-            "ruolo": "TE",
-            "squadra": "SF",
-            "misura": "yard ricevute",
-            "partite": 8,
-            "mediaStagione": 60.4,
-            "mediaUltime3": 71.7,
-            "mediaPassato": 64.4,
-            "esperienza": "10° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Jordan Watkins",
-            "ruolo": "WR",
-            "squadra": "SF",
-            "misura": "yard ricevute",
-            "partite": 4,
-            "mediaStagione": 56.0,
-            "mediaUltime3": 54.7,
-            "mediaPassato": null,
             "esperienza": "2° anno",
             "giovane": true,
             "forma": null
@@ -140840,13 +138828,648 @@
         ]
       },
       {
-        "casa": "CIN",
-        "ospite": "PIT",
-        "data": "2026-11-15",
-        "ora": "20:20",
-        "favorita": "CIN",
+        "casa": "DET",
+        "ospite": "TB",
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "favorita": "DET",
         "linea": 3.5,
-        "totaleLinea": 49.5,
+        "totaleLinea": 47.5,
+        "giocatoriOspite": [
+          {
+            "nome": "Baker Mayfield",
+            "ruolo": "QB",
+            "squadra": "TB",
+            "misura": "yard lanciate",
+            "partite": 6,
+            "mediaStagione": 153.7,
+            "mediaUltime3": 102.3,
+            "mediaPassato": 239.4,
+            "epaLancio": -0.305,
+            "epaLancioUltime3": -0.294,
+            "epaLancioPassato": 0.115,
+            "td": 3,
+            "int": 4,
+            "esperienza": "9° anno",
+            "giovane": false,
+            "forma": "in calo"
+          },
+          {
+            "nome": "Bucky Irving",
+            "ruolo": "RB",
+            "squadra": "TB",
+            "misura": "yard di corsa",
+            "partite": 9,
+            "mediaStagione": 91.7,
+            "mediaUltime3": 124.3,
+            "mediaPassato": 63.8,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Chris Godwin Jr.",
+            "ruolo": "WR",
+            "squadra": "TB",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 28.8,
+            "mediaUltime3": 14.3,
+            "mediaPassato": 58.5,
+            "esperienza": "10° anno",
+            "giovane": false,
+            "forma": "in calo"
+          },
+          {
+            "nome": "Cade Otton",
+            "ruolo": "TE",
+            "squadra": "TB",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 26.4,
+            "mediaUltime3": 9.7,
+            "mediaPassato": 40.1,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": "in calo"
+          }
+        ],
+        "giocatoriCasa": [
+          {
+            "nome": "Jared Goff",
+            "ruolo": "QB",
+            "squadra": "DET",
+            "misura": "yard lanciate",
+            "partite": 8,
+            "mediaStagione": 266.8,
+            "mediaUltime3": 216.3,
+            "mediaPassato": 271.6,
+            "epaLancio": 0.245,
+            "epaLancioUltime3": 0.02,
+            "epaLancioPassato": 0.234,
+            "td": 15,
+            "int": 2,
+            "esperienza": "11° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Jahmyr Gibbs",
+            "ruolo": "RB",
+            "squadra": "DET",
+            "misura": "yard di corsa",
+            "partite": 8,
+            "mediaStagione": 105.9,
+            "mediaUltime3": 114.3,
+            "mediaPassato": 78.3,
+            "esperienza": "4° anno",
+            "giovane": false,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Amon-Ra St. Brown",
+            "ruolo": "WR",
+            "squadra": "DET",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 82.1,
+            "mediaUltime3": 95.0,
+            "mediaPassato": 80.0,
+            "esperienza": "6° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Jameson Williams",
+            "ruolo": "WR",
+            "squadra": "DET",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 58.5,
+            "mediaUltime3": 64.0,
+            "mediaPassato": 64.8,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": null
+          }
+        ]
+      },
+      {
+        "casa": "KC",
+        "ospite": "ARI",
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "favorita": "KC",
+        "linea": 14.0,
+        "totaleLinea": 42.5,
+        "giocatoriOspite": [
+          {
+            "nome": "Jacoby Brissett",
+            "ruolo": "QB",
+            "squadra": "ARI",
+            "misura": "yard lanciate",
+            "partite": 8,
+            "mediaStagione": 214.9,
+            "mediaUltime3": 203.0,
+            "mediaPassato": 199.6,
+            "epaLancio": -0.079,
+            "epaLancioUltime3": -0.19,
+            "epaLancioPassato": -0.062,
+            "td": 10,
+            "int": 7,
+            "esperienza": "11° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Tyler Allgeier",
+            "ruolo": "RB",
+            "squadra": "ARI",
+            "misura": "yard di corsa",
+            "partite": 9,
+            "mediaStagione": 41.0,
+            "mediaUltime3": 70.7,
+            "mediaPassato": 34.1,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Michael Wilson",
+            "ruolo": "WR",
+            "squadra": "ARI",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 60.7,
+            "mediaUltime3": 75.3,
+            "mediaPassato": 47.1,
+            "esperienza": "4° anno",
+            "giovane": false,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Trey McBride",
+            "ruolo": "TE",
+            "squadra": "ARI",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 66.4,
+            "mediaUltime3": 79.0,
+            "mediaPassato": 72.3,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": null
+          }
+        ],
+        "giocatoriCasa": [
+          {
+            "nome": "Patrick Mahomes",
+            "ruolo": "QB",
+            "squadra": "KC",
+            "misura": "yard lanciate",
+            "partite": 8,
+            "mediaStagione": 254.6,
+            "mediaUltime3": 242.7,
+            "mediaPassato": 248.3,
+            "epaLancio": 0.155,
+            "epaLancioUltime3": 0.117,
+            "epaLancioPassato": 0.122,
+            "td": 14,
+            "int": 4,
+            "esperienza": "10° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Kenneth Walker III",
+            "ruolo": "RB",
+            "squadra": "KC",
+            "misura": "yard di corsa",
+            "partite": 8,
+            "mediaStagione": 109.0,
+            "mediaUltime3": 69.0,
+            "mediaPassato": 61.7,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Travis Kelce",
+            "ruolo": "TE",
+            "squadra": "KC",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 60.2,
+            "mediaUltime3": 61.0,
+            "mediaPassato": 51.4,
+            "esperienza": "14° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Xavier Worthy",
+            "ruolo": "WR",
+            "squadra": "KC",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 34.8,
+            "mediaUltime3": 24.0,
+            "mediaPassato": 44.2,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": "in calo"
+          }
+        ]
+      },
+      {
+        "casa": "NYG",
+        "ospite": "JAX",
+        "data": "2026-11-22",
+        "ora": "13:00",
+        "favorita": "JAX",
+        "linea": 6.0,
+        "totaleLinea": 44.5,
+        "giocatoriOspite": [
+          {
+            "nome": "Trevor Lawrence",
+            "ruolo": "QB",
+            "squadra": "JAX",
+            "misura": "yard lanciate",
+            "partite": 8,
+            "mediaStagione": 241.5,
+            "mediaUltime3": 252.7,
+            "mediaPassato": 223.5,
+            "epaLancio": 0.321,
+            "epaLancioUltime3": 0.369,
+            "epaLancioPassato": 0.052,
+            "td": 18,
+            "int": 4,
+            "esperienza": "6° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Bhayshul Tuten",
+            "ruolo": "RB",
+            "squadra": "JAX",
+            "misura": "yard di corsa",
+            "partite": 8,
+            "mediaStagione": 65.1,
+            "mediaUltime3": 57.3,
+            "mediaPassato": 22.4,
+            "esperienza": "2° anno",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Parker Washington",
+            "ruolo": "WR",
+            "squadra": "JAX",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 61.6,
+            "mediaUltime3": 47.0,
+            "mediaPassato": 43.4,
+            "esperienza": "4° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Jakobi Meyers",
+            "ruolo": "WR",
+            "squadra": "JAX",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 46.8,
+            "mediaUltime3": 57.3,
+            "mediaPassato": 58.6,
+            "esperienza": "8° anno",
+            "giovane": false,
+            "forma": null
+          }
+        ],
+        "giocatoriCasa": [
+          {
+            "nome": "J.J. McCarthy",
+            "ruolo": "QB",
+            "squadra": "NYG",
+            "misura": "yard lanciate",
+            "partite": 5,
+            "mediaStagione": 183.0,
+            "mediaUltime3": 224.0,
+            "mediaPassato": 163.2,
+            "epaLancio": 0.149,
+            "epaLancioUltime3": 0.127,
+            "epaLancioPassato": -0.223,
+            "td": 2,
+            "int": 2,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Cam Skattebo",
+            "ruolo": "RB",
+            "squadra": "NYG",
+            "misura": "yard di corsa",
+            "partite": 7,
+            "mediaStagione": 70.9,
+            "mediaUltime3": 87.0,
+            "mediaPassato": 51.2,
+            "esperienza": "2° anno",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Malik Nabers",
+            "ruolo": "WR",
+            "squadra": "NYG",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 76.9,
+            "mediaUltime3": 66.0,
+            "mediaPassato": 77.6,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": null
+          },
+          {
+            "nome": "Isaiah Likely",
+            "ruolo": "TE",
+            "squadra": "NYG",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 63.9,
+            "mediaUltime3": 64.0,
+            "mediaPassato": 31.4,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": "in forma"
+          }
+        ]
+      },
+      {
+        "casa": "LAC",
+        "ospite": "NYJ",
+        "data": "2026-11-22",
+        "ora": "16:05",
+        "favorita": "LAC",
+        "linea": 1.5,
+        "totaleLinea": 42.5,
+        "giocatoriOspite": [
+          {
+            "nome": "Geno Smith",
+            "ruolo": "QB",
+            "squadra": "NYJ",
+            "misura": "yard lanciate",
+            "partite": 9,
+            "mediaStagione": 230.9,
+            "mediaUltime3": 247.3,
+            "mediaPassato": 229.5,
+            "epaLancio": 0.102,
+            "epaLancioUltime3": 0.14,
+            "epaLancioPassato": -0.05,
+            "td": 12,
+            "int": 3,
+            "esperienza": "14° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Braelon Allen",
+            "ruolo": "RB",
+            "squadra": "NYJ",
+            "misura": "yard di corsa",
+            "partite": 9,
+            "mediaStagione": 66.4,
+            "mediaUltime3": 94.7,
+            "mediaPassato": 19.5,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Adonai Mitchell",
+            "ruolo": "WR",
+            "squadra": "NYJ",
+            "misura": "yard ricevute",
+            "partite": 5,
+            "mediaStagione": 53.0,
+            "mediaUltime3": 47.3,
+            "mediaPassato": 23.2,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Omar Cooper Jr.",
+            "ruolo": "WR",
+            "squadra": "NYJ",
+            "misura": "yard ricevute",
+            "partite": 4,
+            "mediaStagione": 76.5,
+            "mediaUltime3": 92.0,
+            "mediaPassato": null,
+            "esperienza": "Rookie",
+            "giovane": true,
+            "forma": null
+          }
+        ],
+        "giocatoriCasa": [
+          {
+            "nome": "Justin Herbert",
+            "ruolo": "QB",
+            "squadra": "LAC",
+            "misura": "yard lanciate",
+            "partite": 8,
+            "mediaStagione": 198.9,
+            "mediaUltime3": 218.0,
+            "mediaPassato": 228.5,
+            "epaLancio": -0.277,
+            "epaLancioUltime3": -0.372,
+            "epaLancioPassato": 0.048,
+            "td": 6,
+            "int": 11,
+            "esperienza": "7° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Omarion Hampton",
+            "ruolo": "RB",
+            "squadra": "LAC",
+            "misura": "yard di corsa",
+            "partite": 8,
+            "mediaStagione": 46.1,
+            "mediaUltime3": 32.7,
+            "mediaPassato": 54.4,
+            "esperienza": "2° anno",
+            "giovane": true,
+            "forma": "in calo"
+          },
+          {
+            "nome": "Charlie Kolar",
+            "ruolo": "TE",
+            "squadra": "LAC",
+            "misura": "yard ricevute",
+            "partite": 6,
+            "mediaStagione": 21.5,
+            "mediaUltime3": 23.7,
+            "mediaPassato": 11.4,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": "in forma"
+          },
+          {
+            "nome": "KeAndre Lambert-Smith",
+            "ruolo": "WR",
+            "squadra": "LAC",
+            "misura": "yard ricevute",
+            "partite": 3,
+            "mediaStagione": 27.3,
+            "mediaUltime3": 27.3,
+            "mediaPassato": 5.1,
+            "esperienza": "2° anno",
+            "giovane": true,
+            "forma": null
+          }
+        ]
+      },
+      {
+        "casa": "DEN",
+        "ospite": "LV",
+        "data": "2026-11-22",
+        "ora": "16:25",
+        "favorita": "DEN",
+        "linea": 8.5,
+        "totaleLinea": 41.5,
+        "giocatoriOspite": [
+          {
+            "nome": "Kirk Cousins",
+            "ruolo": "QB",
+            "squadra": "LV",
+            "misura": "yard lanciate",
+            "partite": 9,
+            "mediaStagione": 260.0,
+            "mediaUltime3": 252.7,
+            "mediaPassato": 217.9,
+            "epaLancio": 0.173,
+            "epaLancioUltime3": 0.084,
+            "epaLancioPassato": 0.028,
+            "td": 20,
+            "int": 8,
+            "esperienza": "15° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Mike Washington Jr.",
+            "ruolo": "RB",
+            "squadra": "LV",
+            "misura": "yard di corsa",
+            "partite": 9,
+            "mediaStagione": 30.6,
+            "mediaUltime3": 35.7,
+            "mediaPassato": null,
+            "esperienza": "Rookie",
+            "giovane": true,
+            "forma": null
+          },
+          {
+            "nome": "Brock Bowers",
+            "ruolo": "TE",
+            "squadra": "LV",
+            "misura": "yard ricevute",
+            "partite": 7,
+            "mediaStagione": 94.0,
+            "mediaUltime3": 92.0,
+            "mediaPassato": 64.6,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Tre Tucker",
+            "ruolo": "WR",
+            "squadra": "LV",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 58.8,
+            "mediaUltime3": 52.7,
+            "mediaPassato": 36.3,
+            "esperienza": "4° anno",
+            "giovane": false,
+            "forma": "in forma"
+          }
+        ],
+        "giocatoriCasa": [
+          {
+            "nome": "Bo Nix",
+            "ruolo": "QB",
+            "squadra": "DEN",
+            "misura": "yard lanciate",
+            "partite": 9,
+            "mediaStagione": 192.2,
+            "mediaUltime3": 227.0,
+            "mediaPassato": 225.8,
+            "epaLancio": 0.015,
+            "epaLancioUltime3": 0.196,
+            "epaLancioPassato": 0.075,
+            "td": 11,
+            "int": 4,
+            "esperienza": "3° anno",
+            "giovane": true,
+            "forma": null
+          },
+          {
+            "nome": "Jonah Coleman",
+            "ruolo": "RB",
+            "squadra": "DEN",
+            "misura": "yard di corsa",
+            "partite": 5,
+            "mediaStagione": 38.2,
+            "mediaUltime3": 50.7,
+            "mediaPassato": null,
+            "esperienza": "Rookie",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Courtland Sutton",
+            "ruolo": "WR",
+            "squadra": "DEN",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 29.6,
+            "mediaUltime3": 47.7,
+            "mediaPassato": 62.3,
+            "esperienza": "9° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Jaylen Waddle",
+            "ruolo": "WR",
+            "squadra": "DEN",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 37.4,
+            "mediaUltime3": 36.3,
+            "mediaPassato": 53.4,
+            "esperienza": "6° anno",
+            "giovane": false,
+            "forma": "in calo"
+          }
+        ]
+      },
+      {
+        "casa": "PHI",
+        "ospite": "PIT",
+        "data": "2026-11-22",
+        "ora": "16:25",
+        "favorita": "PIT",
+        "linea": 4.5,
+        "totaleLinea": 38.5,
         "giocatoriOspite": [
           {
             "nome": "Aaron Rodgers",
@@ -140908,6 +139531,201 @@
         ],
         "giocatoriCasa": [
           {
+            "nome": "Tanner McKee",
+            "ruolo": "QB",
+            "squadra": "PHI",
+            "misura": "yard lanciate",
+            "partite": 3,
+            "mediaStagione": 212.7,
+            "mediaUltime3": 212.7,
+            "mediaPassato": 99.5,
+            "epaLancio": -0.198,
+            "epaLancioUltime3": -0.198,
+            "epaLancioPassato": null,
+            "td": 2,
+            "int": 2,
+            "esperienza": "4° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Saquon Barkley",
+            "ruolo": "RB",
+            "squadra": "PHI",
+            "misura": "yard di corsa",
+            "partite": 7,
+            "mediaStagione": 42.3,
+            "mediaUltime3": 38.0,
+            "mediaPassato": 101.4,
+            "esperienza": "9° anno",
+            "giovane": false,
+            "forma": "in calo"
+          },
+          {
+            "nome": "Makai Lemon",
+            "ruolo": "WR",
+            "squadra": "PHI",
+            "misura": "yard ricevute",
+            "partite": 9,
+            "mediaStagione": 34.7,
+            "mediaUltime3": 61.7,
+            "mediaPassato": null,
+            "esperienza": "Rookie",
+            "giovane": true,
+            "forma": "in forma"
+          },
+          {
+            "nome": "Dallas Goedert",
+            "ruolo": "TE",
+            "squadra": "PHI",
+            "misura": "yard ricevute",
+            "partite": 7,
+            "mediaStagione": 44.0,
+            "mediaUltime3": 42.7,
+            "mediaPassato": 44.5,
+            "esperienza": "9° anno",
+            "giovane": false,
+            "forma": null
+          }
+        ]
+      },
+      {
+        "casa": "SF",
+        "ospite": "MIN",
+        "data": "2026-11-22",
+        "ora": "20:20",
+        "favorita": "SF",
+        "linea": 3.5,
+        "totaleLinea": 45.5,
+        "giocatoriOspite": [
+          {
+            "nome": "Kyler Murray",
+            "ruolo": "QB",
+            "squadra": "MIN",
+            "misura": "yard lanciate",
+            "partite": 6,
+            "mediaStagione": 170.3,
+            "mediaUltime3": 196.3,
+            "mediaPassato": 218.8,
+            "epaLancio": -0.065,
+            "epaLancioUltime3": 0.086,
+            "epaLancioPassato": 0.102,
+            "td": 5,
+            "int": 3,
+            "esperienza": "8° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Jordan Mason",
+            "ruolo": "RB",
+            "squadra": "MIN",
+            "misura": "yard di corsa",
+            "partite": 4,
+            "mediaStagione": 45.5,
+            "mediaUltime3": 41.0,
+            "mediaPassato": 55.2,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": "in calo"
+          },
+          {
+            "nome": "Justin Jefferson",
+            "ruolo": "WR",
+            "squadra": "MIN",
+            "misura": "yard ricevute",
+            "partite": 7,
+            "mediaStagione": 56.1,
+            "mediaUltime3": 45.0,
+            "mediaPassato": 75.4,
+            "esperienza": "7° anno",
+            "giovane": false,
+            "forma": "in calo"
+          },
+          {
+            "nome": "T.J. Hockenson",
+            "ruolo": "TE",
+            "squadra": "MIN",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 41.0,
+            "mediaUltime3": 42.0,
+            "mediaPassato": 36.8,
+            "esperienza": "8° anno",
+            "giovane": false,
+            "forma": null
+          }
+        ],
+        "giocatoriCasa": [
+          {
+            "nome": "Brock Purdy",
+            "ruolo": "QB",
+            "squadra": "SF",
+            "misura": "yard lanciate",
+            "partite": 8,
+            "mediaStagione": 247.5,
+            "mediaUltime3": 261.3,
+            "mediaPassato": 247.4,
+            "epaLancio": 0.299,
+            "epaLancioUltime3": 0.137,
+            "epaLancioPassato": 0.168,
+            "td": 17,
+            "int": 5,
+            "esperienza": "5° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Christian McCaffrey",
+            "ruolo": "RB",
+            "squadra": "SF",
+            "misura": "yard di corsa",
+            "partite": 8,
+            "mediaStagione": 57.1,
+            "mediaUltime3": 57.0,
+            "mediaPassato": 64.7,
+            "esperienza": "10° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "George Kittle",
+            "ruolo": "TE",
+            "squadra": "SF",
+            "misura": "yard ricevute",
+            "partite": 8,
+            "mediaStagione": 60.4,
+            "mediaUltime3": 71.7,
+            "mediaPassato": 64.4,
+            "esperienza": "10° anno",
+            "giovane": false,
+            "forma": null
+          },
+          {
+            "nome": "Jordan Watkins",
+            "ruolo": "WR",
+            "squadra": "SF",
+            "misura": "yard ricevute",
+            "partite": 4,
+            "mediaStagione": 56.0,
+            "mediaUltime3": 54.7,
+            "mediaPassato": null,
+            "esperienza": "2° anno",
+            "giovane": true,
+            "forma": null
+          }
+        ]
+      },
+      {
+        "casa": "WAS",
+        "ospite": "CIN",
+        "data": "2026-11-23",
+        "ora": "20:15",
+        "favorita": "CIN",
+        "linea": 3.5,
+        "totaleLinea": 51.5,
+        "giocatoriOspite": [
+          {
             "nome": "Joe Burrow",
             "ruolo": "QB",
             "squadra": "CIN",
@@ -140964,132 +139782,64 @@
             "giovane": false,
             "forma": "in forma"
           }
-        ]
-      },
-      {
-        "casa": "BAL",
-        "ospite": "LAC",
-        "data": "2026-11-16",
-        "ora": "20:15",
-        "favorita": "BAL",
-        "linea": 4.5,
-        "totaleLinea": 38.5,
-        "giocatoriOspite": [
-          {
-            "nome": "Justin Herbert",
-            "ruolo": "QB",
-            "squadra": "LAC",
-            "misura": "yard lanciate",
-            "partite": 8,
-            "mediaStagione": 198.9,
-            "mediaUltime3": 218.0,
-            "mediaPassato": 228.5,
-            "epaLancio": -0.277,
-            "epaLancioUltime3": -0.372,
-            "epaLancioPassato": 0.048,
-            "td": 6,
-            "int": 11,
-            "esperienza": "7° anno",
-            "giovane": false,
-            "forma": null
-          },
-          {
-            "nome": "Omarion Hampton",
-            "ruolo": "RB",
-            "squadra": "LAC",
-            "misura": "yard di corsa",
-            "partite": 8,
-            "mediaStagione": 46.1,
-            "mediaUltime3": 32.7,
-            "mediaPassato": 54.4,
-            "esperienza": "2° anno",
-            "giovane": true,
-            "forma": "in calo"
-          },
-          {
-            "nome": "Charlie Kolar",
-            "ruolo": "TE",
-            "squadra": "LAC",
-            "misura": "yard ricevute",
-            "partite": 6,
-            "mediaStagione": 21.5,
-            "mediaUltime3": 23.7,
-            "mediaPassato": 11.4,
-            "esperienza": "5° anno",
-            "giovane": false,
-            "forma": "in forma"
-          },
-          {
-            "nome": "KeAndre Lambert-Smith",
-            "ruolo": "WR",
-            "squadra": "LAC",
-            "misura": "yard ricevute",
-            "partite": 3,
-            "mediaStagione": 27.3,
-            "mediaUltime3": 27.3,
-            "mediaPassato": 5.1,
-            "esperienza": "2° anno",
-            "giovane": true,
-            "forma": null
-          }
         ],
         "giocatoriCasa": [
           {
-            "nome": "Joe Fagnano",
+            "nome": "Jayden Daniels",
             "ruolo": "QB",
-            "squadra": "BAL",
+            "squadra": "WAS",
             "misura": "yard lanciate",
-            "partite": 2,
-            "mediaStagione": 75.5,
-            "mediaUltime3": 75.5,
-            "mediaPassato": null,
-            "epaLancio": -0.663,
-            "epaLancioUltime3": -0.663,
-            "epaLancioPassato": null,
-            "td": 0,
-            "int": 3,
-            "esperienza": "Rookie",
+            "partite": 7,
+            "mediaStagione": 214.1,
+            "mediaUltime3": 246.7,
+            "mediaPassato": 209.3,
+            "epaLancio": 0.023,
+            "epaLancioUltime3": 0.006,
+            "epaLancioPassato": 0.11,
+            "td": 10,
+            "int": 2,
+            "esperienza": "3° anno",
             "giovane": true,
             "forma": null
           },
           {
-            "nome": "Derrick Henry",
+            "nome": "Rachaad White",
             "ruolo": "RB",
-            "squadra": "BAL",
+            "squadra": "WAS",
             "misura": "yard di corsa",
-            "partite": 9,
-            "mediaStagione": 76.6,
-            "mediaUltime3": 51.7,
-            "mediaPassato": 105.2,
-            "esperienza": "11° anno",
+            "partite": 8,
+            "mediaStagione": 34.4,
+            "mediaUltime3": 43.3,
+            "mediaPassato": 35.9,
+            "esperienza": "5° anno",
             "giovane": false,
-            "forma": "in calo"
+            "forma": null
           },
           {
-            "nome": "Zay Flowers",
+            "nome": "Stefon Diggs",
             "ruolo": "WR",
-            "squadra": "BAL",
+            "squadra": "WAS",
             "misura": "yard ricevute",
             "partite": 8,
-            "mediaStagione": 76.8,
-            "mediaUltime3": 47.7,
-            "mediaPassato": 66.8,
-            "esperienza": "4° anno",
+            "mediaStagione": 48.2,
+            "mediaUltime3": 57.3,
+            "mediaPassato": 55.8,
+            "esperienza": "12° anno",
             "giovane": false,
-            "forma": "in calo"
+            "forma": null
           },
           {
-            "nome": "Mark Andrews",
+            "nome": "Chig Okonkwo",
             "ruolo": "TE",
-            "squadra": "BAL",
+            "squadra": "WAS",
             "misura": "yard ricevute",
-            "partite": 9,
-            "mediaStagione": 26.3,
-            "mediaUltime3": 18.7,
-            "mediaPassato": 32.9,
-            "esperienza": "9° anno",
+            "partite": 7,
+            "mediaStagione": 37.6,
+            "mediaUltime3": 37.7,
+            "mediaPassato": 31.5,
+            "esperienza": "5° anno",
             "giovane": false,
-            "forma": "in calo"
+            "forma": null
           }
         ]
       }
@@ -141133,22 +139883,40 @@
           "forma": null
         },
         {
+          "nome": "J.J. McCarthy",
+          "ruolo": "QB",
+          "squadra": "NYG",
+          "misura": "yard lanciate",
+          "partite": 5,
+          "mediaStagione": 183.0,
+          "mediaUltime3": 224.0,
+          "mediaPassato": 163.2,
+          "epaLancio": 0.149,
+          "epaLancioUltime3": 0.127,
+          "epaLancioPassato": -0.223,
+          "td": 2,
+          "int": 2,
+          "esperienza": "3° anno",
+          "giovane": true,
+          "forma": "in forma"
+        },
+        {
           "nome": "Jayden Daniels",
           "ruolo": "QB",
           "squadra": "WAS",
           "misura": "yard lanciate",
-          "partite": 6,
-          "mediaStagione": 208.3,
-          "mediaUltime3": 263.7,
+          "partite": 7,
+          "mediaStagione": 214.1,
+          "mediaUltime3": 246.7,
           "mediaPassato": 209.3,
-          "epaLancio": 0.016,
-          "epaLancioUltime3": 0.012,
+          "epaLancio": 0.023,
+          "epaLancioUltime3": 0.006,
           "epaLancioPassato": 0.11,
-          "td": 7,
-          "int": 0,
+          "td": 10,
+          "int": 2,
           "esperienza": "3° anno",
           "giovane": true,
-          "forma": "in forma"
+          "forma": null
         },
         {
           "nome": "Bo Nix",
@@ -141165,24 +139933,6 @@
           "td": 11,
           "int": 4,
           "esperienza": "3° anno",
-          "giovane": true,
-          "forma": null
-        },
-        {
-          "nome": "Tyler Shough",
-          "ruolo": "QB",
-          "squadra": "NO",
-          "misura": "yard lanciate",
-          "partite": 8,
-          "mediaStagione": 248.2,
-          "mediaUltime3": 229.0,
-          "mediaPassato": 216.7,
-          "epaLancio": 0.009,
-          "epaLancioUltime3": 0.077,
-          "epaLancioPassato": 0.006,
-          "td": 14,
-          "int": 6,
-          "esperienza": "2° anno",
           "giovane": true,
           "forma": null
         }
@@ -141219,9 +139969,9 @@
           "ruolo": "RB",
           "squadra": "NYG",
           "misura": "yard di corsa",
-          "partite": 6,
-          "mediaStagione": 69.7,
-          "mediaUltime3": 80.3,
+          "partite": 7,
+          "mediaStagione": 70.9,
+          "mediaUltime3": 87.0,
           "mediaPassato": 51.2,
           "esperienza": "2° anno",
           "giovane": true,
@@ -141282,19 +140032,6 @@
           "forma": "in forma"
         },
         {
-          "nome": "Malik Nabers",
-          "ruolo": "WR",
-          "squadra": "NYG",
-          "misura": "yard ricevute",
-          "partite": 8,
-          "mediaStagione": 81.0,
-          "mediaUltime3": 106.3,
-          "mediaPassato": 77.6,
-          "esperienza": "3° anno",
-          "giovane": true,
-          "forma": "in forma"
-        },
-        {
           "nome": "Tetairoa McMillan",
           "ruolo": "WR",
           "squadra": "CAR",
@@ -141304,6 +140041,19 @@
           "mediaUltime3": 51.3,
           "mediaPassato": 60.8,
           "esperienza": "2° anno",
+          "giovane": true,
+          "forma": null
+        },
+        {
+          "nome": "Malik Nabers",
+          "ruolo": "WR",
+          "squadra": "NYG",
+          "misura": "yard ricevute",
+          "partite": 9,
+          "mediaStagione": 76.9,
+          "mediaUltime3": 66.0,
+          "mediaPassato": 77.6,
+          "esperienza": "3° anno",
           "giovane": true,
           "forma": null
         },
@@ -141329,51 +140079,51 @@
       {
         "squadra": "JAX",
         "nome": "Jacksonville Jaguars",
-        "attacco": 0.043,
-        "difesa": 0.053,
-        "netto": 0.096,
-        "attPass": 0.071,
+        "attacco": 0.042,
+        "difesa": 0.052,
+        "netto": 0.094,
+        "attPass": 0.069,
         "attCorsa": 0.01,
-        "difPass": 0.079,
+        "difPass": 0.078,
         "difCorsa": 0.017,
         "posizione": 1,
-        "puntiPartita": 6.0
+        "puntiPartita": 5.8
       },
       {
         "squadra": "BUF",
         "nome": "Buffalo Bills",
-        "attacco": 0.073,
+        "attacco": 0.071,
         "difesa": 0.009,
-        "netto": 0.082,
-        "attPass": 0.1,
-        "attCorsa": 0.038,
-        "difPass": 0.028,
+        "netto": 0.08,
+        "attPass": 0.098,
+        "attCorsa": 0.037,
+        "difPass": 0.027,
         "difCorsa": -0.016,
         "posizione": 2,
-        "puntiPartita": 5.1
+        "puntiPartita": 5.0
       },
       {
         "squadra": "LA",
         "nome": "Los Angeles Rams",
-        "attacco": 0.041,
-        "difesa": 0.038,
-        "netto": 0.079,
-        "attPass": 0.046,
-        "attCorsa": 0.033,
+        "attacco": 0.04,
+        "difesa": 0.037,
+        "netto": 0.077,
+        "attPass": 0.045,
+        "attCorsa": 0.031,
         "difPass": 0.047,
         "difCorsa": 0.025,
         "posizione": 3,
-        "puntiPartita": 4.9
+        "puntiPartita": 4.8
       },
       {
         "squadra": "GB",
         "nome": "Green Bay Packers",
-        "attacco": 0.059,
-        "difesa": 0.016,
-        "netto": 0.075,
-        "attPass": 0.107,
-        "attCorsa": -0.032,
-        "difPass": 0.028,
+        "attacco": 0.058,
+        "difesa": 0.015,
+        "netto": 0.074,
+        "attPass": 0.105,
+        "attCorsa": -0.031,
+        "difPass": 0.027,
         "difCorsa": -0.001,
         "posizione": 4,
         "puntiPartita": 4.6
@@ -141382,64 +140132,64 @@
         "squadra": "SEA",
         "nome": "Seattle Seahawks",
         "attacco": 0.012,
-        "difesa": 0.063,
-        "netto": 0.075,
+        "difesa": 0.062,
+        "netto": 0.074,
         "attPass": 0.037,
         "attCorsa": -0.021,
-        "difPass": 0.092,
-        "difCorsa": 0.023,
+        "difPass": 0.09,
+        "difCorsa": 0.022,
         "posizione": 5,
         "puntiPartita": 4.6
       },
       {
         "squadra": "SF",
         "nome": "San Francisco 49ers",
-        "attacco": 0.06,
-        "difesa": -0.001,
-        "netto": 0.06,
-        "attPass": 0.089,
-        "attCorsa": 0.022,
-        "difPass": -0.011,
+        "attacco": 0.059,
+        "difesa": -0.0,
+        "netto": 0.058,
+        "attPass": 0.088,
+        "attCorsa": 0.021,
+        "difPass": -0.01,
         "difCorsa": 0.013,
         "posizione": 6,
-        "puntiPartita": 3.7
+        "puntiPartita": 3.6
       },
       {
         "squadra": "HOU",
         "nome": "Houston Texans",
         "attacco": 0.021,
-        "difesa": 0.029,
-        "netto": 0.05,
-        "attPass": 0.044,
+        "difesa": 0.028,
+        "netto": 0.049,
+        "attPass": 0.043,
         "attCorsa": -0.021,
         "difPass": 0.041,
         "difCorsa": 0.011,
         "posizione": 7,
-        "puntiPartita": 3.1
+        "puntiPartita": 3.0
       },
       {
         "squadra": "NE",
         "nome": "New England Patriots",
-        "attacco": 0.038,
+        "attacco": 0.037,
         "difesa": 0.01,
-        "netto": 0.048,
-        "attPass": 0.07,
+        "netto": 0.047,
+        "attPass": 0.069,
         "attCorsa": -0.013,
         "difPass": 0.01,
         "difCorsa": 0.01,
         "posizione": 8,
-        "puntiPartita": 3.0
+        "puntiPartita": 2.9
       },
       {
         "squadra": "CHI",
         "nome": "Chicago Bears",
-        "attacco": 0.033,
+        "attacco": 0.032,
         "difesa": 0.008,
-        "netto": 0.041,
-        "attPass": 0.045,
+        "netto": 0.04,
+        "attPass": 0.044,
         "attCorsa": 0.016,
         "difPass": 0.018,
-        "difCorsa": -0.006,
+        "difCorsa": -0.005,
         "posizione": 9,
         "puntiPartita": 2.5
       },
@@ -141449,9 +140199,9 @@
         "attacco": 0.011,
         "difesa": 0.027,
         "netto": 0.038,
-        "attPass": 0.02,
+        "attPass": 0.019,
         "attCorsa": -0.002,
-        "difPass": 0.05,
+        "difPass": 0.049,
         "difCorsa": -0.005,
         "posizione": 10,
         "puntiPartita": 2.4
@@ -141459,51 +140209,51 @@
       {
         "squadra": "KC",
         "nome": "Kansas City Chiefs",
-        "attacco": 0.026,
+        "attacco": 0.025,
         "difesa": 0.009,
         "netto": 0.035,
-        "attPass": 0.024,
-        "attCorsa": 0.029,
+        "attPass": 0.023,
+        "attCorsa": 0.028,
         "difPass": 0.002,
-        "difCorsa": 0.02,
+        "difCorsa": 0.019,
         "posizione": 11,
         "puntiPartita": 2.2
       },
       {
         "squadra": "CIN",
         "nome": "Cincinnati Bengals",
-        "attacco": 0.053,
+        "attacco": 0.052,
         "difesa": -0.025,
         "netto": 0.027,
-        "attPass": 0.074,
+        "attPass": 0.072,
         "attCorsa": 0.009,
-        "difPass": -0.029,
-        "difCorsa": -0.02,
+        "difPass": -0.028,
+        "difCorsa": -0.019,
         "posizione": 12,
         "puntiPartita": 1.7
       },
       {
         "squadra": "DET",
         "nome": "Detroit Lions",
-        "attacco": 0.046,
+        "attacco": 0.045,
         "difesa": -0.021,
-        "netto": 0.025,
-        "attPass": 0.079,
+        "netto": 0.024,
+        "attPass": 0.077,
         "attCorsa": 0.001,
-        "difPass": -0.036,
+        "difPass": -0.035,
         "difCorsa": -0.002,
         "posizione": 13,
-        "puntiPartita": 1.6
+        "puntiPartita": 1.5
       },
       {
         "squadra": "TB",
         "nome": "Tampa Bay Buccaneers",
         "attacco": -0.036,
-        "difesa": 0.056,
-        "netto": 0.02,
-        "attPass": -0.077,
+        "difesa": 0.055,
+        "netto": 0.019,
+        "attPass": -0.075,
         "attCorsa": 0.011,
-        "difPass": 0.081,
+        "difPass": 0.079,
         "difCorsa": 0.021,
         "posizione": 14,
         "puntiPartita": 1.2
@@ -141511,12 +140261,12 @@
       {
         "squadra": "NYG",
         "nome": "New York Giants",
-        "attacco": 0.01,
-        "difesa": -0.002,
+        "attacco": 0.012,
+        "difesa": -0.004,
         "netto": 0.008,
-        "attPass": 0.02,
-        "attCorsa": -0.003,
-        "difPass": 0.008,
+        "attPass": 0.021,
+        "attCorsa": -0.001,
+        "difPass": 0.005,
         "difCorsa": -0.016,
         "posizione": 15,
         "puntiPartita": 0.5
@@ -141524,26 +140274,26 @@
       {
         "squadra": "MIN",
         "nome": "Minnesota Vikings",
-        "attacco": -0.073,
-        "difesa": 0.079,
+        "attacco": -0.071,
+        "difesa": 0.077,
         "netto": 0.006,
-        "attPass": -0.107,
-        "attCorsa": -0.019,
-        "difPass": 0.126,
-        "difCorsa": 0.014,
+        "attPass": -0.105,
+        "attCorsa": -0.018,
+        "difPass": 0.124,
+        "difCorsa": 0.013,
         "posizione": 16,
         "puntiPartita": 0.4
       },
       {
         "squadra": "DAL",
         "nome": "Dallas Cowboys",
-        "attacco": 0.053,
-        "difesa": -0.061,
+        "attacco": 0.052,
+        "difesa": -0.06,
         "netto": -0.008,
-        "attPass": 0.071,
-        "attCorsa": 0.021,
-        "difPass": -0.086,
-        "difCorsa": -0.027,
+        "attPass": 0.07,
+        "attCorsa": 0.02,
+        "difPass": -0.084,
+        "difCorsa": -0.026,
         "posizione": 17,
         "puntiPartita": -0.5
       },
@@ -141551,10 +140301,10 @@
         "squadra": "PIT",
         "nome": "Pittsburgh Steelers",
         "attacco": -0.021,
-        "difesa": 0.01,
+        "difesa": 0.011,
         "netto": -0.01,
-        "attPass": -0.055,
-        "attCorsa": 0.042,
+        "attPass": -0.054,
+        "attCorsa": 0.041,
         "difPass": 0.013,
         "difCorsa": 0.007,
         "posizione": 18,
@@ -141566,9 +140316,9 @@
         "attacco": -0.007,
         "difesa": -0.009,
         "netto": -0.016,
-        "attPass": -0.024,
-        "attCorsa": 0.014,
-        "difPass": -0.023,
+        "attPass": -0.023,
+        "attCorsa": 0.013,
+        "difPass": -0.022,
         "difCorsa": 0.01,
         "posizione": 19,
         "puntiPartita": -1.0
@@ -141579,9 +140329,9 @@
         "attacco": -0.025,
         "difesa": 0.005,
         "netto": -0.02,
-        "attPass": -0.059,
+        "attPass": -0.058,
         "attCorsa": 0.017,
-        "difPass": 0.014,
+        "difPass": 0.013,
         "difCorsa": -0.007,
         "posizione": 20,
         "puntiPartita": -1.2
@@ -141590,11 +140340,11 @@
         "squadra": "CAR",
         "nome": "Carolina Panthers",
         "attacco": 0.004,
-        "difesa": -0.028,
+        "difesa": -0.027,
         "netto": -0.024,
         "attPass": 0.006,
         "attCorsa": -0.0,
-        "difPass": -0.039,
+        "difPass": -0.038,
         "difCorsa": -0.012,
         "posizione": 21,
         "puntiPartita": -1.5
@@ -141602,24 +140352,24 @@
       {
         "squadra": "WAS",
         "nome": "Washington Commanders",
-        "attacco": -0.003,
-        "difesa": -0.032,
-        "netto": -0.034,
-        "attPass": -0.001,
-        "attCorsa": -0.006,
-        "difPass": -0.04,
-        "difCorsa": -0.019,
+        "attacco": -0.001,
+        "difesa": -0.033,
+        "netto": -0.033,
+        "attPass": 0.001,
+        "attCorsa": -0.005,
+        "difPass": -0.041,
+        "difCorsa": -0.021,
         "posizione": 22,
-        "puntiPartita": -2.1
+        "puntiPartita": -2.0
       },
       {
         "squadra": "NO",
         "nome": "New Orleans Saints",
         "attacco": -0.026,
-        "difesa": -0.01,
-        "netto": -0.036,
+        "difesa": -0.009,
+        "netto": -0.035,
         "attPass": -0.03,
-        "attCorsa": -0.02,
+        "attCorsa": -0.019,
         "difPass": -0.016,
         "difCorsa": -0.0,
         "posizione": 23,
@@ -141628,11 +140378,11 @@
       {
         "squadra": "CLE",
         "nome": "Cleveland Browns",
-        "attacco": -0.066,
+        "attacco": -0.065,
         "difesa": 0.025,
-        "netto": -0.041,
-        "attPass": -0.086,
-        "attCorsa": -0.031,
+        "netto": -0.04,
+        "attPass": -0.084,
+        "attCorsa": -0.03,
         "difPass": 0.053,
         "difCorsa": -0.014,
         "posizione": 24,
@@ -141641,10 +140391,10 @@
       {
         "squadra": "PHI",
         "nome": "Philadelphia Eagles",
-        "attacco": -0.047,
+        "attacco": -0.046,
         "difesa": -0.006,
         "netto": -0.052,
-        "attPass": -0.066,
+        "attPass": -0.065,
         "attCorsa": -0.011,
         "difPass": -0.003,
         "difCorsa": -0.009,
@@ -141654,26 +140404,26 @@
       {
         "squadra": "LAC",
         "nome": "Los Angeles Chargers",
-        "attacco": -0.074,
+        "attacco": -0.073,
         "difesa": 0.018,
-        "netto": -0.056,
-        "attPass": -0.099,
-        "attCorsa": -0.035,
-        "difPass": 0.029,
-        "difCorsa": 0.004,
+        "netto": -0.055,
+        "attPass": -0.098,
+        "attCorsa": -0.034,
+        "difPass": 0.028,
+        "difCorsa": 0.003,
         "posizione": 26,
-        "puntiPartita": -3.5
+        "puntiPartita": -3.4
       },
       {
         "squadra": "LV",
         "nome": "Las Vegas Raiders",
-        "attacco": -0.024,
-        "difesa": -0.037,
-        "netto": -0.06,
+        "attacco": -0.023,
+        "difesa": -0.036,
+        "netto": -0.059,
         "attPass": -0.008,
-        "attCorsa": -0.052,
-        "difPass": -0.059,
-        "difCorsa": -0.007,
+        "attCorsa": -0.05,
+        "difPass": -0.058,
+        "difCorsa": -0.006,
         "posizione": 27,
         "puntiPartita": -3.7
       },
@@ -141681,66 +140431,66 @@
         "squadra": "ARI",
         "nome": "Arizona Cardinals",
         "attacco": -0.013,
-        "difesa": -0.049,
-        "netto": -0.061,
+        "difesa": -0.048,
+        "netto": -0.06,
         "attPass": -0.018,
         "attCorsa": -0.002,
-        "difPass": -0.09,
+        "difPass": -0.089,
         "difCorsa": 0.009,
         "posizione": 28,
-        "puntiPartita": -3.8
+        "puntiPartita": -3.7
       },
       {
         "squadra": "IND",
         "nome": "Indianapolis Colts",
         "attacco": -0.046,
         "difesa": -0.017,
-        "netto": -0.064,
-        "attPass": -0.095,
-        "attCorsa": 0.027,
+        "netto": -0.063,
+        "attPass": -0.094,
+        "attCorsa": 0.026,
         "difPass": -0.023,
         "difCorsa": -0.009,
         "posizione": 29,
-        "puntiPartita": -4.0
+        "puntiPartita": -3.9
       },
       {
         "squadra": "MIA",
         "nome": "Miami Dolphins",
-        "attacco": -0.029,
-        "difesa": -0.051,
-        "netto": -0.08,
-        "attPass": -0.047,
+        "attacco": -0.028,
+        "difesa": -0.05,
+        "netto": -0.079,
+        "attPass": -0.046,
         "attCorsa": -0.004,
-        "difPass": -0.081,
+        "difPass": -0.079,
         "difCorsa": -0.011,
         "posizione": 30,
-        "puntiPartita": -5.0
+        "puntiPartita": -4.9
       },
       {
         "squadra": "NYJ",
         "nome": "New York Jets",
         "attacco": -0.032,
-        "difesa": -0.061,
-        "netto": -0.094,
-        "attPass": -0.044,
+        "difesa": -0.06,
+        "netto": -0.092,
+        "attPass": -0.043,
         "attCorsa": -0.014,
-        "difPass": -0.105,
+        "difPass": -0.103,
         "difCorsa": -0.0,
         "posizione": 31,
-        "puntiPartita": -5.8
+        "puntiPartita": -5.7
       },
       {
         "squadra": "TEN",
         "nome": "Tennessee Titans",
         "attacco": -0.057,
-        "difesa": -0.046,
-        "netto": -0.103,
-        "attPass": -0.088,
+        "difesa": -0.045,
+        "netto": -0.101,
+        "attPass": -0.086,
         "attCorsa": -0.006,
-        "difPass": -0.077,
+        "difPass": -0.076,
         "difCorsa": -0.002,
         "posizione": 32,
-        "puntiPartita": -6.4
+        "puntiPartita": -6.3
       }
     ],
     "quarterback": [
@@ -141811,6 +140561,12 @@
         "epaLancio": 0.148
       },
       {
+        "nome": "J.McCarthy",
+        "squadra": "NYG",
+        "lanci": 111,
+        "epaLancio": 0.122
+      },
+      {
         "nome": "K.Cousins",
         "squadra": "LV",
         "lanci": 328,
@@ -141853,16 +140609,16 @@
         "epaLancio": 0.005
       },
       {
+        "nome": "J.Daniels",
+        "squadra": "WAS",
+        "lanci": 229,
+        "epaLancio": -0.006
+      },
+      {
         "nome": "T.Shough",
         "squadra": "NO",
         "lanci": 328,
         "epaLancio": -0.016
-      },
-      {
-        "nome": "J.Daniels",
-        "squadra": "WAS",
-        "lanci": 195,
-        "epaLancio": -0.017
       },
       {
         "nome": "T.Huntley",
@@ -141929,12 +140685,6 @@
         "squadra": "PHI",
         "lanci": 124,
         "epaLancio": -0.182
-      },
-      {
-        "nome": "J.Daniels",
-        "squadra": "TB",
-        "lanci": 107,
-        "epaLancio": -0.193
       }
     ],
     "nota": "EPA = punti attesi aggiunti per azione. Forza corretta per gli avversari; le partite recenti pesano di più e la stagione precedente conta un po' meno. puntiPartita = margine indicativo contro una squadra media."
