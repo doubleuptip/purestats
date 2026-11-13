@@ -343,7 +343,7 @@ function bloccoAssenze(g, T){
     return `<div><div class="blocco">${stemma(T[sq], "s")}${esc(T[sq].nome)} <span class="sotto">${testa}</span></div><ul class="ass">${righe || "<li class='sotto'>nessun assente</li>"}</ul>${a.altri ? `<div class="sotto">e altri ${a.altri}</div>` : ""}</div>`;
   };
   return `<div class="titolo">Assenze</div><div class="giocatori">${lato(g.ospite, g.assenzeOspite)}${lato(g.casa, g.assenzeCasa)}</div>
-    <div class="legenda"><span>${g.campionato === "College" ? "fonte CFBDepth (rapporti ufficiali e notizie); peso = quanto conta l'assenza" : "fonte rapporto NFL (nflverse); % = quota delle yard o dei lanci della squadra"}</span>${g.contestoAggiornato ? `<span>aggiornato ${esc(g.contestoAggiornato.slice(11, 16))} UTC</span>` : ""}</div>`;
+    <div class="legenda"><span>${g.campionato === "College" ? "fonte CFBDepth (rapporti ufficiali e notizie); peso = quanto conta l'assenza" : "fonte rapporto infortuni ESPN (riserva nflverse); % = quota delle yard o dei lanci della squadra"}</span>${g.contestoAggiornato ? `<span>aggiornato ${esc(g.contestoAggiornato.slice(11, 16))} UTC</span>` : ""}</div>`;
 }
 function bloccoMeteo(g){
   const m = g.meteo;

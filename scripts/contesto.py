@@ -170,6 +170,61 @@ def infortuni_nfl(stagione: int, settimana: int, quota: dict) -> dict:
     return out
 
 
+NFL_NOMI = {"Arizona Cardinals": "ARI", "Atlanta Falcons": "ATL", "Baltimore Ravens": "BAL", "Buffalo Bills": "BUF",
+            "Carolina Panthers": "CAR", "Chicago Bears": "CHI", "Cincinnati Bengals": "CIN", "Cleveland Browns": "CLE",
+            "Dallas Cowboys": "DAL", "Denver Broncos": "DEN", "Detroit Lions": "DET", "Green Bay Packers": "GB",
+            "Houston Texans": "HOU", "Indianapolis Colts": "IND", "Jacksonville Jaguars": "JAX",
+            "Kansas City Chiefs": "KC", "Las Vegas Raiders": "LV", "Los Angeles Chargers": "LAC",
+            "Los Angeles Rams": "LA", "Miami Dolphins": "MIA", "Minnesota Vikings": "MIN",
+            "New England Patriots": "NE", "New Orleans Saints": "NO", "New York Giants": "NYG",
+            "New York Jets": "NYJ", "Philadelphia Eagles": "PHI", "Pittsburgh Steelers": "PIT",
+            "San Francisco 49ers": "SF", "Seattle Seahawks": "SEA", "Tampa Bay Buccaneers": "TB",
+            "Tennessee Titans": "TEN", "Washington Commanders": "WAS"}
+STATI_ESPN = {"OUT": "Fuori", "DOUBTFUL": "Probabilmente fuori", "QUESTIONABLE": "In dubbio",
+              "INJURED RESERVE": "Fuori (lista infortunati)", "SUSPENSION": "Sospeso"}
+
+
+def infortuni_nfl_espn(quota_nome: dict) -> dict:
+    """Rapporto infortuni corrente da ESPN (tutta la lega in una richiesta), pesato sulla produzione:
+    quota_nome = {(sigla, nome normalizzato): quota}. «Nuovo» = aggiornato negli ultimi 3 giorni e fuori."""
+    j = json.loads(_get("https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries", 60))
+    oggi = datetime.now(timezone.utc).date()
+    out = {}
+    for t in j.get("injuries") or []:
+        sigla = NFL_NOMI.get(t.get("displayName", ""))
+        if not sigla:
+            continue
+        for e in t.get("injuries") or []:
+            stato = str(e.get("status") or "").upper()
+            if stato not in STATI_ESPN:
+                continue
+            a = e.get("athlete") or {}
+            nome = a.get("displayName", "")
+            pos = a.get("position") if isinstance(a.get("position"), dict) else {}
+            q = quota_nome.get((sigla, norm(nome)), 0.0)
+            data = str(e.get("date") or "")[:10]
+            try:
+                recente = (oggi - datetime.fromisoformat(data).date()).days <= 3
+            except ValueError:
+                recente = False
+            d = out.setdefault(sigla, {"n": 0, "nuovi": 0, "impatto": 0.0, "rango": None, "giocatori": []})
+            peso = round(q * 10, 1)
+            fuori = stato in ("OUT", "DOUBTFUL", "INJURED RESERVE", "SUSPENSION")
+            nuovo = recente and stato in ("OUT", "DOUBTFUL")
+            d["n"] += 1
+            d["nuovi"] += nuovo
+            if fuori:
+                d["impatto"] = round(d["impatto"] + peso, 1)
+            d["giocatori"].append({"nome": nome, "stato": stato, "statoIt": STATI_ESPN[stato],
+                                   "ruolo": (pos or {}).get("abbreviation", ""), "nuovo": nuovo,
+                                   "valutazione": None, "peso": peso, "data": data})
+    if not out:
+        raise ValueError("rapporto ESPN vuoto o formato cambiato")
+    for d in out.values():
+        d["giocatori"].sort(key=lambda g: -(g["peso"] or 0))
+    return out
+
+
 # ------------------------------------------------------------------ stadi e meteo
 # Stadi NFL: (latitudine, longitudine, coperto). Coperto = tetto fisso o di solito chiuso: niente meteo.
 STADI_NFL = {

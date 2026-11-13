@@ -440,11 +440,14 @@ def quote_produzione_nfl(stagione: int) -> dict:
         x[0] += att
         x[1] += max(yds, 0)
         x[2], x[3] = r.get("position") or "", r["team"]
-    out = {}
+    out, per_nome = {}, {}
+    nomi = {r["player_id"]: r.get("player_display_name") or "" for r in righe}
     for pid, (att, yds, pos, team) in gio.items():
         t = tot[team]
         q = (att / t[0]) if pos == "QB" and t[0] else (yds / t[1] if t[1] else 0.0)
         out[pid] = (round(q, 3), pos)
+        per_nome[(team, C.norm(nomi.get(pid, "")))] = round(q, 3)
+    out["__per_nome__"] = per_nome
     return out
 
 
@@ -468,13 +471,19 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
         stadi = C.stadi_college(os.environ.get("CFBD_API_KEY", "").strip(), stagione)
     else:
         # il rapporto infortuni NFL è per settimana: ogni partita prende quello della sua settimana
-        per_sett = {}
+        per_sett, quote = {}, {}
         try:
             quote = quote_produzione_nfl(stagione)
-            for w in {int(sc.get("settimana") or settimana) for sc in vicine}:
-                per_sett[w] = C.infortuni_nfl(stagione, w, quote)
         except Exception as e:     # noqa: BLE001
-            print(f"NFL: infortuni non letti ({e})")
+            print(f"NFL: produzione dei giocatori non letta ({e}): assenze senza peso")
+        espn = None
+        try:
+            espn = C.infortuni_nfl_espn(quote.get("__per_nome__", {}))
+            print(f"Infortuni NFL: rapporto ESPN corrente, {len(espn)} squadre")
+        except Exception as e:     # noqa: BLE001
+            print(f"Infortuni NFL: ESPN non letto ({e}): uso nflverse, che può essere in ritardo di una settimana")
+        for w in {int(sc.get("settimana") or settimana) for sc in vicine}:
+            per_sett[w] = espn if espn is not None else C.infortuni_nfl(stagione, w, quote)
         inf = {}
         stadi = C.STADI_NFL
     for sc in vicine:
