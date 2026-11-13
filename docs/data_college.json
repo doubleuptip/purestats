@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-12T19:39:40.250046+00:00",
+  "aggiornato": "2026-11-13T05:46:13.257482+00:00",
   "campionato": "College Football",
   "fonte": "CollegeFootballData.com",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 4548,
-  "partiteGiocate": 4350,
+  "partiteGiocate": 4352,
   "squadre": [
     {
       "nome": "Georgia",
@@ -1581,6 +1581,102 @@
       ]
     },
     {
+      "nome": "Memphis",
+      "nomeCompleto": "Memphis",
+      "conference": "American Athletic",
+      "conferenza": "American Athletic",
+      "partite": 62,
+      "vittorie": 44,
+      "sconfitte": 18,
+      "pareggi": 0,
+      "percVittorie": 71.0,
+      "mediaFatti": 36.2,
+      "mediaSubiti": 25.4,
+      "differenza": 671,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "American Athletic",
+          "partite": 10,
+          "vittorie": 8,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 80.0,
+          "mediaFatti": 39.0,
+          "mediaSubiti": 25.3,
+          "differenza": 137,
+          "vittorieCasa": 5,
+          "partiteCasa": 5,
+          "vittorieFuori": 3,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 32.5,
+          "mediaSubiti": 23.2,
+          "differenza": 121,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 11,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 84.6,
+          "mediaFatti": 35.7,
+          "mediaSubiti": 23.8,
+          "differenza": 154,
+          "vittorieCasa": 7,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 10,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 76.9,
+          "mediaFatti": 39.4,
+          "mediaSubiti": 28.8,
+          "differenza": 138,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 6,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 35.3,
+          "mediaSubiti": 26.0,
+          "differenza": 121,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
       "nome": "BYU",
       "nomeCompleto": "BYU",
       "conference": "Big 12",
@@ -1672,102 +1768,6 @@
           "vittorieCasa": 5,
           "partiteCasa": 7,
           "vittorieFuori": 3,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Memphis",
-      "nomeCompleto": "Memphis",
-      "conference": "American Athletic",
-      "conferenza": "American Athletic",
-      "partite": 61,
-      "vittorie": 43,
-      "sconfitte": 18,
-      "pareggi": 0,
-      "percVittorie": 70.5,
-      "mediaFatti": 36.0,
-      "mediaSubiti": 25.2,
-      "differenza": 660,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "American Athletic",
-          "partite": 9,
-          "vittorie": 7,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 77.8,
-          "mediaFatti": 37.6,
-          "mediaSubiti": 23.6,
-          "differenza": 126,
-          "vittorieCasa": 5,
-          "partiteCasa": 5,
-          "vittorieFuori": 2,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 32.5,
-          "mediaSubiti": 23.2,
-          "differenza": 121,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 11,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 84.6,
-          "mediaFatti": 35.7,
-          "mediaSubiti": 23.8,
-          "differenza": 154,
-          "vittorieCasa": 7,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 10,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 76.9,
-          "mediaFatti": 39.4,
-          "mediaSubiti": 28.8,
-          "differenza": 138,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 6,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 35.3,
-          "mediaSubiti": 26.0,
-          "differenza": 121,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
           "partiteFuori": 6
         }
       ]
@@ -5405,6 +5405,102 @@
       ]
     },
     {
+      "nome": "Louisiana",
+      "nomeCompleto": "Louisiana",
+      "conference": "Sun Belt",
+      "conferenza": "Sun Belt",
+      "partite": 63,
+      "vittorie": 35,
+      "sconfitte": 28,
+      "pareggi": 0,
+      "percVittorie": 55.6,
+      "mediaFatti": 29.2,
+      "mediaSubiti": 25.5,
+      "differenza": 236,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Sun Belt",
+          "partite": 10,
+          "vittorie": 7,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 70.0,
+          "mediaFatti": 31.1,
+          "mediaSubiti": 21.7,
+          "differenza": 94,
+          "vittorieCasa": 5,
+          "partiteCasa": 5,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 26.0,
+          "mediaSubiti": 29.2,
+          "differenza": -42,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Sun Belt",
+          "partite": 14,
+          "vittorie": 10,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 71.4,
+          "mediaFatti": 30.9,
+          "mediaSubiti": 24.1,
+          "differenza": 95,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 6,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 32.2,
+          "mediaSubiti": 28.6,
+          "differenza": 46,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Sun Belt",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 26.2,
+          "mediaSubiti": 22.8,
+          "differenza": 43,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 7
+        }
+      ]
+    },
+    {
       "nome": "Pittsburgh",
       "nomeCompleto": "Pittsburgh",
       "conference": "ACC",
@@ -5497,102 +5593,6 @@
           "partiteCasa": 7,
           "vittorieFuori": 4,
           "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Louisiana",
-      "nomeCompleto": "Louisiana",
-      "conference": "Sun Belt",
-      "conferenza": "Sun Belt",
-      "partite": 62,
-      "vittorie": 34,
-      "sconfitte": 28,
-      "pareggi": 0,
-      "percVittorie": 54.8,
-      "mediaFatti": 29.0,
-      "mediaSubiti": 25.5,
-      "differenza": 215,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Sun Belt",
-          "partite": 9,
-          "vittorie": 6,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 66.7,
-          "mediaFatti": 29.9,
-          "mediaSubiti": 21.8,
-          "differenza": 73,
-          "vittorieCasa": 5,
-          "partiteCasa": 5,
-          "vittorieFuori": 1,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 26.0,
-          "mediaSubiti": 29.2,
-          "differenza": -42,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Sun Belt",
-          "partite": 14,
-          "vittorie": 10,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 71.4,
-          "mediaFatti": 30.9,
-          "mediaSubiti": 24.1,
-          "differenza": 95,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 6,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 32.2,
-          "mediaSubiti": 28.6,
-          "differenza": 46,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Sun Belt",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 26.2,
-          "mediaSubiti": 22.8,
-          "differenza": 43,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 7
         }
       ]
     },
@@ -7085,102 +7085,6 @@
       ]
     },
     {
-      "nome": "South Florida",
-      "nomeCompleto": "South Florida",
-      "conference": "American Athletic",
-      "conferenza": "American Athletic",
-      "partite": 60,
-      "vittorie": 30,
-      "sconfitte": 30,
-      "pareggi": 0,
-      "percVittorie": 50.0,
-      "mediaFatti": 32.1,
-      "mediaSubiti": 29.0,
-      "differenza": 188,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "American Athletic",
-          "partite": 9,
-          "vittorie": 6,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 66.7,
-          "mediaFatti": 25.9,
-          "mediaSubiti": 15.1,
-          "differenza": 97,
-          "vittorieCasa": 4,
-          "partiteCasa": 5,
-          "vittorieFuori": 2,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 40.5,
-          "mediaSubiti": 23.4,
-          "differenza": 222,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 32.2,
-          "mediaSubiti": 29.8,
-          "differenza": 31,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 31.9,
-          "mediaSubiti": 32.2,
-          "differenza": -4,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "American Athletic",
-          "partite": 12,
-          "vittorie": 1,
-          "sconfitte": 11,
-          "pareggi": 0,
-          "percVittorie": 8.3,
-          "mediaFatti": 28.0,
-          "mediaSubiti": 41.2,
-          "differenza": -158,
-          "vittorieCasa": 1,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "Syracuse",
       "nomeCompleto": "Syracuse",
       "conference": "ACC",
@@ -7369,6 +7273,102 @@
           "partiteCasa": 6,
           "vittorieFuori": 4,
           "partiteFuori": 7
+        }
+      ]
+    },
+    {
+      "nome": "South Florida",
+      "nomeCompleto": "South Florida",
+      "conference": "American Athletic",
+      "conferenza": "American Athletic",
+      "partite": 61,
+      "vittorie": 30,
+      "sconfitte": 31,
+      "pareggi": 0,
+      "percVittorie": 49.2,
+      "mediaFatti": 32.3,
+      "mediaSubiti": 29.4,
+      "differenza": 177,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "American Athletic",
+          "partite": 10,
+          "vittorie": 6,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 60.0,
+          "mediaFatti": 27.4,
+          "mediaSubiti": 18.8,
+          "differenza": 86,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 4
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 40.5,
+          "mediaSubiti": 23.4,
+          "differenza": 222,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 32.2,
+          "mediaSubiti": 29.8,
+          "differenza": 31,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "American Athletic",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 31.9,
+          "mediaSubiti": 32.2,
+          "differenza": -4,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "American Athletic",
+          "partite": 12,
+          "vittorie": 1,
+          "sconfitte": 11,
+          "pareggi": 0,
+          "percVittorie": 8.3,
+          "mediaFatti": 28.0,
+          "mediaSubiti": 41.2,
+          "differenza": -158,
+          "vittorieCasa": 1,
+          "partiteCasa": 6,
+          "vittorieFuori": 0,
+          "partiteFuori": 6
         }
       ]
     },
@@ -12273,28 +12273,28 @@
       "nomeCompleto": "UL Monroe",
       "conference": "Sun Belt",
       "conferenza": "Sun Belt",
-      "partite": 57,
+      "partite": 58,
       "vittorie": 16,
-      "sconfitte": 41,
+      "sconfitte": 42,
       "pareggi": 0,
-      "percVittorie": 28.1,
-      "mediaFatti": 19.4,
-      "mediaSubiti": 32.9,
-      "differenza": -765,
+      "percVittorie": 27.6,
+      "mediaFatti": 19.5,
+      "mediaSubiti": 33.0,
+      "differenza": -786,
       "perStagione": [
         {
           "stagione": "2026",
           "conferenza": "Sun Belt",
-          "partite": 9,
+          "partite": 10,
           "vittorie": 2,
-          "sconfitte": 7,
+          "sconfitte": 8,
           "pareggi": 0,
-          "percVittorie": 22.2,
-          "mediaFatti": 20.1,
-          "mediaSubiti": 34.8,
-          "differenza": -132,
+          "percVittorie": 20.0,
+          "mediaFatti": 20.2,
+          "mediaSubiti": 35.5,
+          "differenza": -153,
           "vittorieCasa": 0,
-          "partiteCasa": 4,
+          "partiteCasa": 5,
           "vittorieFuori": 2,
           "partiteFuori": 5
         },
@@ -180280,12 +180280,89 @@
       "data": "2026-11-13",
       "casa": "South Florida",
       "ospite": "Memphis",
-      "pc": null,
-      "po": null,
+      "pc": 41,
+      "po": 52,
       "conferenzaCasa": "American Athletic",
       "stadio": "Raymond James Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Luke Kromenhoek",
+          "ruolo": "QB",
+          "valore": 271,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Luke Kromenhoek",
+          "ruolo": "RB",
+          "valore": 146,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Mudia Reuben",
+          "ruolo": "WR",
+          "valore": 98,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric.",
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Jason Collins Jr.",
+          "ruolo": "WR",
+          "valore": 65,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Marcus Stokes",
+          "ruolo": "QB",
+          "valore": 313,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Jaylin Carter",
+          "ruolo": "RB",
+          "valore": 109,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Jemyri Davis",
+          "ruolo": "WR",
+          "valore": 161,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Aidan O'Callaghan",
+          "ruolo": "WR",
+          "valore": 53,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -180293,12 +180370,84 @@
       "data": "2026-11-13",
       "casa": "UL Monroe",
       "ospite": "Louisiana",
-      "pc": null,
-      "po": null,
+      "pc": 21,
+      "po": 42,
       "conferenzaCasa": "Sun Belt",
       "stadio": "Malone Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Aidan Armenta",
+          "ruolo": "QB",
+          "valore": 62,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Austin Carlisle",
+          "ruolo": "RB",
+          "valore": 102,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Bryce Anderson",
+          "ruolo": "WR",
+          "valore": 34,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Nic Trujillo",
+          "ruolo": "WR",
+          "valore": 26,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "D'Wayne' Winfield",
+          "ruolo": "QB",
+          "valore": 65,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Steven Blanco",
+          "ruolo": "RB",
+          "valore": 113,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Brock Chappell",
+          "ruolo": "WR",
+          "valore": 24,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Russell Babineaux",
+          "ruolo": "WR",
+          "valore": 16,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -182992,40 +183141,54 @@
         }
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Memphis+vs+South+Florida+football+highlights+November+13%2C+2026",
         "data": "2026-11-13",
         "ora": "",
         "casa": "South Florida",
         "ospite": "Memphis",
-        "pc": null,
-        "po": null,
+        "pc": 41,
+        "po": 52,
         "favorita": "Memphis",
-        "linea": 4.0,
-        "totaleLinea": 49.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "linea": 4.75,
+        "totaleLinea": 51.25,
+        "battutaDa": "Memphis",
+        "totaleEsito": "over",
+        "scartoLinea": 6.2,
         "stadio": "",
         "confCasa": "American Athletic",
-        "confOspite": "American Athletic"
+        "confOspite": "American Athletic",
+        "video": {
+          "id": "hsw0xmOZpoY",
+          "titolo": "Memphis Tigers vs. South Florida Bulls | Full Game Highlights | ESPN College Football",
+          "canale": "ESPN College Football",
+          "ufficiale": true,
+          "etichetta": "Highlights · ESPN College Football · si apre su YouTube"
+        }
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Louisiana+vs+UL+Monroe+football+highlights+November+13%2C+2026",
         "data": "2026-11-13",
         "ora": "",
         "casa": "UL Monroe",
         "ospite": "Louisiana",
-        "pc": null,
-        "po": null,
+        "pc": 21,
+        "po": 42,
         "favorita": "Louisiana",
-        "linea": 10.5,
-        "totaleLinea": 47.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "linea": 10.0,
+        "totaleLinea": 47.25,
+        "battutaDa": "Louisiana",
+        "totaleEsito": "over",
+        "scartoLinea": 11.0,
         "stadio": "",
         "confCasa": "Sun Belt",
-        "confOspite": "Sun Belt"
+        "confOspite": "Sun Belt",
+        "video": {
+          "id": "nAha5PGyemc",
+          "titolo": "🔴 LIVE UL Monroe vs Louisiana | College Football 26 Full Game Highlights 🏈 Gameplay ",
+          "canale": "Agamer BR",
+          "ufficiale": false,
+          "etichetta": "Highlights non ufficiali · Agamer BR · si apre su YouTube"
+        }
       },
       {
         "highlights": null,
@@ -183037,7 +183200,7 @@
         "po": null,
         "favorita": "BYU",
         "linea": 7.5,
-        "totaleLinea": 48.75,
+        "totaleLinea": 49.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183055,7 +183218,7 @@
         "po": null,
         "favorita": "Boise State",
         "linea": 14.5,
-        "totaleLinea": 63.25,
+        "totaleLinea": 63.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183072,7 +183235,7 @@
         "pc": null,
         "po": null,
         "favorita": "East Carolina",
-        "linea": 11.75,
+        "linea": 12.25,
         "totaleLinea": 45.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183090,8 +183253,8 @@
         "pc": null,
         "po": null,
         "favorita": "Clemson",
-        "linea": 13.5,
-        "totaleLinea": 47.75,
+        "linea": 14.0,
+        "totaleLinea": 48.75,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183127,7 +183290,7 @@
         "po": null,
         "favorita": "Houston",
         "linea": 9.5,
-        "totaleLinea": 51.5,
+        "totaleLinea": 51.25,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183162,7 +183325,7 @@
         "pc": null,
         "po": null,
         "favorita": "Georgia",
-        "linea": 16.0,
+        "linea": 16.5,
         "totaleLinea": 47.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183343,7 +183506,7 @@
         "po": null,
         "favorita": "Washington",
         "linea": 3.5,
-        "totaleLinea": 42.75,
+        "totaleLinea": 44.25,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183468,7 +183631,7 @@
         "pc": null,
         "po": null,
         "favorita": "Oklahoma",
-        "linea": 0.25,
+        "linea": 1.25,
         "totaleLinea": 49.25,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183541,7 +183704,7 @@
         "po": null,
         "favorita": "Rice",
         "linea": 2.5,
-        "totaleLinea": 47.75,
+        "totaleLinea": 48.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183558,7 +183721,7 @@
         "pc": null,
         "po": null,
         "favorita": "Nebraska",
-        "linea": 15.25,
+        "linea": 15.0,
         "totaleLinea": 51.75,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183631,7 +183794,7 @@
         "po": null,
         "favorita": "Temple",
         "linea": 2.5,
-        "totaleLinea": 48.25,
+        "totaleLinea": 47.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183649,7 +183812,7 @@
         "po": null,
         "favorita": "Tennessee",
         "linea": 2.5,
-        "totaleLinea": 43.5,
+        "totaleLinea": 43.75,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183703,7 +183866,7 @@
         "po": null,
         "favorita": "UCF",
         "linea": 3.0,
-        "totaleLinea": 48.5,
+        "totaleLinea": 48.25,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183739,7 +183902,7 @@
         "po": null,
         "favorita": "James Madison",
         "linea": 4.0,
-        "totaleLinea": 57.5,
+        "totaleLinea": 57.25,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183829,7 +183992,7 @@
         "po": null,
         "favorita": "Air Force",
         "linea": 12.5,
-        "totaleLinea": 47.5,
+        "totaleLinea": 47.75,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183864,8 +184027,8 @@
         "pc": null,
         "po": null,
         "favorita": "South Carolina",
-        "linea": 7.0,
-        "totaleLinea": 51.25,
+        "linea": 7.75,
+        "totaleLinea": 51.75,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183882,7 +184045,7 @@
         "pc": null,
         "po": null,
         "favorita": "North Dakota State",
-        "linea": 6.5,
+        "linea": 6.75,
         "totaleLinea": 38.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183955,7 +184118,7 @@
         "po": null,
         "favorita": "Louisville",
         "linea": 3.5,
-        "totaleLinea": 59.5,
+        "totaleLinea": 58.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183973,7 +184136,7 @@
         "po": null,
         "favorita": "Oklahoma State",
         "linea": 3.5,
-        "totaleLinea": 72.75,
+        "totaleLinea": 73.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -184009,7 +184172,7 @@
         "po": null,
         "favorita": "Utah State",
         "linea": 2.75,
-        "totaleLinea": 42.25,
+        "totaleLinea": 42.75,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -184044,8 +184207,8 @@
         "pc": null,
         "po": null,
         "favorita": "Wyoming",
-        "linea": 8.0,
-        "totaleLinea": 39.75,
+        "linea": 8.5,
+        "totaleLinea": 40.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -184063,7 +184226,7 @@
         "po": null,
         "favorita": "North Texas",
         "linea": 2.5,
-        "totaleLinea": 76.25,
+        "totaleLinea": 75.75,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -184080,8 +184243,8 @@
         "pc": null,
         "po": null,
         "favorita": "Virginia Tech",
-        "linea": 14.75,
-        "totaleLinea": 58.25,
+        "linea": 15.25,
+        "totaleLinea": 57.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -184098,7 +184261,7 @@
         "pc": null,
         "po": null,
         "favorita": "Washington State",
-        "linea": 9.5,
+        "linea": 8.75,
         "totaleLinea": 66.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184128,22 +184291,22 @@
         "battutaDa": "Western Michigan"
       },
       {
+        "casa": "UL Monroe",
+        "ospite": "Louisiana",
+        "scarto": 11.0,
+        "battutaDa": "Louisiana"
+      },
+      {
         "casa": "Toledo",
         "ospite": "Massachusetts",
         "scarto": 10.0,
         "battutaDa": "Toledo"
-      },
-      {
-        "casa": "Central Michigan",
-        "ospite": "Sacramento State",
-        "scarto": 3.8,
-        "battutaDa": "Central Michigan"
       }
     ],
     "riepilogo": {
-      "partite": 6,
-      "favoriteCoperte": 5,
-      "over": 3,
+      "partite": 8,
+      "favoriteCoperte": 7,
+      "over": 5,
       "under": 3
     },
     "prestazioni": {
@@ -184155,6 +184318,22 @@
           "avversario": "Bowling Green",
           "valore": 332,
           "dettagli": "2 TD · 2 INT"
+        },
+        {
+          "nome": "Marcus Stokes",
+          "ruolo": "QB",
+          "squadra": "Memphis",
+          "avversario": "South Florida",
+          "valore": 313,
+          "dettagli": "3 TD"
+        },
+        {
+          "nome": "Luke Kromenhoek",
+          "ruolo": "QB",
+          "squadra": "South Florida",
+          "avversario": "Memphis",
+          "valore": 271,
+          "dettagli": "3 TD"
         },
         {
           "nome": "Austin Novosad",
@@ -184171,22 +184350,6 @@
           "avversario": "Massachusetts",
           "valore": 197,
           "dettagli": "1 TD"
-        },
-        {
-          "nome": "Nick Poulos",
-          "ruolo": "QB",
-          "squadra": "Ohio",
-          "avversario": "Miami (OH)",
-          "valore": 193,
-          "dettagli": "1 TD · 1 INT"
-        },
-        {
-          "nome": "Cibastian Broughton",
-          "ruolo": "QB",
-          "squadra": "Akron",
-          "avversario": "Western Michigan",
-          "valore": 173,
-          "dettagli": "2 TD"
         }
       ],
       "corse": [
@@ -184197,6 +184360,14 @@
           "avversario": "Ball State",
           "valore": 209,
           "dettagli": "2 TD"
+        },
+        {
+          "nome": "Luke Kromenhoek",
+          "ruolo": "RB",
+          "squadra": "South Florida",
+          "avversario": "Memphis",
+          "valore": 146,
+          "dettagli": "1 TD"
         },
         {
           "nome": "Jalen Buckley",
@@ -184221,17 +184392,17 @@
           "avversario": "Massachusetts",
           "valore": 117,
           "dettagli": "1 TD"
-        },
-        {
-          "nome": "D'Shawntae Jones",
-          "ruolo": "RB",
-          "squadra": "Miami (OH)",
-          "avversario": "Ohio",
-          "valore": 115,
-          "dettagli": "2 TD"
         }
       ],
       "ricezioni": [
+        {
+          "nome": "Jemyri Davis",
+          "ruolo": "WR",
+          "squadra": "Memphis",
+          "avversario": "South Florida",
+          "valore": 161,
+          "dettagli": "5 ric. · 1 TD"
+        },
         {
           "nome": "Adjatay Dabbs",
           "ruolo": "WR",
@@ -184263,14 +184434,6 @@
           "avversario": "Buffalo",
           "valore": 104,
           "dettagli": "11 ric."
-        },
-        {
-          "nome": "Nakai Amachree",
-          "ruolo": "WR",
-          "squadra": "Bowling Green",
-          "avversario": "Kent State",
-          "valore": 87,
-          "dettagli": "3 ric. · 1 TD"
         }
       ]
     }
@@ -186594,27 +186757,27 @@
             "nome": "Aidan Armenta",
             "ruolo": "QB",
             "misura": "yard passate",
-            "partite": 6,
-            "mediaStagione": 198.5,
-            "mediaUltime3": 146.3,
+            "partite": 7,
+            "mediaStagione": 179.0,
+            "mediaUltime3": 118.0,
             "mediaPassato": 147.2,
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 6 partite su 9 · 8 TD, 5 INT"
+            "nota": "migliore della squadra in 7 partite su 10 · 8 TD, 5 INT"
           },
           {
             "nome": "Austin Carlisle",
             "ruolo": "RB",
             "misura": "yard corse",
-            "partite": 3,
-            "mediaStagione": 84.7,
-            "mediaUltime3": 84.7,
+            "partite": 4,
+            "mediaStagione": 89.0,
+            "mediaUltime3": 102.0,
             "mediaPassato": null,
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 3 partite su 9"
+            "nota": "migliore della squadra in 4 partite su 10"
           },
           {
             "nome": "Marcellus Jackson",
@@ -186627,20 +186790,20 @@
             "esperienza": null,
             "giovane": false,
             "forma": "in forma",
-            "nota": "migliore della squadra in 5 partite su 9 · 17 ricezioni"
+            "nota": "migliore della squadra in 5 partite su 10 · 17 ricezioni"
           },
           {
-            "nome": "JP Coulter",
+            "nome": "Nic Trujillo",
             "ruolo": "WR",
             "misura": "yard ricevute",
-            "partite": 3,
-            "mediaStagione": 45.0,
-            "mediaUltime3": 45.0,
-            "mediaPassato": null,
+            "partite": 2,
+            "mediaStagione": 52.5,
+            "mediaUltime3": 52.5,
+            "mediaPassato": 57.2,
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 3 partite su 9 · 12 ricezioni"
+            "nota": "migliore della squadra in 2 partite su 10 · 8 ricezioni"
           }
         ],
         "giocatoriCasa": [
@@ -187509,27 +187672,27 @@
             "nome": "Luke Kromenhoek",
             "ruolo": "QB",
             "misura": "yard passate",
-            "partite": 2,
-            "mediaStagione": 109.0,
-            "mediaUltime3": 109.0,
+            "partite": 3,
+            "mediaStagione": 163.0,
+            "mediaUltime3": 163.0,
             "mediaPassato": null,
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 2 partite su 9 · 1 TD, 0 INT"
+            "nota": "migliore della squadra in 3 partite su 10 · 4 TD, 0 INT"
           },
           {
-            "nome": "D.J. Crowther",
+            "nome": "Luke Kromenhoek",
             "ruolo": "RB",
             "misura": "yard corse",
-            "partite": 6,
-            "mediaStagione": 91.3,
-            "mediaUltime3": 78.7,
+            "partite": 2,
+            "mediaStagione": 119.0,
+            "mediaUltime3": 119.0,
             "mediaPassato": null,
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 6 partite su 9"
+            "nota": "migliore della squadra in 2 partite su 10"
           },
           {
             "nome": "Bryson Rodgers",
@@ -187542,7 +187705,7 @@
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 7 partite su 9 · 31 ricezioni"
+            "nota": "migliore della squadra in 7 partite su 10 · 31 ricezioni"
           },
           {
             "nome": "D.J. Crowther",
@@ -187555,7 +187718,7 @@
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 2 partite su 9 · 4 ricezioni"
+            "nota": "migliore della squadra in 2 partite su 10 · 4 ricezioni"
           }
         ],
         "giocatoriCasa": [
@@ -188652,14 +188815,14 @@
             "nome": "D'Wayne' Winfield",
             "ruolo": "QB",
             "misura": "yard passate",
-            "partite": 9,
-            "mediaStagione": 178.2,
-            "mediaUltime3": 172.0,
+            "partite": 10,
+            "mediaStagione": 166.9,
+            "mediaUltime3": 170.3,
             "mediaPassato": 165.0,
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 9 partite su 9 · 7 TD, 6 INT"
+            "nota": "migliore della squadra in 10 partite su 10 · 8 TD, 6 INT"
           },
           {
             "nome": "JJ Garner",
@@ -188672,7 +188835,7 @@
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 4 partite su 9"
+            "nota": "migliore della squadra in 4 partite su 10"
           },
           {
             "nome": "Caden Jensen",
@@ -188685,7 +188848,7 @@
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 4 partite su 9 · 13 ricezioni"
+            "nota": "migliore della squadra in 4 partite su 10 · 13 ricezioni"
           },
           {
             "nome": "Trenton Chaney",
@@ -188698,7 +188861,7 @@
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 3 partite su 9 · 8 ricezioni"
+            "nota": "migliore della squadra in 3 partite su 10 · 8 ricezioni"
           }
         ]
       },
@@ -189513,40 +189676,40 @@
             "nome": "Marcus Stokes",
             "ruolo": "QB",
             "misura": "yard passate",
-            "partite": 9,
-            "mediaStagione": 285.2,
-            "mediaUltime3": 332.3,
+            "partite": 10,
+            "mediaStagione": 288.0,
+            "mediaUltime3": 334.7,
             "mediaPassato": null,
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 9 partite su 8 · 25 TD, 4 INT"
+            "nota": "migliore della squadra in 10 partite su 9 · 28 TD, 4 INT"
           },
           {
             "nome": "Jaylin Carter",
             "ruolo": "RB",
             "misura": "yard corse",
-            "partite": 7,
-            "mediaStagione": 104.0,
-            "mediaUltime3": 121.0,
+            "partite": 8,
+            "mediaStagione": 104.6,
+            "mediaUltime3": 113.3,
             "mediaPassato": null,
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 7 partite su 8"
+            "nota": "migliore della squadra in 8 partite su 9"
           },
           {
             "nome": "Jemyri Davis",
             "ruolo": "WR",
             "misura": "yard ricevute",
-            "partite": 5,
-            "mediaStagione": 69.8,
-            "mediaUltime3": 75.0,
+            "partite": 6,
+            "mediaStagione": 85.0,
+            "mediaUltime3": 113.7,
             "mediaPassato": null,
             "esperienza": null,
             "giovane": false,
-            "forma": null,
-            "nota": "migliore della squadra in 5 partite su 8 · 20 ricezioni"
+            "forma": "in forma",
+            "nota": "migliore della squadra in 6 partite su 9 · 25 ricezioni"
           },
           {
             "nome": "Jermane Hayes",
@@ -189559,7 +189722,7 @@
             "esperienza": null,
             "giovane": false,
             "forma": null,
-            "nota": "migliore della squadra in 4 partite su 8 · 26 ricezioni"
+            "nota": "migliore della squadra in 4 partite su 9 · 26 ricezioni"
           }
         ],
         "giocatoriCasa": [
