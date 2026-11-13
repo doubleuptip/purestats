@@ -411,10 +411,11 @@ function candidati(){
   return out.sort((a, b) => (b.pct - a.pct) || (b.forza - a.forza));
 }
 function migliori(){
-  const top = candidati().slice(0, 3);
+  // i 3 si scelgono per percentuale storica, poi si mostrano in ordine di orario
+  const top = candidati().slice(0, 3).sort((a, b) => ((a.g.data || "") + (a.g.ora || "99")).localeCompare((b.g.data || "") + (b.g.ora || "99")));
   if (!top.length) return "";
   return `<section class="scheda migliori"><div class="titolo" style="margin-top:0">Le 3 partite più sbilanciate</div>
-    <div class="sotto" style="margin-bottom:8px">NFL e college insieme, tra giocatori, handicap e totali, ordinati per quante volte nello storico 2019–2025 sono finiti dalla parte indicata.</div>
+    <div class="sotto" style="margin-bottom:8px">NFL e college insieme, tra giocatori, handicap e totali: i 3 che nello storico 2019–2025 sono finiti più spesso dalla parte indicata, in ordine di orario.</div>
     ${top.map((c, i) => `<button class="top" data-camp-top="${c.camp}" data-id="${idScheda(c.g)}"><span class="pos">${i + 1}</span>
       <span style="flex:1;min-width:0;text-align:left"><span class="chip">${c.camp}</span><span class="chip">${c.tipo}</span><span class="sotto">${esc(quando(c.g))}</span><br>${c.testo}</span>
       <span class="fz">storico<br><b>${c.pct ? c.pct + "%" : "—"}</b><br><span class="fz2">forza ${num(c.forza, 2)}</span></span></button>`).join("")}
