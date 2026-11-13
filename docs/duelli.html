@@ -105,6 +105,7 @@
   .giocatori{display:grid;grid-template-columns:1fr;gap:4px 18px}
   @media (min-width:760px){ .giocatori{grid-template-columns:1fr 1fr} }
   .migliori{border:2px solid var(--fb-acc)}
+  .giudizio{margin:12px 0 0;padding:10px 12px;border-left:3px solid var(--fb-acc);background:color-mix(in srgb, var(--fb-acc) 7%, transparent);font-size:14.5px;line-height:1.5}
   .top{width:100%;display:flex;gap:10px;align-items:center;text-align:left;margin-top:8px;padding:10px;line-height:1.35;font-size:14px}
   .top .pos{font-family:var(--fb-head);font-weight:800;font-size:24px;color:var(--fb-acc);min-width:22px}
   .top .fz{font-size:11px;color:var(--fb-muted);text-align:center;white-space:nowrap}
@@ -359,6 +360,7 @@ function scheda(g){
   return `<article class="scheda" id="${idScheda(g)}">
     <div class="testa">${stemma(T[g.ospite], "s")}<div class="nomi">${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}</div>${stemma(T[g.casa], "s")}<span class="quando">${esc(quando(g))}</span></div>
     <div class="indici">${tile(g.ospite)}${tile(g.casa)}</div>
+    ${g.giudizio ? `<p class="giudizio">${esc(g.giudizio)}</p>` : ""}
     <div class="titolo">Partita: effetto delle difese</div>
     ${bloccoPartita(g, T)}
     <div class="titolo">Vantaggi in evidenza</div>
@@ -395,12 +397,12 @@ function candidati(){
 function migliori(){
   const top = candidati().slice(0, 3);
   if (!top.length) return "";
-  return `<section class="scheda migliori"><div class="titolo" style="margin-top:0">I 3 migliori della settimana</div>
-    <div class="sotto" style="margin-bottom:8px">NFL e college insieme, tra giocatori, handicap e totali: i vantaggi più forti rispetto alla variabilità normale.</div>
+  return `<section class="scheda migliori"><div class="titolo" style="margin-top:0">Le 3 partite più sbilanciate</div>
+    <div class="sotto" style="margin-bottom:8px">NFL e college insieme, tra giocatori, handicap e totali: gli sbilanciamenti più forti rispetto alla variabilità normale.</div>
     ${top.map((c, i) => `<button class="top" data-camp-top="${c.camp}" data-id="${idScheda(c.g)}"><span class="pos">${i + 1}</span>
       <span style="flex:1;min-width:0;text-align:left"><span class="chip">${c.camp}</span><span class="chip">${c.tipo}</span><span class="sotto">${esc(quando(c.g))}</span><br>${c.testo}</span>
       <span class="fz">forza<br><b>${num(c.forza, 2)}</b></span></button>`).join("")}
-    <div class="sotto" style="margin-top:8px">Forza = vantaggio diviso la variabilità normale di quella statistica (0,10 = piccolo, 0,50 = forte). Sono effetti medi verificati sullo storico, non previsioni sicure, e i bookmaker ne tengono già conto.</div></section>`;
+    <div class="sotto" style="margin-top:8px">Forza = vantaggio diviso la variabilità normale di quella statistica. Sulle partite è «forte» oltre 0,20 nell'NFL e oltre 0,43 nel college (le squadre del college sono molto più diverse tra loro). Sono effetti medi verificati sullo storico, non consigli di gioco: la verifica contro le linee dei bookmaker (13/11) dice che ne tengono già conto.</div></section>`;
 }
 
 /* ---------- pannelli in fondo: classifica indici, quarterback, giovani ---------- */

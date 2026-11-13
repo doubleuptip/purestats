@@ -153,6 +153,65 @@ def reparti_partita(st: dict, casa: str, ospite: str) -> list[dict]:
     return out
 
 
+# ------------------------------------------------------------------ giudizio scritto
+# Parole per lo sbilanciamento, relative al campionato: sotto la mediana delle coppie possibili = lieve,
+# fino all'85° percentile = moderato, oltre = forte (misurato il 13/11 su tutte le coppie NFL 2026 sett. 11
+# e college 2026 sett. 13). Il college ha valori più alti perché le squadre sono molto più diverse.
+SCALA = {"NFL": {"totale": (0.10, 0.20), "margine": (0.07, 0.14)},
+         "College": {"totale": (0.20, 0.43), "margine": (0.22, 0.45)}}
+GIOCO = {"corse": "il gioco di corse", "passaggi": "il gioco sui passaggi", "pressione": "la protezione del QB",
+         "esplosive": "le giocate lunghe"}
+DIFESA = {"corse": "difesa contro le corse", "passaggi": "difesa sui passaggi", "pressione": "pressione sul QB",
+          "esplosive": "difesa sulle giocate lunghe"}
+
+
+def _num(x, dec=1):
+    return f"{abs(x):.{dec}f}".replace(".", ",")
+
+
+def parola(campionato: str, tipo: str, forza: float) -> str:
+    basso, alto = SCALA[campionato][tipo]
+    return "lieve" if forza < basso else "moderato" if forza < alto else "forte"
+
+
+def giudizio(campionato: str, s: dict) -> str:
+    """Due-quattro frasi dai numeri della scheda, sempre uguali per gli stessi numeri (niente AI esterna)."""
+    nome = {s["casa"]: s["nomeCasa"], s["ospite"]: s["nomeOspite"]}
+    frasi = []
+    P = s.get("partita")
+    if P:
+        t = P["totale"]
+        if abs(t) < 0.5:
+            frasi.append("Per le difese il totale è in linea con la norma delle due squadre.")
+        else:
+            frasi.append(f"Partita spinta verso {'più' if t > 0 else 'meno'} punti del solito: {'+' if t > 0 else '−'}"
+                         f"{_num(t)} rispetto alla norma delle due squadre, sbilanciamento "
+                         f"{parola(campionato, 'totale', P['forzaTotale'])}.")
+        m = P["margine"]
+        if abs(m) < 0.5:
+            frasi.append("Sul margine le due difese si equivalgono.")
+        else:
+            fav = s["casa"] if m > 0 else s["ospite"]
+            frasi.append(f"Sul margine le difese favoriscono {nome[fav]} di {_num(m)} punti "
+                         f"(sbilanciamento {parola(campionato, 'margine', P['forzaMargine'])}).")
+    netti = [r for r in s.get("reparti") or [] if r["verso"]]
+    if netti:
+        r = max(netti, key=lambda r: abs((r["rd"] - 1) / max(r["n"] - 1, 1) - 0.5))
+        dove = "tra le più deboli" if r["verso"] == "attacco" else "tra le migliori"
+        frasi.append(f"Il confronto più netto: {GIOCO[r['area']]} di {nome.get(r['att'], r['att'])} contro la "
+                     f"{DIFESA[r['area']]} di {nome.get(r['dif'], r['dif'])}, {r['rd']}ª su {r['n']}, {dove}.")
+    gioc = [v for v in s.get("vantaggi") or [] if v["tipo"] == "giocatore" and v.get("effetto") is not None]
+    if gioc:
+        v = max(gioc, key=lambda v: v["forza"])
+        frasi.append(f"Tra i giocatori spicca {v['nome']} ({v['ruolo']}, {nome.get(v['squadra'], v['squadra'])}): "
+                     f"{round(v['previsione'])} {v.get('misura') or 'yard'} previste contro una media di "
+                     f"{round(v['media'])} ({'+' if v['effetto'] > 0 else '−'}{_num(v['effetto'])} per la difesa che trova).")
+    if not frasi:
+        return ""
+    frasi.append("È una lettura della partita, non un consiglio: il mercato di solito ne tiene già conto.")
+    return " ".join(frasi)
+
+
 def giocatori_contro(campionato: str, giocatori: list, avversario: str, st: dict) -> list[dict]:
     """Previsione di yard = media della stagione + effetto della difesa avversaria nel suo reparto."""
     out = []
@@ -219,7 +278,7 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
             # ordine tra i reparti: prima le difese più agli estremi (non entra nei 3 migliori)
             vantaggi.append({"tipo": "reparto", **r, "forza": round(abs((r["rd"] - 1) / max(r["n"] - 1, 1) - 0.5) / 100, 5)})
     vantaggi.sort(key=lambda v: (v["tipo"] != "giocatore", -v["forza"]))
-    return {"campionato": campionato, "data": data, "ora": ora, "casa": casa, "ospite": ospite,
+    out = {"campionato": campionato, "data": data, "ora": ora, "casa": casa, "ospite": ospite,
             "nomeCasa": lc.get("breve") or casa, "nomeOspite": lo.get("breve") or ospite,
             "logoCasa": lc.get("logo") or "", "logoOspite": lo.get("logo") or "",
             "coloreCasa": lc.get("colore") or "", "coloreOspite": lo.get("colore") or "",
@@ -227,6 +286,8 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
             "indiceCasa": indice_squadra(indici, casa), "indiceOspite": indice_squadra(indici, ospite),
             "giocatoriCasa": gc, "giocatoriOspite": go, "partita": partita,
             "vantaggi": vantaggi, "reparti": rep}
+    out["giudizio"] = giudizio(campionato, out)
+    return out
 
 
 def main() -> int:
