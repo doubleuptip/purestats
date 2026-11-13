@@ -110,9 +110,10 @@ def orario_roma(data: str, ora: str) -> tuple[str, str]:
 
 
 # ------------------------------------------------------------------ NFL
-def statistiche_nfl(stagione: int, settimana: int) -> dict:
+def statistiche_nfl(stagione: int, settimane: list[int]) -> dict[int, dict]:
     """Stesso calcolo del bot: pressione, esplosive e zona rossa dalla stagione in corso corrette per gli
-    avversari; corse e passaggi dalla forza di squadra (ratings) usata dalla scheda /fb."""
+    avversari; corse e passaggi dalla forza di squadra (ratings) usata dalla scheda /fb, calcolata alla
+    settimana di ogni partita (solo le gare giocate prima). Restituisce {settimana: statistiche}."""
     riassunti = []
     pbp_corrente = None
     with tempfile.TemporaryDirectory() as cartella:
@@ -132,15 +133,30 @@ def statistiche_nfl(stagione: int, settimana: int) -> dict:
             riassunti += nd.load_summary(percorso)
             if s == stagione:
                 pbp_corrente = grezzo
-    st, avversari = F.nfl_team_stats(nd.iter_csv_gz(pbp_corrente))
-    st = F.adjust(st, avversari)
-    forze = R.build(riassunti, stagione, settimana)
-    for squadra, r in forze.items():
-        v = st.setdefault(squadra, {a: (None, None) for a in F.AREE} | {"_ritmo": None, "_partite": None})
-        v["corse"] = (r.off_rush, -r.def_rush)
-        v["passaggi"] = (r.off_pass, -r.def_pass)
-    print(f"NFL: statistiche pronte per {len(st)} squadre (forza di squadra alla settimana {settimana}).")
-    return st
+    base, avversari = F.nfl_team_stats(nd.iter_csv_gz(pbp_corrente))
+    base = F.adjust(base, avversari)
+    out = {}
+    for settimana in settimane:
+        st = {k: dict(v) for k, v in base.items()}
+        for squadra, r in R.build(riassunti, stagione, settimana).items():
+            v = st.setdefault(squadra, {a: (None, None) for a in F.AREE} | {"_ritmo": None, "_partite": None})
+            v["corse"] = (r.off_rush, -r.def_rush)
+            v["passaggi"] = (r.off_pass, -r.def_pass)
+        out[settimana] = st
+    print(f"NFL: statistiche pronte per {len(base)} squadre (forza di squadra alle settimane {settimane}).")
+    return out
+
+
+def da_giocare(dati: dict) -> dict[int, list]:
+    """Partite non ancora giocate della giornata in corso (es. la domenica dopo il giovedì sera)
+    e della prossima. PureStats tiene la giornata in corso in "giornata" appena se ne gioca una."""
+    out: dict[int, list] = {}
+    for blocco in ("giornata", "prossima"):
+        b = dati.get(blocco) or {}
+        resto = [p for p in b.get("partite") or [] if p.get("pc") is None]
+        if resto and b.get("settimana") is not None:
+            out.setdefault(int(b["settimana"]), []).extend(resto)
+    return out
 
 
 # ------------------------------------------------------------------ college
@@ -211,13 +227,13 @@ def duelli_partita(rk: dict, casa: str, ospite: str) -> list[dict]:
     return out
 
 
-def partite(campionato: str, dati: dict, st: dict) -> list[dict]:
+def partite(campionato: str, dati: dict, elenco: list, st: dict) -> list[dict]:
     if not st:
         return []
     rk = F.ranks(st)
     loghi = dati.get("loghi") or {}
     out, saltate = [], 0
-    for p in (dati.get("prossima") or {}).get("partite") or []:
+    for p in elenco:
         casa, ospite = p.get("casa"), p.get("ospite")
         if p.get("pc") is not None or casa not in st or ospite not in st:
             saltate += 1                 # già giocata, o squadra senza statistiche (es. fuori FBS)
@@ -249,19 +265,25 @@ def main() -> int:
 
     nfl, college = leggi_json(NFL_JSON), leggi_json(COLLEGE_JSON)
     elenco = []
-    pn = nfl.get("prossima") or {}
-    if pn.get("partite"):
+    stagione_nfl = (nfl.get("prossima") or nfl.get("giornata") or {}).get("stagione")
+    gare_nfl = da_giocare(nfl)
+    if gare_nfl and stagione_nfl:
         try:
-            elenco += partite("NFL", nfl, statistiche_nfl(int(pn["stagione"]), int(pn["settimana"])))
+            per_settimana = statistiche_nfl(int(stagione_nfl), sorted(gare_nfl))
+            for w, gare in sorted(gare_nfl.items()):
+                elenco += partite("NFL", nfl, gare, per_settimana[w])
         except Exception as e:         # noqa: BLE001
             print(f"NFL: duelli non calcolati ({e}).")
     else:
-        print("NFL: nessuna partita in programma in data_nfl.json.")
-    pc = college.get("prossima") or {}
-    if pc.get("partite"):
-        elenco += partite("College", college, statistiche_college(int(pc["stagione"])))
+        print("NFL: nessuna partita da giocare in data_nfl.json.")
+    stagione_college = (college.get("prossima") or college.get("giornata") or {}).get("stagione")
+    gare_college = [p for gare in da_giocare(college).values() for p in gare]
+    if gare_college and stagione_college:
+        elenco += partite("College", college, gare_college, statistiche_college(int(stagione_college)))
     else:
-        print("College: nessuna partita in programma in data_college.json.")
+        print("College: nessuna partita da giocare in data_college.json.")
+    pn = {"settimana": sorted(gare_nfl)}
+    pc = {"settimana": sorted(da_giocare(college))}
 
     if not elenco:
         print("Nessun duello calcolato: lascio com'è il file pubblicato, per non sostituirlo con uno vuoto.")
