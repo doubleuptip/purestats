@@ -76,6 +76,9 @@ def _leggi_scheda_infortuni(s: dict) -> dict | None:
     for r in righe:
         vals = [str(v).strip() for v in r]
         piene = [v for v in vals if v]
+        # sotto la lista ci sono altre tabelle: ci si ferma alla prima riga vuota o al numero del riepilogo
+        if intest is not None and (not piene or (out["n"] and len(out["giocatori"]) >= out["n"])):
+            break
         if not piene:
             continue
         if "Impact Rank:" in vals:            # riga di riepilogo: #: 17 · # New: 4 · Impact: 38 · Impact Rank: 3
