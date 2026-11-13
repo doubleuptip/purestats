@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>PureStats · Duelli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@600;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Stessa palette della sezione NFL di index.html (variabili --fb-*) */
+  :root{
+    --fb-bg:#E9EDF2; --fb-card:#FFFFFF; --fb-border:#CDD4DE; --fb-text:#111827; --fb-muted:#4B5563;
+    --fb-acc:#B91C1C; --fb-acc-text:#FFFFFF; --fb-chip:#EEF0F3; --fb-chiptext:#374151;
+    --fb-head:'Archivo',sans-serif;
+    --buono-bg:#DCFCE7; --buono:#166534; --scarso-bg:#FEE2E2; --scarso:#991B1B;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --fb-bg:#0B0F1A; --fb-card:#131A2B; --fb-border:#232C42; --fb-text:#F5F7FB; --fb-muted:#A3ADC2;
+      --fb-acc:#FF8A3D; --fb-acc-text:#1A0E05; --fb-chip:#1F2840; --fb-chiptext:#C9D1E3;
+      --fb-head:'Barlow Condensed',sans-serif;
+      --buono-bg:#14361F; --buono:#86EFAC; --scarso-bg:#3B1518; --scarso:#FCA5A5;
+      color-scheme:dark;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--fb-bg);color:var(--fb-text);font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.5}
+  .pagina{max-width:760px;margin:0 auto;padding:16px 14px 48px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .marchio{font-family:var(--fb-head);font-weight:800;font-size:28px;letter-spacing:.03em;line-height:1}
+  .marchio b{color:var(--fb-acc);font-weight:inherit}
+  .sotto{font-size:13px;color:var(--fb-muted)}
+  button{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-card);color:var(--fb-text);padding:8px 14px;min-height:40px}
+  button.on{background:var(--fb-acc);color:var(--fb-acc-text);border-color:var(--fb-acc)}
+  .scheda{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:16px;margin-bottom:14px}
+  .accesso{max-width:380px;margin:12vh auto 0}
+  .accesso input{width:100%;font:inherit;padding:10px 12px;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-bg);color:var(--fb-text);min-height:44px;margin:10px 0}
+  .errore{color:var(--scarso);font-size:13px;min-height:20px}
+  .barra{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+  .barra label{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--fb-muted);margin-left:auto}
+  .testa{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .testa .nomi{font-family:var(--fb-head);font-weight:800;font-size:20px;line-height:1.1;flex:1;min-width:0}
+  .testa .quando{font-size:12px;color:var(--fb-muted);white-space:nowrap}
+  .lg{width:32px;height:32px;object-fit:contain;flex:none}
+  .lg.s{width:22px;height:22px}
+  .bd{width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex:none}
+  .bd.s{width:22px;height:22px;font-size:8px}
+  .conta{display:flex;gap:10px}
+  .conta>div{flex:1;background:var(--fb-chip);border-radius:10px;padding:10px;display:flex;align-items:center;gap:10px}
+  .conta .n{font-size:26px;font-weight:700;line-height:1}
+  .conta .e{font-size:11px;color:var(--fb-muted)}
+  .voce{display:flex;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--fb-border)}
+  .voce .t{font-size:14px;font-weight:600}
+  .voce .d{font-size:12px;color:var(--fb-muted)}
+  .pl{font-size:11px;padding:2px 8px;border-radius:6px;white-space:nowrap;font-weight:600}
+  .pl.legg{background:var(--fb-chip);color:var(--fb-chiptext);font-weight:500}
+  .pari{font-size:12px;color:var(--fb-muted);padding:9px 0;border-top:1px solid var(--fb-border)}
+  details{margin-top:10px;border-top:1px solid var(--fb-border);padding-top:8px}
+  summary{cursor:pointer;font-size:14px;font-weight:600;min-height:32px;display:flex;align-items:center}
+  .blocco{display:flex;align-items:center;gap:8px;margin:12px 0 4px;font-size:14px;font-weight:600}
+  .riga,.int{display:grid;grid-template-columns:minmax(0,1fr) 44px 44px 112px;gap:6px;align-items:center}
+  .int{font-size:11px;color:var(--fb-muted)}
+  .riga{padding:7px 0;border-top:1px solid var(--fb-border);font-size:13px}
+  .rk{text-align:center;font-weight:700;border-radius:6px;padding:2px 0;font-variant-numeric:tabular-nums;background:var(--fb-chip)}
+  .rk.buono{background:var(--buono-bg);color:var(--buono)}
+  .rk.scarso{background:var(--scarso-bg);color:var(--scarso)}
+  .chi{font-size:12px;text-align:right}
+  .legenda{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--fb-muted);margin-top:10px}
+  .legenda .rk{padding:1px 6px;display:inline-block}
+  .vuoto{color:var(--fb-muted);text-align:center;padding:24px}
+  footer{font-size:12px;color:var(--fb-muted);text-align:center;margin-top:20px}
+  @media (max-width:420px){ .riga,.int{grid-template-columns:minmax(0,1fr) 38px 38px 96px} .testa .nomi{font-size:18px} }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header>
+    <div>
+      <div class="marchio">PURE<b>STATS</b></div>
+      <div class="sotto">Duelli attacco contro difesa · area privata</div>
+    </div>
+    <button id="esci" hidden>Esci</button>
+  </header>
+
+  <form class="scheda accesso" id="accesso">
+    <div style="font-weight:600">Inserisci la password</div>
+    <input type="password" id="password" autocomplete="current-password" aria-label="Password">
+    <div class="errore" id="errore" role="alert"></div>
+    <button type="submit" class="on" style="width:100%">Entra</button>
+  </form>
+
+  <main id="contenuto" hidden>
+    <div class="barra">
+      <button data-camp="NFL" class="on">NFL</button>
+      <button data-camp="College">College</button>
+      <label><input type="checkbox" id="soloNetti"> solo con duelli netti</label>
+    </div>
+    <div id="elenco"></div>
+    <footer id="piede"></footer>
+  </main>
+</div>
+
+<script>
+/* Dati cifrati da scripts/fetch_duelli.py: qui si rifanno gli stessi passaggi con WebCrypto.
+   Nessun localStorage: la password va reinserita a ogni visita e non esce mai dal browser. */
+const AREE = {corse:"Corse", passaggi:"Passaggi", pressione:"Protezione QB", esplosive:"Giocate lunghe", zona_rossa:"Zona rossa"};
+const ORDINE_AREE = ["corse","passaggi","pressione","esplosive","zona_rossa"];
+const PARI = 0.15, NETTO = 0.40;
+let DATI = null, CAMPIONATO = "NFL";
+
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const unisci = (...parti) => { const n = parti.reduce((t, p) => t + p.length, 0), o = new Uint8Array(n); let i = 0; for (const p of parti) { o.set(p, i); i += p.length; } return o; };
+
+async function decifra(pacchetto, password){
+  const sub = crypto.subtle;
+  const base = await sub.importKey("raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveBits"]);
+  const chiave = new Uint8Array(await sub.deriveBits({name:"PBKDF2", hash:"SHA-256", salt:b64(pacchetto.sale), iterations:pacchetto.iterazioni}, base, 512));
+  const kCif = chiave.slice(0, 32), kMac = chiave.slice(32);
+  const nonce = b64(pacchetto.nonce), cifrato = b64(pacchetto.dati);
+  const km = await sub.importKey("raw", kMac, {name:"HMAC", hash:"SHA-256"}, false, ["verify"]);
+  if (!await sub.verify("HMAC", km, b64(pacchetto.mac), unisci(nonce, cifrato))) throw new Error("password");
+  const blocchi = Math.ceil(cifrato.length / 32), richieste = [];
+  for (let i = 0; i < blocchi; i++) {
+    const c = new Uint8Array([i >>> 24 & 255, i >>> 16 & 255, i >>> 8 & 255, i & 255]);
+    richieste.push(sub.digest("SHA-256", unisci(kCif, nonce, c)));
+  }
+  const flusso = unisci(...(await Promise.all(richieste)).map(x => new Uint8Array(x)));
+  const chiaro = cifrato.map((b, i) => b ^ flusso[i]);
+  return JSON.parse(new TextDecoder().decode(chiaro));
+}
+
+document.getElementById("accesso").addEventListener("submit", async ev => {
+  ev.preventDefault();
+  const err = document.getElementById("errore"), pw = document.getElementById("password").value;
+  if (!pw) { err.textContent = "Scrivi la password."; return; }
+  err.textContent = "Apro i dati…";
+  try {
+    if (!window.crypto || !crypto.subtle) throw new Error("browser");
+    const r = await fetch("duelli.dat?" + Date.now(), {cache:"no-store"});
+    if (!r.ok) throw new Error("file");
+    DATI = await decifra(await r.json(), pw);
+  } catch (e) {
+    err.textContent = e.message === "password" ? "Password sbagliata." :
+      e.message === "browser" ? "Questo browser non supporta la decifratura: apri la pagina in https." :
+      "Non riesco a scaricare i dati. Riprova tra poco.";
+    return;
+  }
+  document.getElementById("password").value = "";
+  document.getElementById("accesso").hidden = true;
+  document.getElementById("contenuto").hidden = false;
+  document.getElementById("esci").hidden = false;
+  if (!DATI.partite.some(g => g.campionato === "NFL")) CAMPIONATO = "College";
+  disegna();
+});
+document.getElementById("password").addEventListener("input", () => document.getElementById("errore").textContent = "");
+document.getElementById("esci").addEventListener("click", () => location.reload());
+document.querySelectorAll("[data-camp]").forEach(b => b.addEventListener("click", () => { CAMPIONATO = b.dataset.camp; disegna(); }));
+document.getElementById("soloNetti").addEventListener("change", disegna);
+
+/* ---------- colori e stemmi ---------- */
+const scuro = () => matchMedia("(prefers-color-scheme: dark)").matches;
+function coloreTesto(hex){
+  if (!/^#[0-9a-f]{6}$/i.test(hex || "")) return "var(--fb-text)";
+  if (!scuro()) return hex;
+  const n = [1,3,5].map(i => parseInt(hex.substr(i, 2), 16));
+  return "rgb(" + n.map(v => Math.round(v + (255 - v) * .55)).join(",") + ")";
+}
+const fondo = hex => /^#[0-9a-f]{6}$/i.test(hex || "") ? hex : "#555555";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function squadra(g, sigla){
+  const casa = sigla === g.casa;
+  return {sigla, nome: casa ? g.nomeCasa : g.nomeOspite, logo: casa ? g.logoCasa : g.logoOspite, colore: casa ? g.coloreCasa : g.coloreOspite};
+}
+function stemma(t, piccolo){
+  const cl = piccolo ? " s" : "";
+  const cerchio = `<span class="bd${cl}" style="background:${fondo(t.colore)}" aria-hidden="true">${esc(String(t.sigla).slice(0, 4).toUpperCase())}</span>`;
+  if (/^https:\/\//.test(t.logo || "")) return `<img class="lg${cl}" src="${esc(t.logo)}" alt="${esc(t.nome)}" loading="lazy" data-ripiego="${esc(cerchio)}" onerror="ripiego(this)">`;
+  return cerchio;
+}
+/* Logo non raggiungibile: al suo posto il cerchio con colore e sigla, come in index.html */
+function ripiego(img){ img.insertAdjacentHTML("afterend", img.dataset.ripiego); img.remove(); }
+
+/* ---------- scheda di una partita ---------- */
+const forza = s => Math.abs(s) < PARI ? "pari" : Math.abs(s) >= NETTO ? "netto" : "leggero";
+function classeRank(r, n){ return r <= n / 4 ? "buono" : r > n * 3 / 4 ? "scarso" : ""; }
+
+function scheda(g){
+  const T = {[g.casa]: squadra(g, g.casa), [g.ospite]: squadra(g, g.ospite)};
+  const vinti = {[g.casa]: 0, [g.ospite]: 0}, pari = [], voci = [];
+  for (const d of [...g.duelli].sort((a, b) => Math.abs(b.punteggio) - Math.abs(a.punteggio))) {
+    const f = forza(d.punteggio);
+    if (f === "pari") { pari.push(`${AREE[d.area]} ${esc(T[d.att].nome)}`); continue; }
+    const w = d.punteggio > 0 ? d.att : d.dif; vinti[w]++;
+    const frase = d.punteggio > 0
+      ? `attacco ${esc(T[d.att].nome)} ${d.ra}° contro difesa ${esc(T[d.dif].nome)} ${d.rd}ª`
+      : `difesa ${esc(T[d.dif].nome)} ${d.rd}ª ferma attacco ${esc(T[d.att].nome)} ${d.ra}°`;
+    const pl = f === "netto" ? `<span class="pl" style="background:${fondo(T[w].colore)};color:#fff">netto</span>` : `<span class="pl legg">leggero</span>`;
+    voci.push(`<div class="voce">${stemma(T[w])}<div style="flex:1;min-width:0"><div class="t" style="color:${coloreTesto(T[w].colore)}">${AREE[d.area]}: ${esc(T[w].nome)}</div><div class="d">${frase}</div></div>${pl}</div>`);
+  }
+  const box = s => `<div>${stemma(T[s])}<div><div class="n" style="color:${coloreTesto(T[s].colore)}">${vinti[s]}</div><div class="e">duelli avanti</div></div></div>`;
+  const quando = [g.data ? g.data.split("-").reverse().slice(0, 2).join("/") : "", g.ora].filter(Boolean).join(" ");
+  let h = `<article class="scheda"><div class="testa">${stemma(T[g.ospite], true)}<div class="nomi">${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}</div>${stemma(T[g.casa], true)}<span class="quando">${esc(quando)}</span></div>`;
+  h += `<div class="conta">${box(g.casa)}${box(g.ospite)}</div><div style="margin-top:10px">${voci.join("")}`;
+  if (pari.length) h += `<div class="pari">= Equilibrio: ${pari.join(", ")}</div>`;
+  h += `</div><details><summary>Tabellone completo</summary>`;
+  for (const [a, d] of [[g.casa, g.ospite], [g.ospite, g.casa]]) {
+    h += `<div class="blocco">${stemma(T[a], true)}Attaccano i ${esc(T[a].nome)}</div><div class="int"><span></span><span style="text-align:center">att.</span><span style="text-align:center">dif.</span><span style="text-align:right">chi è avanti</span></div>`;
+    for (const area of ORDINE_AREE) {
+      const x = g.duelli.find(y => y.area === area && y.att === a);
+      if (!x) continue;
+      const f = forza(x.punteggio), w = x.punteggio > 0 ? a : d;
+      const chi = f === "pari" ? `<span style="color:var(--fb-muted)">equilibrio</span>`
+        : `<span style="color:${coloreTesto(T[w].colore)};font-weight:${f === "netto" ? 700 : 400}">${f === "netto" ? "nettamente " : ""}${esc(T[w].nome)}</span>`;
+      h += `<div class="riga"><span>${AREE[area]}</span><span class="rk ${classeRank(x.ra, x.n)}">${x.ra}°</span><span class="rk ${classeRank(x.rd, x.n)}">${x.rd}ª</span><span class="chi">${chi}</span></div>`;
+    }
+  }
+  const n = g.duelli[0].n, q = Math.floor(n / 4);
+  h += `<div class="legenda"><span><span class="rk buono">1–${q}</span> tra i migliori</span><span><span class="rk scarso">${n - q + 1}–${n}</span> tra i peggiori</span><span>su ${n} squadre</span></div></details></article>`;
+  return h;
+}
+
+function disegna(){
+  document.querySelectorAll("[data-camp]").forEach(b => b.classList.toggle("on", b.dataset.camp === CAMPIONATO));
+  const solo = document.getElementById("soloNetti").checked;
+  const elenco = DATI.partite.filter(g => g.campionato === CAMPIONATO && (!solo || g.duelli.some(d => Math.abs(d.punteggio) >= NETTO)));
+  document.getElementById("elenco").innerHTML = elenco.length ? elenco.map(scheda).join("")
+    : `<div class="scheda vuoto">${solo ? "Nessuna partita con duelli netti." : "Nessuna partita in programma con dati disponibili."}</div>`;
+  const t = new Date(DATI.aggiornato);
+  document.getElementById("piede").textContent = `Aggiornato il ${t.toLocaleString("it-IT", {timeZone:"Europe/Rome", dateStyle:"short", timeStyle:"short"})} · Fonti: ${DATI.fonti} · Solo statistiche, nessuna quota.`;
+}
+</script>
+</body>
+</html>

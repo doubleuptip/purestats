@@ -1,0 +1,84 @@
+name: Aggiorna duelli (pagina privata)
+
+on:
+  schedule:
+    # Una volta al giorno alle 07:30 UTC (08:30 in Italia), prima del messaggio delle 10:00 del bot.
+    # Le partite in programma arrivano da data_nfl.json e data_college.json, già aggiornati dagli altri workflow.
+    # College: 2 chiamate CollegeFootballData per giro, circa 60 al mese.
+    - cron: '30 7 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fetch_duelli.py'
+      - 'scripts/motore_duelli/**'
+      - '.github/workflows/update-duelli.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archivio-duelli
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configura Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Calcola e cifra i duelli
+        env:
+          DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          # Il repository è pubblico: lo script scrive solo il file cifrato e non stampa mai i dati.
+          python scripts/fetch_duelli.py || { echo "Primo tentativo fallito: riprovo tra 5 minuti"; sleep 300; python scripts/fetch_duelli.py; }
+
+      - name: Committa le modifiche
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          FILE="docs/duelli.dat"
+          if [ ! -f "$FILE" ]; then
+            echo "Nessun file cifrato prodotto (password non impostata?): niente da pubblicare."
+            exit 0
+          fi
+
+          git add $FILE
+          if git diff --staged --quiet; then
+            echo "Nessuna variazione."
+            exit 0
+          fi
+          git commit -m "Duelli aggiornati $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+          for tentativo in 1 2 3 4 5; do
+            if git push; then
+              echo "Pubblicato al tentativo $tentativo"
+              exit 0
+            fi
+
+            echo "Repository cambiato, riapplico il file aggiornato..."
+            cp "$FILE" /tmp/duelli.dat
+            git fetch origin main
+            git reset --hard origin/main
+            cp /tmp/duelli.dat "$FILE"
+
+            git add $FILE
+            if git diff --staged --quiet; then
+              echo "I dati coincidono già con quelli pubblicati."
+              exit 0
+            fi
+            git commit -m "Duelli aggiornati $(date -u '+%Y-%m-%d %H:%M UTC')"
+            sleep 5
+          done
+
+          echo "Pubblicazione non riuscita dopo 5 tentativi"
+          exit 1
