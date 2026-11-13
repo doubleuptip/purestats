@@ -222,12 +222,20 @@ function scheda(g){
   return h;
 }
 
+/* Le partite già cominciate spariscono subito, senza aspettare il prossimo aggiornamento dei dati.
+   Data e ora sono italiane; senza ora la partita resta visibile fino alla fine del suo giorno. */
+function iniziata(g){
+  if (!g.data) return false;
+  const ora = new Intl.DateTimeFormat("sv-SE", {timeZone:"Europe/Rome", year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", hour12:false}).format(new Date()).replace(" ", "T");
+  return g.ora ? `${g.data}T${g.ora}` <= ora : g.data < ora.slice(0, 10);
+}
+
 function disegna(){
   document.querySelectorAll("[data-camp]").forEach(b => b.classList.toggle("on", b.dataset.camp === CAMPIONATO));
   const solo = document.getElementById("soloNetti").checked;
-  const elenco = DATI.partite.filter(g => g.campionato === CAMPIONATO && (!solo || g.duelli.some(d => Math.abs(d.punteggio) >= NETTO)));
+  const elenco = DATI.partite.filter(g => g.campionato === CAMPIONATO && !iniziata(g) && (!solo || g.duelli.some(d => Math.abs(d.punteggio) >= NETTO)));
   document.getElementById("elenco").innerHTML = elenco.length ? elenco.map(scheda).join("")
-    : `<div class="scheda vuoto">${solo ? "Nessuna partita con duelli netti." : "Nessuna partita in programma con dati disponibili."}</div>`;
+    : `<div class="scheda vuoto">${solo ? "Nessuna partita con duelli netti." : "Nessuna partita ancora da giocare con dati disponibili."}</div>`;
   const t = new Date(DATI.aggiornato);
   document.getElementById("piede").textContent = `Aggiornato il ${t.toLocaleString("it-IT", {timeZone:"Europe/Rome", dateStyle:"short", timeStyle:"short"})} · Fonti: ${DATI.fonti} · Solo statistiche, nessuna quota.`;
 }

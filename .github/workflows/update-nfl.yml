@@ -2,9 +2,15 @@ name: Aggiorna archivio NFL
 
 on:
   schedule:
-    # Ogni giorno: risultati del giovedì, della domenica e del lunedì arrivano
-    # in giorni diversi, e le linee del turno successivo cambiano in settimana.
+    # Ogni giorno alle 11:00 UTC (12:00 in Italia): linee del turno successivo.
+    # In più, subito dopo le finestre di gioco, così una partita finita sparisce
+    # dalla prossima giornata e dai duelli senza aspettare mezzogiorno
+    # (orari UTC: in Italia un'ora in più, d'estate due).
     - cron: '0 11 * * *'
+    - cron: '0 6 * * 5'      # venerdì mattina, dopo il giovedì sera
+    - cron: '0 22 * * 0'     # domenica sera, dopo le partite del pomeriggio
+    - cron: '0 6 * * 1'      # lunedì mattina, dopo la domenica sera
+    - cron: '0 6 * * 2'      # martedì mattina, dopo il lunedì sera
   workflow_dispatch:
   push:
     branches: [main]

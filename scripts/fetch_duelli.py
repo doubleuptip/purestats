@@ -17,7 +17,8 @@ Cifratura (verificabile, solo libreria standard):
   controllo = HMAC-SHA256(chiave_controllo, nonce || dati cifrati): una password sbagliata viene riconosciuta
 La pagina rifà gli stessi passaggi nel browser con WebCrypto.
 
-Fonti: nflverse (CC-BY-SA 4.0) per l'NFL, CollegeFootballData (secret CFBD_API_KEY, 2 chiamate) per il college.
+Fonti: nflverse (CC-BY-SA 4.0) per l'NFL, CollegeFootballData (secret CFBD_API_KEY) per il college:
+2 chiamate al massimo ogni 20 ore, il resto dei giri riusa data/duelli_cfbd.json.
 Partite e loghi vengono da docs/data_nfl.json e docs/data_college.json, già prodotti dagli altri workflow.
 """
 from __future__ import annotations
@@ -47,6 +48,8 @@ COLLEGE_JSON = RADICE / "docs" / "data_college.json"
 ITERAZIONI = 200_000
 CFBD = "https://api.collegefootballdata.com"
 VERSIONE = 1
+CACHE_CFBD = RADICE / "data" / "duelli_cfbd.json"
+CACHE_ORE = 20
 
 
 # ------------------------------------------------------------------ cifratura
@@ -149,19 +152,44 @@ def chiama_cfbd(percorso: str, chiave: str, **parametri):
         return json.loads(r.read().decode("utf-8"))
 
 
-def statistiche_college(stagione: int) -> dict:
-    chiave = os.environ.get("CFBD_API_KEY", "").strip()
-    if not chiave:
-        print("College: secret CFBD_API_KEY non impostato, i duelli college restano vuoti in questo giro.")
-        return {}
+def leggi_cache_cfbd(stagione: int):
+    """Statistiche di stagione CFBD salvate dall'ultimo giro (sono statistiche pubbliche, non segnali).
+    Valide se della stessa stagione e scaricate da meno di CACHE_ORE: i duelli girano dopo ogni
+    aggiornamento NFL e college, ma SP+ cambia una volta a settimana e il budget CFBD è condiviso."""
     try:
-        sp = chiama_cfbd("ratings/sp", chiave, year=stagione)
-        adv = chiama_cfbd("stats/season/advanced", chiave, year=stagione, excludeGarbageTime="true")
-    except Exception as e:             # noqa: BLE001
-        print(f"College: CollegeFootballData non ha risposto ({e}), i duelli college restano vuoti in questo giro.")
-        return {}
+        c = json.loads(CACHE_CFBD.read_text(encoding="utf-8"))
+        eta = datetime.now(timezone.utc) - datetime.fromisoformat(c["scaricato"])
+        if c.get("stagione") == stagione and eta.total_seconds() < CACHE_ORE * 3600:
+            return c["sp"], c["adv"], eta
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+    return None
+
+
+def statistiche_college(stagione: int) -> dict:
+    cache = leggi_cache_cfbd(stagione)
+    if cache:
+        sp, adv, eta = cache
+        print(f"College: statistiche CFBD riusate (scaricate {int(eta.total_seconds() // 3600)} ore fa), 0 chiamate.")
+    else:
+        chiave = os.environ.get("CFBD_API_KEY", "").strip()
+        if not chiave:
+            print("College: secret CFBD_API_KEY non impostato, i duelli college restano vuoti in questo giro.")
+            return {}
+        try:
+            sp = chiama_cfbd("ratings/sp", chiave, year=stagione)
+            adv = chiama_cfbd("stats/season/advanced", chiave, year=stagione, excludeGarbageTime="true")
+        except Exception as e:         # noqa: BLE001
+            print(f"College: CollegeFootballData non ha risposto ({e}), i duelli college restano vuoti in questo giro.")
+            return {}
+        tmp = CACHE_CFBD.with_suffix(".tmp")
+        tmp.write_text(json.dumps({"scaricato": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                                   "stagione": stagione, "sp": sp, "adv": adv}, separators=(",", ":")),
+                       encoding="utf-8")
+        os.replace(tmp, CACHE_CFBD)
+        print("College: statistiche CFBD scaricate (2 chiamate), riusate nei giri delle prossime ore.")
     st = F.college_team_stats(sp, adv)
-    print(f"College: statistiche pronte per {len(st)} squadre (2 chiamate CFBD).")
+    print(f"College: statistiche pronte per {len(st)} squadre.")
     return st
 
 

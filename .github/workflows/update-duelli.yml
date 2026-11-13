@@ -4,8 +4,13 @@ on:
   schedule:
     # Una volta al giorno alle 07:30 UTC (08:30 in Italia), prima del messaggio delle 10:00 del bot.
     # Le partite in programma arrivano da data_nfl.json e data_college.json, già aggiornati dagli altri workflow.
-    # College: 2 chiamate CollegeFootballData per giro, circa 60 al mese.
+    # College: 2 chiamate CollegeFootballData al massimo ogni 20 ore, circa 60 al mese.
     - cron: '30 7 * * *'
+  # Subito dopo ogni aggiornamento NFL o college: le partite finite escono dall'elenco
+  # e le statistiche si aggiornano. Le chiamate CFBD restano 2 ogni 20 ore (cache).
+  workflow_run:
+    workflows: ["Aggiorna archivio NFL", "Aggiorna archivio College Football"]
+    types: [completed]
   workflow_dispatch:
   push:
     branches: [main]
@@ -27,6 +32,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          ref: main   # dopo un altro workflow serve la versione appena pubblicata, non quella che l'ha avviato
 
       - name: Configura Python
         uses: actions/setup-python@v6
@@ -53,6 +60,7 @@ jobs:
           fi
 
           git add $FILE
+          [ -f data/duelli_cfbd.json ] && git add data/duelli_cfbd.json
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
             exit 0
@@ -67,9 +75,11 @@ jobs:
 
             echo "Repository cambiato, riapplico il file aggiornato..."
             cp "$FILE" /tmp/duelli.dat
+            [ -f data/duelli_cfbd.json ] && cp data/duelli_cfbd.json /tmp/duelli_cfbd.json
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/duelli.dat "$FILE"
+            [ -f /tmp/duelli_cfbd.json ] && cp /tmp/duelli_cfbd.json data/duelli_cfbd.json && git add data/duelli_cfbd.json
 
             git add $FILE
             if git diff --staged --quiet; then
