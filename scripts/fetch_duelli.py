@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import base64
 import csv
+from collections import defaultdict
 import gzip
 import hashlib
 import hmac
@@ -127,12 +128,47 @@ def azioni_stagione(lega: str, stagione: int, cartella: str) -> list:
         shutil.copyfileobj(r, out, length=1 << 20)
     apri = (lambda: io.TextIOWrapper(gzip.open(percorso), encoding="utf-8", newline="")) if lega == "nfl" \
         else (lambda: open(percorso, encoding="utf-8", newline=""))
+    punti = {}
     with apri() as fh:
-        righe = csv.DictReader(fh)
+        righe = _con_punti(csv.DictReader(fh), lega, punti)
         azioni = list(RP.azioni_nflverse(righe) if lega == "nfl" else RP.azioni_cfbfastr(righe))
     percorso.unlink()
-    print(f"{LEGHE[lega]}: {len(azioni)} azioni di corsa e passaggio.")
-    return azioni
+    print(f"{LEGHE[lega]}: {len(azioni)} azioni di corsa e passaggio, {len(punti)} partite con il punteggio.")
+    return azioni, punti
+
+
+def _con_punti(righe, lega: str, punti: dict):
+    """Lascia passare le righe e intanto annota il punteggio finale di ogni partita:
+    {game_id: {"w": settimana, squadra: punti}}. NFL: home_score/away_score (finali, su ogni riga);
+    college: il massimo dei punti visti per squadra nella partita (i punti non scendono mai)."""
+    for r in righe:
+        g = r.get("game_id")
+        try:
+            if lega == "nfl":
+                if r.get("season_type") in ("REG", "POST") and g not in punti and r.get("home_score") not in ("", "NA", None):
+                    punti[g] = {"w": int(float(r["week"])), r["home_team"]: float(r["home_score"]),
+                                r["away_team"]: float(r["away_score"])}
+            elif r.get("pos_team") and r.get("def_pos_team"):
+                d = punti.setdefault(g, {"w": int(float(r["week"]))})
+                for sq, col in ((r["pos_team"], "pos_team_score"), (r["def_pos_team"], "def_pos_team_score")):
+                    v = RP._f(r.get(col))
+                    if v is not None:
+                        d[sq] = max(d.get(sq, 0.0), v)
+        except (KeyError, ValueError):
+            pass
+        yield r
+
+
+def norma_punti(punti: dict, settimana: int) -> dict:
+    """Punti segnati in media da ogni squadra nelle partite PRIMA della settimana (la «norma» della verifica)."""
+    fatti = defaultdict(list)
+    for d in punti.values():
+        if d.get("w", 99) >= settimana:
+            continue
+        for sq, v in d.items():
+            if sq != "w":
+                fatti[sq].append(v)
+    return {sq: sum(v) / len(v) for sq, v in fatti.items() if len(v) >= RP.MIN_PARTITE}
 
 
 # ------------------------------------------------------------------ scheda partita
@@ -179,6 +215,16 @@ def giudizio(campionato: str, s: dict) -> str:
     nome = {s["casa"]: s["nomeCasa"], s["ospite"]: s["nomeOspite"]}
     frasi = []
     P = s.get("partita")
+    if P and P.get("attesoCasa") is not None:
+        ac, ao = P["attesoCasa"], P["attesoOspite"]
+        nc, no = P["normaCasa"], P["normaOspite"]
+        if abs(ac - ao) < 1:
+            chi = "partita alla pari"
+        else:
+            fav = s["casa"] if ac > ao else s["ospite"]
+            chi = f"{nome[fav]} avanti di {_num(ac - ao)}"
+        frasi.append(f"Punteggio atteso dai numeri: {nome[s['ospite']]} {round(ao)} – {nome[s['casa']]} {round(ac)} "
+                     f"({chi}; di solito segnano {_num(no)} e {_num(nc)}, senza vantaggio del campo).")
     if P:
         t = P["totale"]
         if abs(t) < 0.5:
@@ -244,7 +290,8 @@ def indice_squadra(indici: dict, squadra: str):
     return None
 
 
-def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, indici: dict) -> dict | None:
+def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, indici: dict,
+           norma: dict | None = None) -> dict | None:
     casa, ospite = g.get("casa"), g.get("ospite")
     if casa not in st or ospite not in st:
         return None
@@ -262,6 +309,12 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
                    "forzaTotale": round(abs(tot) / tp["var_totale"], 3),
                    "forzaMargine": round(abs(marg) / tp["var_margine"], 3),
                    "puntiCasa": round(tp["totale"] * pc, 1), "puntiOspite": round(tp["totale"] * po, 1)}
+        # punteggio atteso = punti segnati di solito + effetto delle difese diviso tra le due squadre in modo che
+        # somma e differenza rispettino le tarature di totale e margine. Senza vantaggio del campo.
+        if norma and casa in norma and ospite in norma:
+            partita.update({"normaCasa": round(norma[casa], 1), "normaOspite": round(norma[ospite], 1),
+                            "attesoCasa": round(norma[casa] + (tot + marg) / 2, 1),
+                            "attesoOspite": round(norma[ospite] + (tot - marg) / 2, 1)})
     rep = reparti_partita(st, casa, ospite)
     # vantaggi in evidenza: giocatori con difesa agli estremi, poi reparti agli estremi
     vantaggi = []
@@ -325,7 +378,8 @@ def main() -> int:
 
     with tempfile.TemporaryDirectory() as cartella:
         try:
-            agg = RP.aggrega(azioni_stagione(lega, int(stagione), cartella))
+            azioni, punti = azioni_stagione(lega, int(stagione), cartella)
+            agg = RP.aggrega(azioni)
         except Exception as e:     # noqa: BLE001 - fonte giù: si tiene la versione pubblicata
             print(f"{campionato}: play-by-play {stagione} non scaricato ({e}): lascio com'è la sezione pubblicata.")
             return 1
@@ -333,8 +387,9 @@ def main() -> int:
     schede, saltate = [], []
     for w, resto, per_partita in gruppi:
         st = RP.stato(agg, w)
+        norma = norma_punti(punti, w)
         for g in resto:
-            sc = scheda(campionato, g, per_partita.get((g["casa"], g["ospite"])), st, loghi, indici)
+            sc = scheda(campionato, g, per_partita.get((g["casa"], g["ospite"])), st, loghi, indici, norma)
             if sc:
                 schede.append(sc)
             else:

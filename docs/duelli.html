@@ -105,6 +105,11 @@
   .giocatori{display:grid;grid-template-columns:1fr;gap:4px 18px}
   @media (min-width:760px){ .giocatori{grid-template-columns:1fr 1fr} }
   .migliori{border:2px solid var(--fb-acc)}
+  .atteso{text-align:center;margin:0 0 10px;padding:10px;border:1px solid var(--fb-border);border-radius:12px}
+  .atteso .ris{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;font-size:17px;margin:4px 0}
+  .atteso .ris b{font-family:var(--fb-head);font-size:26px}
+  .atteso .ris span{display:inline-flex;align-items:center;gap:6px}
+  .atteso .trat{color:var(--fb-muted)}
   .giudizio{margin:12px 0 0;padding:10px 12px;border-left:3px solid var(--fb-acc);background:color-mix(in srgb, var(--fb-acc) 7%, transparent);font-size:14.5px;line-height:1.5}
   .top{width:100%;display:flex;gap:10px;align-items:center;text-align:left;margin-top:8px;padding:10px;line-height:1.35;font-size:14px}
   .top .pos{font-family:var(--fb-head);font-weight:800;font-size:24px;color:var(--fb-acc);min-width:22px}
@@ -313,7 +318,11 @@ function bloccoPartita(g, T){
   if (!P) return "";
   const favorita = P.margine >= 0 ? g.casa : g.ospite;
   const tile = (titolo, valore, sotto, forza) => `<div><div class="e">${titolo}</div><div class="n">${valore}</div><div class="e">${sotto} · forza ${num(forza, 2)}</div></div>`;
-  return `<div class="indici partita">
+  const atteso = P.attesoCasa !== undefined && P.attesoCasa !== null ? `<div class="atteso">
+    <div class="e">Punteggio atteso dai numeri</div>
+    <div class="ris"><span>${stemma(T[g.ospite], "s")} ${esc(T[g.ospite].nome)} <b>${Math.round(P.attesoOspite)}</b></span><span class="trat">–</span><span><b>${Math.round(P.attesoCasa)}</b> ${esc(T[g.casa].nome)} ${stemma(T[g.casa], "s")}</span></div>
+    <div class="e">di solito segnano ${num(P.normaOspite, 1)} e ${num(P.normaCasa, 1)} · più l'effetto delle difese · senza vantaggio del campo</div></div>` : "";
+  return atteso + `<div class="indici partita">
     ${tile("Totale", segnoNum(P.totale) + " pt", P.totale >= 0 ? "difese che concedono" : "difese che chiudono", P.forzaTotale)}
     ${tile("Margine", Math.abs(P.margine) < 0.5 ? "equilibrio" : `${esc(T[favorita].nome)} +${num(Math.abs(P.margine), 1)}`, "rispetto alla norma", P.forzaMargine)}
   </div>`;
