@@ -104,6 +104,14 @@
   .vuoto{color:var(--fb-muted);text-align:center;padding:24px}
   .giocatori{display:grid;grid-template-columns:1fr;gap:4px 18px}
   @media (min-width:760px){ .giocatori{grid-template-columns:1fr 1fr} }
+  .migliori{border:2px solid var(--fb-acc)}
+  .top{width:100%;display:flex;gap:10px;align-items:center;text-align:left;margin-top:8px;padding:10px;line-height:1.35;font-size:14px}
+  .top .pos{font-family:var(--fb-head);font-weight:800;font-size:24px;color:var(--fb-acc);min-width:22px}
+  .top .fz{font-size:11px;color:var(--fb-muted);text-align:center;white-space:nowrap}
+  .top .fz b{font-size:16px;color:var(--fb-text)}
+  .chip{display:inline-block;font-size:11px;font-weight:600;background:var(--fb-chip);color:var(--fb-chiptext);border-radius:6px;padding:1px 7px;margin-right:4px}
+  .partita>div{display:block}
+  .partita .n{font-size:18px}
   footer{font-size:12px;color:var(--fb-muted);text-align:center;margin-top:20px}
   @media (max-width:420px){ .riga,.int{grid-template-columns:minmax(0,1fr) 40px 40px 96px} .testa .nomi{font-size:18px} .lato .num{font-size:18px} }
 </style>
@@ -135,9 +143,10 @@
       <button data-camp="NFL" class="on">NFL</button>
       <button data-camp="College">College</button>
       <input type="search" id="cerca" placeholder="Cerca squadra" aria-label="Cerca squadra">
-      <label><input type="checkbox" id="soloSegnali"> solo con segnali</label>
+      <label><input type="checkbox" id="soloSegnali"> solo con vantaggi</label>
     </div>
     <div class="riepilogo" id="riepilogo"></div>
+    <div id="migliori"></div>
     <div id="elenco"></div>
     <div id="pannelli"></div>
     <footer id="piede"></footer>
@@ -147,10 +156,10 @@
 <script>
 /* Dati cifrati da scripts/fetch_duelli.py (un file per campionato): qui si rifanno gli stessi passaggi
    con WebCrypto. Nessun localStorage: la password resta nel gestore password del browser, se lo scegli. */
-const AREE = {corse:"Corse", passaggi:"Passaggi", pressione:"Protezione QB", esplosive:"Giocate lunghe", zona_rossa:"Zona rossa"};
-const REPARTO_DIFESA = {corse:"difesa corse", passaggi:"difesa passaggi", pressione:"pressione sul QB", esplosive:"difesa giocate lunghe", zona_rossa:"difesa zona rossa"};
-const ORDINE_AREE = ["corse","passaggi","pressione","esplosive","zona_rossa"];
-const PARI = 0.15, NETTO = 0.40, MAX_EVIDENZA = 5;
+const AREE = {corse:"Corse", passaggi:"Passaggi", pressione:"Protezione QB", esplosive:"Giocate lunghe"};
+const REPARTO_DIFESA = {corse:"difesa corse", passaggi:"difesa passaggi", pressione:"pressione sul QB", esplosive:"difesa giocate lunghe"};
+const ORDINE_AREE = ["corse","passaggi","pressione","esplosive"];
+const MAX_EVIDENZA = 5;
 const DATI = {};
 let CAMPIONATO = "NFL";
 
@@ -246,7 +255,6 @@ function stemma(t, taglia){
 }
 /* Logo non raggiungibile: al suo posto il cerchio con colore e sigla, come in index.html */
 function ripiego(img){ img.insertAdjacentHTML("afterend", img.dataset.ripiego); img.remove(); }
-const forza = s => Math.abs(s) < PARI ? "pari" : Math.abs(s) >= NETTO ? "netto" : "leggero";
 const classeRank = (r, n) => r <= Math.round(n * 10 / 32) ? "buono" : r >= n - Math.round(n * 11 / 32) + 1 ? "scarso" : "";
 const freccia = f => f === "in forma" ? '<span class="su">▲</span>' : f === "in calo" ? '<span class="giu">▼</span>' : "";
 
@@ -263,74 +271,127 @@ function quando(g){
   return d.toLocaleDateString("it-IT", {weekday:"short", day:"2-digit", month:"2-digit"}) + (g.ora ? " " + g.ora : "");
 }
 
-/* ---------- duello in evidenza: due lati e un VS, il lato che vince prende il colore della sua squadra ---------- */
+/* ---------- vantaggio in evidenza: due lati e un VS; il lato avvantaggiato prende il colore della sua squadra.
+   Il vantaggio viene sempre dalla difesa che si trova davanti (la parte verificata sullo storico). ---------- */
+const segnoNum = (v, d = 1) => (v > 0 ? "+" : v < 0 ? "−" : "") + num(Math.abs(v), d);
 function duelloEvidenza(g, T, s){
-  let sx, dx, cosa;
+  let sx, dx, cosa, testo;
   if (s.tipo === "giocatore") {
     const att = T[s.squadra], dif = T[s.difesa];
     cosa = `${esc(s.ruolo)} · ${esc(s.misura || "")}`;
-    sx = {t: att, num: `${freccia(s.forma)} ${num(s.ultime3)}`, chi: esc(s.nome), val: `ultime 3 · stagione ${num(s.stagione)}`};
-    dx = {t: dif, num: `${s.rangoDifesa}ª`, chi: `${esc(dif.nome)}`, val: `${REPARTO_DIFESA[s.areaDifesa] || "difesa"} su ${g.n || "—"}`};
+    sx = {t: att, num: `${num(s.previsione)} yd`, chi: esc(s.nome), val: `previste · media ${num(s.media)}`};
+    dx = {t: dif, num: `${s.rangoDifesa}ª`, chi: esc(dif.nome), val: `${REPARTO_DIFESA[s.areaDifesa] || "difesa"} su ${s.n}`};
+    testo = s.verso === "attacco"
+      ? `Vantaggio attacco · ${segnoNum(s.effetto)} yard per la difesa tra le peggiori`
+      : `Vantaggio difesa · ${segnoNum(s.effetto)} yard per la difesa tra le migliori`;
   } else {
     const att = T[s.att], dif = T[s.dif];
     cosa = AREE[s.area];
     sx = {t: att, num: `${s.ra}°`, chi: esc(att.nome), val: "attacco"};
-    dx = {t: dif, num: `${s.rd}ª`, chi: esc(dif.nome), val: "difesa"};
+    dx = {t: dif, num: `${s.rd}ª`, chi: esc(dif.nome), val: `difesa su ${s.n}`};
+    testo = s.verso === "attacco" ? `Vantaggio attacco ${esc(att.nome)} · difesa tra le peggiori` : `Vantaggio difesa ${esc(dif.nome)} · tra le migliori`;
   }
-  const vinceSx = s.verso === "attacco", vince = vinceSx ? sx.t : dx.t;
+  const vinceSx = s.verso === "attacco";
   const lato = (x, destra, v) => `<div class="lato${destra ? " d" : ""}${v ? " vince" : ""}" style="${v ? `background:${fondoVince(x.t.colore)}` : ""}">
       ${destra ? "" : `<span class="tondo">${stemma(x.t, "m")}</span>`}<div style="min-width:0"><div class="num">${x.num}</div><div class="chi">${x.chi}</div><div class="val">${x.val}</div></div>${destra ? `<span class="tondo">${stemma(x.t, "m")}</span>` : ""}</div>`;
-  const testo = s.tipo === "giocatore"
-    ? (s.verso === "attacco" ? `Segnale attacco · ${esc(s.nome)} in forma contro una difesa tra le peggiori` : `Segnale difesa · ${esc(vince.nome)} tra le migliori contro ${esc(s.nome)} in calo`)
-    : (s.verso === "attacco" ? `Vince l'attacco ${esc(vince.nome)}` : `Vince la difesa ${esc(vince.nome)}`);
   return `<div class="duello${s.tipo === "giocatore" ? " gioc" : ""}"><div class="cosa">${cosa}</div><div class="lati">${lato(sx, false, vinceSx)}<div class="vs">VS</div>${lato(dx, true, !vinceSx)}</div><div class="esito ${s.verso}">${testo}</div></div>`;
 }
 
+/* margine e totale attesi per effetto delle due difese, in punti tarati sullo storico */
+function bloccoPartita(g, T){
+  const P = g.partita;
+  if (!P) return "";
+  const favorita = P.margine >= 0 ? g.casa : g.ospite;
+  const tile = (titolo, valore, sotto, forza) => `<div><div class="e">${titolo}</div><div class="n">${valore}</div><div class="e">${sotto} · forza ${num(forza, 2)}</div></div>`;
+  return `<div class="indici partita">
+    ${tile("Totale", segnoNum(P.totale) + " pt", P.totale >= 0 ? "difese che concedono" : "difese che chiudono", P.forzaTotale)}
+    ${tile("Margine", Math.abs(P.margine) < 0.5 ? "equilibrio" : `${esc(T[favorita].nome)} +${num(Math.abs(P.margine), 1)}`, "rispetto alla norma", P.forzaMargine)}
+  </div>`;
+}
+
 function tabellaGiocatori(g, T){
-  const righe = lista => (lista || []).map(p => `<tr${p.segnale ? ' class="segnale"' : ""}>
+  const righe = lista => (lista || []).map(p => `<tr${p.vantaggio ? ' class="segnale"' : ""}>
     <td><b>${esc(p.nome)}</b> <span class="sotto">${esc(p.ruolo || "")}</span></td>
-    <td>${num(p.mediaUltime3)} ${freccia(p.forma)}</td><td>${num(p.mediaStagione)}</td>
+    <td>${num(p.mediaStagione)}</td><td>${num(p.mediaUltime3)} ${freccia(p.forma)}</td>
+    <td>${p.previsione !== null && p.previsione !== undefined ? `<b>${num(p.previsione)}</b> <span class="sotto">±${p.errore}</span>` : "—"}</td>
     <td>${p.rangoDifesa ? `<span class="rk ${classeRank(p.rangoDifesa, p.squadreTotali)}">${p.rangoDifesa}ª</span>` : "—"}</td></tr>`).join("");
   const blocco = (lista, sq) => (lista || []).length ? `<div><div class="blocco">${stemma(T[sq], "s")}${esc(T[sq].nome)}</div>
-    <table><tr><th>Giocatore</th><th>ultime 3</th><th>stagione</th><th>difesa avv.</th></tr>${righe(lista)}</table></div>` : "";
+    <table><tr><th>Giocatore</th><th>media</th><th>ultime 3</th><th>previsione</th><th>difesa avv.</th></tr>${righe(lista)}</table></div>` : "";
   const h = blocco(g.giocatoriOspite, g.ospite) + blocco(g.giocatoriCasa, g.casa);
   return h ? `<details><summary>Giocatori chiave</summary><div class="giocatori">${h}</div>
-    <div class="legenda"><span><span class="su">▲</span> ultime 3 almeno il 25% sopra il suo solito (stagioni passate)</span><span><span class="giu">▼</span> almeno il 25% sotto</span><span>difesa avv. = posizione della difesa che trova nel suo reparto</span></div></details>` : "";
+    <div class="legenda"><span>previsione = media della stagione + effetto della difesa che trova; ± = errore medio</span><span><span class="su">▲</span><span class="giu">▼</span> forma delle ultime 3: di solito si torna alla media, non è un segnale</span></div></details>` : "";
 }
 
 function tabellone(g, T){
   let h = `<details><summary>Tabellone reparti</summary>`;
   for (const [a, d] of [[g.ospite, g.casa], [g.casa, g.ospite]]) {
-    h += `<div class="blocco">${stemma(T[a], "s")}Attaccano i ${esc(T[a].nome)}</div><div class="int"><span></span><span style="text-align:center">att.</span><span style="text-align:center">dif.</span><span style="text-align:right">chi è avanti</span></div>`;
+    h += `<div class="blocco">${stemma(T[a], "s")}Attaccano i ${esc(T[a].nome)}</div><div class="int"><span></span><span style="text-align:center">att.</span><span style="text-align:center">dif.</span><span style="text-align:right">vantaggio</span></div>`;
     for (const area of ORDINE_AREE) {
-      const x = g.duelli.find(y => y.area === area && y.att === a);
+      const x = (g.reparti || []).find(y => y.area === area && y.att === a);
       if (!x) continue;
-      const f = forza(x.punteggio), w = x.punteggio > 0 ? a : d;
-      const chi = f === "pari" ? `<span style="color:var(--fb-muted)">equilibrio</span>`
-        : `<span style="color:${coloreTesto(T[w].colore)};font-weight:${f === "netto" ? 700 : 400}">${f === "netto" ? "nettamente " : ""}${esc(T[w].nome)}</span>`;
+      const w = x.verso === "attacco" ? a : d;
+      const chi = !x.verso ? `<span style="color:var(--fb-muted)">equilibrio</span>`
+        : `<span style="color:${coloreTesto(T[w].colore)};font-weight:700">${x.verso === "attacco" ? "attacco" : "difesa"} ${esc(T[w].nome)}</span>`;
       h += `<div class="riga"><span>${AREE[area]}</span><span class="rk ${classeRank(x.ra, x.n)}">${x.ra}°</span><span class="rk ${classeRank(x.rd, x.n)}">${x.rd}ª</span><span class="chiv">${chi}</span></div>`;
     }
   }
-  const n = g.duelli[0].n, q = Math.round(n * 10 / 32);
-  return h + `<div class="legenda"><span><span class="rk buono">1–${q}</span> tra i migliori</span><span><span class="rk scarso">${n - Math.round(n * 11 / 32) + 1}–${n}</span> tra i peggiori</span><span>su ${n} squadre</span></div></details>`;
+  const n = ((g.reparti || [])[0] || {}).n || 32, q = Math.round(n * 10 / 32);
+  return h + `<div class="legenda"><span><span class="rk buono">1–${q}</span> tra i migliori</span><span><span class="rk scarso">${n - Math.round(n * 11 / 32) + 1}–${n}</span> tra i peggiori</span><span>su ${n} squadre · il vantaggio dipende dalla difesa</span></div></details>`;
 }
+
+function idScheda(g){ return "p-" + String(g.ospite + "-" + g.casa + "-" + g.data).replace(/[^A-Za-z0-9-]/g, ""); }
 
 function scheda(g){
   const T = {[g.casa]: squadra(g, g.casa), [g.ospite]: squadra(g, g.ospite)};
-  g.n = (g.duelli[0] || {}).n;
-  const dec = CAMPIONATO === "NFL" ? 3 : 1;
+  const dec = g.campionato === "NFL" ? 3 : 1;
   const tile = sq => { const i = sq === g.casa ? g.indiceCasa : g.indiceOspite;
     return `<div>${stemma(T[sq])}<div><div class="n" style="color:${coloreTesto(T[sq].colore)}">${i && i.posizione ? i.posizione + "°" : "—"}</div><div class="e">indice ${i ? segno(i.netto, dec) : "—"}</div></div></div>`; };
-  const evid = (g.segnali || []).slice(0, MAX_EVIDENZA);
-  return `<article class="scheda">
+  const evid = (g.vantaggi || []).slice(0, MAX_EVIDENZA);
+  return `<article class="scheda" id="${idScheda(g)}">
     <div class="testa">${stemma(T[g.ospite], "s")}<div class="nomi">${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}</div>${stemma(T[g.casa], "s")}<span class="quando">${esc(quando(g))}</span></div>
     <div class="indici">${tile(g.ospite)}${tile(g.casa)}</div>
-    <div class="titolo">Duelli in evidenza</div>
-    ${evid.length ? evid.map(s => duelloEvidenza(g, T, s)).join("") : `<div class="nessuno">Nessun duello netto: partita in equilibrio sui dati.</div>`}
-    ${(g.segnali || []).length > MAX_EVIDENZA ? `<div class="sotto">Altri ${g.segnali.length - MAX_EVIDENZA} segnali nel tabellone e nei giocatori qui sotto.</div>` : ""}
+    <div class="titolo">Partita: effetto delle difese</div>
+    ${bloccoPartita(g, T)}
+    <div class="titolo">Vantaggi in evidenza</div>
+    ${evid.length ? evid.map(s => duelloEvidenza(g, T, s)).join("") : `<div class="nessuno">Nessuna difesa agli estremi: partita in equilibrio sui dati.</div>`}
+    ${(g.vantaggi || []).length > MAX_EVIDENZA ? `<div class="sotto">Altri ${g.vantaggi.length - MAX_EVIDENZA} vantaggi nel tabellone e nei giocatori qui sotto.</div>` : ""}
     ${tabellaGiocatori(g, T)}
     ${tabellone(g, T)}
   </article>`;
+}
+
+/* ---------- i 3 migliori: NFL e college insieme, giocatori, handicap e totali, per forza ---------- */
+function candidati(){
+  const out = [];
+  for (const camp of ["NFL", "College"]) {
+    const D = DATI[camp];
+    if (!D) continue;
+    for (const g of D.partite) {
+      if (iniziata(g)) continue;
+      const T = {[g.casa]: squadra(g, g.casa), [g.ospite]: squadra(g, g.ospite)};
+      const P = g.partita;
+      if (P) {
+        out.push({camp, g, tipo: "Totale", forza: P.forzaTotale, testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: totale ${segnoNum(P.totale)} punti rispetto alla norma delle due squadre`});
+        const fav = P.margine >= 0 ? g.casa : g.ospite;
+        out.push({camp, g, tipo: "Handicap", forza: P.forzaMargine, testo: `${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}: ${esc(T[fav].nome)} +${num(Math.abs(P.margine), 1)} punti di margine rispetto alla norma`});
+      }
+      for (const v of g.vantaggi || []) {
+        if (v.tipo !== "giocatore") continue;
+        out.push({camp, g, tipo: "Giocatore", forza: v.forza, testo: `${esc(v.nome)} (${esc(v.ruolo)}, ${esc(T[v.squadra].nome)}): ${num(v.previsione)} ${esc(v.misura || "yard")} previste, media ${num(v.media)}, ${segnoNum(v.effetto)} contro la ${v.rangoDifesa}ª ${REPARTO_DIFESA[v.areaDifesa] || "difesa"}`});
+      }
+    }
+  }
+  return out.sort((a, b) => b.forza - a.forza);
+}
+function migliori(){
+  const top = candidati().slice(0, 3);
+  if (!top.length) return "";
+  return `<section class="scheda migliori"><div class="titolo" style="margin-top:0">I 3 migliori della settimana</div>
+    <div class="sotto" style="margin-bottom:8px">NFL e college insieme, tra giocatori, handicap e totali: i vantaggi più forti rispetto alla variabilità normale.</div>
+    ${top.map((c, i) => `<button class="top" data-camp-top="${c.camp}" data-id="${idScheda(c.g)}"><span class="pos">${i + 1}</span>
+      <span style="flex:1;min-width:0;text-align:left"><span class="chip">${c.camp}</span><span class="chip">${c.tipo}</span><span class="sotto">${esc(quando(c.g))}</span><br>${c.testo}</span>
+      <span class="fz">forza<br><b>${num(c.forza, 2)}</b></span></button>`).join("")}
+    <div class="sotto" style="margin-top:8px">Forza = vantaggio diviso la variabilità normale di quella statistica (0,10 = piccolo, 0,50 = forte). Sono effetti medi verificati sullo storico, non previsioni sicure, e i bookmaker ne tengono già conto.</div></section>`;
 }
 
 /* ---------- pannelli in fondo: classifica indici, quarterback, giovani ---------- */
@@ -365,13 +426,18 @@ function disegna(){
   const solo = document.getElementById("soloSegnali").checked;
   const q = document.getElementById("cerca").value.trim().toLowerCase();
   const tutte = D.partite.filter(g => !iniziata(g));
-  const elenco = tutte.filter(g => (!solo || (g.segnali || []).length) &&
+  const elenco = tutte.filter(g => (!solo || (g.vantaggi || []).length) &&
     (!q || [g.casa, g.ospite, g.nomeCasa, g.nomeOspite, g.conferenceCasa, g.conferenceOspite].some(x => String(x || "").toLowerCase().includes(q))));
-  const nSegn = tutte.reduce((t, g) => t + (g.segnali || []).filter(s => s.tipo === "giocatore").length, 0);
-  document.getElementById("riepilogo").textContent = `${elenco.length} partite su ${tutte.length} · ${nSegn} segnali sui giocatori`;
+  const nV = tutte.reduce((t, g) => t + (g.vantaggi || []).filter(s => s.tipo === "giocatore").length, 0);
+  document.getElementById("riepilogo").textContent = `${elenco.length} partite su ${tutte.length} · ${nV} vantaggi sui giocatori`;
+  document.getElementById("migliori").innerHTML = migliori();
   document.getElementById("elenco").innerHTML = elenco.length ? elenco.map(scheda).join("")
     : `<div class="scheda vuoto">${solo || q ? "Nessuna partita con questi filtri." : "Nessuna partita ancora da giocare con dati disponibili."}</div>`;
   document.getElementById("pannelli").innerHTML = pannelli(D);
+  document.querySelectorAll("[data-camp-top]").forEach(b => b.addEventListener("click", () => {
+    CAMPIONATO = b.dataset.campTop; document.getElementById("cerca").value = ""; document.getElementById("soloSegnali").checked = false;
+    disegna(); const el = document.getElementById(b.dataset.id); if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
+  }));
   const t = new Date(D.aggiornato);
   document.getElementById("piede").textContent = `Aggiornato il ${t.toLocaleString("it-IT", {timeZone:"Europe/Rome", dateStyle:"short", timeStyle:"short"})} · Fonti: ${D.fonti} · Solo statistiche, nessuna quota.`;
 }

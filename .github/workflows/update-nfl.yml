@@ -19,7 +19,7 @@ on:
       - 'scripts/nfl_indici.py'
       - '.github/workflows/update-nfl.yml'
       - 'scripts/fetch_duelli.py'
-      - 'scripts/motore_duelli/**'
+      - 'scripts/reparti.py'
 
 permissions:
   contents: write

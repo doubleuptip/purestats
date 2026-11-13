@@ -57,7 +57,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - `fetch_nfl.py` / `fetch_college.py` scrivono questi blocchi in `data/privato_<lega>.json`
   (in .gitignore, mai committato); subito dopo, nello stesso workflow, `fetch_duelli.py <lega>`
   li unisce e li cifra. Il repository è pubblico: nessun dato della sezione in chiaro
-- `scripts/motore_duelli/` è una copia dei moduli del bot Radar Assenze: non modificarla qui
+- `scripts/reparti.py` calcola i reparti dal play-by-play (nflverse per l'NFL, cfbfastR per il college,
+  gratuiti e senza chiave) con le definizioni e le tarature verificate sullo storico 2019–2025: conta solo
+  la difesa avversaria; la forma delle ultime 3 partite non è un segnale. Le tarature (TARATURA_*) vanno
+  rifatte con lo stesso metodo se cambiano le definizioni
 - Cambio password: aggiornare il secret e rilanciare i workflow NFL e College
 
 ## Vincoli da rispettare

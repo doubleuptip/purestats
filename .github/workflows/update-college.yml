@@ -17,7 +17,7 @@ on:
       - 'scripts/college_indici.py'
       - '.github/workflows/update-college.yml'
       - 'scripts/fetch_duelli.py'
-      - 'scripts/motore_duelli/**'
+      - 'scripts/reparti.py'
 
 permissions:
   contents: write
@@ -52,7 +52,6 @@ jobs:
         continue-on-error: true
         env:
           DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python scripts/fetch_duelli.py college
 
       - name: Committa le modifiche
@@ -61,7 +60,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/college.csv docs/data_college.json data/college_squadre.json data/college_video.json
           [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
-          [ -f data/duelli_cfbd.json ] && git add data/duelli_cfbd.json
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
             exit 0
