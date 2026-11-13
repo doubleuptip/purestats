@@ -147,9 +147,13 @@ def infortuni_nfl(stagione: int, settimana: int, quota: dict) -> dict:
     except Exception as e:                   # noqa: BLE001
         print(f"Infortuni NFL: file nflverse non letto ({e})")
         return {}
+    settimane = sorted({int(r["week"]) for r in righe if str(r.get("week", "")).isdigit()})
+    print(f"Infortuni NFL: file con le settimane {settimane[-3:] if settimane else 'nessuna'}, cerco la {settimana}")
     out = {}
     for r in righe:
         if str(r.get("week")) != str(settimana) or r.get("report_status") not in STATI_NFL:
+            continue
+        if r.get("game_type") and r.get("game_type") not in ("REG", "POST", "WC", "DIV", "CON", "SB"):
             continue
         q, _ = quota.get(r.get("gsis_id"), (0.0, ""))
         d = out.setdefault(r["team"], {"n": 0, "nuovi": None, "impatto": 0.0, "rango": None, "giocatori": []})
@@ -226,7 +230,11 @@ def meteo(lat: float, lon: float, inizio_utc: datetime) -> dict | None:
         u = (f"https://api.open-meteo.com/v1/forecast?latitude={lat:.4f}&longitude={lon:.4f}"
              "&hourly=temperature_2m,wind_speed_10m,wind_gusts_10m,precipitation_probability"
              "&wind_speed_unit=mph&temperature_unit=fahrenheit&timezone=UTC&forecast_days=8")
-        h = json.loads(_get(u, 30))["hourly"]
+        try:
+            h = json.loads(_get(u, 30))["hourly"]
+        except Exception:                    # noqa: BLE001 - a volte la prima connessione scade: un secondo tentativo
+            time.sleep(3)
+            h = json.loads(_get(u, 45))["hourly"]
         idx = min(range(len(h["time"])), key=lambda i: abs(
             (datetime.fromisoformat(h["time"][i]).replace(tzinfo=timezone.utc) - inizio_utc).total_seconds()))
         out["raffiche"] = h["wind_gusts_10m"][idx]

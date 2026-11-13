@@ -467,14 +467,19 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
         inf = C.infortuni_college(squadre)
         stadi = C.stadi_college(os.environ.get("CFBD_API_KEY", "").strip(), stagione)
     else:
+        # il rapporto infortuni NFL è per settimana: ogni partita prende quello della sua settimana
+        per_sett = {}
         try:
-            inf = C.infortuni_nfl(stagione, settimana, quote_produzione_nfl(stagione))
+            quote = quote_produzione_nfl(stagione)
+            for w in {int(sc.get("settimana") or settimana) for sc in vicine}:
+                per_sett[w] = C.infortuni_nfl(stagione, w, quote)
         except Exception as e:     # noqa: BLE001
             print(f"NFL: infortuni non letti ({e})")
-            inf = {}
+        inf = {}
         stadi = C.STADI_NFL
     for sc in vicine:
-        sc["assenzeCasa"], sc["assenzeOspite"] = _assenze_brevi(inf.get(sc["casa"])), _assenze_brevi(inf.get(sc["ospite"]))
+        fonte = inf if lega == "college" else per_sett.get(int(sc.get("settimana") or settimana), {})
+        sc["assenzeCasa"], sc["assenzeOspite"] = _assenze_brevi(fonte.get(sc["casa"])), _assenze_brevi(fonte.get(sc["ospite"]))
         s = stadi.get(sc["casa"])
         if s and s[2]:
             sc["meteo"] = {"coperto": True}
@@ -482,7 +487,8 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
             sc["meteo"] = C.meteo(s[0], s[1], datetime.fromisoformat(sc["inizioUtc"]))
         sc["contestoAggiornato"] = ora.isoformat(timespec="minutes")
         sc["giudizio"] = giudizio(campionato, sc)
-    print(f"{campionato}: contesto aggiornato per {len(vicine)} partite (assenze {len(inf)} squadre, "
+    n_ass = sum(1 for sc in vicine for k in ("assenzeCasa", "assenzeOspite") if sc.get(k))
+    print(f"{campionato}: contesto aggiornato per {len(vicine)} partite (assenze per {n_ass} squadre, "
           f"meteo {sum(1 for sc in vicine if sc.get('meteo'))}).")
 
 
