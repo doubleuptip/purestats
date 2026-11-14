@@ -354,7 +354,8 @@ function bloccoMeteo(g){
   if (m.ventoKmh != null) p.push(`vento ${m.ventoKmh} km/h${m.direzione ? " " + esc(m.direzione) : ""}`);
   if (m.raffKmh != null) p.push(`raffiche ${m.raffKmh} km/h`);
   if (m.pioggia != null) p.push(`pioggia ${m.pioggia}%`);
-  return `<div class="meteo${m.effetto ? " forte" : ""}">🌬️ ${p.join(" · ")}${m.cielo ? ` · ${esc(m.cielo)}` : ""}${m.effetto ? `<br><b>${esc(m.effetto.testo)}</b>` : ""} <span class="sotto">(${esc(m.fonte || "")})</span></div>`;
+  const forte = m.effetto && m.effetto.avviso !== false;     // college sotto i 20 mph: solo informazione
+  return `<div class="meteo${forte ? " forte" : ""}">🌬️ ${p.join(" · ")}${m.cielo ? ` · ${esc(m.cielo)}` : ""}${m.effetto ? (forte ? `<br><b>${esc(m.effetto.testo)}</b>` : `<br>${esc(m.effetto.testo)}`) : ""} <span class="sotto">(${esc(m.fonte || "")})</span></div>`;
 }
 function bloccoForza(g, T){
   const a = g.forzaOspite, b = g.forzaCasa;

@@ -52,7 +52,9 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 ## Sezione privata Matchup, NFL e College (duelli.html)
 
 - Contesto (scripts/contesto.py): assenze college da CFBDepth (robots consente, solo stato/ruolo/peso, mai le note),
-  NFL da ESPN (riserva nflverse injuries, spesso una settimana indietro); meteo NWS + Open-Meteo; forza squadre dalle azioni. `aggiorna_contesto.py` rifà solo
+  NFL da ESPN (riserva nflverse injuries, spesso una settimana indietro); meteo NWS + Open-Meteo, effetto del vento
+  misurato per campionato (NFL avviso da 15 mph; college nessun effetto sotto 20 mph, sopra solo 14 casi), niente
+  meteo in campo neutro (lo stadio non è quello di casa); forza squadre dalle azioni. `aggiorna_contesto.py` rifà solo
   assenze e meteo (workflow update-contesto.yml, ogni ora giovedì-domenica). Percentuali e meteo: misure del 13/11
 
 - Prossimo turno, indici, giocatori chiave e duelli attacco-difesa stanno **solo** in

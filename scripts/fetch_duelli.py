@@ -562,10 +562,12 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
         fonte = inf if lega == "college" else per_sett.get(int(sc.get("settimana") or settimana), {})
         sc["assenzeCasa"], sc["assenzeOspite"] = _assenze_brevi(fonte.get(sc["casa"])), _assenze_brevi(fonte.get(sc["ospite"]))
         s = stadi.get(sc["casa"])
-        if s and s[2]:
+        if (sc.get("partita") or {}).get("neutro"):
+            sc["meteo"] = None          # campo neutro: lo stadio non è quello di casa, il meteo sarebbe di un'altra città
+        elif s and s[2]:
             sc["meteo"] = {"coperto": True}
         elif s:
-            sc["meteo"] = C.meteo(s[0], s[1], datetime.fromisoformat(sc["inizioUtc"]))
+            sc["meteo"] = C.meteo(s[0], s[1], datetime.fromisoformat(sc["inizioUtc"]), campionato)
         sc["contestoAggiornato"] = ora.isoformat(timespec="minutes")
         sc["giudizio"] = giudizio(campionato, sc)
     n_ass = sum(1 for sc in vicine for k in ("assenzeCasa", "assenzeOspite") if sc.get(k))

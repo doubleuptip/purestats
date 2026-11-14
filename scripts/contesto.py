@@ -263,7 +263,7 @@ def _mph(testo: str) -> float | None:
     return max(n) if n else None
 
 
-def meteo(lat: float, lon: float, inizio_utc: datetime) -> dict | None:
+def meteo(lat: float, lon: float, inizio_utc: datetime, lega: str = "NFL") -> dict | None:
     """Meteo all'ora del calcio d'inizio: NWS (ufficiale USA) per vento e temperatura, Open-Meteo per raffiche
     e pioggia (e come riserva). Solo entro 7 giorni. Temperatura in °C, vento in km/h e mph."""
     if inizio_utc - datetime.now(timezone.utc) > timedelta(days=7):
@@ -304,26 +304,37 @@ def meteo(lat: float, lon: float, inizio_utc: datetime) -> dict | None:
     if out.get("raffiche") is not None:
         out["raffiche"] = round(float(out["raffiche"]))
         out["raffKmh"] = round(out["raffiche"] * 1.609)
-    out["effetto"] = effetto_meteo(out.get("ventoMph"), out.get("tempF"))
+    out["effetto"] = effetto_meteo(out.get("ventoMph"), out.get("tempF"), lega)
     return out
 
 
 # Misura del 13/11 (misure/meteo_nfl.py): 3.585 partite NFL all'aperto 2006-2025, punti reali − linea di chiusura.
 EFFETTO_VENTO = [(0, 10, None), (10, 15, (-0.4, 55)), (15, 20, (-1.6, 56)), (20, 999, (-0.6, 54))]
+# College, misura del 14/11 (misure/college_viaggi_vento.py, vento dall'archivio Open-Meteo, 2.823 partite all'aperto
+# 2019-2025, contro la linea di chiusura): 10-15 mph +0,5 punti (472 partite), 15-20 mph +0,2 (107): nessun effetto.
+# Sopra i 20 mph −8,3 punti e under 86%, ma su 14 partite in 7 anni: da confermare.
+VENTO_AVVISO = {"NFL": 15, "College": 20}          # da qui in su il vento è un segnale (avviso del bot)
 
 
-def effetto_meteo(vento: float | None, temp_f: float | None) -> dict | None:
-    if vento is None:
+def effetto_meteo(vento: float | None, temp_f: float | None, lega: str = "NFL") -> dict | None:
+    """Effetto del vento sul totale, misurato per ogni campionato. «avviso» dice se vale un avviso del bot."""
+    if vento is None or vento < 10:
         return None
+    base = f"vento {round(vento)} mph ({round(vento * 1.609)} km/h)"
+    if lega == "College":
+        if vento < VENTO_AVVISO["College"]:
+            return {"punti": 0.0, "under": None, "avviso": False,
+                    "testo": f"{base}: nel college nessun effetto misurato contro la linea sotto i 20 mph (579 partite)"}
+        return {"punti": -8.3, "under": 86, "avviso": True,
+                "testo": f"{base}: nel college sopra i 20 mph −8,3 punti rispetto alla linea, under 86% "
+                         "— solo 14 partite in 7 anni, da confermare"}
     for a, b, e in EFFETTO_VENTO:
-        if a <= vento < b:
-            if not e:
-                return None
-            testo = (f"vento {round(vento)} mph ({round(vento * 1.609)} km/h): nello storico NFL "
+        if a <= vento < b and e:
+            testo = (f"{base}: nello storico NFL "
                      f"{e[0]:+.1f}".replace(".", ",").replace("-", "−") + f" punti rispetto alla linea, under {e[1]}% delle volte")
             if vento >= 15 and temp_f is not None and temp_f < 40:
                 testo += " (con il freddo sotto i 4 °C: under 62%, su poche partite)"
-            return {"punti": e[0], "under": e[1], "testo": testo}
+            return {"punti": e[0], "under": e[1], "testo": testo, "avviso": vento >= VENTO_AVVISO["NFL"]}
     return None
 
 
