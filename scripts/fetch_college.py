@@ -394,7 +394,12 @@ def carica_archivio():
     if not ARCHIVIO.exists():
         return []
     with ARCHIVIO.open(encoding="utf-8", newline="") as f:
-        grezze = list(csv.DictReader(f))
+        # Fino al 14/11/2026 l'archivio veniva scritto senza riga d'intestazione: letto con DictReader, la prima
+        # partita diventava l'intestazione e tutte le altre restavano senza colonne (e venivano scartate).
+        # Si accettano entrambe le forme; da ora si scrive sempre con l'intestazione.
+        con_intestazione = f.readline().startswith("Stagione,")
+        f.seek(0)
+        grezze = list(csv.DictReader(f) if con_intestazione else csv.DictReader(f, fieldnames=COLONNE))
 
     righe = []
     scartate = 0
@@ -416,9 +421,12 @@ def carica_archivio():
 def salva_archivio(righe):
     righe = sorted(righe, key=lambda r: (r["Data"], r["Casa"]))
     ARCHIVIO.parent.mkdir(parents=True, exist_ok=True)
-    with ARCHIVIO.open("w", encoding="utf-8", newline="") as f:
+    tmp = ARCHIVIO.with_suffix(".tmp")
+    with tmp.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=COLONNE, extrasaction="ignore")
+        w.writeheader()
         w.writerows(righe)
+    os.replace(tmp, ARCHIVIO)        # mai un archivio a metà
     return righe
 
 
