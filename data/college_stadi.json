@@ -1,0 +1,696 @@
+{
+"fonte": "CollegeFootballData /venues e /games 2019-2025 (scaricati una volta il 14/11/2026)",
+"nota": "squadra -> [latitudine, longitudine, coperto]: lo stadio usato più spesso in casa nell'ultima stagione disponibile; aggiunte a mano North Dakota State (Fargodome) e Sacramento State (Hornet Stadium), FBS dal 2026",
+"squadre": {
+"Air Force": [
+38.99697,
+-104.84362,
+false
+],
+"Akron": [
+41.07255,
+-81.50834,
+false
+],
+"Alabama": [
+33.20828,
+-87.55038,
+false
+],
+"App State": [
+36.21143,
+-81.68543,
+false
+],
+"Arizona": [
+32.22881,
+-110.94887,
+false
+],
+"Arizona State": [
+33.42645,
+-111.9325,
+false
+],
+"Arkansas": [
+36.06807,
+-94.17895,
+false
+],
+"Arkansas State": [
+35.8489,
+-90.66774,
+false
+],
+"Army": [
+41.38749,
+-73.96409,
+false
+],
+"Auburn": [
+32.60255,
+-85.48975,
+false
+],
+"BYU": [
+40.25753,
+-111.65452,
+false
+],
+"Ball State": [
+40.21594,
+-85.41611,
+false
+],
+"Baylor": [
+31.5582,
+-97.11567,
+false
+],
+"Boise State": [
+43.60288,
+-116.19589,
+false
+],
+"Boston College": [
+42.3351,
+-71.16644,
+false
+],
+"Bowling Green": [
+41.37801,
+-83.6225,
+false
+],
+"Buffalo": [
+42.99913,
+-78.77751,
+false
+],
+"California": [
+37.87104,
+-122.25077,
+false
+],
+"Central Michigan": [
+43.57773,
+-84.77099,
+false
+],
+"Charlotte": [
+35.3105,
+-80.74012,
+false
+],
+"Cincinnati": [
+39.13125,
+-84.51619,
+false
+],
+"Clemson": [
+34.67877,
+-82.84324,
+false
+],
+"Coastal Carolina": [
+33.79285,
+-79.01669,
+false
+],
+"Colorado": [
+40.00947,
+-105.2669,
+false
+],
+"Colorado State": [
+40.57001,
+-105.08844,
+false
+],
+"Delaware": [
+39.66174,
+-75.74882,
+false
+],
+"Duke": [
+35.99537,
+-78.94176,
+false
+],
+"East Carolina": [
+35.59685,
+-77.36456,
+false
+],
+"Eastern Michigan": [
+42.25613,
+-83.64728,
+false
+],
+"Florida": [
+29.64994,
+-82.34858,
+false
+],
+"Florida Atlantic": [
+26.37638,
+-80.10158,
+false
+],
+"Florida International": [
+25.7525,
+-80.37778,
+false
+],
+"Florida State": [
+30.43817,
+-84.3044,
+false
+],
+"Fresno State": [
+36.81435,
+-119.75801,
+false
+],
+"Georgia": [
+33.94982,
+-83.37338,
+false
+],
+"Georgia Southern": [
+32.41225,
+-81.78493,
+false
+],
+"Georgia State": [
+33.73527,
+-84.38995,
+false
+],
+"Georgia Tech": [
+33.77244,
+-84.39281,
+false
+],
+"Hawai'i": [
+21.29429,
+-157.81934,
+false
+],
+"Houston": [
+29.72199,
+-95.34916,
+false
+],
+"Illinois": [
+40.09933,
+-88.23596,
+false
+],
+"Indiana": [
+39.1809,
+-86.52562,
+false
+],
+"Iowa": [
+41.6586,
+-91.55108,
+false
+],
+"Iowa State": [
+42.014,
+-93.63577,
+false
+],
+"Jacksonville State": [
+33.82011,
+-85.76647,
+false
+],
+"James Madison": [
+38.43529,
+-78.87293,
+false
+],
+"Kansas": [
+38.96294,
+-95.24637,
+false
+],
+"Kansas State": [
+39.20201,
+-96.59384,
+false
+],
+"Kennesaw State": [
+34.02893,
+-84.56762,
+false
+],
+"Kent State": [
+41.13909,
+-81.31346,
+false
+],
+"Kentucky": [
+38.02209,
+-84.50534,
+false
+],
+"LSU": [
+30.41203,
+-91.18382,
+false
+],
+"Liberty": [
+37.35443,
+-79.17502,
+false
+],
+"Louisiana": [
+30.21584,
+-92.04174,
+false
+],
+"Louisiana Tech": [
+32.53215,
+-92.656,
+false
+],
+"Louisville": [
+38.20576,
+-85.75881,
+false
+],
+"Marshall": [
+38.4247,
+-82.42144,
+false
+],
+"Maryland": [
+38.99033,
+-76.94738,
+false
+],
+"Massachusetts": [
+42.37732,
+-72.53606,
+false
+],
+"Memphis": [
+35.12094,
+-89.97715,
+false
+],
+"Miami": [
+25.95797,
+-80.23886,
+false
+],
+"Miami (OH)": [
+39.5197,
+-84.73303,
+false
+],
+"Michigan": [
+42.26584,
+-83.7487,
+false
+],
+"Michigan State": [
+42.72815,
+-84.48485,
+false
+],
+"Middle Tennessee": [
+35.85115,
+-86.36816,
+false
+],
+"Minnesota": [
+44.97653,
+-93.22455,
+false
+],
+"Mississippi State": [
+33.45634,
+-88.79337,
+false
+],
+"Missouri": [
+38.93585,
+-92.3332,
+false
+],
+"Missouri State": [
+37.19762,
+-93.27981,
+false
+],
+"NC State": [
+35.8008,
+-78.71957,
+false
+],
+"Navy": [
+38.9847,
+-76.50763,
+false
+],
+"Nebraska": [
+40.82068,
+-96.70559,
+false
+],
+"Nevada": [
+39.54695,
+-119.81754,
+false
+],
+"New Mexico": [
+35.06695,
+-106.62832,
+false
+],
+"New Mexico State": [
+32.27962,
+-106.74111,
+false
+],
+"North Carolina": [
+35.90693,
+-79.04789,
+false
+],
+"North Dakota State": [
+46.8968,
+-96.803,
+true
+],
+"North Texas": [
+33.2039,
+-97.15924,
+false
+],
+"Northern Illinois": [
+41.93396,
+-88.77784,
+false
+],
+"Northwestern": [
+42.05825,
+-87.67088,
+false
+],
+"Notre Dame": [
+41.69838,
+-86.23394,
+false
+],
+"Ohio": [
+39.32128,
+-82.10343,
+false
+],
+"Ohio State": [
+40.00164,
+-83.01973,
+false
+],
+"Oklahoma": [
+35.20585,
+-97.44231,
+false
+],
+"Oklahoma State": [
+36.12567,
+-97.06651,
+false
+],
+"Old Dominion": [
+36.88895,
+-76.30492,
+false
+],
+"Ole Miss": [
+34.36198,
+-89.53421,
+false
+],
+"Oregon": [
+44.05827,
+-123.06849,
+false
+],
+"Oregon State": [
+44.55946,
+-123.28143,
+false
+],
+"Penn State": [
+40.8122,
+-77.8561,
+false
+],
+"Pittsburgh": [
+40.44676,
+-80.01576,
+false
+],
+"Purdue": [
+40.43523,
+-86.91868,
+false
+],
+"Rice": [
+29.71633,
+-95.40933,
+false
+],
+"Rutgers": [
+40.51361,
+-74.46528,
+false
+],
+"SMU": [
+32.83772,
+-96.78279,
+false
+],
+"Sacramento State": [
+38.5634,
+-121.4233,
+false
+],
+"Sam Houston": [
+30.71393,
+-95.54198,
+false
+],
+"San Diego State": [
+32.78444,
+-117.12283,
+false
+],
+"San José State": [
+37.31967,
+-121.8683,
+false
+],
+"South Alabama": [
+30.6969,
+-88.19201,
+false
+],
+"South Carolina": [
+33.97302,
+-81.01917,
+false
+],
+"South Florida": [
+27.97587,
+-82.50333,
+false
+],
+"Southern Miss": [
+31.32893,
+-89.33181,
+false
+],
+"Stanford": [
+37.43456,
+-122.16113,
+false
+],
+"Syracuse": [
+43.03623,
+-76.13632,
+true
+],
+"TCU": [
+32.70966,
+-97.36808,
+false
+],
+"Temple": [
+39.9008,
+-75.16754,
+false
+],
+"Tennessee": [
+35.95501,
+-83.92501,
+false
+],
+"Texas": [
+30.28368,
+-97.73253,
+false
+],
+"Texas A&M": [
+30.60989,
+-96.34038,
+false
+],
+"Texas State": [
+29.891,
+-97.92557,
+false
+],
+"Texas Tech": [
+33.59105,
+-101.87288,
+false
+],
+"Toledo": [
+41.65748,
+-83.61357,
+false
+],
+"Troy": [
+31.79956,
+-85.95183,
+false
+],
+"Tulane": [
+29.94462,
+-90.11669,
+false
+],
+"Tulsa": [
+36.14892,
+-95.94379,
+false
+],
+"UAB": [
+33.52068,
+-86.80243,
+false
+],
+"UCF": [
+28.60798,
+-81.19272,
+false
+],
+"UCLA": [
+34.16133,
+-118.16765,
+false
+],
+"UConn": [
+41.75957,
+-72.61877,
+false
+],
+"UL Monroe": [
+32.53081,
+-92.06606,
+false
+],
+"UNLV": [
+36.09075,
+-115.18372,
+true
+],
+"USC": [
+34.01417,
+-118.28778,
+false
+],
+"UTEP": [
+31.77334,
+-106.50796,
+false
+],
+"UTSA": [
+29.41698,
+-98.47881,
+true
+],
+"Utah": [
+40.75997,
+-111.84883,
+false
+],
+"Utah State": [
+41.75174,
+-111.8116,
+false
+],
+"Vanderbilt": [
+36.14405,
+-86.80889,
+false
+],
+"Virginia": [
+38.03118,
+-78.51379,
+false
+],
+"Virginia Tech": [
+37.21999,
+-80.41806,
+false
+],
+"Wake Forest": [
+36.13055,
+-80.25459,
+false
+],
+"Washington": [
+47.65032,
+-122.30157,
+false
+],
+"Washington State": [
+46.73183,
+-117.1605,
+false
+],
+"West Virginia": [
+39.65027,
+-79.95519,
+false
+],
+"Western Kentucky": [
+36.98479,
+-86.4594,
+false
+],
+"Western Michigan": [
+42.28601,
+-85.60076,
+false
+],
+"Wisconsin": [
+43.06994,
+-89.41269,
+false
+],
+"Wyoming": [
+41.31161,
+-105.56814,
+false
+]
+}
+}

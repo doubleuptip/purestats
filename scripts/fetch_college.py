@@ -13,13 +13,14 @@ invece di riprenderle ogni volta.
 import csv
 import json
 import os
-import time
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
+
+import espn_college
 
 RADICE = Path(__file__).resolve().parent.parent
 ARCHIVIO = RADICE / "data" / "college.csv"
@@ -28,7 +29,6 @@ USCITA = RADICE / "docs" / "data_college.json"
 
 BASE = "https://api.collegefootballdata.com"
 UA = "Mozilla/5.0 (compatible; PureStats/1.0)"
-PAUSA = 1.0
 
 MAX_STAGIONI = 5
 
@@ -75,16 +75,15 @@ def e_prima_divisione(conferenza):
 
 
 def chiave_api():
-    k = os.environ.get("CFBD_API_KEY", "").strip()
-    if not k:
-        print("ERRORE: variabile d'ambiente CFBD_API_KEY non impostata.")
-        print("La chiave gratuita si richiede su collegefootballdata.com/key")
-        print("e va salvata fra i secret del repository.")
-        raise SystemExit(1)
-    return k
+    return os.environ.get("CFBD_API_KEY", "").strip()
 
 
 def chiama(percorso, **parametri):
+    """CollegeFootballData: dal 14/11/2026 solo per SP+ (una volta a settimana) e loghi (una volta a stagione).
+    Calendario, risultati, linee e tabellini arrivano da ESPN (espn_college.py)."""
+    if not chiave_api():
+        print(f"  CollegeFootballData non usato per {percorso}: CFBD_API_KEY non impostata")
+        return None
     url = f"{BASE}/{percorso}?{urlencode(parametri)}"
     print(f"  GET {url}")
     richiesta = Request(url, headers={
@@ -150,49 +149,6 @@ def stagioni_da_scaricare():
 MINIMO_PARTITE_STAGIONE = 400
 
 
-def normalizza(partite, stagione):
-    righe = []
-    scartate = 0
-    fuori = set()
-    for g in partite or []:
-        casa = (g.get("homeTeam") or g.get("home_team") or "").strip()
-        ospite = (g.get("awayTeam") or g.get("away_team") or "").strip()
-        if not (casa and ospite):
-            continue
-
-        conf_casa = (g.get("homeConference") or g.get("home_conference") or "").strip()
-        conf_ospite = (g.get("awayConference") or g.get("away_conference") or "").strip()
-        if not (e_prima_divisione(conf_casa) or e_prima_divisione(conf_ospite)):
-            scartate += 1
-            fuori.add(conf_casa or "(senza conference)")
-            fuori.add(conf_ospite or "(senza conference)")
-            continue
-        data = (g.get("startDate") or g.get("start_date") or "")[:10]
-        righe.append({
-            "Stagione": str(stagione),
-            "Settimana": str(g.get("week") or ""),
-            "Tipo": (g.get("seasonType") or g.get("season_type") or "").strip(),
-            "Data": data,
-            "Casa": casa,
-            "Ospite": ospite,
-            "PuntiCasa": "" if g.get("homePoints") is None and g.get("home_points") is None
-                         else str(g.get("homePoints", g.get("home_points"))),
-            "PuntiOspite": "" if g.get("awayPoints") is None and g.get("away_points") is None
-                           else str(g.get("awayPoints", g.get("away_points"))),
-            "ConferenzaCasa": (g.get("homeConference") or g.get("home_conference") or "").strip(),
-            "ConferenzaOspite": (g.get("awayConference") or g.get("away_conference") or "").strip(),
-            "CampoNeutro": "1" if g.get("neutralSite") or g.get("neutral_site") else "",
-            "Stadio": (g.get("venue") or "").strip(),
-            "Spettatori": str(g.get("attendance") or ""),
-        })
-    if scartate:
-        print(f"      {scartate} partite scartate (fuori dalle conference seguite)")
-        ignote = sorted(c for c in fuori if not e_prima_divisione(c))[:6]
-        if ignote:
-            print(f"      conference escluse: {', '.join(ignote)}")
-    return righe
-
-
 # Ruoli mostrati nella scheda partita. Nel college le statistiche arrivano
 # raggruppate per categoria (passing, rushing, receiving) invece che per
 # ruolo del giocatore: si prende il migliore di ogni categoria.
@@ -206,12 +162,8 @@ QUANTI_PER_CATEGORIA = {"QB": 1, "RB": 1, "WR": 2}
 
 ETICHETTE = {"TD": "TD", "INT": "INT", "REC": "ric."}
 
-# Quante stagioni arricchire con le statistiche dei giocatori: quella in
-# corso e la precedente. Ogni stagione costa una chiamata per settimana,
-# quindi una trentina in tutto — le annate più lontane restano senza,
-# perché nessuno ne consulta il dettaglio partita per partita.
+# Con 0 le statistiche dei giocatori non si leggono (tabellini ESPN, una richiesta per partita).
 STAGIONI_CON_GIOCATORI = int(os.environ.get("STAGIONI_GIOCATORI", "2"))
-SETTIMANE_MAX = 16
 
 
 def _numero(valore):
@@ -240,147 +192,107 @@ def carica_archivio_giocatori():
 
 def salva_archivio_giocatori(dati):
     ARCHIVIO_GIOCATORI.parent.mkdir(parents=True, exist_ok=True)
-    ARCHIVIO_GIOCATORI.write_text(json.dumps(dati, ensure_ascii=False),
-                                  encoding="utf-8")
+    tmp = ARCHIVIO_GIOCATORI.with_suffix(".tmp")
+    tmp.write_text(json.dumps(dati, ensure_ascii=False), encoding="utf-8")
+    os.replace(tmp, ARCHIVIO_GIOCATORI)          # mai un archivio a metà
 
 
-def carica_giocatori(stagioni, forzate=()):
-    """I migliori giocatori di ogni partita, per categoria.
-
-    Restituisce: {stagione: {settimana: {squadra: [giocatori]}}}
-
-    Quel che è già stato scaricato resta: una stagione conclusa non si
-    richiede più, e della stagione in corso si riprendono solo le settimane
-    non ancora archiviate più le due più recenti, perché i tabellini delle
-    ultime partite possono ancora essere corretti.
-    """
-    per_partita = carica_archivio_giocatori()
-    if STAGIONI_CON_GIOCATORI <= 0:
-        print("  Statistiche giocatori disattivate")
-        return per_partita
-
-    corrente = stagione_corrente()
-    scelte = stagioni[:STAGIONI_CON_GIOCATORI]
-    print(f"  Stagioni arricchite: {scelte}")
-
-    for stagione in scelte:
-        note = {int(s) for s in per_partita.get(str(stagione), {}) if str(s).isdigit()}
-
-        if stagione < corrente and note and stagione not in forzate:
-            print(f"    stagione {stagione}: dall'archivio "
-                  f"({len(note)} settimane), nessuna chiamata")
-            continue
-
-        # delle settimane già archiviate si rifanno solo le ultime due
-        ultima = max(note) if note else 0
-        da_rifare = {w for w in note if w >= ultima - 1}
-        if stagione in forzate:
-            note, da_rifare = set(), set()
-
-        trovate = 0
-        fallite = 0
-        vuote = 0
-        saltate = 0
-        campione = None      # prima risposta utile, per la diagnostica
-        for settimana in range(1, SETTIMANE_MAX + 1):
-            if settimana in note and settimana not in da_rifare:
-                saltate += 1
+def _scegli(valori):
+    """I migliori della squadra nella partita: 1 QB, 1 RB, 2 ricevitori, dalle statistiche per categoria."""
+    scelti = []
+    for cat, misura, ruolo, etichetta, extra in CATEGORIE_GIOCATORI:
+        candidati = []
+        for (nome_cat, atleta), stat in valori.items():
+            if nome_cat != cat:
                 continue
-            time.sleep(PAUSA)
-            partite = chiama("games/players", year=stagione,
-                             seasonType="regular", week=settimana)
-            if partite is None:
-                # la chiamata non è riuscita: errore di rete o rifiuto
+            valore = _numero(stat.get(misura))
+            if valore <= 0:
+                continue
+            dettagli = []
+            for campo in extra:
+                n = _numero(stat.get(campo))
+                if n:
+                    dettagli.append(f"{n} {ETICHETTE.get(campo, campo)}")
+            candidati.append({"nome": atleta, "ruolo": ruolo, "valore": valore, "misura": etichetta,
+                              "dettagli": dettagli})
+        candidati.sort(key=lambda g: -g["valore"])
+        scelti.extend(candidati[:QUANTI_PER_CATEGORIA.get(ruolo, 1)])
+    return scelti
+
+
+def _ricostruisci_giocatori():
+    """Prima esecuzione dopo il passaggio a ESPN: l'archivio dei giocatori non era salvato nel repository e si
+    riscaricava a ogni giro. Si ricostruisce dall'ultima pagina pubblicata (nessuna chiamata)."""
+    pagina = RADICE / "docs" / "data_college.json"
+    try:
+        dati = json.loads(pagina.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    out = {}
+    for p in dati.get("ultimePartite") or []:
+        for lato, sq in (("giocatoriCasa", p.get("casa")), ("giocatoriOspite", p.get("ospite"))):
+            if p.get(lato) and sq:
+                out.setdefault(str(p["stagione"]), {}).setdefault(str(p["settimana"]), {})[sq] = p[lato]
+    if out:
+        print(f"  Archivio giocatori ricostruito dalla pagina pubblicata: stagioni {sorted(out)}")
+    return out
+
+
+def carica_giocatori(stagioni, forzate=(), partite_espn=None):
+    """I migliori giocatori di ogni partita, per categoria, dai tabellini ESPN (una richiesta per partita, gratis).
+
+    Restituisce: {stagione: {settimana: {squadra: [giocatori]}}}, salvato in data/college_giocatori.json.
+    Della stagione in corso si chiedono solo le partite finite che mancano e quelle finite da meno di 3 giorni
+    (i tabellini possono ancora essere corretti). La prima volta la stagione in corso si riprende tutta da ESPN,
+    così i nomi dei giocatori sono scritti in un solo modo per tutta la stagione (ESPN e CollegeFootballData
+    a volte li scrivono diversamente). Le stagioni concluse restano come sono.
+    """
+    per_partita = carica_archivio_giocatori() or _ricostruisci_giocatori()
+    fonti = per_partita.setdefault("_fonte", {})
+    if STAGIONI_CON_GIOCATORI <= 0 or not partite_espn:
+        print("  Statistiche giocatori: nessuna partita ESPN da leggere")
+        return per_partita
+    adesso = datetime.now(timezone.utc)
+    for stagione, partite in sorted(partite_espn.items()):
+        s = str(stagione)
+        tutta = fonti.get(s) != "espn" or int(stagione) in forzate
+        if tutta:
+            print(f"    stagione {s}: ripresa tutta da ESPN (nomi uniformi)")
+        # ripresa completa: si lavora su un archivio nuovo e si sostituisce il vecchio solo se tutto è riuscito
+        archivio = {} if tutta else per_partita.setdefault(s, {})
+        da_leggere = []
+        for g in partite:
+            if not g.get("finita") or g.get("Tipo") != "regular":
+                continue
+            w = g["Settimana"]
+            presenti = archivio.get(w, {})
+            fbs = [sq for sq, conf in ((g["Casa"], g["ConferenzaCasa"]), (g["Ospite"], g["ConferenzaOspite"]))
+                   if e_prima_divisione(conf)]
+            try:
+                recente = adesso - datetime.fromisoformat(g["inizio"].replace("Z", "+00:00")) < timedelta(days=3)
+            except ValueError:
+                recente = False
+            if fbs and (recente or any(sq not in presenti for sq in fbs)):
+                da_leggere.append((g, fbs))
+        trovate = fallite = 0
+        for g, fbs in da_leggere:
+            tab = espn_college.tabellino(g["id"])
+            if tab is None:
                 fallite += 1
                 continue
-            if not partite:
-                # l'API ha risposto senza partite per quella settimana
-                vuote += 1
-                continue
-            if campione is None:
-                campione = partite[0]
-
-            for gara in partite:
-                for squadra in gara.get("teams", []):
-                    # Il nome sta in 'team'; 'school' compare in altre
-                    # risposte dello stesso servizio, quindi si accettano
-                    # entrambi invece di legarsi a una sola forma.
-                    nome_squadra = (squadra.get("team")
-                                    or squadra.get("school") or "").strip()
-                    if not (nome_squadra and e_prima_divisione(squadra.get("conference"))):
-                        continue
-
-                    # indicizza le statistiche per categoria e tipo
-                    valori = {}
-                    for categoria in squadra.get("categories", []):
-                        nome_cat = (categoria.get("name") or "").lower()
-                        for tipo in categoria.get("types", []):
-                            nome_tipo = (tipo.get("name") or "").upper()
-                            for atleta in tipo.get("athletes", []):
-                                chiave = (nome_cat, (atleta.get("name") or "").strip())
-                                if not chiave[1]:
-                                    continue
-                                valori.setdefault(chiave, {})[nome_tipo] = atleta.get("stat")
-
-                    scelti = []
-                    for cat, misura, ruolo, etichetta, extra in CATEGORIE_GIOCATORI:
-                        candidati = []
-                        for (nome_cat, atleta), stat in valori.items():
-                            if nome_cat != cat:
-                                continue
-                            valore = _numero(stat.get(misura))
-                            if valore <= 0:
-                                continue
-                            dettagli = []
-                            for campo in extra:
-                                n = _numero(stat.get(campo))
-                                if n:
-                                    dettagli.append(f"{n} {ETICHETTE.get(campo, campo)}")
-                            candidati.append({"nome": atleta, "ruolo": ruolo,
-                                              "valore": valore, "misura": etichetta,
-                                              "dettagli": dettagli})
-                        candidati.sort(key=lambda g: -g["valore"])
-                        scelti.extend(candidati[:QUANTI_PER_CATEGORIA.get(ruolo, 1)])
-
-                    if scelti:
-                        (per_partita.setdefault(str(stagione), {})
-                                    .setdefault(str(settimana), {})[nome_squadra]) = scelti
-                        trovate += len(scelti)
-
-        settimane = len(per_partita.get(str(stagione), {}))
-        print(f"    stagione {stagione}: {settimane} settimane, "
-              f"{trovate} prestazioni di rilievo")
-        if saltate:
-            print(f"      {saltate} settimane prese dall'archivio, non richieste")
-        if fallite or vuote:
-            print(f"      {fallite} chiamate non riuscite, "
-                  f"{vuote} risposte senza partite")
-        if settimane == 0 and campione is not None:
-            # L'API ha risposto ma non è stato riconosciuto nulla: quasi
-            # sempre significa che i nomi dei campi non corrispondono.
-            print("      L'API ha risposto ma la struttura non è quella attesa.")
-            print(f"      chiavi della partita: {sorted(campione.keys())}")
-            squadre_campione = campione.get("teams") or campione.get("Teams") or []
-            if squadre_campione and isinstance(squadre_campione[0], dict):
-                s0 = squadre_campione[0]
-                print(f"      chiavi della squadra: {sorted(s0.keys())}")
-                cat = s0.get("categories") or []
-                if cat and isinstance(cat[0], dict):
-                    print(f"      chiavi della categoria: {sorted(cat[0].keys())}")
-                    print(f"      nome categoria: {cat[0].get('name')}")
-            else:
-                import json as _j
-                print(f"      esempio: {_j.dumps(campione, ensure_ascii=False)[:400]}")
-
-        if settimane == 0:
-            if fallite:
-                print("      Nessun dato: le chiamate sono state rifiutate.")
-                print("      Se l'errore è 429 il tetto mensile è esaurito;")
-                print("      riduci STAGIONI_GIOCATORI a 1 e riprova il mese prossimo.")
-            else:
-                print("      Nessun dato: l'API risponde ma non ha statistiche")
-                print("      giocatori per questa stagione.")
-
+            for sq in fbs:
+                scelti = _scegli(tab.get(sq) or {})
+                if scelti:
+                    archivio.setdefault(g["Settimana"], {})[sq] = scelti
+                    trovate += len(scelti)
+        if tutta and not fallite:
+            per_partita[s] = archivio
+            fonti[s] = "espn"
+        elif tutta:
+            for w, squadre in archivio.items():          # riuscita a metà: si aggiunge, senza togliere nulla
+                per_partita.setdefault(s, {}).setdefault(w, {}).update(squadre)
+        print(f"    stagione {s}: {len(da_leggere)} tabellini richiesti, {trovate} prestazioni di rilievo"
+              + (f", {fallite} non riusciti (si riprovano al prossimo giro)" if fallite else ""))
     return per_partita
 
 
@@ -602,7 +514,7 @@ def calcola_statistiche(righe, giocatori=None):
     return {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
         "campionato": "College Football",
-        "fonte": "CollegeFootballData.com",
+        "fonte": "ESPN (calendario, risultati, tabellini) · CollegeFootballData (SP+)",
         "stagioni": sorted({r["Stagione"] for r in righe}, reverse=True),
         "totalePartite": len(righe),
         "partiteGiocate": giocate,
@@ -655,7 +567,8 @@ def main():
         quante[str(r.get("Stagione"))] += 1
 
     scaricate = 0
-    for i, anno in enumerate(stagioni):
+    partite_espn = {}
+    for anno in stagioni:
         # Una stagione passata non cambia più: se è già in archivio per
         # intero non la si richiede. Con STAGIONI si forza comunque.
         if (anno < corrente and anno not in forzate
@@ -663,29 +576,40 @@ def main():
             print(f"\nStagione {anno}: conclusa, {quante[str(anno)]} partite "
                   f"dall'archivio, nessuna chiamata")
             continue
-
-        if i:
-            time.sleep(PAUSA)
-        print(f"\nStagione {anno}")
-        for tipo in ("regular", "postseason"):
-            # 'classification' è il nome attuale del parametro; le versioni
-            # precedenti usavano 'division'. Si passano entrambi: quello
-            # non riconosciuto viene ignorato dal servizio.
-            partite = chiama("games", year=anno, seasonType=tipo,
-                             classification="fbs", division="fbs")
-            if partite is None:
-                continue
-            righe = normalizza(partite, anno)
-            nuove = sum(1 for r in righe if chiave(r) not in indice)
-            for r in righe:
-                k = chiave(r)
-                # un punteggio già in archivio non viene cancellato da una
-                # risposta che, per qualunque motivo, torna senza
-                if k in indice and _con_risultato(indice[k]) and not _con_risultato(r):
-                    continue
-                indice[k] = r
-            print(f"    {tipo}: {len(righe)} partite ({nuove} nuove)")
-            scaricate += len(righe)
+        print(f"\nStagione {anno} (ESPN)")
+        righe_espn = espn_college.partite_stagione(anno)
+        if not righe_espn:
+            print(f"    nessuna partita da ESPN: la stagione {anno} resta com'è in archivio")
+            continue
+        righe_espn = [r for r in righe_espn
+                      if e_prima_divisione(r["ConferenzaCasa"]) or e_prima_divisione(r["ConferenzaOspite"])]
+        vecchie = {k: r for k, r in indice.items() if k[0] == str(anno)}
+        if vecchie and len(righe_espn) < 0.8 * len(vecchie):
+            print(f"    ESPN ha {len(righe_espn)} partite contro {len(vecchie)} in archivio: risposta incompleta, "
+                  "si aggiungono solo le partite nuove e i punteggi, senza togliere nulla")
+            sostituisci = False
+        else:
+            sostituisci = True
+        # il punteggio già in archivio non si perde se ESPN, per qualunque motivo, non lo ha
+        con_punti = {(r["Tipo"], r["Casa"], r["Ospite"]): r for r in vecchie.values() if _con_risultato(r)}
+        if sostituisci:
+            # la stagione in corso si riprende com'è su ESPN: una partita spostata di settimana non resta doppia
+            for k in vecchie:
+                del indice[k]
+        nuove = 0
+        for r in righe_espn:
+            riga = {c: r.get(c, "") for c in COLONNE}
+            vecchia = con_punti.get((riga["Tipo"], riga["Casa"], riga["Ospite"]))
+            if not _con_risultato(riga) and vecchia:
+                riga["PuntiCasa"], riga["PuntiOspite"] = vecchia["PuntiCasa"], vecchia["PuntiOspite"]
+            k = chiave(riga)
+            if k not in vecchie:
+                nuove += 1
+            indice[k] = riga
+        print(f"    {len(righe_espn)} partite ({nuove} nuove o spostate di settimana), "
+              f"{sum(1 for r in righe_espn if r['PuntiCasa'] != '')} con il risultato")
+        scaricate += len(righe_espn)
+        partite_espn[anno] = righe_espn
 
     if not scaricate and prima == 0 and not uniti:
         print("\nNessun dato scaricato e archivio vuoto: esco.")
@@ -702,7 +626,7 @@ def main():
     print(f"Archivio salvato: {len(righe)} partite ({len(righe) - prima:+d})")
 
     print("\nGiocatori di riferimento")
-    giocatori = carica_giocatori(stagioni, forzate)
+    giocatori = carica_giocatori(stagioni, forzate, partite_espn)
     salva_archivio_giocatori(giocatori)
 
     stats = calcola_statistiche(righe, giocatori)
@@ -712,7 +636,7 @@ def main():
     print("\nGiornata, prossimo turno e indici")
     try:
         import college_indici
-        extra = college_indici.calcola(chiama, stats, corrente)
+        extra = college_indici.calcola(chiama, stats, corrente, partite_espn.get(corrente))
         # Prossimo turno, indici e giocatori chiave vanno solo nella sezione privata (cifrata da
         # fetch_duelli.py): qui restano in un file locale che non viene mai committato.
         for k in ("giornata", "loghi"):
@@ -725,6 +649,7 @@ def main():
     USCITA.write_text(json.dumps(stats, ensure_ascii=False, indent=2),
                       encoding="utf-8")
 
+    print(f"\n{espn_college.riepilogo()}")
     print(f"\nSquadre: {len(stats['squadre'])}")
     print(f"Partite giocate: {stats['partiteGiocate']}/{stats['totalePartite']}")
     print(f"\n✓ Scritto {USCITA}")

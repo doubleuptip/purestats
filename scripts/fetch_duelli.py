@@ -540,7 +540,7 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
     squadre = {x for sc in vicine for x in (sc["casa"], sc["ospite"])}
     if lega == "college":
         inf = C.infortuni_college(squadre)
-        stadi = C.stadi_college(os.environ.get("CFBD_API_KEY", "").strip(), stagione)
+        stadi = C.stadi_college()          # dal file: nessuna chiamata
     else:
         # il rapporto infortuni NFL è per settimana: ogni partita prende quello della sua settimana
         per_sett, quote = {}, {}

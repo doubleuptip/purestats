@@ -14,6 +14,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+from pathlib import Path
 import os
 import re
 import time
@@ -245,23 +246,16 @@ STADI_NFL = {
 }
 
 
-def stadi_college(chiave: str, anno: int) -> dict:
-    """{squadra: (lat, lon, coperto)} dagli stadi di casa di CollegeFootballData (1 chiamata)."""
-    if not chiave:
-        return {}
+def stadi_college(chiave: str = "", anno: int = 0) -> dict:
+    """{squadra: (lat, lon, coperto)} dal file data/college_stadi.json (stadi di casa, scaricati una volta sola:
+    gli stadi non cambiano durante la stagione). Nessuna chiamata. I parametri restano per compatibilità."""
+    percorso = Path(__file__).resolve().parent.parent / "data" / "college_stadi.json"
     try:
-        t = json.loads(_get(f"https://api.collegefootballdata.com/teams/fbs?year={anno}", 60,
-                            {"Authorization": f"Bearer {chiave}"}))
-    except Exception as e:                   # noqa: BLE001
-        print(f"Stadi college non letti ({e}): meteo college assente in questo giro.")
+        dati = json.loads(percorso.read_text(encoding="utf-8")).get("squadre") or {}
+    except (OSError, json.JSONDecodeError) as e:
+        print(f"Stadi college non letti da {percorso.name} ({e}): meteo college assente in questo giro.")
         return {}
-    out = {}
-    for s in t:
-        loc = s.get("location") or {}
-        lat, lon = loc.get("latitude"), loc.get("longitude")
-        if lat is not None and lon is not None:
-            out[s.get("school")] = (float(lat), float(lon), bool(loc.get("dome")))
-    return out
+    return {sq: (float(v[0]), float(v[1]), bool(v[2])) for sq, v in dati.items()}
 
 
 def _mph(testo: str) -> float | None:

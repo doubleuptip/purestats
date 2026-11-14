@@ -31,7 +31,6 @@ jobs:
         continue-on-error: true
         env:
           DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python scripts/aggiorna_contesto.py college
       - name: Committa
         run: |

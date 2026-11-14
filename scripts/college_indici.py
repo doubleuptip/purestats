@@ -17,8 +17,9 @@ dashboard li mostra con le stesse viste:
   SP+ usa l'azione per azione completa, che il piano gratuito non permette
   di scaricare.
 
-Chiamate per aggiornamento: 3 (linee della settimana giocata, linee della
-prossima, SP+), più 1 a stagione per i loghi, conservati in archivio.
+Chiamate a CollegeFootballData (dal 14/11/2026): SP+ al massimo una volta ogni 6 giorni
+(data/college_sp.json) e 1 a stagione per i loghi (data/college_squadre.json). Le linee arrivano da
+ESPN, una richiesta per partita; quelle delle partite finite restano in data/college_linee.json.
 Solo libreria standard.
 """
 
@@ -360,8 +361,75 @@ def canale_breve(c):
     return c if len(c) <= 30 else c[:29] + "…"
 
 
-def calcola(chiama, stats, stagione):
-    """Blocchi aggiuntivi per data_college.json. Ogni blocco può mancare senza invalidare gli altri."""
+LINEE = RADICE / "data" / "college_linee.json"
+SP = RADICE / "data" / "college_sp.json"
+SP_GIORNI = 6          # SP+ cambia una volta a settimana: si chiede a CollegeFootballData al massimo ogni 6 giorni
+
+
+def _carica(percorso):
+    try:
+        return json.loads(percorso.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def _salva(percorso, dati):
+    percorso.parent.mkdir(parents=True, exist_ok=True)
+    tmp = percorso.with_suffix(".tmp")
+    tmp.write_text(json.dumps(dati, ensure_ascii=False), encoding="utf-8")
+    os.replace(tmp, percorso)
+
+
+def _gare_espn(partite, settimana, linee):
+    """Partite ESPN di una settimana nella forma che _riga si aspetta (la stessa di CollegeFootballData).
+    La linea di una partita finita si legge una volta e poi resta in data/college_linee.json; quella di una
+    partita da giocare si rilegge a ogni giro (si muove)."""
+    import espn_college
+    out = []
+    for g in partite:
+        if g["Settimana"] != str(settimana) or g["Tipo"] != "regular":
+            continue
+        voce = linee.get(g["id"])
+        if not (voce and voce.get("chiusa")):
+            nuova = espn_college.linea(g["id"])
+            if nuova:
+                voce = {**nuova, "chiusa": bool(g["finita"])}
+                linee[g["id"]] = voce
+        pc = int(g["PuntiCasa"]) if g["PuntiCasa"] != "" else None
+        po = int(g["PuntiOspite"]) if g["PuntiOspite"] != "" else None
+        lines = []
+        if voce and (voce.get("margine") is not None or voce.get("totale") is not None):
+            lines = [{"provider": "consensus", "spread": None if voce.get("margine") is None else -voce["margine"],
+                      "overUnder": voce.get("totale")}]
+        out.append({"homeTeam": g["Casa"], "awayTeam": g["Ospite"], "homeScore": pc, "awayScore": po,
+                    "startDate": g["inizio"], "season": g["Stagione"], "homeConference": g["ConferenzaCasa"],
+                    "awayConference": g["ConferenzaOspite"], "lines": lines})
+    return out
+
+
+def _sp_settimanale(chiama, stagione):
+    """SP+ da CollegeFootballData al massimo una volta ogni SP_GIORNI giorni; altrimenti l'ultimo salvato."""
+    salvato = _carica(SP)
+    adesso = datetime.now(timezone.utc)
+    if salvato.get("stagione") == stagione and salvato.get("dati"):
+        eta = adesso - datetime.fromisoformat(salvato["letto"])
+        if eta < timedelta(days=SP_GIORNI):
+            print(f"  SP+: salvato {eta.days} giorni fa, nessuna chiamata")
+            return salvato["dati"]
+    sp = chiama("ratings/sp", year=stagione)
+    if sp:
+        _salva(SP, {"stagione": stagione, "letto": adesso.isoformat(), "dati": sp})
+        return sp
+    if salvato.get("stagione") == stagione and salvato.get("dati"):
+        print("  SP+: CollegeFootballData non ha risposto, resta l'ultimo salvato")
+        return salvato["dati"]
+    return None
+
+
+def calcola(chiama, stats, stagione, partite_espn=None):
+    """Blocchi aggiuntivi per data_college.json. Ogni blocco può mancare senza invalidare gli altri.
+    Con partite_espn (la stagione letta da ESPN) le linee arrivano da ESPN e CollegeFootballData serve solo
+    per SP+ (una volta a settimana) e i loghi (una volta a stagione)."""
     ultime = stats.get("ultimePartite") or []
     giocate = [int(p["settimana"]) for p in ultime
                if str(p.get("stagione")) == str(stagione) and p.get("pc") is not None and str(p.get("settimana", "")).isdigit()]
@@ -369,7 +437,8 @@ def calcola(chiama, stats, stagione):
     if not giocate:
         return out
     w = max(giocate)
-    righe = chiama("lines", year=stagione, week=w, seasonType="regular")
+    linee = _carica(LINEE)
+    righe = _gare_espn(partite_espn, w, linee) if partite_espn else chiama("lines", year=stagione, week=w, seasonType="regular")
     if righe:
         gare = sorted((_riga(g) for g in righe), key=lambda g: (g["data"], g["casa"] or ""))
         con_linea = [g for g in gare if g["scartoLinea"] is not None]
@@ -390,11 +459,13 @@ def calcola(chiama, stats, stagione):
         except (KeyError, TypeError, ValueError, OSError) as e:
             # i video sono un di più: senza, resta il link di ricerca
             print(f"  Video college non cercati: {e!r}. Restano i link di ricerca.")
-    prossime = chiama("lines", year=stagione, week=w + 1, seasonType="regular")
+    prossime = _gare_espn(partite_espn, w + 1, linee) if partite_espn else chiama("lines", year=stagione, week=w + 1, seasonType="regular")
+    if partite_espn:
+        _salva(LINEE, linee)
     if prossime:
         out["prossima"] = {"stagione": stagione, "settimana": w + 1,
                            "partite": sorted((_riga(g) for g in prossime), key=lambda g: (g["data"], g["casa"] or ""))}
-    sp = chiama("ratings/sp", year=stagione)
+    sp = _sp_settimanale(chiama, stagione)
     if sp:
         conf = {s["nome"]: s.get("conference") for s in stats.get("squadre") or []}
         # attacco e difesa rispetto alla media FBS, entrambi "più alto = meglio"

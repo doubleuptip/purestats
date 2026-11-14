@@ -70,6 +70,18 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   totale college corretto di −3,54, margine college dalle norme corrette per le difese affrontate.
   Provate e scartate: correzione avversari ripetuta (SRS, peggiora il college) e z-score dei giocatori
 - Cambio password: aggiornare il secret e rilanciare i workflow NFL e College
+- College, fonti (dal 14/11/2026): calendario, risultati, campo neutro, linee e tabellini da ESPN
+  (`scripts/espn_college.py`, gratis, senza chiave; id partite e nomi squadre uguali a CollegeFootballData).
+  CollegeFootballData (1.000 chiamate al mese, chiave condivisa con il bot) solo per SP+ al massimo ogni
+  6 giorni (`data/college_sp.json`) e loghi una volta a stagione. Stadi per il meteo: `data/college_stadi.json`
+  (nessuna chiamata). Tabellini e linee chiuse restano in `data/college_giocatori.json` e `data/college_linee.json`
+
+## Fonti a credito (chiamate limitate)
+
+Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate
+(CollegeFootballData, OddsPapi, YouTube, prop-line): contare per iscritto chiamate per giro × giri al mese,
+confrontarle con il limite e con quelle rimaste, e dirlo prima di lanciare. I dati che non cambiano (stadi,
+loghi, stagioni concluse) si scaricano una volta e si salvano nel repository.
 
 ## Vincoli da rispettare
 
@@ -106,6 +118,11 @@ Per la dashboard: aprire `docs/index.html` con Live Preview e controllare
 davvero che si veda quello che deve vedersi.
 
 ## Errori già commessi, da non ripetere
+
+- Chiave CollegeFootballData esaurita a metà novembre 2026: gli stadi college venivano richiesti a ogni giro
+  orario, l'archivio dei giocatori non era salvato e si riscaricava a ogni esecuzione (circa 30 chiamate),
+  l'archivio partite (scritto senza intestazione) riscaricava ogni volta 5 stagioni, e un test sullo storico
+  è stato lanciato senza contare le chiamate rimaste
 
 - `salva_archivio` ordinava ma non restituiva la lista: le statistiche
   venivano calcolate su dati non ordinati

@@ -5,8 +5,9 @@ on:
     # Domenica, martedì e giovedì alle 12:00 UTC: linee del turno successivo man mano che escono.
     # In più, subito dopo le serate di gioco: domenica mattina (sabato), mercoledì mattina
     # (MAC del martedì) e venerdì mattina (giovedì sera).
-    # Circa 7 chiamate a esecuzione, 6 esecuzioni a settimana: ~180 al mese,
-    # sullo stesso budget mensile (1.000) usato anche dal bot e dai duelli (~60).
+    # Dal 14/11/2026 calendario, risultati, linee e tabellini arrivano da ESPN (gratis, senza chiave).
+    # CollegeFootballData (1.000 chiamate al mese, condivise con il bot) solo per SP+, al massimo una
+    # volta ogni 6 giorni, e per i loghi una volta a stagione: circa 5-6 chiamate al mese.
     - cron: '0 12 * * 0,2,4'
     - cron: '0 6 * * 0,3,5'
   workflow_dispatch:
@@ -15,6 +16,7 @@ on:
     paths:
       - 'scripts/fetch_college.py'
       - 'scripts/college_indici.py'
+      - 'scripts/espn_college.py'
       - '.github/workflows/update-college.yml'
       - 'scripts/fetch_duelli.py'
       - 'scripts/reparti.py'
@@ -53,7 +55,6 @@ jobs:
         continue-on-error: true
         env:
           DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python scripts/fetch_duelli.py college
 
       - name: Committa le modifiche
@@ -61,6 +62,10 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/college.csv docs/data_college.json data/college_squadre.json data/college_video.json
+          # archivi che evitano di richiedere di nuovo ciò che non cambia (tabellini, linee chiuse, SP+)
+          for f in data/college_giocatori.json data/college_linee.json data/college_sp.json; do
+            [ -f "$f" ] && git add "$f"
+          done
           [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
