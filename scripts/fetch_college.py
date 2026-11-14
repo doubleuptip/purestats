@@ -25,6 +25,9 @@ import espn_college
 RADICE = Path(__file__).resolve().parent.parent
 ARCHIVIO = RADICE / "data" / "college.csv"
 ARCHIVIO_GIOCATORI = RADICE / "data" / "college_giocatori.json"
+# Tabellini completi (tutti i giocatori di ogni partita), un file per stagione: base per lo storico delle
+# assenze (chi c'era e chi mancava) e per tutte le statistiche dei giocatori. Le stagioni concluse non cambiano.
+CARTELLA_DATI = RADICE / "data"
 USCITA = RADICE / "docs" / "data_college.json"
 
 BASE = "https://api.collegefootballdata.com"
@@ -197,6 +200,41 @@ def salva_archivio_giocatori(dati):
     os.replace(tmp, ARCHIVIO_GIOCATORI)          # mai un archivio a metà
 
 
+def file_tabellini(stagione):
+    return CARTELLA_DATI / f"college_tabellini_{stagione}.json"
+
+
+def carica_tabellini(stagione):
+    """{id partita: {settimana, tipo, inizio, casa, ospite, squadre, etichette}} della stagione."""
+    f = file_tabellini(stagione)
+    if not f.exists():
+        return {}
+    try:
+        dati = json.loads(f.read_text(encoding="utf-8"))
+        return dati if isinstance(dati, dict) else {}
+    except (json.JSONDecodeError, OSError) as e:
+        # un file illeggibile non si sovrascrive alla cieca: si ferma tutto e lo si guarda
+        raise SystemExit(f"Archivio tabellini {f.name} illeggibile ({e}): non lo tocco, va controllato")
+
+
+def salva_tabellini(stagione, dati):
+    f = file_tabellini(stagione)
+    f.parent.mkdir(parents=True, exist_ok=True)
+    tmp = f.with_suffix(".tmp")
+    # una partita per riga: il file resta leggibile e Git salva solo le righe cambiate
+    righe = [f"{json.dumps(k)}:{json.dumps(v, ensure_ascii=False, separators=(',', ':'))}"
+             for k, v in sorted(dati.items())]
+    tmp.write_text("{\n" + ",\n".join(righe) + "\n}\n", encoding="utf-8")
+    os.replace(tmp, f)                            # mai un archivio a metà
+
+
+def scheda_tabellino(g, completo):
+    """La voce dell'archivio per una partita: i dati della partita più il tabellino completo."""
+    return {"settimana": str(g["Settimana"]), "tipo": g.get("Tipo") or "regular", "inizio": g.get("inizio") or "",
+            "casa": g["Casa"], "ospite": g["Ospite"],
+            "squadre": completo.get("squadre") or {}, "etichette": completo.get("etichette") or {}}
+
+
 def _scegli(valori):
     """I migliori della squadra nella partita: 1 QB, 1 RB, 2 ricevitori, dalle statistiche per categoria."""
     scelti = []
@@ -260,6 +298,7 @@ def carica_giocatori(stagioni, forzate=(), partite_espn=None):
             print(f"    stagione {s}: ripresa tutta da ESPN (nomi uniformi)")
         # ripresa completa: si lavora su un archivio nuovo e si sostituisce il vecchio solo se tutto è riuscito
         archivio = {} if tutta else per_partita.setdefault(s, {})
+        tabellini = carica_tabellini(s)
         da_leggere = []
         for g in partite:
             if not g.get("finita") or g.get("Tipo") != "regular":
@@ -272,14 +311,20 @@ def carica_giocatori(stagioni, forzate=(), partite_espn=None):
                 recente = adesso - datetime.fromisoformat(g["inizio"].replace("Z", "+00:00")) < timedelta(days=3)
             except ValueError:
                 recente = False
-            if fbs and (recente or any(sq not in presenti for sq in fbs)):
+            if fbs and (recente or str(g["id"]) not in tabellini or any(sq not in presenti for sq in fbs)):
                 da_leggere.append((g, fbs))
         trovate = fallite = 0
-        for g, fbs in da_leggere:
-            tab = espn_college.tabellino(g["id"])
-            if tab is None:
+        for n, (g, fbs) in enumerate(da_leggere, 1):
+            completo = espn_college.tabellino_completo(g["id"])
+            if completo is None:
                 fallite += 1
                 continue
+            # anche un tabellino vuoto si segna (ESPN a volte non lo ha per le FCS): non si richiede a ogni giro;
+            # nei primi 3 giorni dopo la partita si rilegge comunque
+            tabellini[str(g["id"])] = scheda_tabellino(g, completo)
+            if n % 100 == 0:
+                salva_tabellini(s, tabellini)         # ogni 100 partite: un errore a metà non perde il lavoro
+            tab = espn_college.valori_tabellino(completo)
             for sq in fbs:
                 scelti = _scegli(tab.get(sq) or {})
                 if scelti:
@@ -291,7 +336,10 @@ def carica_giocatori(stagioni, forzate=(), partite_espn=None):
         elif tutta:
             for w, squadre in archivio.items():          # riuscita a metà: si aggiunge, senza togliere nulla
                 per_partita.setdefault(s, {}).setdefault(w, {}).update(squadre)
-        print(f"    stagione {s}: {len(da_leggere)} tabellini richiesti, {trovate} prestazioni di rilievo"
+        if da_leggere:
+            salva_tabellini(s, tabellini)
+        print(f"    stagione {s}: {len(da_leggere)} tabellini richiesti, {trovate} prestazioni di rilievo, "
+              f"{len(tabellini)} partite nell'archivio completo"
               + (f", {fallite} non riusciti (si riprovano al prossimo giro)" if fallite else ""))
     return per_partita
 

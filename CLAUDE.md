@@ -76,7 +76,14 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   (`scripts/espn_college.py`, gratis, senza chiave; id partite e nomi squadre uguali a CollegeFootballData).
   CollegeFootballData (1.000 chiamate al mese, chiave condivisa con il bot) solo per SP+ al massimo ogni
   6 giorni (`data/college_sp.json`) e loghi una volta a stagione. Stadi per il meteo: `data/college_stadi.json`
-  (nessuna chiamata). Tabellini e linee chiuse restano in `data/college_giocatori.json` e `data/college_linee.json`
+  (nessuna chiamata). Linee chiuse in `data/college_linee.json`; i migliori di ogni partita (scheda pubblica)
+  in `data/college_giocatori.json`
+- Tabellini college completi (dal 14/11/2026): tutti i giocatori di ogni partita, tutte le tabelle ESPN (passaggi,
+  corse, ricezioni, difesa, calci, ritorni), in `data/college_tabellini_<stagione>.json`, una partita per riga
+  (`[id ESPN, nome, valori...]` + etichette per categoria). La stagione in corso la aggiorna fetch_college.py
+  (partite mancanti e finite da meno di 3 giorni); le passate si scaricano una volta con
+  `scripts/storico_tabellini.py 2019-2025` (workflow College lanciato a mano, campo «tabellini_storico»:
+  circa 800 richieste ESPN a stagione, gratis). Servono allo storico delle assenze (chi sparisce dal tabellino)
 
 ## Fonti a credito (chiamate limitate)
 

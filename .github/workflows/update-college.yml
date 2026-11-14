@@ -11,12 +11,18 @@ on:
     - cron: '0 12 * * 0,2,4'
     - cron: '0 6 * * 0,3,5'
   workflow_dispatch:
+    inputs:
+      tabellini_storico:
+        description: 'Stagioni passate da cui scaricare i tabellini completi (es. 2019-2025). Vuoto = nessuna'
+        required: false
+        default: ''
   push:
     branches: [main]
     paths:
       - 'scripts/fetch_college.py'
       - 'scripts/college_indici.py'
       - 'scripts/espn_college.py'
+      - 'scripts/storico_tabellini.py'
       - '.github/workflows/update-college.yml'
       - 'scripts/fetch_duelli.py'
       - 'scripts/reparti.py'
@@ -50,6 +56,16 @@ jobs:
           # Se fallisce (fonte giù un momento, rete), riprova una volta dopo 5 minuti.
           python scripts/fetch_college.py || { echo "Primo tentativo fallito: riprovo tra 5 minuti"; sleep 300; python scripts/fetch_college.py; }
 
+      - name: Storico tabellini completi (solo se richiesto a mano)
+        # Una volta sola: circa 800 tabellini ESPN a stagione, un secondo l'uno. Non blocca l'aggiornamento:
+        # quello che riesce resta salvato, e rilanciato riparte da dove era arrivato.
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.tabellini_storico != '' }}
+        continue-on-error: true
+        timeout-minutes: 300
+        env:
+          STAGIONI_TABELLINI: ${{ inputs.tabellini_storico }}
+        run: python scripts/storico_tabellini.py "$STAGIONI_TABELLINI"
+
       - name: Sezione privata (prossimo turno, indici, duelli) cifrata
         # Non blocca mai l'aggiornamento pubblico: se fallisce resta la versione già pubblicata.
         continue-on-error: true
@@ -64,6 +80,10 @@ jobs:
           git add data/college.csv docs/data_college.json data/college_squadre.json data/college_video.json
           # archivi che evitano di richiedere di nuovo ciò che non cambia (tabellini, linee chiuse, SP+)
           for f in data/college_giocatori.json data/college_linee.json data/college_sp.json; do
+            [ -f "$f" ] && git add "$f"
+          done
+          # tabellini completi, un file per stagione (le stagioni concluse non cambiano più)
+          for f in data/college_tabellini_*.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat

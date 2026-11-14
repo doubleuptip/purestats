@@ -142,27 +142,57 @@ def linea(evento: str) -> dict | None:
     return None
 
 
-def tabellino(evento: str) -> dict | None:
-    """Statistiche individuali della partita: {squadra: {(categoria, giocatore): {etichetta: valore}}},
-    con le stesse categorie (passing, rushing, receiving) ed etichette (YDS, TD, INT, REC) di prima."""
+def tabellino_completo(evento: str) -> dict | None:
+    """Tabellino intero della partita, tutti i giocatori di tutte le tabelle (passaggi, corse, ricezioni,
+    difesa, intercetti, fumble, calci, punt, ritorni), in forma compatta:
+      {"squadre": {squadra: {categoria: [[id ESPN, nome, valore, valore, ...], ...]}},
+       "etichette": {categoria: [etichetta, etichetta, ...]}}
+    I valori restano testo come li scrive ESPN («24/35», «4.5»). None se ESPN non risponde."""
     d = _json(f"{SITO}/summary?event={evento}")
     chiamate["tabellini"] += 1
     if not d:
         return None
-    out = {}
+    squadre, etichette = {}, {}
     for sq in ((d.get("boxscore") or {}).get("players") or []):
         nome = ((sq.get("team") or {}).get("location") or "").strip()
-        valori = {}
+        categorie = {}
         for cat in sq.get("statistics") or []:
-            etichette = [str(x).upper() for x in cat.get("labels") or []]
+            cn = (cat.get("name") or "").lower()
+            if not cn:
+                continue
+            righe = []
             for a in cat.get("athletes") or []:
-                chi = ((a.get("athlete") or {}).get("displayName") or "").strip()
-                if not chi:
-                    continue
-                valori[((cat.get("name") or "").lower(), chi)] = dict(zip(etichette, a.get("stats") or []))
+                at = a.get("athlete") or {}
+                chi = (at.get("displayName") or "").strip()
+                if chi:
+                    righe.append([str(at.get("id") or ""), chi] + [str(v) for v in a.get("stats") or []])
+            if righe:
+                categorie[cn] = righe
+                etichette.setdefault(cn, [str(x).upper() for x in cat.get("labels") or []])
         if nome:
-            out[nome] = valori
+            squadre[nome] = categorie
+    return {"squadre": squadre, "etichette": etichette}
+
+
+def valori_tabellino(completo: dict) -> dict:
+    """Dal tabellino completo alla forma usata per i migliori della partita:
+    {squadra: {(categoria, giocatore): {etichetta: valore}}}."""
+    out = {}
+    etichette = completo.get("etichette") or {}
+    for nome, categorie in (completo.get("squadre") or {}).items():
+        valori = {}
+        for cn, righe in categorie.items():
+            for r in righe:
+                valori[(cn, r[1])] = dict(zip(etichette.get(cn) or [], r[2:]))
+        out[nome] = valori
     return out
+
+
+def tabellino(evento: str) -> dict | None:
+    """Statistiche individuali della partita: {squadra: {(categoria, giocatore): {etichetta: valore}}},
+    con le stesse categorie (passing, rushing, receiving) ed etichette (YDS, TD, INT, REC) di prima."""
+    c = tabellino_completo(evento)
+    return None if c is None else valori_tabellino(c)
 
 
 def riepilogo() -> str:
