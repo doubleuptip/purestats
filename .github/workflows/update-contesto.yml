@@ -20,7 +20,7 @@ jobs:
   college:
     runs-on: ubuntu-latest
     concurrency:
-      group: archivio-college
+      group: contesto-college
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v6
@@ -40,16 +40,23 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Se nel frattempo un aggiornamento completo ha pubblicato un file più nuovo, non si fondono due file
           # cifrati: si riparte da quello pubblicato e si rifanno solo assenze e meteo.
-          for t in 1 2 3; do
-            [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
-            if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
-            git commit -q -m "Matchup college: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
+          [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
+          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+          git commit -q -m "Matchup college: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for t in 1 2 3 4; do
             if git push; then echo "Pubblicato al tentativo $t"; exit 0; fi
+            # altri file cambiati nel frattempo: basta riallinearsi
+            if git pull -q --rebase origin main; then continue; fi
+            # è cambiato proprio questo file: si riparte da quello pubblicato e si rifanno solo assenze e meteo
+            git rebase --abort
             echo "File pubblicato cambiato nel frattempo: lo riprendo e rifaccio assenze e meteo"
             git fetch -q origin main && git reset -q --hard origin/main
             python scripts/aggiorna_contesto.py college || true
+            [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
+            if git diff --staged --quiet; then echo "Nessuna variazione dopo il riallineamento."; exit 0; fi
+            git commit -q -m "Matchup college: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
           done
-          echo "Pubblicazione non riuscita dopo 3 tentativi"
+          echo "Pubblicazione non riuscita dopo 4 tentativi"
           exit 1
 
   nfl:
@@ -57,7 +64,7 @@ jobs:
     needs: college
     if: always()
     concurrency:
-      group: archivio-nfl
+      group: contesto-nfl
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v6
@@ -77,14 +84,21 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Se nel frattempo un aggiornamento completo ha pubblicato un file più nuovo, non si fondono due file
           # cifrati: si riparte da quello pubblicato e si rifanno solo assenze e meteo.
-          for t in 1 2 3; do
-            [ -f docs/duelli_nfl.dat ] && git add docs/duelli_nfl.dat
-            if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
-            git commit -q -m "Matchup NFL: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
+          [ -f docs/duelli_nfl.dat ] && git add docs/duelli_nfl.dat
+          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+          git commit -q -m "Matchup NFL: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for t in 1 2 3 4; do
             if git push; then echo "Pubblicato al tentativo $t"; exit 0; fi
+            # altri file cambiati nel frattempo: basta riallinearsi
+            if git pull -q --rebase origin main; then continue; fi
+            # è cambiato proprio questo file: si riparte da quello pubblicato e si rifanno solo assenze e meteo
+            git rebase --abort
             echo "File pubblicato cambiato nel frattempo: lo riprendo e rifaccio assenze e meteo"
             git fetch -q origin main && git reset -q --hard origin/main
             python scripts/aggiorna_contesto.py nfl || true
+            [ -f docs/duelli_nfl.dat ] && git add docs/duelli_nfl.dat
+            if git diff --staged --quiet; then echo "Nessuna variazione dopo il riallineamento."; exit 0; fi
+            git commit -q -m "Matchup NFL: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
           done
-          echo "Pubblicazione non riuscita dopo 3 tentativi"
+          echo "Pubblicazione non riuscita dopo 4 tentativi"
           exit 1
