@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-13T22:42:40.466003+00:00",
+  "aggiornato": "2026-11-14T08:14:16.067607+00:00",
   "campionato": "College Football",
   "fonte": "CollegeFootballData.com",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 4548,
-  "partiteGiocate": 4352,
+  "partiteGiocate": 4355,
   "squadre": [
     {
       "nome": "Georgia",
@@ -3389,102 +3389,6 @@
       ]
     },
     {
-      "nome": "Illinois",
-      "nomeCompleto": "Illinois",
-      "conference": "Big Ten",
-      "conferenza": "Big Ten",
-      "partite": 60,
-      "vittorie": 38,
-      "sconfitte": 22,
-      "pareggi": 0,
-      "percVittorie": 63.3,
-      "mediaFatti": 26.9,
-      "mediaSubiti": 21.9,
-      "differenza": 300,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Big Ten",
-          "partite": 9,
-          "vittorie": 6,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 66.7,
-          "mediaFatti": 28.4,
-          "mediaSubiti": 23.0,
-          "differenza": 49,
-          "vittorieCasa": 4,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Big Ten",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 29.4,
-          "mediaSubiti": 23.6,
-          "differenza": 75,
-          "vittorieCasa": 7,
-          "partiteCasa": 8,
-          "vittorieFuori": 2,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Big Ten",
-          "partite": 13,
-          "vittorie": 10,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 76.9,
-          "mediaFatti": 28.3,
-          "mediaSubiti": 21.7,
-          "differenza": 86,
-          "vittorieCasa": 7,
-          "partiteCasa": 8,
-          "vittorieFuori": 3,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Big Ten",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 24.5,
-          "mediaSubiti": 29.4,
-          "differenza": -59,
-          "vittorieCasa": 3,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Big Ten",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 24.2,
-          "mediaSubiti": 12.8,
-          "differenza": 149,
-          "vittorieCasa": 5,
-          "partiteCasa": 8,
-          "vittorieFuori": 3,
-          "partiteFuori": 5
-        }
-      ]
-    },
-    {
       "nome": "Fresno State",
       "nomeCompleto": "Fresno State",
       "conference": "Pac-12",
@@ -3577,6 +3481,102 @@
           "partiteCasa": 7,
           "vittorieFuori": 4,
           "partiteFuori": 7
+        }
+      ]
+    },
+    {
+      "nome": "Illinois",
+      "nomeCompleto": "Illinois",
+      "conference": "Big Ten",
+      "conferenza": "Big Ten",
+      "partite": 61,
+      "vittorie": 38,
+      "sconfitte": 23,
+      "pareggi": 0,
+      "percVittorie": 62.3,
+      "mediaFatti": 26.7,
+      "mediaSubiti": 21.9,
+      "differenza": 292,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Big Ten",
+          "partite": 10,
+          "vittorie": 6,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 60.0,
+          "mediaFatti": 27.0,
+          "mediaSubiti": 22.9,
+          "differenza": 41,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 4
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Big Ten",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 29.4,
+          "mediaSubiti": 23.6,
+          "differenza": 75,
+          "vittorieCasa": 7,
+          "partiteCasa": 8,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Big Ten",
+          "partite": 13,
+          "vittorie": 10,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 76.9,
+          "mediaFatti": 28.3,
+          "mediaSubiti": 21.7,
+          "differenza": 86,
+          "vittorieCasa": 7,
+          "partiteCasa": 8,
+          "vittorieFuori": 3,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Big Ten",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 24.5,
+          "mediaSubiti": 29.4,
+          "differenza": -59,
+          "vittorieCasa": 3,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Big Ten",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 24.2,
+          "mediaSubiti": 12.8,
+          "differenza": 149,
+          "vittorieCasa": 5,
+          "partiteCasa": 8,
+          "vittorieFuori": 3,
+          "partiteFuori": 5
         }
       ]
     },
@@ -4737,28 +4737,28 @@
       "nomeCompleto": "UCLA",
       "conference": "Big Ten",
       "conferenza": "Big Ten",
-      "partite": 59,
-      "vittorie": 34,
+      "partite": 60,
+      "vittorie": 35,
       "sconfitte": 25,
       "pareggi": 0,
-      "percVittorie": 57.6,
-      "mediaFatti": 27.0,
-      "mediaSubiti": 24.5,
-      "differenza": 148,
+      "percVittorie": 58.3,
+      "mediaFatti": 26.9,
+      "mediaSubiti": 24.4,
+      "differenza": 156,
       "perStagione": [
         {
           "stagione": "2026",
           "conferenza": "Big Ten",
-          "partite": 9,
-          "vittorie": 9,
+          "partite": 10,
+          "vittorie": 10,
           "sconfitte": 0,
           "pareggi": 0,
           "percVittorie": 100.0,
-          "mediaFatti": 33.6,
+          "mediaFatti": 32.4,
           "mediaSubiti": 14.1,
-          "differenza": 175,
-          "vittorieCasa": 5,
-          "partiteCasa": 5,
+          "differenza": 183,
+          "vittorieCasa": 6,
+          "partiteCasa": 6,
           "vittorieFuori": 4,
           "partiteFuori": 4
         },
@@ -4822,6 +4822,102 @@
           "mediaSubiti": 29.0,
           "differenza": 133,
           "vittorieCasa": 6,
+          "partiteCasa": 9,
+          "vittorieFuori": 3,
+          "partiteFuori": 4
+        }
+      ]
+    },
+    {
+      "nome": "Florida State",
+      "nomeCompleto": "Florida State",
+      "conference": "ACC",
+      "conferenza": "ACC",
+      "partite": 61,
+      "vittorie": 35,
+      "sconfitte": 26,
+      "pareggi": 0,
+      "percVittorie": 57.4,
+      "mediaFatti": 29.9,
+      "mediaSubiti": 23.0,
+      "differenza": 423,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "ACC",
+          "partite": 10,
+          "vittorie": 5,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 50.0,
+          "mediaFatti": 29.2,
+          "mediaSubiti": 26.5,
+          "differenza": 27,
+          "vittorieCasa": 3,
+          "partiteCasa": 5,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "ACC",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 33.0,
+          "mediaSubiti": 22.0,
+          "differenza": 132,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 0,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "ACC",
+          "partite": 12,
+          "vittorie": 2,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 16.7,
+          "mediaFatti": 15.4,
+          "mediaSubiti": 28.0,
+          "differenza": -151,
+          "vittorieCasa": 2,
+          "partiteCasa": 7,
+          "vittorieFuori": 0,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "ACC",
+          "partite": 14,
+          "vittorie": 13,
+          "sconfitte": 1,
+          "pareggi": 0,
+          "percVittorie": 92.9,
+          "mediaFatti": 34.6,
+          "mediaSubiti": 19.3,
+          "differenza": 214,
+          "vittorieCasa": 8,
+          "partiteCasa": 9,
+          "vittorieFuori": 5,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "ACC",
+          "partite": 13,
+          "vittorie": 10,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 76.9,
+          "mediaFatti": 36.1,
+          "mediaSubiti": 20.6,
+          "differenza": 201,
+          "vittorieCasa": 7,
           "partiteCasa": 9,
           "vittorieFuori": 3,
           "partiteFuori": 4
@@ -4925,102 +5021,6 @@
       ]
     },
     {
-      "nome": "Florida State",
-      "nomeCompleto": "Florida State",
-      "conference": "ACC",
-      "conferenza": "ACC",
-      "partite": 60,
-      "vittorie": 34,
-      "sconfitte": 26,
-      "pareggi": 0,
-      "percVittorie": 56.7,
-      "mediaFatti": 30.2,
-      "mediaSubiti": 23.2,
-      "differenza": 417,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "ACC",
-          "partite": 9,
-          "vittorie": 4,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 44.4,
-          "mediaFatti": 30.7,
-          "mediaSubiti": 28.3,
-          "differenza": 21,
-          "vittorieCasa": 3,
-          "partiteCasa": 5,
-          "vittorieFuori": 1,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "ACC",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 33.0,
-          "mediaSubiti": 22.0,
-          "differenza": 132,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 0,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "ACC",
-          "partite": 12,
-          "vittorie": 2,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 16.7,
-          "mediaFatti": 15.4,
-          "mediaSubiti": 28.0,
-          "differenza": -151,
-          "vittorieCasa": 2,
-          "partiteCasa": 7,
-          "vittorieFuori": 0,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "ACC",
-          "partite": 14,
-          "vittorie": 13,
-          "sconfitte": 1,
-          "pareggi": 0,
-          "percVittorie": 92.9,
-          "mediaFatti": 34.6,
-          "mediaSubiti": 19.3,
-          "differenza": 214,
-          "vittorieCasa": 8,
-          "partiteCasa": 9,
-          "vittorieFuori": 5,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "ACC",
-          "partite": 13,
-          "vittorie": 10,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 76.9,
-          "mediaFatti": 36.1,
-          "mediaSubiti": 20.6,
-          "differenza": 201,
-          "vittorieCasa": 7,
-          "partiteCasa": 9,
-          "vittorieFuori": 3,
-          "partiteFuori": 4
-        }
-      ]
-    },
-    {
       "nome": "Iowa State",
       "nomeCompleto": "Iowa State",
       "conference": "Big 12",
@@ -5113,102 +5113,6 @@
           "partiteCasa": 7,
           "vittorieFuori": 1,
           "partiteFuori": 5
-        }
-      ]
-    },
-    {
-      "nome": "Houston",
-      "nomeCompleto": "Houston",
-      "conference": "Big 12",
-      "conferenza": "Big 12",
-      "partite": 59,
-      "vittorie": 33,
-      "sconfitte": 26,
-      "pareggi": 0,
-      "percVittorie": 55.9,
-      "mediaFatti": 27.4,
-      "mediaSubiti": 26.4,
-      "differenza": 58,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Big 12",
-          "partite": 9,
-          "vittorie": 7,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 77.8,
-          "mediaFatti": 35.4,
-          "mediaSubiti": 21.3,
-          "differenza": 127,
-          "vittorieCasa": 5,
-          "partiteCasa": 5,
-          "vittorieFuori": 2,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Big 12",
-          "partite": 13,
-          "vittorie": 10,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 76.9,
-          "mediaFatti": 29.1,
-          "mediaSubiti": 22.8,
-          "differenza": 81,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 6,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Big 12",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 14.0,
-          "mediaSubiti": 22.9,
-          "differenza": -107,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Big 12",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 23.7,
-          "mediaSubiti": 31.5,
-          "differenza": -94,
-          "vittorieCasa": 3,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "American Athletic",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 36.1,
-          "mediaSubiti": 32.2,
-          "differenza": 51,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 6
         }
       ]
     },
@@ -5501,95 +5405,95 @@
       ]
     },
     {
-      "nome": "Pittsburgh",
-      "nomeCompleto": "Pittsburgh",
-      "conference": "ACC",
-      "conferenza": "ACC",
+      "nome": "Houston",
+      "nomeCompleto": "Houston",
+      "conference": "Big 12",
+      "conferenza": "Big 12",
       "partite": 60,
       "vittorie": 33,
       "sconfitte": 27,
       "pareggi": 0,
       "percVittorie": 55.0,
-      "mediaFatti": 30.0,
-      "mediaSubiti": 25.2,
-      "differenza": 289,
+      "mediaFatti": 27.5,
+      "mediaSubiti": 26.7,
+      "differenza": 48,
       "perStagione": [
         {
           "stagione": "2026",
-          "conferenza": "ACC",
-          "partite": 9,
-          "vittorie": 6,
+          "conferenza": "Big 12",
+          "partite": 10,
+          "vittorie": 7,
           "sconfitte": 3,
           "pareggi": 0,
-          "percVittorie": 66.7,
-          "mediaFatti": 31.9,
-          "mediaSubiti": 19.8,
-          "differenza": 109,
+          "percVittorie": 70.0,
+          "mediaFatti": 35.1,
+          "mediaSubiti": 23.4,
+          "differenza": 117,
           "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 3
+          "partiteCasa": 5,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
-          "conferenza": "ACC",
+          "conferenza": "Big 12",
+          "partite": 13,
+          "vittorie": 10,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 76.9,
+          "mediaFatti": 29.1,
+          "mediaSubiti": 22.8,
+          "differenza": 81,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 6,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 14.0,
+          "mediaSubiti": 22.9,
+          "differenza": -107,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 23.7,
+          "mediaSubiti": 31.5,
+          "differenza": -94,
+          "vittorieCasa": 3,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "American Athletic",
           "partite": 13,
           "vittorie": 8,
           "sconfitte": 5,
           "pareggi": 0,
           "percVittorie": 61.5,
-          "mediaFatti": 33.7,
-          "mediaSubiti": 24.8,
-          "differenza": 116,
+          "mediaFatti": 36.1,
+          "mediaSubiti": 32.2,
+          "differenza": 51,
           "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "ACC",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 32.9,
-          "mediaSubiti": 28.4,
-          "differenza": 59,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "ACC",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 20.2,
-          "mediaSubiti": 27.3,
-          "differenza": -86,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "ACC",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 31.3,
-          "mediaSubiti": 24.3,
-          "differenza": 91,
-          "vittorieCasa": 5,
           "partiteCasa": 7,
           "vittorieFuori": 4,
           "partiteFuori": 6
@@ -5689,6 +5593,102 @@
           "partiteCasa": 8,
           "vittorieFuori": 3,
           "partiteFuori": 5
+        }
+      ]
+    },
+    {
+      "nome": "Pittsburgh",
+      "nomeCompleto": "Pittsburgh",
+      "conference": "ACC",
+      "conferenza": "ACC",
+      "partite": 61,
+      "vittorie": 33,
+      "sconfitte": 28,
+      "pareggi": 0,
+      "percVittorie": 54.1,
+      "mediaFatti": 29.7,
+      "mediaSubiti": 25.1,
+      "differenza": 283,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "ACC",
+          "partite": 10,
+          "vittorie": 6,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 60.0,
+          "mediaFatti": 29.7,
+          "mediaSubiti": 19.4,
+          "differenza": 103,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "ACC",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 33.7,
+          "mediaSubiti": 24.8,
+          "differenza": 116,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "ACC",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 32.9,
+          "mediaSubiti": 28.4,
+          "differenza": 59,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "ACC",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 20.2,
+          "mediaSubiti": 27.3,
+          "differenza": -86,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 0,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "ACC",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 31.3,
+          "mediaSubiti": 24.3,
+          "differenza": 91,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 6
         }
       ]
     },
@@ -11325,6 +11325,102 @@
       ]
     },
     {
+      "nome": "Colorado",
+      "nomeCompleto": "Colorado",
+      "conference": "Big 12",
+      "conferenza": "Big 12",
+      "partite": 59,
+      "vittorie": 21,
+      "sconfitte": 38,
+      "pareggi": 0,
+      "percVittorie": 35.6,
+      "mediaFatti": 24.1,
+      "mediaSubiti": 32.3,
+      "differenza": -483,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Big 12",
+          "partite": 10,
+          "vittorie": 4,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 40.0,
+          "mediaFatti": 22.0,
+          "mediaSubiti": 28.7,
+          "differenza": -67,
+          "vittorieCasa": 3,
+          "partiteCasa": 5,
+          "vittorieFuori": 1,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 20.9,
+          "mediaSubiti": 30.5,
+          "differenza": -115,
+          "vittorieCasa": 3,
+          "partiteCasa": 7,
+          "vittorieFuori": 0,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Big 12",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 32.9,
+          "mediaSubiti": 23.1,
+          "differenza": 128,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Pac-12",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 28.2,
+          "mediaSubiti": 34.8,
+          "differenza": -80,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Pac-12",
+          "partite": 12,
+          "vittorie": 1,
+          "sconfitte": 11,
+          "pareggi": 0,
+          "percVittorie": 8.3,
+          "mediaFatti": 15.4,
+          "mediaSubiti": 44.5,
+          "differenza": -349,
+          "vittorieCasa": 1,
+          "partiteCasa": 6,
+          "vittorieFuori": 0,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
       "nome": "Northern Illinois",
       "nomeCompleto": "Northern Illinois",
       "conference": "Mountain West",
@@ -11688,102 +11784,6 @@
           "vittorieCasa": 2,
           "partiteCasa": 6,
           "vittorieFuori": 1,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Colorado",
-      "nomeCompleto": "Colorado",
-      "conference": "Big 12",
-      "conferenza": "Big 12",
-      "partite": 58,
-      "vittorie": 20,
-      "sconfitte": 38,
-      "pareggi": 0,
-      "percVittorie": 34.5,
-      "mediaFatti": 23.8,
-      "mediaSubiti": 32.3,
-      "differenza": -493,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Big 12",
-          "partite": 9,
-          "vittorie": 3,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 19.8,
-          "mediaSubiti": 28.3,
-          "differenza": -77,
-          "vittorieCasa": 2,
-          "partiteCasa": 4,
-          "vittorieFuori": 1,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Big 12",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 20.9,
-          "mediaSubiti": 30.5,
-          "differenza": -115,
-          "vittorieCasa": 3,
-          "partiteCasa": 7,
-          "vittorieFuori": 0,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Big 12",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 32.9,
-          "mediaSubiti": 23.1,
-          "differenza": 128,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Pac-12",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 28.2,
-          "mediaSubiti": 34.8,
-          "differenza": -80,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Pac-12",
-          "partite": 12,
-          "vittorie": 1,
-          "sconfitte": 11,
-          "pareggi": 0,
-          "percVittorie": 8.3,
-          "mediaFatti": 15.4,
-          "mediaSubiti": 44.5,
-          "differenza": -349,
-          "vittorieCasa": 1,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
           "partiteFuori": 6
         }
       ]
@@ -180520,12 +180520,91 @@
       "data": "2026-11-14",
       "casa": "Colorado",
       "ospite": "Houston",
-      "pc": null,
-      "po": null,
+      "pc": 42,
+      "po": 32,
       "conferenzaCasa": "Big 12",
       "stadio": "Folsom Field",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Isaac Wilson",
+          "ruolo": "QB",
+          "valore": 217,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Richard Young",
+          "ruolo": "RB",
+          "valore": 99,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Joseph Williams",
+          "ruolo": "WR",
+          "valore": 80,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "DeAndre Moore Jr.",
+          "ruolo": "WR",
+          "valore": 53,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Conner Weigman",
+          "ruolo": "QB",
+          "valore": 272,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Makhi Hughes",
+          "ruolo": "RB",
+          "valore": 106,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Patrick Overmyer",
+          "ruolo": "WR",
+          "valore": 116,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "9 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Amare Thomas",
+          "ruolo": "WR",
+          "valore": 66,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -180793,12 +180872,84 @@
       "data": "2026-11-14",
       "casa": "Pittsburgh",
       "ospite": "Florida State",
-      "pc": null,
-      "po": null,
+      "pc": 10,
+      "po": 16,
       "conferenzaCasa": "ACC",
       "stadio": "Acrisure Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Corey Dailey",
+          "ruolo": "QB",
+          "valore": 157,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Corey Dailey",
+          "ruolo": "RB",
+          "valore": 58,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Malik Knight",
+          "ruolo": "WR",
+          "valore": 55,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Ja'Kyrian Turner",
+          "ruolo": "WR",
+          "valore": 41,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Ashton Daniels",
+          "ruolo": "QB",
+          "valore": 163,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Amari Thomas",
+          "ruolo": "RB",
+          "valore": 30,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Jasen Lopez",
+          "ruolo": "WR",
+          "valore": 72,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Micahi Danzy",
+          "ruolo": "WR",
+          "valore": 24,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -180936,12 +181087,87 @@
       "data": "2026-11-14",
       "casa": "UCLA",
       "ospite": "Illinois",
-      "pc": null,
-      "po": null,
+      "pc": 22,
+      "po": 14,
       "conferenzaCasa": "Big Ten",
       "stadio": "Rose Bowl",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Ty Dieffenbach",
+          "ruolo": "QB",
+          "valore": 232,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Wayne Knight",
+          "ruolo": "RB",
+          "valore": 56,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Aidan Mizell",
+          "ruolo": "WR",
+          "valore": 176,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Semaj Morgan",
+          "ruolo": "WR",
+          "valore": 56,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Katin Houser",
+          "ruolo": "QB",
+          "valore": 176,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD",
+            "3 INT"
+          ]
+        },
+        {
+          "nome": "Aidan Laughery",
+          "ruolo": "RB",
+          "valore": 49,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Hudson Clement",
+          "ruolo": "WR",
+          "valore": 62,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Kaden Feagin",
+          "ruolo": "WR",
+          "valore": 49,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -183271,7 +183497,7 @@
         "pc": null,
         "po": null,
         "favorita": "BYU",
-        "linea": 7.5,
+        "linea": 8.75,
         "totaleLinea": 50.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183307,7 +183533,7 @@
         "pc": null,
         "po": null,
         "favorita": "Boise State",
-        "linea": 14.5,
+        "linea": 16.5,
         "totaleLinea": 63.75,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183361,7 +183587,7 @@
         "pc": null,
         "po": null,
         "favorita": "East Carolina",
-        "linea": 11.25,
+        "linea": 10.75,
         "totaleLinea": 45.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183379,7 +183605,7 @@
         "pc": null,
         "po": null,
         "favorita": "Clemson",
-        "linea": 14.75,
+        "linea": 15.25,
         "totaleLinea": 47.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183425,22 +183651,29 @@
         "confOspite": "Patriot"
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Houston+vs+Colorado+football+highlights+November+14%2C+2026",
         "data": "2026-11-14",
         "ora": "",
         "casa": "Colorado",
         "ospite": "Houston",
-        "pc": null,
-        "po": null,
+        "pc": 42,
+        "po": 32,
         "favorita": "Houston",
         "linea": 7.5,
-        "totaleLinea": 51.75,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "totaleLinea": 53.0,
+        "battutaDa": "Colorado",
+        "totaleEsito": "over",
+        "scartoLinea": 17.5,
         "stadio": "",
         "confCasa": "Big 12",
-        "confOspite": "Big 12"
+        "confOspite": "Big 12",
+        "video": {
+          "id": "GZ53A02RVpI",
+          "titolo": "#14 Houston vs. Colorado Extended Highlights | 2026 Monster Energy Big 12 Football",
+          "canale": "Big 12 Conference",
+          "ufficiale": true,
+          "etichetta": "Highlights · Big 12 Conference · si apre su YouTube"
+        }
       },
       {
         "highlights": null,
@@ -183776,7 +184009,7 @@
         "po": null,
         "favorita": "Iowa State",
         "linea": 3.0,
-        "totaleLinea": 57.75,
+        "totaleLinea": 58.25,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -183883,7 +184116,7 @@
         "pc": null,
         "po": null,
         "favorita": "Butler",
-        "linea": 8.5,
+        "linea": 7.5,
         "totaleLinea": 45.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183937,7 +184170,7 @@
         "pc": null,
         "po": null,
         "favorita": "Miami",
-        "linea": 13.75,
+        "linea": 14.0,
         "totaleLinea": 54.75,
         "battutaDa": null,
         "totaleEsito": null,
@@ -183955,7 +184188,7 @@
         "pc": null,
         "po": null,
         "favorita": "Washington",
-        "linea": 3.0,
+        "linea": 2.5,
         "totaleLinea": 44.25,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184099,7 +184332,7 @@
         "pc": null,
         "po": null,
         "favorita": "Northern Arizona",
-        "linea": 6.5,
+        "linea": 7.5,
         "totaleLinea": 65.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184207,7 +184440,7 @@
         "pc": null,
         "po": null,
         "favorita": "Oklahoma",
-        "linea": 1.75,
+        "linea": 2.75,
         "totaleLinea": 49.25,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184253,37 +184486,44 @@
         "confOspite": "Ivy"
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Florida+State+vs+Pittsburgh+football+highlights+November+14%2C+2026",
         "data": "2026-11-14",
         "ora": "",
         "casa": "Pittsburgh",
         "ospite": "Florida State",
-        "pc": null,
-        "po": null,
+        "pc": 10,
+        "po": 16,
         "favorita": "Pittsburgh",
         "linea": 3.0,
-        "totaleLinea": 52.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "totaleLinea": 52.25,
+        "battutaDa": "Florida State",
+        "totaleEsito": "under",
+        "scartoLinea": 9.0,
         "stadio": "",
         "confCasa": "ACC",
-        "confOspite": "ACC"
+        "confOspite": "ACC",
+        "video": {
+          "id": "qaq4Hv74_CY",
+          "titolo": "Florida State Seminoles vs. Pitt Panthers | Full Game Highlights | ESPN College Football",
+          "canale": "ESPN College Football",
+          "ufficiale": true,
+          "etichetta": "Highlights · ESPN College Football · si apre su YouTube"
+        }
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Southern+Utah+vs+Portland+State+football+highlights+November+14%2C+2026",
         "data": "2026-11-14",
         "ora": "",
         "casa": "Portland State",
         "ospite": "Southern Utah",
-        "pc": null,
-        "po": null,
+        "pc": 21,
+        "po": 23,
         "favorita": "Southern Utah",
         "linea": 11.5,
         "totaleLinea": 61.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "battutaDa": "Portland State",
+        "totaleEsito": "under",
+        "scartoLinea": 9.5,
         "stadio": "",
         "confCasa": "Big Sky",
         "confOspite": "Big Sky"
@@ -184315,7 +184555,7 @@
         "pc": null,
         "po": null,
         "favorita": "Rice",
-        "linea": 2.5,
+        "linea": 3.0,
         "totaleLinea": 48.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184369,7 +184609,7 @@
         "pc": null,
         "po": null,
         "favorita": "Nebraska",
-        "linea": 15.0,
+        "linea": 14.5,
         "totaleLinea": 51.75,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184549,7 +184789,7 @@
         "pc": null,
         "po": null,
         "favorita": "Valparaiso",
-        "linea": 12.5,
+        "linea": 10.5,
         "totaleLinea": 55.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184567,7 +184807,7 @@
         "pc": null,
         "po": null,
         "favorita": "TCU",
-        "linea": 11.5,
+        "linea": 13.5,
         "totaleLinea": 44.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184639,7 +184879,7 @@
         "pc": null,
         "po": null,
         "favorita": "Tennessee",
-        "linea": 2.5,
+        "linea": 1.25,
         "totaleLinea": 43.75,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184675,7 +184915,7 @@
         "pc": null,
         "po": null,
         "favorita": "Tulsa",
-        "linea": 5.75,
+        "linea": 6.5,
         "totaleLinea": 73.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184711,7 +184951,7 @@
         "pc": null,
         "po": null,
         "favorita": "UCF",
-        "linea": 3.0,
+        "linea": 3.5,
         "totaleLinea": 47.25,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184721,22 +184961,29 @@
         "confOspite": "Big 12"
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Illinois+vs+UCLA+football+highlights+November+14%2C+2026",
         "data": "2026-11-14",
         "ora": "",
         "casa": "UCLA",
         "ospite": "Illinois",
-        "pc": null,
-        "po": null,
+        "pc": 22,
+        "po": 14,
         "favorita": "UCLA",
-        "linea": 10.25,
-        "totaleLinea": 48.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "linea": 10.5,
+        "totaleLinea": 48.75,
+        "battutaDa": "Illinois",
+        "totaleEsito": "under",
+        "scartoLinea": 2.5,
         "stadio": "",
         "confCasa": "Big Ten",
-        "confOspite": "Big Ten"
+        "confOspite": "Big Ten",
+        "video": {
+          "id": "OdUQjFBk6Po",
+          "titolo": "Illinois Fighting Illini vs No. 4 UCLA Bruins Highlights | FOX College Football",
+          "canale": "FOX Sports",
+          "ufficiale": true,
+          "etichetta": "Highlights · FOX Sports · si apre su YouTube"
+        }
       },
       {
         "highlights": null,
@@ -184801,7 +185048,7 @@
         "pc": null,
         "po": null,
         "favorita": "Eastern Washington",
-        "linea": 6,
+        "linea": 4.5,
         "totaleLinea": 62.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184855,7 +185102,7 @@
         "pc": null,
         "po": null,
         "favorita": "Virginia",
-        "linea": 10.5,
+        "linea": 11.5,
         "totaleLinea": 46.75,
         "battutaDa": null,
         "totaleEsito": null,
@@ -184928,7 +185175,7 @@
         "po": null,
         "favorita": "West Virginia",
         "linea": 2.75,
-        "totaleLinea": 67.75,
+        "totaleLinea": 68.25,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -185035,7 +185282,7 @@
         "pc": null,
         "po": null,
         "favorita": "Youngstown State",
-        "linea": 12.5,
+        "linea": 14.5,
         "totaleLinea": 62.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -185053,7 +185300,7 @@
         "pc": null,
         "po": null,
         "favorita": "Air Force",
-        "linea": 12.5,
+        "linea": 13.5,
         "totaleLinea": 48.25,
         "battutaDa": null,
         "totaleEsito": null,
@@ -185071,7 +185318,7 @@
         "pc": null,
         "po": null,
         "favorita": "Utah",
-        "linea": 2.5,
+        "linea": 1.25,
         "totaleLinea": 55.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -185143,7 +185390,7 @@
         "pc": null,
         "po": null,
         "favorita": "LSU",
-        "linea": 4.0,
+        "linea": 4.5,
         "totaleLinea": 46.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -185179,7 +185426,7 @@
         "pc": null,
         "po": null,
         "favorita": "New Mexico",
-        "linea": 14.5,
+        "linea": 16.5,
         "totaleLinea": 46.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -185215,8 +185462,8 @@
         "pc": null,
         "po": null,
         "favorita": "Oklahoma State",
-        "linea": 3.25,
-        "totaleLinea": 73.5,
+        "linea": 3.5,
+        "totaleLinea": 73.25,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -185233,7 +185480,7 @@
         "pc": null,
         "po": null,
         "favorita": "Penn State",
-        "linea": 9.5,
+        "linea": 11.5,
         "totaleLinea": 42.25,
         "battutaDa": null,
         "totaleEsito": null,
@@ -185305,7 +185552,7 @@
         "pc": null,
         "po": null,
         "favorita": "Wyoming",
-        "linea": 7.5,
+        "linea": 7.0,
         "totaleLinea": 40.5,
         "battutaDa": null,
         "totaleEsito": null,
@@ -185324,7 +185571,7 @@
         "po": null,
         "favorita": "North Texas",
         "linea": 2.5,
-        "totaleLinea": 75.75,
+        "totaleLinea": 76.25,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -185359,8 +185606,8 @@
         "pc": null,
         "po": null,
         "favorita": "Washington State",
-        "linea": 8.75,
-        "totaleLinea": 66.25,
+        "linea": 9.5,
+        "totaleLinea": 65.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -185383,6 +185630,12 @@
         "battutaDa": "Miami (OH)"
       },
       {
+        "casa": "Colorado",
+        "ospite": "Houston",
+        "scarto": 17.5,
+        "battutaDa": "Colorado"
+      },
+      {
         "casa": "Akron",
         "ospite": "Western Michigan",
         "scarto": 12.8,
@@ -185393,19 +185646,13 @@
         "ospite": "Louisiana",
         "scarto": 11.0,
         "battutaDa": "Louisiana"
-      },
-      {
-        "casa": "Toledo",
-        "ospite": "Massachusetts",
-        "scarto": 10.0,
-        "battutaDa": "Toledo"
       }
     ],
     "riepilogo": {
-      "partite": 8,
+      "partite": 12,
       "favoriteCoperte": 7,
-      "over": 5,
-      "under": 3
+      "over": 6,
+      "under": 6
     },
     "prestazioni": {
       "lanci": [
@@ -185426,6 +185673,14 @@
           "dettagli": "3 TD"
         },
         {
+          "nome": "Conner Weigman",
+          "ruolo": "QB",
+          "squadra": "Houston",
+          "avversario": "Colorado",
+          "valore": 272,
+          "dettagli": "3 TD · 1 INT"
+        },
+        {
           "nome": "Luke Kromenhoek",
           "ruolo": "QB",
           "squadra": "South Florida",
@@ -185434,20 +185689,12 @@
           "dettagli": "3 TD"
         },
         {
-          "nome": "Austin Novosad",
+          "nome": "Ty Dieffenbach",
           "ruolo": "QB",
-          "squadra": "Bowling Green",
-          "avversario": "Kent State",
-          "valore": 229,
-          "dettagli": "3 TD"
-        },
-        {
-          "nome": "John Alan Richter",
-          "ruolo": "QB",
-          "squadra": "Toledo",
-          "avversario": "Massachusetts",
-          "valore": 197,
-          "dettagli": "1 TD"
+          "squadra": "UCLA",
+          "avversario": "Illinois",
+          "valore": 232,
+          "dettagli": "2 TD · 1 INT"
         }
       ],
       "corse": [
@@ -185494,6 +185741,14 @@
       ],
       "ricezioni": [
         {
+          "nome": "Aidan Mizell",
+          "ruolo": "WR",
+          "squadra": "UCLA",
+          "avversario": "Illinois",
+          "valore": 176,
+          "dettagli": "6 ric. · 1 TD"
+        },
+        {
           "nome": "Jemyri Davis",
           "ruolo": "WR",
           "squadra": "Memphis",
@@ -185518,20 +185773,12 @@
           "dettagli": "8 ric. · 2 TD"
         },
         {
-          "nome": "Da'Realyst Clark",
+          "nome": "Patrick Overmyer",
           "ruolo": "WR",
-          "squadra": "Kent State",
-          "avversario": "Bowling Green",
-          "valore": 107,
-          "dettagli": "5 ric."
-        },
-        {
-          "nome": "Donovan Hamilton",
-          "ruolo": "WR",
-          "squadra": "Ball State",
-          "avversario": "Buffalo",
-          "valore": 104,
-          "dettagli": "11 ric."
+          "squadra": "Houston",
+          "avversario": "Colorado",
+          "valore": 116,
+          "dettagli": "9 ric. · 1 TD"
         }
       ]
     }
