@@ -187,9 +187,18 @@ def soglie(n: int) -> tuple[int, int]:
 #   NFL      totale pendenza 0,31 ± 0,05   margine 0,20 ± 0,05   (positiva in entrambi i periodi)
 #   college  totale pendenza 0,62 ± 0,03   margine 0,63 ± 0,03
 # Rispetto alle linee di chiusura NFL la pendenza è ~0: i bookmaker ne tengono già conto.
+# Aggiornamento 14/11/2026 (protocollo 5: stima 2019-22, prova su 2023-25 mai viste, poi stima su 2019-2025):
+#   campo           vantaggio di chi gioca in casa (0 in campo neutro), stimato senza il 2020 (stadi vuoti);
+#                   nelle partite in campo neutro l'effetto misurato è ≈ 0, come deve
+#   costante_totale college: la somma delle due norme sovrastima il totale reale di 3,5 punti in ogni stagione
+#   norma_margine   college: il margine parte dalle norme corrette per le difese affrontate (migliora la prova
+#                   2023-25 di 0,17 punti); NFL: nessun miglioramento, resta la norma semplice
+# Provate e scartate: correzione avversari ripetuta (SRS: nel college peggiora), z-score dei giocatori.
 TARATURA_PUNTI = {
-    "NFL": {"totale": 0.31, "margine": 0.20, "var_totale": 14.0, "var_margine": 13.6},
-    "College": {"totale": 0.62, "margine": 0.63, "var_totale": 17.7, "var_margine": 16.9},
+    "NFL": {"totale": 0.31, "margine": 0.20, "var_totale": 14.0, "var_margine": 13.5,
+            "campo": 1.95, "costante_totale": 0.0, "norma_margine": False},
+    "College": {"totale": 0.63, "margine": 0.61, "var_totale": 17.7, "var_margine": 16.7,
+                "campo": 2.96, "costante_totale": -3.54, "norma_margine": True},
 }
 # Giocatori: yard in più passando dalla difesa migliore alla peggiore del reparto (effetto = valore ×
 # (percentile − 0,5)), variabilità tipica delle yard in una partita ed errore medio della previsione.

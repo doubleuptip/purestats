@@ -65,6 +65,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   gratuiti e senza chiave) con le definizioni e le tarature verificate sullo storico 2019–2025: conta solo
   la difesa avversaria; la forma delle ultime 3 partite non è un segnale. Le tarature (TARATURA_*) vanno
   rifatte con lo stesso metodo se cambiano le definizioni
+- Punteggio atteso (misura del 14/11, stima 2019–22 e prova 2023–25): fattore campo NFL +1,95 e college +2,96
+  (zero in campo neutro: NFL dalla colonna location di nflverse, college da CampoNeutro in data/college.csv),
+  totale college corretto di −3,54, margine college dalle norme corrette per le difese affrontate.
+  Provate e scartate: correzione avversari ripetuta (SRS, peggiora il college) e z-score dei giocatori
 - Cambio password: aggiornare il secret e rilanciare i workflow NFL e College
 
 ## Vincoli da rispettare

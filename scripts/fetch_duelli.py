@@ -172,6 +172,62 @@ def norma_punti(punti: dict, settimana: int) -> dict:
     return {sq: sum(v) / len(v) for sq, v in fatti.items() if len(v) >= RP.MIN_PARTITE}
 
 
+def norma_corretta(punti: dict, settimana: int, prima_divisione: set) -> dict:
+    """Punti segnati corretti per le difese affrontate (misura del 14/11, protocollo 5): ogni partita vale i punti
+    segnati meno quanto quella difesa concede in più della media. Solo partite con almeno una squadra di prima
+    divisione (come il play-by-play) e solo avversari con almeno 2 partite note prima della settimana.
+    Serve per il margine del college; la media generale si annulla nella differenza tra le due squadre."""
+    storia = defaultdict(list)          # squadra -> [(fatti, subiti, avversario)]
+    for d in punti.values():
+        if d.get("w", 99) >= settimana:
+            continue
+        sq = [k for k in d if k != "w"]
+        if len(sq) != 2 or not (sq[0] in prima_divisione or sq[1] in prima_divisione):
+            continue
+        a, b = sq
+        storia[a].append((d[a], d[b], b))
+        storia[b].append((d[b], d[a], a))
+    concessi = {sq: sum(x[1] for x in v) / len(v) for sq, v in storia.items() if len(v) >= 2}
+    base = [v for sq, v in concessi.items() if sq in prima_divisione]
+    if not base:
+        return {}
+    media = sum(base) / len(base)
+    out = {}
+    for sq, v in storia.items():
+        valori = [x[0] - (concessi[x[2]] - media) for x in v if x[2] in concessi]
+        if len(v) >= RP.MIN_PARTITE and len(valori) >= 3:
+            out[sq] = sum(valori) / len(valori)
+    return out
+
+
+def campi_neutri(lega: str, stagione: int) -> set:
+    """{(casa, ospite)} delle partite in campo neutro della stagione: lì il fattore campo non si applica.
+    NFL: colonna location del calendario nflverse (partite all'estero, Super Bowl); college: archivio
+    data/college.csv (CampoNeutro da CollegeFootballData: bowl, partite in stadi terzi)."""
+    out = set()
+    if lega == "nfl":
+        testo = C._get("https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv", 60)
+        for r in csv.DictReader(io.StringIO(testo)):
+            if r.get("season") == str(stagione) and r.get("location") == "Neutral":
+                out.add((r["home_team"], r["away_team"]))
+    else:
+        # l'archivio può essere scritto senza riga d'intestazione: si usano le colonne di fetch_college
+        from fetch_college import COLONNE
+        with open(RADICE / "data" / "college.csv", encoding="utf-8", newline="") as fh:
+            righe = list(csv.reader(fh))
+        if righe and righe[0] and righe[0][0] == "Stagione":
+            intest, righe = righe[0], righe[1:]
+        else:
+            intest = COLONNE
+        for valori in righe:
+            r = dict(zip(intest, valori))
+            if r.get("Stagione") == str(stagione) and r.get("CampoNeutro") == "1":
+                out.add((r["Casa"], r["Ospite"]))
+        if not righe:
+            raise RuntimeError("archivio college vuoto")
+    return out
+
+
 # ------------------------------------------------------------------ scheda partita
 def reparti_partita(st: dict, casa: str, ospite: str) -> list[dict]:
     """Ogni reparto nei due versi, con posizioni e verdetto basato sulla difesa (la parte verificata)."""
@@ -199,10 +255,12 @@ SCALA = {"NFL": {"totale": (0.10, 0.20), "margine": (0.07, 0.14)},
 # Percentuali MISURATE sullo storico 2019-2025 (misure/percentuali.py e percentuali_gioc.py, 13/11):
 # quante volte la partita è finita dalla parte indicata dalle difese rispetto alla norma delle due squadre,
 # per livello di sbilanciamento (1.409 partite NFL, 2.979 college). Contro la linea di chiusura NFL: 47-51%.
+# Rifatte il 14/11 (misure/finale.py) con il riferimento nuovo: norme + fattore campo + correzione del totale college
+# + norma corretta per il margine college. Stesse soglie di forza.
 PCT_PARTITA = {"NFL": {"totale": {"lieve": 50, "moderato": 57, "forte": 63},
-                       "margine": {"lieve": 56, "moderato": 56, "forte": 56}},
-               "College": {"totale": {"lieve": 57, "moderato": 63, "forte": 73},
-                           "margine": {"lieve": 56, "moderato": 61, "forte": 73}}}
+                       "margine": {"lieve": 55, "moderato": 56, "forte": 54}},
+               "College": {"totale": {"lieve": 56, "moderato": 63, "forte": 71},
+                           "margine": {"lieve": 55, "moderato": 62, "forte": 74}}}
 # Giocatori (9.997 prestazioni NFL, 19.924 college): con la difesa tra le peggiori, % di partite SOPRA la sua media;
 # con la difesa tra le migliori, % di partite SOTTO la sua media. Le yard sono sbilanciate (poche partite enormi
 # alzano la media), quindi di solito si sta sotto la media più spesso che sopra.
@@ -236,8 +294,14 @@ def giudizio(campionato: str, s: dict) -> str:
         else:
             fav = s["casa"] if ac > ao else s["ospite"]
             chi = f"{nome[fav]} avanti di {_num(ac - ao)}"
+        if P.get("neutro"):
+            campo = "campo neutro, nessun vantaggio di casa"
+        elif P.get("campo"):
+            campo = f"{_num(P['campo'])} punti di vantaggio a {nome[s['casa']]} per il campo"
+        else:
+            campo = "senza vantaggio del campo"
         frasi.append(f"Punteggio atteso dai numeri: {nome[s['ospite']]} {round(ao)} – {nome[s['casa']]} {round(ac)} "
-                     f"({chi}; di solito segnano {_num(no)} e {_num(nc)}, senza vantaggio del campo).")
+                     f"({chi}; di solito segnano {_num(no)} e {_num(nc)}, {campo}).")
     if P:
         t = P["totale"]
         if abs(t) < 0.5:
@@ -352,7 +416,7 @@ def indice_squadra(indici: dict, squadra: str):
 
 
 def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, indici: dict,
-           norma: dict | None = None) -> dict | None:
+           norma: dict | None = None, norma_margine: dict | None = None) -> dict | None:
     casa, ospite = g.get("casa"), g.get("ospite")
     if casa not in st or ospite not in st:
         return None
@@ -375,12 +439,20 @@ def scheda(campionato: str, g: dict, extra: dict | None, st: dict, loghi: dict, 
             liv = parola(campionato, tipo, forza)
             partita["livello" + tipo.capitalize()] = liv
             partita["pct" + tipo.capitalize()] = PCT_PARTITA[campionato][tipo][liv]
-        # punteggio atteso = punti segnati di solito + effetto delle difese diviso tra le due squadre in modo che
-        # somma e differenza rispettino le tarature di totale e margine. Senza vantaggio del campo.
+        # punteggio atteso: totale = norme + correzione del campionato + effetto difese; margine = differenza delle
+        # norme (college: corrette per le difese affrontate) + fattore campo + effetto difese. Le due squadre
+        # si dividono totale e margine in modo che somma e differenza tornino (misura del 14/11).
+        neutro = bool(g.get("neutro"))
+        campo = 0.0 if neutro else tp["campo"]
+        partita.update({"campo": campo, "neutro": neutro})
         if norma and casa in norma and ospite in norma:
+            nm = norma_margine if tp["norma_margine"] and norma_margine else None
+            diff = (nm[casa] - nm[ospite]) if nm and casa in nm and ospite in nm else norma[casa] - norma[ospite]
+            T = norma[casa] + norma[ospite] + tp["costante_totale"] + tot
+            M = diff + campo + marg
             partita.update({"normaCasa": round(norma[casa], 1), "normaOspite": round(norma[ospite], 1),
-                            "attesoCasa": round(norma[casa] + (tot + marg) / 2, 1),
-                            "attesoOspite": round(norma[ospite] + (tot - marg) / 2, 1)})
+                            "correzioneTotale": tp["costante_totale"],
+                            "attesoCasa": round((T + M) / 2, 1), "attesoOspite": round((T - M) / 2, 1)})
     rep = reparti_partita(st, casa, ospite)
     # vantaggi in evidenza: giocatori con difesa agli estremi, poi reparti agli estremi
     vantaggi = []
@@ -542,12 +614,21 @@ def main() -> int:
             print(f"{campionato}: play-by-play {stagione} non scaricato ({e}): lascio com'è la sezione pubblicata.")
             return 1
     loghi, indici = pubblico.get("loghi") or {}, privato.get("indici") or {}
+    try:
+        neutri = campi_neutri(lega, int(stagione))
+        print(f"{campionato}: {len(neutri)} partite in campo neutro nella stagione (lì niente fattore campo).")
+    except Exception as e:     # noqa: BLE001 - senza l'elenco si applica il campo a tutte, e lo si dice
+        neutri = set()
+        print(f"{campionato}: elenco dei campi neutri non letto ({e}): fattore campo applicato a tutte le partite.")
+    prima_divisione = {k[2] for k in agg} | {k[3] for k in agg}
     schede, saltate = [], []
     for w, resto, per_partita in gruppi:
         st = RP.stato(agg, w)
         norma = norma_punti(punti, w)
+        norma_m = norma_corretta(punti, w, prima_divisione) if RP.TARATURA_PUNTI[campionato]["norma_margine"] else None
         for g in resto:
-            sc = scheda(campionato, g, per_partita.get((g["casa"], g["ospite"])), st, loghi, indici, norma)
+            g = {**g, "neutro": (g.get("casa"), g.get("ospite")) in neutri}
+            sc = scheda(campionato, g, per_partita.get((g["casa"], g["ospite"])), st, loghi, indici, norma, norma_m)
             if sc:
                 sc["settimana"] = w
                 schede.append(sc)

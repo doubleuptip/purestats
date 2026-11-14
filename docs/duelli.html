@@ -375,7 +375,7 @@ function bloccoPartita(g, T){
   const atteso = P.attesoCasa !== undefined && P.attesoCasa !== null ? `<div class="atteso">
     <div class="e">Punteggio atteso dai numeri</div>
     <div class="ris"><span>${stemma(T[g.ospite], "s")} ${esc(T[g.ospite].nome)} <b>${Math.round(P.attesoOspite)}</b></span><span class="trat">–</span><span><b>${Math.round(P.attesoCasa)}</b> ${esc(T[g.casa].nome)} ${stemma(T[g.casa], "s")}</span></div>
-    <div class="e">di solito segnano ${num(P.normaOspite, 1)} e ${num(P.normaCasa, 1)} · più l'effetto delle difese · senza vantaggio del campo</div></div>` : "";
+    <div class="e">di solito segnano ${num(P.normaOspite, 1)} e ${num(P.normaCasa, 1)} · più l'effetto delle difese · ${P.neutro ? "campo neutro" : P.campo ? `campo +${num(P.campo, 1)} per ${esc(T[g.casa].nome)}` : "senza vantaggio del campo"}${P.correzioneTotale ? ` · totale corretto di ${num(P.correzioneTotale, 1)} (storico college)` : ""}</div></div>` : "";
   return atteso + `<div class="indici partita">
     ${tile("Totale", segnoNum(P.totale) + " pt", P.totale >= 0 ? "difese che concedono" : "difese che chiudono", P.forzaTotale,
            Math.abs(P.totale) < 0.5 ? null : P.pctTotale, P.livelloTotale, P.totale >= 0 ? "sopra la norma" : "sotto la norma")}
@@ -443,7 +443,7 @@ function scheda(g){
 /* Percentuali misurate (le stesse di fetch_duelli.py): servono solo se un file è di una versione precedente
    e non le contiene ancora, così una lega non sparisce dalla classifica mentre l'altra è già aggiornata. */
 const SCALA = {NFL: {totale: [0.10, 0.20], margine: [0.07, 0.14]}, College: {totale: [0.20, 0.43], margine: [0.22, 0.45]}};
-const PCT = {NFL: {totale: [50, 57, 63], margine: [56, 56, 56]}, College: {totale: [57, 63, 73], margine: [56, 61, 73]}};
+const PCT = {NFL: {totale: [50, 57, 63], margine: [55, 56, 54]}, College: {totale: [56, 63, 71], margine: [55, 62, 74]}};
 function pctPartita(camp, tipo, P){
   const v = tipo === "totale" ? P.totale : P.margine;
   if (Math.abs(v) < 0.5) return 0;
@@ -487,7 +487,7 @@ function migliori(){
     ${top.map((c, i) => `<button class="top" data-camp-top="${c.camp}" data-id="${idScheda(c.g)}"><span class="pos">${i + 1}</span>
       <span style="flex:1;min-width:0;text-align:left"><span class="chip">${c.camp}</span><span class="chip">${c.tipo}</span><span class="sotto">${esc(quando(c.g))}</span><br>${c.testo}</span>
       <span class="fz">storico<br><b>${c.pct ? c.pct + "%" : "—"}</b><br><span class="fz2">forza ${num(c.forza, 2)}</span></span></button>`).join("")}
-    <div class="sotto" style="margin-top:8px">Percentuale = quante volte, nello storico 2019–2025, la partita o il giocatore è finito dalla parte indicata rispetto alla sua norma (totale e margine delle due squadre, media del giocatore). <b>Contro la linea del bookmaker</b> le stesse indicazioni finiscono dalla parte giusta circa il 50% delle volte (verifica del 13/11): sono una lettura della partita, non consigli di gioco. La forza serve solo a confrontare due casi con la stessa percentuale.</div></section>`;
+    <div class="sotto" style="margin-top:8px">Percentuale = quante volte, nello storico 2019–2025, la partita o il giocatore è finito dalla parte indicata rispetto alla sua norma (totale e margine delle due squadre, con il fattore campo; media del giocatore). <b>Contro la linea del bookmaker</b> le stesse indicazioni finiscono dalla parte giusta circa il 50% delle volte (verifiche del 13 e 14/11): sono una lettura della partita, non consigli di gioco. La forza serve solo a confrontare due casi con la stessa percentuale.</div></section>`;
 }
 
 /* ---------- pannelli in fondo: classifica indici, quarterback, giovani ---------- */
