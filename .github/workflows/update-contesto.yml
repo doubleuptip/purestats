@@ -33,13 +33,23 @@ jobs:
           DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
         run: python scripts/aggiorna_contesto.py college
       - name: Committa
+        env:
+          DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
-          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
-          git commit -m "Matchup college: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
-          for t in 1 2 3 4 5; do git push && exit 0; git pull --rebase origin main; sleep 5; done
+          # Se nel frattempo un aggiornamento completo ha pubblicato un file più nuovo, non si fondono due file
+          # cifrati: si riparte da quello pubblicato e si rifanno solo assenze e meteo.
+          for t in 1 2 3; do
+            [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
+            if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+            git commit -q -m "Matchup college: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
+            if git push; then echo "Pubblicato al tentativo $t"; exit 0; fi
+            echo "File pubblicato cambiato nel frattempo: lo riprendo e rifaccio assenze e meteo"
+            git fetch -q origin main && git reset -q --hard origin/main
+            python scripts/aggiorna_contesto.py college || true
+          done
+          echo "Pubblicazione non riuscita dopo 3 tentativi"
           exit 1
 
   nfl:
@@ -60,12 +70,21 @@ jobs:
           DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
         run: python scripts/aggiorna_contesto.py nfl
       - name: Committa
+        env:
+          DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main || true
-          [ -f docs/duelli_nfl.dat ] && git add docs/duelli_nfl.dat
-          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
-          git commit -m "Matchup NFL: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
-          for t in 1 2 3 4 5; do git push && exit 0; git pull --rebase origin main; sleep 5; done
+          # Se nel frattempo un aggiornamento completo ha pubblicato un file più nuovo, non si fondono due file
+          # cifrati: si riparte da quello pubblicato e si rifanno solo assenze e meteo.
+          for t in 1 2 3; do
+            [ -f docs/duelli_nfl.dat ] && git add docs/duelli_nfl.dat
+            if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+            git commit -q -m "Matchup NFL: assenze e meteo $(date -u '+%Y-%m-%d %H:%M UTC')"
+            if git push; then echo "Pubblicato al tentativo $t"; exit 0; fi
+            echo "File pubblicato cambiato nel frattempo: lo riprendo e rifaccio assenze e meteo"
+            git fetch -q origin main && git reset -q --hard origin/main
+            python scripts/aggiorna_contesto.py nfl || true
+          done
+          echo "Pubblicazione non riuscita dopo 3 tentativi"
           exit 1

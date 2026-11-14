@@ -72,7 +72,8 @@ jobs:
               exit 0
             fi
             echo "Repository cambiato, mi riallineo e riprovo..."
-            git pull --rebase origin main
+            # su un conflitto vince il file appena rigenerato da questo giro (il più completo)
+            git pull --rebase -X theirs origin main
             sleep 5
           done
           echo "Pubblicazione non riuscita dopo 5 tentativi"
