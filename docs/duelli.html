@@ -84,6 +84,13 @@
 
   details{margin-top:10px;border-top:1px solid var(--fb-border);padding-top:6px}
   details.scheda{border-top:1px solid var(--fb-border)}
+  /* ogni partita è un riquadro chiuso e ben separato: striscia con i colori delle due squadre, bordo pieno,
+     testata su fondo diverso e più spazio dopo, così scorrendo veloce non si confonde con la successiva */
+  .ch-giud{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:12px 0 4px;padding:10px 12px;border:1px dashed var(--fb-border);border-radius:10px}
+  .ch-giud input[type=range]{width:180px;vertical-align:middle}
+  article.riquadro{position:relative;border:2px solid color-mix(in srgb,var(--fb-text) 30%,transparent);border-radius:16px;margin-bottom:34px;padding-top:0;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+  article.riquadro::before{content:"";display:block;height:6px;margin:0 -16px 0;background:linear-gradient(90deg,var(--c-osp,var(--fb-acc)) 0 50%,var(--c-casa,var(--fb-acc)) 50% 100%)}
+  article.riquadro>.testa{margin:0 -16px 12px;padding:12px 16px;background:var(--fb-chip);border-bottom:1px solid color-mix(in srgb,var(--fb-text) 20%,transparent)}
   summary{cursor:pointer;font-size:14px;font-weight:600;min-height:36px;display:flex;align-items:center}
   table{width:100%;border-collapse:collapse;font-size:13px}
   td,th{padding:7px 4px;border-top:1px solid var(--fb-border);text-align:center;vertical-align:middle}
@@ -368,11 +375,15 @@ function bloccoAssenze(g, T){
   const lato = (sq, a) => {
     if (!a) return `<div><div class="blocco">${stemma(T[sq], "s")}${esc(T[sq].nome)}</div><div class="sotto">nessun dato</div></div>`;
     const testa = a.rango ? `${a.n || 0} in lista · peso ${a.rango}ª su 138` : `${a.n || 0} in lista${a.impatto ? ` · circa ${Math.round(a.impatto * 10)}% della produzione` : ""}`;
-    const righe = (a.giocatori || []).map(x => `<li${x.nuovo ? ' class="nuovo"' : ""}><b>${esc(x.nome)}</b> <span class="sotto">${esc(x.ruolo || "")}</span> · ${esc(x.statoIt || x.stato)}${x.nuovo ? " · <b>novità</b>" : ""}</li>`).join("");
+    const righe = (a.giocatori || []).map(x => {
+      const st = String(x.stato || "").toUpperCase();
+      const segno = st === "ATTIVO" ? "✅ " : st === "INATTIVO" ? "⛔ " : "";
+      return `<li${x.nuovo ? ' class="nuovo"' : ""}${st === "ATTIVO" ? ' style="opacity:.75"' : ""}>${segno}<b>${esc(x.nome)}</b> <span class="sotto">${esc(x.ruolo || "")}</span> · ${esc(x.statoIt || x.stato)}${x.nuovo ? " · <b>novità</b>" : ""}</li>`;
+    }).join("");
     return `<div><div class="blocco">${stemma(T[sq], "s")}${esc(T[sq].nome)} <span class="sotto">${testa}</span></div><ul class="ass">${righe || "<li class='sotto'>nessun assente</li>"}</ul>${a.altri ? `<div class="sotto">e altri ${a.altri}</div>` : ""}</div>`;
   };
   return `<div class="titolo">Assenze</div><div class="giocatori">${lato(g.ospite, g.assenzeOspite)}${lato(g.casa, g.assenzeCasa)}</div>
-    <div class="legenda"><span>${g.campionato === "College" ? "fonte CFBDepth (rapporti ufficiali e notizie); peso = quanto conta l'assenza" : "fonte rapporto infortuni ESPN (riserva nflverse); % = quota delle yard o dei lanci della squadra"}</span>${g.contestoAggiornato ? `<span>aggiornato ${esc(g.contestoAggiornato.slice(11, 16))} UTC</span>` : ""}</div>`;
+    <div class="legenda"><span>${g.campionato === "College" ? "fonte CFBDepth (rapporti ufficiali e notizie); peso = quanto conta l'assenza" : "fonte rapporto infortuni ESPN (riserva nflverse); % = quota delle yard o dei lanci della squadra"}</span>${g.contestoAggiornato ? `<span>aggiornato ${esc(g.contestoAggiornato.slice(11, 16))} UTC</span>` : ""}${(g.inattivi || {}).ora ? `<span>✅ gioca / ⛔ inattivo: lista del giorno ESPN delle ${esc(g.inattivi.ora.slice(11, 16))} UTC</span>` : ""}</div>`;
 }
 function bloccoMeteo(g){
   const m = g.meteo;
@@ -452,7 +463,9 @@ function scheda(g){
   const tile = sq => { const i = sq === g.casa ? g.indiceCasa : g.indiceOspite;
     return `<div>${stemma(T[sq])}<div><div class="n" style="color:${coloreTesto(T[sq].colore)}">${i && i.posizione ? i.posizione + "°" : "—"}</div><div class="e">indice ${i ? segno(i.netto, dec) : "—"}</div></div></div>`; };
   const evid = (g.vantaggi || []).slice(0, MAX_EVIDENZA);
-  return `<article class="scheda" id="${idScheda(g)}">
+  const colore = c => /^#?[0-9a-f]{6}$/i.test(String(c || "")) ? "#" + String(c).replace("#", "") : "";
+  const cO = colore(g.coloreOspite), cC = colore(g.coloreCasa);
+  return `<article class="scheda riquadro" id="${idScheda(g)}" style="${cO ? "--c-osp:" + cO + ";" : ""}${cC ? "--c-casa:" + cC : ""}">
     <div class="testa">${stemma(T[g.ospite], "s")}<div class="nomi">${esc(T[g.ospite].nome)} @ ${esc(T[g.casa].nome)}</div>${stemma(T[g.casa], "s")}<span class="quando">${esc(quando(g))}</span></div>
     <div class="indici">${tile(g.ospite)}${tile(g.casa)}</div>
     ${g.giudizio ? `<details class="giud"><summary>📝 Giudizio${sommario(g, T)}</summary><p class="giudizio">${esc(g.giudizio)}</p></details>` : ""}
@@ -631,7 +644,7 @@ function segnaliPartita(g){
   for (const [lato, sq] of [["assenzeCasa", g.casa], ["assenzeOspite", g.ospite]]) {
     for (const x of ((g[lato] || {}).giocatori || [])) {
       const st = String(x.stato || "").toUpperCase();
-      if (!["O","OFS","OUT","D","DOUBTFUL","S"].includes(st)) continue;
+      if (!["O","OFS","OUT","D","DOUBTFUL","S","INATTIVO"].includes(st)) continue;
       const rt = RUOLO_TAB(x.ruolo), m = rt && (T.assenze || {})[rt];
       const peso = x.peso || 0;
       const titolareQB = rt !== "QB" || peso >= (CAMPIONATO === "College" ? 4 : 3);
@@ -791,6 +804,62 @@ function cartaRisultato(v, titolo){
     <div class="ch-azioni"><button id="chAggiungi">Aggiungi alla lista</button><button id="chRegistra" class="on">Registra</button></div>
   </div>`;
 }
+/* «Il tuo giudizio» (16/11/2026): un solo comando per tutte le giocate, da −10 a +10 punti di probabilità sul
+   numero finale di Charlie, con il motivo. La carta mostra i due numeri; il registro del bot li tiene entrambi e
+   con /charlie dice, motivo per motivo, se il tuo giudizio migliora o peggiora la previsione. */
+const MOTIVI_GIUD = [["o", "linea offensiva"], ["a", "assenze"], ["m", "meteo"], ["v", "motivazioni"], ["x", "altro"]];
+function campoGiudizio(){
+  const g = CH.giud || 0;
+  return `<div class="ch-giud"><label>Il tuo giudizio: <b id="chGiudV">${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.abs(g)}</b> punti
+      <input type="range" id="chGiud" min="-10" max="10" step="1" value="${g}" aria-label="Il tuo giudizio in punti di probabilità"></label>
+    <label>Motivo<select id="chGiudM">${MOTIVI_GIUD.map(([k, t]) => `<option value="${k}" ${CH.giudM === k ? "selected" : ""}>${t}</option>`).join("")}</select></label>
+    <span class="sotto">Sposta la probabilità di Charlie se sai qualcosa che i numeri non vedono. A 0 non cambia nulla.</span></div>`;
+}
+const stringi = x => Math.min(0.99, Math.max(0.01, x));
+function conGiudizio(v){
+  const g = CH.giud || 0;
+  if (!g) return null;
+  const d = g / 100;
+  return valuta({...v, p: stringi(v.p + d), pLo: stringi(v.pLo + d), pHi: stringi(v.pHi + d)}, v.quota, v.puntata);
+}
+function sufGiudizio(){
+  const g = CH.giud || 0;
+  return g ? `_g${g > 0 ? "p" : "m"}${Math.abs(g)}${CH.giudM || "x"}` : "";
+}
+function cartaGiudizio(vG){
+  if (!vG) return "";
+  const [cls, frase] = verdetto(vG), g = CH.giud, mot = (MOTIVI_GIUD.find(x => x[0] === (CH.giudM || "x")) || ["", "altro"])[1];
+  return `<div class="ch-ris ${cls}" style="margin-top:8px">
+    <div style="font-weight:600">Con il tuo giudizio (${g > 0 ? "+" : "−"}${Math.abs(g)} punti, ${esc(mot)})</div>
+    <div class="ch-num">
+      <div><b>${pc(vG.p)}</b><span>probabilità di vincere<br>${pc(vG.pLo, 0)} – ${pc(vG.pHi, 0)}</span></div>
+      <div><b>${num(vG.giusta, 2)}</b><span>quota giusta<br>tua: ${num(vG.quota, 2)}</span></div>
+      <div><b>${vG.ev >= 0 ? "+" : "−"}${num(Math.abs(vG.ev) * 100, 1)}%</b><span>valore atteso<br>pessimistico ${vG.evP >= 0 ? "+" : "−"}${num(Math.abs(vG.evP) * 100, 1)}%</span></div>
+    </div>
+    <div class="ch-verdetto">${frase}</div>
+    <div class="sotto">Il registro tiene tutti e due i numeri: con /charlie il bot ti dice se il tuo giudizio, per questo motivo, migliora la previsione.</div>
+  </div>`;
+}
+function mostraRisultato(base){
+  // base = {breve, v, libro, partita, codice}: v e codice sono quelli puri di Charlie
+  const vG = conGiudizio(base.v);
+  CH.ultimo = {id: ++CH.seq, ...base, codiceBase: base.codice, codice: base.codice + sufGiudizio(), vG};
+  const out = document.getElementById("chEsito");
+  out.innerHTML = cartaRisultato(base.v, base.breve).replace('<div class="ch-azioni">', cartaGiudizio(vG) + '<div class="ch-azioni">');
+  colleghiRisultato();
+}
+function colleghiGiudizio(){
+  const r = document.getElementById("chGiud"), m = document.getElementById("chGiudM");
+  if (!r) return;
+  const agg = () => {
+    CH.giud = Number(r.value) || 0; CH.giudM = m.value;
+    document.getElementById("chGiudV").textContent = `${CH.giud > 0 ? "+" : CH.giud < 0 ? "−" : ""}${Math.abs(CH.giud)}`;
+    const u = CH.ultimo;
+    if (u && u.codiceBase && document.getElementById("chEsito")?.innerHTML) mostraRisultato({breve: u.breve, v: u.v, libro: u.libro, partita: u.partita, codice: u.codiceBase});
+  };
+  r.addEventListener("input", agg); m.addEventListener("change", agg);
+}
+
 function linkBot(testo){
   const bot = (tabCharlie() || {}).bot;
   return bot ? `https://t.me/${encodeURIComponent(bot)}` + (testo ? `?start=${testo}` : "") : null;
@@ -824,7 +893,10 @@ function disegnaLista(){
       CH.combo = {voci: scelti, v: valuta({p, pLo, pHi, aff: scelti.some(x => x.v.aff === "C") ? "C" : scelti.some(x => x.v.aff === "B") ? "B" : "A", usati: []}, qIn, numero(document.getElementById("chPuntataCombo")?.value))};
       combo = `<div class="ch-griglia"><label>Quota della combinata (se il bookmaker la cambia)<input id="chQuotaCombo" inputmode="decimal" value="${num(qIn, 2)}"></label>
         <label>Puntata €<input id="chPuntataCombo" inputmode="decimal" value="${CH.combo.v.puntata ? num(CH.combo.v.puntata, 2) : ""}"></label></div>
-        ${cartaRisultato(CH.combo.v, `Combinata di ${scelti.length}: ${scelti.map(x => x.breve).join(" + ")}`).replace('<button id="chAggiungi">Aggiungi alla lista</button>', '').replace('id="chRegistra"', 'id="chRegistraCombo"')}`;
+        ${cartaRisultato(CH.combo.v, `Combinata di ${scelti.length}: ${scelti.map(x => x.breve).join(" + ")}`).replace('<button id="chAggiungi">Aggiungi alla lista</button>', '').replace('id="chRegistra"', 'id="chRegistraCombo"')}
+        ${(() => { if (!scelti.some(x => x.vG)) return "";
+          const pG = scelti.reduce((t, x) => t * (x.vG || x.v).p, 1), ev = pG * qIn - 1;
+          return `<div class="sotto" style="margin-top:6px">Con il tuo giudizio sulle gambe che hai toccato: probabilità ${pc(pG)}, valore atteso ${ev >= 0 ? "+" : "−"}${num(Math.abs(ev) * 100, 1)}%.</div>`; })()}`;
     }
   }
   return `<div class="titolo">Le tue giocate, dalla più conveniente</div>
@@ -865,6 +937,7 @@ function formPartite(){
     : `<li><div style="flex:1"><b>${esc(s.nome)}</b> (${esc(s.ruolo)}, ${esc(s.sq)}) ${esc(s.stato)}${s.misura ? ` · di solito la linea si sposta di ${num(s.misura.spread, 1)} sullo spread <span class="aff ${s.misura.affidabilita}">${s.misura.affidabilita}</span>` : ` · <span class="sotto">${s.rt === "QB" ? "QB non titolare" : "effetto non misurato o sotto mezzo punto"}</span>`}
       ${s.misura ? `<div>${(c => c.testo ? `<div class="sotto">${esc(c.testo)}</div>` : "")(consiglioAssenza(g, s))}<label style="font-size:13px"><input type="checkbox" id="chm-${s.id}" ${consiglioAssenza(g, s).spunta ? "checked" : ""}> la linea americana non si è ancora mossa</label>
       ${s.misura.indizio ? `<br><label style="font-size:13px"><input type="checkbox" id="chf-${s.id}"> notizia fresca (aveva giocato la partita prima): indizio</label>` : ""}</div>` : ""}</div></li>`).join("")}</ul>` : ""}
+  ${campoGiudizio()}
   <div class="ch-azioni"><button id="chCalcola" class="on">Calcola</button></div><div id="chEsito"></div>`;
 }
 function latiPartite(){
@@ -892,9 +965,7 @@ function calcolaPartite(){
   const codice = ["G", CAMPIONATO === "NFL" ? "N" : "C", (g.mercato || {}).espnId || "0", {spread:"s", totale:"t", squadra:"q"}[inp.mercato], lato,
     codNum(linea, 10), codNum(quota, 100), libro, codNum(v.puntata || 0, 100), codNum(v.p, 1000),
     codNum(inp.mercato === "totale" ? totale : margineCasa, 10)].join("_");
-  CH.ultimo = {id: ++CH.seq, breve, v, libro, partita: idScheda(g), codice};
-  out.innerHTML = cartaRisultato(v, breve);
-  colleghiRisultato();
+  mostraRisultato({breve, v, libro, partita: idScheda(g), codice});
 }
 
 function formGiocatori(){
@@ -923,6 +994,7 @@ function formGiocatori(){
     <label>Puntata € (facoltativa)<input id="chPuntataP" inputmode="decimal"></label>
   </div>
   ${Object.keys(T.indiziProp || {}).length ? `<ul class="ch-segnali">${Object.entries(T.indiziProp).map(([k, x]) => `<li><input type="checkbox" id="chi-${k}"><label for="chi-${k}">${esc(x.nota)} <span class="aff B">B</span><div class="sotto">Vale solo per ${esc((STAT_PROP.find(s => s[0] === k) || [k, k])[1].toLowerCase())}: spunta per applicarlo.</div></label></li>`).join("")}</ul>` : ""}
+  ${campoGiudizio()}
   <div class="ch-azioni"><button id="chCalcola" class="on">Calcola</button></div><div id="chEsito"></div>`;
 }
 /* Linea americana principale della prop (ESPN, di solito DraftKings): riferimento se bet365 non è inserito. */
@@ -963,9 +1035,7 @@ function calcolaGiocatori(){
   const libro = document.getElementById("chLibroP").value;
   const codice = ["P", CAMPIONATO === "NFL" ? "N" : "C", (g.mercato || {}).espnId || "0", chi.id, CODICE_STAT[stat], lato[0],
     codNum(linea, 10), codNum(quota, 100), libro, codNum(v.puntata || 0, 100), codNum(v.p, 1000), codNum(rif, 10)].join("_");
-  CH.ultimo = {id: ++CH.seq, breve, v, libro, partita: idScheda(g), codice};
-  out.innerHTML = cartaRisultato(v, breve);
-  colleghiRisultato();
+  mostraRisultato({breve, v, libro, partita: idScheda(g), codice});
 }
 
 function colleghiRisultato(){
@@ -1004,11 +1074,13 @@ function disegnaCharlie(tieni){
     ["chGioc", "chStat"].forEach(i => document.getElementById(i)?.addEventListener("change", mostraUSA));
   }
   document.getElementById("chCalcola")?.addEventListener("click", () => CH.modo === "partite" ? calcolaPartite() : calcolaGiocatori());
+  colleghiGiudizio();
   ch.querySelectorAll("[data-parte]").forEach(b => b.addEventListener("click", () => { CH.parte = b.dataset.parte; disegnaCharlie(); }));
   if (document.getElementById("chDifMercato")) {
     latiDifesa();
     document.getElementById("chDifMercato").addEventListener("change", latiDifesa);
     document.getElementById("chCalcolaDif").addEventListener("click", calcolaDifesa);
+    colleghiGiudizio();
   }
   if (esitoPrima && document.getElementById("chEsito")) { document.getElementById("chEsito").innerHTML = esitoPrima; colleghiRisultato(); }
   ch.querySelectorAll("[data-togli]").forEach(b => b.addEventListener("click", () => { CH.lista = CH.lista.filter(x => String(x.id) !== b.dataset.togli); disegnaCharlie(true); }));
@@ -1058,6 +1130,7 @@ function formDifesa(g){
       <label>Quota bet365<input id="chDifQuota" inputmode="decimal" placeholder="es. 2,75"></label>
       <label>Puntata € (facoltativa)<input id="chDifPuntata" inputmode="decimal"></label>
     </div>
+    ${campoGiudizio()}
     <div class="ch-azioni"><button id="chCalcolaDif" class="on">Calcola</button></div><div id="chEsito"></div>`;
 }
 function latiDifesa(){
@@ -1095,9 +1168,7 @@ function calcolaDifesa(){
   const v = valuta(r, quota, numero(document.getElementById("chDifPuntata").value));
   const codice = ["P", "N", (g.mercato || {}).espnId || "0", x.id, m, lato, codNum(linea, 10), codNum(quota, 100), "b3",
     codNum(v.puntata || 0, 100), codNum(v.p, 1000), "0"].join("_");
-  CH.ultimo = {id: ++CH.seq, breve: testo, v, libro: "b3", partita: idScheda(g), codice};
-  out.innerHTML = cartaRisultato(v, testo);
-  colleghiRisultato();
+  mostraRisultato({breve: testo, v, libro: "b3", partita: idScheda(g), codice});
 }
 
 document.getElementById("vistaCharlie").addEventListener("click", () => { VISTA_CHARLIE = !VISTA_CHARLIE; disegna(); scrollTo({top: 0}); });

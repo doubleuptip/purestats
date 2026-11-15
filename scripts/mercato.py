@@ -144,7 +144,9 @@ def linee(lega: str, schede: list) -> int:
         q = leggi_quota(c.get("odds"), (casa.get("team") or {}).get("abbreviation"),
                         (osp.get("team") or {}).get("abbreviation"))
         vecchio = sc.get("mercato") or {}
-        nuovo = {"espnId": str(e.get("id") or vecchio.get("espnId") or "")}
+        nuovo = {"espnId": str(e.get("id") or vecchio.get("espnId") or ""),
+                 "idCasa": str((casa.get("team") or {}).get("id") or vecchio.get("idCasa") or ""),
+                 "idOspite": str((osp.get("team") or {}).get("id") or vecchio.get("idOspite") or "")}
         if q:
             nuovo.update(q, ora=ora)
             trovate += 1
@@ -231,5 +233,51 @@ def prop_usa(lega: str, schede: list, traduci: dict | None = None) -> int:
                 linee.setdefault(pid, {})[stat] = lp
         if linee:
             sc["propUSA"] = {"ora": ora, "fonte": mk.get("fonte") or "ESPN", "linee": linee}
+            lette += 1
+    return lette
+
+
+# ---------------------------------------------------------------- inattivi (dal 16/11/2026)
+def lista_del_giorno(lega: str, espn_id: str, id_squadra: str) -> dict | None:
+    """Lista dei giocatori della partita (core API ESPN, competitors/<squadra>/roster): prima del via ha già
+    il segno didNotPlay per gli inattivi, che le squadre pubblicano 90 minuti prima (come immagine sui social:
+    qui arrivano come dati). ESPN qui scrive solo il cognome: si tiene anche l'id ESPN del giocatore, che si
+    traduce in nome completo e ruolo con players.csv di nflverse. {inattivi: [[cognome, id]], attivi: [[...]]}
+    oppure None se la lista non è ancora uscita (nessun inattivo segnato: ogni squadra ne dichiara sempre)."""
+    d = _json(f"{CORE[lega]}/events/{espn_id}/competitions/{espn_id}/competitors/{id_squadra}/roster")
+    inattivi, attivi = [], []
+    for v in d.get("entries") or []:
+        nome, pid = v.get("displayName") or "", str(v.get("playerId") or "")
+        if not nome and not pid:
+            continue
+        (inattivi if v.get("didNotPlay") else attivi).append([nome, pid])
+    if not inattivi:
+        return None
+    return {"inattivi": inattivi, "attivi": attivi}
+
+
+def inattivi(lega: str, schede: list) -> int:
+    """Per le partite NFL che iniziano entro 2 ore e mezza (o iniziate da meno di mezz'ora) legge la lista del
+    giorno delle due squadre: 2 richieste per partita, gratis. Scrive sc["inattivi"] = {ora, casa, ospite}
+    (casa/ospite come lista_del_giorno). Una volta letta non si richiede più. Restituisce le partite lette."""
+    adesso = datetime.now(timezone.utc)
+    lette = 0
+    for sc in schede:
+        mk = sc.get("mercato") or {}
+        if (sc.get("inattivi") or {}).get("casa") and (sc.get("inattivi") or {}).get("ospite"):
+            continue
+        if not (sc.get("inizioUtc") and mk.get("espnId") and mk.get("idCasa") and mk.get("idOspite")):
+            continue
+        manca = datetime.fromisoformat(sc["inizioUtc"]) - adesso
+        if not timedelta(minutes=-30) < manca < timedelta(minutes=150):
+            continue
+        try:
+            casa = lista_del_giorno(lega, mk["espnId"], mk["idCasa"])
+            osp = lista_del_giorno(lega, mk["espnId"], mk["idOspite"])
+        except Exception as e:     # noqa: BLE001 - una partita che non risponde non ferma le altre
+            print(f"{lega}: lista del giorno non letta per {sc.get('ospite')} @ {sc.get('casa')} ({e})")
+            continue
+        if casa or osp:
+            sc["inattivi"] = {"ora": adesso.isoformat(timespec="minutes"), "casa": casa, "ospite": osp}
             lette += 1
     return lette

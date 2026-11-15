@@ -31,7 +31,7 @@ def _f(x) -> float:
 def _qb_fuori(assenze: dict | None) -> str | None:
     """Nome del QB titolare fuori (peso ≥ 3 = almeno 30% della produzione), se c'è."""
     for x in ((assenze or {}).get("giocatori") or []):
-        if str(x.get("ruolo", "")).upper() == "QB" and str(x.get("stato", "")).upper() in ("O", "OUT", "D", "DOUBTFUL") \
+        if str(x.get("ruolo", "")).upper() == "QB" and str(x.get("stato", "")).upper() in ("O", "OUT", "D", "DOUBTFUL", "INATTIVO") \
                 and (x.get("peso") or 0) >= 3:
             return x.get("nome") or "QB"
     return None
@@ -126,7 +126,8 @@ def calcola(schede: list, righe: list, tab: dict) -> int:
                 if x["ultima"] < ultima_sq - 1:          # non gioca da più di una partita: fuori dall'elenco
                     continue
                 stato = _stato_giocatore(ass_dif, r.get("player_display_name"))
-                if stato in ("O", "OUT", "IR"):
+                # fuori: anche lista infortunati e sospesi (come li scrive ESPN) e inattivi della lista del giorno
+                if stato in ("O", "OUT", "IR", "INJURED RESERVE", "SUSPENSION", "S", "INATTIVO"):
                     continue
                 grp = r.get("position_group")
                 q_sack = (x["eq"] + P["tiro"] * P["mediaRuolo"][grp]) / (tot_eq + P["tiro"])

@@ -102,6 +102,13 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   tentativi, con l'apertura; id ESPN → gsis da players.csv di nflverse. Principale = la linea presente due volte
   (over e under); con le quote (ESPN BET 2023-25) quella più vicina alla parità. Se i campi bet365 sono vuoti
   Charlie usa questa al 50% (affidabilità B). Niente prop dei difensori su ESPN. Lo storico 2025 ha anche le quote.
+- Inattivi (dal 16/11/2026): `mercato.inattivi` legge la lista del giorno ESPN (competitors/<squadra>/roster,
+  didNotPlay) entro 2 ore e mezza dal via, 2 richieste per partita, gratis; ESPN lì scrive solo il cognome: nome e
+  ruolo dall'id ESPN con players.csv nflverse. `fetch_duelli.applica_inattivi`: in dubbio non inattivo → ATTIVO
+  («gioca», ✅), inattivo → INATTIVO (assenza confermata, ⛔); inattivi fuori dal rapporto solo se producono.
+- «Il tuo giudizio» (dal 16/11/2026): comando da −10 a +10 punti di probabilità con il motivo, in tutte le
+  modalità; la carta mostra Charlie e Charlie con giudizio; il codice per il bot finisce con
+  `_g<p|m><punti><motivo>` (o linea offensiva, a assenze, m meteo, v motivazioni, x altro).
 - Giocatori: riferimento bet365.it (linea e quote over/under inserite a mano, senza margine) e forma della
   statistica per spostarsi alla linea italiana (Protocollo 9: affidabilità A yard ricevute, di corsa, ricezioni,
   tentativi di corsa; C yard lanciate e college). Indizio: under yard di corsa NFL. Elenco giocatori in
@@ -115,6 +122,13 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   titolare avversario fuori). Le assenze della linea offensiva NON entrano: sui sack non hanno effetto misurabile.
   Si ricalcola anche ogni ora: se una notizia sposta un numero di 2+ punti resta il valore di prima con il motivo.
 - Le tabelle si rifanno con `misure/tabelle_charlie.py` (fuori dal repository) quando cambiano le misure.
+
+## Calendario e Matchup (dal 16/11/2026)
+
+- Calendario week per week ordinato per orario d'inizio, con data e ora italiane (`dataIt`, `oraIt`): NFL dall'ora
+  della costa est di nflverse, college dall'inizio ESPN in UTC (solo le stagioni lette da ESPN nel giro).
+- Matchup: ogni partita è un riquadro chiuso (classe `riquadro`: striscia con i colori delle squadre, bordo,
+  testata su fondo diverso). Attenzione: la classe `partita` esiste già per un altro uso.
 
 ## Fonti a credito (chiamate limitate)
 

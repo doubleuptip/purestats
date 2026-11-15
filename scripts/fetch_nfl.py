@@ -271,6 +271,20 @@ def salva_archivio(righe):
     return righe
 
 
+def orario_italiano(data: str, ora: str) -> dict:
+    """Data e ora italiane dall'orario della costa est di nflverse (es. 2026-11-15 09:30 → 15:30).
+    {} se manca l'ora: la pagina mostra solo la data americana."""
+    if not data or not ora:
+        return {}
+    try:
+        from zoneinfo import ZoneInfo
+        t = datetime.fromisoformat(f"{data}T{ora}").replace(tzinfo=ZoneInfo("America/New_York"))
+        t = t.astimezone(ZoneInfo("Europe/Rome"))
+    except (ValueError, KeyError):
+        return {}
+    return {"dataIt": t.strftime("%Y-%m-%d"), "oraIt": t.strftime("%H:%M")}
+
+
 def calcola_statistiche(righe, anagrafica=None, giocatori=None):
     """Aggrega per squadra e per stagione."""
     squadre = defaultdict(lambda: defaultdict(lambda: {
@@ -357,7 +371,9 @@ def calcola_statistiche(righe, anagrafica=None, giocatori=None):
             settimana = int(r.get("Settimana") or 0)
         except ValueError:
             settimana = 0
-        return (r.get("Stagione") or "", settimana, r.get("Data") or "")
+        # dentro la settimana per orario d'inizio (ora della costa est: stesso fuso per tutte, l'ordine è quello
+        # italiano); senza ora la partita va in fondo alla sua giornata
+        return (r.get("Stagione") or "", settimana, r.get("Data") or "", r.get("Ora") or "99")
 
     # Tutte le partite delle stagioni conservate: la pagina filtra per anno,
     # quindi limitarle qui significherebbe mostrare calendari incompleti.
@@ -374,6 +390,7 @@ def calcola_statistiche(righe, anagrafica=None, giocatori=None):
         ultime.append({
             "stagione": r["Stagione"], "settimana": r["Settimana"],
             "tipo": r["Tipo"], "data": r["Data"], "ora": r["Ora"] or None,
+            **orario_italiano(r["Data"], r["Ora"]),
             "casa": r["Casa"], "ospite": r["Ospite"],
             "pc": num(r["PuntiCasa"]), "po": num(r["PuntiOspite"]),
             "stadio": r["Stadio"] or None,

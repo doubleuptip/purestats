@@ -327,7 +327,7 @@ def giudizio(campionato: str, s: dict) -> str:
         a = s.get(lato)
         if not a or not a.get("giocatori"):
             continue
-        fuori = [g for g in a["giocatori"] if g["stato"].upper() in ("O", "OFS", "OUT", "D", "DOUBTFUL", "S")]
+        fuori = [g for g in a["giocatori"] if g["stato"].upper() in ("O", "OFS", "OUT", "D", "DOUBTFUL", "S", "INATTIVO")]
         nomi = ", ".join(f"{g['nome']} ({g['ruolo']})" for g in fuori[:3])
         nuovi = [g for g in a["giocatori"] if g.get("nuovo")]
         pezzi = []
@@ -497,6 +497,69 @@ def _assenze_brevi(d: dict | None) -> dict | None:
             "altri": max(0, len(gio) - ASSENTI_MOSTRATI)}
 
 
+IN_DUBBIO = ("Q", "QUESTIONABLE", "D", "DOUBTFUL", "O", "OUT")
+
+
+def applica_inattivi(sc: dict, quote_nome: dict | None = None) -> None:
+    """Corregge le assenze con la lista del giorno (sc["inattivi"], da mercato.inattivi): chi era nel rapporto
+    infortuni e non è tra gli inattivi «gioca»; chi è tra gli inattivi è assenza confermata. Gli inattivi che
+    non erano nel rapporto si aggiungono solo se producono (quota > 0): gli altri sono riserve di giornata.
+    Le liste lunghe IR/PUP non cambiano: non giocano comunque."""
+    lista = sc.get("inattivi") or {}
+    for lato, chiave in (("casa", "assenzeCasa"), ("ospite", "assenzeOspite")):
+        r = lista.get(lato)
+        if not r:
+            continue
+        def completi(voci):
+            out = []
+            for cognome, pid in voci:
+                nome, ruolo = info_espn(pid)
+                out.append((nome or cognome, ruolo, C.norm(cognome)))
+            return out
+        lista_in, lista_att = completi(r["inattivi"]), completi(r["attivi"])
+        inatt = {C.norm(n): ruolo for n, ruolo, _c in lista_in}
+        attivi = {C.norm(n) for n, _r, _c in lista_att}
+        cogn_in = {c for _n, _r, c in lista_in}
+        cogn_att = {c for _n, _r, c in lista_att}
+        a = sc.get(chiave) or {"n": 0, "nuovi": 0, "impatto": 0.0, "rango": None, "giocatori": [], "altri": 0}
+        visti = set()
+        for x in a.get("giocatori") or []:
+            n = C.norm(x.get("nome"))
+            # se il nome completo non si trova (giocatore non in players.csv) basta il cognome, purché non sia ambiguo
+            cog = C.norm(str(x.get("nome") or "").split(" ")[-1])
+            if n not in inatt and n not in attivi:
+                if cog in cogn_in and cog not in cogn_att:
+                    inatt[n] = ""
+                elif cog in cogn_att and cog not in cogn_in:
+                    attivi.add(n)
+            visti.add(n)
+            st = str(x.get("stato", "")).upper()
+            if st in ("INATTIVO", "ATTIVO"):           # già corretto in un giro precedente
+                continue
+            if n in inatt and st not in ("INJURED RESERVE", "IR"):
+                if st not in ("O", "OUT", "D", "DOUBTFUL", "S", "SUSPENSION"):
+                    a["impatto"] = round((a.get("impatto") or 0) + (x.get("peso") or 0), 1)
+                x.update(stato="INATTIVO", statoIt="Inattivo (lista del giorno)")
+            elif n in attivi and st in IN_DUBBIO:
+                if st in ("O", "OUT", "D", "DOUBTFUL"):
+                    a["impatto"] = round(max(0.0, (a.get("impatto") or 0) - (x.get("peso") or 0)), 1)
+                x.update(stato="ATTIVO", statoIt="Gioca (non è tra gli inattivi)", nuovo=False)
+        sigla = sc[lato]
+        for n0, ruolo, _c in lista_in:
+            n = C.norm(n0)
+            q = (quote_nome or {}).get((sigla, n), 0.0)
+            if n in visti or q <= 0:
+                continue
+            a.setdefault("giocatori", []).append({"nome": n0, "stato": "INATTIVO", "statoIt": "Inattivo (non era nel rapporto)",
+                                                  "ruolo": ruolo, "nuovo": True, "valutazione": None,
+                                                  "peso": round(q * 10, 1), "data": lista.get("ora", "")[:10]})
+            a["impatto"] = round((a.get("impatto") or 0) + q * 10, 1)
+            a["n"] = (a.get("n") or 0) + 1
+        a["giocatori"].sort(key=lambda g: (g.get("stato") == "ATTIVO", -(g.get("peso") or 0)))
+        a["listaDelGiorno"] = lista.get("ora")
+        sc[chiave] = a
+
+
 _RIGHE_NFL: dict = {}
 
 
@@ -518,9 +581,25 @@ def espn_a_gsis() -> dict:
         url = "https://github.com/nflverse/nflverse-data/releases/download/players/players.csv"
         for r in csv.DictReader(io.StringIO(C._get(url, 120))):
             e, g = (r.get("espn_id") or "").strip(), (r.get("gsis_id") or "").strip()
-            if e and g and e != "NA" and g != "NA":
-                _ESPN_GSIS[e.split(".")[0]] = g
+            if e and e != "NA":
+                e = e.split(".")[0]
+                _ESPN_INFO[e] = ((r.get("display_name") or "").strip(), (r.get("position") or "").strip())
+                if g and g != "NA":
+                    _ESPN_GSIS[e] = g
     return _ESPN_GSIS
+
+
+_ESPN_INFO: dict = {}
+
+
+def info_espn(pid: str) -> tuple:
+    """(nome completo, ruolo) dall'id ESPN, da players.csv nflverse; ("", "") se non c'è."""
+    if not _ESPN_INFO:
+        try:
+            espn_a_gsis()
+        except Exception as e:     # noqa: BLE001
+            print(f"NFL: players.csv non letto ({e}): inattivi riconosciuti solo dal cognome")
+    return _ESPN_INFO.get(str(pid), ("", ""))
 
 
 GIOCATORI_PER_SQUADRA = 12
@@ -674,6 +753,17 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
         print(f"{campionato}: linee del mercato americano (ESPN) per {n_linee} partite su {len(schede)}.")
     except Exception as e:     # noqa: BLE001 - Charlie usa la linea precedente o quella inserita a mano
         print(f"{campionato}: linee ESPN non lette ({e}): restano quelle del giro precedente.")
+    if lega == "nfl":
+        try:
+            n_in = MK.inattivi(campionato, schede)
+            for sc in schede:
+                if sc.get("inattivi"):
+                    applica_inattivi(sc, quote.get("__per_nome__", {}))
+                    sc["giudizio"] = giudizio(campionato, sc)
+            if n_in:
+                print(f"NFL: lista del giorno (inattivi) letta per {n_in} partite.")
+        except Exception as e:     # noqa: BLE001 - restano le assenze del rapporto infortuni
+            print(f"NFL: lista degli inattivi non letta ({e}): restano le assenze del rapporto infortuni.")
     try:
         traduci = espn_a_gsis() if lega == "nfl" else None
         n_prop = MK.prop_usa(campionato, vicine, traduci)

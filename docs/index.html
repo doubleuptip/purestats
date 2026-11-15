@@ -1471,7 +1471,9 @@ function vFootballPartite(){
     if(!aperto) return;
 
     h += `<div class="gruppo-corpo grid">`;
-    g.gare.forEach(p=>{
+    // dentro la week per orario d'inizio italiano (le partite senza ora in fondo alla loro giornata)
+    const quandoIt = p => (p.dataIt||p.data||"") + "T" + (p.oraIt||"99");
+    [...g.gare].sort((a,b)=>quandoIt(a).localeCompare(quandoIt(b))).forEach(p=>{
       const kp = `${p.stagione}|${p.settimana}|${p.casa}|${p.ospite}`;
       const disputata = p.pc!==null && p.pc!==undefined;
       const casa = p.giocatoriCasa || [];
@@ -1489,7 +1491,7 @@ function vFootballPartite(){
           <div class="fb-team${disputata&&p.po>p.pc?" w":""}">${stemma(p.ospite,true)}<span class="n">${esc(breve(p.ospite))}</span><span class="s">${disputata?p.po:""}</span></div>
           <div class="fb-team${disputata&&p.pc>p.po?" w":""}">${stemma(p.casa,true)}<span class="n">${esc(breve(p.casa))}</span><span class="s">${disputata?p.pc:""}</span></div>
         </div>
-        <div class="gara-arb">${disputata?"":"da giocare · "}${esc(dataBreve(p.data))}${p.stadio?" · "+esc(p.stadio):""}</div>
+        <div class="gara-arb">${disputata?"":"da giocare · "}${esc(dataBreve(p.dataIt||p.data))}${p.oraIt?" · ore "+esc(p.oraIt):""}${p.stadio?" · "+esc(p.stadio):""}</div>
         ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
             ${rosaAperta?"▴ NASCONDI":"▾ MIGLIORI DELLA PARTITA"}</button>` : ""}
         ${conRose && rosaAperta

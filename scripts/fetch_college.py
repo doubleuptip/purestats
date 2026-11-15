@@ -445,7 +445,19 @@ def unisci_doppioni(righe):
     return [migliori[k] for k in ordine], uniti
 
 
-def calcola_statistiche(righe, giocatori=None):
+def orario_italiano(inizio: str) -> dict:
+    """Data e ora italiane dall'inizio ESPN in UTC (es. 2026-11-14T17:00Z → 18:00). {} se manca."""
+    if not inizio:
+        return {}
+    try:
+        from zoneinfo import ZoneInfo
+        t = datetime.fromisoformat(inizio.replace("Z", "+00:00")).astimezone(ZoneInfo("Europe/Rome"))
+    except (ValueError, KeyError):
+        return {}
+    return {"dataIt": t.strftime("%Y-%m-%d"), "oraIt": t.strftime("%H:%M"), "inizio": inizio}
+
+
+def calcola_statistiche(righe, giocatori=None, orari=None):
     squadre = defaultdict(lambda: defaultdict(lambda: {
         "partite": 0, "vittorie": 0, "sconfitte": 0, "pareggi": 0,
         "puntiFatti": 0, "puntiSubiti": 0,
@@ -535,8 +547,11 @@ def calcola_statistiche(righe, giocatori=None):
             settimana = int(r.get("Settimana") or 0)
         except ValueError:
             settimana = 0
-        return (r.get("Stagione") or "", settimana, r.get("Data") or "")
+        # dentro la settimana per orario d'inizio (solo le stagioni lette da ESPN in questo giro hanno l'ora)
+        return (r.get("Stagione") or "", settimana, r.get("Data") or "",
+                orari.get((r.get("Stagione"), r.get("Casa"), r.get("Ospite")), "Z"))
 
+    orari = orari or {}
     # Tutte le partite delle stagioni conservate: la pagina filtra per anno,
     # quindi limitarle qui significherebbe mostrare calendari incompleti.
     recenti = sorted(righe, key=ordine)
@@ -552,6 +567,7 @@ def calcola_statistiche(righe, giocatori=None):
         ultime.append({
             "stagione": r["Stagione"], "settimana": r["Settimana"],
             "data": r["Data"], "casa": r["Casa"], "ospite": r["Ospite"],
+            **orario_italiano(orari.get((r["Stagione"], r["Casa"], r["Ospite"]), "")),
             "pc": num(r["PuntiCasa"]), "po": num(r["PuntiOspite"]),
             "conferenzaCasa": r.get("ConferenzaCasa") or None,
             "stadio": r.get("Stadio") or None,
@@ -677,7 +693,9 @@ def main():
     giocatori = carica_giocatori(stagioni, forzate, partite_espn)
     salva_archivio_giocatori(giocatori)
 
-    stats = calcola_statistiche(righe, giocatori)
+    orari = {(r["Stagione"], r["Casa"], r["Ospite"]): r["inizio"]
+             for pp in partite_espn.values() for r in pp if r.get("inizio")}
+    stats = calcola_statistiche(righe, giocatori, orari)
 
     # Giornata, prossimo turno e indici: 3 chiamate (più 1 a stagione per i loghi).
     # Blocchi aggiuntivi: se non riescono, l'archivio si aggiorna lo stesso.
