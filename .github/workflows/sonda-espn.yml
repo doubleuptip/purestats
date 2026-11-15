@@ -1,5 +1,7 @@
 name: Sonda ESPN (temporanea)
 on: workflow_dispatch
+permissions:
+  contents: write
 jobs:
   sonda:
     runs-on: ubuntu-latest
@@ -13,5 +15,13 @@ jobs:
           curl -sS "$B/college-football/events/401752870/competitions/401752870/odds/58/propBets?limit=1000" -o cfb_2025.json
           curl -sS "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=2026&seasontype=2&week=12&groups=80&limit=400" -o cfb_sb.json
           ls -la
-      - uses: actions/upload-artifact@v4
-        with: {name: sonda, path: s}
+          python3 - <<'PY'
+          import json, glob
+          for f in glob.glob('*.json'):
+              d = json.load(open(f))
+              if 'items' in d:
+                  d['items'] = d['items'][:40]
+              json.dump(d, open(f, 'w'), indent=1)
+          PY
+          git init -q && git checkout -q -b sonda && git add . && git -c user.name=sonda -c user.email=s@s commit -qm sonda
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" sonda
