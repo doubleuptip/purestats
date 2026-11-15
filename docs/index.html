@@ -25,19 +25,23 @@
     --bordo:#3D2E1F; --testo:#FBF5EF; --muted:#B39B82; --data:#C98A4B;
     --card:#17110B; --card2:#1F1710; --nero:#070503;
   }
+  /* Caratteri: un solo stile per tutto il sito dal 16/11/2026 (quello di NFL e College). Le regole usano queste
+     due variabili; body.fb le porta a Inter per il testo e Archivo / Barlow Condensed per i titoli. */
+  :root{--f-testo:'JetBrains Mono',monospace;--f-tit:'Teko',sans-serif}
+  body.fb{--f-testo:'Inter',sans-serif;--f-tit:var(--fb-head)}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--nero);color:var(--testo);font-family:'JetBrains Mono',monospace;padding-bottom:60px}
+  body{background:var(--nero);color:var(--testo);font-family:var(--f-testo);padding-bottom:60px}
 
   header{position:sticky;top:0;z-index:20;background:rgba(5,7,6,.96);
     border-bottom:1px solid var(--bordo);backdrop-filter:blur(8px);padding:14px 14px 0}
   .logo{display:flex;align-items:center;gap:8px}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
-  .logo span{font-family:'Teko',sans-serif;font-size:32px;letter-spacing:.06em;line-height:1}
+  .logo span{font-family:var(--f-tit);font-size:32px;letter-spacing:.06em;line-height:1}
   .logo b{color:var(--acc);font-weight:inherit}
   .lega{display:flex;gap:9px;align-items:center;margin:6px 0 14px 20px;
     overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
   .lega button{flex-shrink:0;white-space:nowrap}
-  .lega button{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
+  .lega button{font-family:var(--f-testo);font-size:12px;font-weight:700;
     letter-spacing:.1em;color:var(--muted);background:transparent;border:none;
     padding:4px 0;cursor:pointer;border-bottom:2px solid transparent}
   .lega button.on{color:var(--acc);border-bottom-color:var(--acc)}
@@ -47,31 +51,31 @@
   .desig{background:rgba(var(--acc-rgb),.06);border:1px solid rgba(var(--acc-rgb),.3);
     border-radius:8px;padding:13px 15px;margin-bottom:18px}
   .desig-lab{font-size:10px;color:var(--acc);letter-spacing:.12em;font-weight:700;margin-bottom:7px}
-  .desig-match{font-family:'Teko',sans-serif;font-size:28px;line-height:1.1}
+  .desig-match{font-family:var(--f-tit);font-size:28px;line-height:1.1}
   .desig-quando{font-size:11px;color:var(--muted);margin-top:3px}
   .desig-ruolo{font-size:8px;color:var(--muted);margin-top:6px;letter-spacing:.05em}
   .desig+.desig{margin-top:-10px}
 
   nav{display:flex;gap:5px;flex-wrap:wrap}
-  nav button{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  nav button{font-family:var(--f-testo);font-size:11px;font-weight:700;
     letter-spacing:.06em;color:var(--muted);background:transparent;
     border:1px solid var(--bordo);border-bottom:none;border-radius:5px 5px 0 0;
     padding:9px 13px;cursor:pointer}
   nav button.on{color:var(--nero);background:var(--acc);border-color:var(--acc)}
 
   main{padding:20px 14px 0}
-  h1{font-family:'Teko',sans-serif;font-size:34px;line-height:1;font-weight:600}
+  h1{font-family:var(--f-tit);font-size:34px;line-height:1;font-weight:600}
   .sub{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.6}
 
   /* --- KPI numerici --- */
   .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0 22px}
   .kpi{background:var(--card);border:1px solid var(--bordo);border-radius:7px;padding:11px 8px;text-align:center}
-  .kpi b{display:block;font-family:'Teko',sans-serif;font-size:26px;color:var(--acc);line-height:1}
+  .kpi b{display:block;font-family:var(--f-tit);font-size:26px;color:var(--acc);line-height:1}
   .kpi span{display:block;font-size:7px;color:var(--muted);letter-spacing:.09em;margin-top:4px}
 
   .titolo{display:flex;align-items:center;gap:8px;margin:22px 0 5px}
   .titolo i{width:3px;height:21px;background:var(--acc);box-shadow:0 0 8px var(--acc)}
-  .titolo span{font-family:'Teko',sans-serif;font-size:26px;letter-spacing:.03em;line-height:1}
+  .titolo span{font-family:var(--f-tit);font-size:26px;letter-spacing:.03em;line-height:1}
   .titolo-sub{font-size:11px;color:var(--muted);margin:0 0 11px 11px;line-height:1.6}
 
   /* --- TABELLA NUMERICA --- */
@@ -99,7 +103,7 @@
   .tab tbody tr.click{cursor:pointer}
   .tab tbody tr.click:active{background:var(--card2)}
   .pos{color:var(--muted);font-size:11px;display:inline-block;min-width:20px}
-  .nome{font-family:'Teko',sans-serif;font-size:22px;letter-spacing:.02em;vertical-align:middle;line-height:1.15}
+  .nome{font-family:var(--f-tit);font-size:22px;letter-spacing:.02em;vertical-align:middle;line-height:1.15}
   .big{color:var(--acc);font-weight:700;font-size:13px}
   .gial{color:var(--giallo);font-weight:700}
   .ros{color:var(--rosso);font-weight:700}
@@ -107,25 +111,25 @@
   .freccia{color:var(--muted);font-size:11px;padding-left:6px}
 
   /* --- SCHEDA ARBITRO --- */
-  .back{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--acc);
+  .back{font-family:var(--f-testo);font-size:10px;color:var(--acc);
     background:transparent;border:1px solid var(--bordo);border-radius:5px;
     padding:7px 12px;cursor:pointer;margin-bottom:16px;letter-spacing:.06em}
   .avatar{width:54px;height:54px;border-radius:50%;flex-shrink:0;
     display:flex;align-items:center;justify-content:center;position:relative;
     overflow:hidden;border:1px solid rgba(var(--acc-rgb),.3)}
-  .avatar b{font-family:'Teko',sans-serif;font-size:27px;line-height:1;
+  .avatar b{font-family:var(--f-tit);font-size:27px;line-height:1;
     letter-spacing:.04em;position:relative;z-index:2}
   .avatar canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.55}
   .scheda-testa{display:flex;align-items:center;gap:13px;min-width:0}
 
   .scheda-top{background:var(--card);border:1px solid rgba(var(--acc-rgb),.25);
     border-radius:9px;padding:16px;margin-bottom:18px}
-  .scheda-nome{font-family:'Teko',sans-serif;font-size:29px;line-height:1.05;letter-spacing:.02em;overflow-wrap:anywhere}
+  .scheda-nome{font-family:var(--f-tit);font-size:29px;line-height:1.05;letter-spacing:.02em;overflow-wrap:anywhere}
   .scheda-meta{font-size:11px;color:var(--muted);margin-top:4px}
   .dati{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bordo);
     border:1px solid var(--bordo);border-radius:7px;overflow:hidden;margin-bottom:18px}
   .dato{background:var(--card);padding:12px 11px}
-  .dato b{display:block;font-family:'Teko',sans-serif;font-size:27px;color:var(--acc);line-height:1}
+  .dato b{display:block;font-family:var(--f-tit);font-size:27px;color:var(--acc);line-height:1}
   .dato b.g{color:var(--giallo)} .dato b.r{color:var(--rosso)} .dato b.n{color:var(--testo)}
   .dato span{display:block;font-size:8px;color:var(--muted);letter-spacing:.07em;margin-top:5px;line-height:1.4}
 
@@ -133,18 +137,18 @@
     background:var(--card);border:1px solid var(--bordo);border-radius:7px;
     padding:12px 14px;margin-bottom:8px}
   .conf-lab{font-size:9px;color:var(--muted);letter-spacing:.06em}
-  .conf-val{font-family:'Teko',sans-serif;font-size:24px;line-height:1}
+  .conf-val{font-family:var(--f-tit);font-size:24px;line-height:1}
 
   /* --- RICERCA E FILTRI --- */
   .filtri{margin:16px 0 18px}
   .cerca{width:100%;background:var(--card);border:1px solid var(--bordo);border-radius:7px;
-    padding:11px 13px;color:var(--testo);font-family:'JetBrains Mono',monospace;
+    padding:11px 13px;color:var(--testo);font-family:var(--f-testo);
     font-size:12px;outline:none}
   .cerca:focus{border-color:var(--acc);box-shadow:0 0 0 1px rgba(var(--acc-rgb),.2)}
   .cerca::placeholder{color:var(--muted)}
   .stagioni{display:flex;gap:5px;overflow-x:auto;margin-top:9px;padding-bottom:3px;
     -webkit-overflow-scrolling:touch}
-  .stagioni button{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:9px;
+  .stagioni button{flex-shrink:0;font-family:var(--f-testo);font-size:9px;
     font-weight:700;letter-spacing:.05em;color:var(--muted);background:var(--card);
     border:1px solid var(--bordo);border-radius:5px;padding:7px 11px;cursor:pointer;white-space:nowrap}
   .stagioni button.on{color:var(--nero);background:var(--acc);border-color:var(--acc)}
@@ -154,7 +158,7 @@
 
   /* Sottomenù dei campionati di uno stesso paese */
   .sub-lega{display:flex;gap:6px;margin:0 0 12px 20px}
-  .sub-lega button{font-family:'JetBrains Mono',monospace;font-size:10px;
+  .sub-lega button{font-family:var(--f-testo);font-size:10px;
     font-weight:700;letter-spacing:.08em;color:var(--muted);background:var(--card);
     border:1px solid var(--bordo);border-radius:5px;padding:6px 11px;cursor:pointer;
     white-space:nowrap}
@@ -164,14 +168,14 @@
   .gruppo{width:100%;display:flex;align-items:center;gap:9px;text-align:left;
     background:var(--card);border:1px solid var(--bordo);border-radius:8px;
     padding:11px 13px;margin-top:8px;cursor:pointer;
-    font-family:'JetBrains Mono',monospace}
+    font-family:var(--f-testo)}
   .gruppo.on{border-color:var(--acc)}
-  .gruppo-tit{font-family:'Teko',sans-serif;font-size:19px;color:var(--acc);line-height:1}
+  .gruppo-tit{font-family:var(--f-tit);font-size:19px;color:var(--acc);line-height:1}
   .gruppo-sub{font-size:9px;color:var(--muted)}
   .gruppo-freccia{margin-left:auto;color:var(--muted);font-size:11px}
   .gruppo-corpo{margin-top:8px}
 
-  .toggle-gio{width:100%;margin-top:9px;font-family:'JetBrains Mono',monospace;
+  .toggle-gio{width:100%;margin-top:9px;font-family:var(--f-testo);
     font-size:9px;color:var(--acc);background:transparent;border:1px solid var(--bordo);
     border-radius:4px;padding:5px;cursor:pointer;letter-spacing:.06em}
 
@@ -194,7 +198,7 @@
 
   /* --- CALENDARIO --- */
   .sottomenu{display:flex;gap:5px;overflow-x:auto;margin:14px 0 16px;padding-bottom:3px}
-  .sottomenu button{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:10px;
+  .sottomenu button{flex-shrink:0;font-family:var(--f-testo);font-size:10px;
     font-weight:700;letter-spacing:.05em;color:var(--muted);background:var(--card);
     border:1px solid var(--bordo);border-radius:5px;padding:8px 12px;cursor:pointer;white-space:nowrap}
   .sottomenu button.on{color:var(--nero);background:var(--acc);border-color:var(--acc)}
@@ -203,9 +207,9 @@
   .gara{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:11px 14px}
   .gara-quando{font-size:9px;color:var(--acc);letter-spacing:.08em;margin-bottom:6px}
   .gara-squadre{display:flex;align-items:center;justify-content:space-between}
-  .gara-squadre span{font-family:'Teko',sans-serif;font-size:19px;flex:1;line-height:1.15}
+  .gara-squadre span{font-family:var(--f-tit);font-size:19px;flex:1;line-height:1.15}
   body.arancio .gara-squadre span{font-size:20px}
-  .gara-squadre .vs{flex:0 0 auto;font-family:'JetBrains Mono',monospace;font-size:9px;
+  .gara-squadre .vs{flex:0 0 auto;font-family:var(--f-testo);font-size:9px;
     color:var(--muted);padding:0 10px;white-space:nowrap}
   /* Il punteggio va tenuto su una riga: spezzato in due si legge male
      e disallinea le due squadre. */
@@ -224,13 +228,13 @@
   footer{font-size:8px;color:var(--muted);margin:32px 14px 0;
     padding-top:15px;border-top:1px solid var(--bordo);line-height:1.9}
   .pie-riga{text-align:center}
-  .pie-apri{display:block;margin:14px auto 0;font-family:'JetBrains Mono',monospace;
+  .pie-apri{display:block;margin:14px auto 0;font-family:var(--f-testo);
     font-size:8px;letter-spacing:.1em;color:var(--acc);background:transparent;
     border:1px solid var(--bordo);border-radius:5px;padding:7px 14px;cursor:pointer}
   .pie-legale{margin-top:14px;padding:14px;background:var(--card);
     border:1px solid var(--bordo);border-radius:8px;text-align:left;font-size:9px;
     line-height:1.85}
-  .pie-legale h4{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;
+  .pie-legale h4{font-family:var(--f-testo);font-size:8px;font-weight:700;
     letter-spacing:.1em;color:var(--acc);margin:14px 0 5px}
   .pie-legale h4:first-child{margin-top:0}
   .pie-legale ul{margin:0;padding-left:15px}
@@ -247,7 +251,7 @@
     --fb-chip:#EEF0F3; --fb-chiptext:#374151; --fb-lose:#6B7280; --fb-head:'Archivo',sans-serif;
     --nero:var(--fb-bg); --card:var(--fb-card); --card2:var(--fb-pill); --bordo:var(--fb-border);
     --testo:var(--fb-text); --muted:var(--fb-muted); --acc:var(--fb-acc); --acc2:var(--fb-acc);
-    --acc-rgb:185,28,28; --data:var(--fb-muted); --rosso:#C81E1E;
+    --acc-rgb:185,28,28; --data:var(--fb-muted); --rosso:#C81E1E; --giallo:#B7791F;
     font-family:'Inter',sans-serif;
   }
   @media (prefers-color-scheme: dark){
@@ -255,7 +259,7 @@
       --fb-bg:#0B0F1A; --fb-card:#131A2B; --fb-text:#F5F7FB; --fb-muted:#A3ADC2; --fb-border:#232C42;
       --fb-acc:#FF8A3D; --fb-acc-text:#1A0E05; --fb-pill:#1B2338; --fb-okbg:#3A2412; --fb-ok:#FFB27A;
       --fb-chip:#1F2840; --fb-chiptext:#C9D1E3; --fb-lose:#8D97AD; --fb-head:'Barlow Condensed',sans-serif;
-      --acc-rgb:255,138,61; --rosso:#FF7A7A;
+      --acc-rgb:255,138,61; --rosso:#FF7A7A; --giallo:#FFD400;
     }
   }
   body.fb header{background:var(--fb-bg)}
@@ -295,6 +299,11 @@
   body.fb .rosa-tit{font-size:13px} body.fb .gio-n{font-size:15px} body.fb .gio-v{font-size:13px} body.fb .gio-r{font-size:12px}
   body.fb .toggle-gio,body.fb .back{font-family:'Inter',sans-serif;font-size:14px}
   body.fb #pie{font-family:'Inter',sans-serif}
+  /* Le viste del calcio nascono con caratteri monospazio molto piccoli scritti nel codice (style="font-size:8px"):
+     con lo stile unico (Inter) si portano alle misure di NFL e College. */
+  body.fb main [style*="font-size:8px"],body.fb main [style*="font-size:9px"]{font-size:12px!important}
+  body.fb main [style*="font-size:10px"]{font-size:13px!important}
+  body.fb main [style*="font-size:11px"]{font-size:14px!important}
 
   /* blocchi nuovi */
   .fb-h1{font-family:var(--fb-head);font-weight:800;font-size:44px;line-height:1.05;color:var(--fb-text);margin:4px 0}
@@ -450,8 +459,18 @@
 <footer id="pie"></footer>
 
 <script>
-const FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
-      MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706";
+/* Colori e caratteri presi dal tema della pagina (variabili CSS), così grafici e testi colorati seguono lo stile
+   unico del sito, chiaro o scuro. Si rileggono a ogni disegno. */
+let FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
+    MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706",F_TESTO="JetBrains Mono",F_TIT="Teko";
+function aggiornaColori(){
+  const cs = getComputedStyle(document.body), v = (k, d) => (cs.getPropertyValue(k) || "").trim() || d;
+  FLUO = v("--acc", FLUO); FLUO2 = v("--acc2", FLUO2); ROSSO = v("--rosso", ROSSO);
+  MUTED = v("--muted", MUTED); BORDO = v("--bordo", BORDO); TESTO = v("--testo", TESTO); NERO = v("--nero", NERO);
+  GIALLO = matchMedia("(prefers-color-scheme: dark)").matches ? "#FFD400" : "#B7791F";
+  F_TESTO = v("--f-testo", F_TESTO).split(",")[0].replace(/['"]/g, "");
+  F_TIT = v("--f-tit", F_TIT).split(",")[0].replace(/['"]/g, "");
+}
 
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
 let ricerca="", stagione=null;
@@ -756,7 +775,8 @@ function render(){
   disegnaMenu();
 
   // L'accento passa all'arancio per le leghe di football americano
-  document.body.className = eFootball() ? "arancio fb" : "";
+  document.body.className = eFootball() ? "arancio fb" : "fb";     // stile unico per tutto il sito
+  aggiornaColori();
 
   // Le schede del calcio non hanno senso per il football: si nascondono
   const soloFootball = eFootball();
@@ -929,13 +949,13 @@ function kpi(...v){
 function opz(titolo,orizz){
   return {responsive:true,maintainAspectRatio:false,indexAxis:orizz?"y":"x",
     plugins:{
-      title:{display:true,text:titolo,color:TESTO,font:{family:"Teko",size:16},padding:{bottom:10}},
-      legend:{labels:{color:MUTED,font:{family:"JetBrains Mono",size:9},boxWidth:9}},
+      title:{display:true,text:titolo,color:TESTO,font:{family:F_TIT,size:18},padding:{bottom:10}},
+      legend:{labels:{color:MUTED,font:{family:F_TESTO,size:11},boxWidth:9}},
       tooltip:{backgroundColor:NERO,borderColor:FLUO,borderWidth:1,titleColor:TESTO,bodyColor:TESTO,
-        titleFont:{family:"JetBrains Mono",size:10},bodyFont:{family:"JetBrains Mono",size:10}}},
+        titleFont:{family:F_TESTO,size:12},bodyFont:{family:F_TESTO,size:12}}},
     scales:{
-      x:{ticks:{color:MUTED,font:{family:"JetBrains Mono",size:8}},grid:{color:BORDO}},
-      y:{ticks:{color:MUTED,font:{family:"JetBrains Mono",size:8}},grid:{color:BORDO}}}};
+      x:{ticks:{color:MUTED,font:{family:F_TESTO,size:11}},grid:{color:BORDO}},
+      y:{ticks:{color:MUTED,font:{family:F_TESTO,size:11}},grid:{color:BORDO}}}};
 }
 
 /* ================= ELENCO ARBITRI ================= */

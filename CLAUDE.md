@@ -125,6 +125,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 
 ## Calendario e Matchup (dal 16/11/2026)
 
+- Stile unico per tutto il sito (calcio compreso): tema `fb` sempre attivo (Inter per il testo, Archivo in chiaro e
+  Barlow Condensed in scuro per i titoli, colori --fb-*). Le regole usano `var(--f-testo)` e `var(--f-tit)`; i colori
+  nel JavaScript (FLUO, MUTED, ... e i grafici) si leggono dal tema con `aggiornaColori()`. Le misure piccole scritte
+  nel codice delle viste del calcio (font-size 8-11px) sono portate a 12-14px dal CSS.
+
 - Calendario week per week ordinato per orario d'inizio, con data e ora italiane (`dataIt`, `oraIt`): NFL dall'ora
   della costa est di nflverse, college dall'inizio ESPN in UTC (solo le stagioni lette da ESPN nel giro).
 - Matchup: ogni partita è un riquadro chiuso (classe `riquadro`: striscia con i colori delle squadre, bordo,
