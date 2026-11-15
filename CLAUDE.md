@@ -101,6 +101,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Le quote italiane (Snai, Sisal, ePlay24, Planetwin365, Lottomatica, Bet365) le inserisce Valerio: non si leggono in
   automatico. Bottone «Registra»: collegamento al bot (secret CHARLIE_BOT con il nome del bot) che tiene il registro
   e controlla esito e linea di chiusura (`/charlie` nel bot). Senza il secret il testo si copia da incollare.
+- Difesa NFL (Giocatori → Difesa, solo bet365): `scripts/difesa_charlie.py` calcola per ogni difensore probabilità di
+  almeno 0,5 sack (regola bet365), di almeno un intercetto e placcaggi attesi, con le formule del Protocollo 10
+  (ritmi di attacco e difesa, andamento atteso dalla linea americana, quota del giocatore; intercetti ×1,28 con il QB
+  titolare avversario fuori). Le assenze della linea offensiva NON entrano: sui sack non hanno effetto misurabile.
+  Si ricalcola anche ogni ora: se una notizia sposta un numero di 2+ punti resta il valore di prima con il motivo.
 - Le tabelle si rifanno con `misure/tabelle_charlie.py` (fuori dal repository) quando cambiano le misure.
 
 ## Fonti a credito (chiamate limitate)

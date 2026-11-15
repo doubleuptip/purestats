@@ -47,6 +47,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import reparti as RP  # noqa: E402
 import contesto as C  # noqa: E402
 import mercato as MK  # noqa: E402
+import difesa_charlie as DC  # noqa: E402
 
 RADICE = Path(__file__).resolve().parent.parent
 LEGHE = {"nfl": "NFL", "college": "College"}
@@ -574,6 +575,7 @@ def dati_charlie(lega: str) -> dict | None:
     return {"versione": t.get("versione"), "fonte": t.get("fonte"),
             "partite": (t.get("partite") or {}).get(camp), "assenze": (t.get("assenze") or {}).get(camp),
             "prop": (t.get("prop") or {}).get(camp), "indiziProp": (t.get("indiziProp") or {}).get(camp) or {},
+            "difesa": (t.get("difesa") or {}).get(camp),
             "margineBet365Prop": t.get("margineBet365Prop"),
             "bot": (os.environ.get("CHARLIE_BOT") or "").strip().lstrip("@") or None}
 
@@ -657,6 +659,13 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
         print(f"{campionato}: linee del mercato americano (ESPN) per {n_linee} partite su {len(schede)}.")
     except Exception as e:     # noqa: BLE001 - Charlie usa la linea precedente o quella inserita a mano
         print(f"{campionato}: linee ESPN non lette ({e}): restano quelle del giro precedente.")
+    if lega == "nfl":
+        try:
+            tab = json.loads((RADICE / "data" / "charlie_tabelle.json").read_text(encoding="utf-8"))
+            n_dif = DC.calcola(schede, righe_giocatori_nfl(stagione), tab)
+            print(f"NFL: Charlie, difensori (sack, intercetti, placcaggi) per {n_dif} partite.")
+        except Exception as e:     # noqa: BLE001 - la sezione Difesa resta quella del giro precedente
+            print(f"NFL: difensori di Charlie non calcolati ({e}): resta il calcolo precedente.")
     n_ass = sum(1 for sc in vicine for k in ("assenzeCasa", "assenzeOspite") if sc.get(k))
     print(f"{campionato}: contesto aggiornato per {len(vicine)} partite (assenze per {n_ass} squadre, "
           f"meteo {sum(1 for sc in vicine if sc.get('meteo'))}).")

@@ -582,7 +582,7 @@ function disegna(){
    Il modello della scheda Matchup NON entra: contro la linea di chiusura non aggiunge informazione.
    Nessun salvataggio nel browser: la lista vive finché la pagina è aperta, il registro lo tiene il bot. */
 let VISTA_CHARLIE = false;
-const CH = {modo: "partite", lista: [], ultimo: null, seq: 0};
+const CH = {modo: "partite", parte: "attacco", lista: [], ultimo: null, seq: 0};
 const LIBRI = [["sn","Snai"],["si","Sisal"],["ep","ePlay24"],["pw","Planetwin365"],["lo","Lottomatica"],["b3","Bet365"]];
 const STAT_PROP = [["yardLanciate","Yard lanciate"],["yardCorsa","Yard di corsa"],["yardRicevute","Yard ricevute"],
   ["ricezioni","Ricezioni"],["tentativiCorsa","Tentativi di corsa"],["stessa","Altro (stessa linea di bet365)"]];
@@ -882,8 +882,11 @@ function formGiocatori(){
   const g = P.find(x => idScheda(x) === id), G = (DATI[CAMPIONATO] || {}).giocatoriProp || {};
   const gioc = [...(G[g.ospite] || []).map(x => ({...x, sq: g.ospite})), ...(G[g.casa] || []).map(x => ({...x, sq: g.casa}))];
   const T = tabCharlie();
-  return `<div class="ch-griglia">
-    <label class="largo">Partita<select id="chPartita">${P.map(x => `<option value="${idScheda(x)}" ${idScheda(x) === id ? "selected" : ""}>${esc(nomeP(x))} · ${esc(quando(x))}</option>`).join("")}</select></label>
+  const scelta = `<label class="largo">Partita<select id="chPartita">${P.map(x => `<option value="${idScheda(x)}" ${idScheda(x) === id ? "selected" : ""}>${esc(nomeP(x))} · ${esc(quando(x))}</option>`).join("")}</select></label>`;
+  const parti = CAMPIONATO === "NFL" ? `<div class="ch-modi" style="margin-top:12px"><button data-parte="attacco" class="${CH.parte === "attacco" ? "on" : ""}">Attacco</button><button data-parte="difesa" class="${CH.parte === "difesa" ? "on" : ""}">Difesa</button></div>` : "";
+  if (CAMPIONATO === "NFL" && CH.parte === "difesa") return `${parti}<div class="ch-griglia">${scelta}</div>${formDifesa(g)}`;
+  return `${parti}<div class="ch-griglia">
+    ${scelta}
     <label class="largo">Giocatore<select id="chGioc">${gioc.length ? gioc.map((x, i) => `<option value="${i}">${esc(x.n)} · ${esc(x.r)} · ${esc(squadra(g, x.sq).nome || x.sq)}</option>`).join("") : `<option value="">Nessun giocatore disponibile</option>`}</select></label>
     <label>Statistica<select id="chStat">${STAT_PROP.map(s => `<option value="${s[0]}">${s[1]}${s[0] !== "stessa" && ((T.prop || {})[s[0]] || {}).affidabilita ? " · " + T.prop[s[0]].affidabilita : ""}</option>`).join("")}</select></label>
     <label>Linea bet365.it<input id="chL365" inputmode="decimal" placeholder="es. 54,5"></label>
@@ -955,6 +958,12 @@ function disegnaCharlie(tieni){
     document.getElementById("chMercato").addEventListener("change", latiPartite);
   }
   document.getElementById("chCalcola")?.addEventListener("click", () => CH.modo === "partite" ? calcolaPartite() : calcolaGiocatori());
+  ch.querySelectorAll("[data-parte]").forEach(b => b.addEventListener("click", () => { CH.parte = b.dataset.parte; disegnaCharlie(); }));
+  if (document.getElementById("chDifMercato")) {
+    latiDifesa();
+    document.getElementById("chDifMercato").addEventListener("change", latiDifesa);
+    document.getElementById("chCalcolaDif").addEventListener("click", calcolaDifesa);
+  }
   if (esitoPrima && document.getElementById("chEsito")) { document.getElementById("chEsito").innerHTML = esitoPrima; colleghiRisultato(); }
   ch.querySelectorAll("[data-togli]").forEach(b => b.addEventListener("click", () => { CH.lista = CH.lista.filter(x => String(x.id) !== b.dataset.togli); disegnaCharlie(true); }));
   ch.querySelectorAll("[data-combo]").forEach(b => b.addEventListener("change", () => { const x = CH.lista.find(y => String(y.id) === b.dataset.combo); if (x) x.combo = b.checked; disegnaCharlie(true); }));
@@ -964,6 +973,87 @@ function disegnaCharlie(tieni){
     document.getElementById("chMsgCombo").innerHTML = await registra(c.voci, c.v.puntata, c.v.quota);
   });
 }
+
+/* ---------- Charlie, modalità Giocatori → Difesa (solo NFL, Protocollo 10) ----------
+   Le probabilità le calcola il sito a ogni aggiornamento (sack, intercetti, placcaggi attesi); qui si confrontano
+   con la quota bet365, l'unico che quota i difensori. «Prima → adesso» quando una notizia ha spostato il numero. */
+const MERCATI_DIF = [["sk", "Realizza un sack (anche mezzo)"], ["in", "Intercetto"], ["tk", "Placcaggi + assist"],
+  ["ts", "Placcaggi da solo"], ["ta", "Assist"]];
+function giocDifesa(g){
+  const D = g.difesa || {};
+  return [g.ospite, g.casa].flatMap(sq => ((D[sq] || {}).giocatori || []).map(x => ({...x, sq})));
+}
+function cellaVar(p, prima){
+  const ora = pc(p, 0);
+  return prima !== undefined && prima !== null ? `<span class="sotto">${pc(prima, 0)} →</span> <b>${ora}</b>` : ora;
+}
+function formDifesa(g){
+  const D = g.difesa || {};
+  if (!Object.keys(D).length) return `<div class="vuoto">Per questa partita i difensori non sono ancora calcolati (servono almeno 2 partite giocate da ogni squadra).</div>`;
+  const tabella = sq => {
+    const d = D[sq]; if (!d) return "";
+    const v = d.giocatori.find(x => x.motivo);
+    return `<div class="titolo">Difesa ${esc(squadra(g, sq).nome || sq)} <span class="sotto" style="text-transform:none;letter-spacing:0">· sack attesi della squadra ${num(d.sackAttesi, 1)}</span></div>
+      ${v ? `<div class="ch-rif">📈 Numeri cambiati: ${esc(v.motivo)}</div>` : ""}
+      <table><tr><th style="text-align:left">Difensore</th><th>Sack</th><th>Quota giusta</th><th>Intercetto</th><th>Placcaggi attesi</th></tr>
+      ${d.giocatori.map(x => `<tr><td style="text-align:left">${esc(x.n)} <span class="sotto">${esc(x.r)}${x.dubbio ? " · in dubbio" : ""}</span></td>
+        <td>${cellaVar(x.sack, x.sackPrima)}</td><td>${x.sack >= 0.02 ? num(1 / x.sack, 2) : "—"}</td>
+        <td>${cellaVar(x.int, x.intPrima)}</td><td>${num(x.tk, 1)}</td></tr>`).join("")}</table>`;
+  };
+  const gioc = giocDifesa(g);
+  return `${tabella(g.ospite)}${tabella(g.casa)}
+    <div class="sotto" style="margin-top:6px">Sack: almeno 0,5 (regola bet365). Calcolo del duello: ritmo dell'attacco e della difesa, andamento atteso dalla linea americana, quota del giocatore. Intercetti ×1,28 se il QB titolare avversario è fuori. Assenze della linea offensiva: nessun effetto misurabile sui sack. Se il giocatore non gioca, bet365 annulla la giocata.</div>
+    <div class="titolo">Confronta con bet365</div>
+    <div class="ch-griglia">
+      <label class="largo">Difensore<select id="chDif">${gioc.map((x, i) => `<option value="${i}">${esc(x.n)} · ${esc(x.r)} · ${esc(squadra(g, x.sq).nome || x.sq)}</option>`).join("")}</select></label>
+      <label>Mercato<select id="chDifMercato">${MERCATI_DIF.map(m => `<option value="${m[0]}">${m[1]}</option>`).join("")}</select></label>
+      <label>Giocata<select id="chDifLato"></select></label>
+      <label id="chDifLineaL">Linea bet365<input id="chDifLinea" inputmode="decimal" placeholder="es. 5,5"></label>
+      <label>Quota bet365<input id="chDifQuota" inputmode="decimal" placeholder="es. 2,75"></label>
+      <label>Puntata € (facoltativa)<input id="chDifPuntata" inputmode="decimal"></label>
+    </div>
+    <div class="ch-azioni"><button id="chCalcolaDif" class="on">Calcola</button></div><div id="chEsito"></div>`;
+}
+function latiDifesa(){
+  const m = document.getElementById("chDifMercato").value, si = m === "sk" || m === "in";
+  document.getElementById("chDifLato").innerHTML = si ? `<option value="s">Sì</option>` : `<option value="o">Over</option><option value="u">Under</option>`;
+  document.getElementById("chDifLineaL").style.display = si ? "none" : "";
+}
+function calcolaDifesa(){
+  const g = partiteCharlie().find(x => idScheda(x) === CH.partita), out = document.getElementById("chEsito");
+  const x = giocDifesa(g)[Number(document.getElementById("chDif").value)];
+  const m = document.getElementById("chDifMercato").value, lato = document.getElementById("chDifLato").value;
+  const quota = numero(document.getElementById("chDifQuota").value);
+  if (!x || !quota || quota <= 1) { out.innerHTML = `<div class="errore">Scegli il difensore e inserisci la quota bet365.</div>`; return; }
+  const T = ((tabCharlie() || {}).difesa) || {};
+  let p, larg, linea = 0, testo;
+  if (m === "sk" || m === "in") {
+    p = m === "sk" ? x.sack : x.int;
+    larg = m === "sk" ? Math.max(0.03, p * 0.12) : Math.max(0.015, p * 0.15);
+    testo = `${x.n} ${m === "sk" ? "realizza un sack" : "intercetto"} · ${nomeP(g)}`;
+  } else {
+    linea = numero(document.getElementById("chDifLinea").value);
+    if (linea === null) { out.innerHTML = `<div class="errore">Inserisci la linea dei placcaggi.</div>`; return; }
+    const tipo = {tk: "totali", ts: "solo", ta: "assist"}[m], atteso = {tk: x.tk, ts: x.so, ta: x.as}[m];
+    const f = (T.placcaggi || {})[tipo];
+    if (!f || !atteso) { out.innerHTML = `<div class="errore">Per questo giocatore non c'è un atteso dei placcaggi.</div>`; return; }
+    const q = f.rapporti[Math.min(f.rapporti.length - 1, fasciaDi(f.fasce, atteso))];
+    const pOver = 1 - cdfQ(q, linea / atteso);
+    p = lato === "o" ? pOver : 1 - pOver;
+    larg = 0.035;
+    testo = `${x.n} ${lato === "o" ? "over" : "under"} ${num(linea, 1)} ${(MERCATI_DIF.find(z => z[0] === m) || ["", ""])[1].toLowerCase()} (attesi ${num(atteso, 1)}) · ${nomeP(g)}`;
+  }
+  const r = {p, pLo: Math.max(0.005, p - larg), pHi: Math.min(0.99, p + larg), aff: "B",
+             usati: [x.motivo ? "numeri cambiati: " + x.motivo : "", x.dubbio ? "in dubbio: se non gioca bet365 annulla la giocata" : "",
+                     "probabilità del duello (Protocollo 10), tarata sullo storico; il confronto con bet365 lo dirà il registro"].filter(Boolean)};
+  const v = valuta(r, quota, numero(document.getElementById("chDifPuntata").value));
+  const codice = ["P", "N", (g.mercato || {}).espnId || "0", x.id, m, lato, codNum(linea, 10), codNum(quota, 100), "b3",
+    codNum(v.puntata || 0, 100), codNum(v.p, 1000), "0"].join("_");
+  CH.ultimo = {id: ++CH.seq, breve: testo, v, libro: "b3", partita: idScheda(g), codice};
+  out.innerHTML = cartaRisultato(v, testo);
+  colleghiRisultato();
+}
+
 document.getElementById("vistaCharlie").addEventListener("click", () => { VISTA_CHARLIE = !VISTA_CHARLIE; disegna(); scrollTo({top: 0}); });
 </script>
 </body>
