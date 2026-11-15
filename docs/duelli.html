@@ -637,13 +637,35 @@ function segnaliPartita(g){
       const titolareQB = rt !== "QB" || peso >= (CAMPIONATO === "College" ? 4 : 3);
       const principale = !(CAMPIONATO === "College" && rt === "WR") || peso >= 4;
       out.push({tipo: "assenza", id: `a${out.length}`, sq, nome: x.nome, ruolo: x.ruolo, stato: x.statoIt || x.stato,
-                misura: m && titolareQB && principale ? m : null, rt});
+                misura: m && titolareQB && principale ? m : null, rt, data: x.data || ""});
     }
   }
   const e = ((g.meteo || {}).effetto) || {};
   if (e.avviso && e.punti) out.push({tipo: "vento", id: "vento", punti: e.punti, testo: e.testo,
                                      aff: CAMPIONATO === "NFL" ? "B" : "C"});
   return out;
+}
+
+/* Movimento della linea dall'apertura (ESPN, stessa richiesta della linea attuale) e cosa suggerisce per
+   un'assenza: se la linea è ferma e la notizia è di questa settimana, probabilmente non è ancora nel prezzo. */
+function movimentoLinea(g){
+  const mk = g.mercato || {}, ap = mk.apertura || {};
+  if (ap.margineCasa === null || ap.margineCasa === undefined || mk.margineCasa === null || mk.margineCasa === undefined) return null;
+  return {dm: mk.margineCasa - ap.margineCasa, dt: (ap.totale ?? null) !== null && mk.totale !== null && mk.totale !== undefined ? mk.totale - ap.totale : null, ap};
+}
+function consiglioAssenza(g, s){
+  const mv = movimentoLinea(g);
+  if (!mv || !s.misura) return {testo: "", spunta: false};
+  const casa = s.sq === g.casa, avv = squadra(g, casa ? g.ospite : g.casa).nome || (casa ? g.ospite : g.casa);
+  const verso = casa ? -mv.dm : mv.dm;          // > 0: la linea si è mossa contro la squadra dell'assente
+  const inizio = g.inizioUtc ? new Date(g.inizioUtc) : null;
+  const recente = s.data && inizio ? (inizio - new Date(s.data + "T12:00:00Z")) / 864e5 <= 6 : false;
+  if (Math.abs(mv.dm) < 0.5) return {spunta: recente, testo: recente
+    ? "Dall'apertura la linea è ferma e la notizia è di questa settimana: probabilmente non è ancora nel prezzo (spuntata, controlla)."
+    : "Dall'apertura la linea è ferma, ma la notizia non è di questa settimana: può essere già nel prezzo d'apertura."};
+  if (verso >= s.misura.spread / 2) return {spunta: false,
+    testo: `Dall'apertura la linea si è già mossa di ${num(Math.abs(mv.dm), 1)} verso ${avv}: probabilmente la notizia è già dentro.`};
+  return {spunta: false, testo: `Dall'apertura la linea si è mossa di ${num(Math.abs(mv.dm), 1)} ${verso > 0 ? "verso " + avv + ", meno della misura" : "nell'altro verso"}: decidi tu.`};
 }
 
 /* ---------- modalità Partite ---------- */
@@ -714,6 +736,7 @@ function probProp(inp){
   let p0, aff = "A", note = [], incert = [];
   if (inp.qOver && inp.qUnder) p0 = (1 / inp.qOver) / (1 / inp.qOver + 1 / inp.qUnder);
   else if (inp.qOver) { p0 = 1 / (inp.qOver * (1 + T.margineBet365Prop)); aff = "B"; incert.push(0.02); note.push("una sola quota bet365: margine stimato al " + num(T.margineBet365Prop * 100) + "%"); }
+  else if (inp.rifUSA) { p0 = 0.5; aff = "B"; incert.push(0.02); note.push(`riferimento ${inp.rifUSA} (linea americana principale da ESPN, senza quote): 50% alla linea`); }
   else return {errore: "Inserisci almeno la quota over di bet365."};
   let pOver = p0;
   if (inp.linea !== inp.linea365) {
@@ -828,7 +851,7 @@ function formPartite(){
     <label>Margine atteso di ${esc(nc)} (mercato USA)<input id="chMargine" inputmode="decimal" value="${mk.margineCasa ?? ""}"></label>
     <label>Totale (mercato USA)<input id="chTotale" inputmode="decimal" value="${mk.totale ?? ""}"></label>
   </div>
-  <div class="ch-rif">${mk.totale !== undefined && mk.totale !== null ? `Linea americana: <b>${esc(mk.margineCasa > 0 ? nc + " −" + num(mk.margineCasa, 1) : mk.margineCasa < 0 ? no + " −" + num(-mk.margineCasa, 1) : "pari")}</b>, totale <b>${num(mk.totale, 1)}</b>${mk.fonte ? " · " + esc(mk.fonte) : ""}${ora ? " · letta " + esc(ora) : ""}. Se si è mossa, correggila qui sopra.` : "Linea americana non disponibile: inseriscila tu (margine atteso della squadra di casa, positivo se è favorita, e totale)."}</div>
+  <div class="ch-rif">${mk.totale !== undefined && mk.totale !== null ? `Linea americana: <b>${esc(mk.margineCasa > 0 ? nc + " −" + num(mk.margineCasa, 1) : mk.margineCasa < 0 ? no + " −" + num(-mk.margineCasa, 1) : "pari")}</b>, totale <b>${num(mk.totale, 1)}</b>${mk.fonte ? " · " + esc(mk.fonte) : ""}${ora ? " · letta " + esc(ora) : ""}.${(() => { const mv = movimentoLinea(g); if (!mv) return ""; const a = mv.ap.margineCasa; return ` Apertura: ${esc(a > 0 ? nc + " −" + num(a, 1) : a < 0 ? no + " −" + num(-a, 1) : "pari")}${mv.ap.totale !== null && mv.ap.totale !== undefined ? ", totale " + num(mv.ap.totale, 1) : ""} (${Math.abs(mv.dm) < 0.5 ? "spread fermo" : "spread mosso di " + num(Math.abs(mv.dm), 1) + " verso " + esc(mv.dm > 0 ? nc : no)}${mv.dt !== null && Math.abs(mv.dt) >= 0.5 ? ", totale " + segno(mv.dt, 1) : ""}).`; })()} Se si è mossa, correggila qui sopra.` : "Linea americana non disponibile: inseriscila tu (margine atteso della squadra di casa, positivo se è favorita, e totale)."}</div>
   <div class="ch-griglia">
     <label>Mercato<select id="chMercato"><option value="spread">Spread (handicap)</option><option value="totale">Totale partita</option><option value="squadra">Totale di una squadra</option></select></label>
     <label>Giocata<select id="chLato"></select></label>
@@ -840,7 +863,7 @@ function formPartite(){
   ${sg.length ? `<div class="titolo">Segnali di questa partita</div><ul class="ch-segnali">${sg.map(s => s.tipo === "vento"
     ? `<li><input type="checkbox" id="chs-${s.id}"><label for="chs-${s.id}">🌬️ ${esc(s.testo)} <span class="aff ${s.aff}">${s.aff}</span><div class="sotto">Spunta per spostare il totale di ${segno(s.punti, 1)} punti.</div></label></li>`
     : `<li><div style="flex:1"><b>${esc(s.nome)}</b> (${esc(s.ruolo)}, ${esc(s.sq)}) ${esc(s.stato)}${s.misura ? ` · di solito la linea si sposta di ${num(s.misura.spread, 1)} sullo spread <span class="aff ${s.misura.affidabilita}">${s.misura.affidabilita}</span>` : ` · <span class="sotto">${s.rt === "QB" ? "QB non titolare" : "effetto non misurato o sotto mezzo punto"}</span>`}
-      ${s.misura ? `<div><label style="font-size:13px"><input type="checkbox" id="chm-${s.id}"> la linea americana non si è ancora mossa</label>
+      ${s.misura ? `<div>${(c => c.testo ? `<div class="sotto">${esc(c.testo)}</div>` : "")(consiglioAssenza(g, s))}<label style="font-size:13px"><input type="checkbox" id="chm-${s.id}" ${consiglioAssenza(g, s).spunta ? "checked" : ""}> la linea americana non si è ancora mossa</label>
       ${s.misura.indizio ? `<br><label style="font-size:13px"><input type="checkbox" id="chf-${s.id}"> notizia fresca (aveva giocato la partita prima): indizio</label>` : ""}</div>` : ""}</div></li>`).join("")}</ul>` : ""}
   <div class="ch-azioni"><button id="chCalcola" class="on">Calcola</button></div><div id="chEsito"></div>`;
 }
@@ -889,6 +912,7 @@ function formGiocatori(){
     ${scelta}
     <label class="largo">Giocatore<select id="chGioc">${gioc.length ? gioc.map((x, i) => `<option value="${i}">${esc(x.n)} · ${esc(x.r)} · ${esc(squadra(g, x.sq).nome || x.sq)}</option>`).join("") : `<option value="">Nessun giocatore disponibile</option>`}</select></label>
     <label>Statistica<select id="chStat">${STAT_PROP.map(s => `<option value="${s[0]}">${s[1]}${s[0] !== "stessa" && ((T.prop || {})[s[0]] || {}).affidabilita ? " · " + T.prop[s[0]].affidabilita : ""}</option>`).join("")}</select></label>
+    <div class="ch-rif largo" id="chUSA" style="grid-column:1/-1"></div>
     <label>Linea bet365.it<input id="chL365" inputmode="decimal" placeholder="es. 54,5"></label>
     <label>Quota over bet365.it<input id="chQo" inputmode="decimal" placeholder="es. 1,83"></label>
     <label>Quota under bet365.it<input id="chQu" inputmode="decimal" placeholder="es. 1,90"></label>
@@ -901,6 +925,22 @@ function formGiocatori(){
   ${Object.keys(T.indiziProp || {}).length ? `<ul class="ch-segnali">${Object.entries(T.indiziProp).map(([k, x]) => `<li><input type="checkbox" id="chi-${k}"><label for="chi-${k}">${esc(x.nota)} <span class="aff B">B</span><div class="sotto">Vale solo per ${esc((STAT_PROP.find(s => s[0] === k) || [k, k])[1].toLowerCase())}: spunta per applicarlo.</div></label></li>`).join("")}</ul>` : ""}
   <div class="ch-azioni"><button id="chCalcola" class="on">Calcola</button></div><div id="chEsito"></div>`;
 }
+/* Linea americana principale della prop (ESPN, di solito DraftKings): riferimento se bet365 non è inserito. */
+function lineaUSA(g, chi, stat){
+  const u = g && g.propUSA, x = u && chi && ((u.linee || {})[chi.id] || {})[stat];
+  return x ? {...x, fonte: u.fonte || "mercato USA", ora: u.ora} : null;
+}
+function mostraUSA(){
+  const box = document.getElementById("chUSA"); if (!box) return;
+  const g = partiteCharlie().find(x => idScheda(x) === CH.partita);
+  const G = (DATI[CAMPIONATO] || {}).giocatoriProp || {};
+  const gioc = g ? [...(G[g.ospite] || []), ...(G[g.casa] || [])] : [];
+  const chi = gioc[Number(document.getElementById("chGioc")?.value)], stat = document.getElementById("chStat")?.value;
+  const u = lineaUSA(g, chi, stat);
+  const ora = u && u.ora ? new Date(u.ora).toLocaleString("it-IT", {weekday:"short", hour:"2-digit", minute:"2-digit"}) : "";
+  box.innerHTML = u ? `Linea americana (${esc(u.fonte)}): <b>${num(u.l, 1)}</b>${u.ap !== null && u.ap !== undefined ? ` · apertura ${num(u.ap, 1)}${u.ap !== u.l ? ` (mossa ${segno(u.l - u.ap, 1)})` : " (ferma)"}` : ""}${ora ? " · letta " + esc(ora) : ""}. Se lasci vuoti i campi bet365, Charlie parte da questa (50% alla linea, affidabilità B).`
+    : (g && g.propUSA ? "Linea americana non pubblicata per questo giocatore e statistica: serve bet365." : "Linee americane delle prop non ancora lette per questa partita: serve bet365.");
+}
 function calcolaGiocatori(){
   const g = partiteCharlie().find(x => idScheda(x) === CH.partita), out = document.getElementById("chEsito");
   const G = (DATI[CAMPIONATO] || {}).giocatoriProp || {};
@@ -910,9 +950,11 @@ function calcolaGiocatori(){
   const l365 = numero(document.getElementById("chL365").value), qo = numero(document.getElementById("chQo").value), qu = numero(document.getElementById("chQu").value);
   const linea = numero(document.getElementById("chLineaP").value), quota = numero(document.getElementById("chQuotaP").value);
   if (!chi) { out.innerHTML = `<div class="errore">Scegli il giocatore.</div>`; return; }
-  if (l365 === null || !qo) { out.innerHTML = `<div class="errore">Inserisci linea e quota over di bet365.it (meglio anche l'under).</div>`; return; }
+  const usa = (l365 === null && !qo) ? lineaUSA(g, chi, stat) : null;
+  if (!usa && (l365 === null || !qo)) { out.innerHTML = `<div class="errore">Inserisci linea e quota over di bet365.it (meglio anche l'under): la linea americana per questa prop non c'è.</div>`; return; }
   if (linea === null || !quota || quota <= 1) { out.innerHTML = `<div class="errore">Inserisci la linea e la quota del tuo bookmaker.</div>`; return; }
-  const r = probProp({stat, linea365: l365, qOver: qo, qUnder: qu, linea, lato: document.getElementById("chLatoP").value,
+  const rif = usa ? usa.l : l365;
+  const r = probProp({stat, linea365: rif, qOver: usa ? null : qo, qUnder: usa ? null : qu, rifUSA: usa ? usa.fonte : null, linea, lato: document.getElementById("chLatoP").value,
                       indizio: !!document.getElementById("chi-" + stat)?.checked});
   if (r.errore) { out.innerHTML = `<div class="errore">${esc(r.errore)}</div>`; return; }
   const v = valuta(r, quota, numero(document.getElementById("chPuntataP").value));
@@ -920,7 +962,7 @@ function calcolaGiocatori(){
   const breve = `${chi.n} ${lato} ${num(linea, 1)} ${(STAT_PROP.find(s => s[0] === stat) || ["", stat])[1].toLowerCase()} · ${nomeP(g)}`;
   const libro = document.getElementById("chLibroP").value;
   const codice = ["P", CAMPIONATO === "NFL" ? "N" : "C", (g.mercato || {}).espnId || "0", chi.id, CODICE_STAT[stat], lato[0],
-    codNum(linea, 10), codNum(quota, 100), libro, codNum(v.puntata || 0, 100), codNum(v.p, 1000), codNum(l365, 10)].join("_");
+    codNum(linea, 10), codNum(quota, 100), libro, codNum(v.puntata || 0, 100), codNum(v.p, 1000), codNum(rif, 10)].join("_");
   CH.ultimo = {id: ++CH.seq, breve, v, libro, partita: idScheda(g), codice};
   out.innerHTML = cartaRisultato(v, breve);
   colleghiRisultato();
@@ -948,7 +990,7 @@ function disegnaCharlie(tieni){
     <div id="chLista">${disegnaLista()}</div>
     <details><summary>Come ragiona Charlie</summary><div class="sotto" style="margin-top:6px">
       Il prezzo giusto parte dalla linea del mercato americano, il più efficiente: la probabilità di qualunque linea (anche spostata) viene dagli scarti tra risultato e linea su ${CAMPIONATO === "NFL" ? "1.960" : "8.036"} partite 2019-2025. Le assenze spostano il prezzo solo con le misure fatte contro la linea di chiusura; gli «indizi» sono segnali non ancora confermati. Il punteggio atteso della scheda Matchup qui non entra: contro la linea non aggiunge informazione.
-      Per le prop il riferimento è bet365.it senza margine; per una linea diversa conta la forma della statistica (yard ricevute, di corsa, ricezioni, tentativi: affidabilità A; yard lanciate e college: C).
+      Per le prop il riferimento è bet365.it senza margine; se lasci vuoti i campi bet365 si usa la linea americana principale letta da ESPN (al 50%, affidabilità B); per una linea diversa conta la forma della statistica (yard ricevute, di corsa, ricezioni, tentativi: affidabilità A; yard lanciate e college: C).
       Valore pessimistico = con la probabilità al limite basso dell'intervallo. Affidabilità: A errore tipico sotto 3 punti %, B sotto 5, C oltre o con indizi. ${esc(T.fonte || "")}</div></details>`;
   ch.querySelectorAll("[data-modo]").forEach(b => b.addEventListener("click", () => { CH.modo = b.dataset.modo; disegnaCharlie(); }));
   const sp = document.getElementById("chPartita");
@@ -956,6 +998,10 @@ function disegnaCharlie(tieni){
   if (CH.modo === "partite" && document.getElementById("chMercato")) {
     latiPartite();
     document.getElementById("chMercato").addEventListener("change", latiPartite);
+  }
+  if (document.getElementById("chUSA")) {
+    mostraUSA();
+    ["chGioc", "chStat"].forEach(i => document.getElementById(i)?.addEventListener("change", mostraUSA));
   }
   document.getElementById("chCalcola")?.addEventListener("click", () => CH.modo === "partite" ? calcolaPartite() : calcolaGiocatori());
   ch.querySelectorAll("[data-parte]").forEach(b => b.addEventListener("click", () => { CH.parte = b.dataset.parte; disegnaCharlie(); }));

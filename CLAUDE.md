@@ -94,6 +94,14 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   (`data/charlie_tabelle.json`, Protocollo 8). Il punteggio atteso della scheda Matchup NON entra: contro la linea
   di chiusura non aggiunge informazione. Assenze solo con i numeri del Protocollo 7 (spostamento della linea se non
   si è ancora mossa; indizi QB fresco e ricevitore college), vento solo con l'effetto misurato.
+- Linea d'apertura (dal 15/11/2026): dalla stessa voce ESPN (pointSpread.home.open.line, total.over.open.line),
+  nessuna chiamata in più. Charlie mostra apertura → ora e, per ogni assenza, se la notizia è probabilmente già nel
+  prezzo; spunta da sola «linea non ancora mossa» solo con linea ferma e notizia della settimana (Valerio controlla).
+- Prop americane (dal 15/11/2026): `mercato.prop_usa` legge da ESPN («propBets» della casa della linea, di solito
+  DraftKings; 1-2 richieste per partita, gratis) la linea principale di yard lanciate/corsa/ricevute, ricezioni e
+  tentativi, con l'apertura; id ESPN → gsis da players.csv di nflverse. Principale = la linea presente due volte
+  (over e under); con le quote (ESPN BET 2023-25) quella più vicina alla parità. Se i campi bet365 sono vuoti
+  Charlie usa questa al 50% (affidabilità B). Niente prop dei difensori su ESPN. Lo storico 2025 ha anche le quote.
 - Giocatori: riferimento bet365.it (linea e quote over/under inserite a mano, senza margine) e forma della
   statistica per spostarsi alla linea italiana (Protocollo 9: affidabilità A yard ricevute, di corsa, ricezioni,
   tentativi di corsa; C yard lanciate e college). Indizio: under yard di corsa NFL. Elenco giocatori in

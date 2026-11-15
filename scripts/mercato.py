@@ -1,6 +1,9 @@
 """Linee del mercato americano per Charlie: spread e totale di ogni partita dalla lista partite di ESPN
 (DraftKings di solito), gratis e senza chiave, una richiesta per campionato a ogni giro.
 
+Dalla stessa voce si legge anche la linea d'apertura (dal 15/11/2026): Charlie mostra di quanto si è mossa
+la linea e suggerisce se una notizia è già dentro la quota.
+
 Il «prezzo giusto» di Charlie parte da qui: la linea americana è la più efficiente (Protocollo 8), e la
 probabilità di qualunque linea si ricava dagli scarti misurati sullo storico 2019-2025.
 Solo libreria standard.
@@ -60,8 +63,37 @@ def leggi_quota(odds: list, sigla_casa: str, sigla_ospite: str) -> dict | None:
         except (TypeError, ValueError):
             tot = None
         if margine is not None or tot is not None:
-            return {"margineCasa": margine, "totale": tot, "fonte": prov or "ESPN"}
+            out = {"margineCasa": margine, "totale": tot, "fonte": prov or "ESPN"}
+            if (o.get("provider") or {}).get("id"):
+                out["casa"] = str(o["provider"]["id"])
+            ap = apertura(o)
+            if ap:
+                out["apertura"] = ap
+            return out
     return None
+
+
+def _numero_linea(v) -> float | None:
+    """«-1.5», «+2.5», «o48.5», «u48.5», «PK» → numero (None se non si legge)."""
+    t = str(v or "").strip().lower().lstrip("ou")
+    if t in ("pk", "pick", "even", "ev"):
+        return 0.0
+    try:
+        return float(t)
+    except ValueError:
+        return None
+
+
+def apertura(o: dict) -> dict | None:
+    """Linea d'apertura dalla voce «odds» della lista partite ESPN (stessa richiesta, nessuna chiamata in più):
+    pointSpread.home.open.line («-1.5»: negativo = casa favorita) e total.over.open.line («o48.5»).
+    {margineCasa, totale} con le stesse convenzioni della linea attuale; None se ESPN non la dà."""
+    ps = ((o.get("pointSpread") or {}).get("home") or {}).get("open") or {}
+    tt = ((o.get("total") or {}).get("over") or {}).get("open") or {}
+    m, t = _numero_linea(ps.get("line")), _numero_linea(tt.get("line"))
+    if m is None and t is None:
+        return None
+    return {"margineCasa": None if m is None else -m, "totale": t}
 
 
 def _combacia(lega: str, team: dict, nome: str) -> int:
@@ -117,6 +149,87 @@ def linee(lega: str, schede: list) -> int:
             nuovo.update(q, ora=ora)
             trovate += 1
         elif vecchio.get("totale") is not None or vecchio.get("margineCasa") is not None:
-            nuovo.update({k: vecchio.get(k) for k in ("margineCasa", "totale", "fonte", "ora")})
+            nuovo.update({k: vecchio.get(k) for k in ("margineCasa", "totale", "fonte", "ora", "apertura", "casa") if k in vecchio})
         sc["mercato"] = nuovo
     return trovate
+
+
+# ---------------------------------------------------------------- prop dei giocatori (dal 15/11/2026)
+CORE = {"NFL": "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl",
+        "College": "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football"}
+# tipi ESPN delle prop → statistiche di Charlie (stessi nomi di STAT_PROP nella pagina)
+TIPI_PROP = {"8": "yardLanciate", "12": "yardCorsa", "13": "yardRicevute", "14": "ricezioni", "11": "tentativiCorsa"}
+
+
+def linea_principale(voci: list) -> dict | None:
+    """Tra le voci di un giocatore per una statistica sceglie la linea principale. ESPN mette la principale due
+    volte (over e under) e le linee alternative una volta sola, a scaletta; quando ci sono le quote (ESPN BET,
+    2023-2025) la principale è quella con le quote più vicine alla parità. {l, ap} oppure None."""
+    con_quote = []
+    for v in voci:
+        cur = v.get("current") or {}
+        q = cur.get("over") or cur.get("under")
+        if q and q.get("decimal"):
+            con_quote.append((abs(float(q["decimal"]) - 1.91), v))
+    if con_quote:
+        v = min(con_quote, key=lambda t: t[0])[1]
+    else:
+        conta = {}
+        for v in voci:
+            x = ((v.get("current") or {}).get("target") or {}).get("value")
+            if x is not None:
+                conta.setdefault(float(x), []).append(v)
+        doppie = [(x, vv) for x, vv in conta.items() if len(vv) == 2]
+        if len(doppie) != 1:          # nessuna coppia o più coppie: non si sa quale sia la principale
+            return None
+        v = doppie[0][1][0]
+    l = ((v.get("current") or {}).get("target") or {}).get("value")
+    ap = ((v.get("open") or {}).get("target") or {}).get("value")
+    if l is None:
+        return None
+    return {"l": float(l), "ap": None if ap is None else float(ap)}
+
+
+def prop_usa(lega: str, schede: list, traduci: dict | None = None) -> int:
+    """Linee principali del mercato americano (la casa della linea di partita, di solito DraftKings) per le prop
+    dei giocatori, dalla pagina «propBets» di ESPN: gratis, 1-2 richieste per partita. Scrive
+    sc["propUSA"] = {ora, fonte, linee: {id giocatore: {statistica: {l, ap}}}}; l'id è quello di giocatoriProp
+    (gsis per l'NFL, tradotto da «traduci» = {id ESPN: gsis}; ESPN per il college). Restituisce le partite lette.
+    Se ESPN non risponde la scheda tiene le linee del giro precedente."""
+    ora = datetime.now(timezone.utc).isoformat(timespec="minutes")
+    lette = 0
+    for sc in schede:
+        mk = sc.get("mercato") or {}
+        eid = mk.get("espnId")
+        if not eid:
+            continue
+        casa = mk.get("casa") or "100"
+        voci, pagina, pagine = [], 1, 1
+        try:
+            while pagina <= pagine and pagina <= 4:
+                d = _json(f"{CORE[lega]}/events/{eid}/competitions/{eid}/odds/{casa}/propBets?limit=1000&page={pagina}")
+                voci += d.get("items") or []
+                pagine = int(d.get("pageCount") or 1)
+                pagina += 1
+        except Exception as e:     # noqa: BLE001 - una partita che non risponde non ferma le altre
+            print(f"{lega}: prop ESPN non lette per {sc.get('ospite')} @ {sc.get('casa')} ({e})")
+            continue
+        gruppi = {}
+        for v in voci:
+            stat = TIPI_PROP.get(str((v.get("type") or {}).get("id")))
+            rif = (v.get("athlete") or {}).get("$ref") or ""
+            m = re.search(r"/athletes/(\d+)", rif)
+            if stat and m:
+                gruppi.setdefault((m.group(1), stat), []).append(v)
+        linee = {}
+        for (aid, stat), vv in gruppi.items():
+            pid = (traduci or {}).get(aid, aid) if lega == "NFL" else aid
+            if lega == "NFL" and traduci is not None and aid not in traduci:
+                continue
+            lp = linea_principale(vv)
+            if lp:
+                linee.setdefault(pid, {})[stat] = lp
+        if linee:
+            sc["propUSA"] = {"ora": ora, "fonte": mk.get("fonte") or "ESPN", "linee": linee}
+            lette += 1
+    return lette

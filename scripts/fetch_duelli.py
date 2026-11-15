@@ -508,6 +508,21 @@ def righe_giocatori_nfl(stagione: int) -> list:
     return _RIGHE_NFL[stagione]
 
 
+_ESPN_GSIS: dict = {}
+
+
+def espn_a_gsis() -> dict:
+    """{id ESPN: gsis} dai giocatori nflverse (players.csv), per collegare le prop ESPN ai giocatori di Charlie.
+    Scaricato una volta per esecuzione."""
+    if not _ESPN_GSIS:
+        url = "https://github.com/nflverse/nflverse-data/releases/download/players/players.csv"
+        for r in csv.DictReader(io.StringIO(C._get(url, 120))):
+            e, g = (r.get("espn_id") or "").strip(), (r.get("gsis_id") or "").strip()
+            if e and g and e != "NA" and g != "NA":
+                _ESPN_GSIS[e.split(".")[0]] = g
+    return _ESPN_GSIS
+
+
 GIOCATORI_PER_SQUADRA = 12
 
 
@@ -659,6 +674,12 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
         print(f"{campionato}: linee del mercato americano (ESPN) per {n_linee} partite su {len(schede)}.")
     except Exception as e:     # noqa: BLE001 - Charlie usa la linea precedente o quella inserita a mano
         print(f"{campionato}: linee ESPN non lette ({e}): restano quelle del giro precedente.")
+    try:
+        traduci = espn_a_gsis() if lega == "nfl" else None
+        n_prop = MK.prop_usa(campionato, vicine, traduci)
+        print(f"{campionato}: linee americane delle prop (ESPN) per {n_prop} partite su {len(vicine)}.")
+    except Exception as e:     # noqa: BLE001 - Charlie usa le linee del giro precedente o quelle inserite a mano
+        print(f"{campionato}: prop ESPN non lette ({e}): restano quelle del giro precedente.")
     if lega == "nfl":
         try:
             tab = json.loads((RADICE / "data" / "charlie_tabelle.json").read_text(encoding="utf-8"))
