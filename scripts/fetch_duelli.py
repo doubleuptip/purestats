@@ -46,6 +46,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import reparti as RP  # noqa: E402
 import contesto as C  # noqa: E402
+import mercato as MK  # noqa: E402
 
 RADICE = Path(__file__).resolve().parent.parent
 LEGHE = {"nfl": "NFL", "college": "College"}
@@ -495,11 +496,92 @@ def _assenze_brevi(d: dict | None) -> dict | None:
             "altri": max(0, len(gio) - ASSENTI_MOSTRATI)}
 
 
+_RIGHE_NFL: dict = {}
+
+
+def righe_giocatori_nfl(stagione: int) -> list:
+    """Statistiche settimanali nflverse della stagione, scaricate una volta per esecuzione."""
+    if stagione not in _RIGHE_NFL:
+        url = f"https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_{stagione}.csv"
+        _RIGHE_NFL[stagione] = list(csv.DictReader(io.StringIO(C._get(url, 120))))
+    return _RIGHE_NFL[stagione]
+
+
+GIOCATORI_PER_SQUADRA = 12
+
+
+def giocatori_prop(lega: str, stagione: int, squadre: set) -> dict:
+    """Charlie, modalità Giocatori: chi si può scegliere per ogni squadra (QB, corridori, ricevitori), con l'id
+    che serve al bot per controllare il risultato (gsis nflverse per l'NFL, id ESPN per il college).
+    {squadra: [{n: nome, id, r: ruolo, g: partite}]}, i più coinvolti per primi."""
+    uso = defaultdict(lambda: {"n": "", "r": "", "g": 0, "u": 0.0, "sq": ""})
+    if lega == "nfl":
+        for r in righe_giocatori_nfl(stagione):
+            if r.get("season_type") != "REG" or r.get("position") not in ("QB", "RB", "FB", "WR", "TE"):
+                continue
+            x = uso[r["player_id"]]
+            x["n"], x["r"], x["sq"] = r.get("player_display_name") or "", r.get("position") or "", r["team"]
+            x["g"] += 1
+            x["u"] += sum(RP._f(r.get(k)) or 0 for k in ("attempts", "carries", "targets"))
+    else:
+        f = RADICE / "data" / f"college_tabellini_{stagione}.json"
+        if not f.exists():
+            return {}
+        for p in json.loads(f.read_text(encoding="utf-8")).values():
+            et = p.get("etichette") or {}
+            for sq, cats in (p.get("squadre") or {}).items():
+                if sq not in squadre:
+                    continue
+                per = defaultdict(lambda: [0.0, 0.0, 0.0, ""])
+                for cat, i, chi in (("passing", 0, "QB"), ("rushing", 1, "RB"), ("receiving", 2, "WR")):
+                    lab = {"passing": "C/ATT", "rushing": "CAR", "receiving": "REC"}[cat]
+                    if lab not in (et.get(cat) or []):
+                        continue
+                    j = et[cat].index(lab)
+                    for riga in cats.get(cat) or []:
+                        try:
+                            v = float(str(riga[2 + j]).split("/")[-1])
+                        except (ValueError, IndexError):
+                            continue
+                        pid = riga[0] or riga[1]
+                        per[pid][i] += v
+                        per[pid][3] = riga[1]
+                for pid, (lanci, corse, ric, nome) in per.items():
+                    x = uso[pid]
+                    x["n"], x["sq"] = nome, sq
+                    x["g"] += 1
+                    x["u"] += lanci + corse + ric
+                    x.setdefault("ruoli", [0.0, 0.0, 0.0])
+                    x["ruoli"] = [a + b for a, b in zip(x["ruoli"], (lanci, corse, ric))]
+        for x in uso.values():
+            if "ruoli" in x:
+                x["r"] = ("QB", "RB", "WR")[max(range(3), key=lambda k: x["ruoli"][k])]
+    out = defaultdict(list)
+    for pid, x in uso.items():
+        if x["sq"] in squadre and x["g"] >= 2 and x["u"] > 0:
+            out[x["sq"]].append((x["u"] / x["g"], {"n": x["n"], "id": pid, "r": x["r"], "g": x["g"]}))
+    return {sq: [d for _, d in sorted(v, key=lambda t: -t[0])[:GIOCATORI_PER_SQUADRA]] for sq, v in out.items()}
+
+
+def dati_charlie(lega: str) -> dict | None:
+    """Tabelle di Charlie (data/charlie_tabelle.json, Protocolli 7-9) per il campionato, e il nome del bot per il
+    bottone «Registra» (secret CHARLIE_BOT). Senza tabelle Charlie non si mostra."""
+    f = RADICE / "data" / "charlie_tabelle.json"
+    if not f.exists():
+        return None
+    t = json.loads(f.read_text(encoding="utf-8"))
+    camp = LEGHE[lega]
+    return {"versione": t.get("versione"), "fonte": t.get("fonte"),
+            "partite": (t.get("partite") or {}).get(camp), "assenze": (t.get("assenze") or {}).get(camp),
+            "prop": (t.get("prop") or {}).get(camp), "indiziProp": (t.get("indiziProp") or {}).get(camp) or {},
+            "margineBet365Prop": t.get("margineBet365Prop"),
+            "bot": (os.environ.get("CHARLIE_BOT") or "").strip().lstrip("@") or None}
+
+
 def quote_produzione_nfl(stagione: int) -> dict:
     """{gsis: (quota delle yard di squadra, ruolo)} dalla stagione nflverse: pesa l'assenza di un giocatore NFL.
     QB: quota dei lanci della squadra; gli altri: quota delle yard da corsa e ricezione."""
-    url = f"https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_{stagione}.csv"
-    righe = list(csv.DictReader(io.StringIO(C._get(url, 120))))
+    righe = righe_giocatori_nfl(stagione)
     tot = defaultdict(lambda: [0.0, 0.0])
     gio = defaultdict(lambda: [0.0, 0.0, "", ""])
     for r in righe:
@@ -570,6 +652,11 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
             sc["meteo"] = C.meteo(s[0], s[1], datetime.fromisoformat(sc["inizioUtc"]), campionato)
         sc["contestoAggiornato"] = ora.isoformat(timespec="minutes")
         sc["giudizio"] = giudizio(campionato, sc)
+    try:
+        n_linee = MK.linee(campionato, schede)
+        print(f"{campionato}: linee del mercato americano (ESPN) per {n_linee} partite su {len(schede)}.")
+    except Exception as e:     # noqa: BLE001 - Charlie usa la linea precedente o quella inserita a mano
+        print(f"{campionato}: linee ESPN non lette ({e}): restano quelle del giro precedente.")
     n_ass = sum(1 for sc in vicine for k in ("assenzeCasa", "assenzeOspite") if sc.get(k))
     print(f"{campionato}: contesto aggiornato per {len(vicine)} partite (assenze per {n_ass} squadre, "
           f"meteo {sum(1 for sc in vicine if sc.get('meteo'))}).")
@@ -653,6 +740,12 @@ def main() -> int:
                  "campionato": campionato,
                  "fonti": "nflverse (CC-BY-SA 4.0)" if lega == "nfl" else "cfbfastR / sportsdataverse",
                  "partite": schede, "indici": indici or None, "giovani": prossima.get("giovani"), "loghi": loghi}
+    try:
+        contenuto["charlie"] = dati_charlie(lega)
+        contenuto["giocatoriProp"] = giocatori_prop(lega, int(stagione), {x for sc in schede for x in (sc["casa"], sc["ospite"])})
+        print(f"{campionato}: Charlie, giocatori per le prop di {len(contenuto['giocatoriProp'])} squadre.")
+    except Exception as e:     # noqa: BLE001 - Charlie è un di più: la sezione esce lo stesso
+        print(f"{campionato}: dati di Charlie non preparati ({e}): la scheda Charlie resterà vuota.")
     testo = json.dumps(contenuto, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
     pacchetto = cifra(testo, password)
     if decifra(pacchetto, password) != testo:

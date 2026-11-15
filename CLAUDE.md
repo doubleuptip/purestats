@@ -85,6 +85,24 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   `scripts/storico_tabellini.py 2019-2025` (workflow College lanciato a mano, campo «tabellini_storico»:
   circa 800 richieste ESPN a stagione, gratis). Servono allo storico delle assenze (chi sparisce dal tabellino)
 
+## Charlie (scheda nella pagina Matchup, dal 15/11/2026)
+
+- Il prezzo giusto contro la quota del bookmaker italiano, due modalità: Partite (spread, totale, punti di una
+  squadra) e Giocatori (prop). Tutto in `docs/duelli.html`, calcolato nel browser sui dati cifrati.
+- Partite: probabilità dalla linea del mercato americano (`scripts/mercato.py`: DraftKings dalla lista partite ESPN,
+  una richiesta per giro, aggiornata anche ogni ora dal contesto) e dagli scarti risultato − linea 2019-2025
+  (`data/charlie_tabelle.json`, Protocollo 8). Il punteggio atteso della scheda Matchup NON entra: contro la linea
+  di chiusura non aggiunge informazione. Assenze solo con i numeri del Protocollo 7 (spostamento della linea se non
+  si è ancora mossa; indizi QB fresco e ricevitore college), vento solo con l'effetto misurato.
+- Giocatori: riferimento bet365.it (linea e quote over/under inserite a mano, senza margine) e forma della
+  statistica per spostarsi alla linea italiana (Protocollo 9: affidabilità A yard ricevute, di corsa, ricezioni,
+  tentativi di corsa; C yard lanciate e college). Indizio: under yard di corsa NFL. Elenco giocatori in
+  `giocatoriProp` (nflverse per l'NFL, tabellini ESPN per il college).
+- Le quote italiane (Snai, Sisal, ePlay24, Planetwin365, Lottomatica, Bet365) le inserisce Valerio: non si leggono in
+  automatico. Bottone «Registra»: collegamento al bot (secret CHARLIE_BOT con il nome del bot) che tiene il registro
+  e controlla esito e linea di chiusura (`/charlie` nel bot). Senza il secret il testo si copia da incollare.
+- Le tabelle si rifanno con `misure/tabelle_charlie.py` (fuori dal repository) quando cambiano le misure.
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate

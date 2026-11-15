@@ -134,6 +134,33 @@
     transition:opacity .2s;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:10}
   .su-in-cima.visibile{opacity:1;pointer-events:auto}
   footer{font-size:12px;color:var(--fb-muted);text-align:center;margin-top:20px}
+
+  /* Charlie: il prezzo giusto contro la tua quota */
+  #vistaCharlie.on{background:var(--fb-acc);color:var(--fb-acc-text)}
+  .ch-testa{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .ch-testa h2{font-family:var(--fb-head);font-weight:800;font-size:24px;margin:0}
+  .ch-modi{display:inline-flex;border:1px solid var(--fb-border);border-radius:10px;overflow:hidden}
+  .ch-modi button{border:0;border-radius:0;min-height:38px}
+  .ch-griglia{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;margin-top:12px}
+  .ch-griglia .largo{grid-column:1 / -1}
+  .ch-griglia label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--fb-muted);font-weight:600}
+  .ch-griglia input,.ch-griglia select{font:inherit;font-size:15px;color:var(--fb-text);background:var(--fb-bg);border:1px solid var(--fb-border);border-radius:8px;padding:8px 10px;min-height:42px;width:100%}
+  .ch-rif{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--fb-chip);font-size:13px}
+  .ch-segnali{margin:10px 0 0;padding:0;list-style:none;font-size:13px}
+  .ch-segnali li{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--fb-border)}
+  .ch-segnali li input{margin-top:3px}
+  .ch-ris{margin-top:12px;border:2px solid var(--fb-border);border-radius:12px;padding:12px}
+  .ch-ris.si{border-color:var(--buono)} .ch-ris.no{border-color:var(--scarso)}
+  .ch-num{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin:8px 0}
+  .ch-num div{background:var(--fb-chip);border-radius:10px;padding:8px 4px}
+  .ch-num b{display:block;font-family:var(--fb-head);font-size:22px;line-height:1.1}
+  .ch-num span{font-size:11px;color:var(--fb-muted)}
+  .ch-verdetto{font-weight:700;font-size:15px}
+  .ch-azioni{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .ch-lista td{font-size:13px}
+  .aff{display:inline-block;min-width:22px;text-align:center;border-radius:6px;font-weight:700;font-size:12px;padding:1px 6px;background:var(--fb-chip)}
+  .aff.A{background:var(--buono-bg);color:var(--buono)} .aff.C{background:var(--scarso-bg);color:var(--scarso)}
+  @media (max-width:520px){ .ch-griglia{grid-template-columns:1fr} .ch-num b{font-size:19px} }
   @media (max-width:420px){ .riga,.int{grid-template-columns:minmax(0,1fr) 40px 40px 96px} .testa .nomi{font-size:18px} .lato .num{font-size:18px} }
 </style>
 </head>
@@ -165,7 +192,9 @@
       <button data-camp="College">College</button>
       <input type="search" id="cerca" placeholder="Cerca squadra" aria-label="Cerca squadra">
       <label><input type="checkbox" id="soloSegnali"> solo con vantaggi</label>
+      <button id="vistaCharlie" title="Charlie: il prezzo giusto contro la tua quota">Charlie</button>
     </div>
+    <section class="scheda" id="charlie" hidden></section>
     <div class="riepilogo" id="riepilogo"></div>
     <div id="migliori"></div>
     <div id="elenco"></div>
@@ -519,6 +548,13 @@ function pannelli(D){
 
 function disegna(){
   document.querySelectorAll("[data-camp]").forEach(b => { b.classList.toggle("on", b.dataset.camp === CAMPIONATO); b.hidden = !DATI[b.dataset.camp]; });
+  // Charlie al posto dell'elenco delle partite (stesso campionato, stessi dati già aperti)
+  document.getElementById("vistaCharlie").classList.toggle("on", VISTA_CHARLIE);
+  ["riepilogo", "migliori", "elenco", "pannelli"].forEach(i => document.getElementById(i).hidden = VISTA_CHARLIE);
+  document.getElementById("cerca").hidden = VISTA_CHARLIE;
+  document.getElementById("soloSegnali").parentElement.hidden = VISTA_CHARLIE;
+  document.getElementById("charlie").hidden = !VISTA_CHARLIE;
+  if (VISTA_CHARLIE) { disegnaCharlie(); return; }
   const D = DATI[CAMPIONATO];
   const solo = document.getElementById("soloSegnali").checked;
   const q = document.getElementById("cerca").value.trim().toLowerCase();
@@ -538,6 +574,397 @@ function disegna(){
   const t = new Date(D.aggiornato);
   document.getElementById("piede").textContent = `Aggiornato il ${t.toLocaleString("it-IT", {timeZone:"Europe/Rome", dateStyle:"short", timeStyle:"short"})} · Fonti: ${D.fonti} · Solo statistiche, nessuna quota.`;
 }
+
+/* ================== Charlie: il prezzo giusto contro la tua quota ==================
+   Probabilità dalla linea del mercato americano (DraftKings da ESPN, o quella che inserisci) e dagli scarti
+   misurati sullo storico 2019-2025 (Protocollo 8); assenze e vento solo con le misure dei Protocolli 6-7;
+   prop dalla linea bet365.it senza margine e dalla forma della statistica (Protocollo 9).
+   Il modello della scheda Matchup NON entra: contro la linea di chiusura non aggiunge informazione.
+   Nessun salvataggio nel browser: la lista vive finché la pagina è aperta, il registro lo tiene il bot. */
+let VISTA_CHARLIE = false;
+const CH = {modo: "partite", lista: [], ultimo: null, seq: 0};
+const LIBRI = [["sn","Snai"],["si","Sisal"],["ep","ePlay24"],["pw","Planetwin365"],["lo","Lottomatica"],["b3","Bet365"]];
+const STAT_PROP = [["yardLanciate","Yard lanciate"],["yardCorsa","Yard di corsa"],["yardRicevute","Yard ricevute"],
+  ["ricezioni","Ricezioni"],["tentativiCorsa","Tentativi di corsa"],["stessa","Altro (stessa linea di bet365)"]];
+const CODICE_STAT = {yardLanciate:"py", yardCorsa:"ry", yardRicevute:"cy", ricezioni:"rc", tentativiCorsa:"ra", stessa:"xx"};
+const numero = v => { const x = parseFloat(String(v ?? "").trim().replace(",", ".")); return isFinite(x) ? x : null; };
+const pc = (p, d = 1) => p === null || p === undefined ? "—" : num(p * 100, d) + "%";
+const Phi = x => 0.5 * (1 + Math.sign(x) * Math.sqrt(1 - Math.exp(-2 * x * x / Math.PI)));   // buona a ±0,3 punti %
+function PhiInv(p){ let lo = -6, hi = 6; for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; if (Phi(m) < p) lo = m; else hi = m; } return (lo + hi) / 2; }
+
+/* distribuzione da 199 quantili (0,5% ... 99,5%) */
+function cdfQ(q, x){
+  if (!q || !q.length) return null;
+  if (x <= q[0]) return 0.005;
+  if (x >= q[q.length - 1]) return 0.995;
+  let lo = 0, hi = q.length - 1;
+  while (hi - lo > 1) { const m = (lo + hi) >> 1; if (q[m] <= x) lo = m; else hi = m; }
+  const fr = q[hi] === q[lo] ? 0.5 : (x - q[lo]) / (q[hi] - q[lo]);
+  return (lo + 1 + fr) / 200;
+}
+function quantQ(q, p){
+  const i = Math.min(q.length - 1, Math.max(0, p * 200 - 1));
+  const a = Math.floor(i), b = Math.min(q.length - 1, a + 1);
+  return q[a] + (q[b] - q[a]) * (i - a);
+}
+const fasciaDi = (fasce, v) => (fasce || []).filter(f => v >= f).length;
+
+function tabCharlie(){ return (DATI[CAMPIONATO] || {}).charlie; }
+function partiteCharlie(){ return ((DATI[CAMPIONATO] || {}).partite || []).filter(g => !iniziata(g)); }
+function nomeP(g){ return `${squadra(g, g.ospite).nome || g.ospite} @ ${squadra(g, g.casa).nome || g.casa}`; }
+const LIBRO = c => (LIBRI.find(l => l[0] === c) || [c, c])[1];
+
+/* ---------- assenze e vento: gli spostamenti misurati ---------- */
+const RUOLO_TAB = r => {
+  r = String(r || "").toUpperCase();
+  if (r === "QB") return "QB";
+  if (["RB","HB","FB"].includes(r)) return "RB";
+  if (r === "WR") return "WR";
+  if (r === "TE") return CAMPIONATO === "College" ? "WR" : "TE";
+  if (["OL","OT","OG","C","G","T"].includes(r)) return "OL";
+  if (["DL","DE","DT","NT","EDGE","LB","ILB","OLB","MLB","DB","CB","S","FS","SS","SAF","NB"].includes(r)) return "DIF";
+  return null;
+};
+function segnaliPartita(g){
+  const T = tabCharlie(), out = [];
+  if (!T) return out;
+  for (const [lato, sq] of [["assenzeCasa", g.casa], ["assenzeOspite", g.ospite]]) {
+    for (const x of ((g[lato] || {}).giocatori || [])) {
+      const st = String(x.stato || "").toUpperCase();
+      if (!["O","OFS","OUT","D","DOUBTFUL","S"].includes(st)) continue;
+      const rt = RUOLO_TAB(x.ruolo), m = rt && (T.assenze || {})[rt];
+      const peso = x.peso || 0;
+      const titolareQB = rt !== "QB" || peso >= (CAMPIONATO === "College" ? 4 : 3);
+      const principale = !(CAMPIONATO === "College" && rt === "WR") || peso >= 4;
+      out.push({tipo: "assenza", id: `a${out.length}`, sq, nome: x.nome, ruolo: x.ruolo, stato: x.statoIt || x.stato,
+                misura: m && titolareQB && principale ? m : null, rt});
+    }
+  }
+  const e = ((g.meteo || {}).effetto) || {};
+  if (e.avviso && e.punti) out.push({tipo: "vento", id: "vento", punti: e.punti, testo: e.testo,
+                                     aff: CAMPIONATO === "NFL" ? "B" : "C"});
+  return out;
+}
+
+/* ---------- modalità Partite ---------- */
+function probPartita(inp){
+  const T = tabCharlie(), g = inp.g, P = T.partite;
+  let m0 = inp.margineCasa, t0 = inp.totale;
+  const spost = {margine: 0, totale: 0, casa: 0, ospite: 0}, incert = [], usati = [];
+  let peggiore = "A";
+  const peggio = a => { if ("ABC".indexOf(a) > "ABC".indexOf(peggiore)) peggiore = a; };
+  for (const s of inp.segnali) {
+    if (s.tipo === "vento" && s.attivo) {
+      spost.totale += s.punti; spost.casa += s.punti / 2; spost.ospite += s.punti / 2;
+      incert.push(0.8); usati.push(`vento: ${segno(s.punti, 1)} punti sul totale`); peggio(s.aff);
+    }
+    if (s.tipo !== "assenza" || !s.misura) continue;
+    const m = s.misura, casa = s.sq === g.casa, dir = casa ? -1 : 1;
+    const proprio = casa ? "casa" : "ospite", altro = casa ? "ospite" : "casa";
+    if (s.mossa) {                               // linea non ancora mossa: si aggiunge lo spostamento atteso
+      if (s.rt === "DIF") { spost.margine += dir * m.spread; spost[altro] += m.squadra; spost.totale += m.squadra; }
+      else { spost.margine += dir * m.spread; spost[proprio] -= m.squadra; spost.totale -= m.squadra; }
+      incert.push(0.3); usati.push(`${s.nome}: linea non ancora mossa (${segno(-m.spread, 1)} sullo spread)`); peggio(m.affidabilita || "A");
+    }
+    if (s.fresca && m.indizio) {                 // indizio: sottovalutato anche alla chiusura
+      spost.margine += dir * (m.indizioSpread || m.indizio); spost[proprio] -= m.indizio; spost.totale -= m.indizio;
+      incert.push(0.7); usati.push(`${s.nome}: indizio notizia fresca (${segno(-m.indizio, 1)} punti alla squadra)`); peggio("C");
+    }
+  }
+  let mercato, centro, linea, sopra;
+  if (inp.mercato === "spread") {
+    mercato = "margine";
+    const casa = inp.lato === "casa";
+    centro = m0 + spost.margine;                 // margine atteso della casa
+    linea = casa ? -inp.linea : inp.linea;       // la casa vince la giocata se margine > −handicap
+    sopra = casa;
+  } else if (inp.mercato === "totale") {
+    mercato = "totale"; centro = t0 + spost.totale; linea = inp.linea; sopra = inp.lato === "over";
+  } else {
+    mercato = "squadra";
+    const casa = inp.lato.startsWith("casa");
+    centro = (casa ? (t0 + m0) / 2 + spost.casa : (t0 - m0) / 2 + spost.ospite);
+    linea = inp.linea; sopra = inp.lato.endsWith("over");
+  }
+  const tab = P[mercato];
+  const rif = mercato === "margine" ? 0 : mercato === "totale" ? t0 : (inp.lato.startsWith("casa") ? (t0 + m0) / 2 : (t0 - m0) / 2);
+  const q = tab.quantili[Math.min(tab.quantili.length - 1, fasciaDi(tab.fasce, rif))];
+  const k = linea - centro;
+  const pSopra = 1 - cdfQ(q, k);
+  let p = sopra ? pSopra : 1 - pSopra;
+  // linea intera: il pareggio rimborsa la puntata (frequenze misurate: 3 e 7 punti nell'NFL pesano molto)
+  let pPush = 0;
+  if (Number.isInteger(inp.linea)) {
+    const pr = P.pareggi || {};
+    pPush = mercato === "margine" ? (inp.linea === 0 ? (pr.margine0 || 0) : ((pr.margine || {})[Math.abs(inp.linea)] || 0.02))
+      : (pr[mercato] || 0.03);
+    p = Math.max(0.005, p - pPush / 2);
+  }
+  const dens = Math.max(0.005, (cdfQ(q, k + 1) - cdfQ(q, k - 1)) / 2);
+  const sd = Math.sqrt(tab.oscillazione ** 2 + incert.reduce((t, x) => t + (x * dens) ** 2, 0));
+  const larg = 1.645 * sd;
+  if (larg > 0.05) peggio("C"); else if (larg > 0.03) peggio("B");
+  return {p, pLo: Math.max(0.01, p - larg), pHi: Math.min(0.99, p + larg), aff: peggiore, usati, pPush,
+          intera: Number.isInteger(inp.linea)};
+}
+
+/* ---------- modalità Giocatori ---------- */
+function probProp(inp){
+  const T = tabCharlie();
+  let p0, aff = "A", note = [], incert = [];
+  if (inp.qOver && inp.qUnder) p0 = (1 / inp.qOver) / (1 / inp.qOver + 1 / inp.qUnder);
+  else if (inp.qOver) { p0 = 1 / (inp.qOver * (1 + T.margineBet365Prop)); aff = "B"; incert.push(0.02); note.push("una sola quota bet365: margine stimato al " + num(T.margineBet365Prop * 100) + "%"); }
+  else return {errore: "Inserisci almeno la quota over di bet365."};
+  let pOver = p0;
+  if (inp.linea !== inp.linea365) {
+    const f = (T.prop || {})[inp.stat];
+    if (!f) return {errore: "Per questa statistica serve la stessa linea di bet365."};
+    if (f.normale) {
+      const mu = inp.linea365 + f.normale * PhiInv(p0);
+      pOver = 1 - Phi((inp.linea - mu) / f.normale);
+    } else {
+      const q = f.rapporti[Math.min(f.rapporti.length - 1, fasciaDi(f.fasce, inp.linea365))];
+      const c = inp.linea365 / Math.max(0.01, quantQ(q, 1 - p0));
+      pOver = 1 - cdfQ(q, inp.linea / c);
+    }
+    incert.push(f.affidabilita === "A" ? 0.015 : 0.035);
+    if ("ABC".indexOf(f.affidabilita) > "ABC".indexOf(aff)) aff = f.affidabilita;
+    note.push(`linea spostata da ${num(inp.linea365, 1)} a ${num(inp.linea, 1)} con la forma della statistica (affidabilità ${f.affidabilita})`);
+  }
+  const ind = (T.indiziProp || {})[inp.stat];
+  if (ind && inp.indizio) { pOver += ind.over; incert.push(0.02); note.push("indizio: " + ind.nota); if (aff === "A") aff = "B"; }
+  pOver = Math.min(0.99, Math.max(0.01, pOver));
+  const p = inp.lato === "over" ? pOver : 1 - pOver;
+  const larg = 1.645 * Math.sqrt(incert.reduce((t, x) => t + x * x, 0) + 0.01 ** 2);
+  return {p, pLo: Math.max(0.01, p - larg), pHi: Math.min(0.99, p + larg), aff, usati: note,
+          intera: Number.isInteger(inp.linea)};
+}
+
+/* ---------- risultato, lista, combinate, registro ---------- */
+function valuta(r, quota, puntata){
+  const push = r.pPush || 0;                       // col pareggio la puntata torna: non è una perdita
+  const ev = r.p * quota - 1 + push, evP = r.pLo * quota - 1 + push;
+  return {...r, quota, puntata, ev, evP, giusta: (1 - push) / r.p};
+}
+function codNum(x, f){ const v = Math.round(x * f); return (v < 0 ? "m" : "") + Math.abs(v); }
+function verdetto(v){
+  if (v.evP > 0) return ["si", "Valore anche nel caso pessimistico"];
+  if (v.ev > 0) return ["", "Valore solo nel caso centrale: incerto"];
+  return ["no", "Niente valore a questa quota"];
+}
+function cartaRisultato(v, titolo){
+  const [cls, frase] = verdetto(v);
+  const ris = v.puntata ? ` · su ${num(v.puntata, 2)} € in media ${v.ev >= 0 ? "+" : "−"}${num(Math.abs(v.ev * v.puntata), 2)} €` : "";
+  return `<div class="ch-ris ${cls}">
+    <div style="font-weight:600">${esc(titolo)}</div>
+    <div class="ch-num">
+      <div><b>${pc(v.p)}</b><span>probabilità di vincere<br>${pc(v.pLo, 0)} – ${pc(v.pHi, 0)}</span></div>
+      <div><b>${num(v.giusta, 2)}</b><span>quota giusta<br>tua: ${num(v.quota, 2)}</span></div>
+      <div><b>${v.ev >= 0 ? "+" : "−"}${num(Math.abs(v.ev) * 100, 1)}%</b><span>valore atteso<br>pessimistico ${v.evP >= 0 ? "+" : "−"}${num(Math.abs(v.evP) * 100, 1)}%</span></div>
+    </div>
+    <div class="ch-verdetto">${frase} <span class="aff ${v.aff}" title="Affidabilità del numero">${v.aff}</span></div>
+    <div class="sotto">Per pareggiare a quota ${num(v.quota, 2)} serve il ${pc((1 - (v.pPush || 0)) / v.quota)}${ris}.${v.pPush ? ` Linea intera: probabilità di pareggio ${pc(v.pPush)}, la puntata torna indietro (già contato).` : ""}</div>
+    ${v.usati && v.usati.length ? `<ul class="ass">${v.usati.map(u => `<li>${esc(u)}</li>`).join("")}</ul>` : ""}
+    <div class="ch-azioni"><button id="chAggiungi">Aggiungi alla lista</button><button id="chRegistra" class="on">Registra</button></div>
+  </div>`;
+}
+function linkBot(testo){
+  const bot = (tabCharlie() || {}).bot;
+  return bot ? `https://t.me/${encodeURIComponent(bot)}` + (testo ? `?start=${testo}` : "") : null;
+}
+async function registra(voci, puntata, quotaTot){
+  const bot = (tabCharlie() || {}).bot;
+  if (voci.length === 1 && voci[0].codice.length + 2 <= 64 && bot) {
+    const url = linkBot(voci[0].codice);
+    window.open(url, "_blank", "noopener");
+    return `Apro il bot: premi «Avvia» per registrare la giocata.`;
+  }
+  const testo = `/charlie ${voci.map(v => v.codice).join("+")} ${num(puntata || 0, 2).replace(/\./g, "")} ${num(quotaTot, 2)}`;
+  try { await navigator.clipboard.writeText(testo); } catch (e) {}
+  if (bot) window.open(linkBot(""), "_blank", "noopener");
+  return `Testo copiato: incollalo nella chat del bot e invialo.<br><code style="font-size:12px;word-break:break-all">${esc(testo)}</code>`;
+}
+function disegnaLista(){
+  const L = CH.lista;
+  if (!L.length) return "";
+  const ord = [...L].sort((a, b) => b.v.evP - a.v.evP);
+  const scelti = L.filter(x => x.combo);
+  let combo = "";
+  if (scelti.length >= 2) {
+    const partite = new Set(scelti.map(x => x.partita));
+    if (partite.size < scelti.length) combo = `<div class="sotto" style="color:var(--scarso)">Due giocate della stessa partita sono legate tra loro: la combinata non si può calcolare finché non lo misuriamo.</div>`;
+    else {
+      const p = scelti.reduce((t, x) => t * x.v.p, 1), pLo = scelti.reduce((t, x) => t * x.v.pLo, 1);
+      const qProd = scelti.reduce((t, x) => t * x.v.quota, 1);
+      const qIn = numero(document.getElementById("chQuotaCombo")?.value) || qProd;
+      const pHi = scelti.reduce((t, x) => t * x.v.pHi, 1);
+      CH.combo = {voci: scelti, v: valuta({p, pLo, pHi, aff: scelti.some(x => x.v.aff === "C") ? "C" : scelti.some(x => x.v.aff === "B") ? "B" : "A", usati: []}, qIn, numero(document.getElementById("chPuntataCombo")?.value))};
+      combo = `<div class="ch-griglia"><label>Quota della combinata (se il bookmaker la cambia)<input id="chQuotaCombo" inputmode="decimal" value="${num(qIn, 2)}"></label>
+        <label>Puntata €<input id="chPuntataCombo" inputmode="decimal" value="${CH.combo.v.puntata ? num(CH.combo.v.puntata, 2) : ""}"></label></div>
+        ${cartaRisultato(CH.combo.v, `Combinata di ${scelti.length}: ${scelti.map(x => x.breve).join(" + ")}`).replace('<button id="chAggiungi">Aggiungi alla lista</button>', '').replace('id="chRegistra"', 'id="chRegistraCombo"')}`;
+    }
+  }
+  return `<div class="titolo">Le tue giocate, dalla più conveniente</div>
+    <table class="ch-lista"><tr><th></th><th style="text-align:left">Giocata</th><th>Prob.</th><th>Quota</th><th>Valore</th><th>Pess.</th><th></th></tr>
+    ${ord.map(x => `<tr><td><input type="checkbox" data-combo="${x.id}" ${x.combo ? "checked" : ""} aria-label="nella combinata"></td>
+      <td style="text-align:left">${esc(x.breve)}<div class="sotto">${esc(LIBRO(x.libro))} · <span class="aff ${x.v.aff}">${x.v.aff}</span></div></td>
+      <td>${pc(x.v.p)}</td><td>${num(x.v.quota, 2)}</td><td>${segno(x.v.ev * 100, 1)}%</td><td>${segno(x.v.evP * 100, 1)}%</td>
+      <td><button data-togli="${x.id}" aria-label="Togli" style="min-height:30px;padding:2px 8px">×</button></td></tr>`).join("")}</table>
+    <div class="sotto">Spunta due o più giocate di partite diverse per la combinata.</div>${combo}<div id="chMsgCombo" class="sotto"></div>`;
+}
+
+function formPartite(){
+  const P = partiteCharlie();
+  if (!P.length) return `<div class="vuoto">Nessuna partita da giocare.</div>`;
+  const id = CH.partita && P.some(g => idScheda(g) === CH.partita) ? CH.partita : idScheda(P[0]);
+  CH.partita = id;
+  const g = P.find(x => idScheda(x) === id), mk = g.mercato || {};
+  const sg = segnaliPartita(g);
+  CH.segnali = sg;
+  const nc = squadra(g, g.casa).nome || g.casa, no = squadra(g, g.ospite).nome || g.ospite;
+  const ora = mk.ora ? new Date(mk.ora).toLocaleString("it-IT", {weekday:"short", hour:"2-digit", minute:"2-digit"}) : "";
+  return `<div class="ch-griglia">
+    <label class="largo">Partita<select id="chPartita">${P.map(x => `<option value="${idScheda(x)}" ${idScheda(x) === id ? "selected" : ""}>${esc(nomeP(x))} · ${esc(quando(x))}</option>`).join("")}</select></label>
+    <label>Margine atteso di ${esc(nc)} (mercato USA)<input id="chMargine" inputmode="decimal" value="${mk.margineCasa ?? ""}"></label>
+    <label>Totale (mercato USA)<input id="chTotale" inputmode="decimal" value="${mk.totale ?? ""}"></label>
+  </div>
+  <div class="ch-rif">${mk.totale !== undefined && mk.totale !== null ? `Linea americana: <b>${esc(mk.margineCasa > 0 ? nc + " −" + num(mk.margineCasa, 1) : mk.margineCasa < 0 ? no + " −" + num(-mk.margineCasa, 1) : "pari")}</b>, totale <b>${num(mk.totale, 1)}</b>${mk.fonte ? " · " + esc(mk.fonte) : ""}${ora ? " · letta " + esc(ora) : ""}. Se si è mossa, correggila qui sopra.` : "Linea americana non disponibile: inseriscila tu (margine atteso della squadra di casa, positivo se è favorita, e totale)."}</div>
+  <div class="ch-griglia">
+    <label>Mercato<select id="chMercato"><option value="spread">Spread (handicap)</option><option value="totale">Totale partita</option><option value="squadra">Totale di una squadra</option></select></label>
+    <label>Giocata<select id="chLato"></select></label>
+    <label>Linea del tuo bookmaker<input id="chLinea" inputmode="decimal" placeholder="es. −3,5 o 47,5"></label>
+    <label>Quota<input id="chQuota" inputmode="decimal" placeholder="es. 1,90"></label>
+    <label>Bookmaker<select id="chLibro">${LIBRI.map(l => `<option value="${l[0]}">${l[1]}</option>`).join("")}</select></label>
+    <label>Puntata € (facoltativa)<input id="chPuntata" inputmode="decimal"></label>
+  </div>
+  ${sg.length ? `<div class="titolo">Segnali di questa partita</div><ul class="ch-segnali">${sg.map(s => s.tipo === "vento"
+    ? `<li><input type="checkbox" id="chs-${s.id}"><label for="chs-${s.id}">🌬️ ${esc(s.testo)} <span class="aff ${s.aff}">${s.aff}</span><div class="sotto">Spunta per spostare il totale di ${segno(s.punti, 1)} punti.</div></label></li>`
+    : `<li><div style="flex:1"><b>${esc(s.nome)}</b> (${esc(s.ruolo)}, ${esc(s.sq)}) ${esc(s.stato)}${s.misura ? ` · di solito la linea si sposta di ${num(s.misura.spread, 1)} sullo spread <span class="aff ${s.misura.affidabilita}">${s.misura.affidabilita}</span>` : ` · <span class="sotto">${s.rt === "QB" ? "QB non titolare" : "effetto non misurato o sotto mezzo punto"}</span>`}
+      ${s.misura ? `<div><label style="font-size:13px"><input type="checkbox" id="chm-${s.id}"> la linea americana non si è ancora mossa</label>
+      ${s.misura.indizio ? `<br><label style="font-size:13px"><input type="checkbox" id="chf-${s.id}"> notizia fresca (aveva giocato la partita prima): indizio</label>` : ""}</div>` : ""}</div></li>`).join("")}</ul>` : ""}
+  <div class="ch-azioni"><button id="chCalcola" class="on">Calcola</button></div><div id="chEsito"></div>`;
+}
+function latiPartite(){
+  const g = partiteCharlie().find(x => idScheda(x) === CH.partita);
+  const nc = squadra(g, g.casa).nome || g.casa, no = squadra(g, g.ospite).nome || g.ospite;
+  const m = document.getElementById("chMercato").value;
+  const o = m === "spread" ? [["casa", nc], ["ospite", no]] : m === "totale" ? [["over", "Over"], ["under", "Under"]]
+    : [["casa-over", nc + " over"], ["casa-under", nc + " under"], ["ospite-over", no + " over"], ["ospite-under", no + " under"]];
+  document.getElementById("chLato").innerHTML = o.map(x => `<option value="${x[0]}">${esc(x[1])}</option>`).join("");
+}
+function calcolaPartite(){
+  const g = partiteCharlie().find(x => idScheda(x) === CH.partita), out = document.getElementById("chEsito");
+  const margineCasa = numero(document.getElementById("chMargine").value), totale = numero(document.getElementById("chTotale").value);
+  const linea = numero(document.getElementById("chLinea").value?.replace("−", "-")), quota = numero(document.getElementById("chQuota").value);
+  if (margineCasa === null || totale === null) { out.innerHTML = `<div class="errore">Serve la linea americana: margine della squadra di casa e totale.</div>`; return; }
+  if (linea === null || !quota || quota <= 1) { out.innerHTML = `<div class="errore">Inserisci la linea e una quota maggiore di 1.</div>`; return; }
+  const segnali = (CH.segnali || []).map(s => ({...s, attivo: !!document.getElementById("chs-" + s.id)?.checked,
+    mossa: !!document.getElementById("chm-" + s.id)?.checked, fresca: !!document.getElementById("chf-" + s.id)?.checked}));
+  const inp = {g, margineCasa, totale, mercato: document.getElementById("chMercato").value, lato: document.getElementById("chLato").value, linea, segnali};
+  const v = valuta(probPartita(inp), quota, numero(document.getElementById("chPuntata").value));
+  const testoLato = document.getElementById("chLato").selectedOptions[0].textContent;
+  const breve = `${inp.mercato === "spread" ? testoLato + " " + (linea > 0 ? "+" : "") + num(linea, 1) : testoLato + " " + num(linea, 1)}${inp.mercato === "squadra" ? " (punti squadra)" : ""} · ${nomeP(g)}`;
+  const lato = {casa:"h", ospite:"a", over:"o", under:"u", "casa-over":"ho", "casa-under":"hu", "ospite-over":"ao", "ospite-under":"au"}[inp.lato];
+  const libro = document.getElementById("chLibro").value;
+  const codice = ["G", CAMPIONATO === "NFL" ? "N" : "C", (g.mercato || {}).espnId || "0", {spread:"s", totale:"t", squadra:"q"}[inp.mercato], lato,
+    codNum(linea, 10), codNum(quota, 100), libro, codNum(v.puntata || 0, 100), codNum(v.p, 1000),
+    codNum(inp.mercato === "totale" ? totale : margineCasa, 10)].join("_");
+  CH.ultimo = {id: ++CH.seq, breve, v, libro, partita: idScheda(g), codice};
+  out.innerHTML = cartaRisultato(v, breve);
+  colleghiRisultato();
+}
+
+function formGiocatori(){
+  const P = partiteCharlie();
+  if (!P.length) return `<div class="vuoto">Nessuna partita da giocare.</div>`;
+  const id = CH.partita && P.some(g => idScheda(g) === CH.partita) ? CH.partita : idScheda(P[0]);
+  CH.partita = id;
+  const g = P.find(x => idScheda(x) === id), G = (DATI[CAMPIONATO] || {}).giocatoriProp || {};
+  const gioc = [...(G[g.ospite] || []).map(x => ({...x, sq: g.ospite})), ...(G[g.casa] || []).map(x => ({...x, sq: g.casa}))];
+  const T = tabCharlie();
+  return `<div class="ch-griglia">
+    <label class="largo">Partita<select id="chPartita">${P.map(x => `<option value="${idScheda(x)}" ${idScheda(x) === id ? "selected" : ""}>${esc(nomeP(x))} · ${esc(quando(x))}</option>`).join("")}</select></label>
+    <label class="largo">Giocatore<select id="chGioc">${gioc.length ? gioc.map((x, i) => `<option value="${i}">${esc(x.n)} · ${esc(x.r)} · ${esc(squadra(g, x.sq).nome || x.sq)}</option>`).join("") : `<option value="">Nessun giocatore disponibile</option>`}</select></label>
+    <label>Statistica<select id="chStat">${STAT_PROP.map(s => `<option value="${s[0]}">${s[1]}${s[0] !== "stessa" && ((T.prop || {})[s[0]] || {}).affidabilita ? " · " + T.prop[s[0]].affidabilita : ""}</option>`).join("")}</select></label>
+    <label>Linea bet365.it<input id="chL365" inputmode="decimal" placeholder="es. 54,5"></label>
+    <label>Quota over bet365.it<input id="chQo" inputmode="decimal" placeholder="es. 1,83"></label>
+    <label>Quota under bet365.it<input id="chQu" inputmode="decimal" placeholder="es. 1,90"></label>
+    <label>Giocata<select id="chLatoP"><option value="over">Over</option><option value="under">Under</option></select></label>
+    <label>Linea del tuo bookmaker<input id="chLineaP" inputmode="decimal" placeholder="es. 49,5"></label>
+    <label>Quota<input id="chQuotaP" inputmode="decimal" placeholder="es. 1,85"></label>
+    <label>Bookmaker<select id="chLibroP">${LIBRI.map(l => `<option value="${l[0]}">${l[1]}</option>`).join("")}</select></label>
+    <label>Puntata € (facoltativa)<input id="chPuntataP" inputmode="decimal"></label>
+  </div>
+  ${Object.keys(T.indiziProp || {}).length ? `<ul class="ch-segnali">${Object.entries(T.indiziProp).map(([k, x]) => `<li><input type="checkbox" id="chi-${k}"><label for="chi-${k}">${esc(x.nota)} <span class="aff B">B</span><div class="sotto">Vale solo per ${esc((STAT_PROP.find(s => s[0] === k) || [k, k])[1].toLowerCase())}: spunta per applicarlo.</div></label></li>`).join("")}</ul>` : ""}
+  <div class="ch-azioni"><button id="chCalcola" class="on">Calcola</button></div><div id="chEsito"></div>`;
+}
+function calcolaGiocatori(){
+  const g = partiteCharlie().find(x => idScheda(x) === CH.partita), out = document.getElementById("chEsito");
+  const G = (DATI[CAMPIONATO] || {}).giocatoriProp || {};
+  const gioc = [...(G[g.ospite] || []).map(x => ({...x, sq: g.ospite})), ...(G[g.casa] || []).map(x => ({...x, sq: g.casa}))];
+  const chi = gioc[Number(document.getElementById("chGioc").value)];
+  const stat = document.getElementById("chStat").value;
+  const l365 = numero(document.getElementById("chL365").value), qo = numero(document.getElementById("chQo").value), qu = numero(document.getElementById("chQu").value);
+  const linea = numero(document.getElementById("chLineaP").value), quota = numero(document.getElementById("chQuotaP").value);
+  if (!chi) { out.innerHTML = `<div class="errore">Scegli il giocatore.</div>`; return; }
+  if (l365 === null || !qo) { out.innerHTML = `<div class="errore">Inserisci linea e quota over di bet365.it (meglio anche l'under).</div>`; return; }
+  if (linea === null || !quota || quota <= 1) { out.innerHTML = `<div class="errore">Inserisci la linea e la quota del tuo bookmaker.</div>`; return; }
+  const r = probProp({stat, linea365: l365, qOver: qo, qUnder: qu, linea, lato: document.getElementById("chLatoP").value,
+                      indizio: !!document.getElementById("chi-" + stat)?.checked});
+  if (r.errore) { out.innerHTML = `<div class="errore">${esc(r.errore)}</div>`; return; }
+  const v = valuta(r, quota, numero(document.getElementById("chPuntataP").value));
+  const lato = document.getElementById("chLatoP").value;
+  const breve = `${chi.n} ${lato} ${num(linea, 1)} ${(STAT_PROP.find(s => s[0] === stat) || ["", stat])[1].toLowerCase()} · ${nomeP(g)}`;
+  const libro = document.getElementById("chLibroP").value;
+  const codice = ["P", CAMPIONATO === "NFL" ? "N" : "C", (g.mercato || {}).espnId || "0", chi.id, CODICE_STAT[stat], lato[0],
+    codNum(linea, 10), codNum(quota, 100), libro, codNum(v.puntata || 0, 100), codNum(v.p, 1000), codNum(l365, 10)].join("_");
+  CH.ultimo = {id: ++CH.seq, breve, v, libro, partita: idScheda(g), codice};
+  out.innerHTML = cartaRisultato(v, breve);
+  colleghiRisultato();
+}
+
+function colleghiRisultato(){
+  document.getElementById("chAggiungi")?.addEventListener("click", () => {
+    if (CH.ultimo && !CH.lista.some(x => x.codice === CH.ultimo.codice)) CH.lista.push({...CH.ultimo, combo: false});
+    disegnaCharlie(true);
+  });
+  document.getElementById("chRegistra")?.addEventListener("click", async () => {
+    const u = CH.ultimo; if (!u) return;
+    const msg = await registra([u], u.v.puntata, u.v.quota);
+    document.getElementById("chEsito").insertAdjacentHTML("beforeend", `<div class="sotto" style="margin-top:6px">${msg}</div>`);
+  });
+}
+
+function disegnaCharlie(tieni){
+  const ch = document.getElementById("charlie"), T = tabCharlie();
+  if (!T) { ch.innerHTML = `<div class="vuoto">Charlie non ha ancora i dati per ${esc(CAMPIONATO)}: arrivano con il prossimo aggiornamento della sezione.</div>`; return; }
+  const esitoPrima = tieni ? document.getElementById("chEsito")?.innerHTML : "";
+  ch.innerHTML = `<div class="ch-testa"><div><h2>Charlie</h2><div class="sotto">Il prezzo giusto contro la tua quota · ${esc(CAMPIONATO)}</div></div>
+    <div class="ch-modi"><button data-modo="partite" class="${CH.modo === "partite" ? "on" : ""}">Partite</button><button data-modo="giocatori" class="${CH.modo === "giocatori" ? "on" : ""}">Giocatori</button></div></div>
+    ${CH.modo === "partite" ? formPartite() : formGiocatori()}
+    <div id="chLista">${disegnaLista()}</div>
+    <details><summary>Come ragiona Charlie</summary><div class="sotto" style="margin-top:6px">
+      Il prezzo giusto parte dalla linea del mercato americano, il più efficiente: la probabilità di qualunque linea (anche spostata) viene dagli scarti tra risultato e linea su ${CAMPIONATO === "NFL" ? "1.960" : "8.036"} partite 2019-2025. Le assenze spostano il prezzo solo con le misure fatte contro la linea di chiusura; gli «indizi» sono segnali non ancora confermati. Il punteggio atteso della scheda Matchup qui non entra: contro la linea non aggiunge informazione.
+      Per le prop il riferimento è bet365.it senza margine; per una linea diversa conta la forma della statistica (yard ricevute, di corsa, ricezioni, tentativi: affidabilità A; yard lanciate e college: C).
+      Valore pessimistico = con la probabilità al limite basso dell'intervallo. Affidabilità: A errore tipico sotto 3 punti %, B sotto 5, C oltre o con indizi. ${esc(T.fonte || "")}</div></details>`;
+  ch.querySelectorAll("[data-modo]").forEach(b => b.addEventListener("click", () => { CH.modo = b.dataset.modo; disegnaCharlie(); }));
+  const sp = document.getElementById("chPartita");
+  if (sp) sp.addEventListener("change", () => { CH.partita = sp.value; disegnaCharlie(); });
+  if (CH.modo === "partite" && document.getElementById("chMercato")) {
+    latiPartite();
+    document.getElementById("chMercato").addEventListener("change", latiPartite);
+  }
+  document.getElementById("chCalcola")?.addEventListener("click", () => CH.modo === "partite" ? calcolaPartite() : calcolaGiocatori());
+  if (esitoPrima && document.getElementById("chEsito")) { document.getElementById("chEsito").innerHTML = esitoPrima; colleghiRisultato(); }
+  ch.querySelectorAll("[data-togli]").forEach(b => b.addEventListener("click", () => { CH.lista = CH.lista.filter(x => String(x.id) !== b.dataset.togli); disegnaCharlie(true); }));
+  ch.querySelectorAll("[data-combo]").forEach(b => b.addEventListener("change", () => { const x = CH.lista.find(y => String(y.id) === b.dataset.combo); if (x) x.combo = b.checked; disegnaCharlie(true); }));
+  ["chQuotaCombo", "chPuntataCombo"].forEach(i => document.getElementById(i)?.addEventListener("change", () => disegnaCharlie(true)));
+  document.getElementById("chRegistraCombo")?.addEventListener("click", async () => {
+    const c = CH.combo; if (!c) return;
+    document.getElementById("chMsgCombo").innerHTML = await registra(c.voci, c.v.puntata, c.v.quota);
+  });
+}
+document.getElementById("vistaCharlie").addEventListener("click", () => { VISTA_CHARLIE = !VISTA_CHARLIE; disegna(); scrollTo({top: 0}); });
 </script>
 </body>
 </html>

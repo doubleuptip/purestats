@@ -53,6 +53,7 @@ jobs:
         continue-on-error: true
         env:
           DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
+          CHARLIE_BOT: ${{ secrets.CHARLIE_BOT }}
         run: python scripts/fetch_duelli.py nfl
 
       - name: Committa le modifiche
