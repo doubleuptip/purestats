@@ -78,13 +78,23 @@ def _combacia(lega: str, team: dict, nome: str) -> int:
 def linee(lega: str, schede: list) -> int:
     """Aggiunge a ogni scheda «mercato» = {margineCasa, totale, fonte, ora, espnId}. Restituisce quante ne ha
     trovate. Se ESPN non risponde le schede restano con la linea del giro precedente."""
-    date = sorted({sc.get("inizioUtc", "")[:10] for sc in schede if sc.get("inizioUtc")})
-    if not date:
-        return 0
-    da = datetime.fromisoformat(date[0]).date() - timedelta(days=1)
-    a = datetime.fromisoformat(date[-1]).date() + timedelta(days=1)
-    url = f"{SITO[lega]}?dates={da:%Y%m%d}-{a:%Y%m%d}&limit=400" + ("&groups=80" if lega == "College" else "")
-    eventi = _json(url).get("events") or []
+    # per settimana (dates=<stagione>&week=…): un intervallo di date lungo ESPN NFL lo rifiuta (400)
+    settimane = set()
+    for sc in schede:
+        if not sc.get("inizioUtc") or sc.get("settimana") in (None, ""):
+            continue
+        d = datetime.fromisoformat(sc["inizioUtc"])
+        settimane.add((d.year if d.month >= 3 else d.year - 1, int(sc["settimana"])))
+    eventi, errori = [], []
+    for stagione, w in sorted(settimane):
+        url = (f"{SITO[lega]}?dates={stagione}&seasontype=2&week={w}&limit=400"
+               + ("&groups=80" if lega == "College" else ""))
+        try:
+            eventi += _json(url).get("events") or []
+        except Exception as e:     # noqa: BLE001 - una settimana che non risponde non ferma le altre
+            errori.append(f"settimana {w}: {e}")
+    if errori and not eventi:
+        raise RuntimeError("; ".join(errori))
     ora = datetime.now(timezone.utc).isoformat(timespec="minutes")
     trovate = 0
     for sc in schede:
