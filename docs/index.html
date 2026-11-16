@@ -462,10 +462,11 @@
 /* Colori e caratteri presi dal tema della pagina (variabili CSS), così grafici e testi colorati seguono lo stile
    unico del sito, chiaro o scuro. Si rileggono a ogni disegno. */
 let FLUO="#39FF14",FLUO2="#1FA30C",GIALLO="#FFD400",ROSSO="#FF2D2D",
-    MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706",F_TESTO="JetBrains Mono",F_TIT="Teko";
+    MUTED="#6B8470",BORDO="#1C2A1F",TESTO="#E8F5E6",NERO="#050706",F_TESTO="JetBrains Mono",F_TIT="Teko",
+    ACC_RGB="57,255,20";        /* il canvas dei grafici non capisce var(): il colore si legge dal tema */
 function aggiornaColori(){
   const cs = getComputedStyle(document.body), v = (k, d) => (cs.getPropertyValue(k) || "").trim() || d;
-  FLUO = v("--acc", FLUO); FLUO2 = v("--acc2", FLUO2); ROSSO = v("--rosso", ROSSO);
+  FLUO = v("--acc", FLUO); FLUO2 = v("--acc2", FLUO2); ROSSO = v("--rosso", ROSSO); ACC_RGB = v("--acc-rgb", ACC_RGB);
   MUTED = v("--muted", MUTED); BORDO = v("--bordo", BORDO); TESTO = v("--testo", TESTO); NERO = v("--nero", NERO);
   GIALLO = matchMedia("(prefers-color-scheme: dark)").matches ? "#FFD400" : "#B7791F";
   F_TESTO = v("--f-testo", F_TESTO).split(",")[0].replace(/['"]/g, "");
@@ -1185,7 +1186,7 @@ function gScheda(){
   charts.push(new Chart(c,{type:"line",
     data:{labels:a.perStagione.map(s=>s.stagione),
       datasets:[{label:"Cartellini medi",data:a.perStagione.map(s=>s.media),
-        borderColor:FLUO,backgroundColor:"rgba(var(--acc-rgb),.12)",fill:true,
+        borderColor:FLUO,backgroundColor:`rgba(${ACC_RGB},.12)`,fill:true,
         tension:.3,pointBackgroundColor:FLUO,pointRadius:4}]},
     options:opz("",false)}));
 }
