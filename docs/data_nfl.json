@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-16T05:31:05.237397+00:00",
+  "aggiornato": "2026-11-16T06:09:28.197342+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -139411,8 +139411,99 @@
       "pc": 38,
       "po": 18,
       "stadio": "Paycor Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Joe Burrow",
+          "ruolo": "QB",
+          "valore": 409,
+          "misura": "yard passate",
+          "dettagli": [
+            "4 TD"
+          ]
+        },
+        {
+          "nome": "Chase Brown",
+          "ruolo": "RB",
+          "valore": 44,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Ja'Marr Chase",
+          "ruolo": "WR",
+          "valore": 231,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "11 ric."
+          ]
+        },
+        {
+          "nome": "Tee Higgins",
+          "ruolo": "WR",
+          "valore": 66,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Drew Sample",
+          "ruolo": "TE",
+          "valore": 15,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Aaron Rodgers",
+          "ruolo": "QB",
+          "valore": 143,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Lew Nichols III",
+          "ruolo": "RB",
+          "valore": 43,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "DK Metcalf",
+          "ruolo": "WR",
+          "valore": 54,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Brandon Smith",
+          "ruolo": "WR",
+          "valore": 15,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Pat Freiermuth",
+          "ruolo": "TE",
+          "valore": 35,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -141390,6 +141481,8 @@
       {
         "data": "2026-11-12",
         "ora": "20:15",
+        "dataIt": "2026-11-13",
+        "oraIt": "02:15",
         "casa": "NYG",
         "ospite": "WAS",
         "pc": 21,
@@ -141486,6 +141579,8 @@
       {
         "data": "2026-11-15",
         "ora": "09:30",
+        "dataIt": "2026-11-15",
+        "oraIt": "15:30",
         "casa": "DET",
         "ospite": "NE",
         "pc": 35,
@@ -141548,10 +141643,10 @@
             "tempo": "06:26",
             "squadra": "DET",
             "descrizione": "16-J.Goff pass short right to 14-A.St. Brown for 56 yards, TOUCHDOWN.",
-            "testo": "Goff lancia corto a destra per St, 56 yard: touchdown",
+            "testo": "Goff lancia corto a destra per St. Brown, 56 yard: touchdown",
             "chi": [
               "Goff",
-              "St"
+              "St. Brown"
             ],
             "yard": 56.0,
             "touchdown": true,
@@ -141585,6 +141680,8 @@
       {
         "data": "2026-11-15",
         "ora": "13:00",
+        "dataIt": "2026-11-15",
+        "oraIt": "19:00",
         "casa": "ATL",
         "ospite": "KC",
         "pc": 13,
@@ -141690,6 +141787,8 @@
       {
         "data": "2026-11-15",
         "ora": "13:00",
+        "dataIt": "2026-11-15",
+        "oraIt": "19:00",
         "casa": "CLE",
         "ospite": "HOU",
         "pc": 27,
@@ -141785,6 +141884,8 @@
       {
         "data": "2026-11-15",
         "ora": "13:00",
+        "dataIt": "2026-11-15",
+        "oraIt": "19:00",
         "casa": "GB",
         "ospite": "MIN",
         "pc": 10,
@@ -141884,6 +141985,8 @@
       {
         "data": "2026-11-15",
         "ora": "13:00",
+        "dataIt": "2026-11-15",
+        "oraIt": "19:00",
         "casa": "IND",
         "ospite": "MIA",
         "pc": 24,
@@ -141982,6 +142085,8 @@
       {
         "data": "2026-11-15",
         "ora": "13:00",
+        "dataIt": "2026-11-15",
+        "oraIt": "19:00",
         "casa": "NO",
         "ospite": "CAR",
         "pc": 17,
@@ -142076,6 +142181,8 @@
       {
         "data": "2026-11-15",
         "ora": "13:00",
+        "dataIt": "2026-11-15",
+        "oraIt": "19:00",
         "casa": "NYJ",
         "ospite": "BUF",
         "pc": 12,
@@ -142171,6 +142278,8 @@
       {
         "data": "2026-11-15",
         "ora": "13:00",
+        "dataIt": "2026-11-15",
+        "oraIt": "19:00",
         "casa": "TEN",
         "ospite": "JAX",
         "pc": 23,
@@ -142265,6 +142374,8 @@
       {
         "data": "2026-11-15",
         "ora": "16:05",
+        "dataIt": "2026-11-15",
+        "oraIt": "22:05",
         "casa": "ARI",
         "ospite": "LA",
         "pc": 6,
@@ -142365,6 +142476,8 @@
       {
         "data": "2026-11-15",
         "ora": "16:05",
+        "dataIt": "2026-11-15",
+        "oraIt": "22:05",
         "casa": "LV",
         "ospite": "SEA",
         "pc": 13,
@@ -142467,6 +142580,8 @@
       {
         "data": "2026-11-15",
         "ora": "16:25",
+        "dataIt": "2026-11-15",
+        "oraIt": "22:25",
         "casa": "DAL",
         "ospite": "SF",
         "pc": 40,
@@ -142570,6 +142685,8 @@
       {
         "data": "2026-11-15",
         "ora": "20:20",
+        "dataIt": "2026-11-16",
+        "oraIt": "02:20",
         "casa": "CIN",
         "ospite": "PIT",
         "pc": 38,
@@ -142582,6 +142699,80 @@
         "scartoLinea": 15.5,
         "stadio": "Paycor Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Pittsburgh+Steelers+vs.+Cincinnati+Bengals+highlights+November+15%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "1",
+            "tempo": "12:22",
+            "squadra": "CIN",
+            "descrizione": "9-J.Burrow pass deep right to 1-J.Chase pushed ob at PIT 32 for 27 yards (41-P.Wilson).",
+            "testo": "Burrow lancia lungo a destra per Chase, 27 yard",
+            "chi": [
+              "Burrow",
+              "Chase"
+            ],
+            "yard": 27.0,
+            "touchdown": false,
+            "casaPrima": 57,
+            "casaDopo": 63
+          },
+          {
+            "quarto": "1",
+            "tempo": "03:17",
+            "squadra": "CIN",
+            "descrizione": "34-S.Perine right guard to CIN 46 for 1 yard (3-J.Brisker).",
+            "testo": "Perine corre a destra, in mezzo, 1 yard",
+            "chi": [
+              "Perine"
+            ],
+            "yard": 1.0,
+            "touchdown": false,
+            "casaPrima": 60,
+            "casaDopo": 67
+          },
+          {
+            "quarto": "2",
+            "tempo": "13:21",
+            "squadra": "PIT",
+            "descrizione": "19-C.Johnston punts 54 yards to CIN 31, Center-46-C.Kuntz. 81-D.Meyers to CIN 30 for -1 yards (44-C.Bruener; 41-P.Wilson). PENALTY on CIN-22-R.Yeast, Offensive Holding, 10 yards, enforced at CIN 31.",
+            "testo": "Johnston calcia un punt da 54 yard",
+            "chi": [
+              "Johnston"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 84,
+            "casaDopo": 77
+          },
+          {
+            "quarto": "2",
+            "tempo": "09:56",
+            "squadra": "CIN",
+            "descrizione": "2-E.McPherson 43 yard field goal is No Good, Wide Right, Center-46-W.Wagner, Holder-8-R.Rehkow.",
+            "testo": "McPherson: field goal da 43 yard sbagliato",
+            "chi": [
+              "McPherson"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 83,
+            "casaDopo": 77
+          },
+          {
+            "quarto": "2",
+            "tempo": "07:54",
+            "squadra": "CIN",
+            "descrizione": "9-J.Burrow pass deep left to 1-J.Chase to PIT 16 for 53 yards (22-A.Samuel).",
+            "testo": "Burrow lancia lungo a sinistra per Chase, 53 yard",
+            "chi": [
+              "Burrow",
+              "Chase"
+            ],
+            "yard": 53.0,
+            "touchdown": false,
+            "casaPrima": 83,
+            "casaDopo": 89
+          }
+        ],
         "video": {
           "id": "9hbvNzp5qSI",
           "titolo": "Pittsburgh Steelers vs Cincinnati Bengals Game Highlights | 2026 NFL Season Week 10"
@@ -142590,6 +142781,8 @@
       {
         "data": "2026-11-16",
         "ora": "20:15",
+        "dataIt": "2026-11-17",
+        "oraIt": "02:15",
         "casa": "BAL",
         "ospite": "LAC",
         "pc": null,
@@ -142633,6 +142826,14 @@
     "prestazioni": {
       "lanci": [
         {
+          "nome": "Joe Burrow",
+          "ruolo": "QB",
+          "squadra": "CIN",
+          "avversario": "PIT",
+          "valore": 409,
+          "dettagli": "4 TD"
+        },
+        {
           "nome": "Brock Purdy",
           "ruolo": "QB",
           "squadra": "SF",
@@ -142663,14 +142864,6 @@
           "avversario": "SF",
           "valore": 343,
           "dettagli": "5 TD · 1 INT"
-        },
-        {
-          "nome": "Deshaun Watson",
-          "ruolo": "QB",
-          "squadra": "CLE",
-          "avversario": "HOU",
-          "valore": 312,
-          "dettagli": "1 INT"
         }
       ],
       "corse": [
@@ -142717,6 +142910,14 @@
       ],
       "ricezioni": [
         {
+          "nome": "Ja'Marr Chase",
+          "ruolo": "WR",
+          "squadra": "CIN",
+          "avversario": "PIT",
+          "valore": 231,
+          "dettagli": "11 ricezioni"
+        },
+        {
           "nome": "Jaxon Smith-Njigba",
           "ruolo": "WR",
           "squadra": "SEA",
@@ -142747,14 +142948,1653 @@
           "avversario": "SF",
           "valore": 145,
           "dettagli": "11 ricezioni · 3 TD"
+        }
+      ]
+    },
+    "giocate": {
+      "attacco": [
+        {
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "quarto": "4",
+          "tempo": "01:05",
+          "testo": "Daniels lancia corto al centro per Diggs, 32 yard: touchdown",
+          "yard": 32.0,
+          "touchdown": true,
+          "evento": "",
+          "valore": 37.3,
+          "prima": 33,
+          "dopo": 70,
+          "partita": "2026_10_WAS_NYG"
         },
         {
-          "nome": "Isaiah Likely",
-          "ruolo": "TE",
           "squadra": "NYG",
           "avversario": "WAS",
-          "valore": 127,
-          "dettagli": "9 ricezioni · 1 TD"
+          "quarto": "4",
+          "tempo": "08:24",
+          "testo": "McCarthy lancia lungo al centro per Likely, 66 yard: touchdown",
+          "yard": 66.0,
+          "touchdown": true,
+          "evento": "",
+          "valore": 31.9,
+          "prima": 38,
+          "dopo": 70,
+          "partita": "2026_10_WAS_NYG"
+        },
+        {
+          "squadra": "CLE",
+          "avversario": "HOU",
+          "quarto": "4",
+          "tempo": "01:11",
+          "testo": "Watson lancia lungo al centro per Fannin, 30 yard",
+          "yard": 30.0,
+          "touchdown": false,
+          "evento": "",
+          "valore": 25.4,
+          "prima": 41,
+          "dopo": 66,
+          "partita": "2026_10_HOU_CLE"
+        },
+        {
+          "squadra": "CAR",
+          "avversario": "NO",
+          "quarto": "4",
+          "tempo": "02:23",
+          "testo": "Young lancia corto a destra per Hubbard, 34 yard",
+          "yard": 34.0,
+          "touchdown": false,
+          "evento": "",
+          "valore": 24.6,
+          "prima": 36,
+          "dopo": 61,
+          "partita": "2026_10_CAR_NO"
+        },
+        {
+          "squadra": "SF",
+          "avversario": "DAL",
+          "quarto": "2",
+          "tempo": "02:43",
+          "testo": "Purdy lancia corto a destra per McCaffrey, 74 yard: touchdown",
+          "yard": 74.0,
+          "touchdown": true,
+          "evento": "",
+          "valore": 22.0,
+          "prima": 27,
+          "dopo": 49,
+          "partita": "2026_10_SF_DAL"
+        },
+        {
+          "squadra": "SEA",
+          "avversario": "LV",
+          "quarto": "3",
+          "tempo": "07:24",
+          "testo": "Lock lancia lungo al centro per Smith-Njigba, 71 yard: touchdown",
+          "yard": 71.0,
+          "touchdown": true,
+          "evento": "",
+          "valore": 19.7,
+          "prima": 63,
+          "dopo": 83,
+          "partita": "2026_10_SEA_LV"
+        },
+        {
+          "squadra": "DET",
+          "avversario": "NE",
+          "quarto": "1",
+          "tempo": "06:26",
+          "testo": "Goff lancia corto a destra per St. Brown, 56 yard: touchdown",
+          "yard": 56.0,
+          "touchdown": true,
+          "evento": "",
+          "valore": 18.4,
+          "prima": 50,
+          "dopo": 68,
+          "partita": "2026_10_NE_DET"
+        },
+        {
+          "squadra": "LA",
+          "avversario": "ARI",
+          "quarto": "2",
+          "tempo": "01:09",
+          "testo": "Stafford lancia corto al centro per Higbee, 5 yard: touchdown",
+          "yard": 5.0,
+          "touchdown": true,
+          "evento": "",
+          "valore": 15.8,
+          "prima": 52,
+          "dopo": 68,
+          "partita": "2026_10_LA_ARI"
+        },
+        {
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "quarto": "3",
+          "tempo": "07:05",
+          "testo": "Daniels lancia corto a destra per Williams, 31 yard: touchdown",
+          "yard": 31.0,
+          "touchdown": true,
+          "evento": "",
+          "valore": 15.3,
+          "prima": 41,
+          "dopo": 57,
+          "partita": "2026_10_WAS_NYG"
+        },
+        {
+          "squadra": "SF",
+          "avversario": "DAL",
+          "quarto": "3",
+          "tempo": "07:13",
+          "testo": "Samuel corre sull'esterno sinistro, 70 yard: touchdown",
+          "yard": 70.0,
+          "touchdown": true,
+          "evento": "",
+          "valore": 15.1,
+          "prima": 70,
+          "dopo": 85,
+          "partita": "2026_10_SF_DAL"
+        }
+      ],
+      "difesa": [
+        {
+          "squadra": "HOU",
+          "avversario": "CLE",
+          "quarto": "4",
+          "tempo": "05:19",
+          "testo": "Watson intercettato da Bullock",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 26.2,
+          "prima": 50,
+          "dopo": 76,
+          "partita": "2026_10_HOU_CLE"
+        },
+        {
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "quarto": "4",
+          "tempo": "05:31",
+          "testo": "Daniels intercettato da Holland",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 23.5,
+          "prima": 50,
+          "dopo": 74,
+          "partita": "2026_10_WAS_NYG"
+        },
+        {
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "quarto": "4",
+          "tempo": "00:34",
+          "testo": "McCarthy intercettato da Douglas",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 21.3,
+          "prima": 70,
+          "dopo": 91,
+          "partita": "2026_10_WAS_NYG"
+        },
+        {
+          "squadra": "IND",
+          "avversario": "MIA",
+          "quarto": "4",
+          "tempo": "01:41",
+          "testo": "McCord: lancio corto al centro per Coleman incompleto",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "stop al quarto down",
+          "valore": 20.8,
+          "prima": 74,
+          "dopo": 95,
+          "partita": "2026_10_MIA_IND"
+        },
+        {
+          "squadra": "MIA",
+          "avversario": "IND",
+          "quarto": "3",
+          "tempo": "09:07",
+          "testo": "Jones intercettato da Johnson: touchdown",
+          "yard": 0.0,
+          "touchdown": true,
+          "evento": "intercetto",
+          "valore": 18.2,
+          "prima": 10,
+          "dopo": 28,
+          "partita": "2026_10_MIA_IND"
+        },
+        {
+          "squadra": "MIN",
+          "avversario": "GB",
+          "quarto": "1",
+          "tempo": "12:49",
+          "testo": "Love lancia corto a destra per Redman, 5 yard, fumble, recuperato da Van (MIN)",
+          "yard": 5.0,
+          "touchdown": false,
+          "evento": "fumble recuperato",
+          "valore": 16.7,
+          "prima": 42,
+          "dopo": 59,
+          "partita": "2026_10_MIN_GB"
+        },
+        {
+          "squadra": "TEN",
+          "avversario": "JAX",
+          "quarto": "1",
+          "tempo": "06:10",
+          "testo": "Lawrence intercettato da Gray",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 16.4,
+          "prima": 34,
+          "dopo": 50,
+          "partita": "2026_10_JAX_TEN"
+        },
+        {
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "quarto": "3",
+          "tempo": "04:14",
+          "testo": "McCarthy lancia corto a destra per Nabers, 3 yard, fumble, recuperato da Reaves (WAS)",
+          "yard": -1.0,
+          "touchdown": false,
+          "evento": "fumble recuperato",
+          "valore": 16.4,
+          "prima": 46,
+          "dopo": 63,
+          "partita": "2026_10_WAS_NYG"
+        },
+        {
+          "squadra": "CAR",
+          "avversario": "NO",
+          "quarto": "1",
+          "tempo": "12:30",
+          "testo": "Shough intercettato da Lloyd",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 16.3,
+          "prima": 45,
+          "dopo": 62,
+          "partita": "2026_10_CAR_NO"
+        },
+        {
+          "squadra": "CAR",
+          "avversario": "NO",
+          "quarto": "2",
+          "tempo": "11:38",
+          "testo": "Shough corre, -5 yard (perdita), fumble, recuperato da Phillips (CAR)",
+          "yard": -6.0,
+          "touchdown": false,
+          "evento": "fumble recuperato",
+          "valore": 15.5,
+          "prima": 37,
+          "dopo": 53,
+          "partita": "2026_10_CAR_NO"
+        }
+      ]
+    },
+    "squadreSettimana": {
+      "attacchi": [
+        {
+          "squadra": "SF",
+          "nome": "San Francisco 49ers",
+          "avversario": "DAL",
+          "attacco": 0.462,
+          "difesa": -0.201,
+          "netto": 0.261,
+          "epaAzione": 0.545,
+          "epaConcesso": 0.266,
+          "partita": "2026_10_SF_DAL"
+        },
+        {
+          "squadra": "CIN",
+          "nome": "Cincinnati Bengals",
+          "avversario": "PIT",
+          "attacco": 0.451,
+          "difesa": -0.025,
+          "netto": 0.426,
+          "epaAzione": 0.463,
+          "epaConcesso": 0.008,
+          "partita": "2026_10_PIT_CIN"
+        },
+        {
+          "squadra": "BUF",
+          "nome": "Buffalo Bills",
+          "avversario": "NYJ",
+          "attacco": 0.306,
+          "difesa": 0.093,
+          "netto": 0.399,
+          "epaAzione": 0.378,
+          "epaConcesso": -0.126,
+          "partita": "2026_10_BUF_NYJ"
+        },
+        {
+          "squadra": "DAL",
+          "nome": "Dallas Cowboys",
+          "avversario": "SF",
+          "attacco": 0.251,
+          "difesa": -0.463,
+          "netto": -0.212,
+          "epaAzione": 0.266,
+          "epaConcesso": 0.545,
+          "partita": "2026_10_SF_DAL"
+        },
+        {
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "avversario": "ARI",
+          "attacco": 0.221,
+          "difesa": 0.571,
+          "netto": 0.792,
+          "epaAzione": 0.283,
+          "epaConcesso": -0.594,
+          "partita": "2026_10_LA_ARI"
+        }
+      ],
+      "difese": [
+        {
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "avversario": "ARI",
+          "attacco": 0.221,
+          "difesa": 0.571,
+          "netto": 0.792,
+          "epaAzione": 0.283,
+          "epaConcesso": -0.594,
+          "partita": "2026_10_LA_ARI"
+        },
+        {
+          "squadra": "MIN",
+          "nome": "Minnesota Vikings",
+          "avversario": "GB",
+          "attacco": 0.047,
+          "difesa": 0.319,
+          "netto": 0.366,
+          "epaAzione": 0.042,
+          "epaConcesso": -0.265,
+          "partita": "2026_10_MIN_GB"
+        },
+        {
+          "squadra": "KC",
+          "nome": "Kansas City Chiefs",
+          "avversario": "ATL",
+          "attacco": 0.167,
+          "difesa": 0.283,
+          "netto": 0.45,
+          "epaAzione": 0.174,
+          "epaConcesso": -0.32,
+          "partita": "2026_10_KC_ATL"
+        },
+        {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "avversario": "NE",
+          "attacco": 0.205,
+          "difesa": 0.259,
+          "netto": 0.464,
+          "epaAzione": 0.206,
+          "epaConcesso": -0.228,
+          "partita": "2026_10_NE_DET"
+        },
+        {
+          "squadra": "CAR",
+          "nome": "Carolina Panthers",
+          "avversario": "NO",
+          "attacco": -0.071,
+          "difesa": 0.246,
+          "netto": 0.175,
+          "epaAzione": -0.061,
+          "epaConcesso": -0.277,
+          "partita": "2026_10_CAR_NO"
+        }
+      ],
+      "migliori": [
+        {
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "avversario": "ARI",
+          "attacco": 0.221,
+          "difesa": 0.571,
+          "netto": 0.792,
+          "epaAzione": 0.283,
+          "epaConcesso": -0.594,
+          "partita": "2026_10_LA_ARI"
+        },
+        {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "avversario": "NE",
+          "attacco": 0.205,
+          "difesa": 0.259,
+          "netto": 0.464,
+          "epaAzione": 0.206,
+          "epaConcesso": -0.228,
+          "partita": "2026_10_NE_DET"
+        },
+        {
+          "squadra": "KC",
+          "nome": "Kansas City Chiefs",
+          "avversario": "ATL",
+          "attacco": 0.167,
+          "difesa": 0.283,
+          "netto": 0.45,
+          "epaAzione": 0.174,
+          "epaConcesso": -0.32,
+          "partita": "2026_10_KC_ATL"
+        }
+      ],
+      "nota": "EPA per azione corretto per la forza dell'avversario (stesse stime degli indici): +0,10 vuol dire circa 6 punti in più di una squadra media contro lo stesso avversario."
+    },
+    "ultimiDueMinuti": {
+      "squadre": [
+        {
+          "squadra": "NO",
+          "nome": "New Orleans Saints",
+          "partite": 9,
+          "fatti1": 3.0,
+          "fatti2": 3.44,
+          "subiti1": 1.78,
+          "subiti2": 1.44,
+          "quota": 28.7,
+          "netto": 3.22
+        },
+        {
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "partite": 10,
+          "fatti1": 4.1,
+          "fatti2": 2.1,
+          "subiti1": 1.9,
+          "subiti2": 1.7,
+          "quota": 25.0,
+          "netto": 2.6
+        },
+        {
+          "squadra": "HOU",
+          "nome": "Houston Texans",
+          "partite": 9,
+          "fatti1": 4.22,
+          "fatti2": 1.89,
+          "subiti1": 1.89,
+          "subiti2": 2.89,
+          "quota": 23.6,
+          "netto": 1.33
+        },
+        {
+          "squadra": "JAX",
+          "nome": "Jacksonville Jaguars",
+          "partite": 9,
+          "fatti1": 4.56,
+          "fatti2": 1.44,
+          "subiti1": 0.78,
+          "subiti2": 1.44,
+          "quota": 20.1,
+          "netto": 3.78
+        },
+        {
+          "squadra": "BUF",
+          "nome": "Buffalo Bills",
+          "partite": 9,
+          "fatti1": 3.78,
+          "fatti2": 1.78,
+          "subiti1": 2.11,
+          "subiti2": 3.56,
+          "quota": 17.4,
+          "netto": -0.11
+        },
+        {
+          "squadra": "CLE",
+          "nome": "Cleveland Browns",
+          "partite": 10,
+          "fatti1": 2.0,
+          "fatti2": 3.4,
+          "subiti1": 1.6,
+          "subiti2": 2.2,
+          "quota": 28.7,
+          "netto": 1.6
+        },
+        {
+          "squadra": "DAL",
+          "nome": "Dallas Cowboys",
+          "partite": 10,
+          "fatti1": 1.6,
+          "fatti2": 3.4,
+          "subiti1": 2.0,
+          "subiti2": 1.9,
+          "quota": 17.5,
+          "netto": 1.1
+        },
+        {
+          "squadra": "CHI",
+          "nome": "Chicago Bears",
+          "partite": 9,
+          "fatti1": 4.11,
+          "fatti2": 0.67,
+          "subiti1": 2.56,
+          "subiti2": 0.67,
+          "quota": 17.8,
+          "netto": 1.56
+        },
+        {
+          "squadra": "WAS",
+          "nome": "Washington Commanders",
+          "partite": 9,
+          "fatti1": 2.44,
+          "fatti2": 2.33,
+          "subiti1": 1.78,
+          "subiti2": 0.78,
+          "quota": 21.9,
+          "netto": 2.22
+        },
+        {
+          "squadra": "CIN",
+          "nome": "Cincinnati Bengals",
+          "partite": 9,
+          "fatti1": 3.78,
+          "fatti2": 0.78,
+          "subiti1": 2.56,
+          "subiti2": 0.67,
+          "quota": 14.7,
+          "netto": 1.33
+        },
+        {
+          "squadra": "LV",
+          "nome": "Las Vegas Raiders",
+          "partite": 10,
+          "fatti1": 2.5,
+          "fatti2": 2.0,
+          "subiti1": 3.0,
+          "subiti2": 0.3,
+          "quota": 17.9,
+          "netto": 1.2
+        },
+        {
+          "squadra": "PIT",
+          "nome": "Pittsburgh Steelers",
+          "partite": 9,
+          "fatti1": 2.78,
+          "fatti2": 1.56,
+          "subiti1": 3.44,
+          "subiti2": 0.67,
+          "quota": 19.7,
+          "netto": 0.22
+        },
+        {
+          "squadra": "SEA",
+          "nome": "Seattle Seahawks",
+          "partite": 10,
+          "fatti1": 3.3,
+          "fatti2": 1.0,
+          "subiti1": 1.6,
+          "subiti2": 0.3,
+          "quota": 19.3,
+          "netto": 2.4
+        },
+        {
+          "squadra": "BAL",
+          "nome": "Baltimore Ravens",
+          "partite": 9,
+          "fatti1": 2.11,
+          "fatti2": 2.0,
+          "subiti1": 1.78,
+          "subiti2": 2.33,
+          "quota": 19.6,
+          "netto": 0.0
+        },
+        {
+          "squadra": "NE",
+          "nome": "New England Patriots",
+          "partite": 10,
+          "fatti1": 2.4,
+          "fatti2": 1.4,
+          "subiti1": 2.7,
+          "subiti2": 0.6,
+          "quota": 17.2,
+          "netto": 0.5
+        },
+        {
+          "squadra": "PHI",
+          "nome": "Philadelphia Eagles",
+          "partite": 9,
+          "fatti1": 2.33,
+          "fatti2": 1.44,
+          "subiti1": 2.78,
+          "subiti2": 3.0,
+          "quota": 23.0,
+          "netto": -2.0
+        },
+        {
+          "squadra": "CAR",
+          "nome": "Carolina Panthers",
+          "partite": 9,
+          "fatti1": 2.22,
+          "fatti2": 1.11,
+          "subiti1": 4.11,
+          "subiti2": 1.22,
+          "quota": 13.7,
+          "netto": -2.0
+        },
+        {
+          "squadra": "KC",
+          "nome": "Kansas City Chiefs",
+          "partite": 9,
+          "fatti1": 3.33,
+          "fatti2": 0.0,
+          "subiti1": 2.67,
+          "subiti2": 1.67,
+          "quota": 12.7,
+          "netto": -1.0
+        },
+        {
+          "squadra": "DEN",
+          "nome": "Denver Broncos",
+          "partite": 9,
+          "fatti1": 1.44,
+          "fatti2": 1.89,
+          "subiti1": 2.89,
+          "subiti2": 0.33,
+          "quota": 15.2,
+          "netto": 0.11
+        },
+        {
+          "squadra": "SF",
+          "nome": "San Francisco 49ers",
+          "partite": 9,
+          "fatti1": 2.22,
+          "fatti2": 1.11,
+          "subiti1": 1.67,
+          "subiti2": 1.56,
+          "quota": 10.7,
+          "netto": 0.11
+        },
+        {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "partite": 9,
+          "fatti1": 2.11,
+          "fatti2": 1.11,
+          "subiti1": 0.33,
+          "subiti2": 0.78,
+          "quota": 11.3,
+          "netto": 2.11
+        },
+        {
+          "squadra": "IND",
+          "nome": "Indianapolis Colts",
+          "partite": 10,
+          "fatti1": 2.6,
+          "fatti2": 0.6,
+          "subiti1": 2.7,
+          "subiti2": 2.0,
+          "quota": 15.4,
+          "netto": -1.5
+        },
+        {
+          "squadra": "MIA",
+          "nome": "Miami Dolphins",
+          "partite": 9,
+          "fatti1": 2.22,
+          "fatti2": 0.67,
+          "subiti1": 2.67,
+          "subiti2": 0.0,
+          "quota": 17.6,
+          "netto": 0.22
+        },
+        {
+          "squadra": "NYG",
+          "nome": "New York Giants",
+          "partite": 9,
+          "fatti1": 1.44,
+          "fatti2": 1.44,
+          "subiti1": 3.44,
+          "subiti2": 1.89,
+          "quota": 12.8,
+          "netto": -2.44
+        },
+        {
+          "squadra": "ARI",
+          "nome": "Arizona Cardinals",
+          "partite": 10,
+          "fatti1": 1.5,
+          "fatti2": 1.2,
+          "subiti1": 2.7,
+          "subiti2": 3.0,
+          "quota": 14.7,
+          "netto": -3.0
+        },
+        {
+          "squadra": "TEN",
+          "nome": "Tennessee Titans",
+          "partite": 9,
+          "fatti1": 0.33,
+          "fatti2": 2.33,
+          "subiti1": 3.56,
+          "subiti2": 2.67,
+          "quota": 14.4,
+          "netto": -3.56
+        },
+        {
+          "squadra": "TB",
+          "nome": "Tampa Bay Buccaneers",
+          "partite": 9,
+          "fatti1": 2.22,
+          "fatti2": 0.33,
+          "subiti1": 1.33,
+          "subiti2": 1.33,
+          "quota": 11.4,
+          "netto": -0.11
+        },
+        {
+          "squadra": "GB",
+          "nome": "Green Bay Packers",
+          "partite": 10,
+          "fatti1": 2.4,
+          "fatti2": 0.0,
+          "subiti1": 1.5,
+          "subiti2": 0.9,
+          "quota": 10.6,
+          "netto": 0.0
+        },
+        {
+          "squadra": "MIN",
+          "nome": "Minnesota Vikings",
+          "partite": 9,
+          "fatti1": 1.11,
+          "fatti2": 1.0,
+          "subiti1": 2.22,
+          "subiti2": 0.0,
+          "quota": 10.8,
+          "netto": -0.11
+        },
+        {
+          "squadra": "ATL",
+          "nome": "Atlanta Falcons",
+          "partite": 10,
+          "fatti1": 1.3,
+          "fatti2": 0.3,
+          "subiti1": 2.7,
+          "subiti2": 1.5,
+          "quota": 8.0,
+          "netto": -2.6
+        },
+        {
+          "squadra": "LAC",
+          "nome": "Los Angeles Chargers",
+          "partite": 8,
+          "fatti1": 0.75,
+          "fatti2": 0.38,
+          "subiti1": 5.88,
+          "subiti2": 0.62,
+          "quota": 7.4,
+          "netto": -5.38
+        },
+        {
+          "squadra": "NYJ",
+          "nome": "New York Jets",
+          "partite": 10,
+          "fatti1": 0.6,
+          "fatti2": 0.3,
+          "subiti1": 2.7,
+          "subiti2": 0.6,
+          "quota": 4.6,
+          "netto": -2.4
+        }
+      ],
+      "media": {
+        "fatti1": 2.4,
+        "fatti2": 1.39
+      },
+      "nota": "Punti a partita segnati e subiti dopo il two-minute warning (ultimi 2 minuti) del primo e del secondo tempo; quota = parte dei punti della squadra fatta in quei minuti. Sono pochi minuti a partita: come segnale per giocare va ancora misurata."
+    },
+    "flag": {
+      "squadre": [
+        {
+          "squadra": "CAR",
+          "nome": "Carolina Panthers",
+          "partite": 9,
+          "flag": 9.22,
+          "yard": 83.0,
+          "subite": 8.0,
+          "tipi": [
+            [
+              "holding in attacco",
+              14
+            ],
+            [
+              "falsa partenza",
+              13
+            ],
+            [
+              "interferenza in difesa",
+              11
+            ]
+          ]
+        },
+        {
+          "squadra": "CLE",
+          "nome": "Cleveland Browns",
+          "partite": 10,
+          "flag": 8.3,
+          "yard": 59.5,
+          "subite": 6.7,
+          "tipi": [
+            [
+              "holding in attacco",
+              18
+            ],
+            [
+              "falsa partenza",
+              17
+            ],
+            [
+              "invasione della zona neutra",
+              9
+            ]
+          ]
+        },
+        {
+          "squadra": "LAC",
+          "nome": "Los Angeles Chargers",
+          "partite": 8,
+          "flag": 8.25,
+          "yard": 67.5,
+          "subite": 8.38,
+          "tipi": [
+            [
+              "falsa partenza",
+              20
+            ],
+            [
+              "holding in attacco",
+              16
+            ],
+            [
+              "interferenza in difesa",
+              4
+            ]
+          ]
+        },
+        {
+          "squadra": "HOU",
+          "nome": "Houston Texans",
+          "partite": 9,
+          "flag": 8.22,
+          "yard": 69.0,
+          "subite": 6.89,
+          "tipi": [
+            [
+              "holding in attacco",
+              16
+            ],
+            [
+              "falsa partenza",
+              14
+            ],
+            [
+              "gioco violento",
+              4
+            ]
+          ]
+        },
+        {
+          "squadra": "BUF",
+          "nome": "Buffalo Bills",
+          "partite": 9,
+          "flag": 8.22,
+          "yard": 67.1,
+          "subite": 7.11,
+          "tipi": [
+            [
+              "falsa partenza",
+              17
+            ],
+            [
+              "holding in attacco",
+              14
+            ],
+            [
+              "holding in difesa",
+              10
+            ]
+          ]
+        },
+        {
+          "squadra": "BAL",
+          "nome": "Baltimore Ravens",
+          "partite": 9,
+          "flag": 8.11,
+          "yard": 59.3,
+          "subite": 5.33,
+          "tipi": [
+            [
+              "falsa partenza",
+              23
+            ],
+            [
+              "holding in attacco",
+              12
+            ],
+            [
+              "interferenza in difesa",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "GB",
+          "nome": "Green Bay Packers",
+          "partite": 10,
+          "flag": 8.0,
+          "yard": 65.0,
+          "subite": 6.2,
+          "tipi": [
+            [
+              "holding in attacco",
+              15
+            ],
+            [
+              "falsa partenza",
+              14
+            ],
+            [
+              "fallo sul quarterback",
+              9
+            ]
+          ]
+        },
+        {
+          "squadra": "NYJ",
+          "nome": "New York Jets",
+          "partite": 10,
+          "flag": 8.0,
+          "yard": 62.5,
+          "subite": 5.5,
+          "tipi": [
+            [
+              "falsa partenza",
+              14
+            ],
+            [
+              "holding in attacco",
+              14
+            ],
+            [
+              "ritardo di gioco",
+              7
+            ]
+          ]
+        },
+        {
+          "squadra": "DAL",
+          "nome": "Dallas Cowboys",
+          "partite": 10,
+          "flag": 7.9,
+          "yard": 70.2,
+          "subite": 9.4,
+          "tipi": [
+            [
+              "holding in attacco",
+              17
+            ],
+            [
+              "interferenza in difesa",
+              9
+            ],
+            [
+              "invasione della zona neutra",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "CHI",
+          "nome": "Chicago Bears",
+          "partite": 9,
+          "flag": 7.89,
+          "yard": 62.4,
+          "subite": 7.44,
+          "tipi": [
+            [
+              "holding in attacco",
+              19
+            ],
+            [
+              "falsa partenza",
+              11
+            ],
+            [
+              "ritardo di gioco",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "DEN",
+          "nome": "Denver Broncos",
+          "partite": 9,
+          "flag": 7.44,
+          "yard": 48.7,
+          "subite": 7.56,
+          "tipi": [
+            [
+              "holding in attacco",
+              9
+            ],
+            [
+              "ritardo di gioco",
+              9
+            ],
+            [
+              "falsa partenza",
+              9
+            ]
+          ]
+        },
+        {
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "partite": 10,
+          "flag": 7.4,
+          "yard": 58.9,
+          "subite": 5.5,
+          "tipi": [
+            [
+              "falsa partenza",
+              16
+            ],
+            [
+              "holding in attacco",
+              11
+            ],
+            [
+              "fuorigioco in difesa",
+              8
+            ]
+          ]
+        },
+        {
+          "squadra": "NE",
+          "nome": "New England Patriots",
+          "partite": 10,
+          "flag": 7.2,
+          "yard": 53.0,
+          "subite": 6.5,
+          "tipi": [
+            [
+              "falsa partenza",
+              14
+            ],
+            [
+              "holding in attacco",
+              14
+            ],
+            [
+              "ritardo di gioco",
+              5
+            ]
+          ]
+        },
+        {
+          "squadra": "NYG",
+          "nome": "New York Giants",
+          "partite": 9,
+          "flag": 7.11,
+          "yard": 62.7,
+          "subite": 6.89,
+          "tipi": [
+            [
+              "falsa partenza",
+              19
+            ],
+            [
+              "interferenza in difesa",
+              9
+            ],
+            [
+              "holding in attacco",
+              9
+            ]
+          ]
+        },
+        {
+          "squadra": "ARI",
+          "nome": "Arizona Cardinals",
+          "partite": 10,
+          "flag": 7.0,
+          "yard": 61.9,
+          "subite": 5.8,
+          "tipi": [
+            [
+              "falsa partenza",
+              15
+            ],
+            [
+              "interferenza in difesa",
+              8
+            ],
+            [
+              "holding in attacco",
+              7
+            ]
+          ]
+        },
+        {
+          "squadra": "CIN",
+          "nome": "Cincinnati Bengals",
+          "partite": 9,
+          "flag": 7.0,
+          "yard": 57.4,
+          "subite": 8.33,
+          "tipi": [
+            [
+              "falsa partenza",
+              12
+            ],
+            [
+              "holding in attacco",
+              12
+            ],
+            [
+              "fuorigioco in difesa",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "TB",
+          "nome": "Tampa Bay Buccaneers",
+          "partite": 9,
+          "flag": 7.0,
+          "yard": 49.9,
+          "subite": 6.56,
+          "tipi": [
+            [
+              "falsa partenza",
+              18
+            ],
+            [
+              "holding in attacco",
+              17
+            ],
+            [
+              "ritardo di gioco",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "WAS",
+          "nome": "Washington Commanders",
+          "partite": 9,
+          "flag": 7.0,
+          "yard": 53.1,
+          "subite": 6.56,
+          "tipi": [
+            [
+              "falsa partenza",
+              19
+            ],
+            [
+              "holding in attacco",
+              8
+            ],
+            [
+              "ritardo di gioco",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "MIA",
+          "nome": "Miami Dolphins",
+          "partite": 9,
+          "flag": 6.89,
+          "yard": 48.7,
+          "subite": 7.89,
+          "tipi": [
+            [
+              "holding in attacco",
+              19
+            ],
+            [
+              "falsa partenza",
+              10
+            ],
+            [
+              "contatto illegale",
+              4
+            ]
+          ]
+        },
+        {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "partite": 9,
+          "flag": 6.89,
+          "yard": 56.3,
+          "subite": 6.33,
+          "tipi": [
+            [
+              "falsa partenza",
+              16
+            ],
+            [
+              "holding in attacco",
+              13
+            ],
+            [
+              "interferenza in difesa",
+              7
+            ]
+          ]
+        },
+        {
+          "squadra": "PHI",
+          "nome": "Philadelphia Eagles",
+          "partite": 9,
+          "flag": 6.89,
+          "yard": 49.6,
+          "subite": 8.67,
+          "tipi": [
+            [
+              "holding in attacco",
+              16
+            ],
+            [
+              "falsa partenza",
+              10
+            ],
+            [
+              "ritardo di gioco",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "ATL",
+          "nome": "Atlanta Falcons",
+          "partite": 10,
+          "flag": 6.8,
+          "yard": 59.3,
+          "subite": 7.0,
+          "tipi": [
+            [
+              "holding in attacco",
+              19
+            ],
+            [
+              "falsa partenza",
+              9
+            ],
+            [
+              "interferenza in difesa",
+              7
+            ]
+          ]
+        },
+        {
+          "squadra": "JAX",
+          "nome": "Jacksonville Jaguars",
+          "partite": 9,
+          "flag": 6.67,
+          "yard": 55.4,
+          "subite": 8.11,
+          "tipi": [
+            [
+              "holding in attacco",
+              16
+            ],
+            [
+              "falsa partenza",
+              14
+            ],
+            [
+              "interferenza in difesa",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "KC",
+          "nome": "Kansas City Chiefs",
+          "partite": 9,
+          "flag": 6.67,
+          "yard": 58.3,
+          "subite": 6.67,
+          "tipi": [
+            [
+              "holding in attacco",
+              13
+            ],
+            [
+              "interferenza in difesa",
+              6
+            ],
+            [
+              "fuorigioco in difesa",
+              5
+            ]
+          ]
+        },
+        {
+          "squadra": "IND",
+          "nome": "Indianapolis Colts",
+          "partite": 10,
+          "flag": 6.6,
+          "yard": 46.5,
+          "subite": 7.2,
+          "tipi": [
+            [
+              "holding in attacco",
+              14
+            ],
+            [
+              "falsa partenza",
+              10
+            ],
+            [
+              "interferenza in difesa",
+              6
+            ]
+          ]
+        },
+        {
+          "squadra": "SEA",
+          "nome": "Seattle Seahawks",
+          "partite": 10,
+          "flag": 6.6,
+          "yard": 59.9,
+          "subite": 7.3,
+          "tipi": [
+            [
+              "falsa partenza",
+              14
+            ],
+            [
+              "gioco violento",
+              11
+            ],
+            [
+              "holding in attacco",
+              9
+            ]
+          ]
+        },
+        {
+          "squadra": "SF",
+          "nome": "San Francisco 49ers",
+          "partite": 9,
+          "flag": 6.33,
+          "yard": 56.2,
+          "subite": 6.0,
+          "tipi": [
+            [
+              "holding in attacco",
+              12
+            ],
+            [
+              "falsa partenza",
+              10
+            ],
+            [
+              "interferenza in difesa",
+              4
+            ]
+          ]
+        },
+        {
+          "squadra": "TEN",
+          "nome": "Tennessee Titans",
+          "partite": 9,
+          "flag": 6.11,
+          "yard": 45.9,
+          "subite": 7.67,
+          "tipi": [
+            [
+              "holding in attacco",
+              18
+            ],
+            [
+              "fuorigioco in difesa",
+              9
+            ],
+            [
+              "falsa partenza",
+              7
+            ]
+          ]
+        },
+        {
+          "squadra": "NO",
+          "nome": "New Orleans Saints",
+          "partite": 9,
+          "flag": 5.78,
+          "yard": 41.8,
+          "subite": 8.22,
+          "tipi": [
+            [
+              "falsa partenza",
+              11
+            ],
+            [
+              "holding in attacco",
+              8
+            ],
+            [
+              "ritardo di gioco",
+              5
+            ]
+          ]
+        },
+        {
+          "squadra": "MIN",
+          "nome": "Minnesota Vikings",
+          "partite": 9,
+          "flag": 5.56,
+          "yard": 45.4,
+          "subite": 7.78,
+          "tipi": [
+            [
+              "falsa partenza",
+              13
+            ],
+            [
+              "holding in attacco",
+              8
+            ],
+            [
+              "formazione illegale",
+              4
+            ]
+          ]
+        },
+        {
+          "squadra": "PIT",
+          "nome": "Pittsburgh Steelers",
+          "partite": 9,
+          "flag": 5.44,
+          "yard": 48.9,
+          "subite": 7.67,
+          "tipi": [
+            [
+              "holding in attacco",
+              12
+            ],
+            [
+              "gioco violento",
+              5
+            ],
+            [
+              "falsa partenza",
+              5
+            ]
+          ]
+        },
+        {
+          "squadra": "LV",
+          "nome": "Las Vegas Raiders",
+          "partite": 10,
+          "flag": 5.3,
+          "yard": 39.1,
+          "subite": 7.2,
+          "tipi": [
+            [
+              "interferenza in difesa",
+              9
+            ],
+            [
+              "falsa partenza",
+              8
+            ],
+            [
+              "holding in attacco",
+              8
+            ]
+          ]
+        }
+      ],
+      "media": 7.12,
+      "nota": "Penalità accettate a partita (le rifiutate non contano). Se in un'azione ci sono più flag, nflverse ne registra una sola.",
+      "arbitri": [
+        {
+          "arbitro": "Scott Novak",
+          "partite": 4,
+          "flag": 22.0,
+          "casa": 9.8,
+          "ospite": 12.2,
+          "yard": 215.0
+        },
+        {
+          "arbitro": "Alex Moore",
+          "partite": 5,
+          "flag": 18.2,
+          "casa": 7.4,
+          "ospite": 10.8,
+          "yard": 151.8
+        },
+        {
+          "arbitro": "Adrian Hill",
+          "partite": 4,
+          "flag": 17.8,
+          "casa": 9.5,
+          "ospite": 8.2,
+          "yard": 126.0
+        },
+        {
+          "arbitro": "Brad Allen",
+          "partite": 4,
+          "flag": 16.2,
+          "casa": 8.8,
+          "ospite": 7.5,
+          "yard": 116.0
+        },
+        {
+          "arbitro": "Clete Blakeman",
+          "partite": 4,
+          "flag": 15.8,
+          "casa": 9.0,
+          "ospite": 6.8,
+          "yard": 103.8
+        },
+        {
+          "arbitro": "Carl Cheffers",
+          "partite": 4,
+          "flag": 15.2,
+          "casa": 6.8,
+          "ospite": 8.5,
+          "yard": 124.8
+        },
+        {
+          "arbitro": "Craig Wrolstad",
+          "partite": 3,
+          "flag": 15.0,
+          "casa": 7.0,
+          "ospite": 8.0,
+          "yard": 124.3
+        },
+        {
+          "arbitro": "John Hussey",
+          "partite": 3,
+          "flag": 14.7,
+          "casa": 8.0,
+          "ospite": 6.7,
+          "yard": 107.7
+        },
+        {
+          "arbitro": "Shawn Hochuli",
+          "partite": 4,
+          "flag": 14.5,
+          "casa": 6.5,
+          "ospite": 8.0,
+          "yard": 113.0
+        },
+        {
+          "arbitro": "Land Clark",
+          "partite": 4,
+          "flag": 14.5,
+          "casa": 8.0,
+          "ospite": 6.5,
+          "yard": 105.5
+        },
+        {
+          "arbitro": "Bill Vinovich",
+          "partite": 3,
+          "flag": 13.7,
+          "casa": 6.0,
+          "ospite": 7.7,
+          "yard": 89.0
+        },
+        {
+          "arbitro": "Brad Rogers",
+          "partite": 4,
+          "flag": 12.5,
+          "casa": 5.8,
+          "ospite": 6.8,
+          "yard": 105.0
+        },
+        {
+          "arbitro": "Shawn Smith",
+          "partite": 4,
+          "flag": 12.5,
+          "casa": 6.0,
+          "ospite": 6.5,
+          "yard": 110.0
+        },
+        {
+          "arbitro": "Clay Martin",
+          "partite": 4,
+          "flag": 12.2,
+          "casa": 6.0,
+          "ospite": 6.2,
+          "yard": 87.8
+        },
+        {
+          "arbitro": "Alan Eck",
+          "partite": 4,
+          "flag": 12.2,
+          "casa": 8.2,
+          "ospite": 4.0,
+          "yard": 103.5
+        },
+        {
+          "arbitro": "Alex Kemp",
+          "partite": 3,
+          "flag": 12.0,
+          "casa": 5.0,
+          "ospite": 7.0,
+          "yard": 91.0
+        },
+        {
+          "arbitro": "Ron Torbert",
+          "partite": 4,
+          "flag": 11.5,
+          "casa": 4.8,
+          "ospite": 6.8,
+          "yard": 95.8
         }
       ]
     }
