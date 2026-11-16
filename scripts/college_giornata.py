@@ -15,7 +15,7 @@ dei blocchi NFL, così la pagina li mostra con lo stesso codice. Solo libreria s
 import re
 from collections import defaultdict
 
-VERSIONE = 2                       # cambia quando cambia il calcolo: le partite si rileggono da sole
+VERSIONE = 3                       # cambia quando cambia il calcolo: le partite si rileggono da sole
 GIOCATE_PER_PARTITA = 4
 GIOCATE = 10
 FINESTRA = 120
@@ -82,9 +82,9 @@ def traduci(testo: str) -> str:
     m = re.match(r"(.+?) pass complete to (.+?),? for (-?\d+) y(?:ar)?ds?", t)
     if m:
         return f"{m.group(1)} lancia per {m.group(2)}, {m.group(3)} yard{fine}"
-    m = re.match(r"(.+?) rush (left|middle|right) for (\d+) yards? (gain|loss)", t)
+    m = re.match(r"(.+?) rush (left|middle|right) for (\d+) yards?(?: (gain|loss))?", t)
     if m:
-        y = m.group(3) if m.group(4) == "gain" else "−" + m.group(3)
+        y = "−" + m.group(3) if m.group(4) == "loss" and m.group(3) != "0" else m.group(3)
         return f"{m.group(1)} corre {DIR[m.group(2)]}, {y} yard{fine}"
     m = re.match(r"(.+?) (?:run|rush) for (-?\d+) y(?:ar)?ds?", t)
     if m:
@@ -192,10 +192,16 @@ def riassunto_partita(d: dict) -> dict | None:
                 dp = w if att == casa_id else 1 - w
             else:
                 continue
+            testo = traduci(p.get("text") or "")
+            if evento == "fumble recuperato" and "Fumble" not in testo:
+                testo += ", fumble perso"
+            elif evento == "stop al quarto down" and "quarto down" not in testo:
+                testo += ", palla persa al quarto down"
+            testo = testo.replace("−0 yard", "nessuna perdita")
             giocate.append({"tipo": "difesa" if evento else "attacco", "squadra": nomi.get(chi, ""),
                             "avversario": nomi.get(contro, ""), "quarto": str(per or ""),
                             "tempo": (p.get("clock") or {}).get("displayValue", ""),
-                            "testo": traduci(p.get("text") or ""), "yard": p.get("statYardage"),
+                            "testo": testo, "yard": p.get("statYardage"),
                             "touchdown": bool(p.get("scoringPlay")) and "TD" in (p.get("text") or "").upper(),
                             "evento": evento, "valore": round(valore * 100, 1),
                             "prima": round(pr * 100), "dopo": round(dp * 100)})
