@@ -15,6 +15,7 @@ dei blocchi NFL, così la pagina li mostra con lo stesso codice. Solo libreria s
 import re
 from collections import defaultdict
 
+VERSIONE = 2                       # cambia quando cambia il calcolo: le partite si rileggono da sole
 GIOCATE_PER_PARTITA = 4
 GIOCATE = 10
 FINESTRA = 120
@@ -40,39 +41,70 @@ def _due_numeri(x: str):
 
 
 # ------------------------------------------------------------------ testo in italiano
+DIR = {"left": "a sinistra", "middle": "al centro", "right": "a destra"}
+LUNG = {"short": "corto", "deep": "lungo"}
+
+
 def _pulisci(t: str) -> str:
-    t = re.sub(r"\s*\([^)]*(KICK|kick|PAT|Pat)[^)]*\)", "", t or "")
-    t = re.sub(r"\s+to the [A-Z]{2,5} \d+", "", t)
-    return t.strip().rstrip(".")
+    """Toglie orario, formazione, numeri di maglia, placcatori, calci e posizioni sul campo."""
+    t = t or ""
+    t = re.sub(r"^\(\d+:\d+\)\s*", "", t)
+    t = re.sub(r"^(?:No Huddle-Shotgun|No Huddle|Shotgun|Pistol|Under Center)\s+", "", t)
+    t = re.sub(r"#\d+\s*", "", t)
+    t = re.sub(r"\s*\([^)]*\)", "", t)                       # placcatori, calcio dell'extra point
+    t = re.sub(r",?\s*clock \d+:\d+.*$", "", t)
+    t = re.sub(r"\s+caught at [A-Za-z]+\s?\d+,?", "", t)
+    t = re.sub(r"\s+to the [A-Za-z']+\s?\d+", "", t)
+    t = re.sub(r",?\s*(?:1ST DOWN|out of bounds at [A-Za-z]+\s?\d+).*$", "", t)
+    return re.sub(r"\s+", " ", t).strip().rstrip(",.")
 
 
 def traduci(testo: str) -> str:
-    """Le forme più comuni del testo ESPN college; altrimenti il testo originale ripulito."""
+    """Le forme più comuni del testo ESPN college (vecchia e nuova); altrimenti il testo ripulito."""
+    td = bool(re.search(r"for a TD|TOUCHDOWN|\d+ Yd (?:pass|Run|Interception Return|Fumble Return)", testo or ""))
     t = _pulisci(testo)
-    td = bool(re.search(r"for a TD|TOUCHDOWN", t, re.I))
     fine = ": touchdown" if td else ""
-    m = re.match(r"(.+?) pass complete to (.+?) for (-?\d+) y(?:ar)?ds?", t)
+    m = re.match(r"(.+?) (\d+) Yd pass from (.+)", t)
+    if m:
+        return f"{m.group(3)} lancia per {m.group(1)}, {m.group(2)} yard: touchdown"
+    m = re.match(r"(.+?) (\d+) Yd Run", t)
+    if m:
+        return f"{m.group(1)} corre, {m.group(2)} yard: touchdown"
+    m = re.match(r"(.+?) (\d+) Yd Interception Return", t)
+    if m:
+        return f"Intercetto di {m.group(1)} riportato per {m.group(2)} yard: touchdown"
+    m = re.match(r"(.+?) (\d+) Yd Fumble Return", t)
+    if m:
+        return f"Fumble riportato da {m.group(1)} per {m.group(2)} yard: touchdown"
+    m = re.match(r"(.+?) pass complete (short|deep) (left|middle|right) to (.+?),? for (-?\d+) yards?", t)
+    if m:
+        return f"{m.group(1)} lancia {LUNG[m.group(2)]} {DIR[m.group(3)]} per {m.group(4)}, {m.group(5)} yard{fine}"
+    m = re.match(r"(.+?) pass complete to (.+?),? for (-?\d+) y(?:ar)?ds?", t)
     if m:
         return f"{m.group(1)} lancia per {m.group(2)}, {m.group(3)} yard{fine}"
-    m = re.match(r"(.+?) run for (-?\d+) y(?:ar)?ds?", t)
+    m = re.match(r"(.+?) rush (left|middle|right) for (\d+) yards? (gain|loss)", t)
+    if m:
+        y = m.group(3) if m.group(4) == "gain" else "−" + m.group(3)
+        return f"{m.group(1)} corre {DIR[m.group(2)]}, {y} yard{fine}"
+    m = re.match(r"(.+?) (?:run|rush) for (-?\d+) y(?:ar)?ds?", t)
     if m:
         return f"{m.group(1)} corre, {m.group(2)} yard{fine}"
-    m = re.match(r"(.+?) run for no gain", t)
+    m = re.match(r"(.+?) (?:run|rush)(?: \w+)? for no gain", t)
     if m:
         return f"{m.group(1)} corre, nessun guadagno"
-    m = re.match(r"(.+?) sacked by (.+?) for a loss of (\d+) y", t)
+    m = re.match(r"(.+?) sacked by (.+?) for (?:a )?loss of (\d+) y", t)
     if m:
         return f"{m.group(1)} subisce un sack da {m.group(2)}, −{m.group(3)} yard"
-    m = re.match(r"(.+?) sacked for a loss of (\d+) y", t)
+    m = re.match(r"(.+?) sacked for (?:a )?loss of (\d+) y", t)
     if m:
         return f"{m.group(1)} subisce un sack, −{m.group(2)} yard"
-    m = re.match(r"(.+?) pass intercepted(?: by)? (.+?)(?: at| return| for|$)", t)
+    m = re.match(r"(.+?) pass (?:\w+ \w+ )?intercepted(?: by)? (.+?)(?: at| return| for|,|$)", t, re.I)
     if m:
         return f"{m.group(1)} intercettato da {m.group(2).strip()}{fine}"
-    m = re.match(r"(.+?) pass incomplete(?: to (.+))?", t)
+    m = re.match(r"(.+?) pass incomplete(?: (short|deep) (left|middle|right))?(?: to (.+))?", t)
     if m:
-        return f"{m.group(1)}: lancio incompleto" + (f" per {m.group(2)}" if m.group(2) else "")
-    return t[:220]
+        return f"{m.group(1)}: lancio incompleto" + (f" per {m.group(4)}" if m.group(4) else "")
+    return t[:200]
 
 
 # ------------------------------------------------------------------ una partita
@@ -92,7 +124,7 @@ def riassunto_partita(d: dict) -> dict | None:
             ospite_id = tid
         if tid and tid not in nomi:
             nomi[tid] = ((c.get("team") or {}).get("location") or "").strip()
-    out = {"flag": {}, "yardAzioni": {}, "due": {}, "giocate": []}
+    out = {"v": VERSIONE, "flag": {}, "yardAzioni": {}, "due": {}, "giocate": []}
     for t in ((d.get("boxscore") or {}).get("teams") or []):
         nome = nomi.get(str((t.get("team") or {}).get("id") or ""), "")
         st = {s.get("name"): s.get("displayValue") for s in t.get("statistics") or []}
@@ -110,8 +142,15 @@ def riassunto_partita(d: dict) -> dict | None:
     if not (casa_id and ospite_id):
         return out
     casa, osp = nomi.get(casa_id, ""), nomi.get(ospite_id, "")
-    wp = {str(x.get("playId")): x.get("homeWinPercentage") for x in d.get("winprobability") or []}
-    giocate, prec_wp, prec = [], 0.5, (0, 0)
+    # la probabilità prima di un'azione è quella dell'elemento precedente nella serie ESPN (in ordine di gioco)
+    wp, prima_di, ultimo = {}, {}, 0.5
+    for x in d.get("winprobability") or []:
+        v = x.get("homeWinPercentage")
+        if v is None:
+            continue
+        wp[str(x.get("playId"))], prima_di[str(x.get("playId"))] = v, ultimo
+        ultimo = v
+    giocate, prec = [], (0, 0)
     due = {casa: [0, 0], osp: [0, 0]}
     for drive in ((d.get("drives") or {}).get("previous") or []):
         for p in drive.get("plays") or []:
@@ -128,13 +167,15 @@ def riassunto_partita(d: dict) -> dict | None:
                         due[osp][i] += do
                 prec = (hs, as_)
             w = wp.get(str(p.get("id")))
-            if w is None:
+            if w is None or not isinstance(per, int) or per > 4:      # supplementari: probabilità ESPN instabile
                 continue
-            prima, prec_wp = prec_wp, w
+            prima = prima_di[str(p.get("id"))]
             att = str(((p.get("start") or {}).get("team") or {}).get("id") or "")
             if att not in (casa_id, ospite_id) or p.get("isPenalty"):
                 continue
             tipo = ((p.get("type") or {}).get("text") or "")
+            if re.search(r"kickoff|punt|field goal|extra point|timeout|end of", tipo + " " + (p.get("text") or ""), re.I):
+                continue
             per_att = (w - prima) if att == casa_id else (prima - w)        # probabilità per chi attacca
             dif_id = ospite_id if att == casa_id else casa_id
             evento = DIFESA.get(tipo)

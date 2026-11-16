@@ -148,7 +148,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   già scaricato per i tabellini (`college_giornata.riassunto_partita`, voce «azioni» nell'archivio dei tabellini:
   giocate per probabilità di vittoria ESPN, flag dal boxscore, punti negli ultimi 2 minuti, yard e azioni).
   Squadre della week in yard per azione corrette per l'avversario (non EPA). Le partite già in archivio senza
-  «azioni» si rileggono una volta, al massimo 400 per giro (RILETTURE_AZIONI), gratis.
+  «azioni» si rileggono una volta, al massimo 800 per giro (RILETTURE_AZIONI); al cambio di college_giornata.VERSIONE si rileggono, gratis.
 
 ## Fonti a credito (chiamate limitate)
 

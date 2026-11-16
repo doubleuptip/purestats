@@ -20,6 +20,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
+import college_giornata
 import espn_college
 
 RADICE = Path(__file__).resolve().parent.parent
@@ -277,7 +278,7 @@ def _ricostruisci_giocatori():
     return out
 
 
-RILETTURE_AZIONI = 400
+RILETTURE_AZIONI = 800
 
 
 def carica_giocatori(stagioni, forzate=(), partite_espn=None):
@@ -317,7 +318,8 @@ def carica_giocatori(stagioni, forzate=(), partite_espn=None):
                 recente = False
             if fbs and (recente or str(g["id"]) not in tabellini or any(sq not in presenti for sq in fbs)):
                 da_leggere.append((g, fbs))
-            elif fbs and s == str(max(partite_espn)) and "azioni" not in tabellini.get(str(g["id"]), {}) \
+            elif fbs and s == str(max(partite_espn)) \
+                    and (tabellini.get(str(g["id"]), {}).get("azioni") or {}).get("v") != college_giornata.VERSIONE \
                     and len(da_rileggere) < RILETTURE_AZIONI:
                 # Giornata (dal 16/11/2026): le partite già in archivio senza azioni si rileggono una volta,
                 # al massimo RILETTURE_AZIONI per giro (ESPN, gratis), per avere flag e ultimi 2 minuti di stagione
