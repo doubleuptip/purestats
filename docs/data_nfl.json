@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-16T08:31:58.624392+00:00",
+  "aggiornato": "2026-11-16T09:58:53.373254+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -142949,7 +142949,258 @@
           "valore": 145,
           "dettagli": "11 ricezioni · 3 TD"
         }
-      ]
+      ],
+      "sack": [
+        {
+          "nome": "Logan Hall",
+          "ruolo": "DE",
+          "squadra": "HOU",
+          "avversario": "CLE",
+          "valore": 2,
+          "dettagli": "2 colpi al QB · 2 placcaggi con perdita"
+        },
+        {
+          "nome": "Devon Witherspoon",
+          "ruolo": "CB",
+          "squadra": "SEA",
+          "avversario": "LV",
+          "valore": 2,
+          "dettagli": "3 colpi al QB · 2 placcaggi con perdita"
+        },
+        {
+          "nome": "Levi Drake Rodriguez",
+          "ruolo": "DL",
+          "squadra": "MIN",
+          "avversario": "GB",
+          "valore": 2,
+          "dettagli": "4 colpi al QB · 2 placcaggi con perdita"
+        },
+        {
+          "nome": "TJ Parker",
+          "ruolo": "LB",
+          "squadra": "BUF",
+          "avversario": "NYJ",
+          "valore": 2,
+          "dettagli": "3 colpi al QB · 2 placcaggi con perdita"
+        },
+        {
+          "nome": "Derrick Moore",
+          "ruolo": "DE",
+          "squadra": "DET",
+          "avversario": "NE",
+          "valore": 2,
+          "dettagli": "2 colpi al QB · 2 placcaggi con perdita"
+        }
+      ],
+      "intercetti": [
+        {
+          "nome": "Harrison Smith",
+          "ruolo": "FS",
+          "squadra": "MIN",
+          "avversario": "GB",
+          "valore": 1,
+          "dettagli": "1 passaggi deviati"
+        },
+        {
+          "nome": "Kevin Byard",
+          "ruolo": "FS",
+          "squadra": "NE",
+          "avversario": "DET",
+          "valore": 1,
+          "dettagli": "2 passaggi deviati"
+        },
+        {
+          "nome": "Rasul Douglas",
+          "ruolo": "CB",
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "valore": 1,
+          "dettagli": "1 passaggi deviati"
+        },
+        {
+          "nome": "Xavier McKinney",
+          "ruolo": "SAF",
+          "squadra": "GB",
+          "avversario": "MIN",
+          "valore": 1,
+          "dettagli": "1 passaggi deviati"
+        },
+        {
+          "nome": "Ar'Darius Washington",
+          "ruolo": "SAF",
+          "squadra": "NYG",
+          "avversario": "WAS",
+          "valore": 1,
+          "dettagli": "2 passaggi deviati"
+        }
+      ],
+      "placcaggi": [
+        {
+          "nome": "Payton Wilson",
+          "ruolo": "LB",
+          "squadra": "PIT",
+          "avversario": "CIN",
+          "valore": 19,
+          "dettagli": "9 da solo · 10 assist"
+        },
+        {
+          "nome": "Kaden Elliss",
+          "ruolo": "LB",
+          "squadra": "NO",
+          "avversario": "CAR",
+          "valore": 15,
+          "dettagli": "6 da solo · 9 assist · 2 con perdita"
+        },
+        {
+          "nome": "M.J. Stewart",
+          "ruolo": "SAF",
+          "squadra": "HOU",
+          "avversario": "CLE",
+          "valore": 14,
+          "dettagli": "4 da solo · 10 assist"
+        },
+        {
+          "nome": "Patrick Queen",
+          "ruolo": "LB",
+          "squadra": "PIT",
+          "avversario": "CIN",
+          "valore": 14,
+          "dettagli": "5 da solo · 9 assist · 1 con perdita"
+        },
+        {
+          "nome": "Carson Schwesinger",
+          "ruolo": "LB",
+          "squadra": "CLE",
+          "avversario": "HOU",
+          "valore": 13,
+          "dettagli": "8 da solo · 5 assist · 1 con perdita"
+        }
+      ],
+      "fumbleForzati": [
+        {
+          "nome": "Jalen Ramsey",
+          "ruolo": "CB",
+          "squadra": "PIT",
+          "avversario": "CIN",
+          "valore": 1,
+          "dettagli": "1 placcaggi da solo"
+        },
+        {
+          "nome": "Chuck Clark",
+          "ruolo": "SAF",
+          "squadra": "DET",
+          "avversario": "NE",
+          "valore": 1,
+          "dettagli": "4 placcaggi da solo"
+        },
+        {
+          "nome": "Foley Fatukasi",
+          "ruolo": "DT",
+          "squadra": "LV",
+          "avversario": "SEA",
+          "valore": 1,
+          "dettagli": ""
+        },
+        {
+          "nome": "Frankie Luvu",
+          "ruolo": "LB",
+          "squadra": "WAS",
+          "avversario": "NYG",
+          "valore": 1,
+          "dettagli": "2 placcaggi da solo"
+        },
+        {
+          "nome": "Andrew Van Ginkel",
+          "ruolo": "OLB",
+          "squadra": "MIN",
+          "avversario": "GB",
+          "valore": 1,
+          "dettagli": "3 placcaggi da solo"
+        }
+      ],
+      "deviati": [
+        {
+          "nome": "Deommodore Lenoir",
+          "ruolo": "CB",
+          "squadra": "SF",
+          "avversario": "DAL",
+          "valore": 4,
+          "dettagli": ""
+        },
+        {
+          "nome": "Grover Stewart",
+          "ruolo": "DT",
+          "squadra": "IND",
+          "avversario": "MIA",
+          "valore": 3,
+          "dettagli": ""
+        },
+        {
+          "nome": "Denzel Ward",
+          "ruolo": "CB",
+          "squadra": "CLE",
+          "avversario": "HOU",
+          "valore": 3,
+          "dettagli": ""
+        },
+        {
+          "nome": "Tyson Campbell",
+          "ruolo": "CB",
+          "squadra": "CLE",
+          "avversario": "HOU",
+          "valore": 3,
+          "dettagli": "1 intercetti"
+        },
+        {
+          "nome": "Kevin Byard",
+          "ruolo": "FS",
+          "squadra": "NE",
+          "avversario": "DET",
+          "valore": 2,
+          "dettagli": "1 intercetti"
+        }
+      ],
+      "pressioni": {
+        "settimana": 9,
+        "ritardo": true,
+        "lista": [
+          {
+            "nome": "Adetomiwa Adebawore",
+            "squadra": "IND",
+            "avversario": "DAL",
+            "valore": 5,
+            "dettagli": "3 colpi al QB · 2 QB affrettato"
+          },
+          {
+            "nome": "Laiatu Latu",
+            "squadra": "IND",
+            "avversario": "DAL",
+            "valore": 5,
+            "dettagli": "1 sack · 1 colpi al QB · 3 QB affrettato"
+          },
+          {
+            "nome": "Kaden Elliss",
+            "squadra": "NO",
+            "avversario": "CLE",
+            "valore": 5,
+            "dettagli": "1 sack · 3 colpi al QB · 1 QB affrettato"
+          },
+          {
+            "nome": "Myles Garrett",
+            "squadra": "LA",
+            "avversario": "WAS",
+            "valore": 5,
+            "dettagli": "3 sack · 1 colpi al QB · 1 QB affrettato"
+          },
+          {
+            "nome": "Andrew Van Ginkel",
+            "squadra": "MIN",
+            "avversario": "BUF",
+            "valore": 5,
+            "dettagli": "1 sack · 3 colpi al QB · 1 QB affrettato"
+          }
+        ]
+      }
     },
     "giocate": {
       "attacco": [
