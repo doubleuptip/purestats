@@ -455,7 +455,7 @@
   .gio-schede{margin:30px 0 14px}
   .gio-pannello>.fb-note{margin-top:0}
   .gio-due{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
-  .gio-tre{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+  .gio-tre{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
   .gio-pannello .fb-h3:empty{display:none}
   @media (max-width:860px){ .gio-due,.gio-tre{grid-template-columns:minmax(0,1fr)} }
   @media (max-width:640px){ .gio-podio{grid-template-columns:minmax(0,1fr);gap:8px} .gio-pos b{font-size:22px!important} }
@@ -1658,10 +1658,10 @@ function momenti(g){
 
 function listaLeader(titolo, lista){
   if(!lista || !lista.length) return "";
-  return `<h3 class="fb-h3">${titolo}</h3><ul class="fb-list">${lista.slice(0,3).map(x=>`
+  return `<h3 class="fb-h3">${titolo}</h3><ul class="fb-list">${lista.slice(0,5).map(x=>`
     <li class="fb-row">${stemma(x.squadra,true)}
       <span class="fb-row-t">${esc(x.nome)}<small>contro ${esc(x.avversario||"")}${x.dettagli?" · "+esc(x.dettagli):""}</small></span>
-      <span class="fb-num">${n(x.valore)}</span></li>`).join("")}</ul>`;
+      <span class="fb-num">${numIt(x.valore, x.valore%1?1:0)}</span></li>`).join("")}</ul>`;
 }
 
 /* Giornata (16/11/2026, impaginazione A): in alto i numeri della week e il podio, poi il tabellone con tutte le
@@ -1749,8 +1749,14 @@ function sezioniGiornata(G){
   if(ss) schede.push(["squadre","Squadre",`<p class="fb-note">${esc(ss.nota||"")}</p>
     <div class="gio-due">${riquadro("Migliori attacchi",`<ul class="fb-list">${(ss.attacchi||[]).map(x=>rigaSq(x,"attacco")).join("")}</ul>`)}
       ${riquadro("Migliori difese",`<ul class="fb-list">${(ss.difese||[]).map(x=>rigaSq(x,"difesa")).join("")}</ul>`)}</div>`]);
-  if(pr.lanci||pr.corse||pr.ricezioni) schede.push(["leader","Leader",`<div class="gio-tre">
-    ${[["Yard lanciate",pr.lanci],["Yard di corsa",pr.corse],["Yard ricevute",pr.ricezioni]].map(([t,l])=>riquadro(t,listaLeader("",l)||`<p class="fb-note">—</p>`)).join("")}</div>`]);
+  if(pr.lanci||pr.corse||pr.ricezioni) schede.push(["leader","Leader",`<h3 class="fb-h3" style="margin-top:0">ATTACCO</h3><div class="gio-tre">
+    ${[["Yard lanciate",pr.lanci],["Yard di corsa",pr.corse],["Yard ricevute",pr.ricezioni]].map(([t,l])=>riquadro(t,listaLeader("",l)||`<p class="fb-note">—</p>`)).join("")}</div>
+    ${pr.sack||pr.intercetti||pr.placcaggi?`<h3 class="fb-h3" style="margin-top:22px">DIFESA</h3><div class="gio-tre">
+    ${[["Sack",pr.sack],["Intercetti",pr.intercetti],["Placcaggi",pr.placcaggi],["Fumble forzati",pr.fumbleForzati],["Passaggi deviati",pr.deviati]]
+      .filter(([t,l])=>l!==undefined).map(([t,l])=>riquadro(t,listaLeader("",l)||`<p class="fb-note">Nessuno questa week</p>`)).join("")}
+    ${pr.pressioni&&(pr.pressioni.lista||[]).length?riquadro("Pressioni sul QB",`<p class="fb-note" style="margin-top:0">${pr.pressioni.ritardo
+        ?`⚠️ Week ${esc(pr.pressioni.settimana)}, non questa: i dati delle pressioni (Pro Football Reference) arrivano circa 7 giorni dopo.`
+        :`Week ${esc(pr.pressioni.settimana)} (Pro Football Reference).`}</p>${listaLeader("",pr.pressioni.lista)}`):""}</div>`:""}`]);
   if(sorp) schede.push(["sorprese","Sorprese",riquadro("Sorprese della week",
     `<p class="fb-note" style="margin-top:0">Partite finite più lontano dalla linea del mercato (punti)</p><ul class="fb-list">${sorp}</ul>`)]);
   if(due) schede.push(["due","Ultimi 2 minuti",riquadro("Punti negli ultimi 2 minuti · stagione",`

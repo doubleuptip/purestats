@@ -191,25 +191,76 @@ def prestazioni(stagione, settimana):
     testo = scarica(GIOCATORI_URL.format(s=stagione), f"giocatori {stagione}")
     if not testo:
         return {}
-    righe = [r for r in csv.DictReader(io.StringIO(testo))
-             if (r.get("week") or "") == str(settimana) and r.get("position") in ("QB", "RB", "WR", "TE")]
-    def top(col, ruoli, extra, n=5):
+    tutte = [r for r in csv.DictReader(io.StringIO(testo)) if (r.get("week") or "") == str(settimana)]
+    righe = [r for r in tutte if r.get("position") in ("QB", "RB", "WR", "TE")]
+    difesa = [r for r in tutte if r.get("position_group") in ("DL", "LB", "DB")]
+
+    def numero(v):
+        return int(v) if float(v).is_integer() else round(v, 1)
+
+    def top(col, ruoli, extra, n=5, gruppo=None):
         lista = []
-        for r in righe:
-            if r.get("position") not in ruoli:
+        for r in (gruppo if gruppo is not None else righe):
+            if ruoli and r.get("position") not in ruoli:
                 continue
             v = f(r.get(col)) or 0
             if v <= 0:
                 continue
             lista.append({"nome": r.get("player_display_name") or r.get("player_name"), "ruolo": r.get("position"),
-                          "squadra": r.get("team"), "avversario": r.get("opponent_team"), "valore": int(v),
-                          "dettagli": " · ".join(f"{int(f(r.get(c)) or 0)} {lab}" for c, lab in extra if (f(r.get(c)) or 0) > 0)})
+                          "squadra": r.get("team"), "avversario": r.get("opponent_team"), "valore": numero(v),
+                          "dettagli": " · ".join(f"{numero(f(r.get(c)) or 0)} {lab}".replace(".", ",")
+                                         for c, lab in extra if (f(r.get(c)) or 0) > 0)})
         return sorted(lista, key=lambda x: -x["valore"])[:n]
-    return {
+    out = {
         "lanci": top("passing_yards", ("QB",), (("passing_tds", "TD"), ("passing_interceptions", "INT"))),
         "corse": top("rushing_yards", ("QB", "RB", "WR", "TE"), (("carries", "corse"), ("rushing_tds", "TD"))),
         "ricezioni": top("receiving_yards", ("RB", "WR", "TE"), (("receptions", "ricezioni"), ("receiving_tds", "TD"))),
     }
+    # difesa (16/11/2026): stesse statistiche settimanali nflverse, nessun download in più
+    for r in difesa:
+        r["_placcaggi"] = str((f(r.get("def_tackles_solo")) or 0) + (f(r.get("def_tackle_assists")) or 0))
+    out.update({
+        "sack": top("def_sacks", None, (("def_qb_hits", "colpi al QB"), ("def_tackles_for_loss", "placcaggi con perdita")), gruppo=difesa),
+        "intercetti": top("def_interceptions", None, (("def_interception_yards", "yard di ritorno"), ("def_tds", "TD"),
+                                                      ("def_pass_defended", "passaggi deviati")), gruppo=difesa),
+        "placcaggi": top("_placcaggi", None, (("def_tackles_solo", "da solo"), ("def_tackle_assists", "assist"),
+                                                     ("def_tackles_for_loss", "con perdita")), gruppo=difesa),
+        "fumbleForzati": top("def_fumbles_forced", None, (("def_tackles_solo", "placcaggi da solo"),), gruppo=difesa),
+        "deviati": top("def_pass_defended", None, (("def_interceptions", "intercetti"),), gruppo=difesa),
+    })
+    try:
+        out["pressioni"] = pressioni_settimana_prima(stagione, settimana)
+    except Exception as e:          # noqa: BLE001 - le pressioni sono un di più
+        print(f"  Pressioni PFR non lette ({type(e).__name__}: {e}): blocco assente.")
+    return out
+
+
+PRESSIONI_URL = REL + "/pfr_advstats/advstats_week_def_{s}.csv"
+
+
+def pressioni_settimana_prima(stagione, settimana, n=5):
+    """Pressioni sul QB (Pro Football Reference via nflverse): arrivano circa 7 giorni dopo, quindi si mostra
+    l'ultima settimana pubblicata (di solito quella prima della giornata), con la settimana scritta."""
+    testo = scarica(PRESSIONI_URL.format(s=stagione), f"pressioni PFR {stagione}")
+    if not testo:
+        return None
+    righe = [r for r in csv.DictReader(io.StringIO(testo)) if (r.get("game_type") or "REG") == "REG"]
+    sett = sorted({int(r["week"]) for r in righe if (r.get("week") or "").isdigit() and int(r["week"]) <= int(settimana)})
+    if not sett:
+        return None
+    w = sett[-1]
+    lista = []
+    for r in righe:
+        if r.get("week") != str(w):
+            continue
+        v = f(r.get("def_pressures")) or 0
+        if v <= 0:
+            continue
+        det = [(f(r.get("def_sacks")) or 0, "sack"), (f(r.get("def_times_hitqb")) or 0, "colpi al QB"),
+               (f(r.get("def_times_hurried")) or 0, "QB affrettato")]
+        lista.append({"nome": r.get("pfr_player_name"), "squadra": r.get("team"), "avversario": r.get("opponent"),
+                      "valore": int(v), "dettagli": " · ".join(f"{int(x) if float(x).is_integer() else x} {lab}".replace(".", ",") for x, lab in det if x > 0)})
+    return {"settimana": w, "ritardo": w < int(settimana), "lista": sorted(lista, key=lambda x: -x["valore"])[:n]}
 
 
 # ------------------------------------------------------------------ indici di forza (EPA)

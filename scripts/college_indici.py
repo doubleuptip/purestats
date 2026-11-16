@@ -120,6 +120,57 @@ def _prestazioni(ultime, stagione, settimana):
     return {"lanci": top(gruppi.get("QB", [])), "corse": top(gruppi.get("RB", [])), "ricezioni": top(gruppi["RIC"])}
 
 
+def _prestazioni_complete(ultime, stagione, settimana):
+    out = _prestazioni(ultime, stagione, settimana)
+    try:
+        out.update(_difesa_college(stagione, settimana))
+    except Exception as e:      # noqa: BLE001 - la difesa è un di più: i leader d'attacco escono lo stesso
+        print(f"  Leader difensivi college non calcolati ({type(e).__name__}: {e})")
+    return out
+
+
+def _difesa_college(stagione, settimana):
+    """Leader difensivi della settimana dai tabellini ESPN già in archivio (nessuna chiamata): sack, intercetti,
+    placcaggi, passaggi deviati. ESPN non riporta i fumble forzati nel college."""
+    from fetch_college import carica_tabellini
+
+    def n(x):
+        try:
+            return float(str(x).split("/")[-1])
+        except ValueError:
+            return 0.0
+    gioc = {}
+    for v in carica_tabellini(int(stagione)).values():
+        if str(v.get("settimana")) != str(settimana) or v.get("tipo") != "regular":
+            continue
+        et = v.get("etichette") or {}
+        squadre = list((v.get("squadre") or {}).keys())
+        for sq, cats in (v.get("squadre") or {}).items():
+            avv = next((x for x in squadre if x != sq), "")
+            for cat in ("defensive", "interceptions"):
+                lab = et.get(cat) or []
+                for r in cats.get(cat) or []:
+                    x = gioc.setdefault((sq, r[0]), {"nome": r[1], "squadra": sq, "avversario": avv})
+                    for i, l in enumerate(lab):
+                        if len(r) > 2 + i:
+                            x[cat[:3] + l] = n(r[2 + i])
+
+    def top(col, extra):
+        lista = []
+        for x in gioc.values():
+            v = x.get(col, 0)
+            if v > 0:
+                fmt = lambda z: (str(int(z)) if float(z).is_integer() else str(z)).replace(".", ",")
+                lista.append({"nome": x["nome"], "squadra": x["squadra"], "avversario": x["avversario"],
+                              "valore": int(v) if float(v).is_integer() else round(v, 1),
+                              "dettagli": " · ".join(f"{fmt(x[c])} {lab}" for c, lab in extra if x.get(c, 0) > 0)})
+        return sorted(lista, key=lambda v: -v["valore"])[:5]
+    return {"sack": top("defSACKS", (("defQB HUR", "pressioni sul QB"), ("defTFL", "placcaggi con perdita"))),
+            "intercetti": top("intINT", (("intYDS", "yard di ritorno"), ("intTD", "TD"), ("defPD", "passaggi deviati"))),
+            "placcaggi": top("defTOT", (("defSOLO", "da solo"), ("defTFL", "con perdita"))),
+            "deviati": top("defPD", (("intINT", "intercetti"),))}
+
+
 def _apparizioni(ultime, stagioni):
     """Dall'archivio partite: per ogni squadra e giocatore, le prestazioni in ordine di settimana.
 
@@ -464,7 +515,7 @@ def calcola(chiama, stats, stagione, partite_espn=None):
                           "favoriteCoperte": sum(1 for g in gare if g["battutaDa"] and g["battutaDa"] == g["favorita"]),
                           "over": sum(1 for g in gare if g["totaleEsito"] == "over"),
                           "under": sum(1 for g in gare if g["totaleEsito"] == "under")},
-            "prestazioni": _prestazioni(ultime, stagione, w),
+            "prestazioni": _prestazioni_complete(ultime, stagione, w),
         }
         try:            # Giornata (dal 16/11/2026): giocate, squadre della week, ultimi 2 minuti, flag (dati ESPN)
             import json as _json

@@ -166,6 +166,13 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   · rinunce ai bowl (college, partite dal 13/12): titolari della stagione dai tabellini (`titolari_college`, pesi
     QB 3, RB e 3 ricevitori 1, 3 difensori 0,5); Valerio spunta chi ha annunciato la rinuncia; −1 punto per punto di
     peso (Protocollo 12: conferma 2019-22 non superata). Il bot (5.9.8) avvisa delle rinunce da ESPN college.
+- Leader della Giornata (16/11/2026): anche la difesa. NFL dalle stesse statistiche settimanali nflverse (sack,
+  intercetti, placcaggi + assist, fumble forzati, passaggi deviati) e pressioni PFR (advstats_week_def) dell'ultima
+  week pubblicata, con l'avviso «week N, non questa» perché arrivano circa 7 giorni dopo. College dai tabellini ESPN
+  in archivio (`college_indici._difesa_college`: sack, intercetti, placcaggi, deviati; ESPN non dà i fumble forzati).
+- Charlie, Giocatori → Difesa → «Sack di squadra (over/under)» (16/11/2026): Poisson sui sack attesi della difesa
+  con la correzione della prova 2023-25 (+4% oltre 2,2 attesi, +9% oltre 3,0); il bot 5.9.8 chiude la giocata
+  sommando i sack della squadra nel tabellino ESPN (stat «sq», sigla nflverse; LA→LAR, WAS→WSH).
 
 ## Fonti a credito (chiamate limitate)
 

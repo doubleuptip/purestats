@@ -1126,7 +1126,18 @@ function disegnaCharlie(tieni){
    Le probabilità le calcola il sito a ogni aggiornamento (sack, intercetti, placcaggi attesi); qui si confrontano
    con la quota bet365, l'unico che quota i difensori. «Prima → adesso» quando una notizia ha spostato il numero. */
 const MERCATI_DIF = [["sk", "Realizza un sack (anche mezzo)"], ["in", "Intercetto"], ["tk", "Placcaggi + assist"],
-  ["ts", "Placcaggi da solo"], ["ta", "Assist"]];
+  ["ts", "Placcaggi da solo"], ["ta", "Assist"], ["sq", "Sack di squadra (over/under)"]];
+/* Sack di squadra (16/11/2026): Poisson sui sack attesi della difesa (Protocollo 10), con la correzione della prova
+   2023-25: oltre 2,2 attesi i veri sono stati il 4% in più, oltre 3,0 il 9% in più. Squadra: almeno 4 nel 23% delle partite. */
+function pSackSquadra(lam, linea, lato){
+  const l = lam * (lam >= 3 ? 1.09 : lam >= 2.2 ? 1.04 : 1);
+  let fin = 0, k = 0, pk = Math.exp(-l);
+  const soglia = Math.floor(linea) + 1;                 // over: almeno floor(linea)+1 (linea intera: pari rimborsato)
+  for (k = 0; k < soglia; k++) { fin += pk; pk *= l / (k + 1); }
+  const pPari = Number.isInteger(linea) ? Math.exp(-l) * Math.pow(l, linea) / [...Array(linea + 1).keys()].slice(1).reduce((a, b) => a * b, 1) : 0;
+  const over = 1 - fin, under = fin - pPari;
+  return lato === "o" ? over : under;
+}
 function giocDifesa(g){
   const D = g.difesa || {};
   return [g.ospite, g.casa].flatMap(sq => ((D[sq] || {}).giocatori || []).map(x => ({...x, sq})));
@@ -1165,14 +1176,39 @@ function formDifesa(g){
 }
 function latiDifesa(){
   const m = document.getElementById("chDifMercato").value, si = m === "sk" || m === "in";
+  const g = partiteCharlie().find(x => idScheda(x) === CH.partita), sel = document.getElementById("chDif");
+  if (g && sel) {
+    const squadre = m === "sq", ora = sel.options.length && sel.options[0].value.startsWith("T:");
+    if (squadre && !ora) sel.innerHTML = [g.ospite, g.casa].filter(sq => (g.difesa || {})[sq]).map(sq =>
+      `<option value="T:${esc(sq)}">Difesa ${esc(squadra(g, sq).nome || sq)} · sack attesi ${num(g.difesa[sq].sackAttesi, 1)}</option>`).join("");
+    if (!squadre && ora) sel.innerHTML = giocDifesa(g).map((x, i) => `<option value="${i}">${esc(x.n)} · ${esc(x.r)} · ${esc(squadra(g, x.sq).nome || x.sq)}</option>`).join("");
+  }
   document.getElementById("chDifLato").innerHTML = si ? `<option value="s">Sì</option>` : `<option value="o">Over</option><option value="u">Under</option>`;
   document.getElementById("chDifLineaL").style.display = si ? "none" : "";
 }
 function calcolaDifesa(){
   const g = partiteCharlie().find(x => idScheda(x) === CH.partita), out = document.getElementById("chEsito");
-  const x = giocDifesa(g)[Number(document.getElementById("chDif").value)];
   const m = document.getElementById("chDifMercato").value, lato = document.getElementById("chDifLato").value;
   const quota = numero(document.getElementById("chDifQuota").value);
+  if (m === "sq") {
+    const sq = String(document.getElementById("chDif").value).slice(2), d = (g.difesa || {})[sq];
+    const linea = numero(document.getElementById("chDifLinea").value);
+    if (!d || !d.sackAttesi) { out.innerHTML = `<div class="errore">Per questa difesa non ci sono i sack attesi.</div>`; return; }
+    if (linea === null || !quota || quota <= 1) { out.innerHTML = `<div class="errore">Inserisci la linea dei sack (es. 3,5) e la quota bet365.</div>`; return; }
+    const p = pSackSquadra(d.sackAttesi, linea, lato);
+    const a = pSackSquadra(d.sackAttesi * 0.9, linea, lato), b = pSackSquadra(d.sackAttesi * 1.1, linea, lato);
+    const nome = squadra(g, sq).nome || sq;
+    const r = {p, pLo: Math.max(0.005, Math.min(a, b)), pHi: Math.min(0.99, Math.max(a, b)), aff: "B",
+               usati: [`sack attesi della difesa ${nome}: ${num(d.sackAttesi, 2)} (ritmo dell'attacco avversario, della difesa e linea americana)`,
+                       "conteggio di Poisson con la correzione della prova 2023-25 (+4% oltre 2,2 attesi, +9% oltre 3,0); intervallo con ±10% sugli attesi",
+                       "la forma recente del QB non aggiunge niente (misurata): è già nella media della stagione"]};
+    const v = valuta(r, quota, numero(document.getElementById("chDifPuntata").value));
+    const codice = ["P", "N", (g.mercato || {}).espnId || "0", sq, "sq", lato, codNum(linea, 10), codNum(quota, 100), "b3",
+      codNum(v.puntata || 0, 100), codNum(v.p, 1000), "0"].join("_");
+    mostraRisultato({breve: `Sack ${nome} ${lato === "o" ? "over" : "under"} ${num(linea, 1)} · ${nomeP(g)}`, v, libro: "b3", partita: idScheda(g), codice});
+    return;
+  }
+  const x = giocDifesa(g)[Number(document.getElementById("chDif").value)];
   if (!x || !quota || quota <= 1) { out.innerHTML = `<div class="errore">Scegli il difensore e inserisci la quota bet365.</div>`; return; }
   const T = ((tabCharlie() || {}).difesa) || {};
   let p, larg, linea = 0, testo;
