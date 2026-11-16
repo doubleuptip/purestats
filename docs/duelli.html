@@ -33,7 +33,15 @@
   .pagina{max-width:820px;margin:0 auto;padding:16px 14px 48px}
   header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
   .marchio{display:block;font-family:var(--fb-head);font-weight:800;font-size:28px;letter-spacing:.03em;line-height:1;color:inherit;text-decoration:none}
-  .marchio b{color:var(--fb-acc);font-weight:inherit}
+  /* Logo PureStats (16/11/2026, disegno di Valerio ridisegnato in vettoriale): colori dal tema, rosso acceso di notte */
+  :root{--logo-testo:#0B1428;--logo-rosso:#B91C1C}
+  @media (prefers-color-scheme: dark){ :root{--logo-testo:#F5F7FB;--logo-rosso:#EF4444} }
+  .logo-simbolo{height:34px;width:auto;flex:none;display:block}
+  .logo-simbolo .lt{fill:var(--logo-testo)} .logo-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}
+  .logo-simbolo .lr rect,.logo-simbolo .lr circle{stroke:none}
+  .marchio{display:flex!important;align-items:center;gap:9px;color:var(--logo-testo)!important}
+  .marchio b{color:var(--logo-rosso);font-weight:inherit}
+  .marchio .logo-simbolo{height:30px}
   .sotto{font-size:13px;color:var(--fb-muted)}
   button,.bottone{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-card);color:var(--fb-text);padding:8px 14px;min-height:40px;text-decoration:none;display:inline-flex;align-items:center}
   button.on{background:var(--fb-acc);color:var(--fb-acc-text);border-color:var(--fb-acc)}
@@ -171,12 +179,14 @@
   @media (max-width:520px){ .ch-griglia{grid-template-columns:1fr} .ch-num b{font-size:19px} }
   @media (max-width:420px){ .riga,.int{grid-template-columns:minmax(0,1fr) 40px 40px 96px} .testa .nomi{font-size:18px} .lato .num{font-size:18px} }
 </style>
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icona-180.png">
 </head>
 <body>
 <div class="pagina">
   <header>
     <div>
-      <a class="marchio" href="./" title="Torna a PureStats">PURE<b>STATS</b></a>
+      <a class="marchio" href="./" title="Torna a PureStats" aria-label="PureStats"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></a>
       <div class="sotto">Matchup · partite, vantaggi e giocatori · area privata</div>
     </div>
     <div style="display:flex;gap:8px">

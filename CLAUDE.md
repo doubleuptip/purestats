@@ -173,6 +173,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Charlie, Giocatori → Difesa → «Sack di squadra (over/under)» (16/11/2026): Poisson sui sack attesi della difesa
   con la correzione della prova 2023-25 (+4% oltre 2,2 attesi, +9% oltre 3,0); il bot 5.9.8 chiude la giocata
   sommando i sack della squadra nel tabellino ESPN (stat «sq», sigla nflverse; LA→LAR, WAS→WSH).
+- Logo (16/11/2026, disegno di Valerio): simbolo vettoriale nel codice delle pagine (`logo-simbolo`, barre +
+  battito) e scritta PURE/STATS con i caratteri del sito; colori `--logo-testo` / `--logo-rosso` (di notte rosso
+  acceso #EF4444 per il contrasto). Icona della scheda `docs/icona.svg` (giorno/notte), schermata Home
+  `docs/icona-180.png` (ricavata da rsvg-convert).
 
 ## Fonti a credito (chiamate limitate)
 

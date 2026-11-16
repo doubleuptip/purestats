@@ -459,17 +459,29 @@
   .gio-pannello .fb-h3:empty{display:none}
   @media (max-width:860px){ .gio-due,.gio-tre{grid-template-columns:minmax(0,1fr)} }
   @media (max-width:640px){ .gio-podio{grid-template-columns:minmax(0,1fr);gap:8px} .gio-pos b{font-size:22px!important} }
+  /* Logo PureStats (16/11/2026, disegno di Valerio ridisegnato in vettoriale): colori dal tema, rosso acceso di notte */
+  :root{--logo-testo:#0B1428;--logo-rosso:#B91C1C}
+  @media (prefers-color-scheme: dark){ :root{--logo-testo:#F5F7FB;--logo-rosso:#EF4444} }
+  .logo-simbolo{height:34px;width:auto;flex:none;display:block}
+  .logo-simbolo .lt{fill:var(--logo-testo)} .logo-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}
+  .logo-simbolo .lr rect,.logo-simbolo .lr circle{stroke:none}
+  body.fb .logo{gap:10px}
+  body.fb .logo span{color:var(--logo-testo);font-size:30px;letter-spacing:.02em}
+  body.fb .logo b{color:var(--logo-rosso)}
+  @media (max-width:640px){ .logo-simbolo{height:28px} body.fb .logo span{font-size:25px} }
   /* tasto per tornare in cima (stesso della pagina Matchup) */
   .su-in-cima{position:fixed;right:16px;bottom:20px;width:48px;height:48px;border-radius:50%;display:flex;
     align-items:center;justify-content:center;background:var(--fb-acc);color:var(--fb-acc-text);border:0;font-size:22px;
     font-weight:700;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:50}
   .su-in-cima.visibile{opacity:1;pointer-events:auto}
 </style>
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icona-180.png">
 </head>
 <body>
 
 <header>
-  <div class="logo"><div class="dot"></div><span>PURE<b>STATS</b></span></div>
+  <div class="logo" role="img" aria-label="PureStats"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></div>
   <div class="lega" id="scelta-lega"></div>
   <div class="sub-lega" id="sub-lega" style="display:none"></div>
   <nav>
