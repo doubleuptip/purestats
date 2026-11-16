@@ -176,7 +176,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Logo (16/11/2026, disegno di Valerio): simbolo vettoriale nel codice delle pagine (`logo-simbolo`, barre +
   battito) e scritta PURE/STATS con i caratteri del sito; colori `--logo-testo` / `--logo-rosso` (di notte rosso
   acceso #EF4444 per il contrasto). Icona della scheda `docs/icona.svg` (giorno/notte), schermata Home
-  `docs/icona-180.png` (ricavata da rsvg-convert).
+  `docs/icona-180.png` (ricavata da rsvg-convert). Marchio completo in `docs/brand/` (logo orizzontale e simbolo
+  trasparenti, anteprima dei link 1200×630, foto profilo 1080, copertina 1500×500, chiaro e scuro), `favicon.ico`,
+  `icona-192/512.png` e `manifest.webmanifest`; anteprima dei link (og:image) = brand/anteprima-link-scuro.png.
+  Si rifanno con `misure/genera_marchio.py` (Archivo e Inter installati, larghezze misurate con Pillow).
 
 ## Fonti a credito (chiamate limitate)
 
