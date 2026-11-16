@@ -144,8 +144,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   avversaria), difesa = (media + attacco avversario) − EPA concesso), `ultimiDueMinuti` (punti dopo il two-minute
   warning, stagione) e `flag` (penalità accettate per squadra e per capo arbitro, colonna referee dei calendari).
 - Le carte delle partite mostrano data e ora italiane (`dataIt`, `oraIt`) anche in Giornata e Prossimo turno.
-- College: cfbfastR arriva circa una settimana dopo (16/11: fino alla week 11); per la Giornata college valutare
-  i dati delle partite ESPN già scaricati con i tabellini (azioni e probabilità di vittoria nello stesso summary).
+- College (dal 16/11/2026): cfbfastR arriva circa una settimana dopo, quindi la Giornata college usa il summary ESPN
+  già scaricato per i tabellini (`college_giornata.riassunto_partita`, voce «azioni» nell'archivio dei tabellini:
+  giocate per probabilità di vittoria ESPN, flag dal boxscore, punti negli ultimi 2 minuti, yard e azioni).
+  Squadre della week in yard per azione corrette per l'avversario (non EPA). Le partite già in archivio senza
+  «azioni» si rileggono una volta, al massimo 400 per giro (RILETTURE_AZIONI), gratis.
 
 ## Fonti a credito (chiamate limitate)
 

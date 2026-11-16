@@ -232,7 +232,8 @@ def scheda_tabellino(g, completo):
     """La voce dell'archivio per una partita: i dati della partita più il tabellino completo."""
     return {"settimana": str(g["Settimana"]), "tipo": g.get("Tipo") or "regular", "inizio": g.get("inizio") or "",
             "casa": g["Casa"], "ospite": g["Ospite"],
-            "squadre": completo.get("squadre") or {}, "etichette": completo.get("etichette") or {}}
+            "squadre": completo.get("squadre") or {}, "etichette": completo.get("etichette") or {},
+            **({"azioni": completo["azioni"]} if completo.get("azioni") else {})}
 
 
 def _scegli(valori):
@@ -276,6 +277,9 @@ def _ricostruisci_giocatori():
     return out
 
 
+RILETTURE_AZIONI = 400
+
+
 def carica_giocatori(stagioni, forzate=(), partite_espn=None):
     """I migliori giocatori di ogni partita, per categoria, dai tabellini ESPN (una richiesta per partita, gratis).
 
@@ -299,7 +303,7 @@ def carica_giocatori(stagioni, forzate=(), partite_espn=None):
         # ripresa completa: si lavora su un archivio nuovo e si sostituisce il vecchio solo se tutto è riuscito
         archivio = {} if tutta else per_partita.setdefault(s, {})
         tabellini = carica_tabellini(s)
-        da_leggere = []
+        da_leggere, da_rileggere = [], []
         for g in partite:
             if not g.get("finita") or g.get("Tipo") != "regular":
                 continue
@@ -313,6 +317,12 @@ def carica_giocatori(stagioni, forzate=(), partite_espn=None):
                 recente = False
             if fbs and (recente or str(g["id"]) not in tabellini or any(sq not in presenti for sq in fbs)):
                 da_leggere.append((g, fbs))
+            elif fbs and s == str(max(partite_espn)) and "azioni" not in tabellini.get(str(g["id"]), {}) \
+                    and len(da_rileggere) < RILETTURE_AZIONI:
+                # Giornata (dal 16/11/2026): le partite già in archivio senza azioni si rileggono una volta,
+                # al massimo RILETTURE_AZIONI per giro (ESPN, gratis), per avere flag e ultimi 2 minuti di stagione
+                da_rileggere.append((g, fbs))
+        da_leggere += da_rileggere
         trovate = fallite = 0
         for n, (g, fbs) in enumerate(da_leggere, 1):
             completo = espn_college.tabellino_completo(g["id"])

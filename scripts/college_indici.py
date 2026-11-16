@@ -466,6 +466,21 @@ def calcola(chiama, stats, stagione, partite_espn=None):
                           "under": sum(1 for g in gare if g["totaleEsito"] == "under")},
             "prestazioni": _prestazioni(ultime, stagione, w),
         }
+        try:            # Giornata (dal 16/11/2026): giocate, squadre della week, ultimi 2 minuti, flag (dati ESPN)
+            import json as _json
+            import college_giornata
+            from pathlib import Path as _Path
+            f = _Path(__file__).resolve().parent.parent / "data" / f"college_tabellini_{stagione}.json"
+            tab = _json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+            fbs = {x.get("nome") or x.get("squadra") for x in stats.get("squadre") or []} - {None}
+            b = college_giornata.blocchi(tab, str(w), fbs or None)
+            out["giornata"].update(b)
+            print(f"  Giornata college: {sum(len(v) for v in (b.get('giocate') or {}).values())} giocate, "
+                  f"squadre della week {'sì' if b.get('squadreSettimana') else 'no'}, "
+                  f"ultimi 2 minuti {len((b.get('ultimiDueMinuti') or {}).get('squadre') or [])} squadre, "
+                  f"flag {len((b.get('flag') or {}).get('squadre') or [])} squadre")
+        except Exception as e:      # i blocchi nuovi non devono mai bloccare il resto
+            print(f"  Blocchi della Giornata college non calcolati: {type(e).__name__}: {e}")
         try:
             video_college(out["giornata"], out["loghi"] or {})
         except (KeyError, TypeError, ValueError, OSError) as e:

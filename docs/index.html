@@ -1681,7 +1681,7 @@ function blocchiGiornata(G){
       <ol class="fb-list">${l.map(giocata).join("")}</ol></section>`:"";
   const segnoN=(v,c)=>v===null||v===undefined?"—":(v>0?"+":"")+numIt(v,c===undefined?2:c);
   const rigaSq=(x,k)=>`<li class="fb-row">${stemma(x.squadra,true)}
-      <span class="fb-row-t">${esc(x.nome)}<small>contro ${esc(breve(x.avversario))} · EPA/azione ${numIt(x.epaAzione,3)}, concesso ${numIt(x.epaConcesso,3)}</small></span>
+      <span class="fb-row-t">${esc(breve(x.squadra)===x.squadra?x.nome:x.nome)}<small>contro ${esc(breve(x.avversario))} · ${esc(ss.unita||"EPA/azione")} ${numIt(x.epaAzione,ss.unita?2:3)}, concesso ${numIt(x.epaConcesso,ss.unita?2:3)}</small></span>
       <span class="fb-num acc">${segnoN(x[k])}</span></li>`;
   let h="";
   if(gc.attacco||gc.difesa) h+=`<h2 class="fb-h2" style="margin-top:28px">Le giocate della week</h2>

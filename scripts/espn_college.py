@@ -171,7 +171,15 @@ def tabellino_completo(evento: str) -> dict | None:
                 etichette.setdefault(cn, [str(x).upper() for x in cat.get("labels") or []])
         if nome:
             squadre[nome] = categorie
-    return {"squadre": squadre, "etichette": etichette}
+    out = {"squadre": squadre, "etichette": etichette}
+    try:            # Giornata (dal 16/11/2026): azioni, flag, ultimi 2 minuti dalla stessa risposta
+        import college_giornata
+        az = college_giornata.riassunto_partita(d)
+        if az:
+            out["azioni"] = az
+    except Exception as e:      # noqa: BLE001 - il tabellino resta valido anche senza
+        print(f"  Giornata: azioni della partita {evento} non lette ({type(e).__name__}: {e})")
+    return out
 
 
 def valori_tabellino(completo: dict) -> dict:
