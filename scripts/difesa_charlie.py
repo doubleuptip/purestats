@@ -45,8 +45,15 @@ def _stato_giocatore(assenze: dict | None, nome: str) -> str | None:
     return None
 
 
-def calcola(schede: list, righe: list, tab: dict) -> int:
-    """Aggiunge sc["difesa"] alle schede NFL. `righe` = statistiche settimanali nflverse della stagione."""
+def _norm(n) -> str:
+    return "".join(c for c in (n or "").lower() if c.isalnum())
+
+
+def calcola(schede: list, righe: list, tab: dict, pressioni: dict | None = None) -> int:
+    """Aggiunge sc["difesa"] alle schede NFL. `righe` = statistiche settimanali nflverse della stagione.
+    `pressioni` = {(stagione, settimana, squadra, nome normalizzato): pressioni} da PFR (advstats_week_def):
+    dal 16/11/2026 entrano nella quota del giocatore sui sack (Protocollo 10, aggiunta: Brier −1,4%)."""
+    pressioni = pressioni or {}
     T = (tab or {}).get("difesa", {}).get("NFL")
     if not T:
         return 0
@@ -111,7 +118,9 @@ def calcola(schede: list, righe: list, tab: dict) -> int:
             for g in gd:
                 for pid, r in dif[difesa][g].items():
                     x = acc[pid]
-                    x["eq"] += _f(r.get("def_sacks")) + P["pesoColpi"] * _f(r.get("def_qb_hits"))
+                    x["eq"] += _f(r.get("def_sacks")) + P["pesoColpi"] * _f(r.get("def_qb_hits")) \
+                        + P.get("pesoPressioni", 0.0) * pressioni.get(
+                            (str(r.get("season")), str(int(_f(r.get("week")))), difesa, _norm(r.get("player_display_name"))), 0.0)
                     x["ip"] += _f(r.get("def_interceptions")) + I["pesoDeviati"] * _f(r.get("def_pass_defended"))
                     x["so"] += _f(r.get("def_tackles_solo")); x["as"] += _f(r.get("def_tackle_assists"))
                     x["n"] += 1

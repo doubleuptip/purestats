@@ -121,6 +121,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   (ritmi di attacco e difesa, andamento atteso dalla linea americana, quota del giocatore; intercetti ×1,28 con il QB
   titolare avversario fuori). Le assenze della linea offensiva NON entrano: sui sack non hanno effetto misurabile.
   Si ricalcola anche ogni ora: se una notizia sposta un numero di 2+ punti resta il valore di prima con il motivo.
+  Dal 16/11/2026 la quota sui sack conta anche le pressioni PFR (advstats_week_def via nflverse, `pressioni_nfl`):
+  quota = (sack + 0,3·colpi + 1,0·pressioni + 27·media ruolo) / (totale + 27), curva a = 1,05, b = 0,90
+  (Protocollo 10, aggiunta: Brier sulla prova 2023-25 da 0,09418 a 0,09289). Le pressioni arrivano circa una
+  settimana dopo; nomi abbinati per stagione, settimana, squadra e nome normalizzato.
 - Le tabelle si rifanno con `misure/tabelle_charlie.py` (fuori dal repository) quando cambiano le misure.
 
 ## Calendario e Matchup (dal 16/11/2026)

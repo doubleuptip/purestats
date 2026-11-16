@@ -571,6 +571,25 @@ def righe_giocatori_nfl(stagione: int) -> list:
     return _RIGHE_NFL[stagione]
 
 
+_PRESSIONI: dict = {}
+
+
+def pressioni_nfl(stagione: int) -> dict:
+    """Pressioni per difensore e partita da Pro Football Reference via nflverse (advstats_week_def, gratis):
+    {(stagione, settimana, squadra, nome normalizzato): pressioni}. Arrivano circa una settimana dopo."""
+    if stagione not in _PRESSIONI:
+        url = f"https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_{stagione}.csv"
+        out = {}
+        for r in csv.DictReader(io.StringIO(C._get(url, 120))):
+            try:
+                out[(str(r["season"]), str(int(float(r["week"]))), r["team"],
+                     DC._norm(r.get("pfr_player_name")))] = float(r.get("def_pressures") or 0)
+            except (ValueError, KeyError):
+                continue
+        _PRESSIONI[stagione] = out
+    return _PRESSIONI[stagione]
+
+
 _ESPN_GSIS: dict = {}
 
 
@@ -773,7 +792,12 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
     if lega == "nfl":
         try:
             tab = json.loads((RADICE / "data" / "charlie_tabelle.json").read_text(encoding="utf-8"))
-            n_dif = DC.calcola(schede, righe_giocatori_nfl(stagione), tab)
+            try:
+                press = pressioni_nfl(stagione)
+            except Exception as e:     # noqa: BLE001 - senza pressioni il calcolo resta quello di prima
+                print(f"NFL: pressioni PFR non lette ({e}): difensori senza pressioni")
+                press = {}
+            n_dif = DC.calcola(schede, righe_giocatori_nfl(stagione), tab, press)
             print(f"NFL: Charlie, difensori (sack, intercetti, placcaggi) per {n_dif} partite.")
         except Exception as e:     # noqa: BLE001 - la sezione Difesa resta quella del giro precedente
             print(f"NFL: difensori di Charlie non calcolati ({e}): resta il calcolo precedente.")
