@@ -38,7 +38,7 @@
   .dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
   .logo span{font-family:var(--f-tit);font-size:32px;letter-spacing:.06em;line-height:1}
   .logo b{color:var(--acc);font-weight:inherit}
-  .lega{display:flex;gap:9px;align-items:center;margin:6px 0 14px 20px;
+  .lega{display:flex;gap:9px;align-items:center;margin:6px 0 14px 0;
     overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
   .lega button{flex-shrink:0;white-space:nowrap}
   .lega button{font-family:var(--f-testo);font-size:12px;font-weight:700;
@@ -469,6 +469,9 @@
   body.fb .logo span{color:var(--logo-testo);font-size:30px;letter-spacing:.02em}
   body.fb .logo b{color:var(--logo-rosso)}
   @media (max-width:640px){ .logo-simbolo{height:28px} body.fb .logo span{font-size:25px} }
+  /* menu che scorrono di lato: niente barra di scorrimento (sul telefono compariva come una seconda riga sotto la voce scelta) */
+  .lega,.sub-lega,.sottomenu,.stagioni{scrollbar-width:none}
+  .lega::-webkit-scrollbar,.sub-lega::-webkit-scrollbar,.sottomenu::-webkit-scrollbar,.stagioni::-webkit-scrollbar{display:none}
   /* tasto per tornare in cima (stesso della pagina Matchup) */
   .su-in-cima{position:fixed;right:16px;bottom:20px;width:48px;height:48px;border-radius:50%;display:flex;
     align-items:center;justify-content:center;background:var(--fb-acc);color:var(--fb-acc-text);border:0;font-size:22px;
