@@ -89,7 +89,17 @@ def _riga(g):
             quando = f"{g.get('season')}"
         hl = "https://www.youtube.com/results?search_query=" + quote_plus(
             f"{ospite} vs {casa} football highlights {quando}")
-    return {"highlights": hl, "data": data, "ora": "", "casa": casa, "ospite": ospite, "pc": pc, "po": po,
+    ora_it = {}
+    inizio = g.get("startDate") or ""
+    if len(inizio) > 10:
+        try:
+            from datetime import datetime
+            from zoneinfo import ZoneInfo
+            t = datetime.fromisoformat(inizio.replace("Z", "+00:00")).astimezone(ZoneInfo("Europe/Rome"))
+            ora_it = {"dataIt": t.strftime("%Y-%m-%d"), "oraIt": t.strftime("%H:%M"), "inizio": inizio}
+        except (ValueError, KeyError):
+            pass
+    return {"highlights": hl, "data": data, "ora": "", **ora_it, "casa": casa, "ospite": ospite, "pc": pc, "po": po,
             "favorita": fav, "linea": None if margine is None else abs(margine), "totaleLinea": totale,
             "battutaDa": chi, "totaleEsito": tot, "scartoLinea": scarto, "stadio": "",
             "confCasa": g.get("homeConference"), "confOspite": g.get("awayConference")}
@@ -207,6 +217,7 @@ def _duelli(prossime, ultime, stagione, difese):
         if not lati["ospite"] and not lati["casa"]:
             continue
         duelli.append({"casa": g["casa"], "ospite": g["ospite"], "data": g["data"], "ora": g["ora"],
+                       "dataIt": g.get("dataIt"), "oraIt": g.get("oraIt"),
                        "favorita": g["favorita"], "linea": g["linea"], "totaleLinea": g["totaleLinea"],
                        "confCasa": g.get("confCasa"), "confOspite": g.get("confOspite"),
                        "difesaCasa": difese.get(g["casa"]), "difesaOspite": difese.get(g["ospite"]),
@@ -440,7 +451,8 @@ def calcola(chiama, stats, stagione, partite_espn=None):
     linee = _carica(LINEE)
     righe = _gare_espn(partite_espn, w, linee) if partite_espn else chiama("lines", year=stagione, week=w, seasonType="regular")
     if righe:
-        gare = sorted((_riga(g) for g in righe), key=lambda g: (g["data"], g["casa"] or ""))
+        # per orario d'inizio (ESPN dà l'ora in UTC); senza ora in fondo alla giornata
+        gare = sorted((_riga(g) for g in righe), key=lambda g: (g.get("inizio") or g["data"] + "Z", g["casa"] or ""))
         con_linea = [g for g in gare if g["scartoLinea"] is not None]
         out["giornata"] = {
             "stagione": stagione, "settimana": w,

@@ -22,6 +22,7 @@ import csv
 import gzip
 import re
 
+import nfl_giornata
 import nfl_racconto
 import io
 import math
@@ -107,6 +108,7 @@ def partite():
             # positivo = casa favorita (convenzione nflverse, verificata sui risultati)
             "linea": f(r.get("spread_line")), "totale": f(r.get("total_line")),
             "stadio": r.get("stadium", ""), "copertura": r.get("roof", ""),
+            "gameId": r.get("game_id", ""), "arbitro": (r.get("referee") or "").strip(),
         })
     return out
 
@@ -124,13 +126,27 @@ def _esito_linea(p):
     return chi, tot
 
 
+def _ora_italiana(data, ora):
+    """Data e ora italiane dall'orario della costa est di nflverse; {} se manca l'ora."""
+    if not data or not ora:
+        return {}
+    try:
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        t = datetime.fromisoformat(f"{data}T{ora}").replace(tzinfo=ZoneInfo("America/New_York"))
+        t = t.astimezone(ZoneInfo("Europe/Rome"))
+    except (ValueError, KeyError):
+        return {}
+    return {"dataIt": t.strftime("%Y-%m-%d"), "oraIt": t.strftime("%H:%M")}
+
+
 def _riga(p, info):
     chi, tot = _esito_linea(p)
     fav = None
     if p["linea"] is not None and p["linea"] != 0:
         fav = p["casa"] if p["linea"] > 0 else p["ospite"]
     return {
-        "data": p["data"], "ora": p["ora"], "casa": p["casa"], "ospite": p["ospite"],
+        "data": p["data"], "ora": p["ora"], **_ora_italiana(p["data"], p["ora"]), "casa": p["casa"], "ospite": p["ospite"],
         "pc": None if p["pc"] is None else int(p["pc"]), "po": None if p["po"] is None else int(p["po"]),
         "favorita": fav, "linea": None if p["linea"] is None else abs(p["linea"]),
         "totaleLinea": p["totale"], "battutaDa": chi, "totaleEsito": tot,
@@ -200,7 +216,7 @@ def prestazioni(stagione, settimana):
 MOMENTI_PER_PARTITA = 5
 
 
-def _riassunto_pbp(stagione, settimana_momenti=None, momenti=None):
+def _riassunto_pbp(stagione, settimana_momenti=None, momenti=None, raccolta=None):
     """Per squadra e partita: azioni ed EPA in attacco e in difesa, passaggi e corse separati; EPA dei QB.
     Se `settimana_momenti` è indicata, raccoglie in `momenti` le azioni che hanno spostato di più la
     probabilità di vittoria in ogni partita di quella settimana (i momenti decisivi)."""
@@ -210,6 +226,13 @@ def _riassunto_pbp(stagione, settimana_momenti=None, momenti=None):
     sq = {}
     qb = defaultdict(lambda: [0, 0.0, "", ""])
     for r in csv.DictReader(io.StringIO(testo)):
+        if raccolta is not None:
+            try:
+                raccolta.aggiungi(r)
+            except Exception as e:      # noqa: BLE001 - una riga strana non ferma gli indici
+                if not getattr(raccolta, "_avvisato", False):
+                    print(f"  Giornata: riga del play-by-play non letta ({type(e).__name__}: {e})")
+                    raccolta._avvisato = True
         if settimana_momenti is not None and momenti is not None and r.get("week") == str(settimana_momenti):
             wpa, hw, hwp = f(r.get("wpa")), f(r.get("home_wp")), f(r.get("home_wp_post"))
             desc = r.get("desc") or ""
@@ -272,8 +295,8 @@ def _stima(lati, prudenza, giri=40):
     return A, D
 
 
-def indici(stagione, info, settimana_momenti=None, momenti=None):
-    corrente, qb = _riassunto_pbp(stagione, settimana_momenti, momenti)
+def indici(stagione, info, settimana_momenti=None, momenti=None, raccolta=None):
+    corrente, qb = _riassunto_pbp(stagione, settimana_momenti, momenti, raccolta)
     if not corrente:
         return None
     precedente, _ = _riassunto_pbp(stagione - 1)
@@ -349,7 +372,13 @@ def calcola(info=None):
     stagione = max((p["stagione"] for p in tutte if p["pc"] is not None), default=None)
     momenti = defaultdict(list)
     sett = giorn["settimana"] if giorn and giorn["stagione"] == stagione else None
-    ind = indici(stagione, info, sett, momenti) if stagione else None
+    raccolta = nfl_giornata.Raccolta(stagione, sett) if stagione else None
+    ind = indici(stagione, info, sett, momenti, raccolta) if stagione else None
+    if giorn and raccolta is not None and giorn["stagione"] == stagione:
+        try:
+            _blocchi_giornata(giorn, raccolta, ind, info, tutte, stagione)
+        except Exception as e:      # i blocchi nuovi non devono mai bloccare il resto
+            print(f"  Blocchi della Giornata non calcolati: {type(e).__name__}: {e}")
     if giorn and momenti:
         # abbinamento alla partita con la sigla nflverse del game_id: <stagione>_<settimana>_<ospite>_<casa>
         for g in giorn["partite"]:
@@ -367,6 +396,31 @@ def calcola(info=None):
         except Exception as e:      # i video non devono mai bloccare il resto
             print(f"  Video non cercati: {type(e).__name__}: {e}")
     return {"anagrafica": info, "giornata": giorn, "prossima": prossima, "indici": ind}
+
+
+def _blocchi_giornata(giorn, raccolta, ind, info, tutte, stagione):
+    """Giocate migliori e squadre della settimana; ultimi 2 minuti e flag della stagione (nfl_giornata)."""
+    giorn["giocate"] = raccolta.migliori_giocate()
+    sq = raccolta.squadre_settimana((ind or {}).get("squadre"), raccolta.media_lega(), info)
+    if sq:
+        giorn["squadreSettimana"] = sq
+    punti = defaultdict(lambda: [0, 0, 0])
+    for p in tutte:
+        if p["stagione"] == stagione and p["pc"] is not None and p["tipo"] in ("REG", "WC", "DIV", "CON", "SB"):
+            for a, b, fa, fb in ((p["casa"], p["ospite"], p["pc"], p["po"]), (p["ospite"], p["casa"], p["po"], p["pc"])):
+                punti[a][0] += 1
+                punti[a][1] += fa
+                punti[a][2] += fb
+    due = raccolta.ultimi_due_minuti(punti, info)
+    if due:
+        giorn["ultimiDueMinuti"] = due
+    arbitri = {p["gameId"]: p["arbitro"] for p in tutte if p.get("gameId") and p.get("arbitro")}
+    fs, fa = raccolta.flag_squadre(info), raccolta.flag_arbitri(arbitri)
+    if fs:
+        giorn["flag"] = {**fs, "arbitri": fa or []}
+    n_g = sum(len(v) for v in giorn["giocate"].values())
+    print(f"  Giornata: {n_g} giocate scelte, squadre della settimana {'sì' if sq else 'no'}, "
+          f"ultimi 2 minuti {'sì' if due else 'no'}, flag {'sì' if fs else 'no'} ({len(fa or [])} arbitri)")
 
 
 # ------------------------------------------------------------------ highlights
@@ -507,6 +561,7 @@ def anteprima(prossima, stagione):
             ids = _chiave_squadra(correnti, g[lato])
             lati[lato] = [p for p in (_profilo(i, correnti, passate, rookie, stagione) for i in ids) if p]
         duelli.append({"casa": g["casa"], "ospite": g["ospite"], "data": g["data"], "ora": g["ora"],
+                       "dataIt": g.get("dataIt"), "oraIt": g.get("oraIt"),
                        "favorita": g["favorita"], "linea": g["linea"], "totaleLinea": g["totaleLinea"],
                        "giocatoriOspite": lati["ospite"], "giocatoriCasa": lati["casa"]})
     # giovani che spiccano

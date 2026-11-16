@@ -135,6 +135,18 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Matchup: ogni partita è un riquadro chiuso (classe `riquadro`: striscia con i colori delle squadre, bordo,
   testata su fondo diverso). Attenzione: la classe `partita` esiste già per un altro uso.
 
+## Giornata NFL (dal 16/11/2026)
+
+- `scripts/nfl_giornata.py` (Raccolta): legge il play-by-play nflverse nello stesso passaggio di nfl_indici
+  (`_riassunto_pbp(..., raccolta)`), nessun download in più. Blocchi in `giornata`: `giocate` (10 attacco e 10 difesa
+  per WPA di chi le fa; difesa = sack, intercetto, fumble recuperato, stop al quarto down, safety; niente special
+  team), `squadreSettimana` (EPA/azione corretto con le stime degli indici: attacco = EPA − (media − difesa
+  avversaria), difesa = (media + attacco avversario) − EPA concesso), `ultimiDueMinuti` (punti dopo il two-minute
+  warning, stagione) e `flag` (penalità accettate per squadra e per capo arbitro, colonna referee dei calendari).
+- Le carte delle partite mostrano data e ora italiane (`dataIt`, `oraIt`) anche in Giornata e Prossimo turno.
+- College: cfbfastR arriva circa una settimana dopo (16/11: fino alla week 11); per la Giornata college valutare
+  i dati delle partite ESPN già scaricati con i tabellini (azioni e probabilità di vittoria nello stesso summary).
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate

@@ -13,7 +13,7 @@ Solo libreria standard.
 
 import re
 
-NOME = r"[A-Z][A-Za-z'.\-]*?\.?[A-Z][A-Za-z'\-]+(?:\s(?:Jr|Sr|II|III|IV)\.?)?"
+NOME = r"[A-Z][A-Za-z'.\-]*?\.?(?:St\.\s?)?[A-Z][A-Za-z'\-]+(?:\s(?:Jr|Sr|II|III|IV)\.?)?"
 
 DIREZIONE_LANCIO = {"left": "a sinistra", "middle": "al centro", "right": "a destra"}
 DISTANZA = {"short": "corto", "deep": "lungo"}
@@ -78,7 +78,7 @@ def traduci(desc):
         extra.append("safety")
     fine = (", " + ", ".join(extra) if extra else "") + (": touchdown" if td else "")
 
-    prima = corpo.split(". ")[0]
+    prima = re.split(r"(?<!\bSt)\. ", corpo)[0]          # «A.St. Brown»: il punto di «St.» non chiude la frase
     m = re.match(r"(" + NOME + r") pass (short|deep) (left|middle|right) to (" + NOME + r")", prima)
     if m and "INTERCEPTED" not in prima and "incomplete" not in prima:
         qb, rec = _cognome(m.group(1)), _cognome(m.group(4))

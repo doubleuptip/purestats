@@ -1579,7 +1579,7 @@ function schedaRisultato(g){
   const vid = g.video && /^[A-Za-z0-9_-]{6,20}$/.test(g.video.id||"") ? g.video.id : "";
   if(vid){
     return `<article class="fb-game">
-    <div class="fb-when">${esc(giornoIt(g.data))}${g.ora?" · "+esc(g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
+    <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${chips?`<div class="fb-chips">${chips}</div>`:""}
     <a class="fb-video" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener" aria-label="Guarda gli highlights su YouTube: ${esc(g.video.titolo||"")}">
@@ -1596,7 +1596,7 @@ function schedaRisultato(g){
          Cerca il video degli highlights</a>` : "";
   const mom = momenti(g);
   return `<article class="fb-game">
-    <div class="fb-when">${esc(giornoIt(g.data))}${g.ora?" · "+esc(g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
+    <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${chips?`<div class="fb-chips">${chips}</div>`:""}
     ${mom}${hl}
@@ -1664,7 +1664,50 @@ function vFootballGiornata(){
         ${listaLeader("YARD LANCIATE",pr.lanci)}${listaLeader("YARD DI CORSA",pr.corse)}${listaLeader("YARD RICEVUTE",pr.ricezioni)}
       </section>
     </aside>
-  </div>`;
+  </div>
+  ${blocchiGiornata(G)}`;
+}
+
+/* Blocchi aggiunti il 16/11/2026: giocate migliori e squadre della week, ultimi 2 minuti e flag della stagione */
+function blocchiGiornata(G){
+  const gc=G.giocate||{}, ss=G.squadreSettimana, due=G.ultimiDueMinuti, fl=G.flag;
+  const giocata=x=>`<li class="fb-row">${stemma(x.squadra,true)}
+      <span class="fb-row-t">${esc(x.testo)}${x.evento?` <span class="fb-tag">${esc(x.evento)}</span>`:""}
+        <small>${x.quarto?esc(x.quarto)+"° quarto "+esc(x.tempo||""):""} · contro ${esc(breve(x.avversario))}${
+          x.prima!==null&&x.prima!==undefined?` · vittoria ${x.prima}% → ${x.dopo}%`:""}</small></span>
+      <span class="fb-num acc">+${numIt(x.valore,0)}</span></li>`;
+  const listaG=(tit,l)=>l&&l.length?`<section class="fb-box"><h2 class="fb-h2">${tit}</h2>
+      <p class="fb-note" style="margin-top:0">Ordinate per quanto hanno alzato la probabilità di vittoria di chi le ha fatte (punti percentuali)</p>
+      <ol class="fb-list">${l.map(giocata).join("")}</ol></section>`:"";
+  const segnoN=(v,c)=>v===null||v===undefined?"—":(v>0?"+":"")+numIt(v,c===undefined?2:c);
+  const rigaSq=(x,k)=>`<li class="fb-row">${stemma(x.squadra,true)}
+      <span class="fb-row-t">${esc(x.nome)}<small>contro ${esc(breve(x.avversario))} · EPA/azione ${numIt(x.epaAzione,3)}, concesso ${numIt(x.epaConcesso,3)}</small></span>
+      <span class="fb-num acc">${segnoN(x[k])}</span></li>`;
+  let h="";
+  if(gc.attacco||gc.difesa) h+=`<h2 class="fb-h2" style="margin-top:28px">Le giocate della week</h2>
+    <div class="fb-cols">${listaG("Migliori 10 in attacco",gc.attacco)}${listaG("Migliori 10 in difesa",gc.difesa)}</div>`;
+  if(ss) h+=`<h2 class="fb-h2" style="margin-top:28px">Le squadre della week</h2>
+    <p class="fb-note" style="margin-top:0">${esc(ss.nota||"")}</p>
+    <div class="fb-tiles">${(ss.migliori||[]).map((x,i)=>`<div class="fb-tile">${stemma(x.squadra)}<b>${i+1}° ${esc(breve(x.squadra))}</b><span>${segnoN(x.netto)} · contro ${esc(breve(x.avversario))}</span></div>`).join("")}</div>
+    <div class="fb-cols">
+      <section class="fb-box"><h2 class="fb-h2">Migliori attacchi</h2><ul class="fb-list">${(ss.attacchi||[]).map(x=>rigaSq(x,"attacco")).join("")}</ul></section>
+      <section class="fb-box"><h2 class="fb-h2">Migliori difese</h2><ul class="fb-list">${(ss.difese||[]).map(x=>rigaSq(x,"difesa")).join("")}</ul></section>
+    </div>`;
+  if(due) h+=`<details class="fb-box" style="margin-top:28px"><summary class="fb-h2" style="cursor:pointer">Punti negli ultimi 2 minuti · stagione</summary>
+    <p class="fb-note">${esc(due.nota||"")} Media della lega: ${numIt(due.media.fatti1)} punti a partita nel 1° tempo, ${numIt(due.media.fatti2)} nel 2°.</p>
+    <div style="overflow-x:auto"><table class="tab"><thead><tr><th>Squadra</th><th>Fatti 1°T</th><th>Fatti 2°T</th><th>Subiti 1°T</th><th>Subiti 2°T</th><th>Quota</th></tr></thead><tbody>
+    ${due.squadre.map(x=>`<tr><td>${esc(breve(x.squadra))}</td><td>${numIt(x.fatti1)}</td><td>${numIt(x.fatti2)}</td><td>${numIt(x.subiti1)}</td><td>${numIt(x.subiti2)}</td><td>${x.quota===null?"—":numIt(x.quota,1)+"%"}</td></tr>`).join("")}
+    </tbody></table></div></details>`;
+  if(fl) h+=`<details class="fb-box" style="margin-top:16px"><summary class="fb-h2" style="cursor:pointer">Flag · stagione</summary>
+    <p class="fb-note">${esc(fl.nota||"")} Media: ${numIt(fl.media)} flag a partita per squadra.</p>
+    <div style="overflow-x:auto"><table class="tab"><thead><tr><th>Squadra</th><th>Flag</th><th>Yard</th><th>Subite</th><th>Le più frequenti</th></tr></thead><tbody>
+    ${fl.squadre.map(x=>`<tr><td>${esc(breve(x.squadra))}</td><td>${numIt(x.flag)}</td><td>${numIt(x.yard,1)}</td><td>${numIt(x.subite)}</td><td style="text-align:left">${(x.tipi||[]).map(t=>esc(t[0])+" "+t[1]).join(" · ")}</td></tr>`).join("")}
+    </tbody></table></div>
+    ${(fl.arbitri||[]).length?`<h3 class="fb-h3">Capi arbitro</h3><p class="fb-note" style="margin-top:0">Flag a partita della sua squadra arbitrale, contro la casa e contro gli ospiti (almeno 2 partite)</p>
+    <div style="overflow-x:auto"><table class="tab"><thead><tr><th>Arbitro</th><th>Partite</th><th>Flag</th><th>Casa</th><th>Ospiti</th><th>Yard</th></tr></thead><tbody>
+    ${fl.arbitri.map(x=>`<tr><td style="text-align:left">${esc(x.arbitro)}</td><td>${x.partite}</td><td>${numIt(x.flag,1)}</td><td>${numIt(x.casa,1)}</td><td>${numIt(x.ospite,1)}</td><td>${numIt(x.yard,1)}</td></tr>`).join("")}
+    </tbody></table></div>`:""}</details>`;
+  return h;
 }
 
 /* Un giocatore nel confronto: rendimento stagione, ultime 3, passato, esperienza e forma */
@@ -1700,7 +1743,7 @@ function vFootballProssima(){
   const blocchiDuelli = duelli.length ? duelli.map(d=>`
     <article class="fb-duel">
       <div class="fb-duel-head">${stemma(d.ospite)}<span class="t">${esc(breve(d.ospite))} @ ${esc(breve(d.casa))}</span>${stemma(d.casa)}</div>
-      <p class="fb-duel-when">${esc(giornoIt(d.data))}${d.ora?" · "+esc(d.ora):""}${
+      <p class="fb-duel-when">${esc(giornoIt(d.dataIt||d.data))}${(d.oraIt||d.ora)?" · "+esc(d.oraIt||d.ora):""}${
           d.favorita?" · favorita "+esc(d.favorita)+" di "+numIt(d.linea):""}${d.totaleLinea!=null?" · totale "+numIt(d.totaleLinea):""}</p>
       <div class="fb-vs">
         <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.ospite))}${difesa(d.difesaOspite)}</h3>${(d.giocatoriOspite||[]).map(rigaGiocatore).join("")}</div>
