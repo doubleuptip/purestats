@@ -86,6 +86,7 @@
   details.scheda{border-top:1px solid var(--fb-border)}
   /* ogni partita è un riquadro chiuso e ben separato: striscia con i colori delle due squadre, bordo pieno,
      testata su fondo diverso e più spazio dopo, così scorrendo veloce non si confonde con la successiva */
+  .ch-rinunce{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:6px}
   .ch-giud{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:12px 0 4px;padding:10px 12px;border:1px dashed var(--fb-border);border-radius:10px}
   .ch-giud input[type=range]{width:180px;vertical-align:middle}
   article.riquadro{position:relative;border:2px solid color-mix(in srgb,var(--fb-text) 30%,transparent);border-radius:16px;margin-bottom:34px;padding-top:0;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.35)}
@@ -656,6 +657,16 @@ function segnaliPartita(g){
   const e = ((g.meteo || {}).effetto) || {};
   if (e.avviso && e.punti) out.push({tipo: "vento", id: "vento", punti: e.punti, testo: e.testo,
                                      aff: CAMPIONATO === "NFL" ? "B" : "C"});
+  // squadra già fuori dai playoff (Protocollo 11, gruppo B: −1,52 punti sulla linea, misura non superata → indizio)
+  const po = g.playoff;
+  if (po && po.casa && po.ospite && po.casa.fuori !== po.ospite.fuori) {
+    const casaFuori = po.casa.fuori, sq = casaFuori ? g.casa : g.ospite, x = casaFuori ? po.casa : po.ospite;
+    out.push({tipo: "playoff", id: "playoff", sq, punti: 1.5, aff: "C",
+              testo: `${squadra(g, sq).nome || sq} è già fuori dai playoff (probabilità ${num(x.p * 100, 1)}%, la partita non la cambia)`});
+  }
+  // rinunce ai bowl (Protocollo 12, conferma non superata → indizio da spuntare): titolari della stagione regolare
+  if (g.titolari && (g.titolari.casa || []).length && (g.titolari.ospite || []).length)
+    out.push({tipo: "rinunce", id: "rinunce", titolari: g.titolari, pendenza: 1.0, aff: "C"});
   return out;
 }
 
@@ -692,6 +703,17 @@ function probPartita(inp){
     if (s.tipo === "vento" && s.attivo) {
       spost.totale += s.punti; spost.casa += s.punti / 2; spost.ospite += s.punti / 2;
       incert.push(0.8); usati.push(`vento: ${segno(s.punti, 1)} punti sul totale`); peggio(s.aff);
+    }
+    if (s.tipo === "playoff" && s.attivo) {
+      const casa = s.sq === g.casa;
+      spost.margine += casa ? -s.punti : s.punti;
+      spost[casa ? "casa" : "ospite"] -= s.punti / 2; spost[casa ? "ospite" : "casa"] += s.punti / 2;
+      incert.push(0.7); usati.push(`indizio: ${squadra(g, s.sq).nome || s.sq} già fuori dai playoff (${segno(-s.punti, 1)} punti sulla linea)`); peggio("C");
+    }
+    if (s.tipo === "rinunce" && s.pesi && (s.pesi.casa || s.pesi.ospite)) {
+      const d = (s.pesi.casa - s.pesi.ospite) * s.pendenza;      // > 0: pesano di più le rinunce della casa
+      spost.margine -= d; spost.casa -= d / 2; spost.ospite += d / 2;
+      incert.push(0.7); usati.push(`indizio rinunce ai bowl: peso ${num(s.pesi.casa, 1)} casa, ${num(s.pesi.ospite, 1)} ospite (${segno(-d, 1)} sul margine della casa)`); peggio("C");
     }
     if (s.tipo !== "assenza" || !s.misura) continue;
     const m = s.misura, casa = s.sq === g.casa, dir = casa ? -1 : 1;
@@ -934,6 +956,12 @@ function formPartite(){
   </div>
   ${sg.length ? `<div class="titolo">Segnali di questa partita</div><ul class="ch-segnali">${sg.map(s => s.tipo === "vento"
     ? `<li><input type="checkbox" id="chs-${s.id}"><label for="chs-${s.id}">🌬️ ${esc(s.testo)} <span class="aff ${s.aff}">${s.aff}</span><div class="sotto">Spunta per spostare il totale di ${segno(s.punti, 1)} punti.</div></label></li>`
+    : s.tipo === "playoff"
+    ? `<li><input type="checkbox" id="chs-${s.id}"><label for="chs-${s.id}">🏁 ${esc(s.testo)} <span class="aff C">C</span><div class="sotto">Indizio: dalla settimana 12 del 2019-2025 chi non ha più niente da giocarsi ha mancato la linea di circa 1,5 punti (l'avversario l'ha battuta nel 52,6%), ma la misura non ha superato la soglia fissata. Spunta per applicarlo.</div></label></li>`
+    : s.tipo === "rinunce"
+    ? `<li><div style="flex:1"><b>🎓 Rinunce annunciate al bowl</b> <span class="aff C">C</span><div class="sotto">Spunta i titolari della stagione che hanno annunciato che non giocano (draft, portale dei trasferimenti, infortunio). Peso: QB 3, RB e ricevitori 1, difensori 0,5. Indizio: −1 punto sulla linea per punto di peso in più; nei bowl 2019-2022 la conferma non ha superato la soglia.</div>
+      <div class="ch-rinunce">${[["ospite", g.ospite], ["casa", g.casa]].map(([lato, sq]) => `<div><b>${esc(squadra(g, sq).nome || sq)}</b>${(s.titolari[lato] || []).map((x, i) =>
+        `<label style="display:block;font-size:13px"><input type="checkbox" id="chr-${lato}-${i}"> ${esc(x[0])} <span class="sotto">${esc(x[1])} · ${num(x[2], 1)}</span></label>`).join("")}</div>`).join("")}</div></div></li>`
     : `<li><div style="flex:1"><b>${esc(s.nome)}</b> (${esc(s.ruolo)}, ${esc(s.sq)}) ${esc(s.stato)}${s.misura ? ` · di solito la linea si sposta di ${num(s.misura.spread, 1)} sullo spread <span class="aff ${s.misura.affidabilita}">${s.misura.affidabilita}</span>` : ` · <span class="sotto">${s.rt === "QB" ? "QB non titolare" : "effetto non misurato o sotto mezzo punto"}</span>`}
       ${s.misura ? `<div>${(c => c.testo ? `<div class="sotto">${esc(c.testo)}</div>` : "")(consiglioAssenza(g, s))}<label style="font-size:13px"><input type="checkbox" id="chm-${s.id}" ${consiglioAssenza(g, s).spunta ? "checked" : ""}> la linea americana non si è ancora mossa</label>
       ${s.misura.indizio ? `<br><label style="font-size:13px"><input type="checkbox" id="chf-${s.id}"> notizia fresca (aveva giocato la partita prima): indizio</label>` : ""}</div>` : ""}</div></li>`).join("")}</ul>` : ""}
@@ -954,8 +982,10 @@ function calcolaPartite(){
   const linea = numero(document.getElementById("chLinea").value?.replace("−", "-")), quota = numero(document.getElementById("chQuota").value);
   if (margineCasa === null || totale === null) { out.innerHTML = `<div class="errore">Serve la linea americana: margine della squadra di casa e totale.</div>`; return; }
   if (linea === null || !quota || quota <= 1) { out.innerHTML = `<div class="errore">Inserisci la linea e una quota maggiore di 1.</div>`; return; }
+  const pesoRinunce = (s, lato) => (s.titolari[lato] || []).reduce((t, x, i) => t + (document.getElementById(`chr-${lato}-${i}`)?.checked ? x[2] : 0), 0);
   const segnali = (CH.segnali || []).map(s => ({...s, attivo: !!document.getElementById("chs-" + s.id)?.checked,
-    mossa: !!document.getElementById("chm-" + s.id)?.checked, fresca: !!document.getElementById("chf-" + s.id)?.checked}));
+    mossa: !!document.getElementById("chm-" + s.id)?.checked, fresca: !!document.getElementById("chf-" + s.id)?.checked,
+    pesi: s.tipo === "rinunce" ? {casa: pesoRinunce(s, "casa"), ospite: pesoRinunce(s, "ospite")} : undefined}));
   const inp = {g, margineCasa, totale, mercato: document.getElementById("chMercato").value, lato: document.getElementById("chLato").value, linea, segnali};
   const v = valuta(probPartita(inp), quota, numero(document.getElementById("chPuntata").value));
   const testoLato = document.getElementById("chLato").selectedOptions[0].textContent;

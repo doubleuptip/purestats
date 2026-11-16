@@ -17,7 +17,7 @@ from collections import defaultdict
 
 VERSIONE = 3                       # cambia quando cambia il calcolo: le partite si rileggono da sole
 GIOCATE_PER_PARTITA = 4
-GIOCATE = 10
+GIOCATE = 5
 FINESTRA = 120
 
 ATTACCO = {"Rush", "Pass Reception", "Passing Touchdown", "Rushing Touchdown", "Pass", "Pass Completion"}

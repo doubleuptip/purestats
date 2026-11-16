@@ -17,7 +17,7 @@ from collections import Counter, defaultdict
 
 import nfl_racconto
 
-GIOCATE = 10
+GIOCATE = 5
 MIN_AZIONI_SETTIMANA = 35          # sotto, una partita (es. interrotta) non entra nelle squadre della settimana
 FINESTRA = 120                     # secondi: il two-minute warning
 

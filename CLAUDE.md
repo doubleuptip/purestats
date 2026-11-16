@@ -142,7 +142,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 ## Giornata NFL (dal 16/11/2026)
 
 - `scripts/nfl_giornata.py` (Raccolta): legge il play-by-play nflverse nello stesso passaggio di nfl_indici
-  (`_riassunto_pbp(..., raccolta)`), nessun download in più. Blocchi in `giornata`: `giocate` (10 attacco e 10 difesa
+  (`_riassunto_pbp(..., raccolta)`), nessun download in più. Blocchi in `giornata`: `giocate` (5 attacco e 5 difesa, dal 16/11/2026
   per WPA di chi le fa; difesa = sack, intercetto, fumble recuperato, stop al quarto down, safety; niente special
   team), `squadreSettimana` (EPA/azione corretto con le stime degli indici: attacco = EPA − (media − difesa
   avversaria), difesa = (media + attacco avversario) − EPA concesso), `ultimiDueMinuti` (punti dopo il two-minute
@@ -153,6 +153,19 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   giocate per probabilità di vittoria ESPN, flag dal boxscore, punti negli ultimi 2 minuti, yard e azioni).
   Squadre della week in yard per azione corrette per l'avversario (non EPA). Le partite già in archivio senza
   «azioni» si rileggono una volta, al massimo 800 per giro (RILETTURE_AZIONI); al cambio di college_giornata.VERSIONE si rileggono, gratis.
+
+- Impaginazione della Giornata (16/11/2026, scelta di Valerio: «A» con la testata di «B»): numeri della week
+  (partite, favorite oltre la linea, over/under, sorpresa) e podio delle 3 squadre; tabellone con tutte le partite in
+  schede uguali (`schedaTabellone`: niente anteprima grande del video, «▶ Highlights» e momenti nel piede); sotto, le
+  sezioni a schede una alla volta (`sezioniGiornata`, `schedaGiornata`): Giocate, Squadre, Leader, Sorprese, Ultimi 2
+  minuti, Flag. Sempre a tutta larghezza o in due/tre metà uguali: niente buchi. Tasto «torna su» in tutte le pagine.
+- Indizi di Charlie (16/11/2026), sempre da spuntare, affidabilità C:
+  · squadra già fuori dai playoff (NFL, dalla settimana 12): `scripts/nfl_playoff.py` simula 4.000 volte il resto
+    della stagione (linee note; per le settimane future linea stimata dalle forze di mercato), «fuori» = probabilità
+    sotto 2% e partita che non la cambia (≤ 2 punti). −1,5 punti sulla linea alla squadra fuori (Protocollo 11, B).
+  · rinunce ai bowl (college, partite dal 13/12): titolari della stagione dai tabellini (`titolari_college`, pesi
+    QB 3, RB e 3 ricevitori 1, 3 difensori 0,5); Valerio spunta chi ha annunciato la rinuncia; −1 punto per punto di
+    peso (Protocollo 12: conferma 2019-22 non superata). Il bot (5.9.8) avvisa delle rinunce da ESPN college.
 
 ## Fonti a credito (chiamate limitate)
 

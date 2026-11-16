@@ -230,6 +230,89 @@ def campi_neutri(lega: str, stagione: int) -> set:
     return out
 
 
+def segna_fuori_playoff(schede: list) -> None:
+    """Indizio di Charlie (Protocollo 11, gruppo B): squadre già fuori dai playoff nella settimana in corso.
+    Simulazione del resto della stagione (scripts/nfl_playoff.py) con calendario e anagrafica nflverse."""
+    import nfl_playoff
+    from nfl_indici import SQUADRE_URL
+    partite = C._get("https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv", 60)
+    squadre = C._get(SQUADRE_URL, 60)
+    if not partite or not squadre:
+        raise RuntimeError("calendario o anagrafica nflverse non scaricati")
+    st = nfl_playoff.stato(partite, squadre)
+    if not st:
+        print("NFL: indizio playoff non applicabile (prima della settimana "
+              f"{nfl_playoff.SETTIMANA_MINIMA} o stagione regolare finita).")
+        return
+    n = 0
+    for sc in schede:
+        x = st["partite"].get(f"{sc['ospite']}@{sc['casa']}")
+        if x:
+            sc["playoff"] = {**x, "settimana": st["settimana"]}
+            n += x["casa"]["fuori"] != x["ospite"]["fuori"]
+    print(f"NFL: playoff simulati ({st['simulazioni']} volte) per la settimana {st['settimana']}: "
+          f"{n} partite con una sola squadra già fuori (indizio in Charlie).")
+
+
+PESO_TITOLARI = {"QB": 3.0, "RB": 1.0, "REC": 1.0, "DIF": 0.5}       # Protocollo 12
+POSTI_TITOLARI = {"QB": 1, "RB": 1, "REC": 3, "DIF": 3}
+
+
+def _numero_tabellino(x) -> float:
+    try:
+        return float(str(x).split("/")[-1])
+    except ValueError:
+        return 0.0
+
+
+def titolari_college(stagione: int) -> dict:
+    """{squadra: [[nome, ruolo, peso], ...]}: i titolari della stagione regolare dai tabellini ESPN, con le
+    definizioni del Protocollo 12 (QB con più tentativi, RB con più corse, 3 ricevitori per yard, 3 difensori per
+    placcaggi). Solo squadre con almeno 8 partite."""
+    from fetch_college import carica_tabellini
+    somma = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
+    nomi, partite = {}, defaultdict(int)
+    for v in carica_tabellini(stagione).values():
+        if v.get("tipo") != "regular":
+            continue
+        et = v.get("etichette") or {}
+        for sq, cats in (v.get("squadre") or {}).items():
+            partite[sq] += 1
+            for cat, col, ruolo in (("passing", "C/ATT", "QB"), ("rushing", "CAR", "RB"),
+                                    ("receiving", "YDS", "REC"), ("defensive", "TOT", "DIF")):
+                lab = et.get(cat) or []
+                if col not in lab:
+                    continue
+                i = lab.index(col)
+                for r in cats.get(cat) or []:
+                    if len(r) > 2 + i:
+                        somma[sq][ruolo][r[0]] += _numero_tabellino(r[2 + i])
+                        nomi[r[0]] = r[1]
+    out = {}
+    for sq, ruoli in somma.items():
+        if partite[sq] < 8:
+            continue
+        lista = []
+        for ruolo in ("QB", "RB", "REC", "DIF"):
+            migliori = sorted(ruoli.get(ruolo, {}).items(), key=lambda x: -x[1])[:POSTI_TITOLARI[ruolo]]
+            lista += [[nomi.get(pid, ""), ruolo, PESO_TITOLARI[ruolo]] for pid, _v in migliori if _v > 0]
+        out[sq] = lista
+    return out
+
+
+def segna_titolari_bowl(schede: list, stagione: int) -> None:
+    """Indizio di Charlie per le rinunce ai bowl (Protocollo 12, conferma non superata: si spunta a mano).
+    Bowl = partita dal 13 dicembre in poi (dopo le finali di conference)."""
+    bowl = [sc for sc in schede if (sc.get("data") or "")[5:] >= "12-13" or (sc.get("data") or "")[5:7] == "01"]
+    if not bowl:
+        return
+    tit = titolari_college(stagione)
+    for sc in bowl:
+        if sc["casa"] in tit and sc["ospite"] in tit:
+            sc["titolari"] = {"casa": tit[sc["casa"]], "ospite": tit[sc["ospite"]]}
+    print(f"College: titolari per le rinunce in {sum(1 for sc in bowl if 'titolari' in sc)} bowl su {len(bowl)}.")
+
+
 # ------------------------------------------------------------------ scheda partita
 def reparti_partita(st: dict, casa: str, ospite: str) -> list[dict]:
     """Ogni reparto nei due versi, con posizioni e verdetto basato sulla difesa (la parte verificata)."""
@@ -873,6 +956,16 @@ def main() -> int:
                     max(w for w, _r, _p in gruppi))
     except Exception as e:     # noqa: BLE001 - il contesto non deve mai fermare la sezione
         print(f"{campionato}: contesto (assenze, meteo, forza) non calcolato ({e}): schede senza contesto.")
+    if lega == "nfl":
+        try:
+            segna_fuori_playoff(schede)
+        except Exception as e:     # noqa: BLE001 - l'indizio è un di più: la sezione esce lo stesso
+            print(f"NFL: squadre già fuori dai playoff non calcolate ({e}): indizio assente.")
+    if lega == "college":
+        try:
+            segna_titolari_bowl(schede, int(stagione))
+        except Exception as e:     # noqa: BLE001 - l'indizio è un di più: la sezione esce lo stesso
+            print(f"College: titolari per le rinunce ai bowl non calcolati ({e}): indizio assente.")
     if saltate:
         print(f"{campionato}: {len(saltate)} partite senza dati di reparto (meno di {RP.MIN_PARTITE} partite giocate "
               f"o squadra fuori FBS), es. {', '.join(saltate[:5])}")
