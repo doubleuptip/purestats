@@ -16,6 +16,10 @@ on:
         description: 'Stagioni passate da cui scaricare i tabellini completi (es. 2019-2025). Vuoto = nessuna'
         required: false
         default: ''
+      linee_bowl:
+        description: 'Stagioni da cui scaricare le linee di chiusura dei bowl (es. 2019-2025). Vuoto = nessuna'
+        required: false
+        default: ''
   push:
     branches: [main]
     paths:
@@ -66,6 +70,15 @@ jobs:
           STAGIONI_TABELLINI: ${{ inputs.tabellini_storico }}
         run: python scripts/storico_tabellini.py "$STAGIONI_TABELLINI"
 
+      - name: Storico linee dei bowl
+        # Una volta sola, circa 40 richieste ESPN a stagione (gratis): misura delle rinunce ai bowl (Protocollo 12).
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.linee_bowl != '' }}
+        continue-on-error: true
+        timeout-minutes: 60
+        env:
+          STAGIONI_BOWL: ${{ inputs.linee_bowl }}
+        run: python scripts/storico_linee_bowl.py "$STAGIONI_BOWL"
+
       - name: Sezione privata (prossimo turno, indici, duelli) cifrata
         # Non blocca mai l'aggiornamento pubblico: se fallisce resta la versione già pubblicata.
         continue-on-error: true
@@ -80,7 +93,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/college.csv docs/data_college.json data/college_squadre.json data/college_video.json
           # archivi che evitano di richiedere di nuovo ciò che non cambia (tabellini, linee chiuse, SP+)
-          for f in data/college_giocatori.json data/college_linee.json data/college_sp.json; do
+          for f in data/college_giocatori.json data/college_linee.json data/college_sp.json data/college_linee_bowl.json; do
             [ -f "$f" ] && git add "$f"
           done
           # tabellini completi, un file per stagione (le stagioni concluse non cambiano più)
