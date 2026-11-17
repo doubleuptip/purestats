@@ -40,11 +40,18 @@ jobs:
       - name: Verifica il database
         run: python scripts/query.py
 
+      - name: Cifra i dati della pagina (il calcio lo vede solo Valerio)
+        continue-on-error: true
+        env:
+          DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
+        run: python scripts/cifra_pagine.py docs/data.json
+
       - name: Committa le modifiche
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/premier_league.csv docs/data.json
+          git rm -q --ignore-unmatch docs/data.json
+          git add data/premier_league.csv docs/data.dat
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
           else

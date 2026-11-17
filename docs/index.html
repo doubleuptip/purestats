@@ -465,7 +465,7 @@
   .logo-simbolo{height:34px;width:auto;flex:none;display:block}
   .logo-simbolo .lt{fill:var(--logo-testo)} .logo-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}
   .logo-simbolo .lr rect,.logo-simbolo .lr circle{stroke:none}
-  body.fb .logo{gap:10px}
+  body.fb .logo{gap:10px;text-decoration:none;cursor:pointer}
   body.fb .logo span{color:var(--logo-testo);font-size:30px;letter-spacing:.02em}
   body.fb .logo b{color:var(--logo-rosso)}
   @media (max-width:640px){ .logo-simbolo{height:28px} body.fb .logo span{font-size:25px} }
@@ -499,7 +499,7 @@
 <body class="fb">
 
 <header>
-  <div class="logo" role="img" aria-label="PureStats"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></div>
+  <a class="logo" href="./" onclick="return tornaHome()" aria-label="PureStats, torna alla pagina iniziale"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></a>
   <div class="lega" id="scelta-lega"></div>
   <div class="sub-lega" id="sub-lega" style="display:none"></div>
   <nav>
@@ -510,7 +510,7 @@
     <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
     <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
-    <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata: serve la password">MATCHUP 🔒</button>
+    <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata">MATCHUP</button>
   </nav>
 </header>
 
@@ -560,17 +560,54 @@ function stagionePredefinita(d){
 /* Campionati disponibili. Ciascuno ha il proprio file dati:
    se un file non esiste il campionato viene semplicemente nascosto. */
 const LEGHE = [
-  {id:"premier",  nome:"PREMIER LEAGUE", file:"data.json"},
-  {id:"serie_a",  nome:"SERIE A",        file:"data_serie_a.json"},
-  {id:"la_liga",  nome:"LALIGA",         file:"data_la_liga.json"},
-  {id:"ligue_1",  nome:"LIGUE 1",        file:"data_ligue_1.json"},
-  {id:"bundesliga",   nome:"BUNDESLIGA",   file:"data_bundesliga.json",   gruppo:"GERMANIA"},
-  {id:"bundesliga_2", nome:"BUNDESLIGA 2", file:"data_bundesliga_2.json", gruppo:"GERMANIA"},
-  {id:"super_lig", nome:"SÜPER LIG",     file:"data_super_lig.json"},
-  {id:"aleague",  nome:"A-LEAGUE",      file:"data_aleague.json",  soloArbitri:true},
   {id:"nfl",      nome:"NFL",           file:"data_nfl.json",      football:true},
   {id:"college",  nome:"COLLEGE FB",    file:"data_college.json",  football:true},
+  // calcio (dal 17/11/2026): dati cifrati, menu visibili solo con il collegamento privato (#k=...)
+  {id:"premier",  nome:"PREMIER LEAGUE", file:"data.dat",              privato:true},
+  {id:"serie_a",  nome:"SERIE A",        file:"data_serie_a.dat",      privato:true},
+  {id:"la_liga",  nome:"LALIGA",         file:"data_la_liga.dat",      privato:true},
+  {id:"ligue_1",  nome:"LIGUE 1",        file:"data_ligue_1.dat",      privato:true},
+  {id:"bundesliga",   nome:"BUNDESLIGA",   file:"data_bundesliga.dat",   gruppo:"GERMANIA", privato:true},
+  {id:"bundesliga_2", nome:"BUNDESLIGA 2", file:"data_bundesliga_2.dat", gruppo:"GERMANIA", privato:true},
+  {id:"super_lig", nome:"SÜPER LIG",     file:"data_super_lig.dat",    privato:true},
+  {id:"aleague",  nome:"A-LEAGUE",      file:"data_aleague.dat",  soloArbitri:true, privato:true},
 ];
+
+/* Accesso privato (17/11/2026): il collegamento …/purestats/#k=<password> sblocca il calcio e Matchup.
+   La chiave resta solo in memoria e sparisce subito dalla barra degli indirizzi; niente localStorage.
+   Cifratura uguale a Matchup (scripts/cifra_pagine.py → fetch_duelli.cifra). */
+let CHIAVE = null;
+(function leggiChiave(){
+  const m = location.hash.match(/(?:^#|&)k=([^&]+)/);
+  if (!m) return;
+  try { CHIAVE = decodeURIComponent(m[1]); } catch (e) { CHIAVE = m[1]; }
+  history.replaceState(null, "", location.pathname + location.search);
+})();
+if (!CHIAVE) for (let i = LEGHE.length - 1; i >= 0; i--) if (LEGHE[i].privato) LEGHE.splice(i, 1);
+const pacchetti = {};          // file cifrati già scaricati, decifrati solo quando servono
+const b64a = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const unisciByte = (...parti) => { const n = parti.reduce((t, x) => t + x.length, 0), o = new Uint8Array(n); let i = 0; for (const x of parti) { o.set(x, i); i += x.length; } return o; };
+async function decifraPacchetto(pk, password){
+  const sub = crypto.subtle;
+  const base = await sub.importKey("raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveBits"]);
+  const k = new Uint8Array(await sub.deriveBits({name:"PBKDF2", hash:"SHA-256", salt:b64a(pk.sale), iterations:pk.iterazioni}, base, 512));
+  const nonce = b64a(pk.nonce), cifrato = b64a(pk.dati);
+  const km = await sub.importKey("raw", k.slice(32), {name:"HMAC", hash:"SHA-256"}, false, ["verify"]);
+  if (!await sub.verify("HMAC", km, b64a(pk.mac), unisciByte(nonce, cifrato))) throw new Error("chiave");
+  const richieste = [];
+  for (let i = 0; i < Math.ceil(cifrato.length / 32); i++)
+    richieste.push(sub.digest("SHA-256", unisciByte(k.slice(0, 32), nonce, new Uint8Array([i >>> 24 & 255, i >>> 16 & 255, i >>> 8 & 255, i & 255]))));
+  const flusso = unisciByte(...(await Promise.all(richieste)).map(x => new Uint8Array(x)));
+  return JSON.parse(new TextDecoder().decode(cifrato.map((b, i) => b ^ flusso[i])));
+}
+/* Scarica un file del sito: in chiaro (football) o cifrato (calcio, solo con la chiave) */
+function scaricaDati(file, privato){
+  if (!privato) return fetch(file + "?t=" + Date.now()).then(r => { if (!r.ok) throw new Error(file + " non trovato"); return r.json(); });
+  if (!CHIAVE) return Promise.reject(new Error("riservato"));
+  const pk = pacchetti[file] ? Promise.resolve(pacchetti[file])
+    : fetch(file + "?t=" + Date.now()).then(r => { if (!r.ok) throw new Error(file + " non trovato"); return r.json(); });
+  return pk.then(x => { pacchetti[file] = x; return decifraPacchetto(x, CHIAVE); });
+}
 let legaAttiva = null;
 const cache = {};
 let calendario = null;   // un file solo, comune a tutti i campionati
@@ -726,8 +763,7 @@ function caricaLega(id){
   const lega = LEGHE.find(l=>l.id===id);
   if(!lega) return Promise.reject(new Error("campionato sconosciuto"));
   if(cache[id]) return Promise.resolve(cache[id]);
-  return fetch(lega.file+"?t="+Date.now())
-    .then(r=>{ if(!r.ok) throw new Error(lega.file+" non trovato"); return r.json(); })
+  return scaricaDati(lega.file, lega.privato)
     .then(d=>{ cache[id]=d; return d; });
 }
 
@@ -771,9 +807,19 @@ function mostraErrore(e){
 Promise.all(LEGHE.map(l =>
   fetch(l.file+"?t="+Date.now())
     .then(r=>r.ok?r.json():null)
-    .then(d=>{ if(d) cache[l.id]=d; return {lega:l, ok:!!d}; })
+    .then(d=>{ if(d){ if(l.privato) pacchetti[l.file]=d; else cache[l.id]=d; } return {lega:l, ok:!!d}; })
     .catch(()=>({lega:l, ok:false}))
-)).then(esiti=>{
+)).then(async esiti=>{
+  // collegamento privato: si prova la chiave sul primo file del calcio; se è sbagliata il calcio resta nascosto
+  const primoPrivato = esiti.find(e => e.ok && e.lega.privato);
+  if (CHIAVE && primoPrivato) {
+    try { cache[primoPrivato.lega.id] = await decifraPacchetto(pacchetti[primoPrivato.lega.file], CHIAVE); }
+    catch (e) {
+      console.warn("Collegamento privato: chiave non valida, il calcio resta nascosto.");
+      CHIAVE = null;
+      esiti.forEach(x => { if (x.lega.privato) x.ok = false; });
+    }
+  }
   // I campionati senza archivio vengono tolti dal menù invece di
   // comparire sbiaditi: con i paesi raggruppati, una voce disattivata
   // dentro un gruppo sarebbe più confusa che utile.
@@ -796,7 +842,14 @@ Promise.all(LEGHE.map(l =>
 
 function vai(v){vista=v;arbitroAperto=null;window.scrollTo(0,0);render();}
 // Matchup: sezione privata a parte (duelli.html), protetta da password, aperta sul campionato in vista
-function apriDuelli(){location.href="duelli.html#"+(legaAttiva==="college"?"College":"NFL");}
+function apriDuelli(){location.href="duelli.html#"+(legaAttiva==="college"?"College":"NFL")+(CHIAVE?"&k="+encodeURIComponent(CHIAVE):"");}
+/* Logo: torna alla pagina iniziale (primo campionato, vista di partenza), senza ricaricare */
+function tornaHome(){
+  const primo = LEGHE[0]; if (!primo) return true;
+  vista = "arbitri"; arbitroAperto = null; squadraAperta = null;
+  if (legaAttiva === primo.id) { window.scrollTo(0,0); render(); } else vaiLega(primo.id);
+  return false;
+}
 function apriArbitro(nome){arbitroAperto=nome;window.scrollTo(0,0);render();}
 function chiudiArbitro(){arbitroAperto=null;window.scrollTo(0,0);render();}
 
@@ -854,7 +907,7 @@ function render(){
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
   const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
         conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
-  [["n-gio",conGio],["n-ind",conInd],["n-pro",conPro],["n-due",soloFootball]].forEach(([id,visibile])=>{
+  [["n-gio",conGio],["n-ind",conInd],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
@@ -2086,8 +2139,7 @@ function vSchedaAleague(){
 
 function caricaCalendario(){
   if(calendario) return Promise.resolve(calendario);
-  return fetch("calendario.json?t="+Date.now())
-    .then(r=>{ if(!r.ok) throw new Error("calendario.json non trovato"); return r.json(); })
+  return scaricaDati("calendario.dat", true)
     .then(d=>{ calendario=d; return d; });
 }
 
@@ -2120,7 +2172,7 @@ function vCalendario(){
         <div style="font-size:26px;margin-bottom:10px">⚑</div>
         <div class="nome" style="font-size:20px;margin-bottom:10px">CALENDARIO NON DISPONIBILE</div>
         <div style="font-size:10px;color:${MUTED};line-height:1.9">
-          Manca il file <code>docs/calendario.json</code>.<br>
+          Manca il file <code>docs/calendario.dat</code>.<br>
           Lancia il workflow "Aggiorna calendario" dal tab Actions.</div></div>`;
     });
     return `<div class="loading">Caricamento calendario…</div>`;

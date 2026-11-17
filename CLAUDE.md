@@ -181,6 +181,19 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   `icona-192/512.png` e `manifest.webmanifest`; anteprima dei link (og:image) = brand/anteprima-link-scuro.png.
   Si rifanno con `misure/genera_marchio.py` (Archivo e Inter installati, larghezze misurate con Pillow).
 
+## Calcio e Matchup solo per Valerio (dal 17/11/2026)
+
+- Il sito si apre su NFL; per tutti si vedono solo NFL e College FB. Calcio (tutti i campionati e il calendario) e il
+  pulsante MATCHUP compaiono solo con il collegamento privato `https://doubleuptip.github.io/purestats/#k=<password>`
+  (stessa password di Matchup, secret DUELLI_PASSWORD). La pagina legge la chiave, la toglie subito dalla barra degli
+  indirizzi (history.replaceState) e la tiene solo in memoria; la passa a duelli.html (`#NFL&k=...`), che si apre da
+  solo, e il logo di duelli.html riporta alla pagina principale già sbloccata. Chiave sbagliata: il calcio resta nascosto.
+- I dati del calcio sono pubblicati solo cifrati: ogni workflow del calcio lancia `scripts/cifra_pagine.py docs/<file>.json`
+  (stesso metodo di fetch_duelli.cifra), che scrive il .dat, lo verifica e cancella sempre il .json in chiaro; i .json
+  del calcio sono in .gitignore. Senza password il chiaro non esce e resta il .dat precedente.
+- Restano pubblici gli archivi grezzi in data/ (CSV di football-data.co.uk, già pubblici alla fonte).
+- Il logo della pagina principale è un collegamento: riporta alla pagina iniziale (`tornaHome`).
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate

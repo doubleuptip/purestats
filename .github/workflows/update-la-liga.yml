@@ -40,11 +40,18 @@ jobs:
           # Se fallisce (fonte giù un momento, rete), riprova una volta dopo 5 minuti.
           python scripts/fetch_la_liga.py || { echo "Primo tentativo fallito: riprovo tra 5 minuti"; sleep 300; python scripts/fetch_la_liga.py; }
 
+      - name: Cifra i dati della pagina (il calcio lo vede solo Valerio)
+        continue-on-error: true
+        env:
+          DUELLI_PASSWORD: ${{ secrets.DUELLI_PASSWORD }}
+        run: python scripts/cifra_pagine.py docs/data_la_liga.json
+
       - name: Committa le modifiche
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/la_liga.csv data/designaciones_la_liga.json docs/data_la_liga.json
+          git rm -q --ignore-unmatch docs/data_la_liga.json
+          git add data/la_liga.csv data/designaciones_la_liga.json docs/data_la_liga.dat
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
           else

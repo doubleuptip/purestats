@@ -253,6 +253,16 @@ async function decifra(pacchetto, password){
   return JSON.parse(new TextDecoder().decode(cifrato.map((b, i) => b ^ flusso[i])));
 }
 
+/* Collegamento privato dalla pagina principale (17/11/2026): duelli.html#NFL&k=<password> apre senza scrivere
+   la password; la chiave sparisce subito dalla barra degli indirizzi e resta solo in memoria. */
+let CHIAVE_LINK = null;
+(function(){
+  const m = location.hash.match(/&k=([^&]+)/);
+  if (!m) return;
+  try { CHIAVE_LINK = decodeURIComponent(m[1]); } catch (e) { CHIAVE_LINK = m[1]; }
+  history.replaceState(null, "", location.pathname + location.search + location.hash.replace(/&k=[^&]+/, ""));
+})();
+
 async function scarica(lega, pw){
   const r = await fetch(`duelli_${lega}.dat?` + Date.now(), {cache:"no-store"});
   if (r.status === 404) return null;            // campionato non ancora calcolato
@@ -278,7 +288,10 @@ document.getElementById("accesso").addEventListener("submit", async ev => {
     return;
   }
   // Chrome e Android: proposta esplicita di salvare la password (gli altri browser lo fanno dal modulo)
-  try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats Matchup"})); } catch (e) {}
+  if (!CHIAVE_LINK) try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats Matchup"})); } catch (e) {}
+  // il logo riporta alla pagina principale già sbloccata (calcio e Matchup visibili)
+  const marchio = document.querySelector(".marchio");
+  if (marchio) marchio.href = "./#k=" + encodeURIComponent(pw);
   document.getElementById("password").value = "";
   document.getElementById("accesso").hidden = true;
   document.getElementById("contenuto").hidden = false;
@@ -289,6 +302,10 @@ document.getElementById("accesso").addEventListener("submit", async ev => {
 });
 document.getElementById("password").addEventListener("input", () => document.getElementById("errore").textContent = "");
 document.getElementById("esci").addEventListener("click", () => location.reload());
+if (CHIAVE_LINK) {
+  document.getElementById("password").value = CHIAVE_LINK;
+  document.getElementById("accesso").requestSubmit();
+}
 document.querySelectorAll("[data-camp]").forEach(b => b.addEventListener("click", () => { CAMPIONATO = b.dataset.camp; disegna(); }));
 document.getElementById("soloSegnali").addEventListener("change", disegna);
 document.getElementById("cerca").addEventListener("input", disegna);
