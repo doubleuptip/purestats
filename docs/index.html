@@ -578,12 +578,22 @@ const LEGHE = [
    Cifratura uguale a Matchup (scripts/cifra_pagine.py → fetch_duelli.cifra). */
 let CHIAVE = null;
 (function leggiChiave(){
-  const m = location.hash.match(/(?:^#|&)k=([^&]+)/);
+  // tutto quello che segue «k=» è la password (anche con & o altri simboli)
+  const m = location.hash.match(/(?:^#|&)k=(.+)$/);
   if (!m) return;
   try { CHIAVE = decodeURIComponent(m[1]); } catch (e) { CHIAVE = m[1]; }
   history.replaceState(null, "", location.pathname + location.search);
 })();
 if (!CHIAVE) for (let i = LEGHE.length - 1; i >= 0; i--) if (LEGHE[i].privato) LEGHE.splice(i, 1);
+// chiave aggiunta a mano all'indirizzo della pagina già aperta: il browser non ricarica, lo facciamo noi
+addEventListener("hashchange", () => { if (/(?:^#|&)k=/.test(location.hash)) location.reload(); });
+/* Avviso discreto se il collegamento privato non funziona (si vede solo a chi ha messo #k= nell'indirizzo) */
+function avvisoChiave(testo){
+  const d = document.createElement("div");
+  d.textContent = testo;
+  d.style.cssText = "position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:60;background:var(--fb-card);color:var(--fb-text);border:1px solid var(--fb-acc);border-radius:8px;padding:10px 14px;font:14px var(--f-testo);max-width:92vw;box-shadow:0 2px 10px rgba(0,0,0,.2)";
+  document.body.appendChild(d); setTimeout(() => d.remove(), 8000);
+}
 const pacchetti = {};          // file cifrati già scaricati, decifrati solo quando servono
 const b64a = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 const unisciByte = (...parti) => { const n = parti.reduce((t, x) => t + x.length, 0), o = new Uint8Array(n); let i = 0; for (const x of parti) { o.set(x, i); i += x.length; } return o; };
@@ -812,10 +822,14 @@ Promise.all(LEGHE.map(l =>
 )).then(async esiti=>{
   // collegamento privato: si prova la chiave sul primo file del calcio; se è sbagliata il calcio resta nascosto
   const primoPrivato = esiti.find(e => e.ok && e.lega.privato);
+  if (CHIAVE && !primoPrivato) avvisoChiave("Collegamento privato: i dati del calcio non si trovano, riprova tra poco.");
   if (CHIAVE && primoPrivato) {
     try { cache[primoPrivato.lega.id] = await decifraPacchetto(pacchetti[primoPrivato.lega.file], CHIAVE); }
     catch (e) {
-      console.warn("Collegamento privato: chiave non valida, il calcio resta nascosto.");
+      console.warn("Collegamento privato: chiave non valida, il calcio resta nascosto.", e);
+      avvisoChiave(e.message === "chiave" ? "Collegamento privato: password non valida."
+        : !(window.crypto && crypto.subtle) ? "Collegamento privato: questo browser non può aprire i dati cifrati."
+        : "Collegamento privato: non riesco ad aprire i dati, riprova tra poco.");
       CHIAVE = null;
       esiti.forEach(x => { if (x.lega.privato) x.ok = false; });
     }

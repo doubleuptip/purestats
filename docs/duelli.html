@@ -257,10 +257,10 @@ async function decifra(pacchetto, password){
    la password; la chiave sparisce subito dalla barra degli indirizzi e resta solo in memoria. */
 let CHIAVE_LINK = null;
 (function(){
-  const m = location.hash.match(/&k=([^&]+)/);
+  const m = location.hash.match(/&k=(.+)$/);
   if (!m) return;
   try { CHIAVE_LINK = decodeURIComponent(m[1]); } catch (e) { CHIAVE_LINK = m[1]; }
-  history.replaceState(null, "", location.pathname + location.search + location.hash.replace(/&k=[^&]+/, ""));
+  history.replaceState(null, "", location.pathname + location.search + location.hash.replace(/&k=.+$/, ""));
 })();
 
 async function scarica(lega, pw){
