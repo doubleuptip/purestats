@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-16T20:49:27.222866+00:00",
+  "aggiornato": "2026-11-17T10:00:05.706337+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 1411,
-  "partiteGiocate": 1288,
+  "partiteGiocate": 1289,
   "squadre": [
     {
       "nome": "BUF",
@@ -724,29 +724,29 @@
       "nomeCompleto": "Baltimore Ravens",
       "conference": "AFC",
       "division": "AFC North",
-      "partite": 82,
+      "partite": 83,
       "vittorie": 49,
-      "sconfitte": 33,
+      "sconfitte": 34,
       "pareggi": 0,
-      "percVittorie": 59.8,
+      "percVittorie": 59.0,
       "mediaFatti": 25.3,
       "mediaSubiti": 20.5,
-      "differenza": 396,
+      "differenza": 393,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 9,
+          "partite": 10,
           "vittorie": 4,
-          "sconfitte": 5,
+          "sconfitte": 6,
           "pareggi": 0,
-          "percVittorie": 44.4,
-          "puntiFatti": 189,
-          "puntiSubiti": 236,
-          "mediaFatti": 21.0,
-          "mediaSubiti": 26.2,
-          "differenza": -47,
+          "percVittorie": 40.0,
+          "puntiFatti": 209,
+          "puntiSubiti": 259,
+          "mediaFatti": 20.9,
+          "mediaSubiti": 25.9,
+          "differenza": -50,
           "vittorieCasa": 1,
-          "partiteCasa": 4,
+          "partiteCasa": 5,
           "vittorieFuori": 3,
           "partiteFuori": 5
         },
@@ -1734,31 +1734,31 @@
       "nomeCompleto": "Los Angeles Chargers",
       "conference": "AFC",
       "division": "AFC West",
-      "partite": 79,
-      "vittorie": 37,
+      "partite": 80,
+      "vittorie": 38,
       "sconfitte": 42,
       "pareggi": 0,
-      "percVittorie": 46.8,
+      "percVittorie": 47.5,
       "mediaFatti": 21.2,
       "mediaSubiti": 21.8,
-      "differenza": -48,
+      "differenza": -45,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 8,
-          "vittorie": 0,
+          "partite": 9,
+          "vittorie": 1,
           "sconfitte": 8,
           "pareggi": 0,
-          "percVittorie": 0.0,
-          "puntiFatti": 121,
-          "puntiSubiti": 219,
-          "mediaFatti": 15.1,
-          "mediaSubiti": 27.4,
-          "differenza": -98,
+          "percVittorie": 11.1,
+          "puntiFatti": 144,
+          "puntiSubiti": 239,
+          "mediaFatti": 16.0,
+          "mediaSubiti": 26.6,
+          "differenza": -95,
           "vittorieCasa": 0,
           "partiteCasa": 4,
-          "vittorieFuori": 0,
-          "partiteFuori": 4
+          "vittorieFuori": 1,
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
@@ -139515,11 +139515,99 @@
       "oraIt": "02:15",
       "casa": "BAL",
       "ospite": "LAC",
-      "pc": null,
-      "po": null,
+      "pc": 20,
+      "po": 23,
       "stadio": "M&T Bank Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Jacoby Brissett",
+          "ruolo": "QB",
+          "valore": 340,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Derrick Henry",
+          "ruolo": "RB",
+          "valore": 10,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Zay Flowers",
+          "ruolo": "WR",
+          "valore": 74,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "Ja'Kobi Lane",
+          "ruolo": "WR",
+          "valore": 61,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Mark Andrews",
+          "ruolo": "TE",
+          "valore": 82,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Justin Herbert",
+          "ruolo": "QB",
+          "valore": 129,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Omarion Hampton",
+          "ruolo": "RB",
+          "valore": 105,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Tre Harris",
+          "ruolo": "WR",
+          "valore": 86,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Quentin Johnston",
+          "ruolo": "WR",
+          "valore": 6,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Charlie Kolar",
+          "ruolo": "TE",
+          "valore": 16,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -141509,7 +141597,7 @@
             "yard": 66.0,
             "touchdown": true,
             "casaPrima": 38,
-            "casaDopo": 70
+            "casaDopo": 69
           },
           {
             "quarto": "4",
@@ -141553,7 +141641,7 @@
             "yard": 32.0,
             "touchdown": true,
             "casaPrima": 67,
-            "casaDopo": 30
+            "casaDopo": 35
           },
           {
             "quarto": "4",
@@ -141708,11 +141796,25 @@
             "yard": 12.0,
             "touchdown": true,
             "casaPrima": 40,
-            "casaDopo": 32,
+            "casaDopo": 33,
             "clip": {
               "id": "J9W2caCRLTY",
               "titolo": "Pick Six! Chris Johnson turns a tipped pass into a TD!"
             }
+          },
+          {
+            "quarto": "1",
+            "tempo": "08:08",
+            "squadra": "ATL",
+            "descrizione": "9-M.Penix sacked at ATL 45 for -8 yards (56-G.Karlaftis).",
+            "testo": "Penix subisce un sack, -8 yard (perdita)",
+            "chi": [
+              "Penix"
+            ],
+            "yard": -8.0,
+            "touchdown": false,
+            "casaPrima": 37,
+            "casaDopo": 32
           },
           {
             "quarto": "2",
@@ -141758,25 +141860,6 @@
             "touchdown": false,
             "casaPrima": 35,
             "casaDopo": 26
-          },
-          {
-            "quarto": "3",
-            "tempo": "05:09",
-            "squadra": "KC",
-            "descrizione": "15-P.Mahomes pass deep left to 13-C.Allen for 39 yards, TOUCHDOWN.",
-            "testo": "Mahomes lancia lungo a sinistra per Allen, 39 yard: touchdown",
-            "chi": [
-              "Mahomes",
-              "Allen"
-            ],
-            "yard": 39.0,
-            "touchdown": true,
-            "casaPrima": 10,
-            "casaDopo": 5,
-            "clip": {
-              "id": "E0RifVputz4",
-              "titolo": "Josh Allen DEEP to DJ Moore"
-            }
           }
         ],
         "video": {
@@ -141955,7 +142038,7 @@
             "yard": 38.0,
             "touchdown": true,
             "casaPrima": 43,
-            "casaDopo": 29,
+            "casaDopo": 30,
             "clip": {
               "id": "mR-GX4o2AFY",
               "titolo": "Welcome Back Kirk! Cousins to Price for a Vikings&#39; TD!"
@@ -142013,7 +142096,7 @@
             "yard": 0.0,
             "touchdown": true,
             "casaPrima": 90,
-            "casaDopo": 72,
+            "casaDopo": 73,
             "clip": {
               "id": "qJPkS9jlsvs",
               "titolo": "Emmett Johnson all alone, gets his 2nd TD on the board"
@@ -142267,7 +142350,7 @@
             "yard": 45.0,
             "touchdown": true,
             "casaPrima": 25,
-            "casaDopo": 12
+            "casaDopo": 14
           }
         ],
         "video": {
@@ -142446,7 +142529,7 @@
             "yard": 5.0,
             "touchdown": true,
             "casaPrima": 48,
-            "casaDopo": 32,
+            "casaDopo": 33,
             "clip": {
               "id": "GvZVJTlWgUc",
               "titolo": "STRAIGHT DOWN THE MIDDLE TO TYLER HIGBEE"
@@ -142550,7 +142633,7 @@
             "yard": 12.0,
             "touchdown": true,
             "casaPrima": 47,
-            "casaDopo": 39,
+            "casaDopo": 40,
             "clip": {
               "id": "HXGsiXx8OZ8",
               "titolo": "KIRK COUSINS TO MYLES PRICE FOR A TD ON 3RD AND 23 😱"
@@ -142569,7 +142652,7 @@
             "yard": 71.0,
             "touchdown": true,
             "casaPrima": 37,
-            "casaDopo": 17
+            "casaDopo": 19
           }
         ],
         "video": {
@@ -142642,7 +142725,7 @@
             "yard": 74.0,
             "touchdown": true,
             "casaPrima": 73,
-            "casaDopo": 51
+            "casaDopo": 52
           },
           {
             "quarto": "2",
@@ -142670,7 +142753,7 @@
             "yard": 70.0,
             "touchdown": true,
             "casaPrima": 30,
-            "casaDopo": 15,
+            "casaDopo": 17,
             "clip": {
               "id": "0-lRyuxXMTA",
               "titolo": "Deebo Samuel Sr. 70-YARD TD RUN 🔥"
@@ -142785,15 +142868,96 @@
         "oraIt": "02:15",
         "casa": "BAL",
         "ospite": "LAC",
-        "pc": null,
-        "po": null,
+        "pc": 20,
+        "po": 23,
         "favorita": "BAL",
         "linea": 4.5,
         "totaleLinea": 39.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
-        "stadio": "M&T Bank Stadium"
+        "battutaDa": "LAC",
+        "totaleEsito": "over",
+        "scartoLinea": 7.5,
+        "stadio": "M&T Bank Stadium",
+        "highlights": "https://www.youtube.com/results?search_query=Los+Angeles+Chargers+vs.+Baltimore+Ravens+highlights+November+16%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "2",
+            "tempo": "13:21",
+            "squadra": "BAL",
+            "descrizione": "11-J.Brissett pass deep middle to 7-R.Bateman to LAC 2 for 24 yards (20-C.Hart).",
+            "testo": "Brissett lancia lungo al centro per Bateman, 24 yard",
+            "chi": [
+              "Brissett",
+              "Bateman"
+            ],
+            "yard": 24.0,
+            "touchdown": false,
+            "casaPrima": 30,
+            "casaDopo": 38
+          },
+          {
+            "quarto": "2",
+            "tempo": "09:39",
+            "squadra": "BAL",
+            "descrizione": "11-J.Brissett pass short middle intended for 6-J.Lane INTERCEPTED by 53-D.Phillips (20-C.Hart) at LAC 43. 53-D.Phillips to BAL 48 for 9 yards (74-J.Simpson).",
+            "testo": "Brissett intercettato da Phillips",
+            "chi": [
+              "Brissett",
+              "Phillips"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 43,
+            "casaDopo": 30
+          },
+          {
+            "quarto": "3",
+            "tempo": "05:08",
+            "squadra": "BAL",
+            "descrizione": "11-J.Brissett pass short left to 43-J.Hill pushed ob at LAC 17 for 25 yards (22-G.Smith).",
+            "testo": "Brissett lancia corto a sinistra per Hill, 25 yard",
+            "chi": [
+              "Brissett",
+              "Hill"
+            ],
+            "yard": 25.0,
+            "touchdown": false,
+            "casaPrima": 20,
+            "casaDopo": 31
+          },
+          {
+            "quarto": "4",
+            "tempo": "02:11",
+            "squadra": "BAL",
+            "descrizione": "11-J.Brissett pass short left to 4-Z.Flowers to LAC 46 for 15 yards (4-T.Still). FUMBLES (4-T.Still), RECOVERED by LAC-2-E.Molden at LAC 46.",
+            "testo": "Brissett lancia corto a sinistra per Flowers, 15 yard, fumble, recuperato da Molden (LAC)",
+            "chi": [
+              "Brissett",
+              "Flowers"
+            ],
+            "yard": 15.0,
+            "touchdown": false,
+            "casaPrima": 36,
+            "casaDopo": 10
+          },
+          {
+            "quarto": "4",
+            "tempo": "00:06",
+            "squadra": "BAL",
+            "descrizione": "(:06) 11-J.Brissett pass incomplete deep right to 6-J.Lane (27-R.Mickens).",
+            "testo": "Brissett: lancio lungo a destra per Lane incompleto",
+            "chi": [
+              "Brissett"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 14,
+            "casaDopo": 0
+          }
+        ],
+        "video": {
+          "id": "iXTg27Lenug",
+          "titolo": "Los Angeles Chargers vs Baltimore Ravens Game Highlights | 2026 NFL Season Week 10"
+        }
       }
     ],
     "sorprese": [
@@ -142816,11 +142980,11 @@
         "battutaDa": "KC"
       }
     ],
-    "completa": false,
+    "completa": true,
     "riepilogo": {
-      "partite": 13,
+      "partite": 14,
       "favoriteCoperte": 8,
-      "over": 8,
+      "over": 9,
       "under": 5
     },
     "prestazioni": {
@@ -142884,6 +143048,14 @@
           "dettagli": "22 corse · 2 TD"
         },
         {
+          "nome": "Omarion Hampton",
+          "ruolo": "RB",
+          "squadra": "LAC",
+          "avversario": "BAL",
+          "valore": 105,
+          "dettagli": "22 corse · 1 TD"
+        },
+        {
           "nome": "Emmett Johnson",
           "ruolo": "RB",
           "squadra": "KC",
@@ -142898,14 +143070,6 @@
           "avversario": "ARI",
           "valore": 100,
           "dettagli": "17 corse · 1 TD"
-        },
-        {
-          "nome": "Zach Charbonnet",
-          "ruolo": "RB",
-          "squadra": "SEA",
-          "avversario": "LV",
-          "valore": 94,
-          "dettagli": "20 corse"
         }
       ],
       "ricezioni": [
@@ -142952,6 +143116,14 @@
       ],
       "sack": [
         {
+          "nome": "Dalvin Tomlinson",
+          "ruolo": "DE",
+          "squadra": "LAC",
+          "avversario": "BAL",
+          "valore": 2,
+          "dettagli": "3 colpi al QB · 2 placcaggi con perdita"
+        },
+        {
           "nome": "Logan Hall",
           "ruolo": "DE",
           "squadra": "HOU",
@@ -142976,20 +143148,12 @@
           "dettagli": "4 colpi al QB · 2 placcaggi con perdita"
         },
         {
-          "nome": "TJ Parker",
+          "nome": "Mike Green",
           "ruolo": "LB",
-          "squadra": "BUF",
-          "avversario": "NYJ",
+          "squadra": "BAL",
+          "avversario": "LAC",
           "valore": 2,
           "dettagli": "3 colpi al QB · 2 placcaggi con perdita"
-        },
-        {
-          "nome": "Derrick Moore",
-          "ruolo": "DE",
-          "squadra": "DET",
-          "avversario": "NE",
-          "valore": 2,
-          "dettagli": "2 colpi al QB · 2 placcaggi con perdita"
         }
       ],
       "intercetti": [
@@ -143018,20 +143182,20 @@
           "dettagli": "1 passaggi deviati"
         },
         {
+          "nome": "Del'Shawn Phillips",
+          "ruolo": "LB",
+          "squadra": "LAC",
+          "avversario": "BAL",
+          "valore": 1,
+          "dettagli": "9 yard di ritorno · 1 passaggi deviati"
+        },
+        {
           "nome": "Xavier McKinney",
           "ruolo": "SAF",
           "squadra": "GB",
           "avversario": "MIN",
           "valore": 1,
           "dettagli": "1 passaggi deviati"
-        },
-        {
-          "nome": "Ar'Darius Washington",
-          "ruolo": "SAF",
-          "squadra": "NYG",
-          "avversario": "WAS",
-          "valore": 1,
-          "dettagli": "2 passaggi deviati"
         }
       ],
       "placcaggi": [
@@ -143086,6 +143250,14 @@
           "dettagli": "1 placcaggi da solo"
         },
         {
+          "nome": "Marlon Humphrey",
+          "ruolo": "CB",
+          "squadra": "BAL",
+          "avversario": "LAC",
+          "valore": 1,
+          "dettagli": "3 placcaggi da solo"
+        },
+        {
           "nome": "Chuck Clark",
           "ruolo": "SAF",
           "squadra": "DET",
@@ -143108,14 +143280,6 @@
           "avversario": "NYG",
           "valore": 1,
           "dettagli": "2 placcaggi da solo"
-        },
-        {
-          "nome": "Andrew Van Ginkel",
-          "ruolo": "OLB",
-          "squadra": "MIN",
-          "avversario": "GB",
-          "valore": 1,
-          "dettagli": "3 placcaggi da solo"
         }
       ],
       "deviati": [
@@ -143213,9 +143377,9 @@
           "yard": 32.0,
           "touchdown": true,
           "evento": "",
-          "valore": 37.3,
+          "valore": 31.9,
           "prima": 33,
-          "dopo": 70,
+          "dopo": 65,
           "partita": "2026_10_WAS_NYG"
         },
         {
@@ -143227,9 +143391,9 @@
           "yard": 66.0,
           "touchdown": true,
           "evento": "",
-          "valore": 31.9,
+          "valore": 31.5,
           "prima": 38,
-          "dopo": 70,
+          "dopo": 69,
           "partita": "2026_10_WAS_NYG"
         },
         {
@@ -143269,9 +143433,9 @@
           "yard": 74.0,
           "touchdown": true,
           "evento": "",
-          "valore": 22.0,
+          "valore": 21.4,
           "prima": 27,
-          "dopo": 49,
+          "dopo": 48,
           "partita": "2026_10_SF_DAL"
         }
       ],
@@ -143289,6 +143453,20 @@
           "prima": 50,
           "dopo": 76,
           "partita": "2026_10_HOU_CLE"
+        },
+        {
+          "squadra": "LAC",
+          "avversario": "BAL",
+          "quarto": "4",
+          "tempo": "02:11",
+          "testo": "Brissett lancia corto a sinistra per Flowers, 15 yard, fumble, recuperato da Molden (LAC)",
+          "yard": 15.0,
+          "touchdown": false,
+          "evento": "fumble recuperato",
+          "valore": 25.9,
+          "prima": 64,
+          "dopo": 90,
+          "partita": "2026_10_LAC_BAL"
         },
         {
           "squadra": "NYG",
@@ -143331,78 +143509,64 @@
           "prima": 74,
           "dopo": 95,
           "partita": "2026_10_MIA_IND"
-        },
-        {
-          "squadra": "MIA",
-          "avversario": "IND",
-          "quarto": "3",
-          "tempo": "09:07",
-          "testo": "Jones intercettato da Johnson: touchdown",
-          "yard": 0.0,
-          "touchdown": true,
-          "evento": "intercetto",
-          "valore": 18.2,
-          "prima": 10,
-          "dopo": 28,
-          "partita": "2026_10_MIA_IND"
         }
       ]
     },
     "squadreSettimana": {
       "attacchi": [
         {
-          "squadra": "SF",
-          "nome": "San Francisco 49ers",
-          "avversario": "DAL",
-          "attacco": 0.462,
-          "difesa": -0.201,
-          "netto": 0.261,
-          "epaAzione": 0.545,
-          "epaConcesso": 0.266,
-          "partita": "2026_10_SF_DAL"
-        },
-        {
           "squadra": "CIN",
           "nome": "Cincinnati Bengals",
           "avversario": "PIT",
-          "attacco": 0.451,
-          "difesa": -0.025,
-          "netto": 0.426,
-          "epaAzione": 0.463,
-          "epaConcesso": 0.008,
+          "attacco": 0.375,
+          "difesa": -0.024,
+          "netto": 0.351,
+          "epaAzione": 0.392,
+          "epaConcesso": 0.017,
           "partita": "2026_10_PIT_CIN"
+        },
+        {
+          "squadra": "SF",
+          "nome": "San Francisco 49ers",
+          "avversario": "DAL",
+          "attacco": 0.365,
+          "difesa": -0.168,
+          "netto": 0.197,
+          "epaAzione": 0.446,
+          "epaConcesso": 0.232,
+          "partita": "2026_10_SF_DAL"
         },
         {
           "squadra": "BUF",
           "nome": "Buffalo Bills",
           "avversario": "NYJ",
-          "attacco": 0.306,
-          "difesa": 0.093,
-          "netto": 0.399,
-          "epaAzione": 0.378,
-          "epaConcesso": -0.126,
+          "attacco": 0.242,
+          "difesa": 0.078,
+          "netto": 0.32,
+          "epaAzione": 0.316,
+          "epaConcesso": -0.105,
           "partita": "2026_10_BUF_NYJ"
         },
         {
           "squadra": "DAL",
           "nome": "Dallas Cowboys",
           "avversario": "SF",
-          "attacco": 0.251,
-          "difesa": -0.463,
-          "netto": -0.212,
-          "epaAzione": 0.266,
-          "epaConcesso": 0.545,
+          "attacco": 0.209,
+          "difesa": -0.367,
+          "netto": -0.158,
+          "epaAzione": 0.232,
+          "epaConcesso": 0.446,
           "partita": "2026_10_SF_DAL"
         },
         {
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "ARI",
-          "attacco": 0.221,
-          "difesa": 0.571,
-          "netto": 0.792,
-          "epaAzione": 0.283,
-          "epaConcesso": -0.594,
+          "attacco": 0.186,
+          "difesa": 0.471,
+          "netto": 0.657,
+          "epaAzione": 0.249,
+          "epaConcesso": -0.483,
           "partita": "2026_10_LA_ARI"
         }
       ],
@@ -143411,55 +143575,55 @@
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "ARI",
-          "attacco": 0.221,
-          "difesa": 0.571,
-          "netto": 0.792,
-          "epaAzione": 0.283,
-          "epaConcesso": -0.594,
+          "attacco": 0.186,
+          "difesa": 0.471,
+          "netto": 0.657,
+          "epaAzione": 0.249,
+          "epaConcesso": -0.483,
           "partita": "2026_10_LA_ARI"
         },
         {
           "squadra": "MIN",
           "nome": "Minnesota Vikings",
           "avversario": "GB",
-          "attacco": 0.047,
-          "difesa": 0.319,
-          "netto": 0.366,
-          "epaAzione": 0.042,
-          "epaConcesso": -0.265,
+          "attacco": 0.025,
+          "difesa": 0.26,
+          "netto": 0.285,
+          "epaAzione": 0.032,
+          "epaConcesso": -0.204,
           "partita": "2026_10_MIN_GB"
         },
         {
           "squadra": "KC",
           "nome": "Kansas City Chiefs",
           "avversario": "ATL",
-          "attacco": 0.167,
-          "difesa": 0.283,
-          "netto": 0.45,
-          "epaAzione": 0.174,
-          "epaConcesso": -0.32,
+          "attacco": 0.151,
+          "difesa": 0.236,
+          "netto": 0.388,
+          "epaAzione": 0.166,
+          "epaConcesso": -0.26,
           "partita": "2026_10_KC_ATL"
         },
         {
           "squadra": "DET",
           "nome": "Detroit Lions",
           "avversario": "NE",
-          "attacco": 0.205,
-          "difesa": 0.259,
-          "netto": 0.464,
-          "epaAzione": 0.206,
-          "epaConcesso": -0.228,
+          "attacco": 0.178,
+          "difesa": 0.216,
+          "netto": 0.395,
+          "epaAzione": 0.181,
+          "epaConcesso": -0.179,
           "partita": "2026_10_NE_DET"
         },
         {
           "squadra": "CAR",
           "nome": "Carolina Panthers",
           "avversario": "NO",
-          "attacco": -0.071,
-          "difesa": 0.246,
-          "netto": 0.175,
-          "epaAzione": -0.061,
-          "epaConcesso": -0.277,
+          "attacco": -0.053,
+          "difesa": 0.183,
+          "netto": 0.13,
+          "epaAzione": -0.037,
+          "epaConcesso": -0.201,
           "partita": "2026_10_CAR_NO"
         }
       ],
@@ -143468,33 +143632,33 @@
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "ARI",
-          "attacco": 0.221,
-          "difesa": 0.571,
-          "netto": 0.792,
-          "epaAzione": 0.283,
-          "epaConcesso": -0.594,
+          "attacco": 0.186,
+          "difesa": 0.471,
+          "netto": 0.657,
+          "epaAzione": 0.249,
+          "epaConcesso": -0.483,
           "partita": "2026_10_LA_ARI"
         },
         {
           "squadra": "DET",
           "nome": "Detroit Lions",
           "avversario": "NE",
-          "attacco": 0.205,
-          "difesa": 0.259,
-          "netto": 0.464,
-          "epaAzione": 0.206,
-          "epaConcesso": -0.228,
+          "attacco": 0.178,
+          "difesa": 0.216,
+          "netto": 0.395,
+          "epaAzione": 0.181,
+          "epaConcesso": -0.179,
           "partita": "2026_10_NE_DET"
         },
         {
           "squadra": "KC",
           "nome": "Kansas City Chiefs",
           "avversario": "ATL",
-          "attacco": 0.167,
-          "difesa": 0.283,
-          "netto": 0.45,
-          "epaAzione": 0.174,
-          "epaConcesso": -0.32,
+          "attacco": 0.151,
+          "difesa": 0.236,
+          "netto": 0.388,
+          "epaAzione": 0.166,
+          "epaConcesso": -0.26,
           "partita": "2026_10_KC_ATL"
         }
       ],
@@ -143648,13 +143812,13 @@
         {
           "squadra": "BAL",
           "nome": "Baltimore Ravens",
-          "partite": 9,
-          "fatti1": 2.11,
-          "fatti2": 2.0,
-          "subiti1": 1.78,
-          "subiti2": 2.33,
-          "quota": 19.6,
-          "netto": 0.0
+          "partite": 10,
+          "fatti1": 2.2,
+          "fatti2": 1.8,
+          "subiti1": 2.3,
+          "subiti2": 2.1,
+          "quota": 19.1,
+          "netto": -0.4
         },
         {
           "squadra": "NE",
@@ -143822,6 +143986,17 @@
           "netto": -0.11
         },
         {
+          "squadra": "LAC",
+          "nome": "Los Angeles Chargers",
+          "partite": 9,
+          "fatti1": 1.44,
+          "fatti2": 0.33,
+          "subiti1": 5.56,
+          "subiti2": 0.56,
+          "quota": 11.1,
+          "netto": -4.33
+        },
+        {
           "squadra": "ATL",
           "nome": "Atlanta Falcons",
           "partite": 10,
@@ -143831,17 +144006,6 @@
           "subiti2": 1.5,
           "quota": 8.0,
           "netto": -2.6
-        },
-        {
-          "squadra": "LAC",
-          "nome": "Los Angeles Chargers",
-          "partite": 8,
-          "fatti1": 0.75,
-          "fatti2": 0.38,
-          "subiti1": 5.88,
-          "subiti2": 0.62,
-          "quota": 7.4,
-          "netto": -5.38
         },
         {
           "squadra": "NYJ",
@@ -143856,8 +144020,8 @@
         }
       ],
       "media": {
-        "fatti1": 2.4,
-        "fatti2": 1.39
+        "fatti1": 2.42,
+        "fatti2": 1.38
       },
       "nota": "Punti a partita segnati e subiti dopo il two-minute warning (ultimi 2 minuti) del primo e del secondo tempo; quota = parte dei punti della squadra fatta in quei minuti. Sono pochi minuti a partita: come segnale per giocare va ancora misurata."
     },
@@ -143908,28 +144072,6 @@
           ]
         },
         {
-          "squadra": "LAC",
-          "nome": "Los Angeles Chargers",
-          "partite": 8,
-          "flag": 8.25,
-          "yard": 67.5,
-          "subite": 8.38,
-          "tipi": [
-            [
-              "falsa partenza",
-              20
-            ],
-            [
-              "holding in attacco",
-              16
-            ],
-            [
-              "interferenza in difesa",
-              4
-            ]
-          ]
-        },
-        {
           "squadra": "HOU",
           "nome": "Houston Texans",
           "partite": 9,
@@ -143970,28 +144112,6 @@
             [
               "holding in difesa",
               10
-            ]
-          ]
-        },
-        {
-          "squadra": "BAL",
-          "nome": "Baltimore Ravens",
-          "partite": 9,
-          "flag": 8.11,
-          "yard": 59.3,
-          "subite": 5.33,
-          "tipi": [
-            [
-              "falsa partenza",
-              23
-            ],
-            [
-              "holding in attacco",
-              12
-            ],
-            [
-              "interferenza in difesa",
-              6
             ]
           ]
         },
@@ -144040,6 +144160,28 @@
           ]
         },
         {
+          "squadra": "BAL",
+          "nome": "Baltimore Ravens",
+          "partite": 10,
+          "flag": 7.9,
+          "yard": 57.9,
+          "subite": 5.2,
+          "tipi": [
+            [
+              "falsa partenza",
+              24
+            ],
+            [
+              "holding in attacco",
+              14
+            ],
+            [
+              "interferenza in difesa",
+              6
+            ]
+          ]
+        },
+        {
           "squadra": "DAL",
           "nome": "Dallas Cowboys",
           "partite": 10,
@@ -144080,6 +144222,28 @@
             [
               "ritardo di gioco",
               6
+            ]
+          ]
+        },
+        {
+          "squadra": "LAC",
+          "nome": "Los Angeles Chargers",
+          "partite": 9,
+          "flag": 7.78,
+          "yard": 63.3,
+          "subite": 8.11,
+          "tipi": [
+            [
+              "falsa partenza",
+              20
+            ],
+            [
+              "holding in attacco",
+              16
+            ],
+            [
+              "holding in difesa",
+              5
             ]
           ]
         },
@@ -144568,7 +144732,7 @@
           ]
         }
       ],
-      "media": 7.12,
+      "media": 7.1,
       "nota": "Penalità accettate a partita (le rifiutate non contano). Se in un'azione ci sono più flag, nflverse ne registra una sola.",
       "arbitri": [
         {
