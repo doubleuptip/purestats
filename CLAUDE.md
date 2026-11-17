@@ -193,6 +193,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   del calcio sono in .gitignore. Senza password il chiaro non esce e resta il .dat precedente.
 - Restano pubblici gli archivi grezzi in data/ (CSV di football-data.co.uk, già pubblici alla fonte).
 - Il logo della pagina principale è un collegamento: riporta alla pagina iniziale (`tornaHome`).
+- Accesso ricordato (17/11/2026, scelta di Valerio): `docs/accesso.html`, pagina non collegata da nessun menu, controlla
+  la password su un file cifrato e la salva in localStorage (`purestats_accesso`) su quel dispositivo; index.html e
+  duelli.html la leggono e si aprono già sbloccati. Anche il collegamento #k= la salva al primo uso. «ESCI» (nel menu
+  e in Matchup) la toglie; se la password cambia, quella ricordata si cancella da sola. È l'UNICA eccezione alla
+  regola «niente localStorage».
 
 ## Fonti a credito (chiamate limitate)
 
@@ -212,7 +217,7 @@ loghi, stagioni concluse) si scaricano una volta e si salvano nel repository.
   posteriori, l'aggiornamento successivo la sistema anche in archivio.
 - **La dashboard non ha build step**: HTML, CSS e JavaScript in un unico
   file, Chart.js da CDN. Va servita così com'è da GitHub Pages.
-- **Niente localStorage** nella dashboard.
+- **Niente localStorage** nella dashboard, tranne la chiave dell'accesso privato (`purestats_accesso`).
 
 ## Convenzioni
 

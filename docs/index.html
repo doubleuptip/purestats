@@ -511,6 +511,7 @@
     <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
     <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata">MATCHUP</button>
+    <button id="n-esci" onclick="esci()" style="display:none" title="Togli l'accesso privato da questo dispositivo">ESCI</button>
   </nav>
 </header>
 
@@ -576,14 +577,24 @@ const LEGHE = [
 /* Accesso privato (17/11/2026): il collegamento …/purestats/#k=<password> sblocca il calcio e Matchup.
    La chiave resta solo in memoria e sparisce subito dalla barra degli indirizzi; niente localStorage.
    Cifratura uguale a Matchup (scripts/cifra_pagine.py → fetch_duelli.cifra). */
-let CHIAVE = null;
+let CHIAVE = null, CHIAVE_DAL_LINK = false;
+const MEMORIA_ACCESSO = "purestats_accesso";
 (function leggiChiave(){
   // tutto quello che segue «k=» è la password (anche con & o altri simboli)
   const m = location.hash.match(/(?:^#|&)k=(.+)$/);
-  if (!m) return;
-  try { CHIAVE = decodeURIComponent(m[1]); } catch (e) { CHIAVE = m[1]; }
-  history.replaceState(null, "", location.pathname + location.search);
+  if (m) {
+    try { CHIAVE = decodeURIComponent(m[1]); } catch (e) { CHIAVE = m[1]; }
+    history.replaceState(null, "", location.pathname + location.search);
+    CHIAVE_DAL_LINK = true;
+    return;
+  }
+  // accesso ricordato su questo dispositivo (accesso.html; unica eccezione alla regola «niente localStorage»)
+  try { CHIAVE = localStorage.getItem(MEMORIA_ACCESSO) || null; } catch (e) { CHIAVE = null; }
 })();
+function esci(){
+  try { localStorage.removeItem(MEMORIA_ACCESSO); } catch (e) {}
+  location.replace(location.pathname);
+}
 if (!CHIAVE) for (let i = LEGHE.length - 1; i >= 0; i--) if (LEGHE[i].privato) LEGHE.splice(i, 1);
 // chiave aggiunta a mano all'indirizzo della pagina già aperta: il browser non ricarica, lo facciamo noi
 addEventListener("hashchange", () => { if (/(?:^#|&)k=/.test(location.hash)) location.reload(); });
@@ -824,8 +835,12 @@ Promise.all(LEGHE.map(l =>
   const primoPrivato = esiti.find(e => e.ok && e.lega.privato);
   if (CHIAVE && !primoPrivato) avvisoChiave("Collegamento privato: i dati del calcio non si trovano, riprova tra poco.");
   if (CHIAVE && primoPrivato) {
-    try { cache[primoPrivato.lega.id] = await decifraPacchetto(pacchetti[primoPrivato.lega.file], CHIAVE); }
+    try {
+      cache[primoPrivato.lega.id] = await decifraPacchetto(pacchetti[primoPrivato.lega.file], CHIAVE);
+      if (CHIAVE_DAL_LINK) try { localStorage.setItem(MEMORIA_ACCESSO, CHIAVE); } catch (e) {}   // da ora si ricorda
+    }
     catch (e) {
+      if (e.message === "chiave") try { localStorage.removeItem(MEMORIA_ACCESSO); } catch (x) {}  // password cambiata
       console.warn("Collegamento privato: chiave non valida, il calcio resta nascosto.", e);
       avvisoChiave(e.message === "chiave" ? "Collegamento privato: password non valida."
         : !(window.crypto && crypto.subtle) ? "Collegamento privato: questo browser non può aprire i dati cifrati."
@@ -921,7 +936,7 @@ function render(){
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
   const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
         conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
-  [["n-gio",conGio],["n-ind",conInd],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE]].forEach(([id,visibile])=>{
+  [["n-gio",conGio],["n-ind",conInd],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });

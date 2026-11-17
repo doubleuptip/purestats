@@ -262,6 +262,8 @@ let CHIAVE_LINK = null;
   try { CHIAVE_LINK = decodeURIComponent(m[1]); } catch (e) { CHIAVE_LINK = m[1]; }
   history.replaceState(null, "", location.pathname + location.search + location.hash.replace(/&k=.+$/, ""));
 })();
+let CHIAVE_RICORDATA = null;
+if (!CHIAVE_LINK) try { CHIAVE_RICORDATA = localStorage.getItem("purestats_accesso"); } catch (e) {}
 
 async function scarica(lega, pw){
   const r = await fetch(`duelli_${lega}.dat?` + Date.now(), {cache:"no-store"});
@@ -282,13 +284,14 @@ document.getElementById("accesso").addEventListener("submit", async ev => {
     if (nfl) DATI.NFL = nfl;
     if (college) DATI.College = college;
   } catch (e) {
+    if (e.message === "password" && CHIAVE_RICORDATA) try { localStorage.removeItem("purestats_accesso"); } catch (x) {}
     err.textContent = e.message === "password" ? "Password sbagliata." :
       e.message === "browser" ? "Questo browser non supporta la decifratura: apri la pagina in https." :
       "Non riesco a scaricare i dati. Riprova tra poco.";
     return;
   }
   // Chrome e Android: proposta esplicita di salvare la password (gli altri browser lo fanno dal modulo)
-  if (!CHIAVE_LINK) try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats Matchup"})); } catch (e) {}
+  if (!CHIAVE_LINK && !CHIAVE_RICORDATA) try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats Matchup"})); } catch (e) {}
   // il logo riporta alla pagina principale già sbloccata (calcio e Matchup visibili)
   const marchio = document.querySelector(".marchio");
   if (marchio) marchio.href = "./#k=" + encodeURIComponent(pw);
@@ -301,9 +304,13 @@ document.getElementById("accesso").addEventListener("submit", async ev => {
   disegna();
 });
 document.getElementById("password").addEventListener("input", () => document.getElementById("errore").textContent = "");
-document.getElementById("esci").addEventListener("click", () => location.reload());
-if (CHIAVE_LINK) {
-  document.getElementById("password").value = CHIAVE_LINK;
+// Esci: chiude Matchup e toglie l'accesso ricordato su questo dispositivo
+document.getElementById("esci").addEventListener("click", () => {
+  try { localStorage.removeItem("purestats_accesso"); } catch (e) {}
+  location.replace(location.pathname);
+});
+if (CHIAVE_LINK || CHIAVE_RICORDATA) {
+  document.getElementById("password").value = CHIAVE_LINK || CHIAVE_RICORDATA;
   document.getElementById("accesso").requestSubmit();
 }
 document.querySelectorAll("[data-camp]").forEach(b => b.addEventListener("click", () => { CAMPIONATO = b.dataset.camp; disegna(); }));

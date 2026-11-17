@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>PureStats · Accesso</title>
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icona-180.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Archivo:wght@800&family=Barlow+Condensed:wght@800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#E9EDF2;--card:#FFFFFF;--bordo:#CDD4DE;--testo:#111827;--muto:#4B5563;--acc:#B91C1C;--acc-t:#FFFFFF;
+    --logo-testo:#0B1428;--logo-rosso:#B91C1C;--tit:'Archivo',sans-serif;color-scheme:light}
+  @media (prefers-color-scheme: dark){:root{--bg:#0B0F1A;--card:#131A2B;--bordo:#232C42;--testo:#F5F7FB;--muto:#A3ADC2;
+    --acc:#FF8A3D;--acc-t:#1A0E05;--logo-testo:#F5F7FB;--logo-rosso:#EF4444;--tit:'Barlow Condensed',sans-serif;color-scheme:dark}}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--testo);
+    font-family:Inter,system-ui,sans-serif}
+  form{background:var(--card);border:1px solid var(--bordo);border-radius:14px;padding:28px 24px;width:min(360px,90vw)}
+  .marchio{display:flex;align-items:center;gap:10px;margin-bottom:20px;font-family:var(--tit);font-weight:800;font-size:28px;
+    letter-spacing:.02em;color:var(--logo-testo)}
+  .marchio b{color:var(--logo-rosso);font-weight:inherit}
+  .logo-simbolo{height:30px} .logo-simbolo .lt{fill:var(--logo-testo)} .logo-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}
+  .logo-simbolo .lr rect,.logo-simbolo .lr circle{stroke:none}
+  label{display:block;font-size:14px;color:var(--muto);margin:0 0 6px}
+  input[type=password]{width:100%;box-sizing:border-box;font-size:17px;padding:12px;border:1px solid var(--bordo);border-radius:8px;
+    background:var(--bg);color:var(--testo)}
+  button{margin-top:16px;width:100%;font-size:16px;font-weight:600;padding:12px;border:0;border-radius:8px;background:var(--acc);
+    color:var(--acc-t);cursor:pointer}
+  #msg{min-height:20px;font-size:14px;margin-top:12px;color:var(--muto)}
+  .nascosto{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<form id="accesso" action="#" method="post">
+  <div class="marchio"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></div>
+  <input class="nascosto" type="text" name="username" autocomplete="username" value="purestats" tabindex="-1" aria-hidden="true">
+  <label for="pw">Password</label>
+  <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
+  <button type="submit">Entra</button>
+  <div id="msg"></div>
+</form>
+<script>
+/* Accesso privato (17/11/2026): controlla la password aprendo un file cifrato del calcio (stesso metodo di Matchup),
+   poi la ricorda su questo dispositivo (localStorage, eccezione voluta da Valerio) e apre PureStats già sbloccato.
+   «Esci» nel sito la toglie. Pagina non collegata da nessun menu. */
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const unisci = (...p) => { const n = p.reduce((t, x) => t + x.length, 0), o = new Uint8Array(n); let i = 0; for (const x of p) { o.set(x, i); i += x.length; } return o; };
+async function prova(pk, pw){
+  const sub = crypto.subtle;
+  const base = await sub.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]);
+  const k = new Uint8Array(await sub.deriveBits({name:"PBKDF2", hash:"SHA-256", salt:b64(pk.sale), iterations:pk.iterazioni}, base, 512));
+  const km = await sub.importKey("raw", k.slice(32), {name:"HMAC", hash:"SHA-256"}, false, ["verify"]);
+  return sub.verify("HMAC", km, b64(pk.mac), unisci(b64(pk.nonce), b64(pk.dati)));
+}
+document.getElementById("accesso").addEventListener("submit", async ev => {
+  ev.preventDefault();
+  const pw = document.getElementById("pw").value, msg = document.getElementById("msg");
+  msg.textContent = "Controllo…";
+  try {
+    if (!window.crypto || !crypto.subtle) throw new Error("browser");
+    let pk = null;
+    for (const f of ["calendario.dat", "data_aleague.dat", "data.dat"]) {
+      const r = await fetch(f + "?t=" + Date.now(), {cache:"no-store"});
+      if (r.ok) { pk = await r.json(); break; }
+    }
+    if (!pk) throw new Error("file");
+    if (!await prova(pk, pw)) { msg.textContent = "Password sbagliata."; return; }
+  } catch (e) {
+    msg.textContent = e.message === "browser" ? "Questo browser non può aprire i dati cifrati." : "Non riesco a controllare la password: riprova tra poco.";
+    return;
+  }
+  try { localStorage.setItem("purestats_accesso", pw); }
+  catch (e) { msg.textContent = "Il browser non permette di ricordare l'accesso (navigazione privata?)."; return; }
+  try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats"})); } catch (e) {}
+  location.replace("./");
+});
+</script>
+</body>
+</html>
