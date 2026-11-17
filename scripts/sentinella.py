@@ -170,6 +170,9 @@ def controlla(lega: str) -> None:
 
 
 def main() -> int:
+    if os.environ.get("PROVA") == "true":            # prova a mano: legge nflverse e la coda, non lancia niente
+        print("PROVA:", nflverse_pronto(), [(c.get("status"), c.get("created_at")) for c in corse("update-nfl.yml")[:2]])
+        return 0
     errori = 0
     for lega in LEGHE:
         try:

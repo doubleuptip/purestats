@@ -9,6 +9,11 @@ on:
     - cron: '*/15 16-23 * * 0,6'      # sabato e domenica pomeriggio e sera
     - cron: '*/15 0-7 * * 0,1'        # notti di sabato (college) e domenica (SNF)
   workflow_dispatch:
+    inputs:
+      prova:
+        description: 'Solo prova (legge nflverse e la coda dei workflow, non lancia niente)'
+        type: boolean
+        default: false
 
 permissions:
   actions: write
@@ -35,4 +40,5 @@ jobs:
       - name: Partite finite e dati pronti?
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROVA: ${{ inputs.prova }}
         run: python3 scripts/sentinella.py
