@@ -11,6 +11,7 @@ on:
     - cron: '0 22 * * 0'     # domenica sera, dopo le partite del pomeriggio
     - cron: '0 6 * * 1'      # lunedì mattina, dopo la domenica sera
     - cron: '0 6 * * 2'      # martedì mattina, dopo il lunedì sera
+    - cron: '30 6 * * 1,2,5' # riserva delle 07:30 italiane, se i giri delle 07:00 e la sentinella sono saltati
   workflow_dispatch:
   push:
     branches: [main]

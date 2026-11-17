@@ -10,6 +10,7 @@ on:
     # volta ogni 6 giorni, e per i loghi una volta a stagione: circa 5-6 chiamate al mese.
     - cron: '0 12 * * 0,2,4'
     - cron: '0 6 * * 0,3,5'
+    - cron: '30 6 * * 0,3,5'  # riserva delle 07:30 italiane (la sentinella aggiorna già a fine partita)
   workflow_dispatch:
     inputs:
       tabellini_storico:

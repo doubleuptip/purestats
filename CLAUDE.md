@@ -199,6 +199,17 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   e in Matchup) la toglie; se la password cambia, quella ricordata si cancella da sola. È l'UNICA eccezione alla
   regola «niente localStorage».
 
+## Aggiornamenti a fine partita (dal 17/11/2026, scelta di Valerio)
+
+- Principio: i controlli gratis vanno il più vicino possibile alla fine degli eventi, con riserve se saltano.
+- `.github/workflows/sentinella.yml` ogni 15 minuti nelle finestre di gioco lancia `scripts/sentinella.py`: partite
+  finite su ESPN (1 richiesta per campionato) senza punteggio sul sito → lancia update-nfl/update-college. NFL solo
+  quando il play-by-play nflverse (rilascio pbp) e il calendario (nfldata games.csv) sono aggiornati dopo la fine
+  stimata (inizio + 3h15); mai due giri insieme, pausa 30 min (NFL) / 60 min (college) se la fonte non ha ancora la
+  partita. Lancia con GITHUB_TOKEN (workflow_dispatch è permesso).
+- Riserve fisse alle 07:00 e 07:30 italiane (06:00/06:30 UTC) dopo le notti di gioco. Orari scritti per l'ora solare:
+  con l'ora legale vanno anticipati di un'ora.
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate

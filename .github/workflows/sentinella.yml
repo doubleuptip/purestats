@@ -1,0 +1,38 @@
+name: Sentinella fine partite
+
+# Ogni 15 minuti nelle finestre di gioco (orari UTC; in Italia +1 d'inverno, +2 con l'ora legale):
+# appena una partita NFL o College è finita e i dati sono pronti, lancia l'aggiornamento (scripts/sentinella.py).
+# Controlli gratis e leggeri (ESPN + API di GitHub); i workflow NFL e College tengono i loro orari fissi come riserva.
+on:
+  schedule:
+    - cron: '*/15 3-6 * * 2,3,4,5'    # notti di lunedì, martedì, mercoledì, giovedì (MNF, college infrasettimanale, TNF)
+    - cron: '*/15 16-23 * * 0,6'      # sabato e domenica pomeriggio e sera
+    - cron: '*/15 0-7 * * 0,1'        # notti di sabato (college) e domenica (SNF)
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: sentinella
+  cancel-in-progress: true
+
+jobs:
+  controlla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout (solo i dati pubblicati e lo script)
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/sentinella.py
+            docs/data_nfl.json
+            docs/data_college.json
+          sparse-checkout-cone-mode: false
+
+      - name: Partite finite e dati pronti?
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/sentinella.py
