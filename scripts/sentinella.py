@@ -19,6 +19,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -32,16 +33,16 @@ FINESTRA = timedelta(hours=18)
 ESPN_NFL_CORTE = {"LA": "LAR", "WAS": "WSH"}      # sigle nflverse → ESPN dove sono diverse
 
 LEGHE = {
-    "nfl": {"espn": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates={d}&limit=100",
+    "nfl": {"espn": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates={d}",
             "workflow": "update-nfl.yml", "pausa": 30},
     "college": {"espn": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard"
-                        "?dates={d}&groups=80&limit=400",
+                        "?groups=80&dates={d}&limit=300",
                 "workflow": "update-college.yml", "pausa": 60},
 }
 
 
 def leggi(url: str, github: bool = False):
-    intest = {"User-Agent": "purestats-sentinella"}
+    intest = {"User-Agent": "purestats (statistiche personali)"}
     if github:
         intest["Accept"] = "application/vnd.github+json"
         if TOKEN:
@@ -57,9 +58,15 @@ def ora(iso: str) -> datetime:
 def finite_espn(lega: str) -> list[dict]:
     """Partite finite ieri e oggi (date USA) con inizio e squadre (sigla per l'NFL, nome per il college)."""
     giorni = sorted({(ADESSO - timedelta(hours=h)).strftime("%Y%m%d") for h in (5, 29)})
-    url = LEGHE[lega]["espn"].format(d=f"{giorni[0]}-{giorni[-1]}")
+    eventi = []
+    for g in giorni:                                  # un giorno per richiesta (data USA della partita)
+        url = LEGHE[lega]["espn"].format(d=g)
+        try:
+            eventi += leggi(url).get("events") or []
+        except urllib.error.HTTPError as e:
+            raise RuntimeError(f"ESPN ha risposto {e.code} a {url}") from e
     out = []
-    for ev in leggi(url).get("events") or []:
+    for ev in eventi:
         comp = (ev.get("competitions") or [{}])[0]
         if not ((comp.get("status") or ev.get("status") or {}).get("type") or {}).get("completed"):
             continue
