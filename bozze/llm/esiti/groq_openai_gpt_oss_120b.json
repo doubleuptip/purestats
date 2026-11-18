@@ -1,0 +1,264 @@
+{
+ "scrittore": "groq:openai/gpt-oss-120b",
+ "quando": "2026-11-18T19:56:00.049685",
+ "risultati": {
+  "2026_10_LAC_BAL|anteprima": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "condizioni che non promettono grandi scorribande di punteggio",
+     "motivo": "I fatti riportano solo i dati meteo (8 gradi, vento 5 km/h, niente pioggia) e che il mercato si aspetta pochi punti, ma non attribuiscono al meteo la causa della bassa produzione offensiva. Collegare il meteo alla mancanza di 'scorribande di punteggio' è un'interpretazione non supportata dalle fonti."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Jesse Minter è al suo primo anno da capo, succeduto l’anno scorso a John Harbaugh",
+     "motivo": "La frase è grammaticalmente ambigua e fattualmente imprecisa: Jesse Minter non è 'succeduto' a John Harbaugh (che è stato sostituito da Minter), ma è lui il successore. Inoltre, la formulazione 'succeduto l'anno scorso' potrebbe far pensare che Minter sia stato rimosso, mentre i fatti dicono che è al suo primo anno in panchina."
+    }
+   ],
+   "problemiDopoCorrezione": [],
+   "articolo": {
+    "titolo": "Ravens cercano la conferma contro i Chargers senza vittorie",
+    "paragrafi": [
+     "La sfida si giocherà alle 2:15 italiane, lunedì‑martedì 17 novembre, al M&T Bank Stadium di Baltimora. I Los Angeles Chargers, ancora senza vittorie (0‑8), affrontano i Baltimore Ravens, che entrano in campo con un record di 4‑5 dopo quattro sconfitte consecutive. Il meteo prevede 8 gradi, vento di 5 km/h e cielo sereno, senza pioggia.",
+     "I Chargers, reduci dai playoff della scorsa stagione, stanno vivendo una stagione da incubo: l’attacco è il meno produttivo della lega e la difesa concede molto. Il quarterback Justin Herbert è alle prese con gli intercetti, mentre il ricevitore più cercato Ladd McConkey resta assente. Jim Harbaugh, ex allenatore dei 49ers, dovrà trovare soluzioni contro una difesa dei Ravens che ha ceduto molto nelle ultime uscite.",
+     "Per i Ravens, la situazione è altrettanto delicata. Jacoby Brissett, arrivato a metà stagione dagli Arizona Cardinals, guida una squadra senza il titolare Lamar Jackson e senza il pass rusher Tavius Robinson. Derrick Henry rimane il running back più incisivo, ma la difesa dei Ravens è tra le più concesse. Jesse Minter è al suo primo anno in panchina, successore di John Harbaugh, fratello di Jim Harbaugh, che ora guida i rivali Chargers.",
+     "L’ultimo scontro diretto, risalente al 2024, è stato vinto dai Ravens, e i bookmaker americani li indicano come favoriti. Il mercato prevede una partita a basso numero di punti, con entrambe le squadre che cercano di interrompere le rispettive strisce negative: otto sconfitte consecutive per i Chargers e quattro per i Ravens."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 246,
+   "secondi": 4
+  },
+  "2026_10_LAC_BAL|cronaca": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "portando il risultato a 20-13",
+     "motivo": "I fatti indicano che dopo il field goal di Dicker nel terzo quarto il punteggio era Ravens 10, Chargers 20. Il punteggio di 20-13 si è raggiunto solo dopo il successivo field goal di Patterson. L'articolo li elenca come 'due field goal consecutivi... portando il risultato a 20-13', il che è impreciso perché il primo FG portava a 20-10."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "nonostante le assenze di Ladd McConkey e la pressione di Mike Green sulla difesa avversaria",
+     "motivo": "I fatti affermano che 'Ai Ravens non bastano... la pressione di Mike Green'. Mike Green è un difensore dei Ravens che ha messo pressione al QB avversario (Herbert). L'articolo lo associa erroneamente alle assenze dei Chargers o alla loro difesa, creando una confusione causale e di attribuzione errata."
+    }
+   ],
+   "problemiDopoCorrezione": [],
+   "articolo": {
+    "titolo": "I Chargers spezzano la serie negativa con vittoria per 23-20 a Baltimora",
+    "paragrafi": [
+     "I Los Angeles Chargers hanno chiuso in casa dei Baltimore Ravens per 23-20, regalando alla squadra la prima vittoria della stagione dopo otto sconfitte consecutive. Il risultato è significativo perché ribalta il pronostico, i Ravens erano favoriti, e sposta i Chargers a 1-8 nella AFC West, mentre i Ravens scendono a 4-6 con la quinta sconfitta di fila.",
+     "Nel primo quarto il vantaggio definitivo è stato stabilito da un'azione di corsa di Justin Herbert, che ha concluso in end zone con un touchdown, portando i Chargers 7-0. Poco dopo Cameron Dicker ha aggiunto un field goal, portando il punteggio a 10-0. Nel secondo quarto i Ravens hanno risposto: Derrick Henry ha segnato un touchdown, riducendo il divario a 10-7, ma una intercettazione di Del'Shawn Phillips su Jacoby Brissett ha interrotto l'impulso avversario. Omarion Hampton ha poi sfondato in end zone, allungando il vantaggio a 17-7, mentre Riley Patterson ha chiuso il quarto con un field goal, rendendo 17-10 al termine della metà partita.",
+     "Nel terzo quarto i Chargers hanno ampliato il vantaggio con un field goal di Dicker, portando il risultato a 20-10, e Patterson ha aggiunto un secondo field goal, facendo 20-13. Nell'ultimo quarto Dicker ha segnato il terzo field goal della partita, facendo 23-13. I Ravens hanno accorciato con un touchdown di Henry, ma a poco più di due minuti dalla fine Brissett ha trovato Zay Flowers per una potenziale rimonta, finché Tarheeb Still non ha strappato il pallone, recuperato da Elijah Molden per i Chargers, chiudendo definitivamente la partita.",
+     "Con la vittoria i Chargers si avvicinano al prossimo impegno contro i Jets domenica 22 novembre, mentre i Ravens, ancora alla ricerca di continuità, affrontano i Panthers nella stessa giornata. Il bilancio finale resta 23-20 a favore di Los Angeles, che ha dimostrato di saper gestire le fasi decisive nonostante le difficoltà riscontrate nella partita."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 307,
+   "secondi": 31
+  },
+  "2026_10_WAS_NYG|anteprima": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "Giants alla ricerca del secondo successo contro i Commanders",
+     "motivo": "I fatti riportano che all'andata la partita è finita in parità (27-27). Non c'è alcun riferimento a una vittoria precedente dei Giants in questa stagione, quindi parlare di 'secondo successo' è un'affermazione non supportata dai fatti forniti."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Entrambe le squadre mostrano difese vulnerabili: i Commanders concedono molti punti, i Giants sono privi del pass‑rusher Tremaine Edmunds.",
+     "motivo": "I fatti affermano che i Giants sono 'una delle sorprese della stagione' e che i Commanders hanno 'una difesa che concede molto'. Attribuire ai Giants una 'difesa vulnerabile' contraddice l'immagine di squadra in forma (2 vittorie di fila, favoriti) e non è supportato dai fatti, che citano solo l'assenza di un giocatore chiave (Edmunds) senza qualificare la difesa come vulnerabile."
+    }
+   ],
+   "problemiDopoCorrezione": [],
+   "articolo": {
+    "titolo": "Giants cercano la vittoria contro i Commanders",
+    "paragrafi": [
+     "La sfida di division si giocherà nella notte tra giovedì e venerdì 13 novembre, alle 2:15 italiane, al MetLife Stadium. I Washington Commanders (2-5-1) affrontano i New York Giants (5-2-1) in una partita che si preannuncia tattica, con il meteo previsto intorno ai 9°C, vento di 14 km/h e cielo asciutto.",
+     "I Giants, attualmente primi nella NFC East, arrivano con due vittorie consecutive e con la speranza di consolidare la posizione di favoriti di poco nei bookmaker. Dietro la palla, J.J. McCarthy, che ha giocato solo una parte della stagione, guida l’attacco, affiancato dal ricevitore Malik Nabers, uno dei più ricercati della lega. Dall’altra parte, i Commanders dovranno fare a meno del loro running back titolare Jacory Croskey‑Merritt, mentre il quarterback Jayden Daniels è noto per la sua attenzione al pallone, evitando turnover critici.",
+     "Il confronto diretto di questa stagione è terminato in un pareggio 27‑27, evidenziando la stretta contesa tra le due squadre di division. I Giants, sotto la guida del nuovo tecnico John Harbaugh, ex allenatore dei Baltimore Ravens per 18 stagioni, cercano di confermare il loro slancio, mentre Washington resta sotto la direzione di Dan Quinn, che ha allenato gli Atlanta Falcons per sei stagioni. I Giants giocheranno senza il pass‑rusher Tremaine Edmunds, mentre i Commanders continuano a lottare con una difesa che concede molti punti.",
+     "Con il mercato che prevede una partita a basso punteggio, le chiavi saranno la gestione del gioco di corsa senza Croskey‑Merritt per Washington e la capacità di McCarthy di sfruttare Nabers per i Giants. La tensione di una sfida di division, unita alle condizioni climatiche fresche, renderà la gara un test tattico per entrambi gli allenatori, con la posta in gioco della supremazia nella NFC East."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 285,
+   "secondi": 22
+  },
+  "2026_10_WAS_NYG|cronaca": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [],
+   "articolo": {
+    "paragrafi": [
+     "I Washington Commanders hanno superato i New York Giants 24-21 al MetLife Stadium, una vittoria di divisione che ribalta il pronostico a favore dei Giants. Il risultato consente ai Commanders di restare in corsa nella NFC East, mentre i Giants mantengono la prima posizione ma perdono punti preziosi.",
+     "Nel primo quarto i Giants hanno subito un fallimento di field goal di Dominic Zvada, mantenendo lo scacco a zero. Il secondo quarto ha visto il primo segnale di vita dei Commanders con il field goal di Drew Stevens, seguito dal touchdown di Cam Skattebo che ha portato i Giants in vantaggio 7-3. Il quarterback Jayden Daniels ha risposto con un passaggio a Ben Sinnott per il touchdown del sorpasso, portando i Commanders in vantaggio 10-7 al termine dell’intervallo.",
+     "Il terzo quarto è stato decisivo: Skattebo ha replicato con un altro touchdown, rimettendo i Giants in vantaggio 14-10. Daniels ha risposto nuovamente, trovando Antonio Williams per il touchdown che ha invertito nuovamente il risultato a 17-14 per Washington. Un tentativo di recupero dei Giants con J.J. McCarthy e Malik Nabers è stato annullato da un fumble recuperato da Jeremy Reaves. Il giro di gioco è proseguito con un tentativo di quarto down dei Commanders fermato a nove minuti dalla fine, restituendo il possesso ai Giants.",
+     "Nel finale, McCarthy ha collegato un lungo passaggio a Isaiah Likely per il touchdown che ha rimesso i Giants in vantaggio 21-17. Dopo due intercettazioni consecutive di Daniels, prima da Jevon Holland e poi da Ar'Darius Washington, il quarterback ha trovato Stefon Diggs per il touchdown decisivo, portando i Commanders a 24-21 poco più di un minuto dal termine. L’ultimo tentativo dei Giants è stato bloccato da un’intercettazione di Rasul Douglas.",
+     "Con la vittoria i Commanders (3-5-1) tornano a casa per affrontare i Bengals lunedì 23 novembre, mentre i Giants (5-3-1) ospiteranno i Jaguars domenica 22 novembre. Il bilancio di gioco mostra Daniels come principale artefice dei punti dei Commanders, nonostante le due intercettazioni, e una produzione offensiva di McCarthy insufficiente a sostenere i Giants nonostante il touchdown di Likely."
+    ],
+    "titolo": "Commanders ribaltano a MetLife e vincono 24-21"
+   },
+   "pubblicabile": true,
+   "parole": 343,
+   "secondi": 7
+  },
+  "2026_10_NE_DET|anteprima": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [],
+   "articolo": {
+    "titolo": "Patriots contro Lions in sfida neutra a Monaco",
+    "paragrafi": [
+     "Domenica 15 novembre, ore 15:30 italiane, i New England Patriots (5-4) affronteranno i Detroit Lions (6-2) all'Allianz Arena di Monaco di Baviera, campo neutro scelto per la partita. I Lions, in una striscia di quattro vittorie consecutive, puntano alla quinta, mentre i Patriots, finalisti del Super Bowl scorso, cercano di arrestare il calo di forma che li ha portati a metà classifica.",
+     "Il contesto offensivo dei Lions è uno dei più temibili della lega: Jahmyr Gibbs guida un attacco dinamico a terra, mentre Amon‑Ra St. Brown è una delle mete più ambite per i passaggi. I Patriots contano su Drake Maye, che genera molte opportunità ma è a rischio di intercetti, e su Elijah Ponder, un pass rusher capace di mettere pressione costante.",
+     "L’ultima sfida tra le due franchi risale al 2022, vinta dai Patriots. Questa volta, i bookmaker americani indicano i Lions come leggeri favoriti, con il mercato che prevede una partita ricca di punti. L’esperienza di Mike Vrabel, che in passato ha guidato i Tennessee Titans per sei stagioni, sarà decisiva per gestire il ritmo della gara e contenere l’attacco avversario.",
+     "Entrambe le squadre hanno motivi per credere in un risultato positivo. I Lions sperano di consolidare la loro sorprendente stagione e avvicinarsi ai playoff, mentre i Patriots mirano a ritrovare la continuità che li ha portati al Super Bowl. Il confronto a Monaco offrirà un’occasione per valutare chi riuscirà a imporre il proprio stile di gioco in un palcoscenico neutro."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 243,
+   "secondi": 9
+  },
+  "2026_10_NE_DET|cronaca": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "Jared Goff, che ha firmato tre passaggi da touchdown",
+     "motivo": "Nei fatti Goff ha segnato 3 touchdown su passaggio (St. Brown, TeSlaa, St. Brown), ma l'articolo nel paragrafo successivo attribuisce a St. Brown 'due recepzioni da touchdown' e a Gibbs 'due correndo'. La frase è corretta di per sé (3 TD pass), ma il contesto dell'articolo crea confusione o contraddizione con i dettagli specifici se interpretato come totale assoluto senza considerare che Gibbs ha segnato correndo. Tuttavia, rileggendo i fatti: Goff ha TD con St. Brown (1), TeSlaa (2), St. Brown (3). Quindi Goff ha 3 TD pass. L'articolo dice 'tre passaggi da touchdown'. Questo è corretto. Aspetta, c'è un errore più sottile? No, Goff ha 3 TD pass. Gibbs ha 2 TD corsa. St. Brown ha 2 TD ricezione. L'articolo è coerente sui numeri. Rivediamo la frase 'ha segnato due correndo'. Gibbs ha segnato 2 TD correndo (21-3 e 35-10). Corretto. St. Brown 2 TD ricezione. Corretto. Goff 3 TD pass. Corretto. Dove sta l'errore di fatto? Controlliamo l'ordine o i dettagli. 'Il secondo quarto ha visto Goff ampliare il risultato con un touchdown a Isaac TeSlaa (14-3) e, poco dopo, Jahmyr Gibbs ha concluso una corsa...'. Nei fatti: TeSlaa TD (14-3), poi Gibbs TD (21-3). L'ordine è corretto. 'mentre la difesa dei Lions ha intercettato più volte il quarterback avversario'. Nei fatti: Goff intercettato da Gonzalez (Q2), DeVito intercettato da McCreary (Q2), Goff intercettato da Byard (Q2). Quindi 3 intercetti totali, 2 a Goff, 1 a DeVito. La frase 'intercettato più volte il quarterback avversario' è vaga ma vera (più di una volta). C'è un errore nel titolo o altrove? 'Lions schiacciano i Patriots 35-10 a Monaco'. Corretto. 'bilancio dei Lions a 7-2'. Corretto. 'Patriots scendono a 5-5'. Corretto. 'Mike Vrabel'. Corretto. 'Drake Maye... rookie quarterback'. I fatti non specificano che è un rookie, ma è un fatto noto esterno? No, devo basarmi solo sui fatti/spunti. I fatti dicono 'Pesa l'infortunio di Drake Maye: il quarterback dei Patriots...'. Non dicono che è un rookie. Aggiungere 'rookie' è un fatto non presente nei fatti/spunti. Quindi è un problema di fatto (informazione non supportata). Inoltre, 'Amon-Ra St. Brown è stato il bersaglio preferito, con due recepzioni da touchdown'. Nei fatti: St. Brown ha segnato nel Q1 e nel Q3. Quindi 2 TD. Corretto. 'Gibbs... ha segnato due correndo'. Nei fatti: Gibbs TD nel Q2 e nel Q4. Corretto. 'Goff... tre passaggi da touchdown'. Nei fatti: Goff TD nel Q1, Q2, Q3. Corretto. L'unico fatto inventato è 'rookie' per Maye. Un altro possibile problema: 'segnando una delle disfatte più nette della stagione'. Questo è un giudizio/opinione, non un fatto verificabile dai soli dati forniti (non c'è il record di tutte le sconfitte). Potrebbe essere considerato un'affermazione non supportata. Ma 'rookie' è più chiaramente un dettaglio fattuale aggiunto. Verifichiamo anche 'campo neutro a Monaco di Baviera'. Corretto. 'domenica 22 novembre'. Corretto. 'domenica 29 novembre'. Corretto. Quindi il problema principale è 'rookie'."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "segnando una delle disfatte più nette della stagione per la squadra di Mike Vrabel",
+     "motivo": "I fatti forniti non contengono informazioni sulle altre partite della stagione dei Patriots per poter affermare che sia 'una delle disfatte più nette'. È un'affermazione comparativa non supportata dai dati forniti."
+    }
+   ],
+   "problemiDopoCorrezione": [
+    {
+     "tipo": "fatto",
+     "frase": "Jared Goff, che ha firmato tre passaggi da touchdown",
+     "motivo": "Nei fatti Goff ha segnato 3 touchdown su passaggio (St. Brown, TeSlaa, St. Brown), ma l'articolo nel paragrafo precedente descrive correttamente le azioni. Tuttavia, c'è un errore di fatto più sottile: l'articolo dice che Gibbs ha segnato 'due volte correndo'. Nei fatti Gibbs corre in end zone nel Q2 e nel Q4. Quindi Gibbs ha 2 TD su corsa. Goff ha 3 TD su passaggio. L'affermazione è corretta. Rivediamo: 'Le protagoniste della serata sono state Jared Goff, che ha firmato tre passaggi da touchdown'. Fatti: Q1 St. Brown, Q2 TeSlaa, Q3 St. Brown. Totale 3. Corretto. 'Jahmyr Gibbs, che ha segnato due volte correndo'. Fatti: Q2 corsa, Q4 corsa. Totale 2. Corretto. 'Amon-Ra St. Brown è stato il bersaglio preferito, con due recepzioni da touchdown'. Fatti: Q1 e Q3. Corretto. Aspetta, c'è un errore nel paragrafo 2: 'Jahmyr Gibbs ha concluso una corsa che ha portato i Lions a 21-3 al break'. Nei fatti Gibbs corre nel Q2 e il punteggio diventa 21-3. L'intervallo è 21-3. Corretto. C'è un errore nel paragrafo 2: 'dopo il field goal di Andy Borregales che ha messo in vantaggio i Patriots 3-0'. Nei fatti: 'Nel primo quarto Andy Borregales centra il field goal del vantaggio (punteggio dopo l'azione: Lions 0, Patriots 3)'. Corretto. 'Jared Goff ha collegato un lungo passaggio a Amon-Ra St. Brown, portando i Lions in end zone e rubando il primo vantaggio 7-3'. Nei fatti: 'Nel primo quarto Jared Goff trova Amon-Ra St. Brown per un lungo touchdown che vale il sorpasso (punteggio dopo l'azione: Lions 7, Patriots 3)'. Corretto. 'Il secondo quarto ha visto Goff ampliare il risultato con un touchdown a Isaac TeSlaa (14-3)'. Nei fatti: 'Nel secondo quarto Goff trova Isaac TeSlaa per il touchdown che allunga il vantaggio (punteggio dopo l'azione: Lions 14, Patriots 3)'. Corretto. 'e, poco dopo, Jahmyr Gibbs ha concluso una corsa che ha portato i Lions a 21-3 al break'. Nei fatti: 'Nel secondo quarto Jahmyr Gibbs corre fino in end zone per il touchdown e allarga il margine (punteggio dopo l'azione: Lions 21, Patriots 3)'. Corretto. 'mentre la difesa dei Lions ha intercettato più volte il quarterback avversario'. Nei fatti: DeVito intercettato da McCreary, Goff intercettato da Byard (ma Goff è dei Lions, quindi è un intercetto dei Patriots su Goff? No, 'Goff viene intercettato da Kevin Byard'. Byard è dei Patriots. Quindi è un intercetto dei Patriots su Goff. L'articolo dice 'la difesa dei Lions ha intercettato più volte il quarterback avversario'. Il quarterback avversario dei Lions è DeVito. DeVito viene intercettato una volta (da McCreary). Goff viene intercettato da Byard (Patriots). Quindi la difesa dei Lions ha intercettato DeVito una volta. L'articolo dice 'più volte'. Questo è un errore di fatto. Inoltre, l'articolo attribuisce gli intercetti alla difesa dei Lions, ma uno è di Byard (Patriots) su Goff (Lions). Quindi la frase è falsa."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "mentre la difesa dei Lions ha intercettato più volte il quarterback avversario",
+     "motivo": "Nei fatti, il quarterback avversario dei Lions (DeVito) viene intercettato una sola volta (da Roger McCreary). L'altro intercetto menzionato nei fatti è su Goff (Lions) da parte di Kevin Byard (Patriots). Quindi la difesa dei Lions non ha intercettato 'più volte' il quarterback avversario, ma una sola volta."
+    }
+   ],
+   "articolo": {
+    "titolo": "Lions schiacciano i Patriots 35-10 a Monaco",
+    "paragrafi": [
+     "I Detroit Lions hanno chiuso una vittoria di cinque volte consecutive, imponendosi 35-10 ai New England Patriots in campo neutro a Monaco di Baviera. Il risultato porta il bilancio dei Lions a 7-2, mentre i Patriots scendono a 5-5, segnando una sconfitta netta per la squadra di Mike Vrabel.",
+     "Nel primo quarto la partita ha preso una piega decisiva: dopo il field goal di Andy Borregales che ha messo in vantaggio i Patriots 3-0, Jared Goff ha collegato un lungo passaggio a Amon‑Ra St. Brown, portando i Lions in end zone e rubando il primo vantaggio 7-3. Il secondo quarto ha visto Goff ampliare il risultato con un touchdown a Isaac TeSlaa (14-3) e, poco dopo, Jahmyr Gibbs ha concluso una corsa che ha portato i Lions a 21-3 al break, mentre la difesa dei Lions ha intercettato più volte il quarterback avversario.",
+     "Nel terzo quarto Goff ha nuovamente trovato St. Brown per un altro touchdown, spostando il risultato a 28-3. Il quarto quarto ha riservato un solo punto per i Patriots: Tommy DeVito ha lanciato a Lan Larison per il loro unico touchdown, ma a nove minuti dalla fine Gibbs ha concluso un’altra corsa in end zone, chiudendo la partita 35-10.",
+     "Le protagoniste della serata sono state Jared Goff, che ha firmato tre passaggi da touchdown, e Jahmyr Gibbs, che ha segnato due volte correndo e ha rappresentato una costante minaccia anche in ricezione. Amon‑Ra St. Brown è stato il bersaglio preferito, con due recepzioni da touchdown, mentre la difesa dei Lions, guidata da Derrick Moore, ha limitato l’attacco dei Patriots, già indebolito dall’infortunio al quarterback Drake Maye, uscito nel primo quarto.",
+     "I Lions, ora 7-2, accoglieranno domenica 22 novembre i Buccaneers a Detroit. I Patriots, dopo una settimana di riposo, torneranno in campo il 29 novembre contro i Chargers."
+    ]
+   },
+   "pubblicabile": false,
+   "parole": 301,
+   "secondi": 60
+  },
+  "2026_10_SF_DAL|anteprima": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [],
+   "articolo": {
+    "paragrafi": [
+     "Domenica 15 novembre, alle 22:25 italiane, l’AT&T Stadium di Arlington ospiterà il confronto tra i San Francisco 49ers (7-1) e i Dallas Cowboys (4-5). I 49ers arrivano primi nella NFC West, mentre i Cowboys occupano una posizione di metà classifica. Entrambe le squadre affrontano l’incontro senza due titolari: a San Francisco manca Mike Evans, uno dei loro principali ricevitori, e a Dallas non potranno contare su Tyler Goodson, secondo running back, né su Donovan Ezeiruaku, secondo miglior pass‑rusher.",
+     "Il punto focale della partita è il contrasto tra l’attacco dei 49ers, considerato tra i più prolifici della lega, e la difesa dei Cowboys, che concede molti punti. Brock Purdy, tra i quarterback più produttivi, guiderà un’offensiva che dovrà compensare l’assenza di Evans. Dal canto loro, Dak Prescott, anch’egli tra i quarterback più efficaci, avrà il compito di sfruttare un attacco di buon livello, supportato da Javonte Williams, uno dei running back più incisivi della stagione.",
+     "Un elemento di curiosità riguarda Dee Winters, linebacker dei Cowboys, che nella scorsa stagione ha militato nei 49ers. La sua conoscenza dei schemi difensivi di San Francisco potrà influenzare le dinamiche in campo, soprattutto nella fase di pressione sul quarterback avversario. La difesa dei Cowboys, pur concedendo molto, cercherà di limitare le giocate di Purdy, mentre la loro linea difensiva dovrà fare a meno del contributo di Ezeiruaku per contenere il gioco di corsa avversario.",
+     "L’ultimo scontro tra le due formazioni, risalente al 2024, è stato vinto dai 49ers. I bookmaker americani indicano ancora i 49ers come favoriti e prevedono un match con molti punti. Con gli infortuni che hanno privato entrambe le squadre di giocatori chiave, la partita si preannuncia come una prova decisiva per la corsa ai playoff, soprattutto per i 49ers che puntano a consolidare la leadership nella loro divisione."
+    ],
+    "titolo": "49ers alla guida contro i Cowboys a Dallas"
+   },
+   "pubblicabile": true,
+   "parole": 297,
+   "secondi": 18
+  },
+  "2026_10_SF_DAL|cronaca": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "Minnesota",
+     "motivo": "nome non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Tennessee",
+     "motivo": "nome non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "I San Francisco 49ers hanno chiuso in casa con un 46-40 contro i Dallas Cowboys",
+     "motivo": "I fatti indicano che la partita si è giocata ad Arlington (casa dei Cowboys), quindi i 49ers hanno giocato in trasferta, non in casa."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Samuel ha segnato due touchdown, uno di passaggio e uno di corsa",
+     "motivo": "I fatti riportano che Deebo Samuel ha segnato un touchdown su passaggio (primo quarto) e un altro su passaggio (terzo quarto, 'scappa via per un lungo touchdown'). Non risulta che Samuel abbia segnato un touchdown di corsa."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Prescott ha lanciato quattro touchdown, tutti a Pickens, Lamb e Flournoy",
+     "motivo": "I fatti riportano che Prescott ha lanciato 4 touchdown: due a George Pickens, uno a Ryan Flournoy e uno a CeeDee Lamb. La frase è ambigua o errata se implica che i touchdown siano stati distribuiti 'tutti' a questi tre in modo non chiaro, ma soprattutto l'elenco 'Pickens, Lamb e Flournoy' omette che Pickens ne ha presi due, rendendo la descrizione imprecisa rispetto alla distribuzione reale (2-1-1). Tuttavia, l'errore più grave è nella frase precedente su Samuel. Rivedendo: Prescott ha lanciato TD a Pickens (Q1), Pickens (Q2), Pickens (Q4, 9 min), Flournoy (Q4, 4 min), Lamb (Q4, 1 min). Totale 5 touchdown? No, controlliamo i punteggi. Q1: 10-7 (Pickens). Q2: 16-10 (Pickens). Q4: 25-38 (Pickens), 32-38 (Flournoy), 40-46 (Lamb). Totale 5 touchdown di Prescott. L'articolo dice 'quattro touchdown'. Questo è un errore di fatto sul numero."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Prescott ha lanciato quattro touchdown",
+     "motivo": "Secondo i fatti, Prescott ha lanciato 5 touchdown: 2 a Pickens nel primo e secondo quarto, 1 a Pickens nel quarto quarto, 1 a Flournoy nel quarto quarto e 1 a Lamb nel quarto quarto. L'articolo ne conta solo 4."
+    }
+   ],
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199722, Re)",
+   "secondi": 68
+  },
+  "2026_10_CAR_NO|anteprima": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199721, Re)",
+   "secondi": 0
+  },
+  "2026_10_CAR_NO|cronaca": {
+   "scrittore": "groq:openai/gpt-oss-120b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199721, Re)",
+   "secondi": 0
+  }
+ },
+ "registro": [
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"956\", \"x-ratelimit-remaining-tokens\": \"6411\", \"x-ratelimit-reset-requests\": \"1h3m21.6s\", \"x-ratelimit-reset-tokens\": \"11.917s\"}",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"959\", \"x-ratelimit-remaining-tokens\": \"6464\", \"x-ratelimit-reset-requests\": \"59m2.4s\", \"x-ratelimit-reset-tokens\": \"11.52s\"}",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"955\", \"x-ratelimit-remaining-tokens\": \"3833\", \"x-ratelimit-reset-requests\": \"1h4m48s\", \"x-ratelimit-reset-tokens\": \"31.252s\"}",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"958\", \"x-ratelimit-remaining-tokens\": \"4858\", \"x-ratelimit-reset-requests\": \"1h0m28.8s\", \"x-ratelimit-reset-tokens\": \"23.564s\"}",
+  "groq:openai/gpt-oss-120b 2026_10_LAC_BAL anteprima: ok · prima stesura 2 problemi · dopo 0",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"954\", \"x-ratelimit-remaining-tokens\": \"2447\", \"x-ratelimit-reset-requests\": \"1h6m14.4s\", \"x-ratelimit-reset-tokens\": \"41.647s\"}",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"957\", \"x-ratelimit-remaining-tokens\": \"3938\", \"x-ratelimit-reset-requests\": \"1h1m55.2s\", \"x-ratelimit-reset-tokens\": \"30.465s\"}",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"953\", \"x-ratelimit-remaining-tokens\": \"92\", \"x-ratelimit-reset-requests\": \"1h7m40.8s\", \"x-ratelimit-reset-tokens\": \"59.31s\"}",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 24s",
+  "groq:openai/gpt-oss-120b 2026_10_LAC_BAL cronaca: ok · prima stesura 2 problemi · dopo 0",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"951\", \"x-ratelimit-remaining-tokens\": \"1746\", \"x-ratelimit-reset-requests\": \"1h10m33.6s\", \"x-ratelimit-reset-tokens\": \"46.904s\"}",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"954\", \"x-ratelimit-remaining-tokens\": \"3509\", \"x-ratelimit-reset-requests\": \"1h6m14.4s\", \"x-ratelimit-reset-tokens\": \"33.814s\"}",
+  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 3s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 12s",
+  "groq:openai/gpt-oss-120b 2026_10_WAS_NYG anteprima: ok · prima stesura 2 problemi · dopo 0",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"949\", \"x-ratelimit-remaining-tokens\": \"104\", \"x-ratelimit-reset-requests\": \"1h13m26.4s\", \"x-ratelimit-reset-tokens\": \"59.22s\"}",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 4s",
+  "groq:openai/gpt-oss-120b 2026_10_WAS_NYG cronaca: ok · prima stesura 0 problemi · dopo -",
+  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 5s",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"951\", \"x-ratelimit-remaining-tokens\": \"3839\", \"x-ratelimit-reset-requests\": \"1h10m33.6s\", \"x-ratelimit-reset-tokens\": \"39.84s\"}",
+  "groq:openai/gpt-oss-120b 2026_10_NE_DET anteprima: ok · prima stesura 0 problemi · dopo -",
+  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 10s",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"950\", \"x-ratelimit-remaining-tokens\": \"4134\", \"x-ratelimit-reset-requests\": \"1h12m0s\", \"x-ratelimit-reset-tokens\": \"35.76s\"}",
+  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 22s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 16s",
+  "groq:openai/gpt-oss-120b 2026_10_NE_DET cronaca: NON pubblicabile · prima stesura 2 problemi · dopo 2",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"945\", \"x-ratelimit-remaining-tokens\": \"1457\", \"x-ratelimit-reset-requests\": \"1h19m12s\", \"x-ratelimit-reset-tokens\": \"49.072s\"}",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 15s",
+  "groq:openai/gpt-oss-120b 2026_10_SF_DAL anteprima: ok · prima stesura 0 problemi · dopo -",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"944\", \"x-ratelimit-remaining-tokens\": \"2213\", \"x-ratelimit-reset-requests\": \"1h20m38.4s\", \"x-ratelimit-reset-tokens\": \"43.402s\"}",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 20s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 40s",
+  "   groq:openai/gpt-oss-120b: errore 400 ({\"error\":{\"message\":\"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"json_), riprovo tra 20s",
+  "groq:openai/gpt-oss-120b 2026_10_SF_DAL cronaca: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199722, Re) · prima stesura 6 problemi · dopo -",
+  "groq:openai/gpt-oss-120b 2026_10_CAR_NO anteprima: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199721, Re) · prima stesura 0 problemi · dopo -",
+  "groq:openai/gpt-oss-120b 2026_10_CAR_NO cronaca: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199721, Re) · prima stesura 0 problemi · dopo -"
+ ]
+}
