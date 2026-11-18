@@ -1,0 +1,16 @@
+name: Bozze (temporaneo)
+on:
+  push:
+    branches: [bozze]
+    paths: [bozze/scarica.py]
+permissions:
+  contents: write
+jobs:
+  scarica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 bozze/scarica.py
+      - run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bozze/*.jpg bozze/crediti.json && git commit -m "Bozze: foto stadio di prova" && git push
