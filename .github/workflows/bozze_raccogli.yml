@@ -1,0 +1,23 @@
+name: Bozze (raccogli gli esiti di un giro)
+on:
+  push:
+    branches: [bozze]
+    paths: [bozze/llm/raccogli.txt]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "RUN=$(cat bozze/llm/raccogli.txt)" >> $GITHUB_ENV
+      - uses: actions/download-artifact@v4
+        with:
+          path: scaricati
+          run-id: ${{ env.RUN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          mkdir -p bozze/llm/esiti && cp scaricati/*/*.json bozze/llm/esiti/ || true
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bozze/llm/esiti && git commit -m "Bozze: esiti raccolti dal giro ${RUN}" && git push || echo "niente da salvare"
