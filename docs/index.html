@@ -472,6 +472,9 @@
   /* menu che scorrono di lato: niente barra di scorrimento (sul telefono compariva come una seconda riga sotto la voce scelta) */
   .lega,.sub-lega,.sottomenu,.stagioni{scrollbar-width:none}
   .lega::-webkit-scrollbar,.sub-lega::-webkit-scrollbar,.sottomenu::-webkit-scrollbar,.stagioni::-webkit-scrollbar{display:none}
+  /* sigla al posto del logo: sempre piccola e dentro il cerchio, qualunque sia il carattere della riga */
+  body.fb .fb-badge{font:800 11px/1 var(--f-testo)!important;letter-spacing:0!important;overflow:hidden;white-space:nowrap;text-transform:none}
+  body.fb .fb-badge.s{font-size:9px!important}
   /* tasto per tornare in cima (stesso della pagina Matchup) */
   .su-in-cima{position:fixed;right:16px;bottom:20px;width:48px;height:48px;border-radius:50%;display:flex;
     align-items:center;justify-content:center;background:var(--fb-acc);color:var(--fb-acc-text);border:0;font-size:22px;
@@ -1658,7 +1661,7 @@ function vFootballPartite(){
           <div class="fb-team${disputata&&p.po>p.pc?" w":""}">${stemma(p.ospite,true)}<span class="n">${esc(breve(p.ospite))}</span><span class="s">${disputata?p.po:""}</span></div>
           <div class="fb-team${disputata&&p.pc>p.po?" w":""}">${stemma(p.casa,true)}<span class="n">${esc(breve(p.casa))}</span><span class="s">${disputata?p.pc:""}</span></div>
         </div>
-        <div class="gara-arb">${disputata?"":"da giocare · "}${esc(dataBreve(p.dataIt||p.data))}${p.oraIt?" · ore "+esc(p.oraIt):""}${p.stadio?" · "+esc(p.stadio):""}</div>
+        <div class="gara-arb">${disputata?"":"da giocare · "}${esc(dataBreve(p.dataIt||p.data))}${p.oraIt?" · ore "+esc(p.oraIt):(disputata?"":" · orario da definire")}${p.stadio?" · "+esc(p.stadio):""}</div>
         ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
             ${rosaAperta?"▴ NASCONDI":"▾ MIGLIORI DELLA PARTITA"}</button>` : ""}
         ${conRose && rosaAperta
@@ -1682,7 +1685,7 @@ function _lum(hex){
 }
 /* Logo ufficiale se c'è; altrimenti un cerchio con il colore e la sigla della squadra */
 function stemma(sigla, piccolo){
-  const l=(D.loghi||{})[sigla]||{};
+  const l=(D.loghi||{})[sigla]||(D.loghiExtra||{})[sigla]||{};   // loghiExtra: squadre FCS (loghi ESPN)
   const cl=piccolo?" s":"";
   if(l.logo && /^https:\/\//.test(l.logo))
     return `<img class="fb-logo${cl}" src="${esc(l.logo)}" alt="" onerror="this.style.visibility='hidden'">`;
@@ -1726,7 +1729,7 @@ function schedaRisultato(g){
   const vid = g.video && /^[A-Za-z0-9_-]{6,20}$/.test(g.video.id||"") ? g.video.id : "";
   if(vid){
     return `<article class="fb-game">
-    <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
+    <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):(giocata?"":" · orario da definire")}${giocata?" · Finale":" · da giocare"}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${chips?`<div class="fb-chips">${chips}</div>`:""}
     <a class="fb-video" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener" aria-label="Guarda gli highlights su YouTube: ${esc(g.video.titolo||"")}">
@@ -1743,7 +1746,7 @@ function schedaRisultato(g){
          Cerca il video degli highlights</a>` : "";
   const mom = momenti(g);
   return `<article class="fb-game">
-    <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):""}${giocata?" · Finale":" · da giocare"}</div>
+    <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):(giocata?"":" · orario da definire")}${giocata?" · Finale":" · da giocare"}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${chips?`<div class="fb-chips">${chips}</div>`:""}
     ${mom}${hl}
@@ -1925,7 +1928,7 @@ function vFootballProssima(){
   const blocchiDuelli = duelli.length ? duelli.map(d=>`
     <article class="fb-duel">
       <div class="fb-duel-head">${stemma(d.ospite)}<span class="t">${esc(breve(d.ospite))} @ ${esc(breve(d.casa))}</span>${stemma(d.casa)}</div>
-      <p class="fb-duel-when">${esc(giornoIt(d.dataIt||d.data))}${(d.oraIt||d.ora)?" · "+esc(d.oraIt||d.ora):""}${
+      <p class="fb-duel-when">${esc(giornoIt(d.dataIt||d.data))}${(d.oraIt||d.ora)?" · "+esc(d.oraIt||d.ora):" · orario da definire"}${
           d.favorita?" · favorita "+esc(d.favorita)+" di "+numIt(d.linea):""}${d.totaleLinea!=null?" · totale "+numIt(d.totaleLinea):""}</p>
       <div class="fb-vs">
         <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.ospite))}${difesa(d.difesaOspite)}</h3>${(d.giocatoriOspite||[]).map(rigaGiocatore).join("")}</div>

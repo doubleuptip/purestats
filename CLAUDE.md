@@ -253,6 +253,12 @@ davvero che si veda quello che deve vedersi.
 
 ## Errori già commessi, da non ripetere
 
+- 17/11/2026 sera: ESPN ha risposto per un giro con tutte le partite college alla stessa data (1993-01-31) e gli
+  stessi spettatori; l'archivio li ha presi per buoni (il giro dopo li ha corretti). Da allora
+  `espn_college.risposta_plausibile` scarta le settimane con date fuori stagione o tutte uguali e l'archivio resta
+  com'era. Orari non fissati dalla tv (`timeValid` falso): solo la data, la pagina scrive «orario da definire».
+  Loghi delle squadre FCS dalle risposte ESPN in `loghiExtra` (non in `loghi`, che serve a riconoscere le FBS).
+
 - Chiave CollegeFootballData esaurita a metà novembre 2026: gli stadi college venivano richiesti a ogni giro
   orario, l'archivio dei giocatori non era salvato e si riscaricava a ogni esecuzione (circa 30 chiamate),
   l'archivio partite (scritto senza intestazione) riscaricava ogni volta 5 stagioni, e un test sullo storico

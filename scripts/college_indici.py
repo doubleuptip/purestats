@@ -464,7 +464,7 @@ def _gare_espn(partite, settimana, linee):
             lines = [{"provider": "consensus", "spread": None if voce.get("margine") is None else -voce["margine"],
                       "overUnder": voce.get("totale")}]
         out.append({"homeTeam": g["Casa"], "awayTeam": g["Ospite"], "homeScore": pc, "awayScore": po,
-                    "startDate": g["inizio"], "season": g["Stagione"], "homeConference": g["ConferenzaCasa"],
+                    "startDate": g["inizio"] if g.get("orarioValido", True) else g["inizio"][:10], "season": g["Stagione"], "homeConference": g["ConferenzaCasa"],
                     "awayConference": g["ConferenzaOspite"], "lines": lines})
     return out
 
@@ -503,7 +503,8 @@ def calcola(chiama, stats, stagione, partite_espn=None):
     righe = _gare_espn(partite_espn, w, linee) if partite_espn else chiama("lines", year=stagione, week=w, seasonType="regular")
     if righe:
         # per orario d'inizio (ESPN dà l'ora in UTC); senza ora in fondo alla giornata
-        gare = sorted((_riga(g) for g in righe), key=lambda g: (g.get("inizio") or g["data"] + "Z", g["casa"] or ""))
+        gare = sorted((_riga(g) for g in righe), key=lambda g: ((g.get("inizio") if len(g.get("inizio") or "") > 10
+                                                                  else g["data"] + "T99"), g["casa"] or ""))
         con_linea = [g for g in gare if g["scartoLinea"] is not None]
         out["giornata"] = {
             "stagione": stagione, "settimana": w,

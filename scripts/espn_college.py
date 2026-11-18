@@ -63,9 +63,36 @@ def _json(url: str, tentativi: int = 3):
     return None
 
 
+# Loghi e colori visti nelle risposte ESPN (nessuna richiesta in più): servono alle squadre FCS, che i loghi di
+# CollegeFootballData non coprono (dal 18/11/2026).
+LOGHI_ESPN: dict[str, dict] = {}
+
+
 def _squadra(c: dict) -> tuple[str, str]:
     t = c.get("team") or {}
-    return (t.get("location") or "").strip(), CONFERENZE.get(str(t.get("conferenceId") or ""), "")
+    nome = (t.get("location") or "").strip()
+    logo = t.get("logo") or ""
+    if nome and logo.startswith("https://") and nome not in LOGHI_ESPN:
+        col = (t.get("color") or "").strip()
+        LOGHI_ESPN[nome] = {"logo": logo, "colore": ("#" + col) if col else None, "breve": nome}
+    return nome, CONFERENZE.get(str(t.get("conferenceId") or ""), "")
+
+
+def risposta_plausibile(stagione: int, partite: list) -> str:
+    """'' se il calendario ESPN è credibile, altrimenti il motivo. Il 17/11/2026 ESPN ha risposto per una sera con
+    tutte le partite alla stessa data (1993-01-31) e gli stessi spettatori: quella risposta non va in archivio."""
+    if not partite:
+        return ""
+    anni = {r["Data"][:4] for r in partite if r.get("Data")}
+    fuori = anni - {str(stagione), str(stagione + 1)}
+    if fuori:
+        return f"date fuori dalla stagione ({', '.join(sorted(fuori))})"
+    if len(partite) >= 6 and len({r["inizio"] for r in partite}) == 1:
+        return f"tutte le {len(partite)} partite con lo stesso orario ({partite[0]['inizio']})"
+    spettatori = [r["Spettatori"] for r in partite if r.get("Spettatori")]
+    if len(spettatori) >= 6 and len(set(spettatori)) == 1:
+        return f"tutte le partite con gli stessi spettatori ({spettatori[0]})"
+    return ""
 
 
 def partite_settimana(stagione: int, settimana: int, tipo: str = "regular") -> list | None:
@@ -89,6 +116,8 @@ def partite_settimana(stagione: int, settimana: int, tipo: str = "regular") -> l
         pubblico = c.get("attendance") or 0
         out.append({
             "id": str(e.get("id")), "inizio": e.get("date") or "", "finita": finita,
+            # orario non ancora fissato dalla tv: ESPN mette un'ora finta (mezzanotte della costa est)
+            "orarioValido": c.get("timeValid", True) is not False,
             "Stagione": str(stagione), "Settimana": str(settimana), "Tipo": tipo,
             "Data": (e.get("date") or "")[:10], "Casa": nc, "Ospite": no,
             "PuntiCasa": str(int(float(casa.get("score")))) if finita and casa.get("score") not in (None, "") else "",
@@ -98,6 +127,12 @@ def partite_settimana(stagione: int, settimana: int, tipo: str = "regular") -> l
             "Stadio": ((c.get("venue") or {}).get("fullName") or "").strip(),
             "Spettatori": str(pubblico) if finita and pubblico else "",
         })
+    motivo = risposta_plausibile(stagione, out)
+    if motivo:
+        chiamate["errori"] += 1
+        print(f"  ESPN, stagione {stagione} settimana {settimana} ({tipo}): risposta scartata, {motivo}. "
+              "L'archivio resta com'era.")
+        return None
     return out
 
 

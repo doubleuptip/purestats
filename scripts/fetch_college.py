@@ -461,6 +461,8 @@ def orario_italiano(inizio: str) -> dict:
     """Data e ora italiane dall'inizio ESPN in UTC (es. 2026-11-14T17:00Z → 18:00). {} se manca."""
     if not inizio:
         return {}
+    if len(inizio) == 10:                               # solo la data: orario non ancora fissato
+        return {"dataIt": inizio, "oraIt": "", "inizio": inizio}
     try:
         from zoneinfo import ZoneInfo
         t = datetime.fromisoformat(inizio.replace("Z", "+00:00")).astimezone(ZoneInfo("Europe/Rome"))
@@ -705,7 +707,8 @@ def main():
     giocatori = carica_giocatori(stagioni, forzate, partite_espn)
     salva_archivio_giocatori(giocatori)
 
-    orari = {(r["Stagione"], r["Casa"], r["Ospite"]): r["inizio"]
+    # orario non ancora fissato: resta solo la data (della costa est), la pagina scrive «orario da definire»
+    orari = {(r["Stagione"], r["Casa"], r["Ospite"]): (r["inizio"] if r.get("orarioValido", True) else r["inizio"][:10])
              for pp in partite_espn.values() for r in pp if r.get("inizio")}
     stats = calcola_statistiche(righe, giocatori, orari)
 
@@ -719,6 +722,10 @@ def main():
         # fetch_duelli.py): qui restano in un file locale che non viene mai committato.
         for k in ("giornata", "loghi"):
             stats[k] = extra.get(k)
+        # loghi ESPN per le squadre che CollegeFootballData non copre (FCS), in un blocco a parte perché
+        # «loghi» serve anche a riconoscere le squadre FBS
+        noti = stats.get("loghi") or {}
+        stats["loghiExtra"] = {n: v for n, v in espn_college.LOGHI_ESPN.items() if n not in noti}
         salva_privato(extra)
     except Exception as e:
         print(f"  Blocchi aggiuntivi non calcolati: {type(e).__name__}: {e}. L'archivio è comunque aggiornato.")
