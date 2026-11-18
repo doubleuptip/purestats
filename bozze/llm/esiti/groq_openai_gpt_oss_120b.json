@@ -1,128 +1,295 @@
 {
  "scrittore": "groq:openai/gpt-oss-120b",
- "quando": "2026-11-18T19:14:33.303890",
+ "quando": "2026-11-18T19:28:07.019366",
  "risultati": {
   "2026_10_LAC_BAL|anteprima": {
    "scrittore": "groq:openai/gpt-oss-120b",
-   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
-   "secondi": 124
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "1.500",
+     "motivo": "numero non presente nel materiale"
+    }
+   ],
+   "problemiDopoCorrezione": [
+    {
+     "tipo": "fatto",
+     "frase": "1.591",
+     "motivo": "numero non presente nel materiale"
+    }
+   ],
+   "articolo": {
+    "titolo": "Ravens sfidano i Chargers in cerca di riscatto a Baltimora",
+    "paragrafi": [
+     "Martedì 17 novembre, alle 2:15 italiane, i Baltimore Ravens accoglieranno i Los Angeles Chargers al M&T Bank Stadium di Baltimora. I Ravens, con un bilancio di 4-5, affrontano una serie di quattro sconfitte consecutive, mentre i Chargers arrivano a 0-8, con otto sconfitte di fila. Entrambe le squadre hanno ancora da recuperare nella rispettiva divisione, i Ravens nella AFC North e i Chargers nell'AFC West.",
+     "I Chargers, reduci dai playoff della scorsa stagione con un 11-6, hanno perso la spinta offensiva: l’attacco è l’ultimo in classifica per punti realizzati, 15,1 a partita, e la difesa concede 27,4 punti. Il quarterback Justin Herbert ha già superato le 1.591 yard di lancio ma è tra i più soggetti a intercetti. L’attacco è ulteriormente penalizzato dall’assenza del ricevitore Ladd McConkey. L’allenatore Jim Harbaugh, ex dei 49ers, cerca di risollevare una squadra in fondo alla classifica.",
+     "I Ravens, con un attacco nella media della lega (21,0 punti a partita) e una difesa che concede 26,2 punti, hanno visto l’arrivo di Jacoby Brissett, proveniente dagli Arizona Cardinals, al suo primo match con la maglia. Derrick Henry è il corridore più produttivo, con 689 yard e otto touchdown. L’assenza del quarterback titolare Lamar Jackson e del pass rusher Tavius Robinson rende la difesa più vulnerabile. Jesse Minter, al suo primo anno in panchina, guida la squadra dopo la lunga esperienza di John Harbaugh.",
+     "Da seguire soprattutto il confronto tra Brissett e Herbert, che potrebbe determinare il ritmo della partita, e la capacità dei Ravens di sfruttare la debolezza nella difesa dei Chargers. La mancanza di McConkey penalizza l’attacco di Los Angeles, mentre la perdita di Jackson riduce le opzioni di gioco di Baltimora.",
+     "La chiave sarà la capacità dei Ravens di imporre il gioco di corsa con Henry e contenere i tentativi di passaggio dei Chargers. Il mercato indica i Ravens leggermente favoriti, con una partita che dovrebbe produrre un totale di punti moderato."
+    ]
+   },
+   "pubblicabile": false,
+   "parole": 318,
+   "secondi": 29
   },
   "2026_10_LAC_BAL|cronaca": {
    "scrittore": "groq:openai/gpt-oss-120b",
-   "errore": "nessun JSON nella risposta",
-   "secondi": 6
+   "problemiPrimaStesura": [],
+   "articolo": {
+    "titolo": "I Chargers spezzano la striscia negativa con vittoria per 23-20 a Baltimora",
+    "paragrafi": [
+     "Martedì 17 novembre, alle 2:15 italiane, i Los Angeles Chargers hanno superato i Baltimore Ravens 23-20 al M&T Bank Stadium. La vittoria rompe la serie di otto sconfitte consecutive dei Chargers e ribalta il pronostico, che vedeva i Ravens leggermente favoriti. Per i Ravens, la sconfitta conferma la quinta sconfitta di fila in campionato.",
+     "Il primo quarto è stato deciso subito: a 10 minuti e 46 secondi, il quarterback Justin Herbert ha preso la palla in shotgun e, dopo una corsa di 22 iarde al centro, ha trovato la end zone per il primo touchdown. Poco dopo, a 2 minuti e 8 secondi, il kicker dei Chargers ha aggiunto un field goal da 38 iarde, portando il risultato a 10-0. Nel secondo quarto, i Ravens hanno risposto con un touchdown di Derrick Henry a 12 minuti e 37 secondi, riducendo il divario a 10-7. Tre minuti dopo, una breve passata di Jacoby Brissett è stata intercettata da Del'Shawn Phillips, che ha restituito la palla a Baltimore, ma i Ravens non sono riusciti a sfruttare la opportunità. A 2 minuti dalla fine del secondo quarto, Omarion Hampton ha concluso una corsa da 1 iarda con un altro touchdown, rimettendo i Chargers in vantaggio 17-7. Un field goal dei Ravens a 3 secondi dal termine del periodo ha chiuso il primo tempo a 17-10.",
+     "Nel terzo quarto, i Chargers hanno aggiunto un field goal di 34 iarde, portando il punteggio a 20-10. I Ravens hanno accorciato con un altro field goal a 3 minuti e 40 secondi, ma il vantaggio è rimasto di dieci punti. All'inizio del quarto, i Chargers hanno nuovamente aumentato il margine con un field goal di 35 iarde. A 10 minuti e 27 secondi, i Ravens hanno accorciato con un touchdown di Henry da 1 iarda, riducendo il risultato a 23-20.",
+     "A pochi minuti dalla fine, i Ravens hanno cercato il pareggio: a 2 minuti e 11 secondi, Brissett ha lanciato a Zay Flowers, ma il pallone è stato fumbleato da Tarheeb Still e recuperato dai Chargers. L'ultimo tentativo di passaggio profondo di Brissett è stato interrotto a 6 secondi dal cronometro, garantendo la vittoria ai Chargers.",
+     "Con il risultato, i Chargers passano a 1-8, mentre i Ravens scendono a 4-6. I Chargers chiudono la settimana in casa contro i Jets, domenica 22 novembre, mentre i Ravens affrontano i Panthers in trasferta nella stessa data."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 397,
+   "secondi": 113
   },
   "2026_10_WAS_NYG|anteprima": {
    "scrittore": "groq:openai/gpt-oss-120b",
-   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
-   "secondi": 146
+   "problemiPrimaStesura": [],
+   "articolo": {
+    "titolo": "Giants in vantaggio di poco contro i Commanders a MetLife",
+    "paragrafi": [
+     "Venerdì 13 novembre, alle 2:15 italiane, i New York Giants accoglieranno i Washington Commanders al MetLife Stadium di East Rutherford. I Giants, con un bilancio di 5-2-1, sono primi nella NFC East, mentre i Commanders, 2-5-1, occupano il terzo posto. Entrambe le squadre hanno una serie aperta: i Giants hanno conquistato due vittorie consecutive, i Commanders non hanno una serie attiva.",
+     "I Giants arrivano in buona forma, dopo una vittoria contro i Philadelphia Eagles in trasferta e un trionfo contro gli Houston Texans in trasferta. Il nuovo allenatore John Harbaugh, che ha guidato i Baltimore Ravens per 18 stagioni, ha portato la squadra a una difesa nella media della lega e a un attacco altrettanto equilibrato. Dall’altra parte, i Commanders hanno chiuso la settimana con una sconfitta contro i Los Angeles Rams in casa, dopo una vittoria netta contro i Philadelphia Eagles. Dan Quinn, ex allenatore degli Atlanta Falcons per sei stagioni, continua a guidare una squadra il cui attacco è nella media ma la difesa concede molti punti.",
+     "Tra i protagonisti da tenere d’occhio, per i Giants spicca J.J. McCarthy, il quarterback titolare, e Malik Nabers, tra i ricevitori più ricercati della lega. Per i Commanders, Jayden Daniels si conferma tra i quarterback che perdono meno palloni, mentre Stefon Diggs è il principale bersaglio in ricezione. Mancano ai Commanders il running back Jacory Croskey‑Merritt, assente per infortunio, e ai Giants il pass rusher Tremaine Edmunds, fuori per motivi fisici.",
+     "La chiave della partita sarà la capacità dei Giants di difendere il pass, soprattutto senza Edmunds, e di sfruttare la continuità del loro attacco. I Commanders dovranno compensare l’assenza di Croskey‑Merritt con un gioco di corsa più vario e una pressione costante su Daniels. Il mercato indica una sfida molto equilibrata, con i Giants leggermente favoriti e una previsione di pochi punti complessivi."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 303,
+   "secondi": 21
   },
   "2026_10_WAS_NYG|cronaca": {
    "scrittore": "groq:openai/gpt-oss-120b",
-   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
-   "secondi": 124
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "I Giants hanno subito il primo infortunio di una partita di divisione.",
+     "motivo": "Il materiale non menziona alcun infortunio per i Giants in questa partita."
+    }
+   ],
+   "problemiDopoCorrezione": [
+    {
+     "tipo": "fatto",
+     "frase": "La vittoria è decisiva per la corsa verso la vetta della NFC East, dove i Giants, capofila, hanno subito la prima sconfitta della stagione contro un avversario di divisione.",
+     "motivo": "I Giants hanno già perso due partite in questa stagione (contro Saints e Texans); non è la prima sconfitta della stagione."
+    }
+   ],
+   "articolo": {
+    "titolo": "I Commanders ribaltano i Giants in extremis a MetLife",
+    "paragrafi": [
+     "Venerdì 13 novembre, alle 2:15 italiane, i Washington Commanders hanno superato i New York Giants per 24-21 al MetLife Stadium, ribaltando il pronostico di favore dei Giants. La vittoria è decisiva per la corsa verso la vetta della NFC East, dove i Giants, capofila, hanno subito la prima sconfitta della stagione contro un avversario di divisione.",
+     "Nel primo quarto il tentativo di field goal dei Giants è fallito, lasciando il punteggio sullo zero. I Commanders hanno aperto le marcature nel secondo quarto con un calcio di 46 yard. A pochi minuti dal termine del periodo, Cam Skattebo ha trovato la end zone per il primo touchdown dei Giants, ma subito dopo Jayden Daniels ha collegato un passaggio corto a Ben Sinnott per livellare 7-7. Il terzo quarto è stato caratterizzato da una risposta di Skattebo, che ha portato i Giants in vantaggio 14-10, seguita da un passaggio di Daniels a A. Williams che ha riportato i Commanders in pari. Un fumble di Frankie Luvu ha permesso a Washington di recuperare, ma la svolta è avvenuta a 8:24 del quarto, quando J.J. McCarthy ha lanciato una bomba di 66 yard a Isaiah Likely, che ha concluso in touchdown, portando i Giants a 21-17. A 5:31, un’intercetta di Jevon Holland è stata annullata dal replay, mantenendo viva la tensione. A 1:05, Daniels ha trovato S. Diggs per 32 yard e touchdown, rimettendo i Commanders in vantaggio. A pochi secondi dalla fine, McCarthy ha lanciato verso Likely, ma l’attacco è stato intercettato da Rasul Douglas, chiudendo la partita.",
+     "Il quarterback Jayden Daniels ha guidato la rimonta, con tre touchdown e due intercetti, mentre il suo reparto difensivo, guidato da Odafe Oweh, ha pressato costantemente la linea avversaria. Per i Giants, J.J. McCarthy ha lottato con un solo touchdown e un’intercetta, ma è stato Isaiah Likely a dare la scintilla offensiva, con il suo lungo touchdown decisivo.",
+     "Con la vittoria, i Commanders passano a 3-5-1, avvicinandosi alla zona di playoff, mentre i Giants scendono a 5-3-1, perdendo terreno nella corsa al primo posto. I prossimi impegni vedranno Washington ospitare i Bengals il 23 novembre e i Giants ricevere i Jaguars il 22 novembre."
+    ]
+   },
+   "pubblicabile": false,
+   "parole": 359,
+   "secondi": 72
   },
   "2026_10_NE_DET|anteprima": {
    "scrittore": "groq:openai/gpt-oss-120b",
-   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
-   "secondi": 125
+   "problemiPrimaStesura": [],
+   "articolo": {
+    "titolo": "Patriots vs Lions, scontro su campo neutro a Monaco",
+    "paragrafi": [
+     "Domenica 15 novembre, alle 15:30 italiane, i New England Patriots affrontano i Detroit Lions nell'Allianz Arena di Monaco di Baviera. La partita si svolgerà al coperto, su un campo neutro, e vedrà i Patriots con un bilancio di 5-4 contro i Lions 6-2, che vantano una serie aperta di quattro vittorie consecutive.",
+     "I Patriots arrivano da una stagione passata da finalisti del Super Bowl, ma quest'anno hanno oscillato tra vittorie e sconfitte, con una difesa e un attacco nella media della lega. Il quarterback Drake Maye, tra i più produttivi ma anche più soggetti a intercetti, guida l'offensiva, supportato dal running back Rhamondre Stevenson e dal ricevitore DeMario Douglas. L'allenatore Mike Vrabel, ex capo dei Tennessee Titans, è al suo secondo anno a New England.",
+     "I Lions, invece, hanno mostrato un attacco tra i più prolifici della NFL, guidato da Jared Goff, che ha mantenuto un basso numero di intercetti, dal running back Jahmyr Gibbs, una delle forze correnti della lega, e dal ricevitore Amon‑Ra St. Brown. Dan Campbell, al suo quinto anno, ha consolidato una squadra che, dopo una stagione fuori dai playoff, ha trovato continuità con quattro successi di fila. La difesa dei Lions si colloca nella media della lega, ma la pressione di Alim McNeill sul quarterback avversario è un elemento da tenere d'occhio.",
+     "Sul campo di gioco mancheranno i veterani dei Patriots che hanno chiuso il campionato precedente con la sconfitta al Super Bowl, mentre i Lions potranno contare sulla continuità dei loro leader offensivi. Entrambe le squadre presenteranno i loro migliori giocatori, ma i Lions sembrano più affini al ritmo attuale della competizione.",
+     "La chiave della partita sarà la capacità dei Patriots di limitare gli errori di Maye e di contrastare la corsa di Gibbs, mentre i Lions dovranno difendere il proprio attacco per mantenere la serie di vittorie. Il mercato li indica come favoriti di poco, con una partita che dovrebbe rimanere equilibrata in termini di punti."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 323,
+   "secondi": 19
   },
   "2026_10_NE_DET|cronaca": {
    "scrittore": "groq:openai/gpt-oss-120b",
-   "errore": "nessun JSON nella risposta",
-   "secondi": 6
+   "problemiPrimaStesura": [],
+   "articolo": {
+    "titolo": "Lions dominano i Patriots a Monaco di Baviera",
+    "paragrafi": [
+     "Domenica 15 novembre, alle 15:30 italiane, i Detroit Lions hanno chiuso la partita contro i New England Patriots con un netto 35-10 all'Allianz Arena di Monaco di Baviera. La vittoria, ottenuta in campo neutro, ha confermato le previsioni di una leggera favorita, ma ha superato di gran lunga il margine atteso, portando i Lions a 7-2 e i Patriots a 5-5, avvicinando i primi alla vetta della NFC North.",
+     "Il match è iniziato con un field goal dei Patriots a 9 minuti e 15 secondi dal primo quarto, ma poco dopo, a 6:26, il quarterback Jared Goff ha lanciato un passaggio corto a Amon‑Ra St. Brown che ha concluso con un touchdown da 56 yard, invertendo rapidamente il vantaggio. Nel secondo quarto, Goff ha proseguito con un altro TD su passaggio corto a I. TeSlaa, per 12 yard. Dopo un'intercettazione di Christian Gonzalez che ha fermato un tentativo di passaggio profondo di Goff, la risposta dei Lions è arrivata a 2 minuti e 12 secondi con un'uscita di Jahmyr Gibbs per 5 yard, portando il secondo touchdown. Un ulteriore scambio di intercettazioni ha chiuso il primo tempo con i Lions in vantaggio 21-3.",
+     "Nel terzo quarto, Goff ha trovato ancora St. Brown per un touchdown da 28 yard, portando il punteggio a 28-3. Il quarto quarto ha visto un breve passaggio di Tommy DeVito per un touchdown dei Patriots, ma la risposta dei Lions è arrivata rapidamente: Gibbs ha concluso con una corsa di 28 yard per il suo secondo touchdown, chiudendo il risultato a 35-10.",
+     "Il protagonista indiscusso dei Lions è stato Jared Goff, la cui precisione nei passaggi ha consentito tre touchdown, mentre Jahmyr Gibbs ha segnato due corse decisive, dimostrando la potenza dell'attacco. Per i Patriots, la partenza di Drake Maye è stata interrotta da un infortunio al primo quarto, costringendo Tommy DeVito a subentrare e limitando l'efficacia offensiva."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 312,
+   "secondi": 106
   },
   "2026_10_SF_DAL|anteprima": {
    "scrittore": "groq:openai/gpt-oss-120b",
-   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
-   "secondi": 126
+   "problemiPrimaStesura": [],
+   "articolo": {
+    "titolo": "49ers in visita ai Cowboys: sfida di forma e assenze",
+    "paragrafi": [
+     "Domenica 15 novembre, alle 22:25 italiane, i San Francisco 49ers (7-1) affronteranno i Dallas Cowboys (4-5) all'AT&T Stadium di Arlington, un impianto a tetto chiuso. I 49ers entrano in campo come leader della NFC West, mentre i Cowboys occupano la seconda posizione nella NFC East.",
+     "I 49ers hanno chiuso la scorsa stagione con un 12-5, uscendo ai playoff dopo una vittoria. Quest'anno, l'attacco guidato da Brock Purdy, considerato tra i più produttivi della lega, ha segnato quasi trenta punti a partita, supportato da Christian McCaffrey e dal ricevitore George Kittle. La difesa, affidabile, concede poco più di diciannove punti. L'allenatore Kyle Shanahan, al suo nono anno, mantiene lo stile offensivo che ha reso la squadra temibile. L'assenza di Mike Evans, uno dei principali ricevitori, lascia un vuoto nella profondità del reparto.",
+     "I Cowboys, dopo una stagione 7-9 fuori dai playoff, mostrano una forma altalenante ma hanno vinto le ultime due partite. Dak Prescott guida un attacco di buon livello, affiancato da Javonte Williams e dal ricevitore CeeDee Lamb, mentre la difesa, che concede più di ventisei punti, cerca di migliorare. Brian Schottenheimer è al timone da una stagione. L'assenza di Tyler Goodson e di Donovan Ezeiruaku indebolisce il running game e la pressione sul quarterback avversario. Dee Winters, ex linebacker dei 49ers, ritorna a confrontarsi con la sua vecchia squadra.",
+     "Da tenere d'occhio è Purdy, il motore dell'attacco dei 49ers, e Prescott, che ha dimostrato di saper gestire i momenti difficili. La mancanza di Evans potrebbe costringere i 49ers a coinvolgere più ruoli secondari, mentre i Cowboys dovranno compensare la carenza di pass rusher con soluzioni tattiche.",
+     "La chiave della partita sarà la capacità dei 49ers di imporre il loro ritmo offensivo nonostante l'assenza di Evans, e la difesa dei Cowboys di contenere il gioco aereo di San Francisco. Il mercato li vede leggermente favoriti, con un'aspettativa di partita equilibrata ma con pochi punti in più per i 49ers."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 319,
+   "secondi": 29
   },
   "2026_10_SF_DAL|cronaca": {
    "scrittore": "groq:openai/gpt-oss-120b",
-   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
-   "secondi": 125
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "Brett",
+     "motivo": "nome non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Elliott",
+     "motivo": "nome non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Kendre",
+     "motivo": "nome non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Miller",
+     "motivo": "nome non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Rashad",
+     "motivo": "nome non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Il terzo quarto ha visto Kendre Miller Black segnare per i 49ers",
+     "motivo": "Il giocatore che ha segnato è stato K. Black, non “Kendre Miller Black”."
+    }
+   ],
+   "problemiDopoCorrezione": [
+    {
+     "tipo": "lingua",
+     "frase": "Il match è iniziato con un field goal di 52 yard di Aubrey",
+     "motivo": "uso di \"match\" invece di \"partita\" e forma verbale non corretta; dovrebbe essere \"La partita è iniziata con un field goal di 52 yard di Aubrey.\""
+    },
+    {
+     "tipo": "lingua",
+     "frase": "Il punto decisivo è arrivato negli ultimi secondi, quando Prescott ha tentato una serie di laterali che si sono concluse con un fumble recuperato dai Cowboys",
+     "motivo": "la frase è poco chiara e contiene un errore di concordanza: \"si sono concluse\" dovrebbe essere \"si concluse\" e \"recuperato dai Cowboys\" è grammaticalmente scorretto; meglio \"recuperato dai Cowboys\"."
+    }
+   ],
+   "articolo": {
+    "titolo": "San Francisco 49ers batte i Dallas Cowboys 46-40 in un duello offensivo",
+    "paragrafi": [
+     "Domenica 15 novembre, alle 22:25 italiane, l’AT&T Stadium di Arlington ha ospitato la sfida settimanale tra i 49ers, primi nella NFC West, e i Cowboys, che cercavano di migliorare il loro bilancio 4-5. La partita, attesa come un confronto equilibrato, si è risolta con un 46-40 per San Francisco, confermando i 49ers come una delle squadre più prolifiche in attacco.",
+     "Il match è iniziato con un field goal di 52 yard di Aubrey, ma il vantaggio è passato ai 49ers quando Brock Purdy ha collegato un passaggio corto a Deebo Samuel per il primo touchdown. I Cowboys hanno risposto subito con una lunga giocata di Dak Prescott a George Pickens, portando il punteggio sul 10-7. Nel secondo quarto, un field goal di Pineiro ha ridato pari il risultato, per poi vedere Prescott lanciare un altro touchdown a Pickens, riaprendo il vantaggio dei Cowboys. Purdy ha poi scatenato una risposta di 74 yard a Christian McCaffrey, riportando i 49ers in vantaggio.",
+     "Nel terzo quarto K. Black ha segnato per i 49ers, seguito da un field goal dei Cowboys. Deebo Samuel ha poi realizzato un touchdown da 70 yard, ampliando il margine. Un’intercetta di Malik Mustapha su un passaggio di Prescott ha interrotto l’attacco avversario, ma i Cowboys hanno continuato a segnare, soprattutto con Pickens e con una serie di corse di R. Flournoy. Nel quarto, McCaffrey ha aggiunto un altro touchdown, mentre i Cowboys hanno risposto con un touchdown di Pickens, un altro di Flournoy e il finale con Lamb, accorciando il risultato a sei punti.",
+     "Il punto decisivo è arrivato negli ultimi secondi, quando Prescott ha tentato una serie di laterali che si sono concluse con un fumble recuperato dai Cowboys, ma non è bastato a ribaltare il risultato. Purdy, senza errori, ha guidato l’attacco dei 49ers, mentre la difesa di Fred Warner ha contenuto gli ultimi tentativi dei Cowboys.",
+     "Con la vittoria, i 49ers passano a 8-1, consolidando il primo posto nella NFC West, mentre i Cowboys scivolano a 4-6. I prossimi impegni vedranno i 49ers ospitare i Vikings e i Cowboys affrontare i Titans domenica 22 novembre."
+    ]
+   },
+   "pubblicabile": true,
+   "parole": 349,
+   "secondi": 70
   },
   "2026_10_CAR_NO|anteprima": {
    "scrittore": "groq:openai/gpt-oss-120b",
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "2.197",
+     "motivo": "numero non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "1.986",
+     "motivo": "numero non presente nel materiale"
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Tyler Shough è il quarterback titolare, con 1.986 yard, 14 touchdown e sei intercetti",
+     "motivo": "Il materiale indica 1.986 yard, ma l’articolo riportava 1.986 yard, una cifra errata rispetto ai 1.986 yard fornite dal materiale"
+    },
+    {
+     "tipo": "lingua",
+     "frase": "La partita, di division, segna l'ennesima sfida tra le due franchigie nella stagione.",
+     "motivo": "La frase contiene un errore di forma: \"di division\" dovrebbe essere \"di divisione\"."
+    },
+    {
+     "tipo": "lingua",
+     "frase": "i New Orleans Saints accolgono i Carolina Panthers al Caesars Superdome.",
+     "motivo": "Il verbo corretto è \"accoglono\" (con due \"l\")."
+    }
+   ],
    "errore": "nessun JSON nella risposta",
-   "secondi": 6
+   "secondi": 41
   },
   "2026_10_CAR_NO|cronaca": {
    "scrittore": "groq:openai/gpt-oss-120b",
    "errore": "nessun JSON nella risposta",
-   "secondi": 19
+   "secondi": 38
   }
  },
  "registro": [
-  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"5198\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"21.015s\"}",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "groq:openai/gpt-oss-120b 2026_10_LAC_BAL anteprima: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
-  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"3538\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"33.464s\"}",
-  "groq:openai/gpt-oss-120b 2026_10_LAC_BAL cronaca: ERRORE nessun JSON nella risposta · prima stesura 0 problemi · dopo -",
-  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 4s",
-  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 16s",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "groq:openai/gpt-oss-120b 2026_10_WAS_NYG anteprima: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
-  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"998\", \"x-ratelimit-remaining-tokens\": \"1426\", \"x-ratelimit-reset-requests\": \"2m52.8s\", \"x-ratelimit-reset-tokens\": \"49.305s\"}",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "groq:openai/gpt-oss-120b 2026_10_WAS_NYG cronaca: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
-  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"998\", \"x-ratelimit-remaining-tokens\": \"4317\", \"x-ratelimit-reset-requests\": \"2m52.8s\", \"x-ratelimit-reset-tokens\": \"27.622s\"}",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "groq:openai/gpt-oss-120b 2026_10_NE_DET anteprima: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
-  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"998\", \"x-ratelimit-remaining-tokens\": \"3907\", \"x-ratelimit-reset-requests\": \"2m52.8s\", \"x-ratelimit-reset-tokens\": \"30.697s\"}",
-  "groq:openai/gpt-oss-120b 2026_10_NE_DET cronaca: ERRORE nessun JSON nella risposta · prima stesura 0 problemi · dopo -",
-  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 1s",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "groq:openai/gpt-oss-120b 2026_10_SF_DAL anteprima: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
-  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"997\", \"x-ratelimit-remaining-tokens\": \"3475\", \"x-ratelimit-reset-requests\": \"4m19.2s\", \"x-ratelimit-reset-tokens\": \"33.937s\"}",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
-  "groq:openai/gpt-oss-120b 2026_10_SF_DAL cronaca: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
-  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"997\", \"x-ratelimit-remaining-tokens\": \"4244\", \"x-ratelimit-reset-requests\": \"4m19.2s\", \"x-ratelimit-reset-tokens\": \"28.17s\"}",
-  "groq:openai/gpt-oss-120b 2026_10_CAR_NO anteprima: ERRORE nessun JSON nella risposta · prima stesura 0 problemi · dopo -",
-  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 4s",
-  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 6s",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"998\", \"x-ratelimit-remaining-tokens\": \"5152\", \"x-ratelimit-reset-requests\": \"2m52.8s\", \"x-ratelimit-reset-tokens\": \"21.36s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 5s",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"997\", \"x-ratelimit-remaining-tokens\": \"2254\", \"x-ratelimit-reset-requests\": \"4m19.2s\", \"x-ratelimit-reset-tokens\": \"43.095s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 17s",
+  "groq:openai/gpt-oss-120b 2026_10_LAC_BAL anteprima: NON pubblicabile · prima stesura 1 problemi · dopo 1",
+  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 8s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 22s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 31s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 24s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 20s",
+  "groq:openai/gpt-oss-120b 2026_10_LAC_BAL cronaca: ok · prima stesura 0 problemi · dopo -",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"996\", \"x-ratelimit-remaining-tokens\": \"4203\", \"x-ratelimit-reset-requests\": \"5m45.6s\", \"x-ratelimit-reset-tokens\": \"28.477s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 18s",
+  "groq:openai/gpt-oss-120b 2026_10_WAS_NYG anteprima: ok · prima stesura 0 problemi · dopo -",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"995\", \"x-ratelimit-remaining-tokens\": \"3531\", \"x-ratelimit-reset-requests\": \"7m12s\", \"x-ratelimit-reset-tokens\": \"33.517s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 31s",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"994\", \"x-ratelimit-remaining-tokens\": \"2861\", \"x-ratelimit-reset-requests\": \"8m38.4s\", \"x-ratelimit-reset-tokens\": \"38.542s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 31s",
+  "groq:openai/gpt-oss-120b 2026_10_WAS_NYG cronaca: NON pubblicabile · prima stesura 1 problemi · dopo 1",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"993\", \"x-ratelimit-remaining-tokens\": \"4596\", \"x-ratelimit-reset-requests\": \"10m4.8s\", \"x-ratelimit-reset-tokens\": \"25.53s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 16s",
+  "groq:openai/gpt-oss-120b 2026_10_NE_DET anteprima: ok · prima stesura 0 problemi · dopo -",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"992\", \"x-ratelimit-remaining-tokens\": \"2734\", \"x-ratelimit-reset-requests\": \"11m31.2s\", \"x-ratelimit-reset-tokens\": \"39.495s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 33s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 36s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 13s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 16s",
+  "groq:openai/gpt-oss-120b 2026_10_NE_DET cronaca: ok · prima stesura 0 problemi · dopo -",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"992\", \"x-ratelimit-remaining-tokens\": \"5393\", \"x-ratelimit-reset-requests\": \"11m31.2s\", \"x-ratelimit-reset-tokens\": \"19.552s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 16s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 7s",
+  "groq:openai/gpt-oss-120b 2026_10_SF_DAL anteprima: ok · prima stesura 0 problemi · dopo -",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"991\", \"x-ratelimit-remaining-tokens\": \"3401\", \"x-ratelimit-reset-requests\": \"12m57.599s\", \"x-ratelimit-reset-tokens\": \"34.492s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 22s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 1s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 4s",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"990\", \"x-ratelimit-remaining-tokens\": \"647\", \"x-ratelimit-reset-requests\": \"14m24s\", \"x-ratelimit-reset-tokens\": \"55.147s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 25s",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 6s",
+  "groq:openai/gpt-oss-120b 2026_10_SF_DAL cronaca: ok · prima stesura 6 problemi · dopo 2",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"989\", \"x-ratelimit-remaining-tokens\": \"4906\", \"x-ratelimit-reset-requests\": \"15m50.4s\", \"x-ratelimit-reset-tokens\": \"23.205s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 15s",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"988\", \"x-ratelimit-remaining-tokens\": \"4256\", \"x-ratelimit-reset-requests\": \"17m16.8s\", \"x-ratelimit-reset-tokens\": \"28.08s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 17s",
+  "groq:openai/gpt-oss-120b 2026_10_CAR_NO anteprima: ERRORE nessun JSON nella risposta · prima stesura 5 problemi · dopo -",
+  "   limiti groq:openai/gpt-oss-120b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"987\", \"x-ratelimit-remaining-tokens\": \"2583\", \"x-ratelimit-reset-requests\": \"18m43.2s\", \"x-ratelimit-reset-tokens\": \"40.627s\"}",
+  "   groq:openai/gpt-oss-20b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per m), riprovo tra 33s",
   "groq:openai/gpt-oss-120b 2026_10_CAR_NO cronaca: ERRORE nessun JSON nella risposta · prima stesura 0 problemi · dopo -"
  ]
 }
