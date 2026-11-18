@@ -1,0 +1,51 @@
+name: Bozze articoli (prova alla cieca)
+on:
+  push:
+    branches: [bozze]
+    paths: [bozze/llm/avvia.txt]
+  workflow_dispatch:
+permissions:
+  contents: write
+  models: read
+jobs:
+  scrivi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        scrittore: ["groq:openai/gpt-oss-120b", "groq:qwen/qwen3.8-27b", "github:openai/gpt-4.1", "github:mistral-ai/mistral-medium-2505"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Modelli disponibili (solo per il registro)
+        if: matrix.scrittore == 'groq:openai/gpt-oss-120b'
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s https://api.groq.com/openai/v1/models -H "Authorization: Bearer $GROQ_API_KEY" | python3 -c "import json,sys; print('GROQ:', [m['id'] for m in json.load(sys.stdin).get('data',[])])" || true
+          curl -s https://models.github.ai/catalog/models -H "Authorization: Bearer $GITHUB_TOKEN" | python3 -c "import json,sys; d=json.load(sys.stdin); print('GITHUB:', [(m['id'], m.get('rate_limit_tier')) for m in d])" || true
+      - run: python3 bozze/llm/meteo.py
+      - name: Scrivi
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 bozze/llm/scrivi_llm.py "${{ matrix.scrittore }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: esiti-${{ strategy.job-index }}
+          path: bozze/llm/esiti/
+  raccogli:
+    needs: scrivi
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: scaricati
+      - run: |
+          mkdir -p bozze/llm/esiti && cp scaricati/*/*.json bozze/llm/esiti/ || true
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bozze/llm/esiti && git commit -m "Bozze: esiti della prova alla cieca" && git push || echo "niente da salvare"
