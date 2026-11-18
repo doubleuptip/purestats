@@ -1,0 +1,39 @@
+name: Articoli - meteo delle anteprime
+
+# Aggiorna la scheda meteo delle anteprime pubblicate (partite nei prossimi 7 giorni): NWS e Open-Meteo, gratuiti.
+on:
+  schedule:
+    - cron: '35 */3 * * 1-3'      # lunedì-mercoledì ogni 3 ore
+    - cron: '35 * * * 4,5,6,0'    # giovedì-domenica ogni ora
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  meteo:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: articoli
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Meteo delle anteprime
+        run: python scripts/articoli.py meteo
+      - name: Committa
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/articoli/*.json 2>/dev/null || true
+          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+          git commit -q -m "Articoli: meteo aggiornato $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for t in 1 2 3 4; do
+            git push && exit 0
+            git pull -q --rebase origin main || { git rebase --abort; git fetch -q origin main; git reset -q --hard origin/main;
+              python scripts/articoli.py meteo; git add docs/articoli/*.json; git diff --staged --quiet && exit 0;
+              git commit -q -m "Articoli: meteo aggiornato $(date -u '+%Y-%m-%d %H:%M UTC')"; }
+          done
+          exit 1

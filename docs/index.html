@@ -535,6 +535,70 @@
     align-items:center;justify-content:center;background:var(--fb-acc);color:var(--fb-acc-text);border:0;font-size:22px;
     font-weight:700;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:50}
   .su-in-cima.visibile{opacity:1;pointer-events:auto}
+
+  /* Articoli */
+  .ar-chip{text-decoration:none;background:var(--fb-acc,#B91C1C)!important;color:#fff!important}
+  .ar-elenco{display:grid;gap:10px;max-width:760px}
+  .ar-voce{display:flex;gap:12px;align-items:center;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:12px 14px;color:var(--fb-text);text-decoration:none}
+  .ar-loghi{display:flex;gap:4px;flex:none} .ar-testo b{display:block;font:800 19px/1.2 var(--f-tit);margin:5px 0 3px}
+  .ar-voce small{color:var(--fb-muted);font-size:13px}
+  .ar-tag{font:700 11px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:5px;color:#fff;background:#4B5563}
+  .ar-tag.cronaca{background:var(--fb-acc,#B91C1C)}
+  .ar{max-width:1120px}
+  .ar-torna{display:inline-block;margin-bottom:12px;font:600 14px var(--f-testo);color:var(--fb-muted);text-decoration:none}
+  .ar-cop{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:#0B1428 center/cover no-repeat;color:#fff}
+  .ar-sfuma{position:absolute;inset:0}
+  .ar-cop:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.7) 100%)}
+  .ar-cop-in{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:space-between;padding:16px 18px}
+  .ar-cop-alto{display:flex;justify-content:space-between;font:700 12px var(--f-testo);letter-spacing:.08em;text-transform:uppercase}
+  .ar-cop-alto b{background:rgba(255,255,255,.18);padding:4px 8px;border-radius:6px}
+  .ar-cop-mezzo{display:flex;align-items:center;justify-content:center;gap:clamp(14px,5vw,44px)}
+  .ar-sq{display:flex;flex-direction:column;align-items:center;gap:6px;font:800 clamp(14px,2.6vw,20px) var(--f-tit);text-transform:uppercase;text-align:center}
+  .ar-sq small{font:600 12px var(--f-testo);opacity:.85}
+  .ar-sq .fb-logo{width:clamp(56px,13vw,104px)!important;height:auto!important;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+  .ar-punti{font:800 clamp(40px,10vw,84px)/1 var(--f-tit);display:flex;gap:.25em;align-items:center;text-shadow:0 3px 14px rgba(0,0,0,.5)}
+  .ar-punti .perde{opacity:.6} .ar-punti i{font-style:normal;opacity:.6;font-size:.6em}
+  .ar-ora{display:flex;flex-direction:column;align-items:center;text-shadow:0 3px 14px rgba(0,0,0,.5)}
+  .ar-ora b{font:800 clamp(34px,8vw,64px)/1 var(--f-tit)} .ar-ora small{font:600 12px var(--f-testo);margin-top:6px;text-transform:uppercase;letter-spacing:.05em}
+  .ar-cop-basso{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font:600 12px var(--f-testo)}
+  .ar-cop-basso small{font-weight:400;font-size:10px;opacity:.75;text-align:right;max-width:50%}
+  .ar-occhiello{margin:18px 0 6px;font:700 13px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;color:var(--fb-acc,#B91C1C)}
+  .ar h1{margin:0 0 10px;font:800 clamp(28px,5vw,40px)/1.08 var(--f-tit)}
+  .ar-firma{font-size:13px;color:var(--fb-muted);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--fb-border)}
+  .ar-testo p{font-size:18px;line-height:1.65;margin:0 0 16px}
+  .ar-numeri,.ar-meteo{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:14px 16px;margin:20px 0}
+  .ar-numeri h2{margin:0 0 10px;font:800 18px var(--f-tit);text-transform:uppercase}
+  .ar-numeri h2 small{display:block;font:600 12px var(--f-testo);text-transform:none;color:var(--fb-muted);margin-top:2px}
+  .ar-numeri div{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-top:1px solid var(--fb-border);font-size:15px}
+  .ar-numeri div:first-of-type{border-top:0} .ar-numeri span{color:var(--fb-muted)}
+  .ar-numeri em{font-style:normal;font-weight:400;color:var(--fb-muted);font-size:13px}
+  .ar-meteo{background:linear-gradient(160deg,#0B1428,#1C2A4A);color:#fff;border:0}
+  .ar-m-tit{font:700 12px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+  .ar-m-riga{display:flex;align-items:center;justify-content:center;gap:14px;margin:6px 0}
+  .ar-m-ico{font-size:44px} .ar-m-temp{font:800 72px/1 var(--f-tit)}
+  .ar-m-big{font:800 34px var(--f-tit);margin:8px 0}
+  .ar-m-dati{display:grid;grid-template-columns:1fr 1fr;gap:8px;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;text-align:center}
+  .ar-m-dati b{display:block;font:800 26px/1 var(--f-tit)} .ar-m-dati i{font:600 12px var(--f-testo);font-style:normal;margin-left:3px}
+  .ar-m-dati small{font:600 11px var(--f-testo);text-transform:uppercase;opacity:.85}
+  .ar-m-imp{margin-top:10px;font:700 13px var(--f-testo);text-transform:uppercase;letter-spacing:.04em}
+  .ar-m-imp b{padding:2px 8px;border-radius:5px;background:#16A34A} .ar-m-imp b.medio{background:#EAB308;color:#111} .ar-m-imp b.alto{background:#DC2626}
+  .ar-m-nota{font-size:12px;opacity:.8;margin-top:8px}
+  .ar-video{display:block;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;overflow:hidden;color:var(--fb-text);text-decoration:none}
+  .ar-mini{position:relative;display:block} .ar-mini img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+  .ar-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:#B91C1C}
+  .ar-play:before{content:"";position:absolute;left:23px;top:17px;border-left:18px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
+  .ar-vtit{display:block;padding:10px 12px;font:600 14px var(--f-testo)}
+  .ar-nw{white-space:nowrap}
+  .ar-crediti{font-size:12px;color:var(--fb-muted);margin-top:16px}
+  @media (max-width:899px){.ar-pc{display:none}}
+  @media (min-width:900px){
+    .ar{display:grid;grid-template-columns:minmax(0,1fr) 340px;column-gap:44px;align-items:start}
+    .ar-torna{grid-column:1/-1;justify-self:start}
+    .ar-cop{grid-column:1/-1;aspect-ratio:auto;height:300px}
+    .ar-titolo,.ar-testo{grid-column:1} .ar-testo p{font-size:19px}
+    .ar-lato{grid-column:2;grid-row:3/span 2;position:sticky;top:20px;margin-top:18px}
+    .ar-lato>div:first-child{margin-top:0}
+  }
 </style>
 <link rel="icon" href="icona.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -569,6 +633,7 @@
     <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
     <button id="n-sta" onclick="vai('statistiche')" style="display:none">STATISTICHE</button>
+    <button id="n-art" onclick="ART_APERTO=null;vai('articoli')" style="display:none">ARTICOLI</button>
     <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata">MATCHUP</button>
     <button id="n-esci" onclick="esci()" style="display:none" title="Togli l'accesso privato da questo dispositivo">ESCI</button>
   </nav>
@@ -657,6 +722,7 @@ function esci(){
 if (!CHIAVE) for (let i = LEGHE.length - 1; i >= 0; i--) if (LEGHE[i].privato) LEGHE.splice(i, 1);
 // chiave aggiunta a mano all'indirizzo della pagina già aperta: il browser non ricarica, lo facciamo noi
 addEventListener("hashchange", () => { if (/(?:^#|&)k=/.test(location.hash)) location.reload(); });
+let ART_DAL_LINK = (location.hash.match(/^#articolo=([A-Za-z0-9_]+)$/)||[])[1] || null;
 /* Avviso discreto se il collegamento privato non funziona (si vede solo a chi ha messo #k= nell'indirizzo) */
 function avvisoChiave(testo){
   const d = document.createElement("div");
@@ -995,12 +1061,14 @@ function render(){
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
   const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
         conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
-  [["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
+  [["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
   if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)||(vista==="prossima"&&!conPro)) vista = soloFootball ? "squadre" : "arbitri";
   if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista="squadre";
+  if(!soloFootball && vista==="articoli") vista="arbitri";
+  if(ART_DAL_LINK && soloFootball){ vista="articoli"; ART_APERTO=ART_DAL_LINK; ART_DAL_LINK=null; }
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
     const b=document.getElementById("lg-"+l.id);
@@ -1014,13 +1082,15 @@ function render(){
   document.getElementById("n-ind").className = vista==="indici"?"on":"";
   document.getElementById("n-pro").className = vista==="prossima"?"on":"";
   document.getElementById("n-sta").className = vista==="statistiche"?"on":"";
+  document.getElementById("n-art").className = vista==="articoli"?"on":"";
 
   const app=document.getElementById("app"); app.className="";
   if(soloArbitri()){
     app.innerHTML = arbitroAleague ? vSchedaAleague() : vArbitriAleague();
   }
   else if(eFootball()){
-    app.innerHTML = vista==="giornata" ? vFootballGiornata()
+    app.innerHTML = vista==="articoli" ? vArticoli()
+                  : vista==="giornata" ? vFootballGiornata()
                   : vista==="statistiche" ? vStatistiche()
                   : vista==="indici" ? vFootballIndici()
                   : vista==="prossima" ? vFootballProssima()
@@ -1783,6 +1853,7 @@ function schedaRisultato(g){
       ? `<span class="fb-chip">Totale ${numIt(g.totaleLinea)} · ${g.totaleEsito.toUpperCase()} (${g.pc+g.po})</span>`
       : `<span class="fb-chip">Totale ${numIt(g.totaleLinea)}</span>`;
   }
+  chips += linkArticolo(g);
   // video ufficiale trovato: anteprima che diventa il lettore al tocco (si carica solo se lo si guarda)
   const vid = g.video && /^[A-Za-z0-9_-]{6,20}$/.test(g.video.id||"") ? g.video.id : "";
   if(vid){
@@ -2076,6 +2147,109 @@ function stFmt(v, col){
   return col[0]==="epa" && v>0 ? "+"+s : s;
 }
 
+
+/* ===================== ARTICOLI (dal 19/11/2026): anteprime e cronache scritte da Claude su fatti verificati ===================== */
+let ART=null, ART_APERTO=null;
+const ART_CACHE={};
+function caricaArticoli(){
+  if(ART!==null) return;
+  ART=[];
+  scaricaDati("articoli/indice.json").then(x=>{ ART=Array.isArray(x)?x:[]; render(); }).catch(()=>{});
+}
+function articoloDi(g){
+  if(!ART) { caricaArticoli(); return null; }
+  const giocata = g.pc!==null && g.pc!==undefined;
+  const tutti = ART.filter(a=>a.lega===legaAttiva && a.ospite===g.ospite && a.casa===g.casa);
+  return tutti.find(a=>a.tipo===(giocata?"cronaca":"anteprima")) || tutti[0] || null;
+}
+function linkArticolo(g){
+  const a=articoloDi(g);
+  return a ? `<a class="fb-chip ar-chip" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false">📰 ${a.tipo==="cronaca"?"Leggi la cronaca":"Leggi l'anteprima"}</a>` : "";
+}
+function apriArticolo(id){
+  ART_APERTO=id; vista="articoli"; arbitroAperto=null;
+  try{ history.replaceState(null,"","#articolo="+id); }catch(e){}
+  window.scrollTo(0,0); render();
+}
+function chiudiArticolo(){
+  ART_APERTO=null;
+  try{ history.replaceState(null,"",location.pathname); }catch(e){}
+  window.scrollTo(0,0); render();
+}
+function dataLungaIt(iso){ return iso ? giornoIt(iso) : ""; }
+function vArticoli(){
+  caricaArticoli();
+  if(ART_APERTO) return vArticolo(ART_APERTO);
+  const lista=(ART||[]).filter(a=>a.lega===legaAttiva);
+  return `<h1 class="fb-h1">Articoli</h1>
+  <p class="fb-lead">Anteprime e cronache delle partite più importanti della settimana.</p>
+  ${lista.length?`<div class="ar-elenco">${lista.map(a=>`
+    <a class="ar-voce" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false">
+      <span class="ar-loghi">${stemma(a.ospite,true)}${stemma(a.casa,true)}</span>
+      <span class="ar-testo"><span class="ar-tag ${esc(a.tipo)}">${a.tipo==="cronaca"?"Cronaca":"Anteprima"}</span>
+      <b>${esc(a.titolo)}</b><small>${esc(breve(a.ospite))}–${esc(breve(a.casa))} · Week ${esc(a.settimana)} · ${esc(dataLungaIt(a.dataIt))}</small></span>
+    </a>`).join("")}</div>`:`<p class="fb-lead">${ART===null||!ART.length?"Nessun articolo per ora: i primi arrivano con la prossima giornata.":""}</p>`}`;
+}
+function rgbaHex(h,a){ h=String(h||"#0B1428").replace("#",""); if(h.length!==6) h="0B1428";
+  return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},${a})`; }
+function schedaMeteo(a){
+  const m=a.meteo;
+  if(a.coperto) return `<div class="ar-meteo coperto"><div class="ar-m-tit">Meteo</div><div class="ar-m-big">Al coperto</div>
+    <div class="ar-m-nota">Stadio coperto: il tempo non entra in partita.${m&&m.tempC!=null?` Fuori: ${m.tempC}°, pioggia ${m.pioggia??"–"}%.`:""}</div></div>`;
+  if(!m) return `<div class="ar-meteo"><div class="ar-m-tit">Meteo</div><div class="ar-m-nota">Previsione disponibile nei 7 giorni prima della partita.</div></div>`;
+  const icona = (m.pioggia||0)>=50 ? "🌧️" : (m.tempC!=null&&m.tempC<=0) ? "❄️" : (m.raffKmh||0)>=35 ? "💨" : (m.pioggia||0)>=25 ? "⛅" : "☀️";
+  const liv = {alto:"ALTO",medio:"MEDIO",basso:"BASSO"}[m.impatto]||"–";
+  return `<div class="ar-meteo"><div class="ar-m-tit">Meteo all'inizio · ${esc(a.oraIt? (parseInt(a.oraIt)+":"+a.oraIt.slice(3)) : "")} italiane</div>
+    <div class="ar-m-riga"><span class="ar-m-ico">${icona}</span><span class="ar-m-temp">${m.tempC!=null?m.tempC+"°":"–"}</span></div>
+    <div class="ar-m-dati"><div><b>${m.pioggia!=null?m.pioggia+"%":"–"}</b><small>pioggia</small></div>
+      <div><b>${m.ventoKmh!=null?m.ventoKmh:"–"}<i>km/h</i></b><small>vento${m.raffKmh?" · raffiche "+m.raffKmh:""}</small></div></div>
+    <div class="ar-m-imp">Impatto possibile del meteo: <b class="${esc(m.impatto)}">${liv}</b></div>
+    <div class="ar-m-nota">Previsione ${esc(m.fonte||"")}, aggiornata ${esc((m.aggiornato||"").slice(11,16))} del ${esc(giornoIt((m.aggiornato||"").slice(0,10)))}.</div></div>`;
+}
+function vArticolo(id){
+  const a=ART_CACHE[id];
+  if(!a){
+    scaricaDati(`articoli/${id}.json`).then(x=>{ ART_CACHE[id]=x; render(); })
+      .catch(()=>{ ART_CACHE[id]={errore:true}; render(); });
+    return `<p class="fb-lead">Caricamento dell'articolo…</p>`;
+  }
+  if(a.errore) return `<p class="fb-lead">Articolo non trovato.</p><p><a class="ar-torna" href="#" onclick="chiudiArticolo();return false">← Tutti gli articoli</a></p>`;
+  const cronaca=a.tipo==="cronaca";
+  const sfondo=a.foto?`background-image:url(${esc(a.foto)})`:"";
+  const sfuma=`linear-gradient(90deg,${rgbaHex(a.colori&&a.colori.ospite,.86)} 0%,rgba(11,20,40,.45) 50%,${rgbaHex(a.colori&&a.colori.casa,.86)} 100%)`;
+  const d=new Date(a.dataIt+"T12:00:00");
+  const ora=a.oraIt?`${parseInt(a.oraIt)}:${a.oraIt.slice(3)}`:"";
+  const mezzo = cronaca && a.punti
+    ? `<div class="ar-punti"><span class="${a.punti.ospite<a.punti.casa?"perde":""}">${a.punti.ospite}</span><i>–</i><span class="${a.punti.casa<a.punti.ospite?"perde":""}">${a.punti.casa}</span></div>`
+    : `<div class="ar-ora"><b>${esc(ora)}</b><small>${esc(GIORNI_IT[d.getDay()].slice(0,3))} ${d.getDate()} ${esc(MESI_IT[d.getMonth()].slice(0,3))}<span class="ar-pc"> · ora italiana</span></small></div>`;
+  const parole=(a.paragrafi||[]).join(" ").split(/\s+/).length, minuti=Math.max(1,Math.round(parole/200));
+  const righe=(a.riquadro||[]).map(r=>`<div><b>${esc(r[0])}${r[1]?` <em>${esc(r[1])}</em>`:""}</b><span>${esc(r[2])}</span></div>`).join("");
+  const video = cronaca && a.video ? `<a class="ar-video" href="https://www.youtube.com/watch?v=${esc(a.video)}" target="_blank" rel="noopener">
+      <span class="ar-mini"><img src="https://i.ytimg.com/vi/${esc(a.video)}/hqdefault.jpg" alt="" loading="lazy"><span class="ar-play"></span></span>
+      <span class="ar-vtit">Guarda gli highlights ufficiali su YouTube</span></a>` : "";
+  return `<article class="ar">
+    <a class="ar-torna" href="#" onclick="chiudiArticolo();return false">← Tutti gli articoli</a>
+    <div class="ar-cop" style="${sfondo}"><div class="ar-sfuma" style="background:${sfuma}"></div><div class="ar-cop-in">
+      <div class="ar-cop-alto"><b>${cronaca?"Finale":"Anteprima"}</b><span>NFL · Week ${esc(a.settimana)}</span></div>
+      <div class="ar-cop-mezzo">
+        <div class="ar-sq">${stemma(a.ospite)}<span>${esc(breve(a.ospite))}</span>${!cronaca&&a.bilanci?`<small>${esc(a.bilanci.ospite)}</small>`:""}</div>
+        ${mezzo}
+        <div class="ar-sq">${stemma(a.casa)}<span>${esc(breve(a.casa))}</span>${!cronaca&&a.bilanci?`<small>${esc(a.bilanci.casa)}</small>`:""}</div>
+      </div>
+      <div class="ar-cop-basso"><span>${esc(a.stadio||"")}${a.campoNeutro?" · campo neutro":""}</span><small>${a.fotoCrediti?"Foto: "+esc(a.fotoCrediti):""}</small></div>
+    </div></div>
+    <div class="ar-titolo"><div class="ar-occhiello">${cronaca?"Cronaca":"Anteprima"} · ${esc(breve(a.ospite))}–${esc(breve(a.casa))}</div>
+      <h1>${esc(a.titolo)}</h1>
+      <div class="ar-firma">PureStats · ${esc(giornoIt((a.pubblicato||"").slice(0,10)))} · lettura ${minuti} minut${minuti===1?"o":"i"}</div></div>
+    <div class="ar-testo">${(a.paragrafi||[]).map(p=>`<p>${esc(p).replace(/(\d+)-(\d+)/g,'<span class="ar-nw">$1-$2</span>')}</p>`).join("")}</div>
+    <aside class="ar-lato">${cronaca?"":schedaMeteo(a)}
+      <div class="ar-numeri"><h2>${cronaca?"I numeri della partita":"Da seguire"}${cronaca?"":"<small>numeri della stagione</small>"}</h2>${righe}</div>
+      ${video}
+      <div class="ar-crediti">Articolo scritto con l'aiuto di Claude (Anthropic) su dati nflverse (CC-BY 4.0), verificati prima della pubblicazione.${a.fotoCrediti?" Foto dello stadio: Wikimedia Commons.":""}</div>
+    </aside>
+  </article>`;
+}
+
 function vStatistiche(){
   if(ST.lega!==legaAttiva){ Object.assign(ST,{lega:legaAttiva, stagione:null, squadra:"", scheda:null, ord:null, cerca:"", mostra:50, periodo:"tutta"}); }
   setTimeout(stDisegna, 0);
@@ -2232,6 +2406,7 @@ function vFootballProssima(){
       <div class="fb-duel-head">${stemma(d.ospite)}<span class="t">${esc(breve(d.ospite))} @ ${esc(breve(d.casa))}</span>${stemma(d.casa)}</div>
       <p class="fb-duel-when">${esc(giornoIt(d.dataIt||d.data))}${(d.oraIt||d.ora)?" · "+esc(d.oraIt||d.ora):" · orario da definire"}${
           d.favorita?" · favorita "+esc(d.favorita)+" di "+numIt(d.linea):""}${d.totaleLinea!=null?" · totale "+numIt(d.totaleLinea):""}</p>
+      ${linkArticolo(d)?`<div class="fb-chips">${linkArticolo(d)}</div>`:""}
       <div class="fb-vs">
         <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.ospite))}${difesa(d.difesaOspite)}</h3>${(d.giocatoriOspite||[]).map(rigaGiocatore).join("")}</div>
         <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.casa))}${difesa(d.difesaCasa)}</h3>${(d.giocatoriCasa||[]).map(rigaGiocatore).join("")}</div>

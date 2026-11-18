@@ -1,0 +1,335 @@
+{
+ "id": "2026_11_IND_HOU",
+ "lega": "nfl",
+ "stagione": 2026,
+ "settimana": 11,
+ "partita": "Indianapolis Colts @ Houston Texans",
+ "ospite": "IND",
+ "casa": "HOU",
+ "quando": "nella notte tra giovedì e venerdì 20 novembre, alle 2:15 italiane",
+ "dataIt": "2026-11-20",
+ "oraIt": "02:15",
+ "inizioUtc": "2026-11-20T01:15+00:00",
+ "stadio": "NRG Stadium",
+ "campoNeutro": false,
+ "coperto": true,
+ "sfidaDiDivision": true,
+ "mercato": {
+  "favorita": "Houston Texans",
+  "vantaggio": 12.5,
+  "totale": 44.5,
+  "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"
+ },
+ "precedenti": [
+  {
+   "stagione": 2025,
+   "casa": "Indianapolis Colts",
+   "ospite": "Houston Texans",
+   "risultato": "Indianapolis Colts 16 - Houston Texans 20"
+  },
+  {
+   "stagione": 2025,
+   "casa": "Houston Texans",
+   "ospite": "Indianapolis Colts",
+   "risultato": "Houston Texans 38 - Indianapolis Colts 30"
+  },
+  {
+   "stagione": 2026,
+   "casa": "Indianapolis Colts",
+   "ospite": "Houston Texans",
+   "risultato": "Indianapolis Colts 19 - Houston Texans 17"
+  }
+ ],
+ "ospiti": {
+  "squadra": "Indianapolis Colts",
+  "soprannome": "Colts",
+  "bilancio": "3-7",
+  "serieAperta": "",
+  "ultimePartite": [
+   {
+    "settimana": 7,
+    "avversario": "Minnesota Vikings",
+    "inCasa": false,
+    "esito": "sconfitta",
+    "punteggio": "10-16"
+   },
+   {
+    "settimana": 8,
+    "avversario": "Jacksonville Jaguars",
+    "inCasa": false,
+    "esito": "sconfitta",
+    "punteggio": "7-42"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Dallas Cowboys",
+    "inCasa": true,
+    "esito": "sconfitta",
+    "punteggio": "23-27"
+   },
+   {
+    "settimana": 10,
+    "avversario": "Miami Dolphins",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "24-22"
+   }
+  ],
+  "andamento": {
+   "prime": "2-3",
+   "ultime": "1-4"
+  },
+  "puntiFattiPartita": 20.8,
+  "puntiSubitiPartita": 27.1,
+  "attacco": "un attacco nella media",
+  "difesa": "una delle difese più battute",
+  "division": {
+   "nome": "AFC South",
+   "posizione": "3ª su 4",
+   "capolista": "Jacksonville Jaguars"
+  },
+  "stagioneScorsa": {
+   "bilancio": "8-9",
+   "playoff": "fuori dai playoff"
+  },
+  "allenatore": {
+   "nome": "Shane Steichen",
+   "stagione": 4,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Daniel Jones",
+    "partiteDaTitolare": 10,
+    "bilancio": "3-7"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Daniel Jones",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "1.830 yard su lancio, 7 TD, 12 intercetti in 10 partite",
+    "posizioneNellaLega": 19,
+    "eta": 29,
+    "rispettoAllAnnoScorso": "in netto calo"
+   },
+   {
+    "nome": "Jonathan Taylor",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "739 yard di corsa, 8 TD",
+    "posizioneNellaLega": 6,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "in netto calo"
+   },
+   {
+    "nome": "Josh Downs",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "354 yard ricevute, 33 ricezioni, 1 TD",
+    "posizioneNellaLega": 46,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Keenan Allen",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "351 yard ricevute, 40 ricezioni, 1 TD",
+    "posizioneNellaLega": 44,
+    "eta": 34,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "DeForest Buckner",
+    "ruolo": "miglior pass rusher",
+    "posizione": "DT",
+    "stagione": "4 sack",
+    "posizioneNellaLega": 37,
+    "eta": 32,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   }
+  ],
+  "rapportoInfortuni": []
+ },
+ "padroniDiCasa": {
+  "squadra": "Houston Texans",
+  "soprannome": "Texans",
+  "bilancio": "3-6",
+  "serieAperta": "",
+  "ultimePartite": [
+   {
+    "settimana": 6,
+    "avversario": "Jacksonville Jaguars",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "34-31"
+   },
+   {
+    "settimana": 7,
+    "avversario": "New York Giants",
+    "inCasa": true,
+    "esito": "sconfitta",
+    "punteggio": "21-27"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Los Angeles Chargers",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "44-22"
+   },
+   {
+    "settimana": 10,
+    "avversario": "Cleveland Browns",
+    "inCasa": false,
+    "esito": "sconfitta",
+    "punteggio": "24-27"
+   }
+  ],
+  "andamento": {
+   "prime": "0-4",
+   "ultime": "3-2"
+  },
+  "puntiFattiPartita": 25.9,
+  "puntiSubitiPartita": 24.3,
+  "attacco": "un attacco di buon livello",
+  "difesa": "una difesa nella media",
+  "division": {
+   "nome": "AFC South",
+   "posizione": "2ª su 4",
+   "capolista": "Jacksonville Jaguars"
+  },
+  "stagioneScorsa": {
+   "bilancio": "12-5",
+   "playoff": "eliminati nel turno di division"
+  },
+  "allenatore": {
+   "nome": "DeMeco Ryans",
+   "stagione": 4,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "C.J. Stroud",
+    "partiteDaTitolare": 9,
+    "bilancio": "3-6"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "C.J. Stroud",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "2.462 yard su lancio, 19 TD, 3 intercetti in 9 partite",
+    "posizioneNellaLega": 6,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   },
+   {
+    "nome": "Woody Marks",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "391 yard di corsa, 2 TD",
+    "posizioneNellaLega": 26,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Did Not Participate In Practice",
+     "infortunio": "Concussion"
+    }
+   },
+   {
+    "nome": "Nico Collins",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "478 yard ricevute, 37 ricezioni, 5 TD",
+    "posizioneNellaLega": 31,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Dalton Schultz",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "TE",
+    "stagione": "375 yard ricevute, 36 ricezioni, 1 TD",
+    "posizioneNellaLega": 54,
+    "eta": 30,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Will Anderson Jr.",
+    "ruolo": "miglior pass rusher",
+    "posizione": "DE",
+    "stagione": "10,5 sack",
+    "posizioneNellaLega": 1,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Danielle Hunter",
+    "ruolo": "DE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Hamstring",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Azeez Al-Shaair",
+    "ruolo": "LB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Groin",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "David Montgomery",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Groin",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Reed Blankenship",
+    "ruolo": "S",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Hand",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Tank Dell",
+    "ruolo": "WR",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Hand",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Kamari Lassiter",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Wrist",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Woody Marks",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Concussion",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "colori": {
+  "ospite": "#002C5F",
+  "casa": "#03202F"
+ }
+}

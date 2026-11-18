@@ -221,6 +221,19 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Fonti: NFL nflverse (CC-BY 4.0, va citato), College tabellini ESPN. Le pressioni PFR non si ripubblicano: tolte
   anche dai leader della Giornata, restano solo per Charlie (cifrato).
 
+## Articoli (dal 19/11/2026, scelta di Valerio)
+
+- Anteprime e cronache delle 3 partite NFL e 3 college più importanti della settimana (playoff o cartello), scritte
+  da Claude (attività programmate dell'abbonamento: nessuna API a pagamento; GitHub Models è chiuso, Gemini gratis
+  vietato agli utenti UE, Mistral gratis senza chiavi API, Groq gratuito scrive un italiano non all'altezza).
+- Metodo: `scripts/articoli.py fatti <game_id>` prepara i fatti verificati (nflverse) in `data/articoli/`; Claude scrive
+  dalla guida `scripts/ARTICOLI_GUIDA.md`; `pubblica` rifiuta numeri e nomi che non sono nei fatti e scrive
+  `docs/articoli/<id>.json` + `indice.json`. Il workflow `articoli-meteo.yml` aggiorna la scheda meteo (NWS/Open-Meteo,
+  regola d'impatto generica e pubblica, non le misure di Charlie). Foto degli stadi in `docs/articoli/stadi/` (Wikimedia,
+  crediti in `crediti.json`).
+- Sito: menu ARTICOLI, articolo con impaginazione B (testo a sinistra, colonna con meteo e numeri), collegamento
+  «Leggi l'anteprima/la cronaca» dalle schede partita, indirizzo diretto `#articolo=<id>`.
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate
