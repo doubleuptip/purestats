@@ -210,6 +210,17 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Riserve fisse alle 07:00 e 07:30 italiane (06:00/06:30 UTC) dopo le notti di gioco. Orari scritti per l'ora solare:
   con l'ora legale vanno anticipati di un'ora.
 
+## Statistiche pubbliche (dal 18/11/2026)
+
+- Vista «STATISTICHE» nella pagina principale (NFL e College): giocatori o squadre (fatte/concesse), stagione, periodo
+  (tutta, ultime 3/5 week, una week), squadra, totali o a partita, ricerca, 7 categorie, tabella ordinabile con la
+  colonna del nome ferma, scheda del giocatore (numeri con posizione nella lega, grafico, partite). Dati a richiesta:
+  `docs/stats/<lega>_<stagione>_<categoria>.json` + `indice_<lega>.json`, preparati da `scripts/statistiche.py`
+  (una riga per giocatore e partita; squadre come numeri; somme e derivati nel browser, `ST_COL`). Stagione in corso
+  a ogni giro dei workflow NFL e College; storico 2019-2025 fatto una volta. Solo stagione regolare.
+- Fonti: NFL nflverse (CC-BY 4.0, va citato), College tabellini ESPN. Le pressioni PFR non si ripubblicano: tolte
+  anche dai leader della Giornata, restano solo per Charlie (cifrato).
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate

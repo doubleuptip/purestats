@@ -475,6 +475,61 @@
   /* sigla al posto del logo: sempre piccola e dentro il cerchio, qualunque sia il carattere della riga */
   body.fb .fb-badge{font:800 11px/1 var(--f-testo)!important;letter-spacing:0!important;overflow:hidden;white-space:nowrap;text-transform:none}
   body.fb .fb-badge.s{font-size:9px!important}
+  /* Statistiche (18/11/2026) */
+  .st-box{border:1px solid var(--fb-border);border-radius:12px;background:var(--fb-card);margin:4px 0 14px}
+  .st-box>summary{cursor:pointer;padding:12px 14px;font:700 15px var(--f-testo);color:var(--fb-text);list-style:none}
+  .st-box>summary::-webkit-details-marker{display:none}
+  .st-box>summary span{font-weight:400;color:var(--fb-muted);margin-left:8px;font-size:14px}
+  .st-box>summary:after{content:"▾";float:right;color:var(--fb-muted)} .st-box[open]>summary:after{content:"▴"}
+  .st-filtri{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:0 14px 14px}
+  .st-filtri select,.st-filtri input{font:15px var(--f-testo);padding:9px 10px;border:1px solid var(--fb-border);border-radius:8px;background:var(--fb-bg);color:var(--fb-text);min-height:42px}
+  .st-filtri input{flex:1 1 220px}
+  .st-seg{display:inline-flex;border:1px solid var(--fb-border);border-radius:8px;overflow:hidden}
+  .st-seg button{font:600 14px var(--f-testo);padding:9px 14px;border:0;background:var(--fb-bg);color:var(--fb-muted);cursor:pointer;min-height:42px}
+  .st-seg button.on{background:var(--fb-acc);color:var(--fb-acc-text)}
+  .st-cat{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 12px;padding-bottom:2px}
+  .st-cat::-webkit-scrollbar{display:none}
+  .st-cat button{flex:none;font:600 14px var(--f-testo);padding:8px 14px;border-radius:20px;border:1px solid var(--fb-border);background:transparent;color:var(--fb-text);cursor:pointer}
+  .st-cat button.on{background:var(--fb-text);color:var(--fb-bg);border-color:var(--fb-text)}
+  .st-nota{font-size:13px;color:var(--fb-muted);margin:0 0 8px}
+  .st-mini{font:inherit;color:var(--fb-acc);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+  .st-tab{overflow-x:auto;border:1px solid var(--fb-border);border-radius:12px;background:var(--fb-card)}
+  .st-tab table{border-collapse:separate;border-spacing:0;width:100%;font:14px var(--f-testo);font-variant-numeric:tabular-nums}
+  .st-tab th{background:var(--fb-chip);color:var(--fb-muted);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:10px;text-align:right;white-space:nowrap;cursor:pointer;user-select:none}
+  .st-tab th.on{color:var(--fb-acc)}
+  .st-tab td{padding:9px 10px;border-top:1px solid var(--fb-border);text-align:right;white-space:nowrap;color:var(--fb-text)}
+  .st-tab td.st-sel{font-weight:700}
+  .st-tab tr:hover td{background:var(--fb-chip)}
+  .st-tab .st-pos{color:var(--fb-muted);width:28px}
+  .st-tab td.st-nome,.st-tab th.st-nome{text-align:left;position:sticky;left:0;z-index:1;background:var(--fb-card)}
+  .st-tab th.st-nome{background:var(--fb-chip)}
+  .st-tab tr:hover td.st-nome{background:var(--fb-chip)}
+  .st-nome{display:flex;align-items:center;gap:8px;min-width:150px}
+  .st-nome>span,.st-link{display:flex;flex-direction:column;line-height:1.2;text-align:left}
+  .st-link{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+  .st-link b{text-decoration:underline;text-decoration-color:var(--fb-border);text-underline-offset:3px}
+  .st-nome small{color:var(--fb-muted);font-size:12px}
+  .st-top{color:var(--fb-acc)!important;font-weight:800}
+  .st-altri{display:block;margin:12px auto 0;font:600 14px var(--f-testo);padding:10px 18px;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-card);color:var(--fb-text);cursor:pointer}
+  .st-testata{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .st-testata .fb-logo,.st-testata .fb-badge{width:56px;height:56px}
+  .st-testata h1{margin:0;font:800 34px var(--f-tit);color:var(--fb-text)}
+  .st-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+  .st-kpi div{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:12px}
+  .st-kpi b{display:block;font:800 26px var(--f-tit);color:var(--fb-text)} .st-kpi span{display:block;font-size:13px;color:var(--fb-muted)}
+  .st-kpi em{font-style:normal;font-size:12px;color:var(--fb-acc)}
+  .st-scheda{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px;align-items:start}
+  .st-grafico{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:14px}
+  .st-grafico>b{font:800 16px var(--f-tit);color:var(--fb-text)}
+  .st-barre{display:flex;align-items:flex-end;gap:4px;height:150px;margin-top:10px}
+  .st-bar{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;min-width:0}
+  .st-bar i{display:block;width:100%;background:var(--fb-acc);border-radius:3px 3px 0 0;min-height:2px}
+  .st-bar span{font-size:10px;color:var(--fb-muted);margin-top:3px}
+  @media (max-width:760px){ .st-scheda{grid-template-columns:minmax(0,1fr)} .st-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .st-testata h1{font-size:26px} .st-filtri select,.st-seg{flex:1 1 45%} .st-seg button{flex:1}
+    .st-tab td,.st-tab th{padding:8px 6px} .st-tab .st-pos{width:18px}
+    .st-nome{min-width:0;max-width:44vw;gap:6px} .st-nome b{font-size:14px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:36vw}
+    .st-nome small{font-size:11px} }
   /* tasto per tornare in cima (stesso della pagina Matchup) */
   .su-in-cima{position:fixed;right:16px;bottom:20px;width:48px;height:48px;border-radius:50%;display:flex;
     align-items:center;justify-content:center;background:var(--fb-acc);color:var(--fb-acc-text);border:0;font-size:22px;
@@ -513,6 +568,7 @@
     <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
     <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
+    <button id="n-sta" onclick="vai('statistiche')" style="display:none">STATISTICHE</button>
     <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata">MATCHUP</button>
     <button id="n-esci" onclick="esci()" style="display:none" title="Togli l'accesso privato da questo dispositivo">ESCI</button>
   </nav>
@@ -939,7 +995,7 @@ function render(){
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
   const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
         conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
-  [["n-gio",conGio],["n-ind",conInd],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
+  [["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
@@ -957,6 +1013,7 @@ function render(){
   document.getElementById("n-gio").className = vista==="giornata"?"on":"";
   document.getElementById("n-ind").className = vista==="indici"?"on":"";
   document.getElementById("n-pro").className = vista==="prossima"?"on":"";
+  document.getElementById("n-sta").className = vista==="statistiche"?"on":"";
 
   const app=document.getElementById("app"); app.className="";
   if(soloArbitri()){
@@ -964,6 +1021,7 @@ function render(){
   }
   else if(eFootball()){
     app.innerHTML = vista==="giornata" ? vFootballGiornata()
+                  : vista==="statistiche" ? vStatistiche()
                   : vista==="indici" ? vFootballIndici()
                   : vista==="prossima" ? vFootballProssima()
                   : vista==="partite" ? vFootballPartite()
@@ -1893,6 +1951,250 @@ function sezioniGiornata(G){
   return `<div class="sottomenu gio-schede" role="tablist">${schede.map(([k,t])=>
       `<button role="tab" aria-selected="${k===att[0]}" class="${k===att[0]?"on":""}" onclick="scegliSchedaGiornata('${k}')">${t}</button>`).join("")}</div>
     <div class="gio-pannello">${att[2]}</div>`;
+}
+
+/* ===================== STATISTICHE (18/11/2026) =====================
+   Giocatori e squadre, NFL e College, per stagione e periodo. Dati in docs/stats/<lega>_<stagione>_<categoria>.json
+   (scripts/statistiche.py), scaricati solo quando servono e tenuti in memoria. Una riga per giocatore e partita:
+   qui si sommano per periodo e si calcolano i valori derivati. Squadre = somma dei giocatori (fatte) o degli
+   avversari (concesse). */
+const ST = {modo:"giocatori", stagione:null, periodo:"tutta", squadra:"", misura:"tot", cat:"passaggi",
+            ord:null, giu:true, cerca:"", lato:"fatte", scheda:null, mostra:50, soloQual:true, lega:null};
+const ST_CACHE = {};
+const ST_INDICE = {};
+const stNorm = s => String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const stDiv = (a,b) => b ? a/b : null;
+function stRating(a){                                      // rating NFL dei passatori
+  if(!a.attempts) return null;
+  const c=x=>Math.max(0,Math.min(2.375,x)), t=a.attempts;
+  return (c((a.completions/t-.3)*5)+c((a.passing_yards/t-3)*.25)+c(a.passing_tds/t*20)+c(2.375-a.passing_interceptions/t*25))/6*100;
+}
+const stEff = a => a.att ? (8.4*a.yds+330*a.td+100*a.cmp-200*a.int)/a.att : null;   // efficienza NCAA
+/* colonne per campionato e categoria: k chiave, t titolo, f valore (a = somme, g = partite), d decimali,
+   q qualificazione (solo giocatori), o ordinamento di partenza, x = non si divide per partita */
+const ST_COL = {
+ nfl:{
+  passaggi:{q:[a=>a.attempts>=14*a.g,"almeno 14 passaggi a partita"],o:"yds",c:[
+    ["cmp","Comp",a=>a.completions],["att","Tent",a=>a.attempts],["pct","%",a=>stDiv(a.completions,a.attempts)*100,1,1],
+    ["yds","Yard",a=>a.passing_yards],["ypa","Y/T",a=>stDiv(a.passing_yards,a.attempts),1,1],["td","TD",a=>a.passing_tds],
+    ["int","INT",a=>a.passing_interceptions],["sk","Sack",a=>a.sacks_suffered],["rat","Rating",stRating,1,1],
+    ["epa","EPA/drop",a=>stDiv(a.passing_epa,a.attempts+a.sacks_suffered),2,1]]},
+  corse:{q:[a=>a.carries>=6.25*a.g,"almeno 6,25 corse a partita"],o:"yds",c:[
+    ["car","Corse",a=>a.carries],["yds","Yard",a=>a.rushing_yards],["ypc","Y/C",a=>stDiv(a.rushing_yards,a.carries),1,1],
+    ["td","TD",a=>a.rushing_tds],["fd","1° down",a=>a.rushing_first_downs],["fl","Fumble persi",a=>a.rushing_fumbles_lost],
+    ["epa","EPA/corsa",a=>stDiv(a.rushing_epa,a.carries),2,1]]},
+  ricezioni:{q:[a=>a.receptions>=1.875*a.g,"almeno 1,875 ricezioni a partita"],o:"yds",c:[
+    ["tgt","Target",a=>a.targets],["rec","Ric",a=>a.receptions],["pct","% presa",a=>stDiv(a.receptions,a.targets)*100,1,1],
+    ["yds","Yard",a=>a.receiving_yards],["ypr","Y/R",a=>stDiv(a.receiving_yards,a.receptions),1,1],
+    ["ypt","Y/target",a=>stDiv(a.receiving_yards,a.targets),1,1],["td","TD",a=>a.receiving_tds],
+    ["yac","YAC",a=>a.receiving_yards_after_catch],["fd","1° down",a=>a.receiving_first_downs],
+    ["epa","EPA/target",a=>stDiv(a.receiving_epa,a.targets),2,1]]},
+  difesa:{o:"sk",c:[
+    ["tk","Placcaggi",a=>a.def_tackles_solo+a.def_tackle_assists],["solo","Da solo",a=>a.def_tackles_solo],
+    ["tfl","Con perdita",a=>a.def_tackles_for_loss],["sk","Sack",a=>a.def_sacks,1],["qbh","Colpi QB",a=>a.def_qb_hits],
+    ["int","INT",a=>a.def_interceptions],["pd","Deviati",a=>a.def_pass_defended],["ff","Fumble forzati",a=>a.def_fumbles_forced],
+    ["td","TD",a=>a.def_tds]]},
+  calci:{q:[a=>a.fg_att>=a.g,"almeno un field goal tentato a partita"],o:"fgm",c:[
+    ["fgm","FG",a=>a.fg_made],["fga","Tent",a=>a.fg_att],["pct","%",a=>stDiv(a.fg_made,a.fg_att)*100,1,1],
+    ["lng","Lungo",a=>a.fg_long,0,1],["xpm","PAT",a=>a.pat_made],["xpa","PAT tent",a=>a.pat_att]]},
+  punt:{q:[a=>a.pt_att>=2*a.g,"almeno 2 punt a partita"],o:"avg",c:[
+    ["n","Punt",a=>a.pt_att],["yds","Yard",a=>a.pt_yards],["avg","Media",a=>stDiv(a.pt_yards,a.pt_att),1,1],
+    ["net","Netta",a=>stDiv(a.pt_net_yards,a.pt_att),1,1],["i20","Dentro i 20",a=>a.pt_inside_20],
+    ["tb","Touchback",a=>a.pt_touchback],["lng","Lungo",a=>a.pt_long,0,1]]},
+  ritorni:{o:"kry",c:[
+    ["pr","Rit. punt",a=>a.punt_returns],["pry","Yard punt",a=>a.punt_return_yards],["pra","Media punt",a=>stDiv(a.punt_return_yards,a.punt_returns),1,1],
+    ["kr","Rit. kickoff",a=>a.kickoff_returns],["kry","Yard kickoff",a=>a.kickoff_return_yards],["kra","Media kickoff",a=>stDiv(a.kickoff_return_yards,a.kickoff_returns),1,1],
+    ["td","TD",a=>a.special_teams_tds]]}},
+ college:{
+  passaggi:{q:[a=>a.att>=15*a.g,"almeno 15 passaggi a partita"],o:"yds",c:[
+    ["cmp","Comp",a=>a.cmp],["att","Tent",a=>a.att],["pct","%",a=>stDiv(a.cmp,a.att)*100,1,1],["yds","Yard",a=>a.yds],
+    ["ypa","Y/T",a=>stDiv(a.yds,a.att),1,1],["td","TD",a=>a.td],["int","INT",a=>a.int],["eff","Efficienza",stEff,1,1]]},
+  corse:{q:[a=>a.car>=6*a.g,"almeno 6 corse a partita"],o:"yds",c:[
+    ["car","Corse",a=>a.car],["yds","Yard",a=>a.yds],["ypc","Y/C",a=>stDiv(a.yds,a.car),1,1],["td","TD",a=>a.td],
+    ["lng","Lungo",a=>a.lungo,0,1]]},
+  ricezioni:{q:[a=>a.rec>=2*a.g,"almeno 2 ricezioni a partita"],o:"yds",c:[
+    ["rec","Ric",a=>a.rec],["yds","Yard",a=>a.yds],["ypr","Y/R",a=>stDiv(a.yds,a.rec),1,1],["td","TD",a=>a.td],
+    ["lng","Lungo",a=>a.lungo,0,1]]},
+  difesa:{o:"sk",c:[
+    ["tk","Placcaggi",a=>a.tot],["solo","Da solo",a=>a.solo],["tfl","Con perdita",a=>a.tfl,1],["sk","Sack",a=>a.sack,1],
+    ["hur","Pressioni",a=>a.hur],["int","INT",a=>a.int],["iy","Yard INT",a=>a.intyds],["pd","Deviati",a=>a.pd],["td","TD",a=>a.td]]},
+  calci:{q:[a=>a.fga>=a.g,"almeno un field goal tentato a partita"],o:"fgm",c:[
+    ["fgm","FG",a=>a.fgm],["fga","Tent",a=>a.fga],["pct","%",a=>stDiv(a.fgm,a.fga)*100,1,1],["lng","Lungo",a=>a.lungo,0,1],
+    ["xpm","PAT",a=>a.xpm],["xpa","PAT tent",a=>a.xpa],["pts","Punti",a=>a.pts]]},
+  punt:{q:[a=>a.n>=2*a.g,"almeno 2 punt a partita"],o:"avg",c:[
+    ["n","Punt",a=>a.n],["yds","Yard",a=>a.yds],["avg","Media",a=>stDiv(a.yds,a.n),1,1],["i20","Dentro i 20",a=>a.in20],
+    ["tb","Touchback",a=>a.tb],["lng","Lungo",a=>a.lungo,0,1]]},
+  ritorni:{o:"kry",c:[
+    ["pr","Rit. punt",a=>a.pr],["pry","Yard punt",a=>a.pry],["pra","Media punt",a=>stDiv(a.pry,a.pr),1,1],
+    ["kr","Rit. kickoff",a=>a.kr],["kry","Yard kickoff",a=>a.kry],["kra","Media kickoff",a=>stDiv(a.kry,a.kr),1,1],["td","TD",a=>a.td]]}}};
+const ST_NOMI = {passaggi:"Passaggi",corse:"Corse",ricezioni:"Ricezioni",difesa:"Difesa",calci:"Calci",punt:"Punt",ritorni:"Ritorni"};
+
+function stCarica(file){
+  if(!ST_CACHE[file]) ST_CACHE[file] = fetch("stats/"+file+"?t="+Math.floor(Date.now()/600000))
+    .then(r=>{ if(!r.ok) throw new Error(file); return r.json(); })
+    .catch(e=>{ delete ST_CACHE[file]; throw e; });
+  return ST_CACHE[file];
+}
+function stIndice(lega){
+  if(ST_INDICE[lega]) return Promise.resolve(ST_INDICE[lega]);
+  return fetch(`stats/indice_${lega}.json?t=`+Math.floor(Date.now()/600000)).then(r=>r.ok?r.json():null).then(d=>{ if(d) ST_INDICE[lega]=d; return d; });
+}
+function stSettimane(tutte){
+  if(ST.periodo==="tutta") return null;
+  if(ST.periodo.startsWith("u")) return new Set(tutte.slice(-Number(ST.periodo.slice(1))));
+  return new Set([Number(ST.periodo.slice(1))]);
+}
+/* somma le righe del periodo per giocatore o per squadra */
+function stAggrega(dati, tutte){
+  const w=stSettimane(tutte), basi=dati.basi, mx=new Set(dati.max||[]), gruppi=new Map();
+  for(const r of dati.righe){
+    if(w && !w.has(r[1])) continue;
+    const sq=r[2], avv=r[3];
+    let chiave;
+    if(ST.modo==="giocatori"){ if(ST.squadra && dati.squadre[sq]!==ST.squadra) continue; chiave=r[0]; }
+    else chiave = ST.lato==="fatte" ? sq : avv;
+    let a=gruppi.get(chiave);
+    if(!a){ a={id:chiave, settimane:new Set(), ultimaW:-1, sq:null}; basi.forEach(b=>a[b]=0); gruppi.set(chiave,a); }
+    basi.forEach((b,i)=>{ const v=r[4+i]; a[b] = mx.has(b) ? Math.max(a[b],v) : a[b]+v; });
+    a.settimane.add(r[1]+"|"+(ST.modo==="giocatori"?"":sq+"-"+avv));
+    if(r[1]>=a.ultimaW){ a.ultimaW=r[1]; a.sq=dati.squadre[sq]; }
+  }
+  const out=[...gruppi.values()];
+  out.forEach(a=>{ a.g = ST.modo==="giocatori" ? new Set([...a.settimane].map(x=>x.split("|")[0])).size : a.settimane.size;
+    if(ST.modo==="squadre") a.sq = dati.squadre[a.id]; });
+  return out;
+}
+function stValore(col, a){
+  const v=col[2](a);
+  if(v===null||v===undefined||!isFinite(v)) return null;
+  return (ST.misura==="pg" && !col[4] && a.g) ? v/a.g : v;
+}
+function stFmt(v, col){
+  if(v===null) return "—";
+  const dec = ST.misura==="pg" && !col[4] ? Math.max(col[3]||0,1) : (col[3]||0);
+  const s = v.toLocaleString("it-IT",{minimumFractionDigits:dec,maximumFractionDigits:dec,useGrouping:"always"});
+  return col[0]==="epa" && v>0 ? "+"+s : s;
+}
+
+function vStatistiche(){
+  if(ST.lega!==legaAttiva){ Object.assign(ST,{lega:legaAttiva, stagione:null, squadra:"", scheda:null, ord:null, cerca:"", mostra:50, periodo:"tutta"}); }
+  setTimeout(stDisegna, 0);
+  return `<div id="st-radice"><p class="fb-lead">Carico le statistiche…</p></div>`;
+}
+async function stDisegna(){
+  const radice=document.getElementById("st-radice"); if(!radice) return;
+  let ind;
+  try { ind = await stIndice(legaAttiva); } catch(e){ radice.innerHTML=`<p class="fb-lead">Statistiche non disponibili al momento.</p>`; return; }
+  if(!ind){ radice.innerHTML=`<p class="fb-lead">Statistiche non ancora pronte per questo campionato.</p>`; return; }
+  if(!ST.stagione) ST.stagione = ind.stagioni[0];
+  const tutte = ind.settimane[String(ST.stagione)]||[];
+  const file = `${legaAttiva}_${ST.stagione}_${ST.cat}.json`;
+  let dati;
+  try { dati = await stCarica(file); } catch(e){ radice.innerHTML = stFiltri(ind, tutte, null) + `<p class="fb-lead">Dati di questa stagione non disponibili.</p>`; return; }
+  if(!document.getElementById("st-radice")) return;          // nel frattempo si è cambiata pagina
+  radice.innerHTML = ST.scheda ? stScheda(dati, tutte) : stFiltri(ind, tutte, dati) + `<div id="st-corpo">${stTabella(dati, tutte)}</div>`;
+}
+function stAggiorna(campo, valore){
+  ST[campo]=valore;
+  if(campo!=="mostra") ST.mostra=50;
+  if(["cat","modo","lato"].includes(campo)) ST.ord=null;
+  if(campo==="cerca"){                                       // solo il corpo: chi scrive non perde il cursore
+    const c=document.getElementById("st-corpo");
+    const ind=ST_INDICE[legaAttiva], file=`${legaAttiva}_${ST.stagione}_${ST.cat}.json`;
+    if(c && ST_CACHE[file]) ST_CACHE[file].then(d=>{ c.innerHTML=stTabella(d, ind.settimane[String(ST.stagione)]||[]); });
+    return;
+  }
+  stDisegna();
+}
+function stFiltri(ind, tutte, dati){
+  const opz=(v,t,sel)=>`<option value="${esc(v)}"${String(v)===String(sel)?" selected":""}>${esc(t)}</option>`;
+  const seg=(campo,voci)=>`<div class="st-seg">${voci.map(([v,t])=>`<button class="${ST[campo]===v?"on":""}" onclick="stAggiorna('${campo}','${v}')">${t}</button>`).join("")}</div>`;
+  const periodi=[["tutta","Tutta la stagione"],["u3","Ultime 3 week"],["u5","Ultime 5 week"],...tutte.slice().reverse().map(w=>["w"+w,"Week "+w])];
+  const squadre = dati ? dati.squadre.filter(s => legaAttiva!=="college" || (D.loghi||{})[s]).sort((a,b)=>breve(a).localeCompare(breve(b))) : [];
+  const largo = window.matchMedia("(min-width:760px)").matches;
+  const riassunto = `${ST.modo==="giocatori"?"Giocatori":"Squadre"} · ${ST.stagione} · ${(periodi.find(p=>p[0]===ST.periodo)||[0,""])[1]}${ST.squadra?" · "+breve(ST.squadra):""} · ${ST.misura==="pg"?"a partita":"totali"}`;
+  return `<h1 class="fb-h1">Statistiche</h1>
+  <details class="st-box"${largo||ST.filtriAperti?" open":""} ontoggle="ST.filtriAperti=this.open"><summary>Filtri <span>${esc(riassunto)}</span></summary>
+  <div class="st-filtri">
+    ${seg("modo",[["giocatori","Giocatori"],["squadre","Squadre"]])}
+    <select aria-label="Stagione" onchange="stAggiorna('stagione',Number(this.value))">${ind.stagioni.map(s=>opz(s,"Stagione "+s,ST.stagione)).join("")}</select>
+    <select aria-label="Periodo" onchange="stAggiorna('periodo',this.value)">${periodi.map(([v,t])=>opz(v,t,ST.periodo)).join("")}</select>
+    ${ST.modo==="giocatori"
+      ? `<select aria-label="Squadra" onchange="stAggiorna('squadra',this.value)">${opz("","Tutte le squadre",ST.squadra)}${squadre.map(s=>opz(s,breve(s),ST.squadra)).join("")}</select>`
+      : seg("lato",[["fatte","Fatte"],["concesse","Concesse"]])}
+    ${seg("misura",[["tot","Totali"],["pg","A partita"]])}
+    ${ST.modo==="giocatori"?`<input type="search" placeholder="Cerca un giocatore…" value="${esc(ST.cerca)}" oninput="stAggiorna('cerca',this.value)">`:""}
+  </div></details>
+  <div class="st-cat">${Object.keys(ST_COL[legaAttiva]).map(c=>`<button class="${ST.cat===c?"on":""}" onclick="stAggiorna('cat','${c}')">${ST_NOMI[c]}</button>`).join("")}</div>`;
+}
+function stOrdinate(dati, tutte){
+  const spec=ST_COL[legaAttiva][ST.cat], ord=ST.ord||spec.o, col=spec.c.find(c=>c[0]===ord)||spec.c[0];
+  let righe=stAggrega(dati, tutte);
+  if(ST.modo==="squadre" && legaAttiva==="college") righe=righe.filter(a=>(D.loghi||{})[a.sq]);
+  const qual = ST.modo==="giocatori" && ST.soloQual && spec.q && !ST.cerca ? spec.q : null;
+  if(qual) righe=righe.filter(qual[0]);
+  righe.forEach(a=>a._v=stValore(col,a));
+  righe.sort((x,y)=>{ const a=x._v, b=y._v; if(a===null) return 1; if(b===null) return -1; return ST.giu?b-a:a-b; });
+  righe.forEach((a,i)=>a._pos=i+1);
+  return {righe, col, spec, qual};
+}
+function stTabella(dati, tutte){
+  const {righe:tutteRighe, col, spec, qual} = stOrdinate(dati, tutte);
+  let righe=tutteRighe;
+  if(ST.modo==="giocatori" && ST.cerca){ const q=stNorm(ST.cerca); righe=righe.filter(a=>stNorm((dati.giocatori[a.id]||[""])[0]).includes(q)); }
+  const visibili=righe.slice(0,ST.mostra), primo=righe[0]&&righe[0]._v;
+  const nome = a => ST.modo==="giocatori"
+    ? `<button class="st-link" onclick="stApri('${esc(a.id)}')"><b>${esc((dati.giocatori[a.id]||["?"])[0])}</b><small>${esc(breve(a.sq))}${(dati.giocatori[a.id]||[])[1]?" · "+esc(dati.giocatori[a.id][1]):""}</small></button>`
+    : `<span><b>${esc(breve(a.sq))}</b><small>${ST.lato==="fatte"?"fatte":"concesse agli avversari"}</small></span>`;
+  // sul telefono la colonna scelta viene subito dopo il nome, così si vede senza scorrere
+  const colonne = window.matchMedia("(max-width:760px)").matches ? [col, ...spec.c.filter(c=>c!==col)] : spec.c;
+  const testa = `<tr><th>#</th><th class="st-nome">${ST.modo==="giocatori"?"Giocatore":"Squadra"}</th><th>PG</th>${colonne.map(c=>
+    `<th class="${c[0]===col[0]?"on":""}" onclick="stOrdina('${c[0]}')" title="Ordina">${esc(c[1])}${c[0]===col[0]?(ST.giu?" ▼":" ▲"):""}</th>`).join("")}</tr>`;
+  const corpo = visibili.map(a=>`<tr><td class="st-pos">${a._pos}</td><td class="st-nome">${stemma(a.sq,true)}${nome(a)}</td><td>${a.g}</td>${colonne.map(c=>{
+      const v = c[0]===col[0] ? a._v : stValore(c,a);
+      return `<td class="${c[0]===col[0]&&v!==null&&v===primo&&a._pos===1?"st-top":""}${c[0]===col[0]?" st-sel":""}">${stFmt(v,c)}</td>`; }).join("")}</tr>`).join("");
+  const nota = [qual?`Qualificati: ${qual[1]} (<button class="st-mini" onclick="ST.soloQual=false;stAggiorna('mostra',50)">mostra tutti</button>)`:
+               (ST.modo==="giocatori"&&spec.q&&!ST.soloQual?`Tutti i giocatori (<button class="st-mini" onclick="ST.soloQual=true;stAggiorna('mostra',50)">solo qualificati</button>)`:""),
+               "tocca un'intestazione per ordinare", ST.modo==="giocatori"?"tocca un nome per la scheda":""].filter(Boolean).join(" · ");
+  return `<p class="st-nota">${nota}</p>
+  ${righe.length?`<div class="st-tab"><table><thead>${testa}</thead><tbody>${corpo}</tbody></table></div>`:`<p class="fb-lead">Nessun risultato con questi filtri.</p>`}
+  ${righe.length>ST.mostra?`<button class="st-altri" onclick="stAggiorna('mostra',${ST.mostra+50})">Mostra altri (${righe.length-ST.mostra})</button>`:""}
+  <p class="st-nota" style="margin-top:12px">${legaAttiva==="nfl"?"Dati: nflverse (CC-BY 4.0), stagione regolare":"Dati: tabellini ESPN, stagione regolare"}</p>`;
+}
+function stOrdina(k){ if(ST.ord===k || (!ST.ord && ST_COL[legaAttiva][ST.cat].o===k)) ST.giu=!ST.giu; else { ST.ord=k; ST.giu=true; } stDisegna(); }
+function stApri(id){ ST.scheda=id; window.scrollTo(0,0); stDisegna(); }
+function stChiudi(){ ST.scheda=null; stDisegna(); }
+
+/* Scheda del giocatore: numeri della stagione con la posizione nella lega, grafico e partite week per week */
+function stScheda(dati, tutte){
+  const spec=ST_COL[legaAttiva][ST.cat], g=dati.giocatori[ST.scheda]||["?",""];
+  const salva={...ST}; ST.modo="giocatori"; ST.squadra=""; ST.cerca=""; ST.misura="tot";
+  const tutti=stAggrega(dati, tutte), io=tutti.find(a=>a.id===ST.scheda);
+  const pool = spec.q ? tutti.filter(spec.q[0]) : tutti;
+  Object.assign(ST,{modo:salva.modo,squadra:salva.squadra,cerca:salva.cerca,misura:salva.misura});
+  if(!io) return `<button class="st-altri" onclick="stChiudi()">← Torna alla classifica</button><p class="fb-lead">Nessuna partita nel periodo scelto.</p>`;
+  const ST_KPI = {passaggi:["yds","td","rat","eff","epa","ypa"],corse:["yds","td","ypc","epa","lng"],ricezioni:["yds","rec","td","ypr"],
+    difesa:["tk","sk","int","ff","hur"],calci:["fgm","pct","lng","xpm"],punt:["avg","net","i20","lng"],ritorni:["kry","pry","td","kra"]};
+  const principali = ST_KPI[ST.cat].map(k=>spec.c.find(c=>c[0]===k)).filter(Boolean).slice(0,4);
+  const kpi = principali.map(c=>{
+    const v=c[2](io); if(v===null||!isFinite(v)) return "";
+    const valori=pool.map(a=>c[2](a)).filter(x=>x!==null&&isFinite(x)).sort((a,b)=>b-a);
+    const pos=valori.findIndex(x=>x<=v)+1, media=valori.length?valori.reduce((s,x)=>s+x,0)/valori.length:null;
+    const nota = pos && pool.includes(io) ? `${pos}° su ${valori.length}` : (media!==null?`media ${numIt(media,c[3]||0)}`:"");
+    return `<div><b>${stFmt(v,c)}</b><span>${esc(c[1])}</span><em>${nota}</em></div>`; }).join("");
+  const mie = dati.righe.filter(r=>r[0]===ST.scheda).sort((a,b)=>a[1]-b[1]);
+  const somma = r => { const a={g:1}; dati.basi.forEach((b,i)=>a[b]=r[4+i]); return a; };
+  const cg = spec.c.find(c=>c[0]===(ST.ord||spec.o))||spec.c[0];
+  const vals = mie.map(r=>cg[2](somma(r))||0), mx=Math.max(1,...vals.map(Math.abs));
+  const barre = mie.map((r,i)=>`<div class="st-bar" title="Week ${r[1]}: ${stFmt(vals[i],cg)}"><i style="height:${Math.round(Math.abs(vals[i])/mx*100)}%"></i><span>${r[1]}</span></div>`).join("");
+  const partite = mie.slice().reverse().map(r=>{ const a=somma(r);
+    return `<tr><td>W${r[1]}</td><td class="st-nome">${stemma(dati.squadre[r[3]],true)}<span>${esc(breve(dati.squadre[r[3]]))}</span></td>${spec.c.map(c=>`<td>${stFmt(c[2](a)===undefined?null:(isFinite(c[2](a))?c[2](a):null),c)}</td>`).join("")}</tr>`; }).join("");
+  return `<button class="st-altri" style="margin:0 0 14px" onclick="stChiudi()">← Torna alla classifica</button>
+  <div class="st-testata">${stemma(io.sq)}<div><h1>${esc(g[0])}</h1><span class="st-nota">${esc(breve(io.sq))}${g[1]?" · "+esc(g[1]):""} · ${ST_NOMI[ST.cat]} · stagione ${ST.stagione}${ST.periodo==="tutta"?"":" · numeri: "+(ST.periodo.startsWith("u")?"ultime "+ST.periodo.slice(1)+" week":"week "+ST.periodo.slice(1))}</span></div></div>
+  <div class="st-cat">${Object.keys(ST_COL[legaAttiva]).map(c=>`<button class="${ST.cat===c?"on":""}" onclick="stAggiorna('cat','${c}')">${ST_NOMI[c]}</button>`).join("")}</div>
+  <div class="st-kpi">${kpi}</div>
+  <div class="st-scheda"><div class="st-grafico"><b>${esc(cg[1].toUpperCase())} WEEK PER WEEK</b><div class="st-barre">${barre}</div></div>
+  <div class="st-tab"><table><thead><tr><th>Week</th><th class="st-nome">Avversario</th>${spec.c.map(c=>`<th>${esc(c[1])}</th>`).join("")}</tr></thead><tbody>${partite}</tbody></table></div></div>`;
 }
 
 /* Un giocatore nel confronto: rendimento stagione, ultime 3, passato, esperienza e forma */

@@ -228,10 +228,8 @@ def prestazioni(stagione, settimana):
         "fumbleForzati": top("def_fumbles_forced", None, (("def_tackles_solo", "placcaggi da solo"),), gruppo=difesa),
         "deviati": top("def_pass_defended", None, (("def_interceptions", "intercetti"),), gruppo=difesa),
     })
-    try:
-        out["pressioni"] = pressioni_settimana_prima(stagione, settimana)
-    except Exception as e:          # noqa: BLE001 - le pressioni sono un di più
-        print(f"  Pressioni PFR non lette ({type(e).__name__}: {e}): blocco assente.")
+    # pressioni PFR (Pro Football Reference) tolte dalla parte pubblica il 18/11/2026: non si possono ripubblicare.
+    # Restano solo per Charlie (fetch_duelli.pressioni_nfl, sezione cifrata).
     return out
 
 

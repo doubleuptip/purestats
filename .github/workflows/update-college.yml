@@ -88,6 +88,10 @@ jobs:
           CHARLIE_BOT: ${{ secrets.CHARLIE_BOT }}
         run: python scripts/fetch_duelli.py college
 
+      - name: Statistiche pubbliche (giocatori e squadre, stagione in corso)
+        continue-on-error: true
+        run: python scripts/statistiche.py college
+
       - name: Committa le modifiche
         run: |
           git config user.name  "github-actions[bot]"
@@ -102,6 +106,7 @@ jobs:
             [ -f "$f" ] && git add "$f"
           done
           [ -f docs/duelli_college.dat ] && git add docs/duelli_college.dat
+          git add docs/stats/college_*.json docs/stats/indice_college.json 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
             exit 0
