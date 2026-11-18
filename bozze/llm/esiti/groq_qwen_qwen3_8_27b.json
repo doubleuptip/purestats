@@ -1,0 +1,111 @@
+{
+ "scrittore": "groq:qwen/qwen3.8-27b",
+ "quando": "2026-11-18T20:01:42.313826",
+ "risultati": {
+  "2026_10_LAC_BAL|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "problemiPrimaStesura": [
+    {
+     "tipo": "fatto",
+     "frase": "Jim Harbaugh, allenatore dei Chargers",
+     "motivo": "Jim Harbaugh non è mai stato allenatore dei Los Angeles Chargers; è allenatore della Stanford University."
+    },
+    {
+     "tipo": "fatto",
+     "frase": "Keaton Mitchell, running back in forza ai corvi nella scorsa stagione",
+     "motivo": "Keaton Mitchell ha giocato per i Baltimore Ravens nella stagione precedente, non per i Chargers."
+    },
+    {
+     "tipo": "lingua",
+     "frase": "la squadra restia dai playoff della scorsa stagione",
+     "motivo": "Errore di battitura: dovrebbe essere \"la squadra resta\"."
+    }
+   ],
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199549, Re)",
+   "secondi": 288
+  },
+  "2026_10_LAC_BAL|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199543, Re)",
+   "secondi": 2
+  },
+  "2026_10_WAS_NYG|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199371, Re)",
+   "secondi": 74
+  },
+  "2026_10_WAS_NYG|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199309, Re)",
+   "secondi": 27
+  },
+  "2026_10_NE_DET|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199162, Re)",
+   "secondi": 63
+  },
+  "2026_10_NE_DET|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199109, Re)",
+   "secondi": 23
+  },
+  "2026_10_SF_DAL|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199058, Re)",
+   "secondi": 22
+  },
+  "2026_10_SF_DAL|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199028, Re)",
+   "secondi": 13
+  },
+  "2026_10_CAR_NO|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198992, Re)",
+   "secondi": 16
+  },
+  "2026_10_CAR_NO|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198931, Re)",
+   "secondi": 26
+  }
+ },
+ "registro": [
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"956\", \"x-ratelimit-remaining-tokens\": \"2308\", \"x-ratelimit-reset-requests\": \"1h3m21.6s\", \"x-ratelimit-reset-tokens\": \"54.42s\"}",
+  "   groq:openai/gpt-oss-120b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per ), riprovo tra 13s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 20s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 10s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 2s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 80s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 9s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 23s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 140s",
+  "groq:qwen/qwen3.8-27b 2026_10_LAC_BAL anteprima: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199549, Re) · prima stesura 3 problemi · dopo -",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"945\", \"x-ratelimit-remaining-tokens\": \"4009\", \"x-ratelimit-reset-requests\": \"1h19m12s\", \"x-ratelimit-reset-tokens\": \"49.86s\"}",
+  "groq:qwen/qwen3.8-27b 2026_10_LAC_BAL cronaca: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199543, Re) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 20s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 17s",
+  "   groq:qwen/qwen3.8-27b: errore 400 ({\"error\":{\"message\":\"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"json_), riprovo tra 60s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 12s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 10s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 8s",
+  "groq:qwen/qwen3.8-27b 2026_10_WAS_NYG anteprima: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199371, Re) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 7s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 10s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 5s",
+  "groq:qwen/qwen3.8-27b 2026_10_WAS_NYG cronaca: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199309, Re) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 20s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 40s",
+  "groq:qwen/qwen3.8-27b 2026_10_NE_DET anteprima: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199162, Re) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 20s",
+  "groq:qwen/qwen3.8-27b 2026_10_NE_DET cronaca: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199109, Re) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 20s",
+  "groq:qwen/qwen3.8-27b 2026_10_SF_DAL anteprima: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199058, Re) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 10s",
+  "groq:qwen/qwen3.8-27b 2026_10_SF_DAL cronaca: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199028, Re) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 13s",
+  "groq:qwen/qwen3.8-27b 2026_10_CAR_NO anteprima: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198992, Re) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 22s",
+  "groq:qwen/qwen3.8-27b 2026_10_CAR_NO cronaca: ERRORE groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198931, Re) · prima stesura 0 problemi · dopo -"
+ ]
+}
