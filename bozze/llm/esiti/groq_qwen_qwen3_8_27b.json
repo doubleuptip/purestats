@@ -1,0 +1,135 @@
+{
+ "scrittore": "groq:qwen/qwen3.8-27b",
+ "quando": "2026-11-18T19:16:58.800223",
+ "risultati": {
+  "2026_10_LAC_BAL|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
+   "secondi": 146
+  },
+  "2026_10_LAC_BAL|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
+   "secondi": 124
+  },
+  "2026_10_WAS_NYG|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
+   "secondi": 124
+  },
+  "2026_10_WAS_NYG|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
+   "secondi": 124
+  },
+  "2026_10_NE_DET|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
+   "secondi": 124
+  },
+  "2026_10_NE_DET|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
+   "secondi": 124
+  },
+  "2026_10_SF_DAL|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "github:openai/gpt-4.1-mini: troppi tentativi falliti",
+   "secondi": 123
+  },
+  "2026_10_SF_DAL|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "nessun JSON nella risposta",
+   "secondi": 2
+  },
+  "2026_10_CAR_NO|anteprima": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "Extra data: line 1 column 2120 (char 2119)",
+   "secondi": 37
+  },
+  "2026_10_CAR_NO|cronaca": {
+   "scrittore": "groq:qwen/qwen3.8-27b",
+   "errore": "nessun JSON nella risposta",
+   "secondi": 19
+  }
+ },
+ "registro": [
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens p), riprovo tra 20s",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "groq:qwen/qwen3.8-27b 2026_10_LAC_BAL anteprima: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"3282\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"35.385s\"}",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "groq:qwen/qwen3.8-27b 2026_10_LAC_BAL cronaca: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"5457\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"19.072s\"}",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "groq:qwen/qwen3.8-27b 2026_10_WAS_NYG anteprima: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"3507\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"33.697s\"}",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "groq:qwen/qwen3.8-27b 2026_10_WAS_NYG cronaca: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"5476\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"18.93s\"}",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "groq:qwen/qwen3.8-27b 2026_10_NE_DET anteprima: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"3723\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"32.077s\"}",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "groq:qwen/qwen3.8-27b 2026_10_NE_DET cronaca: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"5333\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"20.002s\"}",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "   github:openai/gpt-4.1-mini: errore di rete Expecting value: line 1 column 1 (char 0), riprovo",
+  "groq:qwen/qwen3.8-27b 2026_10_SF_DAL anteprima: ERRORE github:openai/gpt-4.1-mini: troppi tentativi falliti · prima stesura 0 problemi · dopo -",
+  "   limiti groq:qwen/qwen3.8-27b {\"x-ratelimit-limit-requests\": \"1000\", \"x-ratelimit-limit-tokens\": \"8000\", \"x-ratelimit-remaining-requests\": \"999\", \"x-ratelimit-remaining-tokens\": \"3323\", \"x-ratelimit-reset-requests\": \"1m26.4s\", \"x-ratelimit-reset-tokens\": \"35.077s\"}",
+  "groq:qwen/qwen3.8-27b 2026_10_SF_DAL cronaca: ERRORE nessun JSON nella risposta · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 35s",
+  "groq:qwen/qwen3.8-27b 2026_10_CAR_NO anteprima: ERRORE Extra data: line 1 column 2120 (char 2119) · prima stesura 0 problemi · dopo -",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 12s",
+  "   groq:qwen/qwen3.8-27b: errore 429 ({\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on output tokens ), riprovo tra 3s",
+  "groq:qwen/qwen3.8-27b 2026_10_CAR_NO cronaca: ERRORE nessun JSON nella risposta · prima stesura 0 problemi · dopo -"
+ ]
+}
