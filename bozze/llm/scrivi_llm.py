@@ -7,7 +7,7 @@ import json, os, re, sys, time, urllib.request, urllib.error, datetime
 
 QUI = os.path.dirname(os.path.abspath(__file__))
 # chi controlla chi: ogni scrittore ha un caporedattore diverso da sé, per stare nei limiti giornalieri gratuiti di Groq
-VERIFICATORE = {"groq:openai/gpt-oss-120b": "groq:openai/gpt-oss-20b", "groq:qwen/qwen3.8-27b": "groq:openai/gpt-oss-20b",
+VERIFICATORE = {"groq:openai/gpt-oss-120b": "groq:qwen/qwen3.8-27b", "groq:qwen/qwen3.8-27b": "groq:openai/gpt-oss-120b",
                 "ollama:gemma3:12b": "groq:openai/gpt-oss-120b"}
 ENDPOINT = {"groq": "https://api.groq.com/openai/v1/chat/completions", "ollama": "http://localhost:11434/api/chat"}
 CHIAVE = {"groq": os.environ.get("GROQ_API_KEY", ""), "ollama": ""}
@@ -26,7 +26,8 @@ def chiama(modello, messaggi, temperatura=0.8, max_token=1800):
         corpo = {"model": nome, "messages": messaggi, "stream": False, "format": "json",
                  "options": {"temperature": temperatura, "num_ctx": 12288, "num_predict": 1500}}
     else:
-        corpo = {"model": nome, "messages": messaggi, "temperature": temperatura, "max_tokens": max_token}
+        corpo = {"model": nome, "messages": messaggi, "temperature": temperatura, "max_tokens": max_token,
+                 "response_format": {"type": "json_object"}}
     if fornitore == "groq" and "gpt-oss" in nome:
         corpo["reasoning_effort"] = "low"
     for tentativo in range(8):
@@ -47,6 +48,9 @@ def chiama(modello, messaggi, temperatura=0.8, max_token=1800):
             testo = e.read().decode(errors="replace")[:400]
             attesa = float(e.headers.get("retry-after") or 0) or 20 * (tentativo + 1)
             log(f"   {modello}: errore {e.code} ({testo[:160]}), riprovo tra {attesa:.0f}s")
+            if e.code == 400 and "response_format" in corpo:
+                corpo.pop("response_format")   # alcuni modelli non accettano la modalità JSON: si riprova senza
+                continue
             if e.code in (400, 401, 403, 404):
                 raise
             time.sleep(min(attesa + 1, 120))
@@ -57,77 +61,65 @@ def chiama(modello, messaggi, temperatura=0.8, max_token=1800):
 
 
 def estrai_json(testo):
-    testo = re.sub(r"<think>.*?</think>", "", testo, flags=re.S)
-    m = re.search(r"\{.*\}", testo, re.S)
-    if not m:
+    testo = re.sub(r"<think>.*?</think>", "", testo or "", flags=re.S)
+    i = testo.find("{")
+    if i < 0:
         raise ValueError("nessun JSON nella risposta")
-    return json.loads(m.group(0))
+    oggetto, _ = json.JSONDecoder().raw_decode(testo[i:])
+    return oggetto
 
 
-GUIDA = """Sei un giornalista sportivo italiano: scrivi di football americano (NFL) per PureStats, un sito di statistiche.
-Scrivi in italiano giornalistico naturale, come un buon quotidiano sportivo: frasi di lunghezza varia, lessico preciso,
-nessuna formula ripetitiva, nessun punto esclamativo, nessuna domanda retorica, nessuna iperbole.
+GUIDA = """Sei un giornalista sportivo italiano: scrivi di football americano (NFL) per PureStats.
+Ricevi i FATTI della partita (frasi già verificate) e alcuni SPUNTI. Con questi scrivi un articolo originale,
+in italiano giornalistico naturale, come un buon quotidiano sportivo.
 
-REGOLE SUI FATTI (le più importanti)
-- Usa SOLO i fatti presenti nel MATERIALE. Non aggiungere nulla che non sia scritto lì: niente cause, motivazioni,
-  citazioni, dichiarazioni, stati d'animo, pubblico, infortuni, storia, record, classifiche o meteo che il materiale non contiene.
-- Se un fatto non c'è, non scriverlo, anche se ti sembra probabile o lo conosci per conto tuo.
-- Non confondere le squadre: controlla sempre per chi gioca ogni giocatore.
-- "descrizioneUfficiale" è la cronaca ufficiale in inglese: traducila e raccontala a parole tue, senza copiarla.
-- "probVittoria..." serve solo a capire quanto pesa una giocata: non citare mai probabilità o percentuali.
+LA REGOLA PIÙ IMPORTANTE
+- Ogni informazione dell'articolo deve venire dai FATTI o dagli SPUNTI. Non aggiungere niente che non ci sia:
+  niente cause, motivazioni, citazioni, stati d'animo, pubblico, atmosfera, infortuni, storia, statistiche, record,
+  classifiche, meteo, dettagli di gioco. Se ti sembra che manchi qualcosa, non inventarlo: scegli un altro angolo.
+- Puoi scegliere quali fatti usare (non serve usarli tutti), metterli nell'ordine che rende meglio la storia,
+  unirli, riassumerli e dirli con parole tue. Non cambiare il significato e non attribuire giocate alla squadra sbagliata.
 
 NUMERI
-- Nel testo usa solo: punteggi, bilanci (es. 4-6), data e ora. In tutto l'articolo al massimo altri 2 numeri,
-  solo se rendono la storia (es. la distanza del field goal decisivo). Mai elenchi di statistiche: i numeri dei giocatori
-  sono già nel riquadro accanto all'articolo.
-- Il mercato (favorita, vantaggio previsto, totale) va detto solo a parole: "favoriti di poco", "nettamente favoriti",
-  "ci si aspetta una partita con pochi punti". Mai consigli di scommessa, mai quote.
+- Usa solo numeri presenti nei fatti: punteggi, bilanci (4-6), data e ora. Non serve citare ogni punteggio parziale:
+  scegli quelli che contano per il racconto.
 
-LINGUA
-- Squadre al plurale maschile: «i Chargers», «dei Ravens», «ai 49ers». Città: Baltimora, Filadelfia, Monaco di Baviera;
-  le altre col nome originale.
-- Termini: touchdown, field goal, end zone, quarterback, running back, ricevitore, sack, intercetto, fumble, punt, drive,
-  division, playoff, supplementari. Niente anglicismi inutili oltre a questi.
-- Prima volta che citi un giocatore o un allenatore: nome e cognome. Poi solo il cognome.
-- Ore: «alle 2:15 italiane». Giorni e mesi in minuscolo.
+STILE
+- Apertura sempre diversa: scegli l'angolo più interessante tra gli spunti (una storia, un contrasto, un momento)
+  e parti da lì. Evita di cominciare con «I X battono i Y» o «I X e i Y si affrontano».
+- Frasi di lunghezza varia, lessico preciso, ritmo da cronaca giornalistica. Nessun punto esclamativo, nessuna domanda
+  retorica, nessuna iperbole, nessun cliché («al cardiopalma», «cuore oltre l'ostacolo», «notte magica»).
+- Squadre al plurale maschile: «i Chargers», «dei Ravens», «ai 49ers». Prima citazione di una persona: nome e cognome;
+  poi solo il cognome. Termini: touchdown, field goal, end zone, quarterback, running back, sack, intercetto, fumble,
+  division, playoff. Mai «iarde»: si dice «yard». Mai «match»: si dice «partita».
+- Il mercato solo a parole («favoriti di poco»), mai quote o consigli di scommessa.
 
-COME SCEGLIERE LA STORIA
-- Leggi gli "spunti": scegli l'angolo più interessante e costruisci l'articolo intorno a quello, usandone almeno due.
-- Ogni articolo deve avere un'apertura sua: non cominciare sempre con «I X battono i Y» o «I X e i Y si affrontano».
-- Niente frasi fatte come «al cardiopalma», «cuore oltre l'ostacolo», «notte magica», «da incorniciare».
-
-RISPOSTA: solo un oggetto JSON, senza altro testo: {"titolo": "...", "paragrafi": ["...", "...", ...]}
-Il titolo: al massimo 12 parole, informativo, senza virgolette."""
+RISPOSTA: solo un oggetto JSON: {"titolo": "...", "paragrafi": ["...", "..."]}
+Titolo: al massimo 12 parole, informativo, senza virgolette."""
 
 COMPITO = {
-    "anteprima": """Scrivi l'ANTEPRIMA della partita (prima del calcio d'inizio: non sai come finirà).
-Lunghezza: 220-300 parole in 4-5 paragrafi.
-- Primo paragrafo: chi gioca, quando (ora italiana), dove, con i bilanci delle due squadre e le serie aperte.
-- Poi come arriva ciascuna squadra: stagione scorsa, momento di forma, reparti, allenatore, se c'è una storia.
-- Poi chi seguire e chi manca (usa i giudizi, non le cifre).
-- Chiudi con la chiave della partita e il pronostico del mercato detto a parole.""",
-    "cronaca": """Scrivi la CRONACA della partita appena finita.
-Lunghezza: 250-340 parole in 4-6 paragrafi.
-- Primo paragrafo: il risultato, dove, e perché conta (pronostico, serie, classifica, una storia degli spunti).
-- Poi racconta la partita nell'ordine in cui è andata, attraverso le giocate decisive (traducendo la cronaca ufficiale):
-  chi ha segnato, chi ha perso palla, dove è girata. Usa il tempo a parole («a poco più di due minuti dalla fine»).
-- Poi i protagonisti, a parole (chi ha trascinato, chi ha deciso), senza cifre.
-- Chiudi con le conseguenze: bilanci aggiornati e il prossimo turno.""",
+    "anteprima": "Scrivi l'ANTEPRIMA (prima del calcio d'inizio). 200-280 parole in 4 paragrafi. "
+                 "Nel primo paragrafo devono esserci quando (ora italiana), dove e i bilanci.",
+    "cronaca": "Scrivi la CRONACA della partita appena finita. 230-320 parole in 4-5 paragrafi. "
+               "Nel primo paragrafo il risultato e perché conta; poi la partita raccontata nei suoi momenti chiave "
+               "(non un elenco di tutte le segnature); poi i protagonisti; chiudi con bilanci e prossimo turno.",
 }
 
-VERIFICA = """Sei il caporedattore: controlli un articolo prima che venga pubblicato. Hai il MATERIALE (l'unica fonte ammessa)
-e l'ARTICOLO. Trova solo problemi veri:
-1. "fatto": affermazioni non presenti o non deducibili dal materiale (fatti inventati, cause, citazioni, infortuni,
-   storia, meteo, statistiche, giocatori attribuiti alla squadra sbagliata, punteggi o tempi sbagliati, chi ha segnato).
-   Le parafrasi e i giudizi che riassumono correttamente il materiale NON sono problemi.
-2. "lingua": errori di italiano (grammatica, articoli, concordanze, refusi, frasi che non si capiscono).
-3. "regole": elenchi di statistiche, più di 2 numeri oltre a punteggi/bilanci/data/ora, probabilità citate, consigli di scommessa.
+VERIFICA = """Sei il caporedattore. Hai i FATTI e gli SPUNTI (l'unica fonte ammessa) e l'ARTICOLO da pubblicare. Trova solo problemi veri:
+1. "fatto": un'affermazione che non è nei fatti/spunti o li contraddice (fatti inventati, cause, atmosfera, statistiche,
+   giocate attribuite alla squadra sbagliata, punteggi o momenti sbagliati, ordine degli eventi sbagliato).
+   Riassunti e parafrasi fedeli NON sono problemi.
+2. "lingua": errori di italiano (grammatica, articoli, concordanze, refusi, frasi poco chiare, anglicismi sbagliati come «iarde»).
+3. "regole": quote o consigli di scommessa, probabilità.
 Rispondi solo con un oggetto JSON: {"problemi": [{"tipo": "fatto|lingua|regole", "frase": "testo esatto", "motivo": "..."}]}
 Se l'articolo è corretto: {"problemi": []}"""
 
 
 def compatto(m):
-    """Materiale senza campi vuoti e senza spazi, per stare nei limiti di token."""
+    """I fatti e gli spunti come elenco puntato."""
+    if "fatti" in m:
+        return ("PARTITA: " + m["partita"] + "\nFATTI:\n" + "\n".join("- " + f for f in m["fatti"])
+                + "\nSPUNTI:\n" + "\n".join("- " + f for f in m["spunti"]))
     def pulisci(x):
         if isinstance(x, dict):
             return {k: pulisci(v) for k, v in x.items() if v not in ("", None, [], {}) and k not in ("coordinateStadio",)}
@@ -151,7 +143,9 @@ def numeri_ammessi(m):
     return out
 
 
-PAROLE_OK = {"NFL", "AFC", "NFC", "Super", "Bowl", "PureStats", "East", "West", "North", "South", "Week", "Pro"}
+PAROLE_OK = {"NFL", "AFC", "NFC", "Super", "Bowl", "PureStats", "East", "West", "North", "South", "Week", "Pro",
+             "Los", "Angeles", "New", "York", "England", "Orleans", "San", "Francisco", "Baltimore", "Washington", "Detroit",
+             "Dallas", "Carolina", "Arizona", "Monaco", "Baviera", "Baltimora", "Arlington", "East", "Rutherford"}
 
 
 def controllo_meccanico(art, m):
@@ -177,14 +171,14 @@ def controllo_meccanico(art, m):
 
 def scrivi(modello, m, tipo):
     msg = [{"role": "system", "content": GUIDA},
-           {"role": "user", "content": COMPITO[tipo] + "\n\nMATERIALE:\n" + compatto(m)}]
+           {"role": "user", "content": COMPITO[tipo] + "\n\n" + compatto(m)}]
     testo, uso = chiama(modello, msg)
     return estrai_json(testo), msg, testo, uso
 
 
 def verifica(art, m, scrittore):
     msg = [{"role": "system", "content": VERIFICA},
-           {"role": "user", "content": "MATERIALE:\n" + compatto(m) + "\n\nARTICOLO:\n" + json.dumps(art, ensure_ascii=False)}]
+           {"role": "user", "content": compatto(m) + "\n\nARTICOLO:\n" + json.dumps(art, ensure_ascii=False)}]
     testo, _ = chiama(VERIFICATORE[scrittore], msg, temperatura=0.1, max_token=1500)
     return estrai_json(testo).get("problemi", [])
 
@@ -199,7 +193,7 @@ def correggi(modello, msg, risposta, problemi):
 
 def main():
     scrittore = sys.argv[1]
-    materiale = json.load(open(os.path.join(QUI, "materiale.json")))
+    materiale = json.load(open(os.path.join(QUI, "fatti.json")))
     risultati = {}
     for gid, v in materiale.items():
         for tipo in ("anteprima", "cronaca"):
