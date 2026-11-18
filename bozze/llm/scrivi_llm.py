@@ -6,10 +6,11 @@ Uso: python3 bozze/llm/scrivi_llm.py <scrittore>   (es. groq:openai/gpt-oss-120b
 import json, os, re, sys, time, urllib.request, urllib.error, datetime
 
 QUI = os.path.dirname(os.path.abspath(__file__))
-VERIFICATORE = "github:openai/gpt-4.1-mini"
-ENDPOINT = {"groq": "https://api.groq.com/openai/v1/chat/completions",
-            "github": "https://models.github.ai/inference/chat/completions"}
-CHIAVE = {"groq": os.environ.get("GROQ_API_KEY", ""), "github": os.environ.get("GITHUB_TOKEN", "")}
+# chi controlla chi: ogni scrittore ha un caporedattore diverso da sé, per stare nei limiti giornalieri gratuiti di Groq
+VERIFICATORE = {"groq:openai/gpt-oss-120b": "groq:openai/gpt-oss-20b", "groq:qwen/qwen3.8-27b": "groq:openai/gpt-oss-20b",
+                "ollama:gemma3:12b": "groq:openai/gpt-oss-120b"}
+ENDPOINT = {"groq": "https://api.groq.com/openai/v1/chat/completions", "ollama": "http://localhost:11434/api/chat"}
+CHIAVE = {"groq": os.environ.get("GROQ_API_KEY", ""), "ollama": ""}
 REGISTRO = []
 
 
@@ -19,18 +20,24 @@ def log(*a):
     REGISTRO.append(riga)
 
 
-def chiama(modello, messaggi, temperatura=0.8, max_token=2500):
+def chiama(modello, messaggi, temperatura=0.8, max_token=1800):
     fornitore, nome = modello.split(":", 1)
-    corpo = {"model": nome, "messages": messaggi, "temperature": temperatura, "max_tokens": max_token}
+    if fornitore == "ollama":
+        corpo = {"model": nome, "messages": messaggi, "stream": False, "format": "json",
+                 "options": {"temperature": temperatura, "num_ctx": 12288, "num_predict": 1500}}
+    else:
+        corpo = {"model": nome, "messages": messaggi, "temperature": temperatura, "max_tokens": max_token}
     if fornitore == "groq" and "gpt-oss" in nome:
-        corpo["reasoning_effort"] = "medium"
+        corpo["reasoning_effort"] = "low"
     for tentativo in range(8):
         req = urllib.request.Request(ENDPOINT[fornitore], data=json.dumps(corpo).encode(),
                                      headers={"Authorization": f"Bearer {CHIAVE[fornitore]}", "Content-Type": "application/json",
                                               "User-Agent": "PureStats/1.0"})
         try:
-            with urllib.request.urlopen(req, timeout=240) as r:
+            with urllib.request.urlopen(req, timeout=1800) as r:
                 dati = json.loads(r.read())
+                if fornitore == "ollama":
+                    return dati["message"]["content"], {"prompt": dati.get("prompt_eval_count"), "risposta": dati.get("eval_count")}
                 limiti = {k: v for k, v in r.headers.items() if k.lower().startswith("x-ratelimit")}
                 if tentativo == 0 and limiti:
                     log("   limiti", modello, json.dumps(limiti))
@@ -175,10 +182,10 @@ def scrivi(modello, m, tipo):
     return estrai_json(testo), msg, testo, uso
 
 
-def verifica(art, m):
+def verifica(art, m, scrittore):
     msg = [{"role": "system", "content": VERIFICA},
            {"role": "user", "content": "MATERIALE:\n" + compatto(m) + "\n\nARTICOLO:\n" + json.dumps(art, ensure_ascii=False)}]
-    testo, _ = chiama(VERIFICATORE, msg, temperatura=0.1, max_token=3000)
+    testo, _ = chiama(VERIFICATORE[scrittore], msg, temperatura=0.1, max_token=1500)
     return estrai_json(testo).get("problemi", [])
 
 
@@ -201,12 +208,12 @@ def main():
             voce = {"scrittore": scrittore}
             try:
                 art, msg, grezzo, uso = scrivi(scrittore, m, tipo)
-                prob = controllo_meccanico(art, m) + verifica(art, m)
+                prob = controllo_meccanico(art, m) + verifica(art, m, scrittore)
                 voce["problemiPrimaStesura"] = prob
                 gravi = [p for p in prob if p.get("tipo") in ("fatto", "lingua", "regole")]
                 if gravi:
                     art2 = correggi(scrittore, msg, grezzo, gravi)
-                    prob2 = controllo_meccanico(art2, m) + verifica(art2, m)
+                    prob2 = controllo_meccanico(art2, m) + verifica(art2, m, scrittore)
                     voce["problemiDopoCorrezione"] = prob2
                     art = art2
                     prob = prob2

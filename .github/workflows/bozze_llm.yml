@@ -6,15 +6,14 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  models: read
 jobs:
   scrivi:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 330
     strategy:
       fail-fast: false
       matrix:
-        scrittore: ["groq:openai/gpt-oss-120b", "groq:qwen/qwen3.8-27b", "github:openai/gpt-4.1", "github:mistral-ai/mistral-medium-2505"]
+        scrittore: ["groq:openai/gpt-oss-120b", "groq:qwen/qwen3.8-27b", "ollama:gemma3:12b"]
     steps:
       - uses: actions/checkout@v4
       - name: Modelli disponibili (solo per il registro)
@@ -24,7 +23,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl -s https://api.groq.com/openai/v1/models -H "Authorization: Bearer $GROQ_API_KEY" | python3 -c "import json,sys; print('GROQ:', [m['id'] for m in json.load(sys.stdin).get('data',[])])" || true
-          curl -s https://models.github.ai/catalog/models -H "Authorization: Bearer $GITHUB_TOKEN" | python3 -c "import json,sys; d=json.load(sys.stdin); print('GITHUB:', [(m['id'], m.get('rate_limit_tier')) for m in d])" || true
+      - name: Modello locale (immagine Docker ufficiale di Ollama)
+        if: startsWith(matrix.scrittore, 'ollama:')
+        run: |
+          docker run -d --name ollama -p 11434:11434 ollama/ollama
+          sleep 5
+          docker exec ollama ollama pull gemma3:12b
       - run: python3 bozze/llm/meteo.py
       - name: Scrivi
         env:
