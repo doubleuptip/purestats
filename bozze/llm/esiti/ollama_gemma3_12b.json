@@ -1,0 +1,12 @@
+{
+ "scrittore": "ollama:gemma3:12b",
+ "quando": "2026-11-18T19:59:01.947494",
+ "risultati": {
+  "2026_10_LAC_BAL|anteprima": {
+   "scrittore": "ollama:gemma3:12b",
+   "errore": "groq:openai/gpt-oss-120b: limite giornaliero raggiunto ({\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7r01ckpeh9r1awr5b0nknbx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199303, Re)",
+   "secondi": 324
+  }
+ },
+ "registro": []
+}
