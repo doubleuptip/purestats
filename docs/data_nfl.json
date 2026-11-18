@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-17T19:38:36.936632+00:00",
+  "aggiornato": "2026-11-18T08:39:31.579350+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -143323,48 +143323,7 @@
           "valore": 2,
           "dettagli": "1 intercetti"
         }
-      ],
-      "pressioni": {
-        "settimana": 10,
-        "ritardo": false,
-        "lista": [
-          {
-            "nome": "Charles Omenihu",
-            "squadra": "WAS",
-            "avversario": "NYG",
-            "valore": 3,
-            "dettagli": "2 colpi al QB · 1 QB affrettato"
-          },
-          {
-            "nome": "Nick Cross",
-            "squadra": "WAS",
-            "avversario": "NYG",
-            "valore": 2,
-            "dettagli": "1 colpi al QB · 1 QB affrettato"
-          },
-          {
-            "nome": "Kayvon Thibodeaux",
-            "squadra": "NYG",
-            "avversario": "WAS",
-            "valore": 1,
-            "dettagli": "1 QB affrettato"
-          },
-          {
-            "nome": "Shelby Harris",
-            "squadra": "NYG",
-            "avversario": "WAS",
-            "valore": 1,
-            "dettagli": "1 sack"
-          },
-          {
-            "nome": "Trace Ford",
-            "squadra": "NYG",
-            "avversario": "WAS",
-            "valore": 1,
-            "dettagli": "1 QB affrettato"
-          }
-        ]
-      }
+      ]
     },
     "giocate": {
       "attacco": [
@@ -143518,9 +143477,9 @@
           "squadra": "CIN",
           "nome": "Cincinnati Bengals",
           "avversario": "PIT",
-          "attacco": 0.375,
-          "difesa": -0.024,
-          "netto": 0.351,
+          "attacco": 0.377,
+          "difesa": -0.023,
+          "netto": 0.354,
           "epaAzione": 0.392,
           "epaConcesso": 0.017,
           "partita": "2026_10_PIT_CIN"
@@ -143529,9 +143488,9 @@
           "squadra": "SF",
           "nome": "San Francisco 49ers",
           "avversario": "DAL",
-          "attacco": 0.365,
-          "difesa": -0.168,
-          "netto": 0.197,
+          "attacco": 0.37,
+          "difesa": -0.171,
+          "netto": 0.199,
           "epaAzione": 0.446,
           "epaConcesso": 0.232,
           "partita": "2026_10_SF_DAL"
@@ -143540,9 +143499,9 @@
           "squadra": "BUF",
           "nome": "Buffalo Bills",
           "avversario": "NYJ",
-          "attacco": 0.242,
-          "difesa": 0.078,
-          "netto": 0.32,
+          "attacco": 0.248,
+          "difesa": 0.083,
+          "netto": 0.331,
           "epaAzione": 0.316,
           "epaConcesso": -0.105,
           "partita": "2026_10_BUF_NYJ"
@@ -143551,9 +143510,9 @@
           "squadra": "DAL",
           "nome": "Dallas Cowboys",
           "avversario": "SF",
-          "attacco": 0.209,
-          "difesa": -0.367,
-          "netto": -0.158,
+          "attacco": 0.212,
+          "difesa": -0.369,
+          "netto": -0.157,
           "epaAzione": 0.232,
           "epaConcesso": 0.446,
           "partita": "2026_10_SF_DAL"
@@ -143562,9 +143521,9 @@
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "ARI",
-          "attacco": 0.186,
-          "difesa": 0.471,
-          "netto": 0.657,
+          "attacco": 0.189,
+          "difesa": 0.472,
+          "netto": 0.661,
           "epaAzione": 0.249,
           "epaConcesso": -0.483,
           "partita": "2026_10_LA_ARI"
@@ -143575,9 +143534,9 @@
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "ARI",
-          "attacco": 0.186,
-          "difesa": 0.471,
-          "netto": 0.657,
+          "attacco": 0.189,
+          "difesa": 0.472,
+          "netto": 0.661,
           "epaAzione": 0.249,
           "epaConcesso": -0.483,
           "partita": "2026_10_LA_ARI"
@@ -143586,9 +143545,9 @@
           "squadra": "MIN",
           "nome": "Minnesota Vikings",
           "avversario": "GB",
-          "attacco": 0.025,
-          "difesa": 0.26,
-          "netto": 0.285,
+          "attacco": 0.026,
+          "difesa": 0.255,
+          "netto": 0.281,
           "epaAzione": 0.032,
           "epaConcesso": -0.204,
           "partita": "2026_10_MIN_GB"
@@ -143608,9 +143567,9 @@
           "squadra": "DET",
           "nome": "Detroit Lions",
           "avversario": "NE",
-          "attacco": 0.178,
-          "difesa": 0.216,
-          "netto": 0.395,
+          "attacco": 0.173,
+          "difesa": 0.213,
+          "netto": 0.387,
           "epaAzione": 0.181,
           "epaConcesso": -0.179,
           "partita": "2026_10_NE_DET"
@@ -143619,9 +143578,9 @@
           "squadra": "CAR",
           "nome": "Carolina Panthers",
           "avversario": "NO",
-          "attacco": -0.053,
-          "difesa": 0.183,
-          "netto": 0.13,
+          "attacco": -0.054,
+          "difesa": 0.185,
+          "netto": 0.131,
           "epaAzione": -0.037,
           "epaConcesso": -0.201,
           "partita": "2026_10_CAR_NO"
@@ -143632,23 +143591,12 @@
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "ARI",
-          "attacco": 0.186,
-          "difesa": 0.471,
-          "netto": 0.657,
+          "attacco": 0.189,
+          "difesa": 0.472,
+          "netto": 0.661,
           "epaAzione": 0.249,
           "epaConcesso": -0.483,
           "partita": "2026_10_LA_ARI"
-        },
-        {
-          "squadra": "DET",
-          "nome": "Detroit Lions",
-          "avversario": "NE",
-          "attacco": 0.178,
-          "difesa": 0.216,
-          "netto": 0.395,
-          "epaAzione": 0.181,
-          "epaConcesso": -0.179,
-          "partita": "2026_10_NE_DET"
         },
         {
           "squadra": "KC",
@@ -143660,6 +143608,17 @@
           "epaAzione": 0.166,
           "epaConcesso": -0.26,
           "partita": "2026_10_KC_ATL"
+        },
+        {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "avversario": "NE",
+          "attacco": 0.173,
+          "difesa": 0.213,
+          "netto": 0.387,
+          "epaAzione": 0.181,
+          "epaConcesso": -0.179,
+          "partita": "2026_10_NE_DET"
         }
       ],
       "nota": "EPA per azione corretto per la forza dell'avversario (stesse stime degli indici): +0,10 vuol dire circa 6 punti in più di una squadra media contro lo stesso avversario."
