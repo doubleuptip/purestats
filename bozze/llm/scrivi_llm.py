@@ -47,6 +47,8 @@ def chiama(modello, messaggi, temperatura=0.8, max_token=1800):
         except urllib.error.HTTPError as e:
             testo = e.read().decode(errors="replace")[:400]
             attesa = float(e.headers.get("retry-after") or 0) or 20 * (tentativo + 1)
+            if "per day" in testo or "TPD" in testo or attesa > 600:
+                raise RuntimeError(f"{modello}: limite giornaliero raggiunto ({testo[:200]})")
             log(f"   {modello}: errore {e.code} ({testo[:160]}), riprovo tra {attesa:.0f}s")
             if e.code == 400 and "response_format" in corpo:
                 corpo.pop("response_format")   # alcuni modelli non accettano la modalità JSON: si riprova senza
@@ -58,6 +60,23 @@ def chiama(modello, messaggi, temperatura=0.8, max_token=1800):
             log(f"   {modello}: errore di rete {e}, riprovo")
             time.sleep(15)
     raise RuntimeError(f"{modello}: troppi tentativi falliti")
+
+
+def normalizza(o):
+    """Accetta anche chiavi diverse (title/paragraphs/testo) e paragrafi in un'unica stringa."""
+    if "titolo" not in o:
+        for k in ("title", "Titolo", "headline"):
+            if k in o:
+                o["titolo"] = o.pop(k)
+    if "paragrafi" not in o:
+        for k in ("paragraphs", "testo", "corpo", "articolo", "body"):
+            if k in o:
+                o["paragrafi"] = o.pop(k)
+    if isinstance(o.get("paragrafi"), str):
+        o["paragrafi"] = [p.strip() for p in o["paragrafi"].split("\n") if p.strip()]
+    if "titolo" not in o or not o.get("paragrafi"):
+        raise ValueError("risposta senza titolo o paragrafi: " + ", ".join(o.keys()))
+    return o
 
 
 def estrai_json(testo):
@@ -173,7 +192,7 @@ def scrivi(modello, m, tipo):
     msg = [{"role": "system", "content": GUIDA},
            {"role": "user", "content": COMPITO[tipo] + "\n\n" + compatto(m)}]
     testo, uso = chiama(modello, msg)
-    return estrai_json(testo), msg, testo, uso
+    return normalizza(estrai_json(testo)), msg, testo, uso
 
 
 def verifica(art, m, scrittore):
@@ -188,7 +207,7 @@ def correggi(modello, msg, risposta, problemi):
                  {"role": "user", "content": "Il caporedattore ha trovato questi problemi:\n" + json.dumps(problemi, ensure_ascii=False)
                   + "\nRiscrivi l'articolo correggendo solo questi punti (togli ciò che non è nel materiale). Stesso formato JSON."}]
     testo, uso = chiama(modello, msg, temperatura=0.4)
-    return estrai_json(testo)
+    return normalizza(estrai_json(testo))
 
 
 def main():
@@ -218,11 +237,17 @@ def main():
                 voce["errore"] = str(e)[:500]
             voce["secondi"] = round(time.time() - inizio)
             risultati[f"{gid}|{tipo}"] = voce
+            print("ARTICOLO_JSON " + json.dumps({"chiave": f"{gid}|{tipo}", **voce}, ensure_ascii=False), flush=True)
+            salva(scrittore, risultati)
             log(f"{scrittore} {gid} {tipo}: {'ERRORE ' + voce['errore'] if 'errore' in voce else ('ok' if voce['pubblicabile'] else 'NON pubblicabile')}"
                 f" · prima stesura {len(voce.get('problemiPrimaStesura', []))} problemi"
                 f" · dopo {len(voce.get('problemiDopoCorrezione', [])) if 'problemiDopoCorrezione' in voce else '-'}")
             if "errore" in voce and ("404" in voce["errore"] or "401" in voce["errore"] or "403" in voce["errore"]):
                 break
+    salva(scrittore, risultati)
+
+
+def salva(scrittore, risultati):
     nome = re.sub(r"[^A-Za-z0-9]+", "_", scrittore)
     os.makedirs(os.path.join(QUI, "esiti"), exist_ok=True)
     json.dump({"scrittore": scrittore, "quando": datetime.datetime.utcnow().isoformat(), "risultati": risultati, "registro": REGISTRO},

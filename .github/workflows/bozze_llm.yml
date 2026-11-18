@@ -29,7 +29,6 @@ jobs:
           docker run -d --name ollama -p 11434:11434 ollama/ollama
           sleep 5
           docker exec ollama ollama pull gemma3:12b
-      - run: python3 bozze/llm/meteo.py
       - name: Scrivi
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -39,6 +38,7 @@ jobs:
         if: always()
         run: |
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -- bozze/llm/materiale.json bozze/llm/fatti.json 2>/dev/null || true
           git add bozze/llm/esiti || true
           git commit -m "Bozze: esiti di ${{ matrix.scrittore }}" || exit 0
-          for i in 1 2 3 4 5; do git pull --rebase -q origin bozze && git push -q origin bozze && break; sleep $((i*7)); done
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q origin bozze && git push -q origin bozze && break; sleep $((i*7)); done
