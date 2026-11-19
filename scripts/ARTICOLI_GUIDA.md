@@ -9,7 +9,11 @@ Ogni settimana: 3 partite NFL e 3 college, anteprima prima del via e cronaca dop
    nel formato `{"titolo": "...", "paragrafi": ["...", "..."]}`.
 3. `python3 scripts/articoli.py pubblica <game_id> <tipo> data/articoli/bozza_<game_id>_<tipo>.json`
    Il controllo rifiuta numeri e nomi che non sono nei fatti: correggere il testo, mai i fatti.
-4. Rileggere il testo da caporedattore (fatti, italiano, regole sotto), poi commit e push su main.
+4. Controllo di realtà (Valerio, 19/11/2026: «servono dati sempre veri e confermati»): con una ricerca web verificare
+   che cessioni, arrivi, quarterback titolare e assenze citati siano confermati da fonti giornalistiche recenti, e che
+   non manchi un movimento importante. Se i dati nflverse sono indietro o in contrasto, NON pubblicare quella frase:
+   toglierla o aspettare l'aggiornamento, e segnalarlo a Valerio nel riepilogo.
+5. Rileggere il testo da caporedattore (fatti, italiano, regole sotto), poi commit e push su main.
    Il meteo lo aggiorna da solo il workflow «Articoli - meteo delle anteprime».
 
 ## Cosa raccontare (indicazioni di Valerio, 18/11/2026)
