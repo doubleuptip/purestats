@@ -203,6 +203,16 @@ CHIAVI = ("passing_yards", "passing_tds", "passing_interceptions", "attempts", "
           "def_tackles_solo", "def_tackle_assists")
 
 
+def squadra_attuale(righe) -> dict:
+    """{giocatore: squadra della sua partita più recente}: chi è stato ceduto non conta più per la vecchia squadra."""
+    ult = {}
+    for r in righe:
+        w = int(r["week"])
+        if r["player_id"] not in ult or w >= ult[r["player_id"]][0]:
+            ult[r["player_id"]] = (w, r["team"])
+    return {p: t for p, (w, t) in ult.items()}
+
+
 def quarterback_per_partita(D: Dati, sq: str, settimana: int) -> dict:
     """Chi ha lanciato di più in ogni partita (il titolare, salvo cambi a partita in corso)."""
     per_gara = collections.defaultdict(list)
@@ -215,8 +225,18 @@ def quarterback_per_partita(D: Dati, sq: str, settimana: int) -> dict:
 def fatti_squadra(D: Dati, sq: str, avv: str, settimana: int, giorno: dt.date, coach: str, cl: dict) -> dict:
     prima = (D.stagione, settimana)
     gare = partite_giocate(D, sq, D.stagione, prima)
-    righe = [r for r in D.stats if r["team"] == sq and r["season_type"] == "REG" and int(r["week"]) < settimana]
+    stagione_reg = [r for r in D.stats if r["season_type"] == "REG" and int(r["week"]) < settimana]
+    attuale = squadra_attuale(stagione_reg)
+    righe = [r for r in stagione_reg if r["team"] == sq]
     tot, info = totali(righe, CHIAVI)
+    # chi ha giocato qui ma ora è altrove (ceduto) e chi è arrivato da un'altra squadra
+    passati = collections.defaultdict(set)
+    for r in stagione_reg:
+        passati[r["player_id"]].add(r["team"])
+    ceduti = sorted({(info[p][0], info[p][1], attuale[p]) for p in tot if attuale.get(p) != sq})
+    arrivati = sorted({(r["player_display_name"], r["position"], t) for r in righe for t in passati[r["player_id"]]
+                       if t != sq and attuale.get(r["player_id"]) == sq})
+    tot = {p: c for p, c in tot.items() if attuale.get(p) == sq}
     tutti, info_l = totali([r for r in D.stats if r["season_type"] == "REG" and int(r["week"]) < settimana], CHIAVI)
     pos_lega = {k: {p: i + 1 for i, p in enumerate(sorted(tutti, key=lambda p: -tutti[p][k]))}
                 for k in ("passing_yards", "passing_tds", "rushing_yards", "receiving_yards", "def_sacks")}
@@ -298,6 +318,8 @@ def fatti_squadra(D: Dati, sq: str, avv: str, settimana: int, giorno: dt.date, c
         "allenatore": allenatore(D, sq, coach),
         "quarterbackTitolariStagione": titolari,
         "giocatoriChiave": giocatori,
+        "cedutiInStagione": [{"nome": n, "ruolo": r, "oraGiocaCon": D.nomi.get(t, t)} for n, r, t in ceduti],
+        "arrivatiInStagione": [{"nome": n, "ruolo": r, "daSquadra": D.nomi.get(t, t)} for n, r, t in arrivati],
         "rapportoInfortuni": rapporto,
     }
 

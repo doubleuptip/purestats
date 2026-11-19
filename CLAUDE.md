@@ -297,6 +297,11 @@ davvero che si veda quello che deve vedersi.
 - Designazioni di stagioni precedenti finite in archivio perché copiate
   da una pagina che conteneva anche notizie vecchie
 
+- 19/11/2026: Josh Downs (ceduto ai Chiefs il 10/11) compariva ancora tra i giocatori dei Colts nell'articolo, perché
+  la squadra si prendeva da tutte le righe della stagione. Da allora la squadra di un giocatore è quella della sua
+  partita più recente (`articoli.squadra_attuale`, e lo stesso in `nfl_indici._chiave_squadra`,
+  `fetch_duelli.giocatori_prop` e `fetch_duelli.quote_produzione_nfl`): i ceduti passano alla nuova squadra.
+
 ## Stato attuale
 
 - Premier League: funzionante, con arbitri

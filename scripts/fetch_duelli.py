@@ -717,7 +717,10 @@ def giocatori_prop(lega: str, stagione: int, squadre: set) -> dict:
             if r.get("season_type") != "REG" or r.get("position") not in ("QB", "RB", "FB", "WR", "TE"):
                 continue
             x = uso[r["player_id"]]
-            x["n"], x["r"], x["sq"] = r.get("player_display_name") or "", r.get("position") or "", r["team"]
+            w = int(float(r.get("week") or 0))
+            if w >= x.get("w", -1):   # squadra della partita più recente (i ceduti passano alla nuova squadra)
+                x["sq"], x["w"] = r["team"], w
+            x["n"], x["r"] = r.get("player_display_name") or "", r.get("position") or ""
             x["g"] += 1
             x["u"] += sum(RP._f(r.get(k)) or 0 for k in ("attempts", "carries", "targets"))
     else:
@@ -781,7 +784,7 @@ def quote_produzione_nfl(stagione: int) -> dict:
     QB: quota dei lanci della squadra; gli altri: quota delle yard da corsa e ricezione."""
     righe = righe_giocatori_nfl(stagione)
     tot = defaultdict(lambda: [0.0, 0.0])
-    gio = defaultdict(lambda: [0.0, 0.0, "", ""])
+    gio = defaultdict(lambda: [0.0, 0.0, "", "", -1])
     for r in righe:
         if r.get("season_type") != "REG":
             continue
@@ -789,12 +792,18 @@ def quote_produzione_nfl(stagione: int) -> dict:
         tot[r["team"]][0] += att
         tot[r["team"]][1] += max(yds, 0)
         x = gio[r["player_id"]]
-        x[0] += att
-        x[1] += max(yds, 0)
-        x[2], x[3] = r.get("position") or "", r["team"]
+        w = int(float(r.get("week") or 0))
+        if w > (x[4] if len(x) > 4 else -1):          # ceduto: conta solo con la squadra di adesso
+            if len(x) > 4 and x[3] != r["team"]:
+                x[0], x[1] = 0.0, 0.0
+            x[2], x[3] = r.get("position") or "", r["team"]
+            x[4:] = [w]
+        if r["team"] == x[3]:
+            x[0] += att
+            x[1] += max(yds, 0)
     out, per_nome = {}, {}
     nomi = {r["player_id"]: r.get("player_display_name") or "" for r in righe}
-    for pid, (att, yds, pos, team) in gio.items():
+    for pid, (att, yds, pos, team, *_) in gio.items():
         t = tot[team]
         q = (att / t[0]) if pos == "QB" and t[0] else (yds / t[1] if t[1] else 0.0)
         out[pid] = (round(q, 3), pos)

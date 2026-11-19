@@ -17,7 +17,7 @@
  "mercato": {
   "favorita": "Houston Texans",
   "vantaggio": 12.5,
-  "totale": 44.5,
+  "totale": 43.5,
   "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"
  },
  "precedenti": [
@@ -124,34 +124,88 @@
     "rispettoAllAnnoScorso": "in netto calo"
    },
    {
-    "nome": "Josh Downs",
+    "nome": "Tyler Warren",
     "ruolo": "ricevitore più produttivo",
-    "posizione": "WR",
-    "stagione": "354 yard ricevute, 33 ricezioni, 1 TD",
-    "posizioneNellaLega": 46,
-    "eta": 25,
-    "rispettoAllAnnoScorso": "sugli stessi livelli"
+    "posizione": "TE",
+    "stagione": "276 yard ricevute, 40 ricezioni, 2 TD",
+    "posizioneNellaLega": 92,
+    "eta": 24,
+    "rispettoAllAnnoScorso": "in netto calo"
    },
    {
-    "nome": "Keenan Allen",
+    "nome": "Jonathan Taylor",
     "ruolo": "secondo ricevitore più produttivo",
-    "posizione": "WR",
-    "stagione": "351 yard ricevute, 40 ricezioni, 1 TD",
-    "posizioneNellaLega": 44,
-    "eta": 34,
+    "posizione": "RB",
+    "stagione": "240 yard ricevute, 28 ricezioni, 0 TD",
+    "posizioneNellaLega": 116,
+    "eta": 27,
     "rispettoAllAnnoScorso": "sugli stessi livelli"
    },
    {
-    "nome": "DeForest Buckner",
+    "nome": "Adetomiwa Adebawore",
     "ruolo": "miglior pass rusher",
     "posizione": "DT",
     "stagione": "4 sack",
-    "posizioneNellaLega": 37,
-    "eta": 32,
+    "posizioneNellaLega": 43,
+    "eta": 25,
     "rispettoAllAnnoScorso": "in netta crescita"
    }
   ],
-  "rapportoInfortuni": []
+  "cedutiInStagione": [
+   {
+    "nome": "DeForest Buckner",
+    "ruolo": "DT",
+    "oraGiocaCon": "San Francisco 49ers"
+   },
+   {
+    "nome": "Josh Downs",
+    "ruolo": "WR",
+    "oraGiocaCon": "Kansas City Chiefs"
+   },
+   {
+    "nome": "Keenan Allen",
+    "ruolo": "WR",
+    "oraGiocaCon": "San Francisco 49ers"
+   },
+   {
+    "nome": "Quenton Nelson",
+    "ruolo": "G",
+    "oraGiocaCon": "Seattle Seahawks"
+   }
+  ],
+  "arrivatiInStagione": [
+   {
+    "nome": "Kevin Givens",
+    "ruolo": "DT",
+    "daSquadra": "San Francisco 49ers"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Charvarius Ward",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Jerry Tillery",
+    "ruolo": "DT",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Calf",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Sauce Gardner",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Calf",
+    "giocatoreImportante": true
+   }
+  ]
  },
  "padroniDiCasa": {
   "squadra": "Houston Texans",
@@ -267,6 +321,35 @@
     "posizioneNellaLega": 1,
     "eta": 25,
     "rispettoAllAnnoScorso": "in netta crescita"
+   }
+  ],
+  "cedutiInStagione": [
+   {
+    "nome": "Jared Wayne",
+    "ruolo": "WR",
+    "oraGiocaCon": "Miami Dolphins"
+   }
+  ],
+  "arrivatiInStagione": [
+   {
+    "nome": "Emari Demercado",
+    "ruolo": "RB",
+    "daSquadra": "Dallas Cowboys"
+   },
+   {
+    "nome": "Marvin Harrison Jr.",
+    "ruolo": "WR",
+    "daSquadra": "Arizona Cardinals"
+   },
+   {
+    "nome": "Naquan Jones",
+    "ruolo": "DT",
+    "daSquadra": "San Francisco 49ers"
+   },
+   {
+    "nome": "Nikko Remigio",
+    "ruolo": "WR",
+    "daSquadra": "Kansas City Chiefs"
    }
   ],
   "rapportoInfortuni": [

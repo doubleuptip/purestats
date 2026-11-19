@@ -576,10 +576,15 @@ def _chiave_squadra(righe, squadra):
     """Giocatori chiave nelle ultime 3 partite della squadra: QB con più lanci, RB con più corse,
     i 2 ricevitori con più bersagli."""
     sett = sorted({int(r["week"]) for r in righe if r.get("team") == squadra})[-3:]
+    ultima = {}   # squadra della partita più recente: chi è stato ceduto non conta più per la vecchia squadra
+    for r in righe:
+        w = int(r["week"])
+        if r["player_id"] not in ultima or w >= ultima[r["player_id"]][0]:
+            ultima[r["player_id"]] = (w, r.get("team"))
     uso = defaultdict(float)
     ruoli = {}
     for r in righe:
-        if r.get("team") != squadra or int(r["week"]) not in sett:
+        if r.get("team") != squadra or int(r["week"]) not in sett or ultima[r["player_id"]][1] != squadra:
             continue
         p = r["position"]
         uso[r["player_id"]] += f(r.get("attempts") if p == "QB" else r.get("carries") if p == "RB" else r.get("targets")) or 0

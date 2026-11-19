@@ -16,6 +16,8 @@ Ogni settimana: 3 partite NFL e 3 college, anteprima prima del via e cronaca dop
 - Si parte dall'ATTUALITÀ: come stanno andando le squadre, momento positivo o negativo, chi cerca riscatto,
   cosa è cambiato con un'assenza (es. una squadra crollata da quando manca il quarterback titolare),
   giocatori in calo o in crescita rispetto all'anno scorso, l'età quando spiega un calo.
+- Cessioni e arrivi della stagione («cedutiInStagione», «arrivatiInStagione») fanno parte dell'attualità: una squadra
+  che smobilita o che si rinforza è una notizia. I giocatori ceduti non compaiono più tra i giocatori della vecchia squadra.
 - Curiosità (parentele, ex) solo se toccano davvero la partita. Mai come apertura.
 - Ogni giudizio deve poggiare su un dato dei fatti (es. «in netto calo rispetto all'anno scorso», «primo nella lega per sack»).
   Niente opinioni a sensazione («non può fare miracoli»).
