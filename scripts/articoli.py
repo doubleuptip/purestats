@@ -293,9 +293,10 @@ def fatti_squadra(D: Dati, sq: str, avv: str, settimana: int, giorno: dt.date, c
     peso = {p: tot[p]["attempts"] / 4 + tot[p]["carries"] + tot[p]["targets"] * 1.5 + tot[p]["def_sacks"] * 8
             + (tot[p]["def_tackles_solo"] + tot[p]["def_tackle_assists"]) * 0.6 for p in tot}
     importanti = {info[p][0] for p in sorted(peso, key=lambda p: -peso[p])[:22]}
+    nomi_arrivati = {n for n, _, _ in arrivati}   # chi è arrivato in stagione: il suo stato è sempre una notizia
     rapporto = []
     for nome, r in infortuni.items():
-        if nome in importanti or r["report_status"] in ("Out", "Doubtful"):
+        if nome in importanti or nome in nomi_arrivati or r["report_status"] in ("Out", "Doubtful"):
             rapporto.append({"nome": nome, "ruolo": r["position"], "stato": r["report_status"] or "(stato non ancora dato)",
                              "allenamento": r["practice_status"], "infortunio": r["report_primary_injury"] or r["practice_primary_injury"],
                              "giocatoreImportante": nome in importanti})
