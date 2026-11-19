@@ -627,11 +627,17 @@
   .ar-cf-linea{text-align:center;font:800 16px var(--f-tit)}
   .ar-linea{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:10px 14px;margin-bottom:10px}
   .ar-linea small{display:block;font-size:11px;color:var(--fb-muted);text-transform:uppercase;letter-spacing:.04em} .ar-linea b{font:800 18px var(--f-tit)}
-  .ar-video{display:block;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;overflow:hidden;color:var(--fb-text);text-decoration:none}
-  .ar-mini{position:relative;display:block} .ar-mini img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-  .ar-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:#B91C1C}
-  .ar-play:before{content:"";position:absolute;left:23px;top:17px;border-left:18px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
-  .ar-vtit{display:block;padding:10px 12px;font:600 14px var(--f-testo)}
+  .ar-video{margin:22px 0 24px;padding:0}
+  .ar-mini{position:relative;display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;cursor:pointer;background:#000}
+  .ar-mini img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;opacity:.92;transition:opacity .15s}
+  .ar-mini:hover img{opacity:1}
+  .ar-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:#B91C1C;box-shadow:0 4px 18px rgba(0,0,0,.45)}
+  .ar-play:before{content:"";position:absolute;left:26px;top:19px;border-left:19px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent}
+  .ar-vbadge{position:absolute;left:12px;top:12px;background:rgba(0,0,0,.72);color:#fff;font:700 12px var(--f-testo);letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:6px}
+  .ar-lettore{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+  .ar-lettore iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .ar-video figcaption{margin-top:8px;font:13px var(--f-testo);color:var(--fb-muted);border-left:3px solid #B91C1C;padding-left:9px}
+  .ar-video figcaption a{color:inherit;text-decoration:underline}
   .ar-nw{white-space:nowrap}
   .ar-link-riga{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
   .ar-link{display:inline-flex;align-items:center;gap:4px;font:700 12px var(--f-testo);text-decoration:none;padding:5px 10px;border-radius:999px;
@@ -2303,6 +2309,11 @@ function riquadroSquadre(a){
     ${R.linea?`<div class="ar-cf-et">Linea e totale del mercato americano</div><div class="ar-cf-linea">${esc(R.linea)}</div>`:""}
   </div>`;
 }
+function avviaVideo(id){
+  const f=document.getElementById("ar-video"); if(!f) return;
+  const b=f.querySelector(".ar-mini");
+  b.outerHTML=`<div class="ar-lettore"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0" title="Highlights" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>`;
+}
 function vArticolo(id){
   const a=ART_CACHE[id];
   if(!a){
@@ -2320,9 +2331,16 @@ function vArticolo(id){
     ? `<div class="ar-punti"><span class="${a.punti.ospite<a.punti.casa?"perde":""}">${a.punti.ospite}</span><i>–</i><span class="${a.punti.casa<a.punti.ospite?"perde":""}">${a.punti.casa}</span></div>`
     : `<div class="ar-ora"><b>${esc(ora)}</b><small>${esc(GIORNI_IT[d.getDay()].slice(0,3))} ${d.getDate()} ${esc(MESI_IT[d.getMonth()].slice(0,3))}<span class="ar-pc"> · ora italiana</span></small></div>`;
   const parole=(a.paragrafi||[]).join(" ").split(/\s+/).length, minuti=Math.max(1,Math.round(parole/200));
-  const video = cronaca && a.video ? `<a class="ar-video" href="https://www.youtube.com/watch?v=${esc(a.video)}" target="_blank" rel="noopener">
-      <span class="ar-mini"><img src="https://i.ytimg.com/vi/${esc(a.video)}/hqdefault.jpg" alt="" loading="lazy"><span class="ar-play"></span></span>
-      <span class="ar-vtit">Guarda gli highlights ufficiali su YouTube</span></a>` : "";
+  // Highlights dentro il testo, come nei siti di giornali: dopo l'attacco (metà articolo,
+  // mai prima del secondo paragrafo). Si carica il lettore solo al clic (youtube-nocookie).
+  const video = cronaca && a.video ? `<figure class="ar-video" id="ar-video">
+      <button class="ar-mini" onclick="avviaVideo('${esc(a.video)}')" aria-label="Guarda gli highlights">
+        <img src="https://i.ytimg.com/vi/${esc(a.video)}/hqdefault.jpg" alt="" loading="lazy"><span class="ar-play"></span>
+        <span class="ar-vbadge">▶ Highlights</span></button>
+      <figcaption>Gli highlights ufficiali della partita · <a href="https://www.youtube.com/watch?v=${esc(a.video)}" target="_blank" rel="noopener">apri su YouTube</a></figcaption>
+    </figure>` : "";
+  const par=(a.paragrafi||[]).map(p=>`<p>${esc(p).replace(/(\d+)-(\d+)/g,'<span class="ar-nw">$1-$2</span>')}</p>`);
+  if(video) par.splice(Math.min(par.length, Math.max(2, Math.floor(par.length/2))), 0, video);
   return `<article class="ar">
     <a class="ar-torna" href="#" onclick="chiudiArticolo();return false">← Tutti gli articoli</a>
     <div class="ar-cop" style="${sfondo}"><div class="ar-sfuma" style="background:${sfuma}"></div><div class="ar-cop-in">
@@ -2337,10 +2355,9 @@ function vArticolo(id){
     <div class="ar-titolo"><div class="ar-occhiello">${cronaca?"Cronaca":"Anteprima"} · ${esc(breve(a.ospite))}–${esc(breve(a.casa))}</div>
       <h1>${esc(a.titolo)}</h1>
       <div class="ar-firma">PureStats · ${esc(giornoIt((a.pubblicato||"").slice(0,10)))} · lettura ${minuti} minut${minuti===1?"o":"i"}</div></div>
-    <div class="ar-testo">${(a.paragrafi||[]).map(p=>`<p>${esc(p).replace(/(\d+)-(\d+)/g,'<span class="ar-nw">$1-$2</span>')}</p>`).join("")}</div>
+    <div class="ar-testo">${par.join("")}</div>
     <aside class="ar-lato">${cronaca?"":schedaMeteo(a)}
       ${riquadroSquadre(a)}
-      ${video}
       <div class="ar-crediti">Articolo scritto con l'aiuto di Claude (Anthropic) su dati nflverse (CC-BY 4.0), verificati prima della pubblicazione.${a.fotoCrediti?" Foto dello stadio: Wikimedia Commons.":""}</div>
     </aside>
   </article>`;

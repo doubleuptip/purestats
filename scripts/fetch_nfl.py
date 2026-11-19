@@ -19,6 +19,8 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
+from nfl_indici import nome_stadio
+
 RADICE = Path(__file__).resolve().parent.parent
 ARCHIVIO = RADICE / "data" / "nfl.csv"
 USCITA = RADICE / "docs" / "data_nfl.json"
@@ -252,7 +254,7 @@ def normalizza(testo, stagioni_valide):
             "Ospite": ospite,
             "PuntiCasa": (r.get("home_score") or "").strip(),
             "PuntiOspite": (r.get("away_score") or "").strip(),
-            "Stadio": (r.get("stadium") or "").strip(),
+            "Stadio": nome_stadio(r.get("stadium")),
             "Copertura": (r.get("roof") or "").strip(),
             "Superficie": (r.get("surface") or "").strip(),
             "Temperatura": (r.get("temp") or "").strip(),
@@ -393,7 +395,7 @@ def calcola_statistiche(righe, anagrafica=None, giocatori=None):
             **orario_italiano(r["Data"], r["Ora"]),
             "casa": r["Casa"], "ospite": r["Ospite"],
             "pc": num(r["PuntiCasa"]), "po": num(r["PuntiOspite"]),
-            "stadio": r["Stadio"] or None,
+            "stadio": nome_stadio(r["Stadio"]) or None,
             "giocatoriCasa": prestazioni(r["Casa"], r["Stagione"], r["Settimana"]),
             "giocatoriOspite": prestazioni(r["Ospite"], r["Stagione"], r["Settimana"]),
         })

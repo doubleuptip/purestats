@@ -34,7 +34,6 @@ ROMA, NY = ZoneInfo("Europe/Rome"), ZoneInfo("America/New_York")
 GIORNI = ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"]
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre",
         "novembre", "dicembre"]
-RINOMINATI = {"Reliant Stadium": "NRG Stadium"}   # nomi vecchi nel calendario nflverse
 POST = {"WC": "turno di wild card", "DIV": "turno di division", "CON": "finale di conference", "SB": "Super Bowl"}
 
 
@@ -355,13 +354,14 @@ def fatti(gid: str) -> dict:
                      "risultato": f"{D.nomi[x['home_team']]} {hs} - {D.nomi[x['away_team']]} {as_}"})
     sys.path.insert(0, str(RADICE / "scripts"))
     from contesto import STADI_NFL
+    from nfl_indici import nome_stadio
     coperto = STADI_NFL.get(casa, (0, 0, False))[2]
     out = {
         "id": gid, "lega": "nfl", "stagione": stagione, "settimana": settimana,
         "partita": f"{D.nomi[osp]} @ {D.nomi[casa]}", "ospite": osp, "casa": casa,
         "quando": quando, "dataIt": it.date().isoformat(), "oraIt": f"{it.hour:02d}:{it.minute:02d}",
         "inizioUtc": inizio_et.astimezone(dt.timezone.utc).isoformat(timespec="minutes"),
-        "stadio": RINOMINATI.get(r["stadium"], r["stadium"]), "campoNeutro": r["location"] == "Neutral", "coperto": coperto,
+        "stadio": nome_stadio(r["stadium"]), "campoNeutro": r["location"] == "Neutral", "coperto": coperto,
         "sfidaDiDivision": r["div_game"] == "1",
         "mercato": {"favorita": favorita, "vantaggio": abs(sp) if sp else None, "totale": num(r["total_line"], None),
                     "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"},

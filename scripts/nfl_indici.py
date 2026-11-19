@@ -30,6 +30,15 @@ from collections import defaultdict
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
+# Nomi vecchi che il calendario nflverse non ha aggiornato (unico elenco, usato anche da
+# fetch_nfl.py e articoli.py): il sito e gli articoli devono dire il nome di oggi.
+STADI_RINOMINATI = {"Reliant Stadium": "NRG Stadium"}
+
+
+def nome_stadio(nome):
+    nome = (nome or "").strip()
+    return STADI_RINOMINATI.get(nome, nome)
+
 REL = "https://github.com/nflverse/nflverse-data/releases/download"
 PARTITE_URL = f"{REL}/schedules/games.csv"
 SQUADRE_URL = f"{REL}/teams/teams_colors_logos.csv"
@@ -107,7 +116,7 @@ def partite():
             "pc": f(r.get("home_score")), "po": f(r.get("away_score")),
             # positivo = casa favorita (convenzione nflverse, verificata sui risultati)
             "linea": f(r.get("spread_line")), "totale": f(r.get("total_line")),
-            "stadio": r.get("stadium", ""), "copertura": r.get("roof", ""),
+            "stadio": nome_stadio(r.get("stadium")), "copertura": r.get("roof", ""),
             "gameId": r.get("game_id", ""), "arbitro": (r.get("referee") or "").strip(),
         })
     return out
