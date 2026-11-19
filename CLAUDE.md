@@ -323,3 +323,26 @@ davvero che si veda quello che deve vedersi.
 - Dicembre 2026, rinunce ai bowl: i titolari si contano sull'intera stagione (Protocollo 12), quindi una squadra
   che ha cambiato QB a metà anno ha ancora il vecchio come titolare (Rice: Jacurri Brown, ora ricevitore; gioca
   Gael Ochoa). Prima di spuntare le rinunce, controllare a mano le squadre che hanno cambiato QB.
+
+## Da fare da sabato 21/11/2026 (dopo il rinnovo dell'abbonamento, ore 5)
+
+1. Articoli, fase 2: scelta automatica delle 3 partite NFL (posta playoff da nfl_playoff + partite di cartello) e
+   3 college (classificate / corsa ai playoff); cronache dal play-by-play con il video YouTube a metà testo; foto di
+   tutti gli stadi NFL da Wikimedia con i crediti; college in articoli.py; attività programmate ricorrenti (martedì
+   cronache dom/lun + anteprima del giovedì, venerdì cronaca del giovedì, sabato anteprime NFL e college, domenica
+   cronache college).
+2. Sezione «LEGGENDE» (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
+   mostrato il 19/11: menu accanto ad ARTICOLI; racconto in evidenza con il numero di maglia grande nei colori della
+   squadra (niente foto dei giocatori); «I più grandi» per ruolo (QB, RB, WR, TE, difesa, allenatori) in due elenchi:
+   Record (dati) e I più grandi (criteri dichiarati: titoli, MVP, All-Pro, record, Canton, squadra dei 100 anni NFL);
+   Dinastie come linea del tempo (Steelers '70, 49ers '80, Cowboys '90, Patriots 2001-19, Dolphins di Shula e il 1972);
+   schede «Mai battuto». Fonti: nflverse (dal 1999, draft con Hall of Fame, rose), Wikipedia per le carriere prima
+   del 1999 (da citare), niente Pro Football Reference (vieta la raccolta). Video solo da canali ufficiali NFL / NFL
+   Films, scelti a mano, incorporati con youtube-nocookie, senza API.
+   Ordine: struttura + classifiche (2 sessioni), poi racconti 2-3 a sessione o con attività programmata, poi college.
+   Racconti: Kurt Warner; Joe Montana (record, The Catch 1982, drive del Super Bowl XXIII); Dan Marino e il 1984;
+   Brady-Belichick a New England; i più grandi TE e RB; Ice Bowl 1967; Immaculate Reception 1972; Dolphins 1972
+   imbattuti; rimonta da 28-3 nel Super Bowl LI; presa di Tyree (Super Bowl XLII, fine del 18-0); Barry Sanders che
+   si ritira al massimo; Jerry Rice; Lawrence Taylor. College: Hail Mary di Flutie 1984, «The Play» Cal-Stanford 1982,
+   Kick Six 2013, Boise State al Fiesta Bowl 2007.
+3. Ogni fatto e record va riverificato prima di pubblicare (stesso metodo degli articoli).
