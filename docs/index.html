@@ -607,6 +607,24 @@
   .ar-g-dati{display:flex;gap:8px;margin-top:8px}
   .ar-g-dati div{flex:1;background:var(--fb-pill);border-radius:10px;padding:8px 6px;text-align:center;border-left:3px solid var(--c)}
   .ar-g-dati b{display:block;font:800 24px/1 var(--f-tit)} .ar-g-dati small{font-size:11px;color:var(--fb-muted)}
+  .ar-confronto{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:12px;margin:20px 0}
+  .ar-cf-tit{font:800 17px var(--f-tit);text-transform:uppercase;margin-bottom:10px}
+  .ar-cf-tit small{display:block;font:600 11px var(--f-testo);text-transform:none;color:var(--fb-muted)}
+  .ar-cf-riga{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .ar-cf-testa{display:flex;align-items:center;gap:6px;background:var(--c);color:#fff;border-radius:9px;padding:6px 8px;min-width:0}
+  .ar-cf-testa b{font:800 14px var(--f-tit);text-transform:uppercase;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ar-cf-testa span{font:800 12px var(--f-tit);background:rgba(255,255,255,.2);padding:1px 6px;border-radius:5px}
+  .ar-cf-testa .fb-logo{width:22px!important;height:22px!important;background:#fff;border-radius:50%;padding:1px}
+  .ar-cf-et{font:700 10px var(--f-testo);text-transform:uppercase;letter-spacing:.06em;color:var(--fb-muted);text-align:center;margin:12px 0 5px;
+    display:flex;align-items:center;gap:8px}
+  .ar-cf-et:before,.ar-cf-et:after{content:"";flex:1;border-top:1px solid var(--fb-border)}
+  .ar-cf-g{background:var(--fb-pill);border-radius:9px;padding:7px 8px;min-width:0}
+  .ar-cf-g>b{display:block;font:700 13px var(--f-testo);line-height:1.2;margin-bottom:4px}
+  .ar-cf-d{display:flex;align-items:baseline;gap:5px;line-height:1.25}
+  .ar-cf-d b{font:800 16px var(--f-tit)} .ar-cf-d small{font-size:11px;color:var(--fb-muted)}
+  .ar-cf-nota{display:block;font-size:10px;color:var(--fb-muted);margin-top:3px}
+  .ar-cf-g .ar-g-stato{display:inline-block;margin-bottom:4px}
+  .ar-cf-linea{text-align:center;font:800 16px var(--f-tit)}
   .ar-linea{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:10px 14px;margin-bottom:10px}
   .ar-linea small{display:block;font-size:11px;color:var(--fb-muted);text-transform:uppercase;letter-spacing:.04em} .ar-linea b{font:800 18px var(--f-tit)}
   .ar-video{display:block;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;overflow:hidden;color:var(--fb-text);text-decoration:none}
@@ -2258,17 +2276,24 @@ function schedaMeteo(a){
 function riquadroSquadre(a){
   const R=a.riquadro;
   if(Array.isArray(R)) return `<div class="ar-numeri"><h2>I numeri</h2>${R.map(r=>`<div><b>${esc(r[0])}${r[1]?` <em>${esc(r[1])}</em>`:""}</b><span>${esc(r[2])}</span></div>`).join("")}</div>`;
-  if(!R||!R.squadre) return "";
-  const colore=i=>(a.colori||{})[i===0?"ospite":"casa"]||"#1F2937";
-  return `<div class="ar-num-tit">Da seguire <small>numeri della stagione</small></div>` + R.squadre.map((q,i)=>`
-    <section class="ar-squadra" style="--c:${esc(colore(i))}">
-      <div class="ar-sq-testa">${stemma(q.sigla,true)}<b>${esc(q.nome)}</b><span>${esc(q.bilancio||"")}</span></div>
-      <div class="ar-sq-punti"><div><b>${esc(q.punti.fatti)}</b><small>punti fatti a partita</small></div><div><b>${esc(q.punti.subiti)}</b><small>punti subiti a partita</small></div></div>
-      ${q.giocatori.map(g=>`<div class="ar-gioc">
-        <div class="ar-g-nome"><b>${esc(g.nome)}</b>${g.stato?`<span class="ar-g-stato">${esc(g.stato)}</span>`:""}<em>${esc(g.ruolo)}${g.nota?" · "+esc(g.nota):""}</em></div>
-        <div class="ar-g-dati">${g.dati.map(x=>`<div><b>${esc(x[0])}</b><small>${esc(x[1])}</small></div>`).join("")}</div>
-      </div>`).join("")}
-    </section>`).join("") + (R.linea?`<div class="ar-linea"><small>Linea e totale del mercato americano</small><b>${esc(R.linea)}</b></div>`:"");
+  if(!R||!R.squadre||R.squadre.length<2) return "";
+  const [O,C]=R.squadre, col=k=>(a.colori||{})[k]||"#1F2937";
+  const cella=g=>g?`<div class="ar-cf-g"><b>${esc(g.nome)}</b>${g.stato?`<span class="ar-g-stato">${esc(g.stato)}</span>`:""}
+      ${g.dati.map(x=>`<div class="ar-cf-d"><b>${esc(x[0])}</b><small>${esc(x[1])}</small></div>`).join("")}${g.nota?`<small class="ar-cf-nota">${esc(g.nota)}</small>`:""}</div>`:`<div class="ar-cf-g"></div>`;
+  const ruoli=[]; [...O.giocatori,...C.giocatori].forEach(g=>{ if(!ruoli.includes(g.ruolo)) ruoli.push(g.ruolo); });
+  const riga=(et,sx,dx)=>`<div class="ar-cf-et">${esc(et)}</div><div class="ar-cf-riga">${sx}${dx}</div>`;
+  return `<div class="ar-confronto">
+    <div class="ar-cf-tit">Da seguire <small>numeri della stagione</small></div>
+    <div class="ar-cf-riga ar-cf-teste">
+      <div class="ar-cf-testa" style="--c:${esc(col("ospite"))}">${stemma(O.sigla,true)}<b>${esc(O.nome)}</b><span>${esc(O.bilancio||"")}</span></div>
+      <div class="ar-cf-testa" style="--c:${esc(col("casa"))}">${stemma(C.sigla,true)}<b>${esc(C.nome)}</b><span>${esc(C.bilancio||"")}</span></div>
+    </div>
+    ${riga("Punti a partita",
+      `<div class="ar-cf-g"><div class="ar-cf-d"><b>${esc(O.punti.fatti)}</b><small>fatti</small></div><div class="ar-cf-d"><b>${esc(O.punti.subiti)}</b><small>subiti</small></div></div>`,
+      `<div class="ar-cf-g"><div class="ar-cf-d"><b>${esc(C.punti.fatti)}</b><small>fatti</small></div><div class="ar-cf-d"><b>${esc(C.punti.subiti)}</b><small>subiti</small></div></div>`)}
+    ${ruoli.map(r=>riga(r, cella(O.giocatori.find(g=>g.ruolo===r)), cella(C.giocatori.find(g=>g.ruolo===r)))).join("")}
+    ${R.linea?`<div class="ar-cf-et">Linea e totale del mercato americano</div><div class="ar-cf-linea">${esc(R.linea)}</div>`:""}
+  </div>`;
 }
 function vArticolo(id){
   const a=ART_CACHE[id];
