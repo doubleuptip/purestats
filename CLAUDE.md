@@ -317,3 +317,9 @@ davvero che si veda quello che deve vedersi.
   dipendono dall'inserimento manuale delle designazioni
 - Cartellini per singolo giocatore: non disponibili in nessuno dei due
   campionati con le fonti attuali
+
+## Da controllare
+
+- Dicembre 2026, rinunce ai bowl: i titolari si contano sull'intera stagione (Protocollo 12), quindi una squadra
+  che ha cambiato QB a metà anno ha ancora il vecchio come titolare (Rice: Jacurri Brown, ora ricevitore; gioca
+  Gael Ochoa). Prima di spuntare le rinunce, controllare a mano le squadre che hanno cambiato QB.
