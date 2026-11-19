@@ -35,5 +35,7 @@ Ogni settimana: 3 partite NFL e 3 college, anteprima prima del via e cronaca dop
   Mai segnali di Charlie o della sezione privata.
 - Squadre al plurale maschile («i Texans»); prima citazione nome e cognome, poi il cognome; yard (mai iarde);
   «partita» (mai match); niente punti esclamativi, domande retoriche, cliché.
+- Meteo nel testo solo se conta davvero (all'aperto, con pioggia, vento forte o freddo). Mai frasi come «il meteo non conta»
+  o «si gioca al coperto»: la scheda meteo accanto all'articolo dice già tutto.
 - Rapporto infortuni: dire solo ciò che dice il rapporto (stato ufficiale, o «non si è allenato» se lo stato non c'è ancora).
 - Anteprima 220-300 parole in 4 paragrafi; cronaca 230-320 parole in 4-5 paragrafi.

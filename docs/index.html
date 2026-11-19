@@ -2237,7 +2237,7 @@ function vArticoli(){
 function rgbaHex(h,a){ h=String(h||"#0B1428").replace("#",""); if(h.length!==6) h="0B1428";
   return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},${a})`; }
 function spiegaMeteo(m, coperto){
-  if(coperto) return "Si gioca al coperto: pioggia e vento restano fuori dallo stadio.";
+  if(coperto) return "Stadio coperto: i dati sono quelli all'esterno.";
   const pezzi=[];
   if((m.pioggia||0)>=50) pezzi.push(`pioggia probabile al ${m.pioggia}%: palloni bagnati, prese e calci più difficili`);
   if((m.raffKmh||0)>=35) pezzi.push(`raffiche fino a ${m.raffKmh} km/h: lanci lunghi e field goal più complicati`);
@@ -2252,10 +2252,10 @@ function schedaMeteo(a){
   const ora=a.oraIt?`${parseInt(a.oraIt)}:${a.oraIt.slice(3)}`:"";
   const quando=`${GIORNI_IT[d.getDay()].slice(0,3)} ${d.getDate()} ${MESI_IT[d.getMonth()].slice(0,3)} · ${ora} ora italiana`;
   const haDati=m.tempC!=null;
-  const icona=!haDati?"🏟️":cop?"🏟️":(m.pioggia||0)>=50?"🌧️":(m.tempC<=0)?"❄️":(m.raffKmh||0)>=35?"💨":(m.pioggia||0)>=25?"🌥️":"☀️";
+  const icona=!haDati?"🏟️":(m.pioggia||0)>=50?"🌧️":(m.tempC<=0)?"❄️":(m.raffKmh||0)>=35?"💨":(m.pioggia||0)>=25?"🌥️":"☀️";
   const liv=cop?"NESSUNO":({alto:"ALTO",medio:"MEDIO",basso:"BASSO"}[m.impatto]||"–");
   const cls=cop?"nessuno":(m.impatto||"");
-  const centro = cop ? `<div class="ar-m-temp coperto">AL<br>COPERTO</div>` : `<div class="ar-m-temp">${haDati?m.tempC+"°":"–"}</div>`;
+  const centro = `<div class="ar-m-temp">${haDati?m.tempC+"°":"–"}</div>`;
   return `<div class="ar-meteo">
     <div class="ar-m-pill">${esc(quando)}</div>
     <div class="ar-m-centro">
@@ -2263,11 +2263,11 @@ function schedaMeteo(a){
       ${centro}
       <div class="ar-m-sq"><small>Casa</small>${stemma(a.casa)}</div>
     </div>
-    ${haDati?`<div class="ar-m-barra${cop?" fuori":""}">
+    ${haDati?`<div class="ar-m-barra">
       <div><b>${m.pioggia??"–"}%</b><small>pioggia</small></div>
       <div class="ar-m-ico">${icona}</div>
       <div><b>${m.ventoKmh??"–"}<i>km/h</i></b><small>vento</small></div>
-    </div>${cop?`<div class="ar-m-fuori">fuori dallo stadio · ${m.tempC}°</div>`:""}`:`<div class="ar-m-spiega">La previsione arriva nei 7 giorni prima della partita.</div>`}
+    </div>`:`<div class="ar-m-spiega">La previsione arriva nei 7 giorni prima della partita.</div>`}
     <div class="ar-m-imp">Impatto meteo = <b class="${esc(cls)}">${liv}</b></div>
     ${haDati||cop?`<div class="ar-m-spiega">${esc(spiegaMeteo(m,cop))}</div>`:""}
     ${haDati?`<div class="ar-m-fonte">Previsione ${esc(m.fonte||"")} · aggiornata ${esc((m.aggiornato||"").slice(11,16))}</div>`:""}
