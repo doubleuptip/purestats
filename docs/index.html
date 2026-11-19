@@ -572,17 +572,43 @@
   .ar-numeri div{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-top:1px solid var(--fb-border);font-size:15px}
   .ar-numeri div:first-of-type{border-top:0} .ar-numeri span{color:var(--fb-muted)}
   .ar-numeri em{font-style:normal;font-weight:400;color:var(--fb-muted);font-size:13px}
-  .ar-meteo{background:linear-gradient(160deg,#0B1428,#1C2A4A);color:#fff;border:0}
-  .ar-m-tit{font:700 12px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;opacity:.85}
-  .ar-m-riga{display:flex;align-items:center;justify-content:center;gap:14px;margin:6px 0}
-  .ar-m-ico{font-size:44px} .ar-m-temp{font:800 72px/1 var(--f-tit)}
-  .ar-m-big{font:800 34px var(--f-tit);margin:8px 0}
-  .ar-m-dati{display:grid;grid-template-columns:1fr 1fr;gap:8px;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;text-align:center}
-  .ar-m-dati b{display:block;font:800 26px/1 var(--f-tit)} .ar-m-dati i{font:600 12px var(--f-testo);font-style:normal;margin-left:3px}
-  .ar-m-dati small{font:600 11px var(--f-testo);text-transform:uppercase;opacity:.85}
-  .ar-m-imp{margin-top:10px;font:700 13px var(--f-testo);text-transform:uppercase;letter-spacing:.04em}
-  .ar-m-imp b{padding:2px 8px;border-radius:5px;background:#16A34A} .ar-m-imp b.medio{background:#EAB308;color:#111} .ar-m-imp b.alto{background:#DC2626}
-  .ar-m-nota{font-size:12px;opacity:.8;margin-top:8px}
+  .ar-meteo{background:radial-gradient(circle at 50% 0,#22304F,#0B1020 70%);color:#fff;border:0;text-align:center;padding:18px 16px}
+  .ar-m-pill{display:inline-block;border:2px solid rgba(255,255,255,.85);border-radius:999px;padding:5px 16px;font:800 14px var(--f-tit);letter-spacing:.06em;text-transform:uppercase}
+  .ar-m-centro{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin:10px 0 12px}
+  .ar-m-sq{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .ar-m-sq small{font:800 12px var(--f-tit);letter-spacing:.08em;text-transform:uppercase}
+  .ar-m-sq .fb-logo{width:58px!important;height:auto!important}
+  .ar-m-temp{font:900 96px/0.9 'Archivo',var(--f-tit);letter-spacing:-.02em;text-shadow:0 4px 18px rgba(0,0,0,.45)}
+  .ar-m-temp.coperto{font-size:34px;line-height:1.05}
+  .ar-m-barra{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border:2px solid rgba(255,255,255,.85);border-radius:999px;padding:8px 14px}
+  .ar-m-barra.fuori{opacity:.6;border-style:dashed}
+  .ar-m-barra b{display:block;font:900 30px/1 'Archivo',var(--f-tit)} .ar-m-barra i{font:800 12px var(--f-tit);font-style:normal;margin-left:3px}
+  .ar-m-barra small{font:800 12px var(--f-tit);letter-spacing:.06em;text-transform:uppercase}
+  .ar-m-ico{font-size:40px;padding:0 6px}
+  .ar-m-fuori{font:600 12px var(--f-testo);opacity:.7;margin-top:6px}
+  .ar-m-imp{margin-top:14px;font:800 17px var(--f-tit);letter-spacing:.04em;text-transform:uppercase}
+  .ar-m-imp b{color:#4ADE80} .ar-m-imp b.medio{color:#FDE047} .ar-m-imp b.alto{color:#F87171} .ar-m-imp b.nessuno{color:#93C5FD}
+  .ar-m-spiega{font:500 14px/1.45 var(--f-testo);margin-top:8px;opacity:.95}
+  .ar-m-fonte{font-size:11px;opacity:.6;margin-top:8px}
+  .ar-num-tit{font:800 18px var(--f-tit);text-transform:uppercase;margin:22px 0 10px}
+  .ar-num-tit small{display:block;font:600 12px var(--f-testo);text-transform:none;color:var(--fb-muted)}
+  .ar-squadra{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;overflow:hidden;margin-bottom:14px;border-top:5px solid var(--c)}
+  .ar-sq-testa{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--c);color:#fff}
+  .ar-sq-testa b{font:800 20px var(--f-tit);text-transform:uppercase;letter-spacing:.04em;flex:1}
+  .ar-sq-testa span{font:800 16px var(--f-tit);background:rgba(255,255,255,.18);padding:2px 8px;border-radius:6px}
+  .ar-sq-testa .fb-logo{width:30px!important;height:30px!important;background:#fff;border-radius:50%;padding:2px}
+  .ar-sq-punti{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--fb-border)}
+  .ar-sq-punti div{padding:10px 14px;text-align:center} .ar-sq-punti div+div{border-left:1px solid var(--fb-border)}
+  .ar-sq-punti b{display:block;font:800 28px/1 var(--f-tit)} .ar-sq-punti small{font-size:11px;color:var(--fb-muted)}
+  .ar-gioc{padding:12px 14px;border-top:1px solid var(--fb-border)} .ar-sq-punti+.ar-gioc{border-top:0}
+  .ar-g-nome{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+  .ar-g-nome b{font:800 17px var(--f-testo)} .ar-g-nome em{width:100%;font-style:normal;font-size:12px;color:var(--fb-muted);text-transform:uppercase;letter-spacing:.04em}
+  .ar-g-stato{font:700 11px var(--f-testo);text-transform:uppercase;background:#DC2626;color:#fff;padding:2px 6px;border-radius:5px}
+  .ar-g-dati{display:flex;gap:8px;margin-top:8px}
+  .ar-g-dati div{flex:1;background:var(--fb-pill);border-radius:10px;padding:8px 6px;text-align:center;border-left:3px solid var(--c)}
+  .ar-g-dati b{display:block;font:800 24px/1 var(--f-tit)} .ar-g-dati small{font-size:11px;color:var(--fb-muted)}
+  .ar-linea{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:10px 14px;margin-bottom:10px}
+  .ar-linea small{display:block;font-size:11px;color:var(--fb-muted);text-transform:uppercase;letter-spacing:.04em} .ar-linea b{font:800 18px var(--f-tit)}
   .ar-video{display:block;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;overflow:hidden;color:var(--fb-text);text-decoration:none}
   .ar-mini{position:relative;display:block} .ar-mini img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
   .ar-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:#B91C1C}
@@ -2192,19 +2218,57 @@ function vArticoli(){
 }
 function rgbaHex(h,a){ h=String(h||"#0B1428").replace("#",""); if(h.length!==6) h="0B1428";
   return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},${a})`; }
+function spiegaMeteo(m, coperto){
+  if(coperto) return "Si gioca al coperto: pioggia e vento restano fuori dallo stadio.";
+  const pezzi=[];
+  if((m.pioggia||0)>=50) pezzi.push(`pioggia probabile al ${m.pioggia}%: palloni bagnati, prese e calci più difficili`);
+  if((m.raffKmh||0)>=35) pezzi.push(`raffiche fino a ${m.raffKmh} km/h: lanci lunghi e field goal più complicati`);
+  if(m.tempC!=null && m.tempC<=0) pezzi.push(`freddo intenso (${m.tempC}°): palla dura e mani fredde`);
+  if(!pezzi.length) return "Condizioni tranquille: il meteo non dovrebbe incidere sulla partita.";
+  const t=pezzi.join("; ");
+  return t.charAt(0).toUpperCase()+t.slice(1)+".";
+}
 function schedaMeteo(a){
-  const m=a.meteo;
-  if(a.coperto) return `<div class="ar-meteo coperto"><div class="ar-m-tit">Meteo</div><div class="ar-m-big">Al coperto</div>
-    <div class="ar-m-nota">Stadio coperto: il tempo non entra in partita.${m&&m.tempC!=null?` Fuori: ${m.tempC}°, pioggia ${m.pioggia??"–"}%.`:""}</div></div>`;
-  if(!m) return `<div class="ar-meteo"><div class="ar-m-tit">Meteo</div><div class="ar-m-nota">Previsione disponibile nei 7 giorni prima della partita.</div></div>`;
-  const icona = (m.pioggia||0)>=50 ? "🌧️" : (m.tempC!=null&&m.tempC<=0) ? "❄️" : (m.raffKmh||0)>=35 ? "💨" : (m.pioggia||0)>=25 ? "⛅" : "☀️";
-  const liv = {alto:"ALTO",medio:"MEDIO",basso:"BASSO"}[m.impatto]||"–";
-  return `<div class="ar-meteo"><div class="ar-m-tit">Meteo all'inizio · ${esc(a.oraIt? (parseInt(a.oraIt)+":"+a.oraIt.slice(3)) : "")} italiane</div>
-    <div class="ar-m-riga"><span class="ar-m-ico">${icona}</span><span class="ar-m-temp">${m.tempC!=null?m.tempC+"°":"–"}</span></div>
-    <div class="ar-m-dati"><div><b>${m.pioggia!=null?m.pioggia+"%":"–"}</b><small>pioggia</small></div>
-      <div><b>${m.ventoKmh!=null?m.ventoKmh:"–"}<i>km/h</i></b><small>vento${m.raffKmh?" · raffiche "+m.raffKmh:""}</small></div></div>
-    <div class="ar-m-imp">Impatto possibile del meteo: <b class="${esc(m.impatto)}">${liv}</b></div>
-    <div class="ar-m-nota">Previsione ${esc(m.fonte||"")}, aggiornata ${esc((m.aggiornato||"").slice(11,16))} del ${esc(giornoIt((m.aggiornato||"").slice(0,10)))}.</div></div>`;
+  const m=a.meteo||{}, cop=!!a.coperto;
+  const d=new Date(a.dataIt+"T12:00:00");
+  const ora=a.oraIt?`${parseInt(a.oraIt)}:${a.oraIt.slice(3)}`:"";
+  const quando=`${GIORNI_IT[d.getDay()].slice(0,3)} ${d.getDate()} ${MESI_IT[d.getMonth()].slice(0,3)} · ${ora} ora italiana`;
+  const haDati=m.tempC!=null;
+  const icona=!haDati?"🏟️":cop?"🏟️":(m.pioggia||0)>=50?"🌧️":(m.tempC<=0)?"❄️":(m.raffKmh||0)>=35?"💨":(m.pioggia||0)>=25?"🌥️":"☀️";
+  const liv=cop?"NESSUNO":({alto:"ALTO",medio:"MEDIO",basso:"BASSO"}[m.impatto]||"–");
+  const cls=cop?"nessuno":(m.impatto||"");
+  const centro = cop ? `<div class="ar-m-temp coperto">AL<br>COPERTO</div>` : `<div class="ar-m-temp">${haDati?m.tempC+"°":"–"}</div>`;
+  return `<div class="ar-meteo">
+    <div class="ar-m-pill">${esc(quando)}</div>
+    <div class="ar-m-centro">
+      <div class="ar-m-sq"><small>Ospiti</small>${stemma(a.ospite)}</div>
+      ${centro}
+      <div class="ar-m-sq"><small>Casa</small>${stemma(a.casa)}</div>
+    </div>
+    ${haDati?`<div class="ar-m-barra${cop?" fuori":""}">
+      <div><b>${m.pioggia??"–"}%</b><small>pioggia</small></div>
+      <div class="ar-m-ico">${icona}</div>
+      <div><b>${m.ventoKmh??"–"}<i>km/h</i></b><small>vento</small></div>
+    </div>${cop?`<div class="ar-m-fuori">fuori dallo stadio · ${m.tempC}°</div>`:""}`:`<div class="ar-m-spiega">La previsione arriva nei 7 giorni prima della partita.</div>`}
+    <div class="ar-m-imp">Impatto meteo = <b class="${esc(cls)}">${liv}</b></div>
+    ${haDati||cop?`<div class="ar-m-spiega">${esc(spiegaMeteo(m,cop))}</div>`:""}
+    ${haDati?`<div class="ar-m-fonte">Previsione ${esc(m.fonte||"")} · aggiornata ${esc((m.aggiornato||"").slice(11,16))}</div>`:""}
+  </div>`;
+}
+function riquadroSquadre(a){
+  const R=a.riquadro;
+  if(Array.isArray(R)) return `<div class="ar-numeri"><h2>I numeri</h2>${R.map(r=>`<div><b>${esc(r[0])}${r[1]?` <em>${esc(r[1])}</em>`:""}</b><span>${esc(r[2])}</span></div>`).join("")}</div>`;
+  if(!R||!R.squadre) return "";
+  const colore=i=>(a.colori||{})[i===0?"ospite":"casa"]||"#1F2937";
+  return `<div class="ar-num-tit">Da seguire <small>numeri della stagione</small></div>` + R.squadre.map((q,i)=>`
+    <section class="ar-squadra" style="--c:${esc(colore(i))}">
+      <div class="ar-sq-testa">${stemma(q.sigla,true)}<b>${esc(q.nome)}</b><span>${esc(q.bilancio||"")}</span></div>
+      <div class="ar-sq-punti"><div><b>${esc(q.punti.fatti)}</b><small>punti fatti a partita</small></div><div><b>${esc(q.punti.subiti)}</b><small>punti subiti a partita</small></div></div>
+      ${q.giocatori.map(g=>`<div class="ar-gioc">
+        <div class="ar-g-nome"><b>${esc(g.nome)}</b>${g.stato?`<span class="ar-g-stato">${esc(g.stato)}</span>`:""}<em>${esc(g.ruolo)}${g.nota?" · "+esc(g.nota):""}</em></div>
+        <div class="ar-g-dati">${g.dati.map(x=>`<div><b>${esc(x[0])}</b><small>${esc(x[1])}</small></div>`).join("")}</div>
+      </div>`).join("")}
+    </section>`).join("") + (R.linea?`<div class="ar-linea"><small>Linea e totale del mercato americano</small><b>${esc(R.linea)}</b></div>`:"");
 }
 function vArticolo(id){
   const a=ART_CACHE[id];
@@ -2223,7 +2287,6 @@ function vArticolo(id){
     ? `<div class="ar-punti"><span class="${a.punti.ospite<a.punti.casa?"perde":""}">${a.punti.ospite}</span><i>–</i><span class="${a.punti.casa<a.punti.ospite?"perde":""}">${a.punti.casa}</span></div>`
     : `<div class="ar-ora"><b>${esc(ora)}</b><small>${esc(GIORNI_IT[d.getDay()].slice(0,3))} ${d.getDate()} ${esc(MESI_IT[d.getMonth()].slice(0,3))}<span class="ar-pc"> · ora italiana</span></small></div>`;
   const parole=(a.paragrafi||[]).join(" ").split(/\s+/).length, minuti=Math.max(1,Math.round(parole/200));
-  const righe=(a.riquadro||[]).map(r=>`<div><b>${esc(r[0])}${r[1]?` <em>${esc(r[1])}</em>`:""}</b><span>${esc(r[2])}</span></div>`).join("");
   const video = cronaca && a.video ? `<a class="ar-video" href="https://www.youtube.com/watch?v=${esc(a.video)}" target="_blank" rel="noopener">
       <span class="ar-mini"><img src="https://i.ytimg.com/vi/${esc(a.video)}/hqdefault.jpg" alt="" loading="lazy"><span class="ar-play"></span></span>
       <span class="ar-vtit">Guarda gli highlights ufficiali su YouTube</span></a>` : "";
@@ -2243,7 +2306,7 @@ function vArticolo(id){
       <div class="ar-firma">PureStats · ${esc(giornoIt((a.pubblicato||"").slice(0,10)))} · lettura ${minuti} minut${minuti===1?"o":"i"}</div></div>
     <div class="ar-testo">${(a.paragrafi||[]).map(p=>`<p>${esc(p).replace(/(\d+)-(\d+)/g,'<span class="ar-nw">$1-$2</span>')}</p>`).join("")}</div>
     <aside class="ar-lato">${cronaca?"":schedaMeteo(a)}
-      <div class="ar-numeri"><h2>${cronaca?"I numeri della partita":"Da seguire"}${cronaca?"":"<small>numeri della stagione</small>"}</h2>${righe}</div>
+      ${riquadroSquadre(a)}
       ${video}
       <div class="ar-crediti">Articolo scritto con l'aiuto di Claude (Anthropic) su dati nflverse (CC-BY 4.0), verificati prima della pubblicazione.${a.fotoCrediti?" Foto dello stadio: Wikimedia Commons.":""}</div>
     </aside>

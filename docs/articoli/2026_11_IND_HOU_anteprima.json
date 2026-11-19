@@ -26,66 +26,172 @@
   "Houston ha la traiettoria opposta. I Texans, eliminati nel turno di division dei playoff la scorsa stagione, avevano cominciato con quattro sconfitte di fila; da lì hanno vinto tre delle ultime cinque, anche se nell'ultima partita sono caduti di tre punti a Cleveland. La ripresa passa da C.J. Stroud, in netta crescita rispetto all'anno scorso: è tra i quarterback più produttivi della lega e ha lanciato pochissimi intercetti. In difesa c'è Will Anderson Jr., il giocatore con più sack di tutta la NFL.",
   "C'è poi un conto aperto. All'andata, a Indianapolis, i Colts vinsero 19-17, e i Texans hanno l'occasione di rifarsi davanti al proprio pubblico. Restano da capire le condizioni di alcuni titolari di Houston: in settimana non si sono allenati Danielle Hunter, Azeez Al-Shaair, Kamari Lassiter e Woody Marks, il loro miglior corridore, fermo per una commozione cerebrale. Con bilanci quasi identici, i bookmaker americani vedono comunque una sola favorita: i Texans, e nettamente. Si gioca al coperto, il meteo non conta."
  ],
- "riquadro": [
-  [
-   "Daniel Jones",
-   "Colts",
-   "1.830 yd su lancio, 7 TD, 12 intercetti in 10 partite"
+ "riquadro": {
+  "squadre": [
+   {
+    "sigla": "IND",
+    "nome": "Colts",
+    "bilancio": "3-7",
+    "giocatori": [
+     {
+      "nome": "Daniel Jones",
+      "ruolo": "quarterback",
+      "dati": [
+       [
+        "1.830",
+        "yard lanciate"
+       ],
+       [
+        "7",
+        "touchdown"
+       ],
+       [
+        "12",
+        "intercetti"
+       ]
+      ],
+      "stato": "",
+      "nota": "10 partite"
+     },
+     {
+      "nome": "Jonathan Taylor",
+      "ruolo": "miglior corridore",
+      "dati": [
+       [
+        "739",
+        "yard di corsa"
+       ],
+       [
+        "8",
+        "touchdown"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Josh Downs",
+      "ruolo": "ricevitore più produttivo",
+      "dati": [
+       [
+        "354",
+        "yard ricevute"
+       ],
+       [
+        "33",
+        "ricezioni"
+       ],
+       [
+        "1",
+        "touchdown"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "DeForest Buckner",
+      "ruolo": "miglior pass rusher",
+      "dati": [
+       [
+        "4",
+        "sack"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     }
+    ],
+    "punti": {
+     "fatti": "20,8",
+     "subiti": "27,1"
+    }
+   },
+   {
+    "sigla": "HOU",
+    "nome": "Texans",
+    "bilancio": "3-6",
+    "giocatori": [
+     {
+      "nome": "C.J. Stroud",
+      "ruolo": "quarterback",
+      "dati": [
+       [
+        "2.462",
+        "yard lanciate"
+       ],
+       [
+        "19",
+        "touchdown"
+       ],
+       [
+        "3",
+        "intercetti"
+       ]
+      ],
+      "stato": "",
+      "nota": "9 partite"
+     },
+     {
+      "nome": "Woody Marks",
+      "ruolo": "miglior corridore",
+      "dati": [
+       [
+        "391",
+        "yard di corsa"
+       ],
+       [
+        "2",
+        "touchdown"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Nico Collins",
+      "ruolo": "ricevitore più produttivo",
+      "dati": [
+       [
+        "478",
+        "yard ricevute"
+       ],
+       [
+        "37",
+        "ricezioni"
+       ],
+       [
+        "5",
+        "touchdown"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Will Anderson Jr.",
+      "ruolo": "miglior pass rusher",
+      "dati": [
+       [
+        "10,5",
+        "sack"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     }
+    ],
+    "punti": {
+     "fatti": "25,9",
+     "subiti": "24,3"
+    }
+   }
   ],
-  [
-   "Jonathan Taylor",
-   "Colts",
-   "739 yd di corsa, 8 TD"
-  ],
-  [
-   "Josh Downs",
-   "Colts",
-   "354 yd ricevute, 33 ricezioni, 1 TD"
-  ],
-  [
-   "DeForest Buckner",
-   "Colts",
-   "4 sack"
-  ],
-  [
-   "Punti a partita",
-   "Colts",
-   "20,8 fatti · 27,1 subiti"
-  ],
-  [
-   "C.J. Stroud",
-   "Texans",
-   "2.462 yd su lancio, 19 TD, 3 intercetti in 9 partite"
-  ],
-  [
-   "Woody Marks",
-   "Texans",
-   "391 yd di corsa, 2 TD"
-  ],
-  [
-   "Nico Collins",
-   "Texans",
-   "478 yd ricevute, 37 ricezioni, 5 TD"
-  ],
-  [
-   "Will Anderson Jr.",
-   "Texans",
-   "10,5 sack"
-  ],
-  [
-   "Punti a partita",
-   "Texans",
-   "25,9 fatti · 24,3 subiti"
-  ],
-  [
-   "Linea e totale",
-   "",
-   "Texans −12,5 · totale 44,5"
-  ]
- ],
+  "linea": "Texans −12,5 · totale 44,5"
+ },
  "foto": "articoli/stadi/HOU.jpg",
  "fotoCrediti": "Carlos.dkfi · CC0",
- "pubblicato": "2026-11-18T23:22+01:00",
+ "pubblicato": "2026-11-19T07:41+01:00",
  "meteo": {
   "tempC": 19,
   "pioggia": 0,

@@ -383,20 +383,34 @@ def controlla(testo: dict, f: dict) -> list[str]:
 STATI = {"Out": "fuori", "Doubtful": "in forte dubbio", "Questionable": "da valutare"}
 
 
-def riquadro(f: dict) -> list[list[str]]:
-    righe = []
-    for chiave in ("ospiti", "padroniDiCasa"):
+def _dati(g: dict) -> list[list[str]]:
+    """Numeri di un giocatore in caselle [valore, etichetta] (dal testo di stagione)."""
+    t = g["stagione"]
+    out = []
+    for val, et in re.findall(r"([\d.,]+) (yard su lancio|yard di corsa|yard ricevute|TD|intercetti|ricezioni|sack)", t):
+        out.append([val, {"yard su lancio": "yard lanciate", "yard di corsa": "yard di corsa", "yard ricevute": "yard ricevute",
+                          "TD": "touchdown"}.get(et, et)])
+    return out
+
+
+def riquadro(f: dict) -> dict:
+    """Numeri della stagione divisi per squadra, per la colonna accanto all'articolo."""
+    squadre = []
+    for chiave, sigla in (("ospiti", f["ospite"]), ("padroniDiCasa", f["casa"])):
         t = f[chiave]
+        gioc = []
         for g in t["giocatoriChiave"]:
             if g["ruolo"].startswith("secondo"):
                 continue
             stato = STATI.get((g.get("rapportoInfortuni") or {}).get("stato", ""), "")
-            righe.append([g["nome"], t["soprannome"], g["stagione"].replace(" yard", " yd") + (f" · {stato}" if stato else "")])
-        righe.append(["Punti a partita", t["soprannome"], f"{n_it(t['puntiFattiPartita'])} fatti · {n_it(t['puntiSubitiPartita'])} subiti"])
+            partite = re.search(r"in (\d+) partite", g["stagione"])
+            gioc.append({"nome": g["nome"], "ruolo": g["ruolo"].split(" (")[0], "dati": _dati(g), "stato": stato,
+                         "nota": f"{partite.group(1)} partite" if partite else ""})
+        squadre.append({"sigla": sigla, "nome": t["soprannome"], "bilancio": t["bilancio"], "giocatori": gioc,
+                        "punti": {"fatti": n_it(t["puntiFattiPartita"]), "subiti": n_it(t["puntiSubitiPartita"])}})
     m = f["mercato"]
-    if m["favorita"]:
-        righe.append(["Linea e totale", "", f"{soprannome(m['favorita'])} −{n_it(m['vantaggio'])} · totale {n_it(m['totale'])}"])
-    return righe
+    linea = f"{soprannome(m['favorita'])} −{n_it(m['vantaggio'])} · totale {n_it(m['totale'])}" if m["favorita"] else ""
+    return {"squadre": squadre, "linea": linea}
 
 
 def pubblica(gid: str, tipo: str, file_testo: str) -> None:
