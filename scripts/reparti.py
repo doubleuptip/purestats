@@ -204,5 +204,8 @@ TARATURA_PUNTI = {
 # (percentile − 0,5)), variabilità tipica delle yard in una partita ed errore medio della previsione.
 TARATURA_GIOCATORI = {
     "NFL": {"QB": (20.0, 80.1, 62), "RB": (15.2, 37.6, 28), "WR": (5.5, 38.5, 29), "TE": (8.3, 30.6, 22)},
-    "College": {"QB": (31.9, 92.7, 66), "RB": (24.1, 47.1, 35), "WR": (9.1, 42.0, 29), "TE": (7.7, 30.4, 22)},
+    "College": {"QB": (31.9, 92.7, 66), "RB": (24.1, 47.1, 35), "WR": (9.1, 42.0, 29), "TE": (7.7, 30.4, 22),
+                # yard di corsa del QB titolare con almeno 15 a partita: misura del 19/11/2026 su 4.420 partite
+                # 2019-2025 (tabellini ESPN), difesa misurata dalle yard di corsa concesse, non dai reparti
+                "QB CORSE": (22.1, 36.1, 28)},
 }

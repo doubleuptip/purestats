@@ -56,7 +56,8 @@ VERSIONE = 2
 PBP = {"nfl": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_{s}.csv.gz",
        "college": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfbfastR_cfb_pbp/play_by_play_{s}.csv"}
 UA = {"User-Agent": "purestats (statistiche personali)"}
-REPARTO_GIOCATORE = {"QB": "passaggi", "WR": "passaggi", "TE": "passaggi", "RIC": "passaggi", "RB": "corse"}
+REPARTO_GIOCATORE = {"QB": "passaggi", "WR": "passaggi", "TE": "passaggi", "RIC": "passaggi", "RB": "corse",
+                     "QB CORSE": "corse"}   # college: le corse del QB che corre (dal 19/11/2026)
 csv.field_size_limit(10**8)
 
 
@@ -293,9 +294,15 @@ def titolari_college(stagione: int) -> dict:
         if partite[sq] < 8:
             continue
         lista = []
+        presi = set()
         for ruolo in ("QB", "RB", "REC", "DIF"):
-            migliori = sorted(ruoli.get(ruolo, {}).items(), key=lambda x: -x[1])[:POSTI_TITOLARI[ruolo]]
-            lista += [[nomi.get(pid, ""), ruolo, PESO_TITOLARI[ruolo]] for pid, _v in migliori if _v > 0]
+            # nessuno due volte: nel college il QB che corre è spesso anche il primo per corse (19/11/2026);
+            # RB solo chi corre più di quanto lanci
+            candidati = [(pid, v) for pid, v in ruoli.get(ruolo, {}).items() if pid not in presi and v > 0
+                         and not (ruolo == "RB" and ruoli.get("QB", {}).get(pid, 0) > v)]
+            migliori = sorted(candidati, key=lambda x: -x[1])[:POSTI_TITOLARI[ruolo]]
+            presi |= {pid for pid, _v in migliori}
+            lista += [[nomi.get(pid, ""), ruolo, PESO_TITOLARI[ruolo]] for pid, _v in migliori]
         out[sq] = lista
     return out
 
@@ -482,7 +489,8 @@ def giocatori_contro(campionato: str, giocatori: list, avversario: str, st: dict
             migl, pegg = RP.soglie(n)
             effetto = pieno * (d["pct_dif"][area] - 0.5)
             verso = "attacco" if rd >= pegg else "difesa" if rd <= migl else None
-            pa, pd = PCT_GIOCATORE[campionato][ruolo]
+            # percentuali storiche solo dove misurate (le corse del QB non lo sono ancora)
+            pa, pd = PCT_GIOCATORE[campionato].get(ruolo, (None, None))
             q["pct"] = pa if verso == "attacco" else pd if verso == "difesa" else None
             q.update({"areaDifesa": area, "rangoDifesa": rd, "squadreTotali": n,
                       "effetto": round(effetto, 1), "previsione": round(p["mediaStagione"] + effetto),
@@ -755,7 +763,10 @@ def giocatori_prop(lega: str, stagione: int, squadre: set) -> dict:
                     x["ruoli"] = [a + b for a, b in zip(x["ruoli"], (lanci, corse, ric))]
         for x in uso.values():
             if "ruoli" in x:
-                x["r"] = ("QB", "RB", "WR")[max(range(3), key=lambda k: x["ruoli"][k])]
+                # QB chi lancia almeno 5 volte a partita, anche se corre di più (attacchi a opzione: Navy, Army,
+                # Air Force, Rice); gli altri dal tipo di gioco più frequente
+                x["r"] = "QB" if x["ruoli"][0] >= 5 * x["g"] else \
+                    ("QB", "RB", "WR")[max(range(3), key=lambda k: x["ruoli"][k])]
     out = defaultdict(list)
     for pid, x in uso.items():
         if x["sq"] in squadre and x["g"] >= 2 and x["u"] > 0:

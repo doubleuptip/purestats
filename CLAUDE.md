@@ -302,6 +302,14 @@ davvero che si veda quello che deve vedersi.
   partita più recente (`articoli.squadra_attuale`, e lo stesso in `nfl_indici._chiave_squadra`,
   `fetch_duelli.giocatori_prop` e `fetch_duelli.quote_produzione_nfl`): i ceduti passano alla nuova squadra.
 
+- 19/11/2026: nel college Gael Ochoa (Rice) compariva come QB e come RB nel bot e in Matchup, perché i tabellini ESPN
+  danno il migliore per categoria (passaggi, corse, ricezioni), non il ruolo: il QB che corre diventava anche «RB»
+  (17 squadre su 138, titolari dei bowl 19, ruoli prop 4). Da allora `college_indici._duelli` sceglie dai tabellini
+  completi (QB = più lanci nelle ultime 3, RB = più corse escluso il QB, nessun nome due volte, medie su tutte le
+  partite giocate) e il QB con almeno 15 yard di corsa a partita ha la riga «QB corse» (taratura «QB CORSE»,
+  misura del 19/11); stesso principio in `titolari_college` e `giocatori_prop`; sul sito, nelle schede partita del
+  college, le etichette sono PASS / CORSA / RIC.
+
 ## Stato attuale
 
 - Premier League: funzionante, con arbitri

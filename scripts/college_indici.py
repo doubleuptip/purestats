@@ -171,100 +171,138 @@ def _difesa_college(stagione, settimana):
             "deviati": top("defPD", (("intINT", "intercetti"),))}
 
 
-def _apparizioni(ultime, stagioni):
-    """Dall'archivio partite: per ogni squadra e giocatore, le prestazioni in ordine di settimana.
+# QB che corre: sopra questa media di yard di corsa (nette, i sack nel college tolgono yard) il QB ha anche la
+# riga delle corse. Misura del 19/11/2026 sui QB titolari 2019-2025: l'effetto della difesa sulle corse c'è già
+# tra 15 e 30 yard (17,5 yard dalla difesa migliore alla peggiore, variabilità 30): il 51% dei titolari è sopra.
+SOGLIA_CORSE_QB = 15
 
-    L'archivio conserva solo i migliori di ogni partita (1 QB, 1 RB, 2 ricevitori per
-    squadra): una partita in cui il giocatore non è stato tra i migliori non c'è, e
-    non vale zero. Le medie sono quindi "nelle partite in cui è stato il migliore".
-    Restituisce {stagione: {squadra: {(nome, gruppo): [voci]}}} con gruppo QB, RB o RIC."""
+
+def _prestazioni_tabellini(stagione):
+    """Dai tabellini ESPN completi: {squadra: {id: {"nome", "partite": {settimana: {lanci, ylanci, td, int,
+    corse, ycorse, tdcorse, ric, yric, tdric}}}}} della stagione regolare. Tutti i giocatori di ogni partita,
+    non solo i migliori: le medie sono su tutte le partite giocate."""
+    from fetch_college import carica_tabellini
+
+    def n(x):
+        try:
+            return float(str(x).split("/")[-1])
+        except (TypeError, ValueError):
+            return 0.0
+
+    colonne = {"passing": {"C/ATT": "lanci", "YDS": "ylanci", "TD": "td", "INT": "int"},
+               "rushing": {"CAR": "corse", "YDS": "ycorse", "TD": "tdcorse"},
+               "receiving": {"REC": "ric", "YDS": "yric", "TD": "tdric"}}
     out = {}
-    for p in ultime:
-        s = str(p.get("stagione"))
-        if s not in stagioni or not str(p.get("settimana", "")).isdigit() or p.get("pc") is None:
+    for v in carica_tabellini(stagione).values():
+        if v.get("tipo") != "regular" or not str(v.get("settimana", "")).isdigit():
             continue
-        for lato, squadra in (("giocatoriCasa", p["casa"]), ("giocatoriOspite", p["ospite"])):
-            for g in p.get(lato) or []:
-                gruppo = "RIC" if g.get("ruolo") in ("WR", "TE") else g.get("ruolo")
-                if gruppo not in ("QB", "RB", "RIC") or not g.get("nome"):
-                    continue
-                voce = {"settimana": int(p["settimana"]), "valore": g.get("valore") or 0,
-                        "misura": g.get("misura"), "dettagli": g.get("dettagli") or []}
-                out.setdefault(s, {}).setdefault(squadra, {}).setdefault((g["nome"], gruppo), []).append(voce)
-    for squadre in out.values():
-        for giocatori in squadre.values():
-            for voci in giocatori.values():
-                voci.sort(key=lambda v: v["settimana"])
+        w = int(v["settimana"])
+        et = v.get("etichette") or {}
+        for sq, cats in (v.get("squadre") or {}).items():
+            for cat, mappa in colonne.items():
+                lab = et.get(cat) or []
+                for riga in cats.get(cat) or []:
+                    pid = str(riga[0] or riga[1])
+                    g = out.setdefault(sq, {}).setdefault(pid, {"nome": riga[1], "partite": {}})
+                    voce = g["partite"].setdefault(w, {})
+                    for col, chiave in mappa.items():
+                        if col in lab and len(riga) > 2 + lab.index(col):
+                            voce[chiave] = voce.get(chiave, 0.0) + n(riga[2 + lab.index(col)])   # C/ATT: i tentati
     return out
 
 
-def _somma_dettaglio(voci, etichetta):
-    """Somma un dettaglio testuale ("2 TD", "1 INT") sulle voci date."""
-    tot = 0
-    for v in voci:
-        for d in v["dettagli"]:
-            parti = str(d).split(" ", 1)
-            if len(parti) == 2 and parti[1] == etichetta:
-                try:
-                    tot += int(float(parti[0]))
-                except ValueError:
-                    pass
-    return tot
+# misura mostrata per ogni scelta: (gruppo, ruolo mostrato, chiave del valore, misura, partite che contano)
+_MISURE = {"QB": ("ylanci", "yard passate", "lanci"), "QB corse": ("ycorse", "yard corse", "lanci"),
+           "RB": ("ycorse", "yard corse", "corse"), "RIC": ("yric", "yard ricevute", "ric")}
 
 
-def _profilo_college(nome, gruppo, voci, passate, partite_squadra):
-    """Profilo nella stessa forma del confronto NFL, senza anno di corso."""
+def _profilo_tabellini(nome, gruppo, partite, passate, partite_squadra):
+    """Profilo nella stessa forma del confronto NFL, dalle partite in cui il giocatore ha giocato nel suo ruolo."""
+    chiave, misura, conta = _MISURE[gruppo]
     media = lambda xs: round(sum(xs) / len(xs), 1) if xs else None
-    valori = [v["valore"] for v in voci]
-    passato = [v["valore"] for v in passate]
-    out = {"nome": nome, "ruolo": "WR" if gruppo == "RIC" else gruppo, "misura": voci[-1]["misura"],
-           "partite": len(voci), "mediaStagione": media(valori), "mediaUltime3": media(valori[-3:]),
+    giocate = [partite[w] for w in sorted(partite) if partite[w].get(conta)]
+    valori = [x.get(chiave, 0.0) for x in giocate]
+    vecchie = [x for x in (passate or {}).values() if x.get(conta)]
+    passato = [x.get(chiave, 0.0) for x in vecchie]
+    out = {"nome": nome, "ruolo": "WR" if gruppo == "RIC" else gruppo, "misura": misura,
+           "partite": len(valori), "mediaStagione": media(valori), "mediaUltime3": media(valori[-3:]),
            "mediaPassato": media(passato) if len(passato) >= 6 else None,
            "esperienza": None, "giovane": False}
     rif = out["mediaPassato"] if out["mediaPassato"] is not None else out["mediaStagione"]
     forma = None
-    if rif and len(voci) >= 4:
+    if rif and len(valori) >= 4:
         d = (out["mediaUltime3"] - rif) / max(rif, 1)
         forma = "in forma" if d >= 0.25 else "in calo" if d <= -0.25 else None
     out["forma"] = forma
-    nota = f"migliore della squadra in {len(voci)} partite su {partite_squadra}"
+    somma = lambda k: int(sum(x.get(k, 0.0) for x in giocate))
+    nota = f"{len(valori)} partite su {partite_squadra}"
     if gruppo == "QB":
-        nota += f" · {_somma_dettaglio(voci, 'TD')} TD, {_somma_dettaglio(voci, 'INT')} INT"
-    elif gruppo == "RIC":
-        nota += f" · {_somma_dettaglio(voci, 'ric.')} ricezioni"
+        nota += f" · {somma('td')} TD, {somma('int')} INT"
+    elif gruppo == "QB corse":
+        nota += f" · {somma('corse')} corse, {somma('tdcorse')} TD"
+    elif gruppo == "RB":
+        nota += f" · {somma('corse')} corse, {somma('tdcorse')} TD"
+    else:
+        nota += f" · {somma('ric')} ricezioni, {somma('tdric')} TD"
     out["nota"] = nota
     return out
 
 
+def _scelta_squadra(giocatori):
+    """Giocatori chiave dal ruolo vero in campo (i tabellini del college non hanno la posizione):
+    QB = chi ha lanciato di più nelle ultime 3 partite della squadra; RB = chi ha corso di più, escluso il QB e
+    chi lancia più di quanto corra; 2 ricevitori per ricezioni. Nessun nome due volte. A parità conta la stagione."""
+    settimane = sorted({w for g in giocatori.values() for w in g["partite"]})
+    ultime3 = set(settimane[-3:])
+
+    def peso(pid, k):
+        p = giocatori[pid]["partite"]
+        return (-sum(x.get(k, 0.0) for w, x in p.items() if w in ultime3), -sum(x.get(k, 0.0) for x in p.values()))
+
+    def tot(pid, k):
+        return sum(x.get(k, 0.0) for x in giocatori[pid]["partite"].values())
+
+    presi, scelte = set(), []
+    qb = sorted((p for p in giocatori if tot(p, "lanci") > 0), key=lambda p: peso(p, "lanci"))[:1]
+    for p in qb:
+        presi.add(p)
+        scelte.append((p, "QB"))
+    rb = sorted((p for p in giocatori if p not in presi and tot(p, "corse") > 0 and tot(p, "lanci") <= tot(p, "corse")),
+                key=lambda p: peso(p, "corse"))[:1]
+    for p in rb:
+        presi.add(p)
+        scelte.append((p, "RB"))
+    for p in sorted((p for p in giocatori if p not in presi and tot(p, "ric") > 0), key=lambda p: peso(p, "ric"))[:2]:
+        presi.add(p)
+        scelte.append((p, "RIC"))
+    return scelte, len(settimane)
+
+
 def _duelli(prossime, ultime, stagione, difese):
-    """Per ogni partita del prossimo turno, i giocatori chiave delle due squadre dall'archivio:
-    il QB e il RB comparsi più spesso tra i migliori nelle ultime 3 partite, e i 2 ricevitori
-    più presenti. A parità conta il rendimento. Nessuna chiamata in più."""
-    s, sp = str(stagione), str(int(stagione) - 1)
-    app = _apparizioni(ultime, {s, sp})
-    correnti, passate = app.get(s, {}), app.get(sp, {})
-    # per la stagione precedente si cerca per nome, ovunque abbia giocato (trasferimenti)
-    passate_nome = {}
-    for giocatori in passate.values():
-        for (nome, gruppo), voci in giocatori.items():
-            passate_nome.setdefault((nome, gruppo), []).extend(voci)
+    """Per ogni partita del prossimo turno, i giocatori chiave delle due squadre dai tabellini ESPN completi
+    (dal 19/11/2026; prima dall'archivio dei migliori, che faceva comparire un QB che corre anche come RB).
+    Il QB che corre almeno SOGLIA_CORSE_QB yard a partita ha anche la riga «QB corse». Nessuna chiamata in più."""
+    correnti = _prestazioni_tabellini(int(stagione))
+    # per la stagione precedente si cerca per id ESPN, ovunque abbia giocato (trasferimenti)
+    passate = {}
+    for giocatori in _prestazioni_tabellini(int(stagione) - 1).values():
+        for pid, g in giocatori.items():
+            passate.setdefault(pid, {}).update(g["partite"])
     duelli = []
     for g in prossime:
         lati = {}
         for lato in ("ospite", "casa"):
             giocatori = correnti.get(g[lato]) or {}
-            settimane = sorted({v["settimana"] for voci in giocatori.values() for v in voci})
-            ultime3 = set(settimane[-3:])
-            def peso(chiave):
-                voci = giocatori[chiave]
-                return (-sum(1 for v in voci if v["settimana"] in ultime3), -len(voci),
-                        -sum(v["valore"] for v in voci))
-            scelti = []
-            for gruppo, n in (("QB", 1), ("RB", 1), ("RIC", 2)):
-                scelti += sorted((k for k in giocatori if k[1] == gruppo), key=peso)[:n]
-            lati[lato] = [_profilo_college(nome, gruppo, giocatori[(nome, gruppo)],
-                                           passate_nome.get((nome, gruppo), []), len(settimane))
-                          for nome, gruppo in scelti]
+            scelte, n_partite = _scelta_squadra(giocatori)
+            profili = []
+            for pid, gruppo in scelte:
+                nome, partite = giocatori[pid]["nome"], giocatori[pid]["partite"]
+                profili.append(_profilo_tabellini(nome, gruppo, partite, passate.get(pid), n_partite))
+                if gruppo == "QB":
+                    corse = _profilo_tabellini(nome, "QB corse", partite, passate.get(pid), n_partite)
+                    if (corse["mediaStagione"] or 0) >= SOGLIA_CORSE_QB:
+                        profili.append(corse)
+            lati[lato] = profili
         if not lati["ospite"] and not lati["casa"]:
             continue
         duelli.append({"casa": g["casa"], "ospite": g["ospite"], "data": g["data"], "ora": g["ora"],
