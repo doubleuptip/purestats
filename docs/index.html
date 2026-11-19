@@ -633,6 +633,10 @@
   .ar-play:before{content:"";position:absolute;left:23px;top:17px;border-left:18px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
   .ar-vtit{display:block;padding:10px 12px;font:600 14px var(--f-testo)}
   .ar-nw{white-space:nowrap}
+  .ar-link-riga{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .ar-link{display:inline-flex;align-items:center;gap:4px;font:700 12px var(--f-testo);text-decoration:none;padding:5px 10px;border-radius:999px;
+    border:1px solid var(--fb-acc,#B91C1C);color:var(--fb-acc,#B91C1C);background:transparent}
+  .ar-link.cronaca{background:var(--fb-acc,#B91C1C);color:#fff}
   .ar-crediti{font-size:12px;color:var(--fb-muted);margin-top:16px}
   @media (max-width:899px){.ar-pc{display:none}}
   @media (min-width:900px){
@@ -1834,6 +1838,7 @@ function vFootballPartite(){
           <div class="fb-team${disputata&&p.pc>p.po?" w":""}">${stemma(p.casa,true)}<span class="n">${esc(breve(p.casa))}</span><span class="s">${disputata?p.pc:""}</span></div>
         </div>
         <div class="gara-arb">${disputata?"":"da giocare · "}${esc(dataBreve(p.dataIt||p.data))}${p.oraIt?" · ore "+esc(p.oraIt):(disputata?"":" · orario da definire")}${p.stadio?" · "+esc(p.stadio):""}</div>
+        ${linkArticolo(p, p.stagione, p.settimana)?`<div class="ar-link-riga">${linkArticolo(p, p.stagione, p.settimana)}</div>`:""}
         ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
             ${rosaAperta?"▴ NASCONDI":"▾ MIGLIORI DELLA PARTITA"}</button>` : ""}
         ${conRose && rosaAperta
@@ -1897,7 +1902,7 @@ function schedaRisultato(g){
       ? `<span class="fb-chip">Totale ${numIt(g.totaleLinea)} · ${g.totaleEsito.toUpperCase()} (${g.pc+g.po})</span>`
       : `<span class="fb-chip">Totale ${numIt(g.totaleLinea)}</span>`;
   }
-  chips += linkArticolo(g);
+  chips += linkArticolo(g, g.stagione || (D.prossima||{}).stagione, g.settimana || (D.prossima||{}).settimana);
   // video ufficiale trovato: anteprima che diventa il lettore al tocco (si carica solo se lo si guarda)
   const vid = g.video && /^[A-Za-z0-9_-]{6,20}$/.test(g.video.id||"") ? g.video.id : "";
   if(vid){
@@ -2010,7 +2015,7 @@ function schedaTabellone(g){
     <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):""}${giocata?" · Finale":""}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${esito?`<div class="fb-chips">${esito}</div>`:""}
-    ${video||mom?`<div class="gio-piede">${video}${mom}</div>`:""}
+    ${video||mom||linkArticolo(g,(D.giornata||{}).stagione,(D.giornata||{}).settimana)?`<div class="gio-piede">${video}${linkArticolo(g,(D.giornata||{}).stagione,(D.giornata||{}).settimana)}${mom}</div>`:""}
   </article>`;
 }
 
@@ -2200,15 +2205,18 @@ function caricaArticoli(){
   ART=[];
   scaricaDati("articoli/indice.json").then(x=>{ ART=Array.isArray(x)?x:[]; render(); }).catch(()=>{});
 }
-function articoloDi(g){
-  if(!ART) { caricaArticoli(); return null; }
-  const giocata = g.pc!==null && g.pc!==undefined;
-  const tutti = ART.filter(a=>a.lega===legaAttiva && a.ospite===g.ospite && a.casa===g.casa);
-  return tutti.find(a=>a.tipo===(giocata?"cronaca":"anteprima")) || tutti[0] || null;
+function articoliDi(g, stagione, settimana){
+  // gli articoli di una partita (anteprima e cronaca), riconosciuti da stagione, week e squadre
+  if(!ART) { caricaArticoli(); return []; }
+  const st = stagione || g.stagione, w = settimana || g.settimana;
+  const pref = st && w ? `${st}_${String(w).padStart(2,"0")}_${g.ospite}_${g.casa}_` : null;
+  return ART.filter(a=>a.lega===legaAttiva && (pref ? a.id.startsWith(pref) : (a.ospite===g.ospite && a.casa===g.casa)))
+            .sort((x,y)=>x.tipo==="anteprima"?-1:1);
 }
-function linkArticolo(g){
-  const a=articoloDi(g);
-  return a ? `<a class="fb-chip ar-chip" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false">📰 ${a.tipo==="cronaca"?"Leggi la cronaca":"Leggi l'anteprima"}</a>` : "";
+function linkArticolo(g, stagione, settimana){
+  const lista = articoliDi(g, stagione, settimana);
+  if(!lista.length) return "";
+  return lista.map(a=>`<a class="ar-link ${esc(a.tipo)}" href="#articolo=${esc(a.id)}" onclick="event.stopPropagation();apriArticolo('${esc(a.id)}');return false">📰 ${a.tipo==="cronaca"?"Cronaca":"Anteprima"}</a>`).join("");
 }
 function apriArticolo(id){
   ART_APERTO=id; vista="articoli"; arbitroAperto=null;
@@ -2494,7 +2502,7 @@ function vFootballProssima(){
       <div class="fb-duel-head">${stemma(d.ospite)}<span class="t">${esc(breve(d.ospite))} @ ${esc(breve(d.casa))}</span>${stemma(d.casa)}</div>
       <p class="fb-duel-when">${esc(giornoIt(d.dataIt||d.data))}${(d.oraIt||d.ora)?" · "+esc(d.oraIt||d.ora):" · orario da definire"}${
           d.favorita?" · favorita "+esc(d.favorita)+" di "+numIt(d.linea):""}${d.totaleLinea!=null?" · totale "+numIt(d.totaleLinea):""}</p>
-      ${linkArticolo(d)?`<div class="fb-chips">${linkArticolo(d)}</div>`:""}
+      ${linkArticolo(d, P.stagione, P.settimana)?`<div class="ar-link-riga">${linkArticolo(d, P.stagione, P.settimana)}</div>`:""}
       <div class="fb-vs">
         <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.ospite))}${difesa(d.difesaOspite)}</h3>${(d.giocatoriOspite||[]).map(rigaGiocatore).join("")}</div>
         <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.casa))}${difesa(d.difesaCasa)}</h3>${(d.giocatoriCasa||[]).map(rigaGiocatore).join("")}</div>
