@@ -346,3 +346,11 @@ davvero che si veda quello che deve vedersi.
    si ritira al massimo; Jerry Rice; Lawrence Taylor. College: Hail Mary di Flutie 1984, «The Play» Cal-Stanford 1982,
    Kick Six 2013, Boise State al Fiesta Bowl 2007.
 3. Ogni fatto e record va riverificato prima di pubblicare (stesso metodo degli articoli).
+4. Charlie, touchdown di un giocatore (richiesta del 19/11: Sisal, Snai, Planetwin365 lo quotano, bet365.it no).
+   Verificato il 19/11: ESPN propBets elenca «Anytime Touchdown Scorer» (tipo 31) ma SENZA quote (current/open
+   vuoti); bet365.com non si legge in automatico. Quindi: probabilità di Charlie dai dati = 1 − e^(−λ), λ = touchdown
+   attesi della squadra (dal totale e dallo spread americani) × quota del giocatore (corse e bersagli vicino alla meta,
+   touchdown fatti, ristretti verso la media del ruolo), tarata e provata su 2019-2025 (Brier, stima 2019-22, prova
+   2023-25) e confrontata con le quote ESPN BET 2023-25 se l'archivio le ha. Nella pagina: statistica «Touchdown
+   (sì)», quota italiana inserita a mano, campo facoltativo per una quota estera (bet365.com o altra) letta da
+   Valerio; affidabilità decisa dalla prova. Poi college con cfbfastR.
