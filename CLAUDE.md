@@ -326,6 +326,12 @@ davvero che si veda quello che deve vedersi.
 
 ## Da fare da sabato 21/11/2026 (dopo il rinnovo dell'abbonamento, ore 5)
 
+0. PER PRIMA COSA (scelta di Valerio del 20/11): momenti decisivi della Giornata NFL (nfl_indici._riassunto_pbp e
+   la scelta in fondo a calcola): oggi usano home_wp «neutra» (Colts-Texans 26-3: Texans 57% al primo snap con 12,5
+   di linea, tutti e 5 i momenti nel 1° quarto, anche passaggi senza peso). Correzione: vegas_home_wp /
+   vegas_home_wp_post di nflverse, più peso alle azioni verso il risultato finale (touchdown, palle perse, quarti
+   down fermati), al massimo 2 momenti per quarto. Poi la cronaca di Colts-Texans (2026_11_IND_HOU) come prova di
+   tutte le cronache: serve prima in articoli.py la preparazione dei fatti dal play-by-play.
 1. Articoli, fase 2: scelta automatica delle 3 partite NFL (posta playoff da nfl_playoff + partite di cartello) e
    3 college (classificate / corsa ai playoff); cronache dal play-by-play con il video YouTube a metà testo; foto di
    tutti gli stadi NFL da Wikimedia con i crediti; college in articoli.py; attività programmate ricorrenti (martedì
