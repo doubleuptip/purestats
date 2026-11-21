@@ -709,11 +709,12 @@
   .leg-maglia.carta{aspect-ratio:16/10;border-radius:0}.leg-maglia.carta .leg-maglia-num{font-size:72px;-webkit-text-stroke-width:2px!important}.leg-maglia.carta .leg-maglia-num.lungo{font-size:46px}.leg-maglia.carta .leg-maglia-sub{display:none}
   /* maglia disegnata (numeri di maglia): due maschere colorate con i colori della squadra */
   .leg-maglia.conmaglia{background:radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--c2) 38%,transparent),transparent 62%),var(--fb-pill);color:var(--fb-text)}
-  .leg-jersey{position:relative;height:86%;aspect-ratio:1;max-width:96%}
-  .leg-maglia.conmaglia:has(.leg-maglia-sub) .leg-jersey{height:76%}
+  .leg-jersey{position:relative;width:calc(var(--h,150px)*.86);height:calc(var(--h,150px)*.86);flex:none}
+  .leg-maglia.conmaglia:has(.leg-maglia-sub) .leg-jersey-num{font-size:calc(var(--h,150px)*.34)}
+  .leg-maglia.conmaglia:has(.leg-maglia-sub) .leg-jersey{width:calc(var(--h,150px)*.76);height:calc(var(--h,150px)*.76)}
   .leg-jersey i{position:absolute;inset:0;background:var(--c1);-webkit-mask:url(icone/maglia_corpo.png) center/contain no-repeat;mask:url(icone/maglia_corpo.png) center/contain no-repeat}
   .leg-jersey i.bordi{background:var(--c2);-webkit-mask-image:url(icone/maglia_bordi.png);mask-image:url(icone/maglia_bordi.png)}
-  .leg-jersey-num{position:absolute;left:0;right:0;top:27%;text-align:center;font:900 calc(var(--h,150px)*.4)/1 var(--fb-head);color:#fff;-webkit-text-stroke:3px var(--c2);paint-order:stroke fill;letter-spacing:-.02em}
+  .leg-jersey-num{position:absolute;left:0;right:0;top:26%;text-align:center;font:800 calc(var(--h,150px)*.38)/1 'Barlow Condensed',sans-serif;color:#fff;-webkit-text-stroke:3px var(--c2);paint-order:stroke fill;letter-spacing:-.02em}
   .leg-maglia.testa{--h:300px}.leg-maglia.media{--h:220px}.leg-maglia.piccola{--h:150px}.leg-maglia.carta{--h:175px}
   .leg-maglia.piccola .leg-jersey-num,.leg-maglia.carta .leg-jersey-num{-webkit-text-stroke-width:2px}
   .leg-maglia.conmaglia .leg-maglia-sub{text-shadow:none;color:var(--fb-muted);margin-top:4px}
@@ -758,7 +759,7 @@
     .leg-evid{flex-direction:column}
     .leg-maglia.media{width:auto;min-height:170px}
     .leg-maglia.testa{height:220px;--h:220px} .leg-maglia.testa .leg-maglia-num{font-size:120px}
-    .leg-maglia.media{--h:170px}.st-testata{padding:22px 18px;min-height:150px;background:linear-gradient(90deg,#03070F 0%,rgba(3,7,15,.92) 45%,rgba(3,7,15,.2) 85%),url(icone/statistiche_testata.jpg) right 0 top 35%/auto 150% no-repeat,#03070F}
+    .leg-maglia.media{--h:200px;height:200px}.leg-maglia.piccola{--h:150px}.st-testata{padding:22px 18px;min-height:150px;background:linear-gradient(90deg,#03070F 0%,rgba(3,7,15,.92) 45%,rgba(3,7,15,.2) 85%),url(icone/statistiche_testata.jpg) right 0 top 35%/auto 150% no-repeat,#03070F}
     .leg-art-testo p{font-size:17px}
   }
   .gara-meteo{font-size:13px;color:var(--fb-muted);margin-top:6px}
