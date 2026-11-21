@@ -727,6 +727,10 @@
   .leg-art-num b{display:block;font:800 30px var(--fb-head);color:var(--fb-text)}
   .leg-art-num small{font-size:13px;color:var(--fb-muted);line-height:1.35;display:block;margin-top:2px}
   .leg-art-testo p{font-size:18px;line-height:1.7;color:var(--fb-text);margin:0 0 18px}
+  .leg-video{display:flex;gap:14px;align-items:center;margin:4px 0 22px;padding:14px 16px;border-radius:12px;text-decoration:none;
+    background:var(--fb-card);border:1px solid var(--fb-border);border-left:6px solid var(--c1);color:var(--fb-text)}
+  .leg-video-play{flex:none;width:44px;height:44px;border-radius:50%;background:var(--fb-acc);color:#fff;display:grid;place-items:center;font-size:18px}
+  .leg-video b{display:block;font-size:16px} .leg-video small{display:block;color:var(--fb-muted);font-size:13px;margin-top:2px}
   .leg-mai{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
   .leg-mai-c{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--fb-text)}
   .leg-mai-c.speciale{border-color:var(--fb-acc)}
@@ -1228,7 +1232,7 @@ function render(){
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
   const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
         conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
-  [["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-leg",soloFootball&&legaAttiva==="nfl"],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
+  [["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-leg",soloFootball],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
@@ -1237,9 +1241,9 @@ function render(){
   if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)||(vista==="prossima"&&!conPro)) vista = soloFootball ? apertura : "arbitri";
   if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista=apertura;
   if(!soloFootball && vista==="articoli") vista="arbitri";
-  if(vista==="leggende" && !(soloFootball && legaAttiva==="nfl")) vista = soloFootball ? apertura : "arbitri";
+  if(vista==="leggende" && !soloFootball) vista = "arbitri";
   if(ART_DAL_LINK && soloFootball){ vista="articoli"; ART_APERTO=ART_DAL_LINK; ART_DAL_LINK=null; }
-  if(LEG_DAL_LINK && soloFootball && legaAttiva==="nfl"){ vista="leggende"; LEG_APERTO=LEG_DAL_LINK; LEG_DAL_LINK=null; }
+  if(LEG_DAL_LINK && soloFootball){ vista="leggende"; LEG_APERTO=LEG_DAL_LINK; LEG_DAL_LINK=null; LEG_SEGUI=true; }
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
     const b=document.getElementById("lg-"+l.id);
@@ -2211,6 +2215,7 @@ function sezioniGiornata(G){
 /* ===================== LEGGENDE (21/11/2026) =====================
    Record di carriera, «I più grandi» (squadra del centenario NFL) e dinastie. Dati in docs/leggende/leggende.json
    (scripts/leggende.py: Wikipedia, verificata dal 1999 con nflverse). I racconti arriveranno nella stessa vista. */
+let LEG_SEGUI=false;   // racconto aperto da un collegamento: si passa al suo campionato
 let LEG=null, legSez="racconti", legRuolo="QB", legOrdine="allPro", LEG_RAC=null, LEG_APERTO=null;
 const LEG_RUOLI=[["QB","Quarterback"],["RB","Running back"],["WR","Ricevitori"],["TE","Tight end"],["DIF","Difesa"],["ALL","Allenatori"]];
 const LEG_ONORI=[["titoli","titolo","titoli"],["mvp","MVP","MVP"],["superBowlMvp","MVP del Super Bowl","MVP del Super Bowl"],
@@ -2303,7 +2308,10 @@ function legDinastie(){
   <p class="leg-fonte">Finali: <a href="https://en.wikipedia.org/wiki/List_of_Super_Bowl_champions" target="_blank" rel="noopener">Wikipedia, List of Super Bowl champions</a>. Periodi e protagonisti scelti da PureStats.</p>`;
 }
 function legCorpo(){
-  const sez=[["racconti","Racconti"],["grandi","I più grandi"],["record","Record"],["dinastie","Dinastie"],["maibattuti","Mai battuto"]];
+  // nel college per ora solo i racconti (record e classifiche sono della NFL)
+  const sez=legaAttiva==="college" ? [["racconti","Racconti"]]
+    : [["racconti","Racconti"],["grandi","I più grandi"],["record","Record"],["dinastie","Dinastie"],["maibattuti","Mai battuto"]];
+  if(!sez.some(x=>x[0]===legSez)) legSez="racconti";
   const conRuolo = legSez==="grandi"||legSez==="record";
   return `<div class="sottomenu gio-schede" role="tablist">${sez.map(([k,t])=>
       `<button role="tab" aria-selected="${k===legSez}" class="${k===legSez?"on":""}" onclick="legScegli('sez','${k}')">${t}</button>`).join("")}</div>
@@ -2316,8 +2324,9 @@ function legGrandeNum(r, classe){
     <span class="leg-maglia-num${String(r.grande).length>3?" lungo":""}" style="color:#fff;-webkit-text-stroke:3px ${esc(c2)}">${esc(r.grande)}</span>
     <span class="leg-maglia-sub">${esc(r.sottoGrande||"")}</span></div>`;
 }
+function legRacDiLega(){ return (LEG_RAC||[]).filter(r=>(r.lega||"nfl")===legaAttiva); }
 function legRacconti(){
-  const L=LEG_RAC||[];
+  const L=legRacDiLega();
   if(!L.length) return `<p class="fb-note">I racconti arrivano a breve.</p>`;
   return `<div class="leg-rac-lista">${L.map(r=>`<a class="leg-rac" href="#leggenda=${esc(r.id)}" onclick="apriLeggenda('${esc(r.id)}');return false">
       ${legGrandeNum(r,"piccola")}<span class="leg-rac-t"><small>${esc(r.occhiello)}</small><b>${esc(r.titolo)}</b><span class="leg-rac-anni">${esc(r.anni)}</span></span></a>`).join("")}</div>`;
@@ -2334,13 +2343,16 @@ function chiudiLeggenda(){
 }
 function vRacconto(r){
   if(!r) return `<p class="fb-note">Racconto non trovato.</p>`;
+  const v=r.video;
+  const video = v ? `<a class="leg-video" href="${esc(v.url)}" target="_blank" rel="noopener" style="--c1:${esc((r.colori||[])[0]||"#333")}">
+      <span class="leg-video-play">▶</span><span><b>Guarda il video</b><small>${esc(v.titolo)} · ${esc(v.fonte)} ↗</small></span></a>` : "";
   return `<a class="ar-torna" href="#" onclick="chiudiLeggenda();return false">← Tutte le leggende</a>
   <article class="leg-art">
     ${legGrandeNum(r,"testa")}
     <p class="leg-art-occh">${esc(r.occhiello)} · ${esc(r.anni)}</p>
     <h1 class="fb-h1 leg-art-tit">${esc(r.titolo)}</h1>
     <div class="leg-art-num">${(r.numeri||[]).map(([v,t])=>`<div><b>${esc(v)}</b><small>${esc(t)}</small></div>`).join("")}</div>
-    <div class="leg-art-testo">${(r.paragrafi||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+    <div class="leg-art-testo">${(r.paragrafi||[]).map((p,i,a)=>`<p>${esc(p)}</p>`+(i===Math.floor((a.length-1)/2)?video:"")).join("")}</div>
     <p class="leg-fonte">Fonti: ${(r.fonti||[]).map(f=>`<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titolo)}</a>`).join(" · ")} (CC BY-SA 4.0). Testo scritto da PureStats.</p>
   </article>`;
 }
@@ -2365,19 +2377,31 @@ function legMaiBattuti(){
 function vLeggende(){
   caricaLeggende();
   const testa=`<h1 class="fb-h1">Leggende</h1>
-    <p class="fb-lead">I racconti, i più grandi di sempre, i record di carriera e le dinastie che hanno fatto la storia della NFL.</p>`;
+    <p class="fb-lead">${legaAttiva==="college"?"Le partite e le giocate entrate nella storia del football universitario."
+      :"I racconti, i più grandi di sempre, i record di carriera e le dinastie che hanno fatto la storia della NFL."}</p>`;
   if(LEG_APERTO){
     if(!LEG_RAC) return `<div class="loading">Caricamento…</div>`;
-    return vRacconto(LEG_RAC.find(r=>r.id===LEG_APERTO));
+    const r=LEG_RAC.find(x=>x.id===LEG_APERTO);
+    if(r && (r.lega||"nfl")!==legaAttiva){
+      if(LEG_SEGUI){ setTimeout(()=>vaiLega(r.lega||"nfl"),0); return `<div class="loading">Caricamento…</div>`; }
+      LEG_APERTO=null;                                   // cambio di campionato a mano: si torna all'elenco
+      try{ history.replaceState(null,"",location.pathname); }catch(e){}
+      return vLeggende();
+    }
+    LEG_SEGUI=false;
+    return vRacconto(r);
   }
-  if(!LEG) return testa+`<div class="loading">Caricamento…</div>`;
-  if(LEG.errore) return testa+`<p class="fb-note">Le Leggende non sono disponibili in questo momento.</p>`;
+  if(legaAttiva!=="college"){
+    if(!LEG) return testa+`<div class="loading">Caricamento…</div>`;
+    if(LEG.errore) return testa+`<p class="fb-note">Le Leggende non sono disponibili in questo momento.</p>`;
+  } else if(LEG_RAC===false||LEG_RAC===null) return testa+`<div class="loading">Caricamento…</div>`;
   // in evidenza: un racconto diverso ogni giorno
-  const evid=(LEG_RAC||[]).length ? LEG_RAC[Math.floor(Date.now()/86400000) % LEG_RAC.length] : null;
+  const RL=legRacDiLega();
+  const evid=RL.length ? RL[Math.floor(Date.now()/86400000) % RL.length] : null;
   return testa+(evid?`<a class="leg-evid" href="#leggenda=${esc(evid.id)}" onclick="apriLeggenda('${esc(evid.id)}');return false">
       ${legGrandeNum(evid,"media")}<span class="leg-evid-t"><small>In evidenza · ${esc(evid.occhiello)}</small><b>${esc(evid.titolo)}</b>
       <span>${esc(evid.paragrafi[0].slice(0,190))}…</span><em>Leggi il racconto →</em></span></a>`:"")+`<div id="leg-corpo">${legCorpo()}</div>
-    <p class="leg-fonte">${esc(LEG.licenze||"")}</p>`;
+    ${legaAttiva!=="college"&&LEG?`<p class="leg-fonte">${esc(LEG.licenze||"")}</p>`:""}`;
 }
 
 /* ===================== STATISTICHE (18/11/2026) =====================

@@ -281,7 +281,13 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   Joe Montana, Dolphins 1972, rimonta 28-3 (Super Bowl LI), presa di Tyree (Super Bowl XLII), Barry Sanders.
 - «Mai battuto»: per ogni classifica il detentore e il migliore ancora in attività con la distanza (`maiBattuti` in
   leggende.json), più la stagione perfetta 17-0 dei Dolphins.
-- Da fare: altri racconti (lista sotto), college.
+- Video (21/11/2026): ogni racconto ha «Guarda il video» a metà testo, un collegamento (non incorporato) a una pagina
+  ufficiale: NFL.com (NFL Throwback, NFL Films, A Football Life) per la NFL; ESPN o il sito dell'università per il college.
+  Si sceglie con WebSearch e si controlla con WebFetch che la pagina esista (YouTube non si legge dalla sandbox).
+- College (21/11/2026): LEGGENDE anche nel College FB, solo la scheda Racconti (campo «lega» nei racconti; id «college-…»):
+  Hail Flutie 1984, The Play 1982, Kick Six 2013, Boise State al Fiesta Bowl 2007. Il collegamento diretto a un
+  racconto dell'altro campionato cambia campionato da solo (`LEG_SEGUI`).
+- Un racconto nuovo ogni mercoledì (scelta di Valerio): attività programmata «PureStats: racconto delle Leggende».
 
 ## Fonti a credito (chiamate limitate)
 
