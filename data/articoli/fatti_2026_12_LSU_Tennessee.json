@@ -1,0 +1,169 @@
+{
+ "id": "2026_12_LSU_Tennessee",
+ "lega": "college",
+ "stagione": 2026,
+ "settimana": 12,
+ "partita": "LSU @ Tennessee",
+ "ospite": "LSU",
+ "casa": "Tennessee",
+ "quando": "sabato 21 novembre, alle 21:30 italiane",
+ "dataIt": "2026-11-21",
+ "oraIt": "21:30",
+ "inizioUtc": "2026-11-21T20:30+00:00",
+ "stadio": "Neyland Stadium",
+ "campoNeutro": false,
+ "coperto": false,
+ "sfidaDiConference": true,
+ "precedenti": [
+  {
+   "stagione": 2022,
+   "risultato": "LSU 13 - Tennessee 40"
+  }
+ ],
+ "mercato": {
+  "favorita": "",
+  "vantaggio": null,
+  "totale": null
+ },
+ "ospiti": {
+  "nome": "LSU",
+  "mascotte": "Tigers",
+  "conference": "SEC",
+  "bilancio": "6-4",
+  "bilancioConference": "3-4",
+  "serieAperta": "2 sconfitte di fila",
+  "ultimePartite": [
+   "sconfitta 34-35 a Kentucky",
+   "vittoria 31-0 contro Mississippi State",
+   "vittoria 38-17 a Auburn",
+   "sconfitta 13-31 contro Alabama",
+   "sconfitta 21-22 contro Texas"
+  ],
+  "puntiFattiPartita": 35.5,
+  "puntiSubitiPartita": 18.1,
+  "spPlus": {
+   "posizione": 9,
+   "attacco": 15,
+   "difesa": 10,
+   "squadre": 139,
+   "nota": "SP+ di CollegeFootballData: indice di forza; dire «tra le migliori/peggiori», non i decimali"
+  },
+  "stagioneScorsa": "7-6",
+  "giocatoriChiave": [
+   {
+    "nome": "Sam Leavitt",
+    "ruolo": "quarterback",
+    "misura": "yard passate",
+    "mediaStagione": 279.7,
+    "mediaUltime3": 337.3,
+    "mediaAnnoScorso": 232.6,
+    "forma": "in forma",
+    "nota": "10 partite su 10 · 19 TD, 12 INT",
+    "corseAPartita": 33.7
+   },
+   {
+    "nome": "Dilin Jones",
+    "ruolo": "running back",
+    "misura": "yard corse",
+    "mediaStagione": 83.8,
+    "mediaUltime3": 90.7,
+    "mediaAnnoScorso": 42.9,
+    "forma": "in forma",
+    "nota": "10 partite su 10 · 185 corse, 8 TD"
+   },
+   {
+    "nome": "Jackson Harris",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 86.4,
+    "mediaUltime3": 136.0,
+    "mediaAnnoScorso": 107.0,
+    "forma": "in forma",
+    "nota": "10 partite su 10 · 55 ricezioni, 9 TD"
+   },
+   {
+    "nome": "Trey'Dez Green",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 67.7,
+    "mediaUltime3": 61.3,
+    "mediaAnnoScorso": 50.4,
+    "forma": null,
+    "nota": "6 partite su 10 · 34 ricezioni, 2 TD"
+   }
+  ],
+  "soprannome": "LSU"
+ },
+ "padroniDiCasa": {
+  "nome": "Tennessee",
+  "mascotte": "Volunteers",
+  "conference": "SEC",
+  "bilancio": "8-2",
+  "bilancioConference": "5-2",
+  "serieAperta": "2 vittorie di fila",
+  "ultimePartite": [
+   "vittoria 24-17 a Arkansas",
+   "vittoria 26-10 contro Alabama",
+   "sconfitta 24-27 a South Carolina",
+   "vittoria 34-6 contro Kentucky",
+   "vittoria 22-7 a Texas A&M"
+  ],
+  "puntiFattiPartita": 31.4,
+  "puntiSubitiPartita": 14.3,
+  "spPlus": {
+   "posizione": 11,
+   "attacco": 23,
+   "difesa": 6,
+   "squadre": 139,
+   "nota": "SP+ di CollegeFootballData: indice di forza; dire «tra le migliori/peggiori», non i decimali"
+  },
+  "stagioneScorsa": "8-5",
+  "giocatoriChiave": [
+   {
+    "nome": "George MacIntyre",
+    "ruolo": "quarterback",
+    "misura": "yard passate",
+    "mediaStagione": 120.2,
+    "mediaUltime3": 123.3,
+    "mediaAnnoScorso": null,
+    "forma": null,
+    "nota": "8 partite su 10 · 2 TD, 3 INT"
+   },
+   {
+    "nome": "DeSean Bishop",
+    "ruolo": "running back",
+    "misura": "yard corse",
+    "mediaStagione": 116.3,
+    "mediaUltime3": 108.7,
+    "mediaAnnoScorso": 81.9,
+    "forma": "in forma",
+    "nota": "10 partite su 10 · 230 corse, 13 TD"
+   },
+   {
+    "nome": "Braylon Staley",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 34.3,
+    "mediaUltime3": 46.7,
+    "mediaAnnoScorso": 67.2,
+    "forma": "in calo",
+    "nota": "10 partite su 10 · 40 ricezioni, 2 TD"
+   },
+   {
+    "nome": "Mike Matthews",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 60.8,
+    "mediaUltime3": 42.3,
+    "mediaAnnoScorso": 64.2,
+    "forma": "in calo",
+    "nota": "10 partite su 10 · 39 ricezioni, 4 TD"
+   }
+  ],
+  "soprannome": "Tennessee"
+ },
+ "colori": {
+  "ospite": "#461d7c",
+  "casa": "#ff8200"
+ }
+}

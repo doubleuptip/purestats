@@ -1,0 +1,170 @@
+{
+ "id": "2026_12_Ohio-State_Nebraska",
+ "lega": "college",
+ "stagione": 2026,
+ "settimana": 12,
+ "partita": "Ohio State @ Nebraska",
+ "ospite": "Ohio State",
+ "casa": "Nebraska",
+ "quando": "sabato 21 novembre, alle 18:00 italiane",
+ "dataIt": "2026-11-21",
+ "oraIt": "18:00",
+ "inizioUtc": "2026-11-21T17:00+00:00",
+ "stadio": "Memorial Stadium",
+ "citta": "Lincoln",
+ "campoNeutro": false,
+ "coperto": false,
+ "sfidaDiConference": true,
+ "precedenti": [
+  {
+   "stagione": 2024,
+   "risultato": "Ohio State 21 - Nebraska 17"
+  }
+ ],
+ "mercato": {
+  "favorita": "",
+  "vantaggio": null,
+  "totale": null
+ },
+ "ospiti": {
+  "nome": "Ohio State",
+  "mascotte": "Buckeyes",
+  "conference": "Big Ten",
+  "bilancio": "7-3",
+  "bilancioConference": "5-2",
+  "serieAperta": "",
+  "ultimePartite": [
+   "vittoria 45-16 contro Maryland",
+   "vittoria 19-15 a Indiana",
+   "sconfitta 18-30 a USC",
+   "sconfitta 28-41 contro Oregon",
+   "vittoria 28-19 contro Northwestern"
+  ],
+  "puntiFattiPartita": 34.9,
+  "puntiSubitiPartita": 18.4,
+  "spPlus": {
+   "posizione": 4,
+   "attacco": 10,
+   "difesa": 8,
+   "squadre": 139,
+   "nota": "SP+ di CollegeFootballData: indice di forza; dire «tra le migliori/peggiori», non i decimali"
+  },
+  "stagioneScorsa": "12-2",
+  "giocatoriChiave": [
+   {
+    "nome": "Luke Fahey",
+    "ruolo": "quarterback",
+    "misura": "yard passate",
+    "mediaStagione": 170.7,
+    "mediaUltime3": 273.7,
+    "mediaAnnoScorso": null,
+    "forma": "in forma",
+    "nota": "6 partite su 10 · 8 TD, 4 INT"
+   },
+   {
+    "nome": "Bo Jackson",
+    "ruolo": "running back",
+    "misura": "yard corse",
+    "mediaStagione": 79.9,
+    "mediaUltime3": 94.3,
+    "mediaAnnoScorso": 86.2,
+    "forma": null,
+    "nota": "10 partite su 10 · 159 corse, 7 TD"
+   },
+   {
+    "nome": "Jeremiah Smith",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 131.7,
+    "mediaUltime3": 111.0,
+    "mediaAnnoScorso": 90.5,
+    "forma": null,
+    "nota": "10 partite su 10 · 80 ricezioni, 15 TD"
+   },
+   {
+    "nome": "Devin McCuin",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 41.9,
+    "mediaUltime3": 36.3,
+    "mediaAnnoScorso": 59.4,
+    "forma": "in calo",
+    "nota": "9 partite su 10 · 30 ricezioni, 3 TD"
+   }
+  ],
+  "soprannome": "Ohio State"
+ },
+ "padroniDiCasa": {
+  "nome": "Nebraska",
+  "mascotte": "Cornhuskers",
+  "conference": "Big Ten",
+  "bilancio": "6-4",
+  "bilancioConference": "3-4",
+  "serieAperta": "",
+  "ultimePartite": [
+   "sconfitta 17-20 contro Indiana",
+   "sconfitta 14-17 a Oregon",
+   "sconfitta 10-17 contro Washington",
+   "sconfitta 13-24 a Illinois",
+   "vittoria 31-0 a Rutgers"
+  ],
+  "puntiFattiPartita": 30.3,
+  "puntiSubitiPartita": 14.9,
+  "spPlus": {
+   "posizione": 18,
+   "attacco": 40,
+   "difesa": 9,
+   "squadre": 139,
+   "nota": "SP+ di CollegeFootballData: indice di forza; dire «tra le migliori/peggiori», non i decimali"
+  },
+  "stagioneScorsa": "7-6",
+  "giocatoriChiave": [
+   {
+    "nome": "Anthony Colandrea",
+    "ruolo": "quarterback",
+    "misura": "yard passate",
+    "mediaStagione": 229.7,
+    "mediaUltime3": 242.3,
+    "mediaAnnoScorso": 272.9,
+    "forma": null,
+    "nota": "10 partite su 10 · 18 TD, 7 INT",
+    "corseAPartita": 44.7
+   },
+   {
+    "nome": "Jamal Rule",
+    "ruolo": "running back",
+    "misura": "yard corse",
+    "mediaStagione": 70.6,
+    "mediaUltime3": 81.3,
+    "mediaAnnoScorso": null,
+    "forma": null,
+    "nota": "9 partite su 10 · 110 corse, 5 TD"
+   },
+   {
+    "nome": "Jacory Barney Jr.",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 56.4,
+    "mediaUltime3": 62.0,
+    "mediaAnnoScorso": 38.6,
+    "forma": "in forma",
+    "nota": "10 partite su 10 · 44 ricezioni, 3 TD"
+   },
+   {
+    "nome": "Luke Lindenmeyer",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 33.3,
+    "mediaUltime3": 49.0,
+    "mediaAnnoScorso": 30.6,
+    "forma": "in forma",
+    "nota": "10 partite su 10 · 35 ricezioni, 2 TD"
+   }
+  ],
+  "soprannome": "Nebraska"
+ },
+ "colori": {
+  "ospite": "#ba0c2f",
+  "casa": "#d00000"
+ }
+}

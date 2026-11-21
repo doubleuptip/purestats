@@ -1,0 +1,163 @@
+{
+ "id": "2026_12_SMU_Notre-Dame",
+ "lega": "college",
+ "stagione": 2026,
+ "settimana": 12,
+ "partita": "SMU @ Notre Dame",
+ "ospite": "SMU",
+ "casa": "Notre Dame",
+ "quando": "nella notte tra sabato e domenica 22 novembre, alle 1:30 italiane",
+ "dataIt": "2026-11-22",
+ "oraIt": "01:30",
+ "inizioUtc": "2026-11-22T00:30+00:00",
+ "stadio": "Notre Dame Stadium",
+ "campoNeutro": false,
+ "coperto": false,
+ "sfidaDiConference": false,
+ "precedenti": [],
+ "mercato": {
+  "favorita": "",
+  "vantaggio": null,
+  "totale": null
+ },
+ "ospiti": {
+  "nome": "SMU",
+  "mascotte": "Mustangs",
+  "conference": "ACC",
+  "bilancio": "7-3",
+  "bilancioConference": "5-3",
+  "serieAperta": "",
+  "ultimePartite": [
+   "vittoria 23-13 contro Virginia",
+   "vittoria 59-20 contro California",
+   "sconfitta 27-30 a Syracuse",
+   "vittoria 51-28 contro Virginia Tech",
+   "sconfitta 7-49 contro Wake Forest"
+  ],
+  "puntiFattiPartita": 34.0,
+  "puntiSubitiPartita": 25.5,
+  "spPlus": {
+   "posizione": 28,
+   "attacco": 20,
+   "difesa": 43,
+   "squadre": 139,
+   "nota": "SP+ di CollegeFootballData: indice di forza; dire «tra le migliori/peggiori», non i decimali"
+  },
+  "stagioneScorsa": "9-4",
+  "giocatoriChiave": [
+   {
+    "nome": "Kevin Jennings",
+    "ruolo": "quarterback",
+    "misura": "yard passate",
+    "mediaStagione": 297.3,
+    "mediaUltime3": 303.7,
+    "mediaAnnoScorso": 280.2,
+    "forma": null,
+    "nota": "10 partite su 10 · 26 TD, 7 INT"
+   },
+   {
+    "nome": "Kendrick Raphael",
+    "ruolo": "running back",
+    "misura": "yard corse",
+    "mediaStagione": 80.9,
+    "mediaUltime3": 56.0,
+    "mediaAnnoScorso": 71.1,
+    "forma": null,
+    "nota": "10 partite su 10 · 165 corse, 10 TD"
+   },
+   {
+    "nome": "Yamir Knight",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 67.0,
+    "mediaUltime3": 75.7,
+    "mediaAnnoScorso": 48.5,
+    "forma": "in forma",
+    "nota": "10 partite su 10 · 55 ricezioni, 6 TD"
+   },
+   {
+    "nome": "Yannick Smith",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 60.0,
+    "mediaUltime3": 66.0,
+    "mediaAnnoScorso": 58.3,
+    "forma": null,
+    "nota": "9 partite su 10 · 34 ricezioni, 3 TD"
+   }
+  ],
+  "soprannome": "SMU"
+ },
+ "padroniDiCasa": {
+  "nome": "Notre Dame",
+  "mascotte": "Fighting Irish",
+  "conference": "FBS Independents",
+  "bilancio": "9-1",
+  "bilancioConference": "0-0",
+  "serieAperta": "3 vittorie di fila",
+  "ultimePartite": [
+   "vittoria 58-7 contro Stanford",
+   "sconfitta 24-28 a BYU",
+   "vittoria 35-13 a Navy",
+   "vittoria 31-24 contro Miami",
+   "vittoria 41-7 contro Boston College"
+  ],
+  "puntiFattiPartita": 39.5,
+  "puntiSubitiPartita": 13.8,
+  "spPlus": {
+   "posizione": 2,
+   "attacco": 3,
+   "difesa": 14,
+   "squadre": 139,
+   "nota": "SP+ di CollegeFootballData: indice di forza; dire «tra le migliori/peggiori», non i decimali"
+  },
+  "stagioneScorsa": "10-2",
+  "giocatoriChiave": [
+   {
+    "nome": "CJ Carr",
+    "ruolo": "quarterback",
+    "misura": "yard passate",
+    "mediaStagione": 238.5,
+    "mediaUltime3": 248.7,
+    "mediaAnnoScorso": 228.4,
+    "forma": null,
+    "nota": "10 partite su 10 · 23 TD, 2 INT"
+   },
+   {
+    "nome": "Nolan James Jr.",
+    "ruolo": "running back",
+    "misura": "yard corse",
+    "mediaStagione": 64.4,
+    "mediaUltime3": 77.3,
+    "mediaAnnoScorso": null,
+    "forma": null,
+    "nota": "10 partite su 10 · 120 corse, 10 TD"
+   },
+   {
+    "nome": "Micah Gilbert",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 61.4,
+    "mediaUltime3": 68.3,
+    "mediaAnnoScorso": null,
+    "forma": null,
+    "nota": "10 partite su 10 · 38 ricezioni, 6 TD"
+   },
+   {
+    "nome": "Jordan Faison",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 61.5,
+    "mediaUltime3": 54.7,
+    "mediaAnnoScorso": 53.3,
+    "forma": null,
+    "nota": "10 partite su 10 · 49 ricezioni, 6 TD"
+   }
+  ],
+  "soprannome": "Notre Dame"
+ },
+ "colori": {
+  "ospite": "#d70000",
+  "casa": "#0c2340"
+ }
+}

@@ -781,7 +781,7 @@ function esci(){
 if (!CHIAVE) for (let i = LEGHE.length - 1; i >= 0; i--) if (LEGHE[i].privato) LEGHE.splice(i, 1);
 // chiave aggiunta a mano all'indirizzo della pagina già aperta: il browser non ricarica, lo facciamo noi
 addEventListener("hashchange", () => { if (/(?:^#|&)k=/.test(location.hash)) location.reload(); });
-let ART_DAL_LINK = (location.hash.match(/^#articolo=([A-Za-z0-9_]+)$/)||[])[1] || null;
+let ART_DAL_LINK = (location.hash.match(/^#articolo=([A-Za-z0-9_-]+)$/)||[])[1] || null;
 /* Avviso discreto se il collegamento privato non funziona (si vede solo a chi ha messo #k= nell'indirizzo) */
 function avvisoChiave(testo){
   const d = document.createElement("div");
@@ -2222,8 +2222,9 @@ function articoliDi(g, stagione, settimana){
   // gli articoli di una partita (anteprima e cronaca), riconosciuti da stagione, week e squadre
   if(!ART) { caricaArticoli(); return []; }
   const st = stagione || g.stagione, w = settimana || g.settimana;
-  const pref = st && w ? `${st}_${String(w).padStart(2,"0")}_${g.ospite}_${g.casa}_` : null;
-  return ART.filter(a=>a.lega===legaAttiva && (pref ? a.id.startsWith(pref) : (a.ospite===g.ospite && a.casa===g.casa)))
+  // stesse squadre, stessa week e stessa stagione (per non confondere andata e ritorno)
+  return ART.filter(a=>a.lega===legaAttiva && a.ospite===g.ospite && a.casa===g.casa
+      && (!w || Number(a.settimana)===Number(w)) && (!st || String(a.id).startsWith(String(st)+"_")))
             .sort((x,y)=>x.tipo==="anteprima"?-1:1);
 }
 function linkArticolo(g, stagione, settimana){
@@ -2330,6 +2331,8 @@ function vArticolo(id){
       .catch(()=>{ ART_CACHE[id]={errore:true}; render(); });
     return `<p class="fb-lead">Caricamento dell'articolo…</p>`;
   }
+  // un articolo del college aperto da un collegamento: si passa al college per avere stemmi e nomi giusti
+  if(a.lega && a.lega!==legaAttiva && LEGHE.some(l=>l.id===a.lega)) setTimeout(()=>vaiLega(a.lega),0);
   if(a.errore) return `<p class="fb-lead">Articolo non trovato.</p><p><a class="ar-torna" href="#" onclick="chiudiArticolo();return false">← Tutti gli articoli</a></p>`;
   const cronaca=a.tipo==="cronaca";
   const sfondo=a.foto?`background-image:url(${esc(a.foto)})`:"";
@@ -2353,7 +2356,7 @@ function vArticolo(id){
   return `<article class="ar">
     <a class="ar-torna" href="#" onclick="chiudiArticolo();return false">← Tutti gli articoli</a>
     <div class="ar-cop" style="${sfondo}"><div class="ar-sfuma" style="background:${sfuma}"></div><div class="ar-cop-in">
-      <div class="ar-cop-alto"><b>${cronaca?"Finale":"Anteprima"}</b><span>NFL · Week ${esc(a.settimana)}</span></div>
+      <div class="ar-cop-alto"><b>${cronaca?"Finale":"Anteprima"}</b><span>${a.lega==="college"?"College":"NFL"} · Week ${esc(a.settimana)}</span></div>
       <div class="ar-cop-mezzo">
         <div class="ar-sq">${stemma(a.ospite)}<span>${esc(breve(a.ospite))}</span>${!cronaca&&a.bilanci?`<small>${esc(a.bilanci.ospite)}</small>`:""}</div>
         ${mezzo}
@@ -2367,7 +2370,7 @@ function vArticolo(id){
     <div class="ar-testo">${par.join("")}</div>
     <aside class="ar-lato">${cronaca?"":schedaMeteo(a)}
       ${riquadroSquadre(a)}
-      <div class="ar-crediti">Articolo scritto con l'aiuto di Claude (Anthropic) su dati nflverse (CC-BY 4.0), verificati prima della pubblicazione.${a.fotoCrediti?" Foto dello stadio: Wikimedia Commons.":""}</div>
+      <div class="ar-crediti">Articolo scritto con l'aiuto di Claude (Anthropic) su dati ${a.lega==="college"?"ESPN e SP+ (CollegeFootballData)":"nflverse (CC-BY 4.0)"}, verificati prima della pubblicazione.${a.fotoCrediti?" Foto dello stadio: Wikimedia Commons.":""}</div>
     </aside>
   </article>`;
 }
