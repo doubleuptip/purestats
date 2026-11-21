@@ -251,6 +251,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   linea, division, prima serata), salvata in scelte_<lega>_<stagione>_<week>.json.
 - Momenti decisivi (21/11/2026): probabilità di vittoria dal mercato (vegas_home_wp/vegas_home_wpa), sotto 3 punti solo
   azioni chiave, peso pieno verso il risultato finale, al massimo 2 per quarto (nfl_indici, costanti MOMENTI_*).
+- Foto degli stadi (21/11/2026): `docs/articoli/stadi/<Stadio>.jpg` per l'NFL (vale anche in campo neutro),
+  `<Stadio>__<Casa>.jpg` per il college (i nomi come «Memorial Stadium» si ripetono); crediti in `crediti.json`. Quelle
+  che mancano le scarica `articoli.py foto_mancanti` nel workflow articoli-meteo (Wikimedia Commons, solo licenze libere;
+  dalla sandbox non si raggiunge); senza foto la copertina usa i colori delle squadre. Video: solo anteprima che apre
+  YouTube, perché la NFL blocca la visione dei suoi video dentro altri siti.
 - Sito: menu ARTICOLI, articolo con impaginazione B (testo a sinistra, colonna con meteo e numeri), collegamento
   «Leggi l'anteprima/la cronaca» dalle schede partita, indirizzo diretto `#articolo=<id>`.
 
@@ -346,10 +351,7 @@ davvero che si veda quello che deve vedersi.
 
 ## Da fare da sabato 21/11/2026 (dopo il rinnovo dell'abbonamento, ore 5)
 
-1. Articoli, resto della fase 2: foto di tutti gli stadi NFL e dei college delle partite scelte da Wikimedia con i crediti
-   (oggi solo NRG Stadium). Orari NFL spostati dalla tv: nflverse li aggiorna in ritardo (Jaguars-Giants del 22/11 ancora
-   alle 13:00 invece delle 16:25 ET): risolto il 21/11 con nfl_indici.correggi_orari (ESPN, sito e archivio).
-2. Sezione «LEGGENDE» (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
+1. Sezione «LEGGENDE» (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
    mostrato il 19/11: menu accanto ad ARTICOLI; racconto in evidenza con il numero di maglia grande nei colori della
    squadra (niente foto dei giocatori); «I più grandi» per ruolo (QB, RB, WR, TE, difesa, allenatori) in due elenchi:
    Record (dati) e I più grandi (criteri dichiarati: titoli, MVP, All-Pro, record, Canton, squadra dei 100 anni NFL);
@@ -363,4 +365,4 @@ davvero che si veda quello che deve vedersi.
    imbattuti; rimonta da 28-3 nel Super Bowl LI; presa di Tyree (Super Bowl XLII, fine del 18-0); Barry Sanders che
    si ritira al massimo; Jerry Rice; Lawrence Taylor. College: Hail Mary di Flutie 1984, «The Play» Cal-Stanford 1982,
    Kick Six 2013, Boise State al Fiesta Bowl 2007.
-3. Ogni fatto e record va riverificato prima di pubblicare (stesso metodo degli articoli).
+2. Ogni fatto e record va riverificato prima di pubblicare (stesso metodo degli articoli).

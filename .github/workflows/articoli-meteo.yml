@@ -21,13 +21,15 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Foto degli stadi che mancano (Wikimedia Commons)
+        run: python scripts/articoli.py foto_mancanti || echo "foto non scaricate: gli articoli restano con la copertina a colori"
       - name: Meteo delle anteprime
         run: python scripts/articoli.py meteo
       - name: Committa
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/articoli/*.json 2>/dev/null || true
+          git add docs/articoli/*.json docs/articoli/stadi 2>/dev/null || true
           if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
           git commit -q -m "Articoli: meteo aggiornato $(date -u '+%Y-%m-%d %H:%M UTC')"
           for t in 1 2 3 4; do

@@ -4,6 +4,8 @@ Comandi:
   python scripts/articoli.py fatti <game_id>                 prepara data/articoli/fatti_<game_id>.json
   python scripts/articoli.py pubblica <game_id> <tipo> <testo.json>
                                                              controlla il testo e lo pubblica in docs/articoli/
+  python scripts/articoli.py foto_mancanti                   scarica da Wikimedia le foto degli stadi che mancano (nel workflow)
+  python scripts/articoli.py foto                            rimette foto e crediti negli articoli pubblicati
   python scripts/articoli.py meteo                           aggiorna la scheda meteo delle anteprime in arrivo
   python scripts/articoli.py scegli <nfl|college> <week> [stagione]   le 3 partite da raccontare
   python scripts/articoli.py da_fare                         anteprime (via entro 48 ore) e cronache da scrivere
@@ -23,6 +25,7 @@ import io
 import json
 import re
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -1045,6 +1048,95 @@ def riquadro_cronaca(f: dict) -> dict:
             "quarti": quarti, "linea": linea}
 
 
+def _slug_stadio(testo: str) -> str:
+    return re.sub(r"[^A-Za-z0-9]+", "_", testo).strip("_")
+
+
+def foto_stadio(lega: str, stadio: str, casa: str) -> tuple:
+    """Foto dello stadio (Wikimedia Commons, crediti in docs/articoli/stadi/crediti.json).
+    NFL: per nome dello stadio, così vale anche in campo neutro (Estadio Banorte) e per le squadre che lo
+    condividono; college: stadio + squadra di casa, perché nomi come «Memorial Stadium» si ripetono.
+    Senza foto: stringhe vuote (la copertina usa i colori delle squadre)."""
+    nome = _slug_stadio(stadio or "")
+    if lega == "college":
+        nome += "__" + _slug_stadio(casa or "")
+    file = USCITA / "stadi" / f"{nome}.jpg"
+    if not nome or not file.exists():
+        print(f"nessuna foto per lo stadio «{stadio}» ({casa}): copertina con i colori delle squadre")
+        return "", ""
+    crediti = json.loads((USCITA / "stadi" / "crediti.json").read_text())
+    return f"articoli/stadi/{file.name}", crediti.get(file.name, "")
+
+
+def aggiorna_foto() -> None:
+    """Rimette foto e crediti negli articoli già pubblicati (dopo aver aggiunto foto nuove)."""
+    for file in sorted(USCITA.glob("*_*.json")):
+        if file.name in ("indice.json",):
+            continue
+        art = json.loads(file.read_text())
+        if "stadio" not in art:
+            continue
+        foto, credito = foto_stadio(art["lega"], art["stadio"], art["casa"])
+        if (foto, credito) != (art.get("foto", ""), art.get("fotoCrediti", "")):
+            art["foto"], art["fotoCrediti"] = foto, credito
+            file.write_text(json.dumps(art, ensure_ascii=False, indent=1))
+            print(f"{file.name}: foto {foto or 'nessuna'}")
+
+
+WIKI_UA = {"User-Agent": "PureStats/1.0 (https://doubleuptip.github.io/purestats/; statistiche sportive)"}
+
+
+def _wiki(url: str, parametri: dict) -> dict:
+    richiesta = urllib.request.Request(url + "?" + urllib.parse.urlencode({**parametri, "format": "json"}), headers=WIKI_UA)
+    with urllib.request.urlopen(richiesta, timeout=60) as r:
+        return json.loads(r.read())
+
+
+def foto_mancanti() -> None:
+    """Scarica da Wikimedia Commons la foto dello stadio degli articoli che non ce l'hanno (gira nel workflow
+    articoli-meteo: dalla sandbox Wikimedia non si raggiunge). Immagine principale della voce Wikipedia trovata
+    con la ricerca «stadio + squadra di casa»; solo licenze libere (CC, pubblico dominio), autore e licenza nei crediti."""
+    crediti_file = USCITA / "stadi" / "crediti.json"
+    crediti = json.loads(crediti_file.read_text())
+    mancanti = {}
+    for file in USCITA.glob("*_*.json"):
+        art = json.loads(file.read_text())
+        if "stadio" in art and not art.get("foto") and art.get("stadio"):
+            mancanti[(art["lega"], art["stadio"], art["casa"])] = True
+    for lega, stadio, casa in mancanti:
+        nome = _slug_stadio(stadio) + ("__" + _slug_stadio(casa) if lega == "college" else "")
+        try:
+            cerca = stadio if lega == "nfl" else f"{stadio} {casa} football stadium"
+            risultati = _wiki("https://en.wikipedia.org/w/api.php", {"action": "query", "list": "search", "srsearch": cerca, "srlimit": 1})
+            voce = risultati["query"]["search"][0]["title"]
+            pagina = list(_wiki("https://en.wikipedia.org/w/api.php", {"action": "query", "titles": voce, "prop": "pageimages",
+                                                                         "piprop": "name", "redirects": 1})["query"]["pages"].values())[0]
+            immagine = pagina.get("pageimage")
+            if not immagine or not immagine.lower().endswith((".jpg", ".jpeg")):
+                print(f"{stadio} ({casa}): la voce «{voce}» non ha una foto principale in jpg, resta la copertina a colori")
+                continue
+            info = list(_wiki("https://commons.wikimedia.org/w/api.php", {"action": "query", "titles": "File:" + immagine,
+                              "prop": "imageinfo", "iiprop": "url|extmetadata", "iiurlwidth": 1400})["query"]["pages"].values())[0]
+            if "imageinfo" not in info:
+                print(f"{stadio} ({casa}): «{immagine}» non è su Commons (forse non libera), saltata")
+                continue
+            ii = info["imageinfo"][0]
+            meta = ii["extmetadata"]
+            licenza = meta.get("LicenseShortName", {}).get("value", "")
+            if not re.search(r"CC|Public domain|PD", licenza, re.I):
+                print(f"{stadio} ({casa}): licenza «{licenza}» non libera, saltata")
+                continue
+            autore = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", ""))).strip() or "autore non indicato"
+            with urllib.request.urlopen(urllib.request.Request(ii.get("thumburl") or ii["url"], headers=WIKI_UA), timeout=60) as r:
+                (USCITA / "stadi" / f"{nome}.jpg").write_bytes(r.read())
+            crediti[f"{nome}.jpg"] = f"{autore[:60]} · {licenza}"
+            crediti_file.write_text(json.dumps(dict(sorted(crediti.items())), ensure_ascii=False, indent=1))
+            print(f"{stadio} ({casa}): foto «{immagine}» dalla voce «{voce}», {licenza}")
+        except Exception as e:
+            print(f"{stadio} ({casa}): foto non scaricata ({e!r}), resta la copertina a colori")
+    aggiorna_foto()
+
+
 def pubblica(gid: str, tipo: str, file_testo: str) -> None:
     f = json.loads((FATTI / f"fatti_{gid}.json").read_text())
     # notizie della vigilia verificate sul web (infortuni, allenatori, trasferimenti), ognuna con la sua fonte:
@@ -1063,8 +1155,7 @@ def pubblica(gid: str, tipo: str, file_testo: str) -> None:
         print("NON pubblicato, da correggere:\n  " + "\n  ".join(problemi))
         sys.exit(1)
     USCITA.mkdir(parents=True, exist_ok=True)
-    foto = USCITA / "stadi" / f"{f['casa']}.jpg"
-    crediti = json.loads((USCITA / "stadi" / "crediti.json").read_text()) if (USCITA / "stadi" / "crediti.json").exists() else {}
+    foto, credito = foto_stadio(f["lega"], f["stadio"], f["casa"])
     aid = f"{gid}_{tipo}"
     art = {"id": aid, "lega": f["lega"], "tipo": tipo, "stagione": f["stagione"], "settimana": f["settimana"], "ospite": f["ospite"], "casa": f["casa"],
            "dataIt": f["dataIt"], "oraIt": f["oraIt"], "inizioUtc": f["inizioUtc"], "stadio": f["stadio"],
@@ -1072,8 +1163,7 @@ def pubblica(gid: str, tipo: str, file_testo: str) -> None:
            "bilanci": {"ospite": f["ospiti"]["bilancio"], "casa": f["padroniDiCasa"]["bilancio"]},
            "colori": f["colori"], "titolo": testo["titolo"], "paragrafi": testo["paragrafi"],
            "riquadro": riquadro_cronaca(f) if tipo == "cronaca" else riquadro_college(f) if f["lega"] == "college" else riquadro(f),
-           "foto": f"articoli/stadi/{f['casa']}.jpg" if foto.exists() else "",
-           "fotoCrediti": crediti.get(f["casa"], ""), "pubblicato": dt.datetime.now(ROMA).isoformat(timespec="minutes")}
+           "foto": foto, "fotoCrediti": credito, "pubblicato": dt.datetime.now(ROMA).isoformat(timespec="minutes")}
     if tipo == "cronaca":
         p = f["partitaGiocata"]
         art["punti"] = {"ospite": p["puntiOspite"], "casa": p["puntiCasa"]}
@@ -1153,5 +1243,9 @@ if __name__ == "__main__":
         fatti_college(int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], sys.argv[5])
     elif len(sys.argv) >= 2 and sys.argv[1] == "meteo":
         meteo()
+    elif len(sys.argv) >= 2 and sys.argv[1] == "foto":
+        aggiorna_foto()
+    elif len(sys.argv) >= 2 and sys.argv[1] == "foto_mancanti":
+        foto_mancanti()
     else:
         print(__doc__)
