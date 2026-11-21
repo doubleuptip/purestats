@@ -183,7 +183,8 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   sommando i sack della squadra nel tabellino ESPN (stat «sq», sigla nflverse; LA→LAR, WAS→WSH).
 - Logo (16/11/2026, disegno di Valerio): simbolo vettoriale nel codice delle pagine (`logo-simbolo`, barre +
   battito) e scritta PURE/STATS con i caratteri del sito; colori `--logo-testo` / `--logo-rosso` (di notte rosso
-  acceso #EF4444 per il contrasto). Icona della scheda `docs/icona.svg` (giorno/notte), schermata Home
+  acceso #EF4444 per il contrasto). Dal 21/11/2026 (scelta di Valerio) anche bottoni e accenti notturni usano #EF4444
+  (prima arancione #FF8A3D) in index.html, duelli.html e accesso.html: stesso rosso del logo giorno e notte. Icona della scheda `docs/icona.svg` (giorno/notte), schermata Home
   `docs/icona-180.png` (ricavata da rsvg-convert). Marchio completo in `docs/brand/` (logo orizzontale e simbolo
   trasparenti, anteprima dei link 1200×630, foto profilo 1080, copertina 1500×500, chiaro e scuro), `favicon.ico`,
   `icona-192/512.png` e `manifest.webmanifest`; anteprima dei link (og:image) = brand/anteprima-link-scuro.png.
@@ -226,6 +227,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   `docs/stats/<lega>_<stagione>_<categoria>.json` + `indice_<lega>.json`, preparati da `scripts/statistiche.py`
   (una riga per giocatore e partita; squadre come numeri; somme e derivati nel browser, `ST_COL`). Stagione in corso
   a ogni giro dei workflow NFL e College; storico 2019-2025 fatto una volta. Solo stagione regolare.
+- Menu unico (21/11/2026, scelta di Valerio): nel football niente più SQUADRE; STATISTICHE ha le schede «Squadre»
+  (Classifica = la vecchia pagina SQUADRE con la scheda di ogni squadra · Fatte · Concesse) e «Giocatori»
+  (`testataStat`, `schedaStat`, `ultimaStat`). Classifica ordinata per % vittorie e differenza. NFL e College si
+  aprono sulla Giornata (Partite dove non c'è). Il calcio tiene il suo menu SQUADRE.
 - Fonti: NFL nflverse (CC-BY 4.0, va citato), College tabellini ESPN. Le pressioni PFR non si ripubblicano: tolte
   anche dai leader della Giornata, restano solo per Charlie (cifrato).
 

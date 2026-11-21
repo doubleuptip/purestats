@@ -258,9 +258,9 @@
   @media (prefers-color-scheme: dark){
     body.fb{
       --fb-bg:#0B0F1A; --fb-card:#131A2B; --fb-text:#F5F7FB; --fb-muted:#A3ADC2; --fb-border:#232C42;
-      --fb-acc:#FF8A3D; --fb-acc-text:#1A0E05; --fb-pill:#1B2338; --fb-okbg:#3A2412; --fb-ok:#FFB27A;
+      --fb-acc:#EF4444; --fb-acc-text:#FFFFFF; --fb-pill:#1B2338; --fb-okbg:#3A1618; --fb-ok:#FCA5A5;
       --fb-chip:#1F2840; --fb-chiptext:#C9D1E3; --fb-lose:#8D97AD; --fb-head:'Barlow Condensed',sans-serif;
-      --acc-rgb:255,138,61; --rosso:#FF7A7A; --giallo:#FFD400;
+      --acc-rgb:239,68,68; --rosso:#FF7A7A; --giallo:#FFD400;
     }
   }
   body.fb header{background:var(--fb-bg)}
@@ -695,6 +695,9 @@
     .leg-din{flex-direction:column;gap:6px;padding-left:14px}
     .leg-din-anni{width:auto;text-align:left;padding:0;background:none}
   }
+  .stat-schede{margin:14px 0 10px}
+  .stat-sq{margin:0 0 16px}
+  .stat-sq button{font:600 14px var(--f-testo);padding:8px 16px}
   .gara-sezione{grid-column:1/-1;font:600 12px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;color:var(--fb-muted);margin:6px 2px 0}
   .ar-link-riga{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
   .ar-link{display:inline-flex;align-items:center;gap:4px;font:700 12px var(--f-testo);text-decoration:none;padding:5px 10px;border-radius:999px;
@@ -743,7 +746,7 @@
     <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
     <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
-    <button id="n-sta" onclick="vai('statistiche')" style="display:none">STATISTICHE</button>
+    <button id="n-sta" onclick="window.scrollTo(0,0);schedaStat(ultimaStat)" style="display:none">STATISTICHE</button>
     <button id="n-art" onclick="ART_APERTO=null;vai('articoli')" style="display:none">ARTICOLI</button>
     <button id="n-leg" onclick="vai('leggende')" style="display:none">LEGGENDE</button>
     <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata">MATCHUP</button>
@@ -1165,7 +1168,7 @@ function render(){
   // Le schede del calcio non hanno senso per il football: si nascondono
   const soloFootball = eFootball();
   const soloArb = soloArbitri();
-  [["n-arb",!soloFootball],["n-squ",!soloArb],["n-par",!soloArb],
+  [["n-arb",!soloFootball],["n-squ",!soloArb && !soloFootball],["n-par",!soloArb],
    ["n-cal",!soloFootball && !soloArb]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
@@ -1177,10 +1180,12 @@ function render(){
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
-  if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)||(vista==="prossima"&&!conPro)) vista = soloFootball ? "squadre" : "arbitri";
-  if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista="squadre";
+  // football (21/11/2026, scelta di Valerio): si apre sulla Giornata, o su Partite dove non c'è
+  const apertura = conGio ? "giornata" : "partite";
+  if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)||(vista==="prossima"&&!conPro)) vista = soloFootball ? apertura : "arbitri";
+  if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista=apertura;
   if(!soloFootball && vista==="articoli") vista="arbitri";
-  if(vista==="leggende" && !(soloFootball && legaAttiva==="nfl")) vista = soloFootball ? "squadre" : "arbitri";
+  if(vista==="leggende" && !(soloFootball && legaAttiva==="nfl")) vista = soloFootball ? apertura : "arbitri";
   if(ART_DAL_LINK && soloFootball){ vista="articoli"; ART_APERTO=ART_DAL_LINK; ART_DAL_LINK=null; }
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
@@ -1194,7 +1199,7 @@ function render(){
   document.getElementById("n-gio").className = vista==="giornata"?"on":"";
   document.getElementById("n-ind").className = vista==="indici"?"on":"";
   document.getElementById("n-pro").className = vista==="prossima"?"on":"";
-  document.getElementById("n-sta").className = vista==="statistiche"?"on":"";
+  document.getElementById("n-sta").className = vista==="statistiche"||(soloFootball&&vista==="squadre")?"on":"";
   document.getElementById("n-art").className = vista==="articoli"?"on":"";
   document.getElementById("n-leg").className = vista==="leggende"?"on":"";
 
@@ -1206,11 +1211,11 @@ function render(){
     app.innerHTML = vista==="articoli" ? vArticoli()
                   : vista==="leggende" ? vLeggende()
                   : vista==="giornata" ? vFootballGiornata()
-                  : vista==="statistiche" ? vStatistiche()
+                  : vista==="statistiche" ? testataStat()+vStatistiche()
                   : vista==="indici" ? vFootballIndici()
                   : vista==="prossima" ? vFootballProssima()
                   : vista==="partite" ? vFootballPartite()
-                  : squadraAperta ? vSquadraFootball() : vFootballSquadre();
+                  : squadraAperta ? vSquadraFootball() : testataStat()+vFootballSquadre();
   }
   else if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
   else if(vista==="squadre") app.innerHTML = vSquadre();
@@ -1724,7 +1729,9 @@ function vFootballSquadre(){
   if(annoFootball===null) annoFootball = annoPredefinito(D) || "tutte";
 
   const q=ricerca.trim().toLowerCase();
-  const o=ord.squadre;
+  // l'ordine predefinito delle squadre è quello del calcio (gialli): nel football si parte da vittorie e differenza
+  const CAMPI_FB=["nome","partite","vittorie","sconfitte","percVittorie","mediaFatti","mediaSubiti","differenza"];
+  const o=CAMPI_FB.includes(ord.squadre.campo) ? ord.squadre : {campo:"percVittorie",dir:-1};
   const lista=base
     .map(s=>({sq:s, d:squadraFootball(s)}))
     .filter(x=>x.d!==null)
@@ -1734,7 +1741,7 @@ function vFootballSquadre(){
                 ||(x.sq.nomeCompleto||"").toLowerCase().includes(q)
                 ||(x.sq.conference||x.d.conferenza||"").toLowerCase().includes(q))
     .map(x=>({...x, nome:x.sq.nome, ...x.d}))
-    .sort((a,b)=>confronta(a,b,o.campo,o.dir) || a.nome.localeCompare(b.nome));
+    .sort((a,b)=>confronta(a,b,o.campo,o.dir) || confronta(a,b,"differenza",-1) || a.nome.localeCompare(b.nome));
 
   const gio=lista.reduce((s,x)=>s+(x.partite||0),0);
   const pf=lista.length
@@ -2539,6 +2546,26 @@ function vArticolo(id){
   </article>`;
 }
 
+/* Statistiche nel football (21/11/2026, scelta di Valerio): un solo menu con le schede Squadre e Giocatori;
+   Squadre = Classifica (la vecchia pagina SQUADRE, con la scheda di ogni squadra) · Fatte · Concesse. */
+function testataStat(){
+  const sez = vista==="squadre" || ST.modo==="squadre" ? "squadre" : "giocatori";
+  const sotto = vista==="squadre" ? "classifica" : ST.lato;
+  return `<h1 class="fb-h1">Statistiche</h1>
+  <div class="sottomenu gio-schede stat-schede" role="tablist">
+    <button role="tab" aria-selected="${sez==="squadre"}" class="${sez==="squadre"?"on":""}" onclick="schedaStat('classifica')">Squadre</button>
+    <button role="tab" aria-selected="${sez==="giocatori"}" class="${sez==="giocatori"?"on":""}" onclick="schedaStat('giocatori')">Giocatori</button></div>
+  ${sez==="squadre"?`<div class="st-seg stat-sq">${[["classifica","Classifica"],["fatte","Fatte"],["concesse","Concesse"]].map(([k,t])=>
+      `<button class="${k===sotto?"on":""}" onclick="schedaStat('${k}')">${t}</button>`).join("")}</div>`:""}`;
+}
+let ultimaStat="classifica";
+function schedaStat(k){
+  squadraAperta=null; arbitroAperto=null; ultimaStat=k;
+  if(k==="classifica"){ vista="squadre"; }
+  else if(k==="giocatori"){ vista="statistiche"; ST.modo="giocatori"; ST.ord=null; ST.mostra=50; }
+  else { vista="statistiche"; ST.modo="squadre"; ST.lato=k; ST.ord=null; ST.mostra=50; }
+  render();
+}
 function vStatistiche(){
   if(ST.lega!==legaAttiva){ Object.assign(ST,{lega:legaAttiva, stagione:null, squadra:"", scheda:null, ord:null, cerca:"", mostra:50, periodo:"tutta"}); }
   setTimeout(stDisegna, 0);
@@ -2576,15 +2603,13 @@ function stFiltri(ind, tutte, dati){
   const squadre = dati ? dati.squadre.filter(s => legaAttiva!=="college" || (D.loghi||{})[s]).sort((a,b)=>breve(a).localeCompare(breve(b))) : [];
   const largo = window.matchMedia("(min-width:760px)").matches;
   const riassunto = `${ST.modo==="giocatori"?"Giocatori":"Squadre"} · ${ST.stagione} · ${(periodi.find(p=>p[0]===ST.periodo)||[0,""])[1]}${ST.squadra?" · "+breve(ST.squadra):""} · ${ST.misura==="pg"?"a partita":"totali"}`;
-  return `<h1 class="fb-h1">Statistiche</h1>
-  <details class="st-box"${largo||ST.filtriAperti?" open":""} ontoggle="ST.filtriAperti=this.open"><summary>Filtri <span>${esc(riassunto)}</span></summary>
+  return `<details class="st-box"${largo||ST.filtriAperti?" open":""} ontoggle="ST.filtriAperti=this.open"><summary>Filtri <span>${esc(riassunto)}</span></summary>
   <div class="st-filtri">
-    ${seg("modo",[["giocatori","Giocatori"],["squadre","Squadre"]])}
     <select aria-label="Stagione" onchange="stAggiorna('stagione',Number(this.value))">${ind.stagioni.map(s=>opz(s,"Stagione "+s,ST.stagione)).join("")}</select>
     <select aria-label="Periodo" onchange="stAggiorna('periodo',this.value)">${periodi.map(([v,t])=>opz(v,t,ST.periodo)).join("")}</select>
     ${ST.modo==="giocatori"
       ? `<select aria-label="Squadra" onchange="stAggiorna('squadra',this.value)">${opz("","Tutte le squadre",ST.squadra)}${squadre.map(s=>opz(s,breve(s),ST.squadra)).join("")}</select>`
-      : seg("lato",[["fatte","Fatte"],["concesse","Concesse"]])}
+      : ""}
     ${seg("misura",[["tot","Totali"],["pg","A partita"]])}
     ${ST.modo==="giocatori"?`<input type="search" placeholder="Cerca un giocatore…" value="${esc(ST.cerca)}" oninput="stAggiorna('cerca',this.value)">`:""}
   </div></details>
