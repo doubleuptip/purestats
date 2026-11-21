@@ -1,24 +1,16 @@
-import json, os, re, urllib.request, urllib.parse
-UA={"User-Agent":"PureStats/1.0 (https://doubleuptip.github.io/purestats/; statistiche sportive)"}
+import urllib.request, os
+UA={"User-Agent":"Mozilla/5.0 (compatible; PureStats/1.0; statistiche personali)","Accept-Language":"it-IT,it;q=0.9"}
+os.makedirs("bozze/dazn",exist_ok=True)
 def get(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r: return r.read()
-def pulisci(h): return re.sub(r"<[^>]+>","",h or "").strip()
-def slug(t): return re.sub(r"[^A-Za-z0-9]+","_",t).strip("_")
-os.makedirs("bozze/stadi",exist_ok=True); os.makedirs("bozze/wiki",exist_ok=True)
-# Terza passata (21/11/2026): Nissan Stadium dalla ricerca su Commons
-crediti={}
-q=urllib.parse.urlencode({"action":"query","list":"search","srsearch":"Nissan Stadium Nashville filetype:bitmap","srnamespace":6,"srlimit":15,"format":"json"})
-titoli=[r["title"][5:] for r in json.loads(get("https://commons.wikimedia.org/w/api.php?"+q))["query"]["search"]]
-print("candidate",titoli)
-for file in titoli:
-    try:
-        if not file.lower().endswith((".jpg",".jpeg")): continue
-        q=urllib.parse.urlencode({"action":"query","titles":"File:"+file,"prop":"imageinfo","iiprop":"url|extmetadata|size","iiurlwidth":1600,"format":"json"})
-        ii=list(json.loads(get("https://commons.wikimedia.org/w/api.php?"+q))["query"]["pages"].values())[0]["imageinfo"][0]
-        if ii.get("width",0)<1200 or ii.get("width",0)<ii.get("height",0): continue
-        m=ii["extmetadata"]; f="Nissan_Stadium.jpg"
-        open("bozze/stadi/"+f,"wb").write(get(ii.get("thumburl") or ii["url"]))
-        crediti[f]={"stadio":"Nissan Stadium","file":file,"autore":pulisci(m.get("Artist",{}).get("value")),"licenza":m.get("LicenseShortName",{}).get("value"),"pagina":ii.get("descriptionurl")}
-        print("ok",file); break
-    except Exception as e: print("no",file,repr(e))
-json.dump(crediti,open("bozze/stadi/crediti2.json","w"),ensure_ascii=False,indent=1)
+    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r: return r.status, r.read()
+B="https://www.dazn.com/it-IT/news/"
+for nome,url in [("robots.txt","https://www.dazn.com/robots.txt"),
+                 ("elenco1.html",B+"competition/nfl-game-pass/wy3kluvb4efae1of0d8146c1"),
+                 ("elenco2.html",B+"competition/nfl-game-pass/wy3kluvb4efae1of0d8146c1/2"),
+                 ("elenco3.html",B+"competition/nfl-game-pass/wy3kluvb4efae1of0d8146c1/3"),
+                 ("cinque11.html",B+"football-americano/nfl-messico-week-11-partite-da-non-perdere-game-pass-49ers-lions/gqercpnd38n1ita83rc8ip24"),
+                 ("colts.html",B+"football-americano/colts-texans-nfl-diretta-week-11-notizie-orario-data-pronostico/en06i4t2ypfl1gchk5ytel6i7"),
+                 ("week1.html",B+"football-americano/nfl-riparte-su-dazn-sfide-da-non-perdere-incluse-in-full-family-e-sports/1b3ymhjwzfy911vgyentqz2qe8"),
+                 ("sitemap.xml","https://www.dazn.com/sitemap.xml")]:
+    try: s,d=get(url); open("bozze/dazn/"+nome,"wb").write(d); print("ok",nome,s,len(d))
+    except Exception as e: print("no",nome,e)
