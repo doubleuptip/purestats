@@ -6,6 +6,7 @@ Comandi:
                                                              controlla il testo e lo pubblica in docs/articoli/
   python scripts/articoli.py meteo                           aggiorna la scheda meteo delle anteprime in arrivo
   python scripts/articoli.py scegli <nfl|college> <week> [stagione]   le 3 partite da raccontare
+  python scripts/articoli.py da_fare                         anteprime (via entro 48 ore) e cronache da scrivere
   python scripts/articoli.py fatti_college <stagione> <week> "<ospite>" "<casa>"   fatti per un'anteprima college
 
 Regola: ogni numero e ogni nome dell'articolo deve comparire nei fatti (controllo meccanico in «pubblica»).
@@ -331,12 +332,27 @@ def fatti_squadra(D: Dati, sq: str, avv: str, settimana: int, giorno: dt.date, c
 STADI_COPERTI = None
 
 
+def stadio_abituale(D: Dati, sq: str, stagione: int) -> str:
+    sys.path.insert(0, str(RADICE / "scripts"))
+    from nfl_indici import nome_stadio
+    c = collections.Counter(nome_stadio(x["stadium"]) for x in D.cal
+                            if x["home_team"] == sq and x["season"] in (str(stagione), str(stagione - 1)))
+    return c.most_common(1)[0][0] if c else ""
+
+
 def fatti(gid: str) -> dict:
     stagione, settimana = int(gid.split("_")[0]), int(gid.split("_")[1])
     D = Dati(stagione)
     r = next(x for x in D.cal if x["game_id"] == gid)
     casa, osp = r["home_team"], r["away_team"]
-    inizio_et = dt.datetime.fromisoformat(f"{r['gameday']}T{r['gametime'] or '13:00'}").replace(tzinfo=NY)
+    # correzioni verificate (orario spostato dalla tv e non ancora in nflverse, sede particolare), con la fonte:
+    # data/articoli/correzioni_<id>.json = {"inizioEt": "2026-11-22T16:25", "citta": "...", "fonte": "https://..."}
+    corr_p = FATTI / f"correzioni_{gid}.json"
+    corr = json.loads(corr_p.read_text()) if corr_p.exists() else {}
+    if corr and not str(corr.get("fonte", "")).startswith("http"):
+        raise SystemExit(f"{corr_p.name}: manca la fonte della correzione")
+    inizio_et = (dt.datetime.fromisoformat(corr["inizioEt"]) if corr.get("inizioEt") else
+                 dt.datetime.fromisoformat(f"{r['gameday']}T{r['gametime'] or '13:00'}")).replace(tzinfo=NY)
     it = inizio_et.astimezone(ROMA)
     notte = it.hour < 7
     if notte:
@@ -363,7 +379,10 @@ def fatti(gid: str) -> dict:
         "partita": f"{D.nomi[osp]} @ {D.nomi[casa]}", "ospite": osp, "casa": casa,
         "quando": quando, "dataIt": it.date().isoformat(), "oraIt": f"{it.hour:02d}:{it.minute:02d}",
         "inizioUtc": inizio_et.astimezone(dt.timezone.utc).isoformat(timespec="minutes"),
-        "stadio": nome_stadio(r["stadium"]), "campoNeutro": r["location"] == "Neutral", "coperto": coperto,
+        "stadio": nome_stadio(r["stadium"]), "citta": corr.get("citta", ""),
+        # campo neutro anche quando la squadra «di casa» gioca lontano dal suo stadio (partite all'estero)
+        "campoNeutro": r["location"] == "Neutral" or nome_stadio(r["stadium"]) != stadio_abituale(D, casa, stagione),
+        "coperto": coperto,
         "sfidaDiDivision": r["div_game"] == "1",
         "mercato": {"favorita": favorita, "vantaggio": abs(sp) if sp else None, "totale": num(r["total_line"], None),
                     "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"},
@@ -372,6 +391,11 @@ def fatti(gid: str) -> dict:
         "padroniDiCasa": fatti_squadra(D, casa, osp, settimana, giorno, r["home_coach"], cl),
         "colori": {"ospite": D.colori.get(osp), "casa": D.colori.get(casa)},
     }
+    for k in ("ospiti", "padroniDiCasa"):          # giocatori senza nome in players.csv: fuori dai fatti
+        for lista in ("cedutiInStagione", "arrivatiInStagione"):
+            out[k][lista] = [x for x in out[k].get(lista) or [] if x.get("nome")]
+    if out["campoNeutro"]:
+        out["coperto"] = False if not corr.get("coperto") else True
     if r["home_score"] and r["away_score"]:
         out["partitaGiocata"] = fatti_partita(D, gid, r)
     FATTI.mkdir(parents=True, exist_ok=True)
@@ -721,11 +745,100 @@ def fatti_college(stagione: int, settimana: int, ospite: str, casa: str) -> dict
            "colori": {"ospite": (pub["loghi"].get(ospite) or {}).get("colore"), "casa": (pub["loghi"].get(casa) or {}).get("colore")}}
     for k, sq in (("ospiti", ospite), ("padroniDiCasa", casa)):
         out[k]["soprannome"] = sq
+    if riga.get("PuntiCasa"):
+        p = fatti_partita_college(stagione, settimana, ospite, casa, riga)
+        if p:
+            out["partitaGiocata"] = p
+        else:
+            print("Partita giocata ma tabellino ESPN non ancora in archivio: la cronaca deve aspettare")
     FATTI.mkdir(parents=True, exist_ok=True)
     (FATTI / f"fatti_{gid}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print(f"Fatti pronti: data/articoli/fatti_{gid}.json")
     return out
 
+
+
+def _box(cats: dict, et: dict, cat: str, col: str, riga: list) -> float:
+    lab = et.get(cat) or []
+    if col not in lab or len(riga) <= 2 + lab.index(col):
+        return 0.0
+    return num(str(riga[2 + lab.index(col)]).split("/")[-1] if col == "C/ATT" else riga[2 + lab.index(col)])
+
+
+def fatti_partita_college(stagione: int, settimana: int, ospite: str, casa: str, riga: dict) -> dict | None:
+    """Cronaca del college: punteggio (college.csv), tabellino e azioni ESPN già in archivio (giocate decisive
+    per probabilità di vittoria, flag, yard e azioni, punti negli ultimi due minuti), video ufficiale se c'è."""
+    tab = json.loads((RADICE / "data" / f"college_tabellini_{stagione}.json").read_text())
+    eid, v = next(((k, x) for k, x in tab.items() if x.get("casa") == casa and x.get("ospite") == ospite
+                   and str(x.get("settimana")) == str(settimana)), (None, None))
+    if not v:
+        return None
+    et, sq = v.get("etichette") or {}, v.get("squadre") or {}
+    pc, po = int(riga["PuntiCasa"]), int(riga["PuntiOspite"])
+
+    def protagonisti(t: str) -> list[dict]:
+        c = sq.get(t) or {}
+        out, presi = [], set()
+        pas = max(c.get("passing") or [], key=lambda r: _box(c, et, "passing", "C/ATT", r), default=None)
+        if pas:
+            presi.add(pas[0])
+            out.append({"ruolo": "QB", "nome": pas[1], "completiTentati": pas[2 + et["passing"].index("C/ATT")],
+                        "yardLanciate": int(_box(c, et, "passing", "YDS", pas)), "tdLancio": int(_box(c, et, "passing", "TD", pas)),
+                        "intercettiSubiti": int(_box(c, et, "passing", "INT", pas))})
+        cor = max([r for r in c.get("rushing") or [] if r[0] not in presi], key=lambda r: _box(c, et, "rushing", "YDS", r), default=None)
+        if cor and _box(c, et, "rushing", "YDS", cor) >= 10:
+            presi.add(cor[0])
+            out.append({"ruolo": "Corse", "nome": cor[1], "corse": int(_box(c, et, "rushing", "CAR", cor)),
+                        "yardCorsa": int(_box(c, et, "rushing", "YDS", cor)), "tdCorsa": int(_box(c, et, "rushing", "TD", cor))})
+        ric = sorted([r for r in c.get("receiving") or [] if r[0] not in presi], key=lambda r: -_box(c, et, "receiving", "YDS", r))
+        for r in ric[:2]:
+            if _box(c, et, "receiving", "YDS", r) >= 20:
+                out.append({"ruolo": "Ricezioni", "nome": r[1], "ricezioni": int(_box(c, et, "receiving", "REC", r)),
+                            "yardRicevute": int(_box(c, et, "receiving", "YDS", r)), "tdRicezione": int(_box(c, et, "receiving", "TD", r))})
+        dif = max(c.get("defensive") or [], key=lambda r: _box(c, et, "defensive", "SACKS", r) * 3 + _box(c, et, "defensive", "TOT", r) * 0.3
+                  + _box(c, et, "defensive", "TFL", r), default=None)
+        if dif:
+            out.append({"ruolo": "Difesa", "nome": dif[1], "placcaggi": int(_box(c, et, "defensive", "TOT", dif)),
+                        "sack": _box(c, et, "defensive", "SACKS", dif), "intercetti": 0,
+                        "fumbleForzati": 0, "passaggiDeviati": int(_box(c, et, "defensive", "PD", dif))})
+        return out
+    az = v.get("azioni") or {}
+    giocate = sorted(az.get("giocate") or [], key=lambda g: -g.get("valore", 0))[:6]
+    giocate.sort(key=lambda g: (int(g.get("quarto") or 0), -_tempo_sec(g.get("tempo"))))
+    nomi_box = {r[1].split()[-1]: r[1] for t in sq.values() for cat in t.values() for r in cat}
+    momenti = [{"quarto": g["quarto"], "tempo": g["tempo"], "squadra": g["squadra"], "azione": g["testo"],
+                "evento": g.get("evento", ""), "probabilitaVittoria": f"{g['squadra']} da {g['prima']}% a {g['dopo']}%",
+                "giocatori": [nomi_box[c] for c in re.findall(r"[A-Z]\.([A-Z][\w'’-]+)", g["testo"]) if c in nomi_box]}
+               for g in giocate]
+    numeri = {}
+    for chiave, t in (("ospiti", ospite), ("padroniDiCasa", casa)):
+        ya = (az.get("yardAzioni") or {}).get(t) or [None, None]
+        fl = (az.get("flag") or {}).get(t) or [None, None]
+        persi = sum(_box(sq.get(t) or {}, et, "fumbles", "LOST", r) for r in (sq.get(t) or {}).get("fumbles") or [])
+        intercetti = sum(_box(sq.get(t) or {}, et, "passing", "INT", r) for r in (sq.get(t) or {}).get("passing") or [])
+        numeri[chiave] = {"yardTotali": ya[0], "azioni": ya[1], "palle perse": int(persi + intercetti),
+                          "penalita": fl[0], "yardPenalita": fl[1],
+                          "puntiUltimiDueMinuti": ((az.get("due") or {}).get(t) or [None])[0]}
+    righe = _college_righe()
+    bil = _college_bilanci(righe, stagione)
+    lin = json.loads((RADICE / "data" / "college_linee.json").read_text()).get(eid) or {}
+    esito = {}
+    if lin.get("margine") is not None:
+        m = float(lin["margine"])          # margine atteso della squadra di casa (positivo = casa favorita)
+        fav = casa if m > 0 else ospite
+        scarto = (pc - po) if fav == casa else (po - pc)
+        esito["linea"] = (f"{fav} favoriti di {n_it(abs(m))}: " + ("hanno vinto con un margine più largo" if scarto > abs(m)
+                          else "hanno vinto ma con un margine più stretto" if scarto > 0 else "hanno perso"))
+    if lin.get("totale") is not None:
+        esito["totale"] = f"{pc + po} punti in tutto contro un totale di {n_it(float(lin['totale']))}: " + \
+            ("sopra" if pc + po > float(lin["totale"]) else "sotto")
+    vid = json.loads((RADICE / "data" / "college_video.json").read_text()).get(f"{stagione}_{settimana}_{ospite}_{casa}") or {}
+    return {"risultato": f"{ospite} {po} - {casa} {pc}", "puntiOspite": po, "puntiCasa": pc,
+            "vincitore": casa if pc > po else ospite, "scarto": abs(pc - po), "parziali": [], "marcature": [],
+            "momentiDecisivi": momenti, "numeri": numeri,
+            "protagonisti": {"ospiti": protagonisti(ospite), "padroniDiCasa": protagonisti(casa)}, "contoLaLinea": esito,
+            "bilancioDopo": {"ospiti": f"{bil[ospite]['v']}-{bil[ospite]['s']}", "padroniDiCasa": f"{bil[casa]['v']}-{bil[casa]['s']}"},
+            "video": vid.get("id", "") if vid.get("ufficiale") else ""}
 
 def riquadro_college(f: dict) -> dict:
     squadre = []
@@ -746,6 +859,77 @@ def riquadro_college(f: dict) -> dict:
         squadre.append({"sigla": sigla, "nome": sigla, "bilancio": t["bilancio"], "giocatori": gioc,
                         "punti": {"fatti": n_it(t["puntiFattiPartita"]), "subiti": n_it(t["puntiSubitiPartita"])}})
     return {"squadre": squadre, "linea": ""}
+
+
+# ------------------------------------------------------------------ lavoro del giorno (per l'attività programmata)
+
+ANTEPRIMA_ORE = 48      # l'anteprima si scrive quando mancano al massimo 48 ore al via
+
+
+def _scelte(lega: str, stagione: int, settimana: int, calcola) -> list:
+    """Le partite scelte di una settimana restano quelle: si calcolano una volta e si salvano."""
+    p = FATTI / f"scelte_{lega}_{stagione}_{settimana:02d}.json"
+    if p.exists():
+        return json.loads(p.read_text())
+    scelte = calcola()
+    FATTI.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(scelte, ensure_ascii=False, indent=1))
+    return scelte
+
+
+def da_fare() -> list[dict]:
+    """Anteprime da scrivere (via entro 48 ore) e cronache da scrivere (partita finita) per le partite scelte."""
+    ora = dt.datetime.now(dt.timezone.utc)
+    fatto = {p.stem for p in USCITA.glob("*.json")}
+    out = []
+    # NFL
+    cal = leggi_csv(scarica("games.csv", f"{NFLVERSE}/schedules/games.csv"))
+    def inizio_nfl(x):
+        corr = FATTI / f"correzioni_{x['game_id']}.json"
+        c = json.loads(corr.read_text()) if corr.exists() else {}
+        t = c.get("inizioEt") or f"{x['gameday']}T{x['gametime'] or '13:00'}"
+        return dt.datetime.fromisoformat(t).replace(tzinfo=NY).astimezone(dt.timezone.utc)
+    # settimane con partite tra 4 giorni fa e le prossime 48 ore: la scelta si fa a ridosso, con i bilanci aggiornati
+    vicine = {(int(x["season"]), int(x["week"])) for x in cal if x["game_type"] == "REG" and x["gameday"]
+              and -4 * 86400 < (inizio_nfl(x) - ora).total_seconds() < ANTEPRIMA_ORE * 3600}
+    for stag, sett in sorted(vicine):
+        for g in _scelte("nfl", stag, sett, lambda: scegli_nfl(stag, sett)):
+            x = next((y for y in cal if y["game_id"] == g["id"]), None)
+            if not x:
+                continue
+            if x["result"] and f"{g['id']}_cronaca" not in fatto:
+                out.append({"lega": "nfl", "tipo": "cronaca", "id": g["id"], "partita": g["partita"],
+                            "fatti": f"python3 scripts/articoli.py fatti {g['id']}"})
+            elif not x["result"] and f"{g['id']}_anteprima" not in fatto and \
+                    dt.timedelta(0) < inizio_nfl(x) - ora <= dt.timedelta(hours=ANTEPRIMA_ORE):
+                out.append({"lega": "nfl", "tipo": "anteprima", "id": g["id"], "partita": g["partita"],
+                            "fatti": f"python3 scripts/articoli.py fatti {g['id']}"})
+    # College
+    pub = json.loads((RADICE / "docs" / "data_college.json").read_text())
+    inizi = {(str(x["stagione"]), str(x["settimana"]), x["ospite"], x["casa"]): x.get("inizio") for x in pub["ultimePartite"]}
+    righe = _college_righe()
+    def inizio_c(x):
+        t = inizi.get((x["Stagione"], x["Settimana"], x["Ospite"], x["Casa"]))
+        if t and "T" in t:                      # orario fissato dalla tv
+            d = dt.datetime.fromisoformat(t.replace("Z", "+00:00"))
+            return d if d.tzinfo else d.replace(tzinfo=dt.timezone.utc)
+        return dt.datetime.fromisoformat((t or x["Data"])[:10] + "T17:00").replace(tzinfo=dt.timezone.utc)
+    vicine = {(int(x["Stagione"]), int(x["Settimana"])) for x in righe if x["Data"]
+              and -4 * 86400 < (inizio_c(x) - ora).total_seconds() < ANTEPRIMA_ORE * 3600}
+    for stag, sett in sorted(vicine):
+        for g in _scelte("college", stag, sett, lambda: scegli_college(stag, sett)):
+            x = next((y for y in righe if y["Stagione"] == str(stag) and y["Settimana"] == str(sett)
+                      and y["Ospite"] == g["ospite"] and y["Casa"] == g["casa"]), None)
+            if not x:
+                continue
+            gid = id_college(stag, sett, g["ospite"], g["casa"])
+            cmd = f'python3 scripts/articoli.py fatti_college {stag} {sett} "{g["ospite"]}" "{g["casa"]}"'
+            if x["PuntiCasa"] and f"{gid}_cronaca" not in fatto:
+                out.append({"lega": "college", "tipo": "cronaca", "id": gid, "partita": g["partita"], "fatti": cmd})
+            elif not x["PuntiCasa"] and f"{gid}_anteprima" not in fatto and \
+                    dt.timedelta(0) < inizio_c(x) - ora <= dt.timedelta(hours=ANTEPRIMA_ORE):
+                out.append({"lega": "college", "tipo": "anteprima", "id": gid, "partita": g["partita"], "fatti": cmd})
+    return out
 
 
 # ------------------------------------------------------------------ controllo e pubblicazione
@@ -841,6 +1025,13 @@ def riquadro_cronaca(f: dict) -> dict:
             gioc.append({"nome": g["nome"], "ruolo": ruolo, "dati": _caselle(g), "stato": "", "nota": ""})
         squadre.append({"sigla": sigla, "nome": f[chiave]["soprannome"], "bilancio": p["bilancioDopo"][chiave], "giocatori": gioc})
     n = p["numeri"]
+    if f["lega"] == "college":
+        v = lambda d, k: "—" if d.get(k) is None else n_it(d[k])
+        righe = [[et, v(n["ospiti"], k), v(n["padroniDiCasa"], k)] for et, k in
+                 (("Yard totali", "yardTotali"), ("Azioni", "azioni"), ("Palle perse", "palle perse"), ("Penalità", "penalita"))]
+        linea = " · ".join(x[0].upper() + x[1:] for x in p["contoLaLinea"].values())
+        return {"titolo": "I numeri della partita", "sottotitolo": "ESPN", "squadre": squadre, "righeSquadra": righe,
+                "linea": linea}
     righe = [["Yard totali", n_it(n["ospiti"]["yardTotali"]), n_it(n["padroniDiCasa"]["yardTotali"])],
              ["Yard su lancio", n_it(n["ospiti"]["yardLancio"]), n_it(n["padroniDiCasa"]["yardLancio"])],
              ["Yard di corsa", n_it(n["ospiti"]["yardCorsa"]), n_it(n["padroniDiCasa"]["yardCorsa"])],
@@ -950,6 +1141,9 @@ if __name__ == "__main__":
         fatti(sys.argv[2])
     elif len(sys.argv) >= 5 and sys.argv[1] == "pubblica":
         pubblica(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif len(sys.argv) >= 2 and sys.argv[1] == "da_fare":
+        lavori = da_fare()
+        print(json.dumps(lavori, ensure_ascii=False, indent=1) if lavori else "Niente da fare oggi.")
     elif len(sys.argv) >= 4 and sys.argv[1] == "scegli":
         lega, sett = sys.argv[2], int(sys.argv[3])
         stag = int(sys.argv[4]) if len(sys.argv) >= 5 else dt.date.today().year

@@ -1,0 +1,442 @@
+{
+ "id": "2026_11_MIN_SF",
+ "lega": "nfl",
+ "stagione": 2026,
+ "settimana": 11,
+ "partita": "Minnesota Vikings @ San Francisco 49ers",
+ "ospite": "MIN",
+ "casa": "SF",
+ "quando": "nella notte tra domenica e lunedì 23 novembre, alle 2:20 italiane",
+ "dataIt": "2026-11-23",
+ "oraIt": "02:20",
+ "inizioUtc": "2026-11-23T01:20+00:00",
+ "stadio": "Estadio Banorte",
+ "citta": "Città del Messico",
+ "campoNeutro": true,
+ "coperto": false,
+ "sfidaDiDivision": false,
+ "mercato": {
+  "favorita": "San Francisco 49ers",
+  "vantaggio": 3.0,
+  "totale": 46.5,
+  "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"
+ },
+ "precedenti": [
+  {
+   "stagione": 2021,
+   "casa": "San Francisco 49ers",
+   "ospite": "Minnesota Vikings",
+   "risultato": "San Francisco 49ers 34 - Minnesota Vikings 26"
+  },
+  {
+   "stagione": 2023,
+   "casa": "Minnesota Vikings",
+   "ospite": "San Francisco 49ers",
+   "risultato": "Minnesota Vikings 22 - San Francisco 49ers 17"
+  },
+  {
+   "stagione": 2024,
+   "casa": "Minnesota Vikings",
+   "ospite": "San Francisco 49ers",
+   "risultato": "Minnesota Vikings 23 - San Francisco 49ers 17"
+  }
+ ],
+ "ospiti": {
+  "squadra": "Minnesota Vikings",
+  "soprannome": "Vikings",
+  "bilancio": "7-2",
+  "serieAperta": "",
+  "ultimePartite": [
+   {
+    "settimana": 7,
+    "avversario": "Indianapolis Colts",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "16-10"
+   },
+   {
+    "settimana": 8,
+    "avversario": "Detroit Lions",
+    "inCasa": false,
+    "esito": "sconfitta",
+    "punteggio": "15-19"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Buffalo Bills",
+    "inCasa": true,
+    "esito": "sconfitta",
+    "punteggio": "6-23"
+   },
+   {
+    "settimana": 10,
+    "avversario": "Green Bay Packers",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "30-10"
+   }
+  ],
+  "andamento": {
+   "prime": "4-0",
+   "ultime": "3-2"
+  },
+  "puntiFattiPartita": 19.6,
+  "puntiSubitiPartita": 14.0,
+  "attacco": "un attacco nella media",
+  "difesa": "la miglior difesa della lega",
+  "division": {
+   "nome": "NFC North",
+   "posizione": "2ª su 4",
+   "capolista": "Detroit Lions"
+  },
+  "stagioneScorsa": {
+   "bilancio": "9-8",
+   "playoff": "fuori dai playoff"
+  },
+  "allenatore": {
+   "nome": "Kevin O'Connell",
+   "stagione": 5,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Kyler Murray",
+    "partiteDaTitolare": 5,
+    "bilancio": "4-1"
+   },
+   {
+    "nome": "Carson Wentz",
+    "partiteDaTitolare": 3,
+    "bilancio": "2-1"
+   },
+   {
+    "nome": "Kirk Cousins",
+    "partiteDaTitolare": 1,
+    "bilancio": "1-0"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Kirk Cousins",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "207 yard su lancio, 2 TD, 1 intercetti in 1 partite",
+    "posizioneNellaLega": 5,
+    "eta": 38,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   },
+   {
+    "nome": "Aaron Jones",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "521 yard di corsa, 3 TD",
+    "posizioneNellaLega": 18,
+    "eta": 31,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   },
+   {
+    "nome": "Justin Jefferson",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "467 yard ricevute, 40 ricezioni, 4 TD",
+    "posizioneNellaLega": 32,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "T.J. Hockenson",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "TE",
+    "stagione": "328 yard ricevute, 35 ricezioni, 3 TD",
+    "posizioneNellaLega": 67,
+    "eta": 29,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Limited Participation in Practice",
+     "infortunio": "Wrist"
+    }
+   },
+   {
+    "nome": "Andrew Van Ginkel",
+    "ruolo": "miglior pass rusher",
+    "posizione": "OLB",
+    "stagione": "8,5 sack",
+    "posizioneNellaLega": 2,
+    "eta": 31,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Limited Participation in Practice",
+     "infortunio": "Quadricep"
+    }
+   }
+  ],
+  "cedutiInStagione": [],
+  "arrivatiInStagione": [
+   {
+    "nome": "Kirk Cousins",
+    "ruolo": "QB",
+    "daSquadra": "Las Vegas Raiders"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Kyle Van Noy",
+    "ruolo": "LB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Calf",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Kyler Murray",
+    "ruolo": "QB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Hamstring",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "T.J. Hockenson",
+    "ruolo": "TE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Wrist",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Andrew Van Ginkel",
+    "ruolo": "LB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Quadricep",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Blake Cashman",
+    "ruolo": "LB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Concussion",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Isaiah Rodgers",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Quadricep",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Jordan Addison",
+    "ruolo": "WR",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Thumb",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "padroniDiCasa": {
+  "squadra": "San Francisco 49ers",
+  "soprannome": "49ers",
+  "bilancio": "8-1",
+  "serieAperta": "2 vittorie di fila",
+  "ultimePartite": [
+   {
+    "settimana": 6,
+    "avversario": "Washington Commanders",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "23-17"
+   },
+   {
+    "settimana": 7,
+    "avversario": "Atlanta Falcons",
+    "inCasa": false,
+    "esito": "sconfitta",
+    "punteggio": "20-29"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Las Vegas Raiders",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "38-17"
+   },
+   {
+    "settimana": 10,
+    "avversario": "Dallas Cowboys",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "46-40"
+   }
+  ],
+  "andamento": {
+   "prime": "4-0",
+   "ultime": "4-1"
+  },
+  "puntiFattiPartita": 31.2,
+  "puntiSubitiPartita": 21.8,
+  "attacco": "uno degli attacchi più prolifici della lega",
+  "difesa": "una difesa nella media",
+  "division": {
+   "nome": "NFC West",
+   "posizione": "1ª su 4",
+   "capolista": ""
+  },
+  "stagioneScorsa": {
+   "bilancio": "12-5",
+   "playoff": "eliminati nel turno di division"
+  },
+  "allenatore": {
+   "nome": "Kyle Shanahan",
+   "stagione": 10,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Brock Purdy",
+    "partiteDaTitolare": 9,
+    "bilancio": "8-1"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Brock Purdy",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "2.369 yard su lancio, 20 TD, 5 intercetti in 9 partite",
+    "posizioneNellaLega": 10,
+    "eta": 26,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Christian McCaffrey",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "519 yard di corsa, 10 TD",
+    "posizioneNellaLega": 19,
+    "eta": 30,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Not injury related - resting player"
+    }
+   },
+   {
+    "nome": "George Kittle",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "TE",
+    "stagione": "557 yard ricevute, 44 ricezioni, 5 TD",
+    "posizioneNellaLega": 21,
+    "eta": 33,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Christian McCaffrey",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "RB",
+    "stagione": "431 yard ricevute, 40 ricezioni, 3 TD",
+    "posizioneNellaLega": 38,
+    "eta": 30,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Not injury related - resting player"
+    }
+   },
+   {
+    "nome": "Keion White",
+    "ruolo": "miglior pass rusher",
+    "posizione": "DE",
+    "stagione": "3,5 sack",
+    "posizioneNellaLega": 58,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   }
+  ],
+  "cedutiInStagione": [
+   {
+    "nome": "Kevin Givens",
+    "ruolo": "DT",
+    "oraGiocaCon": "Indianapolis Colts"
+   },
+   {
+    "nome": "Naquan Jones",
+    "ruolo": "DT",
+    "oraGiocaCon": "Houston Texans"
+   }
+  ],
+  "arrivatiInStagione": [
+   {
+    "nome": "DeForest Buckner",
+    "ruolo": "DT",
+    "daSquadra": "Indianapolis Colts"
+   },
+   {
+    "nome": "Keenan Allen",
+    "ruolo": "WR",
+    "daSquadra": "Indianapolis Colts"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Mike Evans",
+    "ruolo": "WR",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Achilles",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Christian McCaffrey",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Not injury related - resting player",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Dre Greenlaw",
+    "ruolo": "LB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Neck",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Ji'Ayir Brown",
+    "ruolo": "S",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Ankle",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Renardo Green",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Back",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Upton Stout",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Shoulder",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "colori": {
+  "ospite": "#4F2683",
+  "casa": "#AA0000"
+ }
+}

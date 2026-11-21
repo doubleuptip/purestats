@@ -32,7 +32,9 @@ from urllib.request import Request, urlopen
 
 # Nomi vecchi che il calendario nflverse non ha aggiornato (unico elenco, usato anche da
 # fetch_nfl.py e articoli.py): il sito e gli articoli devono dire il nome di oggi.
-STADI_RINOMINATI = {"Reliant Stadium": "NRG Stadium"}
+STADI_RINOMINATI = {"Reliant Stadium": "NRG Stadium", "FedExField": "Northwest Stadium",
+                    "New Era Field": "Highmark Stadium", "FirstEnergy Stadium": "Huntington Bank Field",
+                    "TIAA Bank Stadium": "EverBank Stadium", "Mercedes-Benz Superdome": "Caesars Superdome"}
 
 
 def nome_stadio(nome):

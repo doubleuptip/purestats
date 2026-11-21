@@ -1,0 +1,395 @@
+{
+ "id": "2026_11_CIN_WAS",
+ "lega": "nfl",
+ "stagione": 2026,
+ "settimana": 11,
+ "partita": "Cincinnati Bengals @ Washington Commanders",
+ "ospite": "CIN",
+ "casa": "WAS",
+ "quando": "nella notte tra lunedì e martedì 24 novembre, alle 2:15 italiane",
+ "dataIt": "2026-11-24",
+ "oraIt": "02:15",
+ "inizioUtc": "2026-11-24T01:15+00:00",
+ "stadio": "Northwest Stadium",
+ "citta": "",
+ "campoNeutro": false,
+ "coperto": false,
+ "sfidaDiDivision": false,
+ "mercato": {
+  "favorita": "Cincinnati Bengals",
+  "vantaggio": 6.0,
+  "totale": 53.5,
+  "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"
+ },
+ "precedenti": [
+  {
+   "stagione": 2016,
+   "casa": "Cincinnati Bengals",
+   "ospite": "Washington Commanders",
+   "risultato": "Cincinnati Bengals 27 - Washington Commanders 27"
+  },
+  {
+   "stagione": 2020,
+   "casa": "Washington Commanders",
+   "ospite": "Cincinnati Bengals",
+   "risultato": "Washington Commanders 20 - Cincinnati Bengals 9"
+  },
+  {
+   "stagione": 2024,
+   "casa": "Cincinnati Bengals",
+   "ospite": "Washington Commanders",
+   "risultato": "Cincinnati Bengals 33 - Washington Commanders 38"
+  }
+ ],
+ "ospiti": {
+  "squadra": "Cincinnati Bengals",
+  "soprannome": "Bengals",
+  "bilancio": "7-2",
+  "serieAperta": "5 vittorie di fila",
+  "ultimePartite": [
+   {
+    "settimana": 7,
+    "avversario": "Baltimore Ravens",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "35-13"
+   },
+   {
+    "settimana": 8,
+    "avversario": "Tennessee Titans",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "43-36"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Atlanta Falcons",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "34-17"
+   },
+   {
+    "settimana": 10,
+    "avversario": "Pittsburgh Steelers",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "38-18"
+   }
+  ],
+  "andamento": {
+   "prime": "2-2",
+   "ultime": "5-0"
+  },
+  "puntiFattiPartita": 30.9,
+  "puntiSubitiPartita": 21.4,
+  "attacco": "uno degli attacchi più prolifici della lega",
+  "difesa": "una difesa affidabile",
+  "division": {
+   "nome": "AFC North",
+   "posizione": "1ª su 4",
+   "capolista": ""
+  },
+  "stagioneScorsa": {
+   "bilancio": "6-11",
+   "playoff": "fuori dai playoff"
+  },
+  "allenatore": {
+   "nome": "Zac Taylor",
+   "stagione": 8,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Joe Burrow",
+    "partiteDaTitolare": 9,
+    "bilancio": "7-2"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Joe Burrow",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "2.795 yard su lancio, 27 TD, 6 intercetti in 9 partite",
+    "posizioneNellaLega": 2,
+    "eta": 29,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Illness"
+    }
+   },
+   {
+    "nome": "Chase Brown",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "441 yard di corsa, 1 TD",
+    "posizioneNellaLega": 22,
+    "eta": 26,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Ja'Marr Chase",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "878 yard ricevute, 64 ricezioni, 7 TD",
+    "posizioneNellaLega": 4,
+    "eta": 26,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Tee Higgins",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "824 yard ricevute, 53 ricezioni, 6 TD",
+    "posizioneNellaLega": 6,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Knee"
+    }
+   },
+   {
+    "nome": "Boye Mafe",
+    "ruolo": "miglior pass rusher",
+    "posizione": "DE",
+    "stagione": "6,5 sack",
+    "posizioneNellaLega": 12,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   }
+  ],
+  "cedutiInStagione": [],
+  "arrivatiInStagione": [],
+  "rapportoInfortuni": [
+   {
+    "nome": "Jonathan Allen",
+    "ruolo": "DT",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Not injury related - resting player",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Tee Higgins",
+    "ruolo": "WR",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Joe Burrow",
+    "ruolo": "QB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Illness",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Daxton Hill",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Illness",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "padroniDiCasa": {
+  "squadra": "Washington Commanders",
+  "soprannome": "Commanders",
+  "bilancio": "3-5-1",
+  "serieAperta": "",
+  "ultimePartite": [
+   {
+    "settimana": 6,
+    "avversario": "San Francisco 49ers",
+    "inCasa": false,
+    "esito": "sconfitta",
+    "punteggio": "17-23"
+   },
+   {
+    "settimana": 8,
+    "avversario": "Philadelphia Eagles",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "27-10"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Los Angeles Rams",
+    "inCasa": true,
+    "esito": "sconfitta",
+    "punteggio": "13-20"
+   },
+   {
+    "settimana": 10,
+    "avversario": "New York Giants",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "24-21"
+   }
+  ],
+  "andamento": {
+   "prime": "1-3",
+   "ultime": "2-2-1"
+  },
+  "puntiFattiPartita": 21.8,
+  "puntiSubitiPartita": 24.8,
+  "attacco": "un attacco nella media",
+  "difesa": "una difesa nella media",
+  "division": {
+   "nome": "NFC East",
+   "posizione": "3ª su 4",
+   "capolista": "New York Giants"
+  },
+  "stagioneScorsa": {
+   "bilancio": "5-12",
+   "playoff": "fuori dai playoff"
+  },
+  "allenatore": {
+   "nome": "Dan Quinn",
+   "stagione": 3,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Jayden Daniels",
+    "partiteDaTitolare": 7,
+    "bilancio": "2-4-1"
+   },
+   {
+    "nome": "Marcus Mariota",
+    "partiteDaTitolare": 1,
+    "bilancio": "1-0"
+   },
+   {
+    "nome": "Athan Kaliakmanis",
+    "partiteDaTitolare": 1,
+    "bilancio": "0-1"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Jayden Daniels",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "1.499 yard su lancio, 10 TD, 2 intercetti in 7 partite",
+    "posizioneNellaLega": 25,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Elbow"
+    }
+   },
+   {
+    "nome": "Rachaad White",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "275 yard di corsa, 1 TD",
+    "posizioneNellaLega": 38,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Stefon Diggs",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "386 yard ricevute, 36 ricezioni, 6 TD",
+    "posizioneNellaLega": 50,
+    "eta": 32,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Did Not Participate In Practice",
+     "infortunio": "Not injury related - resting player"
+    }
+   },
+   {
+    "nome": "Antonio Williams",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "326 yard ricevute, 28 ricezioni, 2 TD",
+    "posizioneNellaLega": 68,
+    "eta": 22
+   },
+   {
+    "nome": "Odafe Oweh",
+    "ruolo": "miglior pass rusher",
+    "posizione": "LB",
+    "stagione": "5 sack",
+    "posizioneNellaLega": 23,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   }
+  ],
+  "cedutiInStagione": [
+   {
+    "nome": "Kaytron Allen",
+    "ruolo": "RB",
+    "oraGiocaCon": "Miami Dolphins"
+   }
+  ],
+  "arrivatiInStagione": [],
+  "rapportoInfortuni": [
+   {
+    "nome": "Stefon Diggs",
+    "ruolo": "WR",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Not injury related - resting player",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Treylon Burks",
+    "ruolo": "WR",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Foot",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Chig Okonkwo",
+    "ruolo": "TE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Back",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Quan Martin",
+    "ruolo": "S",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Shoulder",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Jayden Daniels",
+    "ruolo": "QB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Elbow",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Jacory Croskey-Merritt",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Groin",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "colori": {
+  "ospite": "#FB4F14",
+  "casa": "#5A1414"
+ }
+}

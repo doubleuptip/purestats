@@ -1,0 +1,386 @@
+{
+ "id": "2026_11_JAX_NYG",
+ "lega": "nfl",
+ "stagione": 2026,
+ "settimana": 11,
+ "partita": "Jacksonville Jaguars @ New York Giants",
+ "ospite": "JAX",
+ "casa": "NYG",
+ "quando": "domenica 22 novembre, alle 22:25 italiane",
+ "dataIt": "2026-11-22",
+ "oraIt": "22:25",
+ "inizioUtc": "2026-11-22T21:25+00:00",
+ "stadio": "MetLife Stadium",
+ "citta": "",
+ "campoNeutro": false,
+ "coperto": false,
+ "sfidaDiDivision": false,
+ "mercato": {
+  "favorita": "Jacksonville Jaguars",
+  "vantaggio": 6.0,
+  "totale": 46.5,
+  "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"
+ },
+ "precedenti": [
+  {
+   "stagione": 2014,
+   "casa": "Jacksonville Jaguars",
+   "ospite": "New York Giants",
+   "risultato": "Jacksonville Jaguars 25 - New York Giants 24"
+  },
+  {
+   "stagione": 2018,
+   "casa": "New York Giants",
+   "ospite": "Jacksonville Jaguars",
+   "risultato": "New York Giants 15 - Jacksonville Jaguars 20"
+  },
+  {
+   "stagione": 2022,
+   "casa": "Jacksonville Jaguars",
+   "ospite": "New York Giants",
+   "risultato": "Jacksonville Jaguars 17 - New York Giants 23"
+  }
+ ],
+ "ospiti": {
+  "squadra": "Jacksonville Jaguars",
+  "soprannome": "Jaguars",
+  "bilancio": "7-2",
+  "serieAperta": "3 vittorie di fila",
+  "ultimePartite": [
+   {
+    "settimana": 6,
+    "avversario": "Houston Texans",
+    "inCasa": true,
+    "esito": "sconfitta",
+    "punteggio": "31-34"
+   },
+   {
+    "settimana": 8,
+    "avversario": "Indianapolis Colts",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "42-7"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Baltimore Ravens",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "33-10"
+   },
+   {
+    "settimana": 10,
+    "avversario": "Tennessee Titans",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "40-23"
+   }
+  ],
+  "andamento": {
+   "prime": "3-1",
+   "ultime": "4-1"
+  },
+  "puntiFattiPartita": 29.9,
+  "puntiSubitiPartita": 16.0,
+  "attacco": "uno degli attacchi più prolifici della lega",
+  "difesa": "una delle difese più solide",
+  "division": {
+   "nome": "AFC South",
+   "posizione": "1ª su 4",
+   "capolista": ""
+  },
+  "stagioneScorsa": {
+   "bilancio": "13-4",
+   "playoff": "eliminati nel turno di wild card"
+  },
+  "allenatore": {
+   "nome": "Liam Coen",
+   "stagione": 2,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Trevor Lawrence",
+    "partiteDaTitolare": 9,
+    "bilancio": "7-2"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Trevor Lawrence",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "2.284 yard su lancio, 21 TD, 5 intercetti in 9 partite",
+    "posizioneNellaLega": 12,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Bhayshul Tuten",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "609 yard di corsa, 5 TD",
+    "posizioneNellaLega": 14,
+    "eta": 24,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Did Not Participate In Practice",
+     "infortunio": "Ankle"
+    }
+   },
+   {
+    "nome": "Parker Washington",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "645 yard ricevute, 36 ricezioni, 6 TD",
+    "posizioneNellaLega": 16,
+    "eta": 24,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   },
+   {
+    "nome": "Jakobi Meyers",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "408 yard ricevute, 29 ricezioni, 2 TD",
+    "posizioneNellaLega": 45,
+    "eta": 30,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Limited Participation in Practice",
+     "infortunio": "Ankle"
+    }
+   },
+   {
+    "nome": "Travon Walker",
+    "ruolo": "miglior pass rusher",
+    "posizione": "DE",
+    "stagione": "3 sack",
+    "posizioneNellaLega": 75,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Limited Participation in Practice",
+     "infortunio": "Rib"
+    }
+   }
+  ],
+  "cedutiInStagione": [],
+  "arrivatiInStagione": [
+   {
+    "nome": "Davon Godchaux",
+    "ruolo": "DT",
+    "daSquadra": "New Orleans Saints"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Arik Armstead",
+    "ruolo": "DT",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Not injury related - personal matter",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Jakobi Meyers",
+    "ruolo": "WR",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Ankle",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Travon Walker",
+    "ruolo": "DE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Rib",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Antonio Johnson",
+    "ruolo": "S",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Ankle",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Chris Rodriguez Jr.",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Hand",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "LeQuint Allen Jr.",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Hamstring",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Danny Striggow",
+    "ruolo": "DE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Concussion",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Bhayshul Tuten",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Ankle",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "padroniDiCasa": {
+  "squadra": "New York Giants",
+  "soprannome": "Giants",
+  "bilancio": "5-3-1",
+  "serieAperta": "",
+  "ultimePartite": [
+   {
+    "settimana": 6,
+    "avversario": "New Orleans Saints",
+    "inCasa": true,
+    "esito": "sconfitta",
+    "punteggio": "27-34"
+   },
+   {
+    "settimana": 7,
+    "avversario": "Houston Texans",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "27-21"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Philadelphia Eagles",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "19-11"
+   },
+   {
+    "settimana": 10,
+    "avversario": "Washington Commanders",
+    "inCasa": true,
+    "esito": "sconfitta",
+    "punteggio": "21-24"
+   }
+  ],
+  "andamento": {
+   "prime": "3-1",
+   "ultime": "2-2-1"
+  },
+  "puntiFattiPartita": 22.6,
+  "puntiSubitiPartita": 21.8,
+  "attacco": "un attacco nella media",
+  "difesa": "una difesa nella media",
+  "division": {
+   "nome": "NFC East",
+   "posizione": "1ª su 4",
+   "capolista": ""
+  },
+  "stagioneScorsa": {
+   "bilancio": "4-13",
+   "playoff": "fuori dai playoff"
+  },
+  "allenatore": {
+   "nome": "John Harbaugh",
+   "stagione": 1,
+   "predecessore": "Brian Daboll"
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Jameis Winston",
+    "partiteDaTitolare": 5,
+    "bilancio": "2-2-1"
+   },
+   {
+    "nome": "J.J. McCarthy",
+    "partiteDaTitolare": 3,
+    "bilancio": "2-1"
+   },
+   {
+    "nome": "Jaxson Dart",
+    "partiteDaTitolare": 1,
+    "bilancio": "1-0"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "J.J. McCarthy",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "915 yard su lancio, 2 TD, 2 intercetti in 5 partite",
+    "posizioneNellaLega": 33,
+    "eta": 23,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Cam Skattebo",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "496 yard di corsa, 4 TD",
+    "posizioneNellaLega": 20,
+    "eta": 24,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Hamstring"
+    }
+   },
+   {
+    "nome": "Malik Nabers",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "692 yard ricevute, 58 ricezioni, 2 TD",
+    "posizioneNellaLega": 11,
+    "eta": 23
+   },
+   {
+    "nome": "Isaiah Likely",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "TE",
+    "stagione": "575 yard ricevute, 55 ricezioni, 7 TD",
+    "posizioneNellaLega": 20,
+    "eta": 26,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   },
+   {
+    "nome": "Arvell Reese",
+    "ruolo": "miglior pass rusher",
+    "posizione": "LB",
+    "stagione": "4,5 sack",
+    "posizioneNellaLega": 35,
+    "eta": 21
+   }
+  ],
+  "cedutiInStagione": [],
+  "arrivatiInStagione": [],
+  "rapportoInfortuni": [
+   {
+    "nome": "Cam Skattebo",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Hamstring",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "colori": {
+  "ospite": "#006778",
+  "casa": "#0B2265"
+ }
+}
