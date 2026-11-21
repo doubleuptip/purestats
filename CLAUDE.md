@@ -299,7 +299,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   week con conto alla rovescia (ora italiana con `istanteRoma`), partita della settimana (articolo più recente) e ultima
   partita, poi (ordine scelto da Valerio il 21/11) In TV in Italia, da leggere, storia (accadde oggi, mai battuto,
   dinastie: le ultime due cambiano ogni giorno), dal College, il meglio della week, la corsa (playoff AFC/NFC + ranking),
-  la strada verso i playoff (partite decisive + meteo). College: striscia con le partite delle squadre in classifica, classifica CFP e FPI, il meglio, da leggere.
+  la strada verso i playoff (partite decisive + meteo). College: striscia con le partite delle squadre in classifica, apertura, da leggere, classifica CFP e FPI, il meglio, dalla NFL.
 - `scripts/home_nfl.py` (workflow NFL, dopo fetch_duelli) → `docs/home_nfl.json`: corsa ai playoff con
   `nfl_playoff.corsa` (stessa simulazione di Charlie, tutte le partite rimaste; `stato` di Charlie invariato, verificato
   identico), partite decisive (somma dei salti vittoria/sconfitta), ranking (metà margini corretti per gli avversari,
