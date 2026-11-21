@@ -419,6 +419,36 @@ davvero che si veda quello che deve vedersi.
 
 ## Da controllare
 
+- IN CANTIERE (21/11/2026, Valerio: «ne riparliamo più in là»): apertura al pubblico, Google e monetizzazione onesta
+  (solo traffico e Google AdSense; mai scommesse, mai affiliazioni, niente scorciatoie). Verifica fatta il 21/11, rischi
+  in ordine:
+  1. Dati ESPN pubblicati (college quasi tutto, FPI e percentuali playoff, classifiche, loghi dal CDN ESPN): le
+     condizioni Disney/ESPN vietano accesso automatico, uso commerciale e ripubblicazione. Sostituto: CollegeFootballData
+     (uso commerciale consentito anche con pubblicità; quota 1.000 chiamate/mese condivisa col bot: stima 200-250 al mese
+     in stagione + circa 250 una tantum per lo storico, da ricontare prima di lanciare). FPI da togliere (nostra
+     simulazione al suo posto). La sentinella college oggi interroga ESPN ogni 15 minuti: con CFBD aggiornamenti a orari
+     stimati + riserve. Charlie e bot usano ESPN in privato (rischio solo blocco): decidere se spostarli.
+  2. Termini da scommesse nelle pagine pubbliche (linee e totali nelle schede, «Favorite oltre la linea», Over/Under,
+     «Sorprese» sulla linea nella Giornata, riquadro «Contro la linea» nelle cronache): da togliere, restano solo in
+     Matchup; «Sorprese» da rifare sulla nostra probabilità prepartita. Google conta «tips, odds and handicapping» come
+     contenuti legati al gioco.
+  3. Loghi delle squadre (marchi): sostituire con stemmi nostri (sigla nei colori della squadra).
+  4. Foto degli stadi CC BY-SA: la pagina scrive solo «Wikimedia Commons»; servono autore, licenza e collegamento
+     (i dati sono in docs/articoli/stadi/crediti.json).
+  5. Privacy: Google Fonts, jsDelivr (Chart.js), anteprime YouTube e loghi ESPN caricati da server esterni: ospitare
+     caratteri e Chart.js sul sito (con integrity), anteprime video → collegamento «Highlights ↗»; pagina privacy;
+     banner di consenso certificato Google prima di AdSense.
+  6. nflverse CC-BY 4.0: rileggere LICENSE.md (non si è aperto) per note sull'origine NFL dei dati.
+  7. Condizioni d'uso DAZN da leggere (oggi leggiamo solo quali partite sono incluse).
+  8. Vecchi dati del calcio in chiaro nella storia git fino al 9/11 (cancellarli = riscrivere la storia: decide Valerio).
+  Altro emerso: titolo della pagina «PureStats · Premier League» e descrizione che cita calcio/linee/arbitri (da
+  correggere per vista); articoli e racconti con indirizzi #… non indicizzabili da Google (servono pagine HTML statiche
+  per ogni articolo e racconto, sitemap.xml, robots.txt, 404, Search Console); AdSense richiede un dominio proprio
+  (non *.github.io): Valerio lo compra, Claude prepara la configurazione DNS; password di Matchup lunga (14+ caratteri),
+  perché i file cifrati sono pubblici. Nessun errore JavaScript né file mancante nelle viste (controllo del 21/11).
+  Ordine proposto: messa in regola → Google (pagine statiche, sitemap) → dominio → AdSense con traffico.
+
+
 - Dicembre 2026, rinunce ai bowl: i titolari si contano sull'intera stagione (Protocollo 12), quindi una squadra
   che ha cambiato QB a metà anno ha ancora il vecchio come titolare (Rice: Jacurri Brown, ora ricevitore; gioca
   Gael Ochoa). Prima di spuntare le rinunce, controllare a mano le squadre che hanno cambiato QB.
