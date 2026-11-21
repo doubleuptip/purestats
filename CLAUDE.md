@@ -230,7 +230,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Menu unico (21/11/2026, scelta di Valerio): nel football niente più SQUADRE; STATISTICHE ha le schede «Squadre»
   (Classifica = la vecchia pagina SQUADRE con la scheda di ogni squadra · Fatte · Concesse) e «Giocatori»
   (`testataStat`, `schedaStat`, `ultimaStat`). Classifica ordinata per % vittorie e differenza. NFL e College si
-  aprono sulla Giornata (Partite dove non c'è). Il calcio tiene il suo menu SQUADRE.
+  aprono sulla Giornata (Partite dove non c'è), che è anche la prima scheda a sinistra del menu. Il calcio tiene il suo menu SQUADRE.
 - Fonti: NFL nflverse (CC-BY 4.0, va citato), College tabellini ESPN. Le pressioni PFR non si ripubblicano: tolte
   anche dai leader della Giornata, restano solo per Charlie (cifrato).
 
