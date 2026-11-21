@@ -787,12 +787,14 @@
   <div class="lega" id="scelta-lega"></div>
   <div class="sub-lega" id="sub-lega" style="display:none"></div>
   <nav>
-    <!-- GIORNATA per prima: nel football è la pagina d'apertura (nel calcio è nascosta) -->
+    <!-- GIORNATA per prima: nel football è la pagina d'apertura (nel calcio è nascosta).
+         Tutte le voci partono nascoste: le mostra render() quando sa quale campionato è aperto, così all'apertura
+         non compare per un attimo il menu del calcio (ARBITRI). -->
     <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
-    <button id="n-arb" class="on" onclick="vai('arbitri')">ARBITRI</button>
-    <button id="n-squ" onclick="vai('squadre')">SQUADRE</button>
-    <button id="n-par" onclick="vai('partite')">PARTITE</button>
-    <button id="n-cal" onclick="vai('calendario')">CALENDARIO</button>
+    <button id="n-arb" onclick="vai('arbitri')" style="display:none">ARBITRI</button>
+    <button id="n-squ" onclick="vai('squadre')" style="display:none">SQUADRE</button>
+    <button id="n-par" onclick="vai('partite')" style="display:none">PARTITE</button>
+    <button id="n-cal" onclick="vai('calendario')" style="display:none">CALENDARIO</button>
     <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
     <button id="n-sta" onclick="window.scrollTo(0,0);schedaStat(ultimaStat)" style="display:none">STATISTICHE</button>
