@@ -39,3 +39,7 @@ Ogni settimana: 3 partite NFL e 3 college, anteprima prima del via e cronaca dop
   o «si gioca al coperto»: la scheda meteo accanto all'articolo dice già tutto.
 - Rapporto infortuni: dire solo ciò che dice il rapporto (stato ufficiale, o «non si è allenato» se lo stato non c'è ancora).
 - Anteprima 220-300 parole in 4 paragrafi; cronaca 230-320 parole in 4-5 paragrafi.
+- Cronaca: si scrive dal blocco «partitaGiocata» dei fatti (marcature, momenti decisivi, protagonisti, numeri) e dal
+  contesto della vigilia (assenze, scambi, andata). Apertura sul risultato e su cosa significa; poi come si è decisa,
+  con i protagonisti per nome e cognome alla prima citazione; le assenze solo se hanno pesato; in chiusura dove lascia
+  le due squadre. Numeri nel testo pochi (punteggi, bilanci, un paio al massimo): il resto è nel riquadro.

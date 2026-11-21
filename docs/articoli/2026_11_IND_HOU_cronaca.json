@@ -1,0 +1,326 @@
+{
+ "id": "2026_11_IND_HOU_cronaca",
+ "lega": "nfl",
+ "tipo": "cronaca",
+ "settimana": 11,
+ "ospite": "IND",
+ "casa": "HOU",
+ "dataIt": "2026-11-20",
+ "oraIt": "02:15",
+ "inizioUtc": "2026-11-20T01:15+00:00",
+ "stadio": "NRG Stadium",
+ "campoNeutro": false,
+ "coperto": true,
+ "bilanci": {
+  "ospite": "3-8",
+  "casa": "4-6"
+ },
+ "colori": {
+  "ospite": "#002C5F",
+  "casa": "#03202F"
+ },
+ "titolo": "I Texans si prendono la rivincita e lasciano i Colts a secco",
+ "paragrafi": [
+  "I Texans si sono presi la rivincita, e con gli interessi. Nella notte tra giovedì e venerdì Houston ha battuto Indianapolis 26-3 al NRG Stadium, cancellando il 19-17 dell'andata e salendo a 4-6. I Colts scendono a 3-8 e, dopo il field goal di Spencer Shrader in apertura, non hanno più segnato.",
+  "La partita si è decisa sui lanci di C.J. Stroud. Dopo l'intercetto subito da A.J. Haulcy nel primo quarto, il quarterback dei Texans ha trovato Nico Collins sul lungo per il sorpasso prima della fine del periodo e, nel secondo, Kayshon Boutte per allungare. Il field goal di Ka'imi Fairbairn a 19 secondi dall'intervallo ha mandato le squadre al riposo sul 17-3.",
+  "Il resto lo ha fatto la difesa di DeMeco Ryans. Indianapolis ha convertito un solo terzo down su undici e ha restituito il pallone a inizio secondo quarto, con Daniel Jones intercettato da Kamari Lassiter. Nel terzo quarto Will Anderson Jr., il giocatore con più sack della lega, ha sorpreso Jones nella sua end zone per la safety; poco dopo Stroud ha chiuso i conti con il terzo passaggio da touchdown della serata, per Marlin Klein.",
+  "Senza Woody Marks, fermo per una commozione cerebrale, il peso delle corse è finito tutto su David Montgomery, che ha superato le cento yard e ha tenuto il pallone lontano dai Colts: Houston lo ha avuto per quasi due terzi della partita. Dall'altra parte Jonathan Taylor non ha mai trovato spazio, e un attacco già senza i tackle Bernhard Raimann e Jalen Travis si è fermato sotto le duecento yard complessive.",
+  "Nettamente favoriti alla vigilia, i Texans hanno vinto con un margine ancora più largo e tornano a una sola partita dalla parità di bilancio. Per i Colts, che in stagione hanno ceduto Josh Downs, DeForest Buckner, Keenan Allen e Quenton Nelson, la sconfitta conferma un momento in cui la squadra fatica a restare in partita."
+ ],
+ "riquadro": {
+  "titolo": "I numeri della partita",
+  "sottotitolo": "nflverse",
+  "squadre": [
+   {
+    "sigla": "IND",
+    "nome": "Colts",
+    "bilancio": "3-8",
+    "giocatori": [
+     {
+      "nome": "Daniel Jones",
+      "ruolo": "QB",
+      "dati": [
+       [
+        "12/27",
+        "completi"
+       ],
+       [
+        "144",
+        "yard lanciate"
+       ],
+       [
+        "0",
+        "TD"
+       ],
+       [
+        "1",
+        "intercetti"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Jonathan Taylor",
+      "ruolo": "Corse",
+      "dati": [
+       [
+        "11",
+        "corse"
+       ],
+       [
+        "21",
+        "yard"
+       ],
+       [
+        "0",
+        "TD"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Anthony Gould",
+      "ruolo": "Ricezioni",
+      "dati": [
+       [
+        "2",
+        "ricezioni"
+       ],
+       [
+        "48",
+        "yard"
+       ],
+       [
+        "0",
+        "TD"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Ashton Dulin",
+      "ruolo": "Ricezioni (2°)",
+      "dati": [
+       [
+        "2",
+        "ricezioni"
+       ],
+       [
+        "30",
+        "yard"
+       ],
+       [
+        "0",
+        "TD"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "A.J. Haulcy",
+      "ruolo": "Difesa",
+      "dati": [
+       [
+        "9",
+        "placcaggi"
+       ],
+       [
+        "1",
+        "intercetti"
+       ],
+       [
+        "1",
+        "deviati"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     }
+    ]
+   },
+   {
+    "sigla": "HOU",
+    "nome": "Texans",
+    "bilancio": "4-6",
+    "giocatori": [
+     {
+      "nome": "C.J. Stroud",
+      "ruolo": "QB",
+      "dati": [
+       [
+        "21/27",
+        "completi"
+       ],
+       [
+        "194",
+        "yard lanciate"
+       ],
+       [
+        "3",
+        "TD"
+       ],
+       [
+        "1",
+        "intercetti"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "David Montgomery",
+      "ruolo": "Corse",
+      "dati": [
+       [
+        "26",
+        "corse"
+       ],
+       [
+        "107",
+        "yard"
+       ],
+       [
+        "0",
+        "TD"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Nico Collins",
+      "ruolo": "Ricezioni",
+      "dati": [
+       [
+        "3",
+        "ricezioni"
+       ],
+       [
+        "58",
+        "yard"
+       ],
+       [
+        "1",
+        "TD"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Kayshon Boutte",
+      "ruolo": "Ricezioni (2°)",
+      "dati": [
+       [
+        "2",
+        "ricezioni"
+       ],
+       [
+        "40",
+        "yard"
+       ],
+       [
+        "1",
+        "TD"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     },
+     {
+      "nome": "Kamari Lassiter",
+      "ruolo": "Difesa",
+      "dati": [
+       [
+        "0",
+        "placcaggi"
+       ],
+       [
+        "1",
+        "intercetti"
+       ],
+       [
+        "2",
+        "deviati"
+       ]
+      ],
+      "stato": "",
+      "nota": ""
+     }
+    ]
+   }
+  ],
+  "righeSquadra": [
+   [
+    "Yard totali",
+    "167",
+    "355"
+   ],
+   [
+    "Yard su lancio",
+    "144",
+    "194"
+   ],
+   [
+    "Yard di corsa",
+    "38",
+    "168"
+   ],
+   [
+    "Primi down",
+    "8",
+    "21"
+   ],
+   [
+    "Terzi down",
+    "1/11",
+    "8/14"
+   ],
+   [
+    "Palle perse",
+    "1",
+    "1"
+   ],
+   [
+    "Possesso",
+    "22:14",
+    "37:46"
+   ]
+  ],
+  "quarti": [
+   [
+    "1°",
+    "3",
+    "7"
+   ],
+   [
+    "2°",
+    "0",
+    "10"
+   ],
+   [
+    "3°",
+    "0",
+    "9"
+   ],
+   [
+    "4°",
+    "0",
+    "0"
+   ]
+  ],
+  "linea": "Houston Texans favoriti di 12,5: hanno vinto con un margine più largo · 29 punti in tutto contro un totale di 44,5: sotto"
+ },
+ "foto": "articoli/stadi/HOU.jpg",
+ "fotoCrediti": "Carlos.dkfi · CC0",
+ "pubblicato": "2026-11-21T06:46+01:00",
+ "punti": {
+  "ospite": 3,
+  "casa": 26
+ },
+ "video": "E4M4HIAfJl4"
+}

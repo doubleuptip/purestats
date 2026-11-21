@@ -370,10 +370,190 @@ def fatti(gid: str) -> dict:
         "padroniDiCasa": fatti_squadra(D, casa, osp, settimana, giorno, r["home_coach"], cl),
         "colori": {"ospite": D.colori.get(osp), "casa": D.colori.get(casa)},
     }
+    if r["home_score"] and r["away_score"]:
+        out["partitaGiocata"] = fatti_partita(D, gid, r)
     FATTI.mkdir(parents=True, exist_ok=True)
     (FATTI / f"fatti_{gid}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print(f"Fatti pronti: data/articoli/fatti_{gid}.json")
     return out
+
+
+# ------------------------------------------------------------------ fatti della partita giocata (cronache)
+
+def _tempo_sec(t: str) -> int:
+    try:
+        m, sec = (t or "0:0").split(":")
+        return int(m) * 60 + int(sec)
+    except ValueError:
+        return 0
+
+
+def _giocatore_partita(righe: list, sq: str, chiave: str, minimo: float = 1) -> dict | None:
+    cand = [x for x in righe if x["team"] == sq and num(x[chiave]) >= minimo]
+    return max(cand, key=lambda x: num(x[chiave])) if cand else None
+
+
+def protagonisti(D: Dati, gid: str, sq: str) -> list[dict]:
+    """I migliori della partita per una squadra, dal tabellino settimanale nflverse."""
+    righe = [x for x in D.stats if x.get("game_id") == gid]
+    out, presi = [], set()
+    q = _giocatore_partita(righe, sq, "attempts", 5)
+    if q:
+        presi.add(q["player_id"])
+        out.append({"ruolo": "QB", "nome": q["player_display_name"], "completiTentati": f"{int(num(q['completions']))}/{int(num(q['attempts']))}",
+                    "yardLanciate": int(num(q["passing_yards"])), "tdLancio": int(num(q["passing_tds"])),
+                    "intercettiSubiti": int(num(q["passing_interceptions"])), "sackSubiti": int(num(q["sacks_suffered"])),
+                    "yardCorsa": int(num(q["rushing_yards"]))})
+    c = _giocatore_partita([x for x in righe if x["player_id"] not in presi], sq, "rushing_yards", 10)
+    if c:
+        presi.add(c["player_id"])
+        out.append({"ruolo": "Corse", "nome": c["player_display_name"], "posizione": c["position"], "corse": int(num(c["carries"])),
+                    "yardCorsa": int(num(c["rushing_yards"])), "tdCorsa": int(num(c["rushing_tds"]))})
+    for _ in range(2):
+        r = _giocatore_partita([x for x in righe if x["player_id"] not in presi], sq, "receiving_yards", 20)
+        if not r:
+            break
+        presi.add(r["player_id"])
+        out.append({"ruolo": "Ricezioni", "nome": r["player_display_name"], "posizione": r["position"],
+                    "ricezioni": int(num(r["receptions"])), "bersagli": int(num(r["targets"])),
+                    "yardRicevute": int(num(r["receiving_yards"])), "tdRicezione": int(num(r["receiving_tds"]))})
+    dif = [x for x in righe if x["team"] == sq]
+    if dif:
+        d = max(dif, key=lambda x: (num(x["def_sacks"]) * 3 + num(x["def_interceptions"]) * 4 + num(x["def_fumbles_forced"]) * 3
+                                    + (num(x["def_tackles_solo"]) + num(x["def_tackle_assists"])) * 0.3
+                                    + num(x["def_pass_defended"])))
+        if num(d["def_sacks"]) or num(d["def_interceptions"]) or num(d["def_tackles_solo"]) + num(d["def_tackle_assists"]) >= 5:
+            out.append({"ruolo": "Difesa", "nome": d["player_display_name"], "posizione": d["position"],
+                        "placcaggi": int(num(d["def_tackles_solo"]) + num(d["def_tackle_assists"])), "sack": num(d["def_sacks"]),
+                        "intercetti": int(num(d["def_interceptions"])), "fumbleForzati": int(num(d["def_fumbles_forced"])),
+                        "passaggiDeviati": int(num(d["def_pass_defended"]))})
+    return out
+
+
+COLONNE_GIOCATORI = ("passer_player_id", "receiver_player_id", "rusher_player_id", "kicker_player_id",
+                     "interception_player_id", "sack_player_id", "half_sack_1_player_id", "fumbled_1_player_id",
+                     "fumble_recovery_1_player_id", "blocked_player_id", "td_player_id", "safety_player_id")
+
+
+def nomi_completi(D: Dati, x: dict) -> list[str]:
+    """Nome e cognome dei giocatori di un'azione (il play-by-play scrive solo «C.Stroud»)."""
+    out = []
+    for c in COLONNE_GIOCATORI:
+        g = D.giocatori.get(x.get(c) or "")
+        if g and g.get("display_name") and g["display_name"] not in out:
+            out.append(g["display_name"])
+    return out
+
+
+def fatti_partita(D: Dati, gid: str, r: dict) -> dict:
+    """Quello che è successo in campo, dal play-by-play nflverse: punteggio per quarto, marcature, momenti
+    decisivi (stesso metodo della Giornata), numeri di squadra, protagonisti, esito contro la linea."""
+    sys.path.insert(0, str(RADICE / "scripts"))
+    import nfl_indici as NI
+    import nfl_racconto
+    pbp = [x for x in leggi_csv(scarica(f"pbp_{D.stagione}.csv.gz", f"{NFLVERSE}/pbp/play_by_play_{D.stagione}.csv.gz"))
+           if x["game_id"] == gid]
+    if not pbp:
+        raise SystemExit(f"Play-by-play di {gid} non ancora pubblicato da nflverse: la cronaca deve aspettare")
+    casa, osp = r["home_team"], r["away_team"]
+    pc, po = int(r["home_score"]), int(r["away_score"])
+    # punteggio alla fine di ogni quarto
+    quarti, ultimo = {}, (0, 0)
+    for x in pbp:
+        if x["total_home_score"] and x["total_away_score"]:
+            ultimo = (int(num(x["total_away_score"])), int(num(x["total_home_score"])))
+        if x["qtr"]:
+            quarti[int(x["qtr"])] = ultimo
+    parziali, prima = [], (0, 0)
+    for q in sorted(quarti):
+        o, c = quarti[q]
+        parziali.append({"quarto": "supplementare" if q == 5 else f"{q}°", "ospite": o - prima[0], "casa": c - prima[1]})
+        prima = (o, c)
+    # marcature: touchdown (con il punteggio dopo la trasformazione), field goal, safety
+    marcature = []
+    for i, x in enumerate(pbp):
+        tipo = ("touchdown" if x["touchdown"] == "1" else "field goal" if x["field_goal_result"] == "made"
+                else "safety" if x["safety"] == "1" else None)
+        if not tipo:
+            continue
+        dopo = pbp[i + 1] if i + 1 < len(pbp) else x
+        fonte = dopo if tipo == "touchdown" and (dopo["extra_point_attempt"] == "1" or dopo["two_point_attempt"] == "1") else x
+        testo, chi, _ = nfl_racconto.traduci(x["desc"])
+        squadra = x["td_team"] if tipo == "touchdown" and x["td_team"] else (x["defteam"] if tipo == "safety" else x["posteam"])
+        marcature.append({"quarto": x["qtr"], "tempo": x["time"], "squadra": D.nomi.get(squadra, squadra), "tipo": tipo,
+                          "azione": testo, "chi": chi, "giocatori": nomi_completi(D, x),
+                          "punteggioDopo": f"{D.nomi[osp]} {int(num(fonte['total_away_score']))} - {D.nomi[casa]} {int(num(fonte['total_home_score']))}"})
+    # momenti decisivi, come nella Giornata
+    cand = []
+    for x in pbp:
+        hw, dw = num(x["vegas_home_wp"], None), num(x["vegas_home_wpa"], None)
+        desc = x["desc"] or ""
+        chiave = any(x[c] == "1" for c in ("touchdown", "interception", "fumble_lost", "fourth_down_failed", "safety"))
+        if hw is None or dw is None or any(k in desc for k in ("No Play", "Timeout", "kneels", "END QUARTER", "END GAME")):
+            continue
+        if abs(dw) < NI.SOGLIA_MOMENTO and not chiave:
+            continue
+        peso = abs(dw) * (1.0 if (dw > 0) == (pc > po) else NI.PESO_CONTRARIO) * (NI.PESO_CHIAVE if chiave else 1.0)
+        cand.append((peso, x, hw, dw))
+    momenti, per_q = [], collections.Counter()
+    for peso, x, hw, dw in sorted(cand, key=lambda c: -c[0]):
+        if per_q[x["qtr"]] < NI.MOMENTI_PER_QUARTO and len(momenti) < NI.MOMENTI_PER_PARTITA:
+            per_q[x["qtr"]] += 1
+            testo, chi, _ = nfl_racconto.traduci(x["desc"])
+            momenti.append({"quarto": x["qtr"], "tempo": x["time"], "squadra": D.nomi.get(x["posteam"], x["posteam"]),
+                            "azione": testo, "chi": chi, "giocatori": nomi_completi(D, x),
+                            "probabilitaVittoria": f"{D.nomi[casa]} da {round(hw * 100)}% a {round(max(0, min(1, hw + dw)) * 100)}%"})
+    momenti.sort(key=lambda m: (int(m["quarto"]), -_tempo_sec(m["tempo"])))
+    # numeri di squadra
+    def numeri(sq: str) -> dict:
+        az = [x for x in pbp if x["posteam"] == sq and x["play_type"] in ("pass", "run") and "No Play" not in (x["desc"] or "")]
+        terzi = [x for x in pbp if x["posteam"] == sq and (x["third_down_converted"] == "1" or x["third_down_failed"] == "1")]
+        quarti_d = [x for x in pbp if x["posteam"] == sq and (x["fourth_down_converted"] == "1" or x["fourth_down_failed"] == "1")]
+        drive = {}
+        for x in pbp:
+            if x["posteam"] == sq and x["drive"] and x["drive_time_of_possession"]:
+                drive[x["drive"]] = _tempo_sec(x["drive_time_of_possession"])
+        poss = sum(drive.values())
+        return {"yardTotali": int(sum(num(x["yards_gained"]) for x in az)),
+                "yardLancio": int(sum(num(x["passing_yards"]) for x in az if x["play_type"] == "pass")),
+                "yardCorsa": int(sum(num(x["rushing_yards"]) for x in az if x["play_type"] == "run")),
+                "azioni": len(az), "primiDown": sum(1 for x in pbp if x["posteam"] == sq and x["first_down"] == "1"),
+                "terziDown": f"{sum(1 for x in terzi if x['third_down_converted'] == '1')}/{len(terzi)}",
+                "quartiDown": f"{sum(1 for x in quarti_d if x['fourth_down_converted'] == '1')}/{len(quarti_d)}",
+                "palle perse": sum(1 for x in pbp if x["posteam"] == sq and (x["interception"] == "1" or x["fumble_lost"] == "1")),
+                "sackSubiti": sum(1 for x in pbp if x["posteam"] == sq and x["sack"] == "1"),
+                "penalita": sum(1 for x in pbp if x["penalty_team"] == sq and x["penalty"] == "1"),
+                "possesso": f"{poss // 60}:{poss % 60:02d}"}
+    sp, tot = num(r["spread_line"], None), num(r["total_line"], None)
+    esito = {}
+    if sp:
+        fav, cane = (casa, osp) if sp > 0 else (osp, casa)
+        scarto = (pc - po) if fav == casa else (po - pc)
+        esito["linea"] = (f"{D.nomi[fav]} favoriti di {n_it(abs(sp))}: " +
+                          ("hanno vinto con un margine più largo" if scarto > abs(sp) else
+                           "hanno vinto ma con un margine più stretto" if scarto > 0 else "hanno perso"))
+    if tot:
+        esito["totale"] = f"{pc + po} punti in tutto contro un totale di {n_it(tot)}: " + ("sopra" if pc + po > tot else "sotto")
+    video = ""
+    try:
+        g = json.loads((RADICE / "docs" / "data_nfl.json").read_text()).get("giornata") or {}
+        for p in g.get("partite", []):
+            if p["casa"] == casa and p["ospite"] == osp and (p.get("video") or {}).get("id"):
+                video = p["video"]["id"]
+    except (OSError, ValueError):
+        pass
+    sett = int(r["week"])
+    return {"risultato": f"{D.nomi[osp]} {po} - {D.nomi[casa]} {pc}", "puntiOspite": po, "puntiCasa": pc,
+            "vincitore": D.nomi[casa] if pc > po else D.nomi[osp] if po > pc else "pareggio", "scarto": abs(pc - po),
+            "parziali": parziali, "marcature": marcature, "momentiDecisivi": momenti,
+            "numeri": {"ospiti": numeri(osp), "padroniDiCasa": numeri(casa)},
+            "protagonisti": {"ospiti": protagonisti(D, gid, osp), "padroniDiCasa": protagonisti(D, gid, casa)},
+            "contoLaLinea": esito,
+            "bilancioDopo": {"ospiti": bilancio(partite_giocate(D, osp, D.stagione, (D.stagione, sett + 1))),
+                             "padroniDiCasa": bilancio(partite_giocate(D, casa, D.stagione, (D.stagione, sett + 1)))},
+            "serieDopo": {"ospiti": serie(partite_giocate(D, osp, D.stagione, (D.stagione, sett + 1))),
+                          "padroniDiCasa": serie(partite_giocate(D, casa, D.stagione, (D.stagione, sett + 1)))},
+            "video": video}
 
 
 # ------------------------------------------------------------------ controllo e pubblicazione
@@ -436,6 +616,52 @@ def riquadro(f: dict) -> dict:
     return {"squadre": squadre, "linea": linea}
 
 
+def _caselle(g: dict) -> list[list[str]]:
+    r = g["ruolo"]
+    if r == "QB":
+        return [[g["completiTentati"], "completi"], [n_it(g["yardLanciate"]), "yard lanciate"], [str(g["tdLancio"]), "TD"],
+                [str(g["intercettiSubiti"]), "intercetti"]]
+    if r == "Corse":
+        return [[str(g["corse"]), "corse"], [n_it(g["yardCorsa"]), "yard"], [str(g["tdCorsa"]), "TD"]]
+    if r == "Ricezioni":
+        return [[str(g["ricezioni"]), "ricezioni"], [n_it(g["yardRicevute"]), "yard"], [str(g["tdRicezione"]), "TD"]]
+    out = [[str(g["placcaggi"]), "placcaggi"]]
+    if g["sack"]:
+        out.append([n_it(float(g["sack"])) if g["sack"] % 1 else str(int(g["sack"])), "sack"])
+    if g["intercetti"]:
+        out.append([str(g["intercetti"]), "intercetti"])
+    if g["passaggiDeviati"]:
+        out.append([str(g["passaggiDeviati"]), "deviati"])
+    return out
+
+
+def riquadro_cronaca(f: dict) -> dict:
+    """Numeri della partita: squadre a confronto e i protagonisti, ruolo per ruolo."""
+    p = f["partitaGiocata"]
+    squadre = []
+    for chiave, sigla in (("ospiti", f["ospite"]), ("padroniDiCasa", f["casa"])):
+        gioc, visti = [], collections.Counter()
+        for g in p["protagonisti"][chiave]:
+            visti[g["ruolo"]] += 1
+            ruolo = {"Corse": "Corse", "Ricezioni": "Ricezioni", "Difesa": "Difesa"}.get(g["ruolo"], g["ruolo"])
+            if g["ruolo"] == "Ricezioni" and visti["Ricezioni"] == 2:
+                ruolo = "Ricezioni (2°)"
+            gioc.append({"nome": g["nome"], "ruolo": ruolo, "dati": _caselle(g), "stato": "", "nota": ""})
+        squadre.append({"sigla": sigla, "nome": f[chiave]["soprannome"], "bilancio": p["bilancioDopo"][chiave], "giocatori": gioc})
+    n = p["numeri"]
+    righe = [["Yard totali", n_it(n["ospiti"]["yardTotali"]), n_it(n["padroniDiCasa"]["yardTotali"])],
+             ["Yard su lancio", n_it(n["ospiti"]["yardLancio"]), n_it(n["padroniDiCasa"]["yardLancio"])],
+             ["Yard di corsa", n_it(n["ospiti"]["yardCorsa"]), n_it(n["padroniDiCasa"]["yardCorsa"])],
+             ["Primi down", str(n["ospiti"]["primiDown"]), str(n["padroniDiCasa"]["primiDown"])],
+             ["Terzi down", n["ospiti"]["terziDown"], n["padroniDiCasa"]["terziDown"]],
+             ["Palle perse", str(n["ospiti"]["palle perse"]), str(n["padroniDiCasa"]["palle perse"])],
+             ["Possesso", n["ospiti"]["possesso"], n["padroniDiCasa"]["possesso"]]]
+    quarti = [[q["quarto"], str(q["ospite"]), str(q["casa"])] for q in p["parziali"]]
+    linea = " · ".join(v[0].upper() + v[1:] for v in p["contoLaLinea"].values())
+    return {"titolo": "I numeri della partita", "sottotitolo": "nflverse", "squadre": squadre, "righeSquadra": righe,
+            "quarti": quarti, "linea": linea}
+
+
 def pubblica(gid: str, tipo: str, file_testo: str) -> None:
     f = json.loads((FATTI / f"fatti_{gid}.json").read_text())
     testo = json.loads(Path(file_testo).read_text())
@@ -451,9 +677,15 @@ def pubblica(gid: str, tipo: str, file_testo: str) -> None:
            "dataIt": f["dataIt"], "oraIt": f["oraIt"], "inizioUtc": f["inizioUtc"], "stadio": f["stadio"],
            "campoNeutro": f["campoNeutro"], "coperto": f["coperto"],
            "bilanci": {"ospite": f["ospiti"]["bilancio"], "casa": f["padroniDiCasa"]["bilancio"]},
-           "colori": f["colori"], "titolo": testo["titolo"], "paragrafi": testo["paragrafi"], "riquadro": riquadro(f),
+           "colori": f["colori"], "titolo": testo["titolo"], "paragrafi": testo["paragrafi"],
+           "riquadro": riquadro_cronaca(f) if tipo == "cronaca" else riquadro(f),
            "foto": f"articoli/stadi/{f['casa']}.jpg" if foto.exists() else "",
            "fotoCrediti": crediti.get(f["casa"], ""), "pubblicato": dt.datetime.now(ROMA).isoformat(timespec="minutes")}
+    if tipo == "cronaca":
+        p = f["partitaGiocata"]
+        art["punti"] = {"ospite": p["puntiOspite"], "casa": p["puntiCasa"]}
+        art["bilanci"] = {"ospite": p["bilancioDopo"]["ospiti"], "casa": p["bilancioDopo"]["padroniDiCasa"]}
+        art["video"] = p.get("video") or ""
     vecchio = USCITA / f"{aid}.json"
     if vecchio.exists():
         art["meteo"] = json.loads(vecchio.read_text()).get("meteo")

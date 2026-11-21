@@ -231,6 +231,13 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   `docs/articoli/<id>.json` + `indice.json`. Il workflow `articoli-meteo.yml` aggiorna la scheda meteo (NWS/Open-Meteo,
   regola d'impatto generica e pubblica, non le misure di Charlie). Foto degli stadi in `docs/articoli/stadi/` (Wikimedia,
   crediti in `crediti.json`).
+- Cronache (dal 21/11/2026): a partita giocata `fatti` aggiunge «partitaGiocata» dal play-by-play nflverse (punteggio per
+  quarto, marcature con nome e cognome, momenti decisivi con lo stesso metodo della Giornata, numeri di squadra,
+  protagonisti dal tabellino settimanale, esito contro linea e totale solo a parole, bilancio dopo, id del video);
+  `pubblica <id> cronaca` mette punteggio, video a metà testo e il riquadro «I numeri della partita» (riquadro_cronaca).
+  Se nflverse non ha ancora il play-by-play della partita, `fatti` si ferma e lo dice.
+- Momenti decisivi (21/11/2026): probabilità di vittoria dal mercato (vegas_home_wp/vegas_home_wpa), sotto 3 punti solo
+  azioni chiave, peso pieno verso il risultato finale, al massimo 2 per quarto (nfl_indici, costanti MOMENTI_*).
 - Sito: menu ARTICOLI, articolo con impaginazione B (testo a sinistra, colonna con meteo e numeri), collegamento
   «Leggi l'anteprima/la cronaca» dalle schede partita, indirizzo diretto `#articolo=<id>`.
 
@@ -326,15 +333,6 @@ davvero che si veda quello che deve vedersi.
 
 ## Da fare da sabato 21/11/2026 (dopo il rinnovo dell'abbonamento, ore 5)
 
-0. PER PRIMA COSA (scelta di Valerio del 20/11): momenti decisivi della Giornata NFL (nfl_indici._riassunto_pbp e
-   la scelta in fondo a calcola): oggi usano home_wp «neutra» (Colts-Texans 26-3: Texans 57% al primo snap con 12,5
-   di linea, tutti e 5 i momenti nel 1° quarto, anche passaggi senza peso). Correzione: vegas_home_wp /
-   vegas_home_wp_post di nflverse, più peso alle azioni verso il risultato finale (touchdown, palle perse, quarti
-   down fermati), al massimo 2 momenti per quarto. Poi la cronaca di Colts-Texans (2026_11_IND_HOU) come prova di
-   tutte le cronache: serve prima in articoli.py la preparazione dei fatti dal play-by-play.
-   Subito dopo, una riga: in fetch_duelli.py (circa riga 425) «assenze tra le più pesanti d'America (12ª su 138,
-   12 in lista)» diventa «assenze tra le più pesanti del college: 12ª squadra su 138, 12 giocatori in lista»
-   (Valerio l'aveva letto come un nome di giocatore).
 1. Articoli, fase 2: scelta automatica delle 3 partite NFL (posta playoff da nfl_playoff + partite di cartello) e
    3 college (classificate / corsa ai playoff); cronache dal play-by-play con il video YouTube a metà testo; foto di
    tutti gli stadi NFL da Wikimedia con i crediti; college in articoli.py; attività programmate ricorrenti (martedì

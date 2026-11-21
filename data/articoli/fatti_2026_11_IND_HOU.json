@@ -17,7 +17,7 @@
  "mercato": {
   "favorita": "Houston Texans",
   "vantaggio": 12.5,
-  "totale": 43.5,
+  "totale": 44.5,
   "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"
  },
  "precedenti": [
@@ -454,5 +454,342 @@
  "colori": {
   "ospite": "#002C5F",
   "casa": "#03202F"
+ },
+ "partitaGiocata": {
+  "risultato": "Indianapolis Colts 3 - Houston Texans 26",
+  "puntiOspite": 3,
+  "puntiCasa": 26,
+  "vincitore": "Houston Texans",
+  "scarto": 23,
+  "parziali": [
+   {
+    "quarto": "1°",
+    "ospite": 3,
+    "casa": 7
+   },
+   {
+    "quarto": "2°",
+    "ospite": 0,
+    "casa": 10
+   },
+   {
+    "quarto": "3°",
+    "ospite": 0,
+    "casa": 9
+   },
+   {
+    "quarto": "4°",
+    "ospite": 0,
+    "casa": 0
+   }
+  ],
+  "marcature": [
+   {
+    "quarto": "1",
+    "tempo": "10:47",
+    "squadra": "Indianapolis Colts",
+    "tipo": "field goal",
+    "azione": "Shrader: field goal da 34 yard riuscito",
+    "chi": [
+     "Shrader"
+    ],
+    "giocatori": [
+     "Spencer Shrader"
+    ],
+    "punteggioDopo": "Indianapolis Colts 3 - Houston Texans 0"
+   },
+   {
+    "quarto": "1",
+    "tempo": "02:21",
+    "squadra": "Houston Texans",
+    "tipo": "touchdown",
+    "azione": "Stroud lancia lungo a destra per Collins, 42 yard: touchdown",
+    "chi": [
+     "Stroud",
+     "Collins"
+    ],
+    "giocatori": [
+     "C.J. Stroud",
+     "Nico Collins"
+    ],
+    "punteggioDopo": "Indianapolis Colts 3 - Houston Texans 7"
+   },
+   {
+    "quarto": "2",
+    "tempo": "07:43",
+    "squadra": "Houston Texans",
+    "tipo": "touchdown",
+    "azione": "Stroud lancia lungo al centro per Boutte, 24 yard: touchdown",
+    "chi": [
+     "Stroud",
+     "Boutte"
+    ],
+    "giocatori": [
+     "C.J. Stroud",
+     "Kayshon Boutte"
+    ],
+    "punteggioDopo": "Indianapolis Colts 3 - Houston Texans 14"
+   },
+   {
+    "quarto": "2",
+    "tempo": "00:19",
+    "squadra": "Houston Texans",
+    "tipo": "field goal",
+    "azione": "Fairbairn: field goal da 27 yard riuscito",
+    "chi": [
+     "Fairbairn"
+    ],
+    "giocatori": [
+     "Ka'imi Fairbairn"
+    ],
+    "punteggioDopo": "Indianapolis Colts 3 - Houston Texans 17"
+   },
+   {
+    "quarto": "3",
+    "tempo": "10:27",
+    "squadra": "Houston Texans",
+    "tipo": "safety",
+    "azione": "Jones subisce un sack, -7 yard (perdita), safety",
+    "chi": [
+     "Jones"
+    ],
+    "giocatori": [
+     "Daniel Jones",
+     "Will Anderson Jr."
+    ],
+    "punteggioDopo": "Indianapolis Colts 3 - Houston Texans 19"
+   },
+   {
+    "quarto": "3",
+    "tempo": "04:28",
+    "squadra": "Houston Texans",
+    "tipo": "touchdown",
+    "azione": "Stroud lancia corto a destra per Klein, 13 yard: touchdown",
+    "chi": [
+     "Stroud",
+     "Klein"
+    ],
+    "giocatori": [
+     "C.J. Stroud",
+     "Marlin Klein"
+    ],
+    "punteggioDopo": "Indianapolis Colts 3 - Houston Texans 26"
+   }
+  ],
+  "momentiDecisivi": [
+   {
+    "quarto": "1",
+    "tempo": "03:44",
+    "squadra": "Indianapolis Colts",
+    "azione": "Shrader: field goal da 56 yard sbagliato",
+    "chi": [
+     "Shrader"
+    ],
+    "giocatori": [
+     "Spencer Shrader"
+    ],
+    "probabilitaVittoria": "Houston Texans da 78% a 82%"
+   },
+   {
+    "quarto": "1",
+    "tempo": "02:21",
+    "squadra": "Houston Texans",
+    "azione": "Stroud lancia lungo a destra per Collins, 42 yard: touchdown",
+    "chi": [
+     "Stroud",
+     "Collins"
+    ],
+    "giocatori": [
+     "C.J. Stroud",
+     "Nico Collins"
+    ],
+    "probabilitaVittoria": "Houston Texans da 83% a 88%"
+   },
+   {
+    "quarto": "2",
+    "tempo": "15:00",
+    "squadra": "Indianapolis Colts",
+    "azione": "Jones intercettato da Lassiter",
+    "chi": [
+     "Jones",
+     "Lassiter"
+    ],
+    "giocatori": [
+     "Daniel Jones",
+     "Deion Burks",
+     "Kamari Lassiter"
+    ],
+    "probabilitaVittoria": "Houston Texans da 89% a 90%"
+   },
+   {
+    "quarto": "2",
+    "tempo": "07:43",
+    "squadra": "Houston Texans",
+    "azione": "Stroud lancia lungo al centro per Boutte, 24 yard: touchdown",
+    "chi": [
+     "Stroud",
+     "Boutte"
+    ],
+    "giocatori": [
+     "C.J. Stroud",
+     "Kayshon Boutte"
+    ],
+    "probabilitaVittoria": "Houston Texans da 93% a 96%"
+   },
+   {
+    "quarto": "3",
+    "tempo": "04:28",
+    "squadra": "Houston Texans",
+    "azione": "Stroud lancia corto a destra per Klein, 13 yard: touchdown",
+    "chi": [
+     "Stroud",
+     "Klein"
+    ],
+    "giocatori": [
+     "C.J. Stroud",
+     "Marlin Klein"
+    ],
+    "probabilitaVittoria": "Houston Texans da 99% a 100%"
+   }
+  ],
+  "numeri": {
+   "ospiti": {
+    "yardTotali": 167,
+    "yardLancio": 144,
+    "yardCorsa": 38,
+    "azioni": 48,
+    "primiDown": 8,
+    "terziDown": "1/11",
+    "quartiDown": "1/2",
+    "palle perse": 1,
+    "sackSubiti": 2,
+    "penalita": 2,
+    "possesso": "22:14"
+   },
+   "padroniDiCasa": {
+    "yardTotali": 355,
+    "yardLancio": 194,
+    "yardCorsa": 168,
+    "azioni": 64,
+    "primiDown": 21,
+    "terziDown": "8/14",
+    "quartiDown": "0/1",
+    "palle perse": 1,
+    "sackSubiti": 1,
+    "penalita": 4,
+    "possesso": "37:46"
+   }
+  },
+  "protagonisti": {
+   "ospiti": [
+    {
+     "ruolo": "QB",
+     "nome": "Daniel Jones",
+     "completiTentati": "12/27",
+     "yardLanciate": 144,
+     "tdLancio": 0,
+     "intercettiSubiti": 1,
+     "sackSubiti": 2,
+     "yardCorsa": 3
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Jonathan Taylor",
+     "posizione": "RB",
+     "corse": 11,
+     "yardCorsa": 21,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Anthony Gould",
+     "posizione": "WR",
+     "ricezioni": 2,
+     "bersagli": 3,
+     "yardRicevute": 48,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Ashton Dulin",
+     "posizione": "WR",
+     "ricezioni": 2,
+     "bersagli": 4,
+     "yardRicevute": 30,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "A.J. Haulcy",
+     "posizione": "SAF",
+     "placcaggi": 9,
+     "sack": 0.0,
+     "intercetti": 1,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 1
+    }
+   ],
+   "padroniDiCasa": [
+    {
+     "ruolo": "QB",
+     "nome": "C.J. Stroud",
+     "completiTentati": "21/27",
+     "yardLanciate": 194,
+     "tdLancio": 3,
+     "intercettiSubiti": 1,
+     "sackSubiti": 1,
+     "yardCorsa": 27
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "David Montgomery",
+     "posizione": "RB",
+     "corse": 26,
+     "yardCorsa": 107,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Nico Collins",
+     "posizione": "WR",
+     "ricezioni": 3,
+     "bersagli": 5,
+     "yardRicevute": 58,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Kayshon Boutte",
+     "posizione": "WR",
+     "ricezioni": 2,
+     "bersagli": 2,
+     "yardRicevute": 40,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Kamari Lassiter",
+     "posizione": "CB",
+     "placcaggi": 0,
+     "sack": 0.0,
+     "intercetti": 1,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 2
+    }
+   ]
+  },
+  "contoLaLinea": {
+   "linea": "Houston Texans favoriti di 12,5: hanno vinto con un margine più largo",
+   "totale": "29 punti in tutto contro un totale di 44,5: sotto"
+  },
+  "bilancioDopo": {
+   "ospiti": "3-8",
+   "padroniDiCasa": "4-6"
+  },
+  "serieDopo": {
+   "ospiti": "",
+   "padroniDiCasa": ""
+  },
+  "video": "E4M4HIAfJl4"
  }
 }
