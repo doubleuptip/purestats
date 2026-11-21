@@ -747,6 +747,8 @@
     .leg-maglia.testa{height:220px} .leg-maglia.testa .leg-maglia-num{font-size:120px}
     .leg-art-testo p{font-size:17px}
   }
+  .gara-meteo{font-size:13px;color:var(--fb-muted);margin-top:6px}
+  .gara-meteo.medio,.gara-meteo.alto{color:var(--fb-text)} .gara-meteo.alto{font-weight:700}
   .stat-schede{margin:14px 0 10px}
   .stat-sq{margin:0 0 16px}
   .stat-sq button{font:600 14px var(--f-testo);padding:8px 16px}
@@ -1977,6 +1979,7 @@ function vFootballPartite(){
           <div class="fb-team${disputata&&p.pc>p.po?" w":""}">${stemma(p.casa,true)}<span class="n">${esc(breve(p.casa))}</span><span class="s">${disputata?p.pc:""}</span></div>
         </div>
         <div class="gara-arb">${disputata?"":"da giocare · "}${esc(dataBreve(p.dataIt||p.data))}${p.oraIt?" · ore "+esc(p.oraIt):(disputata?"":" · orario da definire")}${p.stadio?" · "+esc(p.stadio):""}</div>
+        ${disputata?"":meteoPartita(p)}
         ${linkArticolo(p, p.stagione, p.settimana)?`<div class="ar-link-riga">${linkArticolo(p, p.stagione, p.settimana)}</div>`:""}
         ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
             ${rosaAperta?"▴ NASCONDI":"▾ MIGLIORI DELLA PARTITA"}</button>` : ""}
@@ -3202,6 +3205,20 @@ function vCalendario(){
   return h;
 }
 
+/* Meteo pubblico di tutte le partite dei prossimi 7 giorni (21/11/2026): docs/meteo/partite.json, preparato da
+   articoli.py meteo_partite con la regola d'impatto generica degli articoli (NWS e Open-Meteo). */
+let METEO_P=null;
+function meteoPartita(p){
+  if(METEO_P===null){ METEO_P=false;
+    scaricaDati("meteo/partite.json").then(x=>{ METEO_P=x||{}; render(); }).catch(()=>{ METEO_P={}; }); }
+  const m=((METEO_P||{})[legaAttiva]||{})[`${p.stagione}|${p.settimana}|${p.casa}|${p.ospite}`];
+  if(!m || m.campoNeutro) return "";
+  if(m.coperto) return `<div class="gara-meteo">🏟️ Stadio coperto</div>`;
+  if(m.tempC==null) return "";
+  const ic=(m.pioggia||0)>=50?"🌧️":(m.tempC<=0)?"❄️":(m.raffKmh||0)>=35?"💨":(m.pioggia||0)>=25?"🌥️":"☀️";
+  const imp={alto:" · impatto alto",medio:" · impatto medio"}[m.impatto]||"";
+  return `<div class="gara-meteo${m.impatto==="alto"||m.impatto==="medio"?" "+m.impatto:""}" title="Previsione per l'ora del via (${esc(m.fonte||"")})">${ic} ${m.tempC}° · pioggia ${m.pioggia??"–"}%${m.raffKmh?` · raffiche ${m.raffKmh} km/h`:` · vento ${m.ventoKmh??"–"} km/h`}${imp}</div>`;
+}
 /* ================= PARTITE ================= */
 function vPartite(){
   const P=D.ultimePartite||[];

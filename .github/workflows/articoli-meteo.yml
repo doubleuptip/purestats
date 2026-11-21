@@ -25,17 +25,19 @@ jobs:
         run: python scripts/articoli.py foto_mancanti || echo "foto non scaricate, gli articoli restano con la copertina a colori"
       - name: Meteo delle anteprime
         run: python scripts/articoli.py meteo
+      - name: Meteo di tutte le partite dei prossimi 7 giorni
+        run: python scripts/articoli.py meteo_partite || echo "meteo delle partite non aggiornato, resta il file precedente"
       - name: Committa
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/articoli/*.json docs/articoli/stadi 2>/dev/null || true
+          git add docs/articoli/*.json docs/articoli/stadi docs/meteo 2>/dev/null || true
           if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
           git commit -q -m "Articoli: meteo aggiornato $(date -u '+%Y-%m-%d %H:%M UTC')"
           for t in 1 2 3 4; do
             git push && exit 0
             git pull -q --rebase origin main || { git rebase --abort; git fetch -q origin main; git reset -q --hard origin/main;
-              python scripts/articoli.py meteo; git add docs/articoli/*.json; git diff --staged --quiet && exit 0;
+              python scripts/articoli.py meteo; python scripts/articoli.py meteo_partite || true; git add docs/articoli/*.json docs/meteo; git diff --staged --quiet && exit 0;
               git commit -q -m "Articoli: meteo aggiornato $(date -u '+%Y-%m-%d %H:%M UTC')"; }
           done
           exit 1

@@ -6,6 +6,7 @@ Comandi:
                                                              controlla il testo e lo pubblica in docs/articoli/
   python scripts/articoli.py foto_mancanti                   scarica da Wikimedia le foto degli stadi che mancano (nel workflow)
   python scripts/articoli.py foto                            rimette foto e crediti negli articoli pubblicati
+  python scripts/articoli.py meteo_partite                   meteo di tutte le partite dei prossimi 7 giorni (docs/meteo/partite.json)
   python scripts/articoli.py meteo                           aggiorna la scheda meteo delle anteprime in arrivo
   python scripts/articoli.py scegli <nfl|college> <week> [stagione]   le 3 partite da raccontare
   python scripts/articoli.py da_fare                         anteprime (via entro 48 ore) e cronache da scrivere
@@ -1226,6 +1227,85 @@ def meteo() -> None:
         print(f"Meteo aggiornato per {a['id']}: {scheda}")
 
 
+METEO_PARTITE = RADICE / "docs" / "meteo" / "partite.json"
+
+
+def meteo_partite() -> None:
+    """Meteo pubblico di TUTTE le partite NFL e college dei prossimi 7 giorni (21/11/2026, scelta di Valerio), con la
+    stessa regola d'impatto generica degli articoli (non le misure di Charlie). NWS + Open-Meteo, gratis.
+    Per non chiamare le fonti più del necessario una previsione si rifà ogni 3 ore, ogni ora nelle 12 ore prima del via.
+    Niente meteo in campo neutro (lo stadio non è quello di casa); stadi coperti segnati come tali."""
+    sys.path.insert(0, str(RADICE / "scripts"))
+    from contesto import STADI_NFL, meteo as previsione
+    ora = dt.datetime.now(dt.timezone.utc)
+    vecchio = json.loads(METEO_PARTITE.read_text()) if METEO_PARTITE.exists() else {}
+    out = {"aggiornato": ora.astimezone(ROMA).isoformat(timespec="minutes"), "nfl": {}, "college": {},
+           "fonti": "NWS (National Weather Service) e Open-Meteo"}
+    # NFL: partite da giocare dall'archivio del sito; campo neutro = stadio diverso da quello abituale della squadra
+    nfl = list(csv.DictReader(io.StringIO((RADICE / "data" / "nfl.csv").read_text())))
+    abituale = {}
+    for r in nfl:
+        if r["Stagione"] in (str(ora.year), str(ora.year - 1)):
+            abituale.setdefault(r["Casa"], collections.Counter())[r["Stadio"]] += 1
+    partite = []
+    for r in nfl:
+        if r["PuntiCasa"] or not r["Data"]:
+            continue
+        inizio = dt.datetime.fromisoformat(f"{r['Data']}T{r['Ora'] or '13:00'}").replace(tzinfo=NY).astimezone(dt.timezone.utc)
+        solito = abituale.get(r["Casa"], collections.Counter()).most_common(1)
+        neutro = bool(solito) and r["Stadio"] != solito[0][0]
+        lat, lon, coperto = STADI_NFL.get(r["Casa"], (None, None, None))
+        coperto = coperto or r.get("Copertura") in ("dome", "closed")
+        partite.append(("nfl", f"{r['Stagione']}|{r['Settimana']}|{r['Casa']}|{r['Ospite']}", inizio, lat, lon, coperto, neutro))
+    # College: calendario ESPN del sito (data_college.json), campo neutro da data/college.csv
+    stadi = json.loads((RADICE / "data" / "college_stadi.json").read_text())["squadre"]
+    neutri = {(r["Stagione"], r["Settimana"], r["Casa"], r["Ospite"]) for r in
+              csv.DictReader(io.StringIO((RADICE / "data" / "college.csv").read_text())) if r.get("CampoNeutro") in ("1", "True", "true")}
+    for p in json.loads((RADICE / "docs" / "data_college.json").read_text()).get("ultimePartite", []):
+        if p.get("pc") is not None or not p.get("inizio"):
+            continue
+        inizio = dt.datetime.fromisoformat(p["inizio"].replace("Z", "+00:00"))
+        if inizio.tzinfo is None:
+            inizio = inizio.replace(tzinfo=dt.timezone.utc)      # l'inizio ESPN è in UTC
+        lat, lon, coperto = stadi.get(p["casa"]) or (None, None, None)
+        neutro = (p["stagione"], p["settimana"], p["casa"], p["ospite"]) in neutri
+        partite.append(("college", f"{p['stagione']}|{p['settimana']}|{p['casa']}|{p['ospite']}", inizio, lat, lon, coperto, neutro))
+    nuove = rifatte = 0
+    for lega, chiave, inizio, lat, lon, coperto, neutro in partite:
+        if inizio < ora - dt.timedelta(hours=4) or inizio - ora > dt.timedelta(days=7):
+            continue
+        prima = (vecchio.get(lega) or {}).get(chiave)
+        if neutro:
+            out[lega][chiave] = {"campoNeutro": True}
+            continue
+        if lat is None:
+            continue                                    # stadio sconosciuto (squadre FCS): niente meteo
+        if prima and prima.get("tempC") is not None:
+            eta = ora - dt.datetime.fromisoformat(prima["aggiornato"])
+            if eta < dt.timedelta(hours=3) and not (inizio - ora < dt.timedelta(hours=12) and eta >= dt.timedelta(minutes=50)):
+                out[lega][chiave] = prima                # previsione ancora fresca: nessuna chiamata
+                continue
+        if inizio < ora:
+            if prima:
+                out[lega][chiave] = prima                # partita in corso: resta l'ultima previsione
+            continue
+        m = previsione(lat, lon, inizio, "College" if lega == "college" else "NFL")
+        if not m or m.get("tempC") is None:
+            if prima:
+                out[lega][chiave] = prima
+            print(f"meteo non disponibile per {lega} {chiave}: resta la previsione precedente, se c'era")
+            continue
+        scheda = {"tempC": m.get("tempC"), "pioggia": m.get("pioggia"), "ventoKmh": m.get("ventoKmh"),
+                  "raffKmh": m.get("raffKmh"), "fonte": m.get("fonte"), "aggiornato": ora.isoformat(timespec="minutes")}
+        scheda["coperto"] = bool(coperto)
+        scheda["impatto"] = "coperto" if coperto else impatto(scheda)
+        out[lega][chiave] = scheda
+        rifatte += 1
+    METEO_PARTITE.parent.mkdir(parents=True, exist_ok=True)
+    METEO_PARTITE.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    print(f"meteo delle partite: {len(out['nfl'])} NFL e {len(out['college'])} college, {rifatte} previsioni rifatte")
+
+
 if __name__ == "__main__":
     if len(sys.argv) >= 3 and sys.argv[1] == "fatti":
         fatti(sys.argv[2])
@@ -1243,6 +1323,8 @@ if __name__ == "__main__":
         fatti_college(int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], sys.argv[5])
     elif len(sys.argv) >= 2 and sys.argv[1] == "meteo":
         meteo()
+    elif len(sys.argv) >= 2 and sys.argv[1] == "meteo_partite":
+        meteo_partite()
     elif len(sys.argv) >= 2 and sys.argv[1] == "foto":
         aggiorna_foto()
     elif len(sys.argv) >= 2 and sys.argv[1] == "foto_mancanti":

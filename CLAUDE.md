@@ -261,6 +261,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   che mancano le scarica `articoli.py foto_mancanti` nel workflow articoli-meteo (Wikimedia Commons, solo licenze libere;
   dalla sandbox non si raggiunge); senza foto la copertina usa i colori delle squadre. Video: solo anteprima che apre
   YouTube, perché la NFL blocca la visione dei suoi video dentro altri siti.
+- Meteo di tutte le partite (21/11/2026, scelta di Valerio): `articoli.py meteo_partite` nel workflow articoli-meteo scrive
+  `docs/meteo/partite.json` (NFL e college, prossimi 7 giorni, chiave stagione|week|casa|ospite) con la regola d'impatto
+  generica degli articoli; previsione rifatta ogni 3 ore, ogni ora nelle 12 ore prima del via; niente meteo in campo
+  neutro; stadi coperti segnati. Nelle schede delle partite da giocare (`meteoPartita`).
 - Sito: menu ARTICOLI, articolo con impaginazione B (testo a sinistra, colonna con meteo e numeri), collegamento
   «Leggi l'anteprima/la cronaca» dalle schede partita, indirizzo diretto `#articolo=<id>`.
 
