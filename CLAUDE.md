@@ -332,6 +332,9 @@ davvero che si veda quello che deve vedersi.
    vegas_home_wp_post di nflverse, più peso alle azioni verso il risultato finale (touchdown, palle perse, quarti
    down fermati), al massimo 2 momenti per quarto. Poi la cronaca di Colts-Texans (2026_11_IND_HOU) come prova di
    tutte le cronache: serve prima in articoli.py la preparazione dei fatti dal play-by-play.
+   Subito dopo, una riga: in fetch_duelli.py (circa riga 425) «assenze tra le più pesanti d'America (12ª su 138,
+   12 in lista)» diventa «assenze tra le più pesanti del college: 12ª squadra su 138, 12 giocatori in lista»
+   (Valerio l'aveva letto come un nome di giocatore).
 1. Articoli, fase 2: scelta automatica delle 3 partite NFL (posta playoff da nfl_playoff + partite di cartello) e
    3 college (classificate / corsa ai playoff); cronache dal play-by-play con il video YouTube a metà testo; foto di
    tutti gli stadi NFL da Wikimedia con i crediti; college in articoli.py; attività programmate ricorrenti (martedì
