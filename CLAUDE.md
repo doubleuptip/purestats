@@ -236,6 +236,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   protagonisti dal tabellino settimanale, esito contro linea e totale solo a parole, bilancio dopo, id del video);
   `pubblica <id> cronaca` mette punteggio, video a metà testo e il riquadro «I numeri della partita» (riquadro_cronaca).
   Se nflverse non ha ancora il play-by-play della partita, `fatti` si ferma e lo dice.
+- Attività programmata «PureStats: articoli del giorno» (dal 21/11/2026, ogni giorno alle 11:47 italiane, sessione
+  nuova): `articoli.py da_fare` → per ogni voce fatti, verifica web (notizie_<id>.json / correzioni_<id>.json con fonte),
+  bozza, pubblica, commit; meteo lanciato se ci sono anteprime. College: `fatti_college` (SP+, tabellini ESPN; cronache
+  dalle «azioni» ESPN in archivio, video solo se ufficiale). Scelta: `scegli_nfl` / `scegli_college` (bilanci, SP+,
+  linea, division, prima serata), salvata in scelte_<lega>_<stagione>_<week>.json.
 - Momenti decisivi (21/11/2026): probabilità di vittoria dal mercato (vegas_home_wp/vegas_home_wpa), sotto 3 punti solo
   azioni chiave, peso pieno verso il risultato finale, al massimo 2 per quarto (nfl_indici, costanti MOMENTI_*).
 - Sito: menu ARTICOLI, articolo con impaginazione B (testo a sinistra, colonna con meteo e numeri), collegamento
@@ -333,11 +338,9 @@ davvero che si veda quello che deve vedersi.
 
 ## Da fare da sabato 21/11/2026 (dopo il rinnovo dell'abbonamento, ore 5)
 
-1. Articoli, fase 2: scelta automatica delle 3 partite NFL (posta playoff da nfl_playoff + partite di cartello) e
-   3 college (classificate / corsa ai playoff); cronache dal play-by-play con il video YouTube a metà testo; foto di
-   tutti gli stadi NFL da Wikimedia con i crediti; college in articoli.py; attività programmate ricorrenti (martedì
-   cronache dom/lun + anteprima del giovedì, venerdì cronaca del giovedì, sabato anteprime NFL e college, domenica
-   cronache college).
+1. Articoli, resto della fase 2: foto di tutti gli stadi NFL e dei college delle partite scelte da Wikimedia con i crediti
+   (oggi solo NRG Stadium). Orari NFL spostati dalla tv: nflverse li aggiorna in ritardo (Jaguars-Giants del 22/11 ancora
+   alle 13:00 invece delle 16:25 ET), anche nel calendario del sito: valutare l'orario ESPN (già letto da mercato.py).
 2. Sezione «LEGGENDE» (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
    mostrato il 19/11: menu accanto ad ARTICOLI; racconto in evidenza con il numero di maglia grande nei colori della
    squadra (niente foto dei giocatori); «I più grandi» per ruolo (QB, RB, WR, TE, difesa, allenatori) in due elenchi:
