@@ -2369,7 +2369,8 @@ function vLeggende(){
   }
   if(!LEG) return testa+`<div class="loading">Caricamento…</div>`;
   if(LEG.errore) return testa+`<p class="fb-note">Le Leggende non sono disponibili in questo momento.</p>`;
-  const evid=(LEG_RAC||[])[0];
+  // in evidenza: un racconto diverso ogni giorno
+  const evid=(LEG_RAC||[]).length ? LEG_RAC[Math.floor(Date.now()/86400000) % LEG_RAC.length] : null;
   return testa+(evid?`<a class="leg-evid" href="#leggenda=${esc(evid.id)}" onclick="apriLeggenda('${esc(evid.id)}');return false">
       ${legGrandeNum(evid,"media")}<span class="leg-evid-t"><small>In evidenza · ${esc(evid.occhiello)}</small><b>${esc(evid.titolo)}</b>
       <span>${esc(evid.paragrafi[0].slice(0,190))}…</span><em>Leggi il racconto →</em></span></a>`:"")+`<div id="leg-corpo">${legCorpo()}</div>
