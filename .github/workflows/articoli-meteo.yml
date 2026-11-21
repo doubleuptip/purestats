@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Foto degli stadi che mancano (Wikimedia Commons)
-        run: python scripts/articoli.py foto_mancanti || echo "foto non scaricate: gli articoli restano con la copertina a colori"
+        run: python scripts/articoli.py foto_mancanti || echo "foto non scaricate, gli articoli restano con la copertina a colori"
       - name: Meteo delle anteprime
         run: python scripts/articoli.py meteo
       - name: Committa
