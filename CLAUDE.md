@@ -192,7 +192,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 
 ## Calcio e Matchup solo per Valerio (dal 17/11/2026)
 
-- Il sito si apre su NFL; per tutti si vedono solo NFL e College FB. Calcio (tutti i campionati e il calendario) e il
+- Il sito si apre su NFL (pagina HOME); per tutti si vedono solo NFL e College FB. Calcio (tutti i campionati e il calendario) e il
   pulsante MATCHUP compaiono solo con il collegamento privato `https://doubleuptip.github.io/purestats/#k=<password>`
   (stessa password di Matchup, secret DUELLI_PASSWORD). La pagina legge la chiave, la toglie subito dalla barra degli
   indirizzi (history.replaceState) e la tiene solo in memoria; la passa a duelli.html (`#NFL&k=...`), che si apre da
@@ -230,7 +230,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Menu unico (21/11/2026, scelta di Valerio): nel football niente più SQUADRE; STATISTICHE ha le schede «Squadre»
   (Classifica = la vecchia pagina SQUADRE con la scheda di ogni squadra · Fatte · Concesse) e «Giocatori»
   (`testataStat`, `schedaStat`, `ultimaStat`). Classifica ordinata per % vittorie e differenza. NFL e College si
-  aprono sulla Giornata (Partite dove non c'è), che è anche la prima scheda a sinistra del menu. Il calcio tiene il suo menu SQUADRE.
+  aprono sulla HOME (dal 21/11/2026), la prima scheda a sinistra del menu. Il calcio tiene il suo menu SQUADRE.
 - Fonti: NFL nflverse (CC-BY 4.0, va citato), College tabellini ESPN. Le pressioni PFR non si ripubblicano: tolte
   anche dai leader della Giornata, restano solo per Charlie (cifrato).
 
@@ -292,6 +292,32 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   Hail Flutie 1984, The Play 1982, Kick Six 2013, Boise State al Fiesta Bowl 2007. Il collegamento diretto a un
   racconto dell'altro campionato cambia campionato da solo (`LEG_SEGUI`).
 - Un racconto nuovo ogni mercoledì (scelta di Valerio): attività programmata «PureStats: racconto delle Leggende».
+
+## Home (dal 21/11/2026, scelta di Valerio: opzione C «più professionale»)
+
+- HOME è la prima voce del menu e la pagina d'apertura di NFL e College (`vHome`, funzioni `...H`). NFL: striscia della
+  week con conto alla rovescia (ora italiana con `istanteRoma`), partita della settimana (articolo più recente) e ultima
+  partita, il meglio della week, la corsa (playoff AFC/NFC + ranking), la strada verso i playoff (partite decisive +
+  meteo), In TV in Italia, da leggere, storia (accadde oggi, mai battuto, dinastie: le ultime due cambiano ogni giorno),
+  dal College. College: striscia con le partite delle squadre in classifica, classifica CFP e FPI, il meglio, da leggere.
+- `scripts/home_nfl.py` (workflow NFL, dopo fetch_duelli) → `docs/home_nfl.json`: corsa ai playoff con
+  `nfl_playoff.corsa` (stessa simulazione di Charlie, tutte le partite rimaste; `stato` di Charlie invariato, verificato
+  identico), partite decisive (somma dei salti vittoria/sconfitta), ranking (metà margini corretti per gli avversari,
+  metà EPA degli indici se il giro li ha; movimento dalla settimana prima, `storico` nel file), il meglio della week
+  (giocata dalla Giornata, giocatore per punti fantasy standard nflverse, squadra EPA; resta l'ultima week completa finché
+  quella nuova ha solo il giovedì), accadde oggi (partita più importante della data dal 1999: turno di playoff, punti,
+  supplementari, finale punto a punto).
+- `scripts/home_college.py` (workflow College) → `docs/home_college.json`: classifica CFP (prima che esca, AP) e FPI ESPN
+  (playoff %, finale %), 2 richieste ESPN gratis; nomi delle squadre dall'id nel logo.
+- TV in Italia (`scripts/tv_italia.py`, workflow NFL) → `docs/tv_italia.json`. Tutte le partite NFL con NFL Game Pass su
+  DAZN (bollino DAZN); cinque a settimana incluse anche negli abbonamenti DAZN Sports, Full e Family (conferma di Valerio,
+  abbonato): Thursday Night, una delle 19:00, una delle 22:05/22:25, Sunday Night, Monday Night. Le partite con il via tra
+  00:30 e 04:30 italiane sono incluse per regola; le due della domenica dall'articolo settimanale di DAZN Italia «… cinque
+  partite da non perdere della Week N in ogni fascia oraria» (elenco notizie NFL Game Pass, robots.txt permette
+  /it-IT/news; titoletti «X vs. Y» seguiti da «Kick-off Italia»), se manca dalle anteprime «… diretta su DAZN». Ogni
+  articolo si legge una volta (`letti`). Prime Video non trasmette la NFL in Italia: nessun bollino.
+- Da controllare: se l'articolo DAZN delle cinque partite esce ogni settimana (trovato per la Week 11). Se manca spesso,
+  riserva da fare: comando nel bot per segnarle a mano (serve un token GitHub nel config.toml del server).
 
 ## Fonti a credito (chiamate limitate)
 

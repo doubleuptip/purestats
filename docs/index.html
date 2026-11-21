@@ -767,6 +767,117 @@
     .ar-lato{grid-column:2;grid-row:3/span 2;position:sticky;top:20px;margin-top:18px}
     .ar-lato>div:first-child{margin-top:0}
   }
+  /* ===== HOME (21/11/2026) ===== */
+  .h{max-width:1240px;margin:0 auto}
+  .h-sez{margin:34px 0 0}
+  .h-st{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:2px solid var(--fb-text);padding-bottom:6px;margin-bottom:14px}
+  .h-st h2{font:800 26px/1.1 var(--fb-head);margin:0;color:var(--fb-text);letter-spacing:-.01em}
+  .h-st a{font:700 13.5px var(--f-testo);color:var(--fb-acc);text-decoration:none;white-space:nowrap}
+  .h-card{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:16px;min-width:0;display:flex;flex-direction:column;color:var(--fb-text);text-decoration:none}
+  .h-tag{font:700 11px var(--f-testo);letter-spacing:.09em;color:var(--fb-muted);margin-bottom:10px;text-transform:uppercase}
+  .h-tag.rosso{color:var(--fb-acc)} .h-tag.luce{color:#fff;opacity:.92}
+  .h-nota{font-size:12.5px;line-height:1.45;color:var(--fb-muted);margin:auto 0 0;padding-top:10px}
+  .h-nota a{color:var(--fb-acc)}
+  .h-g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .h-g4{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:16px}
+  .h-g21{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px}
+  .h-g11{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .h-due{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .h-due h3{font:800 16px var(--fb-head);margin:0 0 6px;color:var(--fb-text)}
+  .h-schede{display:none}
+  /* striscia */
+  .h-ticker{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:thin}
+  .h-tk-tit{flex:none;writing-mode:vertical-rl;transform:rotate(180deg);font:800 12px var(--f-testo);letter-spacing:.12em;color:var(--fb-muted);text-align:center}
+  .h-cd{flex:none;background:var(--fb-acc);color:var(--fb-acc-text);border-radius:10px;padding:9px 14px;display:flex;flex-direction:column;justify-content:center;min-width:168px}
+  .h-cd small{font:700 10.5px var(--f-testo);letter-spacing:.08em;opacity:.92}.h-cd b{font:800 25px/1.1 var(--fb-head)}.h-cd span{font-size:11.5px;opacity:.92}
+  .h-tk{flex:none;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;min-width:150px;font-size:13px;color:var(--fb-text)}
+  .h-tk small{font:700 10.5px var(--f-testo);letter-spacing:.03em;color:var(--fb-muted);display:flex;align-items:center;gap:4px;white-space:nowrap}
+  .h-tk.fin small{color:var(--fb-acc)}
+  .h-tk span{display:flex;align-items:center;gap:6px;color:var(--fb-muted)} .h-tk span.vince{color:var(--fb-text);font-weight:700}
+  .h-tk:not(.fin) span{color:var(--fb-text)}
+  .h-tk b{margin-left:auto} .h-tk .fb-logo.s,.h-tk .fb-badge.s{width:18px;height:18px}
+  /* apertura */
+  .h-hero{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;margin-top:16px}
+  .h-cover{border-radius:16px;min-height:380px;background-size:cover;background-position:center;color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none}
+  .h-cover b{font:800 36px/1.08 var(--fb-head);max-width:720px}.h-cover small{font-size:14px;opacity:.9;margin-top:10px}
+  .h-cover.vuota{background:var(--fb-card);border:1px solid var(--fb-border);color:var(--fb-muted)}
+  .h-ris{display:flex;align-items:center;justify-content:space-between;margin:6px 0 12px}
+  .h-ris>span{display:flex;flex-direction:column;align-items:center;gap:5px;width:76px}.h-ris em{font-style:normal;font-weight:700;font-size:14px}
+  .h-ris b{font:800 50px/1 var(--fb-head);color:var(--fb-text);white-space:nowrap}.h-ris b .perde{color:var(--fb-muted)}.h-ris i{font-style:normal;color:var(--fb-muted);margin:0 6px}
+  .h-mom{list-style:none;padding:0;margin:0 0 12px;font-size:13.5px;line-height:1.45}
+  .h-mom li{padding:6px 0;border-top:1px solid var(--fb-border)}.h-mom b{color:var(--fb-acc);margin-right:6px}
+  .h-az{display:flex;gap:6px;margin-top:auto}
+  .h-az a{flex:1;text-align:center;border:1px solid var(--fb-border);border-radius:8px;padding:8px 0;font:600 13px var(--f-testo);color:var(--fb-text);text-decoration:none}
+  .h-az a.pieno{background:var(--fb-acc);border-color:var(--fb-acc);color:var(--fb-acc-text)}
+  /* contenuti */
+  .h-big{display:flex;gap:14px;align-items:center}
+  .h-num{font:800 46px/1 var(--fb-head);color:var(--fb-acc);flex:none}
+  .h-nump{font:800 26px/1 var(--fb-head);color:var(--fb-acc);flex:none;min-width:48px}
+  .h-big b{display:block;font-size:16.5px;line-height:1.25}.h-big small{display:block;font-size:13px;color:var(--fb-muted);line-height:1.45;margin-top:3px}
+  .h-video{display:block;position:relative;border-radius:10px;overflow:hidden;margin-bottom:10px;background:#000}
+  .h-video img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;opacity:.9}
+  .h-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:var(--fb-acc);color:#fff;display:grid;place-items:center;font-size:20px}
+  .h-dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.72);color:#fff;font:600 11px var(--f-testo);padding:3px 7px;border-radius:5px}
+  .h-t{font-size:15.5px;line-height:1.3}.h-s{font-size:12.5px;color:var(--fb-muted);margin-top:4px;line-height:1.45}
+  .h-lista{list-style:none;padding:0;margin:0}
+  .h-lista li{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--fb-border);font-size:14px}
+  .h-lista li:first-child{border-top:0}
+  .h-lista b{flex:1;min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .h-lista b small{font-weight:400;color:var(--fb-muted);font-size:12px;margin-left:6px}
+  .h-lista li.fuori{opacity:.62}
+  .h-lista li.h-taglio{border-top:2px dashed var(--fb-acc);padding:2px 0;font:700 10px var(--f-testo);letter-spacing:.08em;color:var(--fb-acc);justify-content:flex-end;text-transform:uppercase}
+  .h-lista li.h-taglio + li{border-top:0}
+  .h-lista.due{columns:2;column-gap:24px}.h-lista.due li{break-inside:avoid}.h-lista.due li:first-child{border-top:1px solid var(--fb-border)}
+  .h-pos{width:20px;text-align:right;font:700 13px var(--f-testo);color:var(--fb-muted);flex:none}
+  .h-bar{display:block;width:64px;height:6px;border-radius:3px;background:var(--fb-pill);overflow:hidden;flex:none}.h-bar i{display:block;height:100%;background:var(--fb-acc)}
+  .h-bar.lungo{width:auto;margin-top:12px}
+  .h-lista em{font-style:normal;font:700 13.5px var(--f-testo);min-width:42px;text-align:right}
+  .h-mov{font:700 11.5px var(--f-testo);color:var(--fb-muted);width:30px;text-align:center;flex:none}.h-mov.su{color:#16A34A}.h-mov.giu{color:var(--fb-acc)}
+  .h-meteo{list-style:none;padding:0;margin:0}.h-meteo li{display:flex;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--fb-border)}.h-meteo li:first-child{border-top:0}
+  .h-mic{font-size:28px;flex:none}.h-meteo b{display:block;font-size:15px}.h-meteo small{display:block;font-size:12.5px;color:var(--fb-muted)}
+  .h-art{padding:0;overflow:hidden}.h-img{display:block;aspect-ratio:16/10;background-size:cover;background-position:center}
+  .h-art-t{display:block;padding:12px 14px 16px}.h-art-t b{font:700 16px/1.3 var(--f-testo);display:block}
+  .h-maglia{display:grid;place-items:center}.h-maglia span{font:900 80px/1 var(--fb-head);color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+  .h-altro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:22px;align-items:start}
+  .h-coll{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .h-coll a{text-decoration:none;color:var(--fb-text)}.h-coll b{display:block;font-size:15px;line-height:1.3}
+  .h-altro:not(:has(.h-coll-top)){grid-template-columns:1fr}
+  /* TV */
+  .tv{display:inline-flex;align-items:center;font:800 10.5px var(--f-testo);letter-spacing:.04em;padding:2px 6px;border-radius:4px;line-height:1.4;vertical-align:1px}
+  .tv.dazn{background:#0C161C;color:#F8FC00;border:1px solid #2A3A42}
+  .tv.incl{background:#F8FC00;color:#0C161C;margin-left:5px}
+  .tv.incl.mini{margin-left:2px;font-size:9px;padding:1px 4px}
+  .tv-nota{font-size:12px;color:var(--fb-muted);margin-left:6px}
+  .gara-tv{display:flex;align-items:center;flex-wrap:wrap;gap:4px;font-size:12.5px;color:var(--fb-muted);margin-top:6px}
+  .h-tvs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+  .h-tv{border:1px solid var(--fb-border);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+  .h-tv small{font:700 11px var(--f-testo);color:var(--fb-muted)} .h-tv span{display:flex;align-items:center;gap:6px;font-weight:600}.h-tv b{margin-left:auto}
+  /* partite decisive */
+  .dc{list-style:none;padding:0;margin:0}
+  .dc li{display:grid;grid-template-columns:140px minmax(0,1fr) 120px;gap:14px;align-items:center;padding:10px 0;border-top:1px solid var(--fb-border)}
+  .dc li:first-child{border-top:0}
+  .dc-sx{display:flex;flex-direction:column;gap:3px;align-items:flex-start}
+  .dc-wk{font:800 11px var(--f-testo);letter-spacing:.08em;color:var(--fb-acc)}.dc-data{font:600 13px var(--f-testo)}
+  .dc-sq{display:flex;flex-direction:column;gap:5px}.dc-sq span{display:flex;align-items:center;gap:8px;font-size:14px}
+  .dc-sq b{flex:1;font-weight:600}.dc-sq em{font-style:normal;font:700 13px var(--f-testo);width:42px;text-align:right}
+  .dc-sq i{font-style:normal;font:600 12px var(--f-testo);color:var(--fb-muted);width:86px;text-align:right}
+  .dc-dx small{font-size:11px;color:var(--fb-muted)}
+  .dc-lev{display:block;height:8px;border-radius:4px;background:var(--fb-pill);overflow:hidden;margin-bottom:4px}.dc-lev i{display:block;height:100%;background:linear-gradient(90deg,#F59E0B,var(--fb-acc))}
+  @media (max-width:760px){
+    .h-st h2{font-size:22px}
+    .h-hero,.h-g21,.h-g11,.h-due,.h-altro{grid-template-columns:1fr}
+    .h-coll{grid-template-columns:1fr}
+    .h-g3,.h-g4,.h-tvs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px}
+    .h-g3>*,.h-g4>*{flex:none;width:82%;scroll-snap-align:start}
+    .h-tvs>*{flex:none;width:44%}
+    .h-cover{min-height:300px;padding:18px}.h-cover b{font-size:28px}
+    .h-schede{display:flex;gap:6px;margin-bottom:10px}
+    .h-schede button{flex:1;padding:7px 0;border-radius:8px;border:1px solid var(--fb-border);background:transparent;color:var(--fb-text);font:700 13px var(--f-testo)}
+    .h-schede button.on{background:var(--fb-text);color:var(--fb-bg)}
+    .h-conf{display:none}.h-conf.on{display:block}.h-due h3{display:none}
+    .h-lista.due{columns:1}
+    .dc li{grid-template-columns:1fr;gap:6px}.dc-sx{flex-direction:row;gap:8px;align-items:center}.dc-dx{display:none}
+  }
 </style>
 <link rel="icon" href="icona.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -793,9 +904,10 @@
   <div class="lega" id="scelta-lega"></div>
   <div class="sub-lega" id="sub-lega" style="display:none"></div>
   <nav>
-    <!-- GIORNATA per prima: nel football è la pagina d'apertura (nel calcio è nascosta).
+    <!-- HOME per prima: nel football è la pagina d'apertura (21/11/2026); nel calcio HOME e GIORNATA sono nascoste.
          Tutte le voci partono nascoste: le mostra render() quando sa quale campionato è aperto, così all'apertura
          non compare per un attimo il menu del calcio (ARBITRI). -->
+    <button id="n-home" onclick="vai('home')" style="display:none">HOME</button>
     <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
     <button id="n-arb" onclick="vai('arbitri')" style="display:none">ARBITRI</button>
     <button id="n-squ" onclick="vai('squadre')" style="display:none">SQUADRE</button>
@@ -1234,12 +1346,13 @@ function render(){
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
   const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
         conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
-  [["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-leg",soloFootball],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
+  [["n-home",soloFootball],["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-leg",soloFootball],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
-  // football (21/11/2026, scelta di Valerio): si apre sulla Giornata, o su Partite dove non c'è
-  const apertura = conGio ? "giornata" : "partite";
+  // football (21/11/2026, scelte di Valerio): si apre sulla HOME, la prima voce del menu
+  const apertura = "home";
+  if(!soloFootball && vista==="home") vista="arbitri";
   if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)||(vista==="prossima"&&!conPro)) vista = soloFootball ? apertura : "arbitri";
   if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista=apertura;
   if(!soloFootball && vista==="articoli") vista="arbitri";
@@ -1255,6 +1368,7 @@ function render(){
   document.getElementById("n-squ").className = vista==="squadre"?"on":"";
   document.getElementById("n-par").className = vista==="partite"?"on":"";
   const bc=document.getElementById("n-cal"); if(bc) bc.className = vista==="calendario"?"on":"";
+  document.getElementById("n-home").className = vista==="home"?"on":"";
   document.getElementById("n-gio").className = vista==="giornata"?"on":"";
   document.getElementById("n-ind").className = vista==="indici"?"on":"";
   document.getElementById("n-pro").className = vista==="prossima"?"on":"";
@@ -1267,7 +1381,8 @@ function render(){
     app.innerHTML = arbitroAleague ? vSchedaAleague() : vArbitriAleague();
   }
   else if(eFootball()){
-    app.innerHTML = vista==="articoli" ? vArticoli()
+    app.innerHTML = vista==="home" ? vHome()
+                  : vista==="articoli" ? vArticoli()
                   : vista==="leggende" ? vLeggende()
                   : vista==="giornata" ? vFootballGiornata()
                   : vista==="statistiche" ? testataStat()+vStatistiche()
@@ -1979,7 +2094,7 @@ function vFootballPartite(){
           <div class="fb-team${disputata&&p.pc>p.po?" w":""}">${stemma(p.casa,true)}<span class="n">${esc(breve(p.casa))}</span><span class="s">${disputata?p.pc:""}</span></div>
         </div>
         <div class="gara-arb">${disputata?"":"da giocare · "}${esc(dataBreve(p.dataIt||p.data))}${p.oraIt?" · ore "+esc(p.oraIt):(disputata?"":" · orario da definire")}${p.stadio?" · "+esc(p.stadio):""}</div>
-        ${disputata?"":meteoPartita(p)}
+        ${disputata?"":meteoPartita(p)}${tvRiga(p)}
         ${linkArticolo(p, p.stagione, p.settimana)?`<div class="ar-link-riga">${linkArticolo(p, p.stagione, p.settimana)}</div>`:""}
         ${conRose ? `<button class="toggle-gio" onclick="apriPartita('${esc(kp).replace(/'/g,"\\'")}')">
             ${rosaAperta?"▴ NASCONDI":"▾ MIGLIORI DELLA PARTITA"}</button>` : ""}
@@ -2528,6 +2643,364 @@ function stFmt(v, col){
   const dec = ST.misura==="pg" && !col[4] ? Math.max(col[3]||0,1) : (col[3]||0);
   const s = v.toLocaleString("it-IT",{minimumFractionDigits:dec,maximumFractionDigits:dec,useGrouping:"always"});
   return col[0]==="epa" && v>0 ? "+"+s : s;
+}
+
+
+/* ===================== HOME (dal 21/11/2026, scelta di Valerio: opzione C, «più professionale») =====================
+   Pagina d'apertura di NFL e College. Dati: docs/home_<lega>.json (scripts/home_nfl.py, home_college.py: corsa ai
+   playoff, ranking, il meglio della week, accadde oggi, classifica CFP e FPI), docs/tv_italia.json (partite incluse
+   negli abbonamenti DAZN, scripts/tv_italia.py), meteo/partite.json, articoli, leggende. Nessun segnale di valore. */
+const HOME_D={};          // lega -> dati (false = in arrivo, {} = non disponibili)
+let TV_IT=null, homeConf="AFC", homeTutte=false, homeTimer=null;
+function caricaHome(lega){
+  if(HOME_D[lega]===undefined){ HOME_D[lega]=false;
+    scaricaDati(`home_${lega}.json`).then(x=>{ HOME_D[lega]=x||{}; render(); }).catch(()=>{ HOME_D[lega]={}; render(); }); }
+  if(lega==="nfl" && TV_IT===null){ TV_IT=false;
+    scaricaDati("tv_italia.json").then(x=>{ TV_IT=x||{}; render(); }).catch(()=>{ TV_IT={}; }); }
+  if(METEO_P===null){ METEO_P=false;
+    scaricaDati("meteo/partite.json").then(x=>{ METEO_P=x||{}; render(); }).catch(()=>{ METEO_P={}; }); }
+  caricaArticoli(); caricaLeggende();
+}
+/* Ora italiana → istante: l'offset di Roma si chiede al browser (ora solare o legale) */
+function istanteRoma(dataIt, oraIt){
+  if(!dataIt || !oraIt) return null;
+  const [a,m,g]=dataIt.split("-").map(Number), [h,mi]=oraIt.split(":").map(Number);
+  const utc=Date.UTC(a,m-1,g,h,mi);
+  let off=1;
+  try{
+    const t=new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Rome",timeZoneName:"shortOffset"}).formatToParts(new Date(utc))
+      .find(p=>p.type==="timeZoneName"); const x=/GMT([+-]\d+)/.exec(t?t.value:""); if(x) off=Number(x[1]);
+  }catch(e){}
+  return new Date(utc-off*3600e3);
+}
+function finitaP(p){ return p.pc!==null && p.pc!==undefined; }
+/* Week in corso: la prima della stagione più recente con partite da giocare (altrimenti l'ultima) */
+function weekCorrente(DD){
+  const P=(DD.ultimePartite||[]).filter(p=>p.settimana);
+  if(!P.length) return {stagione:null, settimana:null, partite:[]};
+  const st=P.reduce((m,p)=>String(p.stagione)>String(m)?p.stagione:m, P[0].stagione);
+  const S=P.filter(p=>String(p.stagione)===String(st));
+  const da=S.filter(p=>!finitaP(p));
+  const w=da.length ? Math.min(...da.map(p=>Number(p.settimana))) : Math.max(...S.map(p=>Number(p.settimana)));
+  const quando=p=>(p.dataIt||p.data||"")+"T"+(p.oraIt||"99");
+  return {stagione:st, settimana:w, partite:S.filter(p=>Number(p.settimana)===w).sort((a,b)=>quando(a).localeCompare(quando(b)))};
+}
+/* TV in Italia (solo NFL): tutte con NFL Game Pass su DAZN; cinque a settimana anche negli abbonamenti DAZN */
+function tvInclusa(p){
+  const s=((TV_IT||{}).settimane||{})[`${p.stagione}|${p.settimana}`];
+  return !!(s && s.incluse && s.incluse[`${p.ospite}@${p.casa}`]);
+}
+function tvBadge(p, lungo){
+  if(legaAttiva!=="nfl" && !(p && p._nfl)) return "";
+  const inc=tvInclusa(p);
+  return `<span class="tv dazn" title="In Italia: DAZN, con NFL Game Pass">DAZN</span>${inc?`<span class="tv incl" title="Inclusa anche negli abbonamenti DAZN Sports, Full e Family">${lungo?"INCLUSA NELL'ABBONAMENTO":"INCLUSA"}</span>`:""}`;
+}
+function tvRiga(p){
+  if(legaAttiva!=="nfl" || finitaP(p)) return "";
+  return `<div class="gara-tv">In Italia: ${tvBadge(p,true)}${tvInclusa(p)?"":`<span class="tv-nota">con NFL Game Pass</span>`}</div>`;
+}
+function iconaMeteo(m){
+  if(!m) return "";
+  if(m.coperto) return "🏟️";
+  if(m.tempC==null) return "";
+  return (m.pioggia||0)>=50?"🌧️":(m.tempC<=0)?"❄️":(m.raffKmh||0)>=35?"💨":(m.pioggia||0)>=25?"🌥️":"☀️";
+}
+function meteoDi(p, lega){ return ((METEO_P||{})[lega||legaAttiva]||{})[`${p.stagione}|${p.settimana}|${p.casa}|${p.ospite}`]; }
+function quandoBreve(p){ return `${giornoIt(p.dataIt||p.data)}${p.oraIt?" · "+p.oraIt:""}`; }
+function sezioneH(titolo, corpo, link){
+  return `<section class="h-sez"><div class="h-st"><h2>${titolo}</h2>${link||""}</div>${corpo}</section>`;
+}
+function cardH(tag, corpo, cls){ return `<article class="h-card ${cls||""}">${tag?`<div class="h-tag">${tag}</div>`:""}${corpo}</article>`; }
+function linkH(testo, azione){ return `<a href="#" onclick="${azione};return false">${testo} →</a>`; }
+function pct(x){ return x==null?"–":(x>=0.995&&x<1?">99":x>0&&x<0.005?"<1":Math.round(x*100))+"%"; }
+
+/* ---------- striscia dei risultati con il conto alla rovescia ---------- */
+function prossimoVia(P){
+  const ora=Date.now();
+  const future=P.filter(p=>!finitaP(p)).map(p=>({p, t:istanteRoma(p.dataIt,p.oraIt)})).filter(x=>x.t && x.t.getTime()>ora-4*3600e3)
+    .sort((a,b)=>a.t-b.t);
+  return future[0]||null;
+}
+function testoContoAllaRovescia(t){
+  const d=t.getTime()-Date.now();
+  if(d<=0) return "IN CORSO";
+  const g=Math.floor(d/864e5), h=Math.floor(d%864e5/36e5), m=Math.floor(d%36e5/6e4);
+  return g?`${g}g ${h}h ${m}m`:h?`${h}h ${m}m`:`${m}m`;
+}
+function aggiornaContoAllaRovescia(){
+  const el=document.getElementById("h-cd-tempo");
+  if(!el){ clearInterval(homeTimer); homeTimer=null; return; }
+  el.textContent=testoContoAllaRovescia(new Date(Number(el.dataset.t)));
+}
+function strisciaH(wk){
+  const P=wk.partite; if(!P.length) return "";
+  const pv=prossimoVia(P);
+  let cd="";
+  if(pv){
+    const stesse=P.filter(p=>!finitaP(p) && p.dataIt===pv.p.dataIt && p.oraIt===pv.p.oraIt).length;
+    cd=`<div class="h-cd"><small>${pv.t.getTime()<=Date.now()?"ORA IN CAMPO":"PROSSIMO VIA"}</small><b id="h-cd-tempo" data-t="${pv.t.getTime()}">${testoContoAllaRovescia(pv.t)}</b>
+      <span>${esc(quandoBreve(pv.p))} · ${stesse} ${stesse===1?"partita":"partite"}</span></div>`;
+    if(!homeTimer) homeTimer=setInterval(aggiornaContoAllaRovescia, 30000);
+  }
+  const celle=P.slice(0,24).map(p=>{
+    const fin=finitaP(p), m=meteoDi(p), ic=fin?"":iconaMeteo(m);
+    const w=fin?(p.pc>p.po?"c":p.po>p.pc?"o":""):"";
+    return `<div class="h-tk${fin?" fin":""}"><small>${fin?"FINALE":esc(quandoBreve(p)).toUpperCase()}${ic?" "+ic:""}${!fin&&tvInclusa(p)?` <span class="tv incl mini" title="Inclusa negli abbonamenti DAZN">DAZN</span>`:""}</small>
+      <span class="${w==="o"?"vince":""}">${stemma(p.ospite,true)}${esc(breve(p.ospite))}<b>${fin?p.po:""}</b></span>
+      <span class="${w==="c"?"vince":""}">${stemma(p.casa,true)}${esc(breve(p.casa))}<b>${fin?p.pc:""}</b></span></div>`;
+  }).join("");
+  return `<div class="h-ticker"><div class="h-tk-tit">WEEK ${esc(wk.settimana)}</div>${cd}${celle}</div>`;
+}
+
+/* ---------- apertura: la partita della settimana (articolo più recente) e l'ultima partita ---------- */
+function articoloPieno(id){
+  if(!id) return null;
+  if(ART_CACHE[id]===undefined){ ART_CACHE[id]=false;
+    scaricaDati(`articoli/${id}.json`).then(x=>{ ART_CACHE[id]=x; render(); }).catch(()=>{ ART_CACHE[id]={errore:true}; }); }
+  return ART_CACHE[id]||null;
+}
+function articoliLega(lega){ return (ART||[]).filter(a=>a.lega===lega).slice().sort((a,b)=>String(b.pubblicato).localeCompare(String(a.pubblicato))); }
+function copertinaH(a, lega){
+  if(!a) return `<div class="h-cover vuota"><b>Gli articoli della settimana arrivano qui</b></div>`;
+  const pieno=articoloPieno(a.id)||{};
+  const col=(pieno.colori||[]);
+  const sfondo=pieno.foto?`background-image:linear-gradient(180deg,rgba(6,10,20,0) 30%,rgba(6,10,20,.92)),url(${esc(pieno.foto)})`
+    :`background:linear-gradient(135deg,${esc(col[0]||"#1F2937")},${esc(col[1]||"#0B0F1A")})`;
+  return `<a class="h-cover" style="${sfondo}" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false">
+    <span class="h-tag luce">${a.tipo==="cronaca"?"LA CRONACA":"LA PARTITA DELLA SETTIMANA · ANTEPRIMA"}</span>
+    <b>${esc(a.titolo)}</b>
+    <small>${esc(breve(a.ospite))}–${esc(breve(a.casa))} · ${esc(quandoBreve(a))}${pieno.stadio?" · "+esc(pieno.stadio):""}</small></a>`;
+}
+function ultimaPartitaH(DD){
+  const G=DD.giornata||{}, quando=p=>(p.dataIt||p.data||"")+"T"+(p.oraIt||"");
+  const fin=(G.partite||[]).filter(finitaP).sort((a,b)=>quando(b).localeCompare(quando(a)));
+  const p=fin[0];
+  if(!p) return cardH("ULTIMA PARTITA", `<p class="h-nota">Nessuna partita giocata in questa week.</p>`);
+  const mom=(p.momenti||[]).slice(0,2).map(m=>`<li><b>${esc(m.quarto)}° ${esc(m.tempo)}</b>${esc(m.testo)}</li>`).join("");
+  const vid=p.video&&p.video.id?`https://www.youtube.com/watch?v=${encodeURIComponent(p.video.id)}`:(p.highlights||"");
+  const g={...p, stagione:G.stagione, settimana:G.settimana};
+  const cron=articoliDi(g, G.stagione, G.settimana).find(a=>a.tipo==="cronaca");
+  return cardH(`ULTIMA PARTITA · ${esc(quandoBreve(p)).toUpperCase()}`, `
+    <div class="h-ris"><span>${stemma(p.ospite)}<em>${esc(breve(p.ospite))}</em></span>
+      <b><span class="${p.po<p.pc?"perde":""}">${p.po}</span><i>–</i><span class="${p.pc<p.po?"perde":""}">${p.pc}</span></b>
+      <span>${stemma(p.casa)}<em>${esc(breve(p.casa))}</em></span></div>
+    ${mom?`<ul class="h-mom">${mom}</ul>`:""}
+    <div class="h-az">${vid?`<a class="pieno" href="${esc(vid)}" target="_blank" rel="noopener">▶ Highlights</a>`:""}
+      ${cron?`<a href="#articolo=${esc(cron.id)}" onclick="apriArticolo('${esc(cron.id)}');return false">Cronaca</a>`:""}
+      <a href="#" onclick="vai('giornata');return false">Giornata</a></div>`, "h-ultima");
+}
+
+/* ---------- il meglio della week ---------- */
+function meglioH(H){
+  const m=H.meglio; if(!m || !m.settimana) return "";
+  const gioc=m.giocata, gi=m.giocatore, sq=m.squadra;
+  const c1=gioc?cardH("GIOCATA DELLA SETTIMANA", `
+    ${gioc.video&&gioc.video.id?`<a class="h-video" href="https://www.youtube.com/watch?v=${encodeURIComponent(gioc.video.id)}" target="_blank" rel="noopener" aria-label="Highlights su YouTube">
+      <img src="https://i.ytimg.com/vi/${encodeURIComponent(gioc.video.id)}/hqdefault.jpg" alt="" loading="lazy"><span class="h-play">▶</span><span class="h-dur">Highlights · YouTube</span></a>`:""}
+    <b class="h-t">${esc(gioc.testo)}</b>
+    <small class="h-s">${esc(breve(gioc.squadra))} contro ${esc(breve(gioc.avversario))} · ${esc(gioc.quarto)}° quarto ${esc(gioc.tempo)} · probabilità di vittoria da ${gioc.prima}% a ${gioc.dopo}%</small>`):"";
+  const c2=gi?cardH("GIOCATORE DELLA SETTIMANA", `<div class="h-big"><span class="h-num">${numIt(gi.punti)}</span>
+    <span><b>${esc(gi.nome)}</b><small>${esc(gi.ruolo||"")} · ${esc(breve(gi.squadra))} contro ${esc(breve(gi.avversario))}</small><small>${esc(gi.riga||"")}</small></span></div>
+    <p class="h-nota">Punti fantasy standard: il giocatore più produttivo della week.</p>`):"";
+  const net=sq?Number(sq.netto):null;
+  const c3=sq?cardH("SQUADRA DELLA SETTIMANA", `<div class="h-big"><span class="h-num">${net>0?"+":""}${numIt(net,2)}</span>
+    <span><b>${esc(nomeSquadra(sq.squadra))}</b><small>contro ${esc(breve(sq.avversario))}</small><small>EPA per azione, attacco e difesa insieme, corretto per la forza dell'avversario</small></span></div>`):"";
+  const finora=m.completa?"":` · finora ${m.partite} ${m.partite===1?"partita":"partite"}`;
+  return sezioneH(`Il meglio della week ${esc(m.settimana)}${finora}`, `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Tutta la Giornata","vai('giornata')"));
+}
+
+/* ---------- la corsa: playoff e ranking ---------- */
+function homeScegliConf(c){ homeConf=c; render(); }
+function homeTutteRank(){ homeTutte=!homeTutte; render(); }
+function corsaH(H){
+  const c=H.corsa, r=H.ranking;
+  if(!c && !r) return "";
+  let pl="";
+  if(c && c.squadre){
+    const lato=conf=>{
+      const L=c.squadre.filter(s=>s.conference===conf).slice(0, homeTutte?16:10);
+      return `<div class="h-conf${conf===homeConf?" on":""}"><h3>${conf}</h3><ol class="h-lista">${L.map((s,i)=>`
+        <li class="${i<7?"":"fuori"}"><span class="h-pos">${i+1}</span>${stemma(s.squadra,true)}<b>${esc(breve(s.squadra))}<small>${esc(s.bilancio)}</small></b>
+          <span class="h-bar"><i style="width:${Math.round(s.p*100)}%"></i></span><em>${pct(s.p)}</em></li>${i===6?`<li class="h-taglio">linea dei playoff</li>`:""}`).join("")}</ol></div>`;
+    };
+    pl=cardH("CORSA AI PLAYOFF", `<div class="h-schede">${["AFC","NFC"].map(x=>`<button class="${x===homeConf?"on":""}" onclick="homeScegliConf('${x}')">${x}</button>`).join("")}</div>
+      <div class="h-due">${lato("AFC")}${lato("NFC")}</div>
+      <p class="h-nota">Probabilità di andare ai playoff: ${numIt(c.simulazioni,0).replace(/\B(?=(\d{3})+(?!\d))/g,".")} simulazioni del resto della stagione con le linee del mercato. In ordine di probabilità, non di seed.</p>`);
+  }
+  let rk="";
+  if(r && r.squadre){
+    const L=r.squadre.slice(0, homeTutte?32:10);
+    rk=cardH(`RANKING PURESTATS · DOPO LA WEEK ${esc(r.settimana)}`, `<ol class="h-lista">${L.map(s=>{
+      const mv=s.mov==null?"":s.mov>0?`<span class="h-mov su">▲${s.mov}</span>`:s.mov<0?`<span class="h-mov giu">▼${-s.mov}</span>`:`<span class="h-mov">=</span>`;
+      return `<li><span class="h-pos">${s.pos}</span>${stemma(s.squadra,true)}<b>${esc(breve(s.squadra))}</b>${mv}<em>${s.punti>0?"+":""}${numIt(s.punti)}</em></li>`;
+    }).join("")}</ol><p class="h-nota">${esc(r.nota||"")}</p>`);
+  }
+  return sezioneH("La corsa", `<div class="h-g21">${pl}${rk}</div>`, `<a href="#" onclick="homeTutteRank();return false">${homeTutte?"Mostra meno":"Mostra tutte"} →</a>`);
+}
+
+/* ---------- la strada verso i playoff: partite decisive + meteo ---------- */
+function stradaH(H, wk){
+  const dec=((H.corsa||{}).decisive)||[];
+  if(!dec.length) return "";
+  const righe=dec.slice(0,6).map(g=>{
+    const p={...g, stagione:(H.corsa||{}).stagione, _nfl:true};
+    const lato=(s,e)=>`<span>${stemma(s,true)}<b>${esc(breve(s))}</b><em>${pct(e.ora)}</em><i title="se vince / se perde">${pct(e.seVince)} / ${pct(e.sePerde)}</i></span>`;
+    return `<li><div class="dc-sx"><span class="dc-wk">WEEK ${esc(g.settimana)}</span><span class="dc-data">${esc(quandoBreve(g))}</span><span>${tvBadge(p)}</span></div>
+      <div class="dc-sq">${lato(g.ospite,g.esitoOspite)}${lato(g.casa,g.esitoCasa)}</div>
+      <div class="dc-dx"><span class="dc-lev"><i style="width:${Math.min(100,Math.round(g.peso/0.8*100))}%"></i></span><small>peso sui playoff</small></div></li>`;
+  }).join("");
+  const dc=cardH("LE PARTITE CHE DECIDONO LA STAGIONE", `<ul class="dc">${righe}</ul>
+    <p class="h-nota">Per ogni squadra: probabilità di playoff oggi, poi se vince / se perde quella partita. Il peso somma i due salti.</p>`);
+  // meteo da tenere d'occhio: le partite della week con l'impatto più alto
+  const ord={alto:2,medio:1};
+  const mt=wk.partite.filter(p=>!finitaP(p)).map(p=>({p,m:meteoDi(p)})).filter(x=>x.m && !x.m.coperto && !x.m.campoNeutro && x.m.tempC!=null)
+    .sort((a,b)=>(ord[b.m.impatto]||0)-(ord[a.m.impatto]||0) || (b.m.pioggia||0)-(a.m.pioggia||0) || (b.m.raffKmh||0)-(a.m.raffKmh||0)).slice(0,3);
+  const met=cardH("METEO DA TENERE D'OCCHIO", mt.length?`<ul class="h-meteo">${mt.map(({p,m})=>`
+    <li><span class="h-mic">${iconaMeteo(m)}</span><span><b>${esc(breve(p.ospite))} @ ${esc(breve(p.casa))}</b>
+      <small>${m.pioggia!=null?`pioggia ${m.pioggia}%`:""}${m.raffKmh?` · raffiche ${m.raffKmh} km/h`:""} · ${m.tempC}°${m.impatto==="alto"||m.impatto==="medio"?` · impatto ${m.impatto}`:""}</small>
+      <small>${esc(quandoBreve(p))}${p.stadio?" · "+esc(p.stadio):""}</small></span></li>`).join("")}</ul>
+    <p class="h-nota">Previsioni per l'ora del via (NWS e Open-Meteo), più fitte nelle 12 ore prima.</p>`
+    :`<p class="h-nota">Le previsioni arrivano nei 7 giorni prima delle partite.</p>`);
+  return sezioneH("La strada verso i playoff", `<div class="h-g21">${dc}${met}</div>`, linkH("Calendario completo","vai('partite')"));
+}
+
+/* ---------- in TV in Italia ---------- */
+function tvH(wk){
+  if(legaAttiva!=="nfl" || !wk.partite.length) return "";
+  const s=((TV_IT||{}).settimane||{})[`${wk.stagione}|${wk.settimana}`]||{};
+  const inc=wk.partite.filter(p=>tvInclusa(p));
+  const carte=inc.map(p=>`<div class="h-tv"><small>${esc(quandoBreve(p))}</small>
+    <span>${stemma(p.ospite,true)}${esc(breve(p.ospite))}${finitaP(p)?`<b>${p.po}</b>`:""}</span><span>${stemma(p.casa,true)}${esc(breve(p.casa))}${finitaP(p)?`<b>${p.pc}</b>`:""}</span></div>`).join("");
+  const nota=s.articolo?`Scelte da DAZN Italia: <a href="${esc(s.articolo)}" target="_blank" rel="noopener">l'articolo della settimana ↗</a>.`
+    :inc.length?"Le partite della domenica pomeriggio incluse non sono ancora state annunciate da DAZN.":"DAZN non ha ancora annunciato le partite incluse.";
+  return sezioneH("In TV in Italia", cardH("INCLUSE NEGLI ABBONAMENTI DAZN SPORTS, FULL E FAMILY", `${inc.length?`<div class="h-tvs">${carte}</div>`:""}
+    <p class="h-nota"><span class="tv dazn">DAZN</span> Tutte le ${wk.partite.length} partite della week si vedono con NFL Game Pass. ${nota}</p>`), "");
+}
+
+/* ---------- da leggere ---------- */
+function leggereH(lega){
+  const L=articoliLega(lega).slice(1,4);
+  const r=(LEG_RAC||[]).filter(x=>(x.lega||"nfl")===lega).slice(-1)[0];
+  if(!L.length && !r) return "";
+  const carte=L.map(a=>{
+    const pieno=articoloPieno(a.id)||{}, col=pieno.colori||[];
+    const img=pieno.foto?`background-image:url(${esc(pieno.foto)})`:`background:linear-gradient(135deg,${esc(col[0]||"#1F2937")},${esc(col[1]||"#0B0F1A")})`;
+    return `<a class="h-card h-art" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false"><span class="h-img" style="${img}"></span>
+      <span class="h-art-t"><span class="h-tag rosso">${a.tipo==="cronaca"?"CRONACA":"ANTEPRIMA"} · WEEK ${esc(a.settimana)}</span><b>${esc(a.titolo)}</b></span></a>`;
+  }).join("");
+  const rc=r?`<a class="h-card h-art" href="#leggenda=${esc(r.id)}" onclick="apriLeggenda('${esc(r.id)}');return false">
+      <span class="h-img h-maglia" style="background:linear-gradient(135deg,${esc((r.colori||[])[0]||"#1F2937")} 0 62%,${esc((r.colori||[])[1]||"#111")} 62%)"><span>${esc(r.grande||"")}</span></span>
+      <span class="h-art-t"><span class="h-tag rosso">LEGGENDE · RACCONTO</span><b>${esc(r.titolo)}</b></span></a>`:"";
+  const n=L.length+(r?1:0);
+  return sezioneH("Da leggere", `<div class="h-g4" style="--n:${n}">${carte}${rc}</div>`, linkH("Tutti gli articoli","ART_APERTO=null;vai('articoli')"));
+}
+
+/* ---------- storia: accadde oggi, mai battuto, dinastie ---------- */
+function storiaH(H){
+  const oggi=new Date(), k=`${String(oggi.getMonth()+1).padStart(2,"0")}-${String(oggi.getDate()).padStart(2,"0")}`;
+  const ac=(H.accadde||{})[k];
+  const giorno=Math.floor(Date.now()/864e5);
+  let c1="", c2="", c3="";
+  if(ac){
+    const vince=ac.pc>ac.po?"casa":"ospite";
+    const qb=ac.qbOspite&&ac.qbCasa?`${esc(ac.qbOspite)} contro ${esc(ac.qbCasa)}`:"";
+    c1=cardH(`ACCADDE OGGI · ${ac.anni} ANNI FA`, `<div class="h-big"><span class="h-num">${esc(String(ac.data).slice(0,4))}</span>
+      <span><b>${esc(ac.nomeOspite||ac.ospite)} ${ac.po}, ${esc(ac.nomeCasa||ac.casa)} ${ac.pc}</b>
+      <small>${ac.tipo==="REG"?`Week ${esc(ac.settimana)}`:""}${ac.note&&ac.note.length?(ac.tipo==="REG"?" · ":"")+esc(ac.note.join(" · ")):""}</small>
+      ${qb?`<small>Quarterback: ${qb}</small>`:""}${ac.stadio?`<small>${esc(ac.stadio)}</small>`:""}</span></div>`);
+  }
+  const mb=(LEG&&LEG.maiBattuti)||[];
+  if(mb.length){
+    const m=mb[giorno%mb.length], v=m.vicino;
+    const f=x=>Number(x).toLocaleString("it-IT",{maximumFractionDigits:1});
+    c2=cardH("MAI BATTUTO", `<div class="h-big"><span class="h-num">${f(m.valore)}</span><span><b>${esc(m.titolo)}: ${esc(m.detentore)}</b>
+      ${v?`<small>Il più vicino in attività è ${esc(v.nome)}, a ${f(m.valore-v.valore)}.</small>`:""}</span></div>
+      ${v?`<span class="h-bar lungo"><i style="width:${Math.round(v.valore/m.valore*100)}%"></i></span>`:""}`);
+  }
+  const din=(LEG&&LEG.dinastie)||[];
+  if(din.length){
+    const d=din[giorno%din.length], vinte=(d.finali||[]).filter(x=>x.vinta).length;
+    c3=cardH("DINASTIE", `<div class="h-big"><span class="h-num">${vinte}</span><span><b>${esc(d.nome)}</b>
+      <small>${esc(d.dal)}–${esc(d.al)} · ${vinte} ${vinte===1?"titolo":"titoli"} in ${(d.finali||[]).length} Super Bowl · ${esc(d.allenatore||"")}${d.qb?" e "+esc(d.qb):""}</small></span></div>`);
+  }
+  if(!c1 && !c2 && !c3) return "";
+  return sezioneH("Storia", `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Leggende","vai('leggende')"));
+}
+
+/* ---------- l'altro campionato ---------- */
+function altroH(lega){
+  const altro=lega==="nfl"?"college":"nfl", AD=cache[altro]; if(!AD) return "";
+  const L=articoliLega(altro).slice(0,3);
+  const H2=HOME_D[altro]===undefined?(caricaHomeSolo(altro),null):HOME_D[altro];
+  let extra="";
+  if(altro==="college" && H2 && H2.classifica){
+    extra=`<div class="h-coll-top"><div class="h-tag">${esc(H2.classifica.titolo).toUpperCase()}</div><ol class="h-lista">${H2.classifica.squadre.slice(0,4).map(s=>`
+      <li><span class="h-pos">${s.pos}</span>${stemmaDi(AD,s.nome)}<b>${esc(s.nome)}<small>${esc(s.bilancio||"")}</small></b></li>`).join("")}</ol></div>`;
+  }
+  const voci=L.map(a=>`<li><a href="#articolo=${esc(a.id)}" onclick="vaiLegaArticolo('${altro}','${esc(a.id)}');return false"><span class="h-tag rosso">${a.tipo==="cronaca"?"CRONACA":"ANTEPRIMA"}</span><b>${esc(a.titolo)}</b></a></li>`).join("");
+  if(!extra && !voci) return "";
+  return sezioneH(altro==="college"?"Dal College":"Dalla NFL", cardH("", `<div class="h-altro">${extra}<ul class="h-coll">${voci}</ul></div>`, "h-largo"),
+    linkH(altro==="college"?"Vai al College":"Vai alla NFL", `vaiLega('${altro}')`));
+}
+function caricaHomeSolo(lega){ HOME_D[lega]=false;
+  scaricaDati(`home_${lega}.json`).then(x=>{ HOME_D[lega]=x||{}; render(); }).catch(()=>{ HOME_D[lega]={}; }); }
+function stemmaDi(DD, sigla){ const x=D; D=DD; const s=stemma(sigla,true); D=x; return s; }
+function vaiLegaArticolo(lega, id){ ART_DAL_LINK=id; vaiLega(lega); }
+
+/* ---------- college: classifica CFP e FPI ---------- */
+function collegeCorsaH(H){
+  const c=H.classifica, f=H.fpi;
+  if(!c && !f) return "";
+  const cl=c?cardH(`${esc(c.titolo).toUpperCase()}${c.settimana?` · WEEK ${esc(c.settimana)}`:""}`, `<ol class="h-lista due">${c.squadre.map(s=>{
+      const mv=s.prec==null?"":s.prec>s.pos?`<span class="h-mov su">▲${s.prec-s.pos}</span>`:s.prec<s.pos?`<span class="h-mov giu">▼${s.pos-s.prec}</span>`:`<span class="h-mov">=</span>`;
+      return `<li><span class="h-pos">${s.pos}</span>${stemma(s.nome,true)}<b>${esc(s.nome)}<small>${esc(s.bilancio||"")}${s.conference?" · "+esc(s.conference):""}</small></b>${mv}</li>`;
+    }).join("")}</ol><p class="h-nota">${c.tipo==="cfp"?"La classifica del comitato del College Football Playoff: le prime 12 squadre del tabellone vengono da qui (con i posti garantiti ai campioni di conference).":"Prima della classifica del comitato: il sondaggio AP."}</p>`):"";
+  const fp=f&&f.squadre?cardH("PROBABILITÀ DI PLAYOFF · FPI ESPN", `<ol class="h-lista">${f.squadre.slice(0, homeTutte?25:13).map((s,i)=>`
+      <li><span class="h-pos">${i+1}</span>${stemma(s.nome,true)}<b>${esc(s.nome)}<small>finale ${s.finale==null?"–":numIt(s.finale)+"%"}</small></b>
+        <span class="h-bar"><i style="width:${Math.round(s.playoff)}%"></i></span><em>${numIt(s.playoff)}%</em></li>`).join("")}</ol>
+      <p class="h-nota">Stime di ESPN (Football Power Index) sul resto della stagione: probabilità di entrare nei 12 dei playoff e di arrivare alla finale.</p>`):"";
+  return sezioneH("La corsa ai playoff", `<div class="h-g11">${cl}${fp}</div>`, `<a href="#" onclick="homeTutteRank();return false">${homeTutte?"Mostra meno":"Mostra tutte"} →</a>`);
+}
+function strisciaCollege(wk, H){
+  // college: troppe partite per una striscia: solo quelle con squadre in classifica
+  const top=new Set(((H.classifica||{}).squadre||[]).map(s=>s.nome));
+  const P=wk.partite.filter(p=>top.has(p.casa)||top.has(p.ospite));
+  return strisciaH({...wk, partite:P.length?P:wk.partite.slice(0,16)});
+}
+function cfpOggiH(H){
+  const c=H.classifica; if(!c) return cardH("COLLEGE FOOTBALL PLAYOFF", `<p class="h-nota">La classifica arriva a breve.</p>`);
+  return cardH(c.tipo==="cfp"?"SE I PLAYOFF INIZIASSERO OGGI · PRIME 4":"AP TOP 25 · PRIME 4", `<ol class="h-lista">${c.squadre.slice(0,4).map(s=>`
+    <li><span class="h-pos">${s.pos}</span>${stemma(s.nome,true)}<b>${esc(s.nome)}<small>${esc(s.bilancio||"")}${s.conference?" · "+esc(s.conference):""}</small></b></li>`).join("")}</ol>
+    <p class="h-nota">Aggiornata ${esc(giornoIt(c.data))}.</p>`, "h-ultima");
+}
+
+function vHome(){
+  caricaHome(legaAttiva);
+  const H=HOME_D[legaAttiva]||{}, wk=weekCorrente(D), lega=legaAttiva;
+  const art=articoliLega(lega)[0];
+  if(lega==="college"){
+    return `<div class="h">${strisciaCollege(wk,H)}
+      <div class="h-hero">${copertinaH(art,lega)}${cfpOggiH(H)}</div>
+      ${collegeCorsaH(H)}${meglioCollegeH()}${leggereH(lega)}${altroH(lega)}</div>`;
+  }
+  return `<div class="h">${strisciaH(wk)}
+    <div class="h-hero">${copertinaH(art,lega)}${ultimaPartitaH(D)}</div>
+    ${meglioH(H)}${corsaH(H)}${stradaH(H,wk)}${tvH(wk)}${leggereH(lega)}${storiaH(H)}${altroH(lega)}</div>`;
+}
+/* college: il meglio della week dalla Giornata (giocata ESPN, miglior passatore e squadra) */
+function meglioCollegeH(){
+  const G=D.giornata; if(!G) return "";
+  const gioc=[...((G.giocate||{}).attacco||[]), ...((G.giocate||{}).difesa||[])].sort((a,b)=>(b.valore||0)-(a.valore||0))[0];
+  const pr=G.prestazioni||{}, top=[(pr.lanci||[])[0], (pr.corse||[])[0], (pr.ricezioni||[])[0]].filter(Boolean);
+  const sq=((G.squadreSettimana||{}).attacchi||[]).slice().sort((a,b)=>(b.netto||0)-(a.netto||0))[0];
+  const c1=gioc?cardH("GIOCATA DELLA SETTIMANA", `<b class="h-t">${esc(gioc.testo)}</b>
+    <small class="h-s">${esc(gioc.squadra)} contro ${esc(gioc.avversario)} · ${esc(gioc.quarto)}° quarto ${esc(gioc.tempo)}${gioc.prima!=null?` · probabilità di vittoria da ${gioc.prima}% a ${gioc.dopo}%`:""}</small>`):"";
+  const c2=top.length?cardH("I MIGLIORI DELLA WEEK", `<ul class="h-meteo">${top.map((x,i)=>`<li><span class="h-nump">${x.valore}</span><span><b>${esc(x.nome)}</b>
+    <small>${["yard lanciate","yard di corsa","yard ricevute"][i]} · ${esc(x.squadra)} contro ${esc(x.avversario)}${x.dettagli?" · "+esc(x.dettagli):""}</small></span></li>`).join("")}</ul>`):"";
+  const c3=sq?cardH("SQUADRA DELLA SETTIMANA", `<div class="h-big"><span class="h-num">${sq.netto>0?"+":""}${numIt(sq.netto,2)}</span>
+    <span><b>${esc(sq.squadra)}</b><small>contro ${esc(sq.avversario)}</small><small>yard per azione fatte meno concesse, corrette per l'avversario</small></span></div>`):"";
+  if(!c1&&!c2&&!c3) return "";
+  return sezioneH(`Il meglio della week ${esc(G.settimana)}${G.completa?"":" · finora"}`, `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Tutta la Giornata","vai('giornata')"));
 }
 
 

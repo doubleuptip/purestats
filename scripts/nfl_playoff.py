@@ -76,9 +76,8 @@ def _playoff(vittorie, h2h, squadre_conf, division, posti_wc, rnd):
     return dentro
 
 
-def stato(testo_partite: str, testo_squadre: str, sim: int = SIM, seme: int = 11) -> dict:
-    """{"settimana": W, "partite": {"OSP@CASA": {"casa": {p, posta, fuori}, "ospite": {...}}}} per le partite ancora
-    da giocare della settimana in corso (stagione regolare, dalla settimana 12). {} se non si applica."""
+def _prepara(testo_partite: str, testo_squadre: str) -> dict | None:
+    """Calendario della stagione in corso, vittorie già fatte, probabilità delle partite da giocare."""
     conf, division = {}, {}
     for r in csv.DictReader(io.StringIO(testo_squadre)):
         a = (r.get("team_abbr") or "").strip()
@@ -91,27 +90,23 @@ def stato(testo_partite: str, testo_squadre: str, sim: int = SIM, seme: int = 11
         pc, po = _num(r.get("home_score")), _num(r.get("away_score"))
         tutte.append({"stagione": int(r["season"]), "settimana": int(r["week"]), "casa": r["home_team"],
                       "ospite": r["away_team"], "linea": _num(r.get("spread_line")),
-                      "neutro": r.get("location") == "Neutral",
+                      "neutro": r.get("location") == "Neutral", "data": r.get("gameday") or "",
+                      "ora": r.get("gametime") or "",
                       "margine": None if pc is None or po is None else pc - po})
     if not tutte:
-        return {}
+        return None
     stagione = max(g["stagione"] for g in tutte)
     st = [g for g in tutte if g["stagione"] == stagione]
     future = [g for g in st if g["margine"] is None]
     if not future:
-        return {}
-    W = min(g["settimana"] for g in future)
-    if W < SETTIMANA_MINIMA:
-        return {}
+        return None
     squadre = sorted({g["casa"] for g in st} | {g["ospite"] for g in st})
     if any(s not in conf for s in squadre):
         mancanti = [s for s in squadre if s not in conf]
         raise ValueError(f"squadre senza conference/division: {', '.join(mancanti)}")
-    posti_wc = 2 if stagione <= 2019 else 3
     per_conf = defaultdict(list)
     for s in squadre:
         per_conf[conf[s]].append(s)
-
     forza, campo = _forze([g for g in st if g["margine"] is not None])
     base, h2h0 = defaultdict(float), defaultdict(float)
     for g in st:
@@ -133,13 +128,20 @@ def stato(testo_partite: str, testo_squadre: str, sim: int = SIM, seme: int = 11
         if linea is None:                                  # settimane future: linea stimata dal mercato
             linea = (0 if g["neutro"] else campo) + forza.get(g["casa"], 0.0) - forza.get(g["ospite"], 0.0)
         pcasa.append(_phi(linea / DEVIAZIONE))
-    settimana = [i for i, g in enumerate(future) if g["settimana"] == W]
-    cont = {(i, s): [0, 0, 0, 0] for i in settimana for s in (future[i]["casa"], future[i]["ospite"])}
+    return {"stagione": stagione, "squadre": squadre, "conf": conf, "division": division, "per_conf": per_conf,
+            "future": future, "pcasa": pcasa, "base": base, "h2h0": h2h0,
+            "posti_wc": 2 if stagione <= 2019 else 3, "W": min(g["settimana"] for g in future)}
+
+
+def _simula(x: dict, indici: list[int], sim: int, seme: int) -> tuple[dict, dict]:
+    """Simula il resto della stagione; per le partite in «indici» conta i playoff dopo vittoria e dopo sconfitta."""
+    future, pcasa, squadre = x["future"], x["pcasa"], x["squadre"]
+    cont = {(i, s): [0, 0, 0, 0] for i in indici for s in (future[i]["casa"], future[i]["ospite"])}
     dentro_tot = defaultdict(int)
     rnd = random.Random(seme)
     for _ in range(sim):
-        v = {t: base.get(t, 0.0) for t in squadre}
-        h2h = dict(h2h0)
+        v = {t: x["base"].get(t, 0.0) for t in squadre}
+        h2h = dict(x["h2h0"])
         vince = {}
         for i, g in enumerate(future):
             c, o = g["casa"], g["ospite"]
@@ -148,28 +150,63 @@ def stato(testo_partite: str, testo_squadre: str, sim: int = SIM, seme: int = 11
             h2h[(w, l)] = h2h.get((w, l), 0) + 1
             vince[i] = w
         dentro = set()
-        for ss in per_conf.values():
-            dentro |= _playoff(v, h2h, ss, division, posti_wc, rnd)
+        for ss in x["per_conf"].values():
+            dentro |= _playoff(v, h2h, ss, x["division"], x["posti_wc"], rnd)
         for t in dentro:
             dentro_tot[t] += 1
-        for i in settimana:
+        for i in indici:
             for s in (future[i]["casa"], future[i]["ospite"]):
-                x = cont[(i, s)]
+                c = cont[(i, s)]
                 if vince[i] == s:
-                    x[1] += 1
-                    x[0] += s in dentro
+                    c[1] += 1
+                    c[0] += s in dentro
                 else:
-                    x[3] += 1
-                    x[2] += s in dentro
+                    c[3] += 1
+                    c[2] += s in dentro
+    return cont, dentro_tot
+
+
+def stato(testo_partite: str, testo_squadre: str, sim: int = SIM, seme: int = 11) -> dict:
+    """{"settimana": W, "partite": {"OSP@CASA": {"casa": {p, posta, fuori}, "ospite": {...}}}} per le partite ancora
+    da giocare della settimana in corso (stagione regolare, dalla settimana 12). {} se non si applica."""
+    x = _prepara(testo_partite, testo_squadre)
+    if not x or x["W"] < SETTIMANA_MINIMA:
+        return {}
+    future, W = x["future"], x["W"]
+    settimana = [i for i, g in enumerate(future) if g["settimana"] == W]
+    cont, dentro_tot = _simula(x, settimana, sim, seme)
     partite = {}
     for i in settimana:
         g = future[i]
         lati = {}
         for lato, s in (("casa", g["casa"]), ("ospite", g["ospite"])):
-            x = cont[(i, s)]
-            posta = x[0] / x[1] - x[2] / x[3] if x[1] and x[3] else None
+            c = cont[(i, s)]
+            posta = c[0] / c[1] - c[2] / c[3] if c[1] and c[3] else None
             p = dentro_tot[s] / sim
             lati[lato] = {"p": round(p, 4), "posta": None if posta is None else round(posta, 4),
                           "fuori": p < SOGLIA_P and posta is not None and posta <= SOGLIA_POSTA}
         partite[f"{g['ospite']}@{g['casa']}"] = lati
-    return {"stagione": stagione, "settimana": W, "simulazioni": sim, "partite": partite}
+    return {"stagione": x["stagione"], "settimana": W, "simulazioni": sim, "partite": partite}
+
+
+def corsa(testo_partite: str, testo_squadre: str, sim: int = SIM, seme: int = 11) -> dict:
+    """Per la Home pubblica: probabilità di playoff di ogni squadra e, per ogni partita da giocare, quanto cambia la
+    probabilità di ciascuna squadra vincendo o perdendo (le partite che decidono la stagione). {} se non si applica."""
+    x = _prepara(testo_partite, testo_squadre)
+    if not x:
+        return {}
+    future = x["future"]
+    cont, dentro_tot = _simula(x, list(range(len(future))), sim, seme)
+    partite = []
+    for i, g in enumerate(future):
+        lati = {}
+        for lato, s in (("casa", g["casa"]), ("ospite", g["ospite"])):
+            c = cont[(i, s)]
+            lati["esito" + lato.capitalize()] = {"seVince": round(c[0] / c[1], 4) if c[1] else None,
+                          "sePerde": round(c[2] / c[3], 4) if c[3] else None}
+        partite.append({"settimana": g["settimana"], "casa": g["casa"], "ospite": g["ospite"], "data": g["data"],
+                        "ora": g["ora"], "pCasa": round(x["pcasa"][i], 3), **lati})
+    return {"stagione": x["stagione"], "settimana": x["W"], "simulazioni": sim,
+            "squadre": {s: round(dentro_tot[s] / sim, 4) for s in x["squadre"]},
+            "conference": {s: x["conf"][s] for s in x["squadre"]},
+            "division": {s: x["division"][s] for s in x["squadre"]}, "partite": partite}
