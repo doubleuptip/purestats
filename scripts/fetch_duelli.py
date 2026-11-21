@@ -48,6 +48,9 @@ import reparti as RP  # noqa: E402
 import contesto as C  # noqa: E402
 import mercato as MK  # noqa: E402
 import difesa_charlie as DC  # noqa: E402
+import td_charlie as TD  # noqa: E402
+
+TD_RACCOLTA = TD.Raccolta()      # touchdown dei giocatori: si riempie mentre si legge il play-by-play NFL
 
 RADICE = Path(__file__).resolve().parent.parent
 LEGHE = {"nfl": "NFL", "college": "College"}
@@ -135,6 +138,8 @@ def azioni_stagione(lega: str, stagione: int, cartella: str) -> list:
     punti = {}
     with apri() as fh:
         righe = _con_punti(csv.DictReader(fh), lega, punti)
+        if lega == "nfl":
+            righe = TD_RACCOLTA.passa(righe)
         azioni = list(RP.azioni_nflverse(righe) if lega == "nfl" else RP.azioni_cfbfastr(righe))
     percorso.unlink()
     print(f"{LEGHE[lega]}: {len(azioni)} azioni di corsa e passaggio, {len(punti)} partite con il punteggio.")
@@ -702,6 +707,29 @@ def espn_a_gsis() -> dict:
 
 
 _ESPN_INFO: dict = {}
+_GSIS_INFO: dict = {}
+
+
+def touchdown_nfl(schede: list, stagione: int) -> int:
+    """Quote dei giocatori nei touchdown della squadra (td_charlie), dalla raccolta fatta sul play-by-play della
+    stagione e dall'archivio della stagione scorsa. Ruolo e nome da players.csv nflverse."""
+    if not _GSIS_INFO:
+        url = "https://github.com/nflverse/nflverse-data/releases/download/players/players.csv"
+        for r in csv.DictReader(io.StringIO(C._get(url, 120))):
+            g = (r.get("gsis_id") or "").strip()
+            if g and g != "NA":
+                _GSIS_INFO[g] = ((r.get("display_name") or "").strip(), (r.get("position") or "").strip())
+    corrente = TD_RACCOLTA.righe()
+    if not corrente:
+        return 0
+    ultima = {}
+    for g, t, p, *_ in corrente:              # squadra della partita più recente (i ceduti passano alla nuova)
+        w = TD_RACCOLTA.sett.get(g, 0)
+        if p not in ultima or w >= ultima[p][0]:
+            ultima[p] = (w, t)
+    return TD.calcola(schede, corrente, TD.archivio_scorsa(stagione - 1),
+                      {p: v[1] for p, v in _GSIS_INFO.items()}, {p: v[0] for p, v in _GSIS_INFO.items()},
+                      {p: t for p, (_w, t) in ultima.items()})
 
 
 def info_espn(pid: str) -> tuple:
@@ -979,6 +1007,11 @@ def main() -> int:
     except Exception as e:     # noqa: BLE001 - il contesto non deve mai fermare la sezione
         print(f"{campionato}: contesto (assenze, meteo, forza) non calcolato ({e}): schede senza contesto.")
     if lega == "nfl":
+        try:
+            n_td = touchdown_nfl(schede, int(stagione))
+            print(f"NFL: Charlie, touchdown dei giocatori per {n_td} partite.")
+        except Exception as e:     # noqa: BLE001 - il touchdown è un di più: la sezione esce lo stesso
+            print(f"NFL: touchdown dei giocatori non calcolati ({type(e).__name__}: {e}): voce assente in Charlie.")
         try:
             segna_fuori_playoff(schede)
         except Exception as e:     # noqa: BLE001 - l'indizio è un di più: la sezione esce lo stesso

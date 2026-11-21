@@ -1042,8 +1042,9 @@ function formGiocatori(){
   const gioc = [...(G[g.ospite] || []).map(x => ({...x, sq: g.ospite})), ...(G[g.casa] || []).map(x => ({...x, sq: g.casa}))];
   const T = tabCharlie();
   const scelta = `<label class="largo">Partita<select id="chPartita">${P.map(x => `<option value="${idScheda(x)}" ${idScheda(x) === id ? "selected" : ""}>${esc(nomeP(x))} · ${esc(quando(x))}</option>`).join("")}</select></label>`;
-  const parti = CAMPIONATO === "NFL" ? `<div class="ch-modi" style="margin-top:12px"><button data-parte="attacco" class="${CH.parte === "attacco" ? "on" : ""}">Attacco</button><button data-parte="difesa" class="${CH.parte === "difesa" ? "on" : ""}">Difesa</button></div>` : "";
+  const parti = CAMPIONATO === "NFL" ? `<div class="ch-modi" style="margin-top:12px"><button data-parte="attacco" class="${CH.parte === "attacco" ? "on" : ""}">Attacco</button><button data-parte="difesa" class="${CH.parte === "difesa" ? "on" : ""}">Difesa</button><button data-parte="touchdown" class="${CH.parte === "touchdown" ? "on" : ""}">Touchdown</button></div>` : "";
   if (CAMPIONATO === "NFL" && CH.parte === "difesa") return `${parti}<div class="ch-griglia">${scelta}</div>${formDifesa(g)}`;
+  if (CAMPIONATO === "NFL" && CH.parte === "touchdown") return `${parti}<div class="ch-griglia">${scelta}</div>${formTouchdown(g)}`;
   return `${parti}<div class="ch-griglia">
     ${scelta}
     <label class="largo">Giocatore<select id="chGioc">${gioc.length ? gioc.map((x, i) => `<option value="${i}">${esc(x.n)} · ${esc(x.r)} · ${esc(squadra(g, x.sq).nome || x.sq)}</option>`).join("") : `<option value="">Nessun giocatore disponibile</option>`}</select></label>
@@ -1141,6 +1142,10 @@ function disegnaCharlie(tieni){
   document.getElementById("chCalcola")?.addEventListener("click", () => CH.modo === "partite" ? calcolaPartite() : calcolaGiocatori());
   colleghiGiudizio();
   ch.querySelectorAll("[data-parte]").forEach(b => b.addEventListener("click", () => { CH.parte = b.dataset.parte; disegnaCharlie(); }));
+  if (document.getElementById("chCalcolaTd")) {
+    document.getElementById("chCalcolaTd").addEventListener("click", calcolaTouchdown);
+    colleghiGiudizio();
+  }
   if (document.getElementById("chDifMercato")) {
     latiDifesa();
     document.getElementById("chDifMercato").addEventListener("change", latiDifesa);
@@ -1270,6 +1275,80 @@ function calcolaDifesa(){
   const codice = ["P", "N", (g.mercato || {}).espnId || "0", x.id, m, lato, codNum(linea, 10), codNum(quota, 100), "b3",
     codNum(v.puntata || 0, 100), codNum(v.p, 1000), "0"].join("_");
   mostraRisultato({breve: testo, v, libro: "b3", partita: idScheda(g), codice});
+}
+
+/* ---------- Charlie, modalità Giocatori → Touchdown (solo NFL, dal 21/11/2026) ----------
+   Probabilità che il giocatore segni almeno un touchdown (corsa o ricezione): touchdown attesi della squadra dalla
+   linea americana del momento × quota del giocatore (td_charlie.py, misura 2019-2025: Brier −7,9% sulla prova).
+   Le quote dei touchdown non si leggono in automatico (ESPN non le dà): quella italiana la inserisce Valerio, e se
+   vuole anche una estera (bet365.com o altra), che entra a metà dopo aver tolto il margine stimato. Affidabilità C. */
+const TD_COST = {A: 0.129, B: -0.483, C: 0.95, MARGINE_ESTERO: 0.08};
+function puntiAttesi(g, sq){
+  const m = g.mercato || {};
+  if (m.totale == null || m.margineCasa == null) return null;
+  return sq === g.casa ? (m.totale + m.margineCasa) / 2 : (m.totale - m.margineCasa) / 2;
+}
+function pTouchdown(g, sq, quota){
+  const pt = puntiAttesi(g, sq); if (pt === null) return null;
+  return 1 - Math.exp(-TD_COST.C * Math.max(0, TD_COST.A * pt + TD_COST.B) * quota);
+}
+function statoTd(g, sq, nome){
+  const a = (sq === g.casa ? g.assenzeCasa : g.assenzeOspite) || {}, n = String(nome || "").toLowerCase().replace(/[^a-z]/g, "");
+  const x = (a.giocatori || []).find(y => String(y.nome || "").toLowerCase().replace(/[^a-z]/g, "") === n);
+  if (!x) return "";
+  const st = String(x.stato || "").toUpperCase();
+  return ["O", "OUT", "INATTIVO"].includes(st) ? "fuori" : ["D", "DOUBTFUL"].includes(st) ? "in forte dubbio" : ["Q", "QUESTIONABLE"].includes(st) ? "da valutare" : (st === "ATTIVO" ? "" : "");
+}
+function giocTd(g){
+  const T = g.touchdown || {};
+  return [g.ospite, g.casa].flatMap(sq => (T[sq] || []).map(x => ({...x, sq, p: pTouchdown(g, sq, x.quota), stato: statoTd(g, sq, x.n)})));
+}
+function formTouchdown(g){
+  const T = g.touchdown || {};
+  if (!Object.keys(T).length) return `<div class="vuoto">Per questa partita i touchdown non sono ancora calcolati (servono almeno 2 partite giocate).</div>`;
+  if (puntiAttesi(g, g.casa) === null) return `<div class="vuoto">Manca la linea americana (margine e totale): senza, i touchdown attesi della squadra non si calcolano.</div>`;
+  const gioc = giocTd(g);
+  const tabella = sq => {
+    const l = gioc.filter(x => x.sq === sq); if (!l.length) return "";
+    const pt = puntiAttesi(g, sq), td = Math.max(0, TD_COST.A * pt + TD_COST.B);
+    return `<div class="titolo">${esc(squadra(g, sq).nome || sq)} <span class="sotto" style="text-transform:none;letter-spacing:0">· punti attesi ${num(pt, 1)} · touchdown attesi ${num(td, 1)}</span></div>
+      <table><tr><th style="text-align:left">Giocatore</th><th>Probabilità</th><th>Quota giusta</th></tr>
+      ${l.map(x => `<tr><td style="text-align:left">${esc(x.n)} <span class="sotto">${esc(x.r)}${x.stato ? " · " + esc(x.stato) : ""}</span></td>
+        <td>${pc(x.p, 0)}</td><td>${x.p >= 0.02 ? num(1 / x.p, 2) : "—"}</td></tr>`).join("")}</table>`;
+  };
+  return `${tabella(g.ospite)}${tabella(g.casa)}
+    <div class="sotto" style="margin-top:6px">Touchdown di corsa o su ricezione (non i ritorni). Probabilità = touchdown attesi della squadra dalla linea americana × quota del giocatore (occasioni dentro le 10 yard, touchdown e palloni toccati in stagione, la scorsa conta meno). Misurata sul 2019-2025: affidabilità C, il confronto con i bookmaker lo dirà il registro. Se il giocatore non gioca, di solito la giocata è rimborsata: controlla il regolamento del bookmaker.</div>
+    <div class="titolo">Confronta con il tuo bookmaker</div>
+    <div class="ch-griglia">
+      <label class="largo">Giocatore<select id="chTdGioc">${gioc.map((x, i) => `<option value="${i}">${esc(x.n)} · ${esc(x.r)} · ${esc(squadra(g, x.sq).nome || x.sq)} · ${pc(x.p, 0)}</option>`).join("")}</select></label>
+      <label>Bookmaker<select id="chTdLibro">${LIBRI.map(l => `<option value="${l[0]}">${l[1]}</option>`).join("")}</select></label>
+      <label>Quota «segna»<input id="chTdQuota" inputmode="decimal" placeholder="es. 2,40"></label>
+      <label>Quota estera (facoltativa)<input id="chTdEstera" inputmode="decimal" placeholder="es. bet365.com"></label>
+      <label>Puntata € (facoltativa)<input id="chTdPuntata" inputmode="decimal"></label>
+    </div>
+    ${campoGiudizio()}
+    <div class="ch-azioni"><button id="chCalcolaTd" class="on">Calcola</button></div><div id="chEsito"></div>`;
+}
+function calcolaTouchdown(){
+  const g = partiteCharlie().find(x => idScheda(x) === CH.partita), out = document.getElementById("chEsito");
+  const x = giocTd(g)[Number(document.getElementById("chTdGioc").value)];
+  const quota = numero(document.getElementById("chTdQuota").value), estera = numero(document.getElementById("chTdEstera").value);
+  const libro = document.getElementById("chTdLibro").value;
+  if (!x || x.p === null || !quota || quota <= 1) { out.innerHTML = `<div class="errore">Scegli il giocatore e inserisci la quota «segna un touchdown».</div>`; return; }
+  let p = x.p;
+  const usati = [`touchdown attesi di ${squadra(g, x.sq).nome || x.sq}: ${num(Math.max(0, TD_COST.A * puntiAttesi(g, x.sq) + TD_COST.B), 2)} (dalla linea americana)`,
+                 `quota del giocatore nei touchdown della squadra: ${pc(x.quota, 1)} su ${x.partite} partite`];
+  if (estera && estera > 1) {
+    const pe = Math.min(0.97, (1 / estera) / (1 + TD_COST.MARGINE_ESTERO));
+    p = (p + pe) / 2;
+    usati.push(`quota estera ${num(estera, 2)}: senza margine stimato (8%) vale ${pc(pe, 0)}, pesa metà`);
+  }
+  if (x.stato) usati.push(`rapporto infortuni: ${x.stato}`);
+  const r = {p, pLo: Math.max(0.005, p - Math.max(0.03, p * 0.15)), pHi: Math.min(0.99, p + Math.max(0.03, p * 0.15)), aff: "C", usati};
+  const v = valuta(r, quota, numero(document.getElementById("chTdPuntata").value));
+  const codice = ["P", "N", (g.mercato || {}).espnId || "0", x.id, "td", "s", "0", codNum(quota, 100), libro,
+    codNum(v.puntata || 0, 100), codNum(v.p, 1000), "0"].join("_");
+  mostraRisultato({breve: `${x.n} segna un touchdown · ${nomeP(g)}`, v, libro, partita: idScheda(g), codice});
 }
 
 document.getElementById("vistaCharlie").addEventListener("click", () => { VISTA_CHARLIE = !VISTA_CHARLIE; disegna(); scrollTo({top: 0}); });

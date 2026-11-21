@@ -125,6 +125,14 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   quota = (sack + 0,3·colpi + 1,0·pressioni + 27·media ruolo) / (totale + 27), curva a = 1,05, b = 0,90
   (Protocollo 10, aggiunta: Brier sulla prova 2023-25 da 0,09418 a 0,09289). Le pressioni arrivano circa una
   settimana dopo; nomi abbinati per stagione, settimana, squadra e nome normalizzato.
+- Touchdown di un giocatore (Giocatori → Touchdown, NFL, dal 21/11/2026, `scripts/td_charlie.py`): probabilità di
+  almeno un touchdown di corsa o su ricezione = 1 − e^(−0,95 · (0,129 · punti attesi − 0,483) · quota del giocatore);
+  punti attesi dalla linea americana del momento (nel browser); quota = 0,3 occasioni dentro le 10 yard + 0,3 touchdown
+  + 0,4 palloni toccati (stagione; la scorsa pesa 0,3 a partita, da data/td_nfl_<stagione>.json; verso la media del
+  ruolo con 2 partite). Misura 2019-2025: Brier prova 0,1592 contro 0,1728 (−7,9%), affidabilità C (ESPN non dà le
+  quote dei touchdown: nessun confronto col mercato). Quota italiana a mano, estera facoltativa (margine 8% tolto, pesa
+  metà). Raccolta nello stesso passaggio del play-by-play di fetch_duelli. Bot 5.9.10: stat «td», chiude sommando i TD
+  di corsa, ricezione e ritorni del tabellino ESPN. A fine stagione salvare data/td_nfl_<stagione>.json.
 - Le tabelle si rifanno con `misure/tabelle_charlie.py` (fuori dal repository) quando cambiano le misure.
 
 ## Calendario e Matchup (dal 16/11/2026)
@@ -340,7 +348,7 @@ davvero che si veda quello che deve vedersi.
 
 1. Articoli, resto della fase 2: foto di tutti gli stadi NFL e dei college delle partite scelte da Wikimedia con i crediti
    (oggi solo NRG Stadium). Orari NFL spostati dalla tv: nflverse li aggiorna in ritardo (Jaguars-Giants del 22/11 ancora
-   alle 13:00 invece delle 16:25 ET), anche nel calendario del sito: valutare l'orario ESPN (già letto da mercato.py).
+   alle 13:00 invece delle 16:25 ET): risolto il 21/11 con nfl_indici.correggi_orari (ESPN, sito e archivio).
 2. Sezione «LEGGENDE» (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
    mostrato il 19/11: menu accanto ad ARTICOLI; racconto in evidenza con il numero di maglia grande nei colori della
    squadra (niente foto dei giocatori); «I più grandi» per ruolo (QB, RB, WR, TE, difesa, allenatori) in due elenchi:
@@ -356,11 +364,3 @@ davvero che si veda quello che deve vedersi.
    si ritira al massimo; Jerry Rice; Lawrence Taylor. College: Hail Mary di Flutie 1984, «The Play» Cal-Stanford 1982,
    Kick Six 2013, Boise State al Fiesta Bowl 2007.
 3. Ogni fatto e record va riverificato prima di pubblicare (stesso metodo degli articoli).
-4. Charlie, touchdown di un giocatore (richiesta del 19/11: Sisal, Snai, Planetwin365 lo quotano, bet365.it no).
-   Verificato il 19/11: ESPN propBets elenca «Anytime Touchdown Scorer» (tipo 31) ma SENZA quote (current/open
-   vuoti); bet365.com non si legge in automatico. Quindi: probabilità di Charlie dai dati = 1 − e^(−λ), λ = touchdown
-   attesi della squadra (dal totale e dallo spread americani) × quota del giocatore (corse e bersagli vicino alla meta,
-   touchdown fatti, ristretti verso la media del ruolo), tarata e provata su 2019-2025 (Brier, stima 2019-22, prova
-   2023-25) e confrontata con le quote ESPN BET 2023-25 se l'archivio le ha. Nella pagina: statistica «Touchdown
-   (sì)», quota italiana inserita a mano, campo facoltativo per una quota estera (bet365.com o altra) letta da
-   Valerio; affidabilità decisa dalla prova. Poi college con cfbfastR.
