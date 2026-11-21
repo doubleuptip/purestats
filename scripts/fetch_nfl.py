@@ -461,6 +461,8 @@ def main():
     print("\nGiocatori di riferimento")
     giocatori = carica_giocatori(stagioni)
 
+    # orari spostati dalla tv: nflverse arriva in ritardo, ESPN no (nfl_indici.correggi_orari)
+    nfl_indici.correggi_orari(righe, ("Stagione", "Settimana", "Casa", "Ospite", "Data", "Ora", "PuntiCasa"))
     righe = salva_archivio(righe)
     stats = calcola_statistiche(righe, anagrafica, giocatori)
 

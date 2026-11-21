@@ -104,6 +104,64 @@ def anagrafica():
     return out
 
 
+# ------------------------------------------------------------------ orari spostati dalla tv (21/11/2026)
+# nflverse aggiorna in ritardo gli spostamenti decisi dalla tv (Jaguars-Giants del 22/11: ancora 13:00 invece
+# delle 16:25 ET). ESPN li ha subito: una richiesta per settimana in arrivo, gratis, senza chiave.
+ESPN_SCOREBOARD = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
+SIGLE_DA_ESPN = {"LAR": "LA", "WSH": "WAS"}
+_ORARI_TV = {}
+
+
+def orari_tv(settimane):
+    """{(stagione, settimana, casa, ospite): (data, ora)} della costa est dagli eventi ESPN con orario fissato
+    (timeValid). Se ESPN non risponde restano gli orari di nflverse."""
+    import json as _json
+    from datetime import datetime as _dt
+    from zoneinfo import ZoneInfo
+    out = {}
+    for stagione, w in sorted(settimane):
+        if (stagione, w) not in _ORARI_TV:
+            _ORARI_TV[(stagione, w)] = {}
+            try:
+                url = f"{ESPN_SCOREBOARD}?dates={stagione}&seasontype=2&week={w}&limit=100"
+                with urlopen(Request(url, headers={"User-Agent": UA}), timeout=40) as r:
+                    eventi = _json.loads(r.read().decode("utf-8")).get("events") or []
+            except Exception as e:      # noqa: BLE001 - senza ESPN restano gli orari nflverse
+                print(f"  Orari ESPN della week {w} non letti ({type(e).__name__}): restano quelli di nflverse")
+                eventi = []
+            for e in eventi:
+                c = (e.get("competitions") or [{}])[0]
+                if c.get("timeValid") is False or not e.get("date"):
+                    continue
+                lati = {x.get("homeAway"): (x.get("team") or {}).get("abbreviation", "") for x in c.get("competitors") or []}
+                casa, osp = (SIGLE_DA_ESPN.get(lati.get(k, ""), lati.get(k, "")) for k in ("home", "away"))
+                t = _dt.fromisoformat(e["date"].replace("Z", "+00:00")).astimezone(ZoneInfo("America/New_York"))
+                _ORARI_TV[(stagione, w)][(casa, osp)] = (t.strftime("%Y-%m-%d"), t.strftime("%H:%M"))
+        for (casa, osp), v in _ORARI_TV[(stagione, w)].items():
+            out[(stagione, w, casa, osp)] = v
+    return out
+
+
+def correggi_orari(righe, chiavi=("stagione", "settimana", "casa", "ospite", "data", "ora", "pc")):
+    """Sulle partite non ancora giocate dei prossimi 14 giorni mette l'orario ESPN se diverso da quello nflverse."""
+    from datetime import date as _date, timedelta as _td
+    ks, kw, kc, ko, kd, kh, kp = chiavi
+    oggi = _date.today().isoformat()
+    fra14 = (_date.today() + _td(days=14)).isoformat()
+    vicine = [r for r in righe if r.get(kd) and oggi <= r[kd][:10] <= fra14 and r.get(kp) in (None, "")]
+    if not vicine:
+        return 0
+    orari = orari_tv({(int(r[ks]), int(r[kw])) for r in vicine})
+    cambiate = 0
+    for r in vicine:
+        nuovo = orari.get((int(r[ks]), int(r[kw]), r[kc], r[ko]))
+        if nuovo and (r[kd], r[kh]) != nuovo:
+            print(f"  Orario spostato dalla tv: {r[ko]} @ {r[kc]} {r[kd]} {r[kh]} → {nuovo[0]} {nuovo[1]} (ESPN)")
+            r[kd], r[kh] = nuovo
+            cambiate += 1
+    return cambiate
+
+
 # ------------------------------------------------------------------ partite con linee
 def partite():
     testo = scarica(PARTITE_URL, "partite con linee di mercato")
@@ -121,6 +179,7 @@ def partite():
             "stadio": nome_stadio(r.get("stadium")), "copertura": r.get("roof", ""),
             "gameId": r.get("game_id", ""), "arbitro": (r.get("referee") or "").strip(),
         })
+    correggi_orari(out)
     return out
 
 
