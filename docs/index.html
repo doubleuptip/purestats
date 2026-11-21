@@ -771,7 +771,10 @@
   .h{max-width:1240px;margin:0 auto}
   .h-sez{margin:34px 0 0}
   .h-st{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:2px solid var(--fb-text);padding-bottom:6px;margin-bottom:14px}
-  .h-st h2{font:800 26px/1.1 var(--fb-head);margin:0;color:var(--fb-text);letter-spacing:-.01em}
+  .h-st h2{font:800 26px/1.1 var(--fb-head);margin:0;color:var(--fb-text);letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+  .h-ico{position:relative;width:30px;height:30px;flex:none}
+  .h-ico i{position:absolute;inset:0;background:var(--fb-text);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+  .h-ico i.r{background:var(--fb-acc)}
   .h-st a{font:700 13.5px var(--f-testo);color:var(--fb-acc);text-decoration:none;white-space:nowrap}
   .h-card{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:16px;min-width:0;display:flex;flex-direction:column;color:var(--fb-text);text-decoration:none}
   .h-tag{font:700 11px var(--f-testo);letter-spacing:.09em;color:var(--fb-muted);margin-bottom:10px;text-transform:uppercase}
@@ -864,7 +867,7 @@
   .dc-dx small{font-size:11px;color:var(--fb-muted)}
   .dc-lev{display:block;height:8px;border-radius:4px;background:var(--fb-pill);overflow:hidden;margin-bottom:4px}.dc-lev i{display:block;height:100%;background:linear-gradient(90deg,#F59E0B,var(--fb-acc))}
   @media (max-width:760px){
-    .h-st h2{font-size:22px}
+    .h-st h2{font-size:22px}.h-ico{width:26px;height:26px}
     .h-hero,.h-g21,.h-g11,.h-due,.h-altro{grid-template-columns:1fr}
     .h-coll{grid-template-columns:1fr}
     .h-g3,.h-g4,.h-tvs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px}
@@ -2707,9 +2710,11 @@ function iconaMeteo(m){
 }
 function meteoDi(p, lega){ return ((METEO_P||{})[lega||legaAttiva]||{})[`${p.stagione}|${p.settimana}|${p.casa}|${p.ospite}`]; }
 function quandoBreve(p){ return `${giornoIt(p.dataIt||p.data)}${p.oraIt?" · "+p.oraIt:""}`; }
-function sezioneH(titolo, corpo, link){
-  return `<section class="h-sez"><div class="h-st"><h2>${titolo}</h2>${link||""}</div>${corpo}</section>`;
+function sezioneH(titolo, corpo, link, icona){
+  return `<section class="h-sez"><div class="h-st"><h2>${icona?iconaH(icona):""}${titolo}</h2>${link||""}</div>${corpo}</section>`;
 }
+/* icone delle sezioni (disegni di Valerio, 21/11/2026): due maschere per icona, colorate dal tema (testo e rosso) */
+function iconaH(n){ return `<span class="h-ico" aria-hidden="true"><i style="--m:url(icone/${n}_base.png)"></i><i class="r" style="--m:url(icone/${n}_rosso.png)"></i></span>`; }
 function cardH(tag, corpo, cls){ return `<article class="h-card ${cls||""}">${tag?`<div class="h-tag">${tag}</div>`:""}${corpo}</article>`; }
 function linkH(testo, azione){ return `<a href="#" onclick="${azione};return false">${testo} →</a>`; }
 function pct(x){ return x==null?"–":(x>=0.995&&x<1?">99":x>0&&x<0.005?"<1":Math.round(x*100))+"%"; }
@@ -2806,7 +2811,7 @@ function meglioH(H){
   const c3=sq?cardH("SQUADRA DELLA SETTIMANA", `<div class="h-big"><span class="h-num">${net>0?"+":""}${numIt(net,2)}</span>
     <span><b>${esc(nomeSquadra(sq.squadra))}</b><small>contro ${esc(breve(sq.avversario))}</small><small>EPA per azione, attacco e difesa insieme, corretto per la forza dell'avversario</small></span></div>`):"";
   const finora=m.completa?"":` · finora ${m.partite} ${m.partite===1?"partita":"partite"}`;
-  return sezioneH(`Il meglio della week ${esc(m.settimana)}${finora}`, `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Tutta la Giornata","vai('giornata')"));
+  return sezioneH(`Il meglio della week ${esc(m.settimana)}${finora}`, `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Tutta la Giornata","vai('giornata')"), "freccia");
 }
 
 /* ---------- la corsa: playoff e ranking ---------- */
@@ -2835,7 +2840,7 @@ function corsaH(H){
       return `<li><span class="h-pos">${s.pos}</span>${stemma(s.squadra,true)}<b>${esc(breve(s.squadra))}</b>${mv}<em>${s.punti>0?"+":""}${numIt(s.punti)}</em></li>`;
     }).join("")}</ol><p class="h-nota">${esc(r.nota||"")}</p>`);
   }
-  return sezioneH("La corsa", `<div class="h-g21">${pl}${rk}</div>`, `<a href="#" onclick="homeTutteRank();return false">${homeTutte?"Mostra meno":"Mostra tutte"} →</a>`);
+  return sezioneH("La corsa", `<div class="h-g21">${pl}${rk}</div>`, `<a href="#" onclick="homeTutteRank();return false">${homeTutte?"Mostra meno":"Mostra tutte"} →</a>`, "grafico");
 }
 
 /* ---------- la strada verso i playoff: partite decisive + meteo ---------- */
@@ -2861,7 +2866,7 @@ function stradaH(H, wk){
       <small>${esc(quandoBreve(p))}${p.stadio?" · "+esc(p.stadio):""}</small></span></li>`).join("")}</ul>
     <p class="h-nota">Previsioni per l'ora del via (NWS e Open-Meteo), più fitte nelle 12 ore prima.</p>`
     :`<p class="h-nota">Le previsioni arrivano nei 7 giorni prima delle partite.</p>`);
-  return sezioneH("La strada verso i playoff", `<div class="h-g21">${dc}${met}</div>`, linkH("Calendario completo","vai('partite')"));
+  return sezioneH("La strada verso i playoff", `<div class="h-g21">${dc}${met}</div>`, linkH("Calendario completo","vai('partite')"), "barre");
 }
 
 /* ---------- in TV in Italia ---------- */
@@ -2874,7 +2879,7 @@ function tvH(wk){
   const nota=s.articolo?`Scelte da DAZN Italia: <a href="${esc(s.articolo)}" target="_blank" rel="noopener">l'articolo della settimana ↗</a>.`
     :inc.length?"Le partite della domenica pomeriggio incluse non sono ancora state annunciate da DAZN.":"DAZN non ha ancora annunciato le partite incluse.";
   return sezioneH("In TV in Italia", cardH("INCLUSE NEGLI ABBONAMENTI DAZN SPORTS, FULL E FAMILY", `${inc.length?`<div class="h-tvs">${carte}</div>`:""}
-    <p class="h-nota"><span class="tv dazn">DAZN</span> Tutte le ${wk.partite.length} partite della week si vedono con NFL Game Pass. ${nota}</p>`), "");
+    <p class="h-nota"><span class="tv dazn">DAZN</span> Tutte le ${wk.partite.length} partite della week si vedono con NFL Game Pass. ${nota}</p>`), "", "tv");
 }
 
 /* ---------- da leggere ---------- */
@@ -2892,7 +2897,7 @@ function leggereH(lega){
       <span class="h-img h-maglia" style="background:linear-gradient(135deg,${esc((r.colori||[])[0]||"#1F2937")} 0 62%,${esc((r.colori||[])[1]||"#111")} 62%)"><span>${esc(r.grande||"")}</span></span>
       <span class="h-art-t"><span class="h-tag rosso">LEGGENDE · RACCONTO</span><b>${esc(r.titolo)}</b></span></a>`:"";
   const n=L.length+(r?1:0);
-  return sezioneH("Da leggere", `<div class="h-g4" style="--n:${n}">${carte}${rc}</div>`, linkH("Tutti gli articoli","ART_APERTO=null;vai('articoli')"));
+  return sezioneH("Da leggere", `<div class="h-g4" style="--n:${n}">${carte}${rc}</div>`, linkH("Tutti gli articoli","ART_APERTO=null;vai('articoli')"), "giornale");
 }
 
 /* ---------- storia: accadde oggi, mai battuto, dinastie ---------- */
@@ -2924,7 +2929,7 @@ function storiaH(H){
       <small>${esc(d.dal)}–${esc(d.al)} · ${vinte} ${vinte===1?"titolo":"titoli"} in ${(d.finali||[]).length} Super Bowl · ${esc(d.allenatore||"")}${d.qb?" e "+esc(d.qb):""}</small></span></div>`);
   }
   if(!c1 && !c2 && !c3) return "";
-  return sezioneH("Storia", `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Leggende","vai('leggende')"));
+  return sezioneH("Storia", `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Leggende","vai('leggende')"), "clessidra");
 }
 
 /* ---------- l'altro campionato ---------- */
@@ -2940,7 +2945,7 @@ function altroH(lega){
   const voci=L.map(a=>`<li><a href="#articolo=${esc(a.id)}" onclick="vaiLegaArticolo('${altro}','${esc(a.id)}');return false"><span class="h-tag rosso">${a.tipo==="cronaca"?"CRONACA":"ANTEPRIMA"}</span><b>${esc(a.titolo)}</b></a></li>`).join("");
   if(!extra && !voci) return "";
   return sezioneH(altro==="college"?"Dal College":"Dalla NFL", cardH("", `<div class="h-altro">${extra}<ul class="h-coll">${voci}</ul></div>`, "h-largo"),
-    linkH(altro==="college"?"Vai al College":"Vai alla NFL", `vaiLega('${altro}')`));
+    linkH(altro==="college"?"Vai al College":"Vai alla NFL", `vaiLega('${altro}')`), "casco");
 }
 function caricaHomeSolo(lega){ HOME_D[lega]=false;
   scaricaDati(`home_${lega}.json`).then(x=>{ HOME_D[lega]=x||{}; render(); }).catch(()=>{ HOME_D[lega]={}; }); }
@@ -2959,7 +2964,7 @@ function collegeCorsaH(H){
       <li><span class="h-pos">${i+1}</span>${stemma(s.nome,true)}<b>${esc(s.nome)}<small>finale ${s.finale==null?"–":numIt(s.finale)+"%"}</small></b>
         <span class="h-bar"><i style="width:${Math.round(s.playoff)}%"></i></span><em>${numIt(s.playoff)}%</em></li>`).join("")}</ol>
       <p class="h-nota">Stime di ESPN (Football Power Index) sul resto della stagione: probabilità di entrare nei 12 dei playoff e di arrivare alla finale.</p>`):"";
-  return sezioneH("La corsa ai playoff", `<div class="h-g11">${cl}${fp}</div>`, `<a href="#" onclick="homeTutteRank();return false">${homeTutte?"Mostra meno":"Mostra tutte"} →</a>`);
+  return sezioneH("La corsa ai playoff", `<div class="h-g11">${cl}${fp}</div>`, `<a href="#" onclick="homeTutteRank();return false">${homeTutte?"Mostra meno":"Mostra tutte"} →</a>`, "grafico");
 }
 function strisciaCollege(wk, H){
   // college: troppe partite per una striscia: solo quelle con squadre in classifica
@@ -3000,7 +3005,7 @@ function meglioCollegeH(){
   const c3=sq?cardH("SQUADRA DELLA SETTIMANA", `<div class="h-big"><span class="h-num">${sq.netto>0?"+":""}${numIt(sq.netto,2)}</span>
     <span><b>${esc(sq.squadra)}</b><small>contro ${esc(sq.avversario)}</small><small>yard per azione fatte meno concesse, corrette per l'avversario</small></span></div>`):"";
   if(!c1&&!c2&&!c3) return "";
-  return sezioneH(`Il meglio della week ${esc(G.settimana)}${G.completa?"":" · finora"}`, `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Tutta la Giornata","vai('giornata')"));
+  return sezioneH(`Il meglio della week ${esc(G.settimana)}${G.completa?"":" · finora"}`, `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Tutta la Giornata","vai('giornata')"), "freccia");
 }
 
 
