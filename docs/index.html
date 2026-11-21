@@ -404,7 +404,7 @@
   .fb-team .n{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   body.fb .gara-squadre .fb-sq-sx .nome,body.fb .gara-squadre .fb-sq-dx .nome{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   @media (max-width:640px){
-    body.fb .gara .gara-squadre{display:none}
+    body.fb .gara:has(.fb-stack) .gara-squadre{display:none}   /* solo dove c'è la versione a righe (non nel calcio) */
     body.fb .gara .fb-stack{display:flex}
     body.fb .gara .fb-team .n{font-size:18px}
     body.fb .gara .fb-team .s{font-size:26px}
@@ -637,6 +637,7 @@
   .ar-vbadge{position:absolute;left:12px;top:12px;background:rgba(0,0,0,.72);color:#fff;font:700 12px var(--f-testo);letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:6px}
   .ar-lettore{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
   .ar-lettore iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .ar-vyt{position:absolute;right:12px;bottom:12px;background:#fff;color:#111;font:700 13px var(--f-testo);padding:7px 12px;border-radius:999px}
   .ar-video figcaption{margin-top:8px;font:13px var(--f-testo);color:var(--fb-muted);border-left:3px solid #B91C1C;padding-left:9px}
   .ar-video figcaption a{color:inherit;text-decoration:underline}
   .ar-nw{white-space:nowrap}
@@ -644,6 +645,7 @@
   .ar-cf-num>span{font:12px var(--f-testo);color:var(--fb-muted);padding:0 6px}
   .ar-cf-num .ar-cf-g b{font:600 18px var(--f-tit)}
   .ar-cf-quarti{display:flex;gap:4px;flex-wrap:wrap}
+  .gara-sezione{grid-column:1/-1;font:600 12px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;color:var(--fb-muted);margin:6px 2px 0}
   .ar-link-riga{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
   .ar-link{display:inline-flex;align-items:center;gap:4px;font:700 12px var(--f-testo);text-decoration:none;padding:5px 10px;border-radius:999px;
     border:1px solid var(--fb-acc,#B91C1C);color:var(--fb-acc,#B91C1C);background:transparent}
@@ -1830,9 +1832,15 @@ function vFootballPartite(){
     if(!aperto) return;
 
     h += `<div class="gruppo-corpo grid">`;
-    // dentro la week per orario d'inizio italiano (le partite senza ora in fondo alla loro giornata)
+    // dentro la week (21/11/2026, scelta di Valerio): prima le partite finite, dall'ultima finita alla prima;
+    // poi quelle da giocare, in ordine di orario d'inizio italiano (senza ora in fondo alla loro giornata)
     const quandoIt = p => (p.dataIt||p.data||"") + "T" + (p.oraIt||"99");
-    [...g.gare].sort((a,b)=>quandoIt(a).localeCompare(quandoIt(b))).forEach(p=>{
+    const finita = p => p.pc!==null && p.pc!==undefined;
+    const finite = g.gare.filter(finita).sort((a,b)=>quandoIt(b).localeCompare(quandoIt(a)));
+    const daGiocare = g.gare.filter(p=>!finita(p)).sort((a,b)=>quandoIt(a).localeCompare(quandoIt(b)));
+    [...finite, ...daGiocare].forEach((p, i)=>{
+      if(finite.length && daGiocare.length && (i===0 || i===finite.length))
+        h += `<div class="gara-sezione">${i===0?"Finite · dall'ultima":"Da giocare"}</div>`;
       const kp = `${p.stagione}|${p.settimana}|${p.casa}|${p.ospite}`;
       const disputata = p.pc!==null && p.pc!==undefined;
       const casa = p.giocatoriCasa || [];
@@ -2319,11 +2327,6 @@ function riquadroSquadre(a){
     ${R.linea?`<div class="ar-cf-et">${R.titolo?"Contro la linea del mercato americano":"Linea e totale del mercato americano"}</div><div class="ar-cf-linea">${esc(R.linea)}</div>`:""}
   </div>`;
 }
-function avviaVideo(id){
-  const f=document.getElementById("ar-video"); if(!f) return;
-  const b=f.querySelector(".ar-mini");
-  b.outerHTML=`<div class="ar-lettore"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0" title="Highlights" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>`;
-}
 function vArticolo(id){
   const a=ART_CACHE[id];
   if(!a){
@@ -2343,13 +2346,13 @@ function vArticolo(id){
     ? `<div class="ar-punti"><span class="${a.punti.ospite<a.punti.casa?"perde":""}">${a.punti.ospite}</span><i>–</i><span class="${a.punti.casa<a.punti.ospite?"perde":""}">${a.punti.casa}</span></div>`
     : `<div class="ar-ora"><b>${esc(ora)}</b><small>${esc(GIORNI_IT[d.getDay()].slice(0,3))} ${d.getDate()} ${esc(MESI_IT[d.getMonth()].slice(0,3))}<span class="ar-pc"> · ora italiana</span></small></div>`;
   const parole=(a.paragrafi||[]).join(" ").split(/\s+/).length, minuti=Math.max(1,Math.round(parole/200));
-  // Highlights dentro il testo, come nei siti di giornali: dopo l'attacco (metà articolo,
-  // mai prima del secondo paragrafo). Si carica il lettore solo al clic (youtube-nocookie).
+  // Highlights dentro il testo, come nei siti di giornali: dopo l'attacco (metà articolo, mai prima del secondo
+  // paragrafo). Anteprima che apre YouTube: la NFL blocca la visione dei suoi video dentro altri siti (21/11/2026).
   const video = cronaca && a.video ? `<figure class="ar-video" id="ar-video">
-      <button class="ar-mini" onclick="avviaVideo('${esc(a.video)}')" aria-label="Guarda gli highlights">
+      <a class="ar-mini" href="https://www.youtube.com/watch?v=${esc(a.video)}" target="_blank" rel="noopener" aria-label="Guarda gli highlights su YouTube">
         <img src="https://i.ytimg.com/vi/${esc(a.video)}/hqdefault.jpg" alt="" loading="lazy"><span class="ar-play"></span>
-        <span class="ar-vbadge">▶ Highlights</span></button>
-      <figcaption>Gli highlights ufficiali della partita · <a href="https://www.youtube.com/watch?v=${esc(a.video)}" target="_blank" rel="noopener">apri su YouTube</a></figcaption>
+        <span class="ar-vbadge">▶ Highlights</span><span class="ar-vyt">Guarda su YouTube ↗</span></a>
+      <figcaption>Gli highlights ufficiali della partita: la NFL ne permette la visione solo su YouTube.</figcaption>
     </figure>` : "";
   const par=(a.paragrafi||[]).map(p=>`<p>${esc(p).replace(/(\d+)-(\d+)/g,'<span class="ar-nw">$1-$2</span>')}</p>`);
   if(video) par.splice(Math.min(par.length, Math.max(2, Math.floor(par.length/2))), 0, video);
