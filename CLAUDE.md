@@ -292,6 +292,14 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   Hail Flutie 1984, The Play 1982, Kick Six 2013, Boise State al Fiesta Bowl 2007. Il collegamento diretto a un
   racconto dell'altro campionato cambia campionato da solo (`LEG_SEGUI`).
 - Un racconto nuovo ogni mercoledì (scelta di Valerio): attività programmata «PureStats: racconto delle Leggende».
+- Copertine e grafici (21/11/2026, scelta di Valerio «A + E + F» tra sei proposte): ogni racconto ha una copertina
+  (`legCopertina`: sfumatura nei due «colori», «grande» enorme in contorno, «LEGGENDE · Nº», anni in pastiglia, titolo
+  su vetro smerigliato) usata in lista, in evidenza, in testa al racconto e nella Home; niente foto né maglie. Nel
+  racconto aperto, sotto i numeri, «La carriera/partita/stagione in un grafico» (`legGrafico`, campo «grafico» in
+  racconti.json): carriera = tappe (linea del tempo, verticale su telefono); partita = differenza di punteggio minuto
+  per minuto (dal 1999 play-by-play nflverse, prima marcature della voce Wikipedia); sequenza = marcature in ordine
+  quando la fonte non dà i minuti (Flutie, The Play); stagione = barre (Dolphins 1972, Sanders). Ogni grafico cita la
+  sua fonte. L'attività del mercoledì prepara anche il grafico del racconto nuovo.
 
 ## Home (dal 21/11/2026, scelta di Valerio: opzione C «più professionale»)
 
@@ -304,10 +312,8 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   e `_rosso.png`, due maschere 128 px ricavate togliendo il bianco e separando il rosso; `iconaH(nome)` le colora con
   `--fb-text` e `--fb-acc`, quindi seguono da sole tema chiaro e scuro. tv, giornale, clessidra, casco, freccia,
   grafico, barre.
-- Maglia dei racconti (21/11/2026, disegno di Valerio): `docs/icone/maglia_corpo.png` e `maglia_bordi.png` (maschere 512 px);
-  `legGrandeNum` la usa quando «grande» è un numero di maglia (1-2 cifre), colorata con i colori della squadra del
-  racconto (corpo = primo colore, bordi = secondo) e con il numero sopra; punteggi e cifre simbolo restano il riquadro
-  a due colori. Testata della pagina STATISTICHE: `docs/icone/statistiche_testata.jpg` (immagine di Valerio).
+- Testata della pagina STATISTICHE: `docs/icone/statistiche_testata.jpg` (immagine di Valerio). La maglia disegnata
+  per i racconti è stata tolta il 21/11/2026 (poco professionale secondo Valerio): vedi Leggende, copertine.
 - `scripts/home_nfl.py` (workflow NFL, dopo fetch_duelli) → `docs/home_nfl.json`: corsa ai playoff con
   `nfl_playoff.corsa` (stessa simulazione di Charlie, tutte le partite rimaste; `stato` di Charlie invariato, verificato
   identico), partite decisive (somma dei salti vittoria/sconfitta), ranking (metà margini corretti per gli avversari,

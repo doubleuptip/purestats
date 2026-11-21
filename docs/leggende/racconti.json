@@ -50,6 +50,40 @@
     "url": "https://www.nfl.com/videos/kurt-warner-career-highlights-nfl-throwback",
     "titolo": "Kurt Warner career highlights",
     "fonte": "NFL Throwback · NFL.com"
+   },
+   "grafico": {
+    "tipo": "carriera",
+    "titolo": "La carriera in sei tappe",
+    "tappe": [
+     [
+      1994,
+      "Nessuna squadra lo sceglie al draft"
+     ],
+     [
+      1995,
+      "Arena Football League con gli Iowa Barnstormers"
+     ],
+     [
+      1999,
+      "Titolare, MVP e Super Bowl XXXIV vinto"
+     ],
+     [
+      2001,
+      "Secondo MVP e di nuovo al Super Bowl"
+     ],
+     [
+      2008,
+      "Porta Arizona al primo Super Bowl"
+     ],
+     [
+      2017,
+      "Pro Football Hall of Fame"
+     ]
+    ],
+    "fonte": {
+     "titolo": "Wikipedia, Kurt Warner",
+     "url": "https://en.wikipedia.org/wiki/Kurt_Warner"
+    }
    }
   },
   {
@@ -101,6 +135,40 @@
     "url": "https://www.nfl.com/videos/this-day-in-history-the-catch-377495",
     "titolo": "This Day in History: «The Catch»",
     "fonte": "NFL Throwback · NFL.com"
+   },
+   "grafico": {
+    "tipo": "carriera",
+    "titolo": "La carriera in sei tappe",
+    "tappe": [
+     [
+      1979,
+      "82ª scelta al draft"
+     ],
+     [
+      1981,
+      "Stagione di The Catch e del primo titolo"
+     ],
+     [
+      1984,
+      "Secondo titolo"
+     ],
+     [
+      1988,
+      "Il drive del Super Bowl XXIII"
+     ],
+     [
+      1989,
+      "MVP e quarto titolo, 55-10 a Denver"
+     ],
+     [
+      1993,
+      "Ai Kansas City Chiefs"
+     ]
+    ],
+    "fonte": {
+     "titolo": "Wikipedia, Joe Montana",
+     "url": "https://en.wikipedia.org/wiki/Joe_Montana"
+    }
    }
   },
   {
@@ -155,6 +223,104 @@
     "url": "https://www.nfl.com/videos/a-football-life-72-dolphins-complete-perfect-season-with-super-bowl-vii-win",
     "titolo": "'72 Dolphins complete perfect season with Super Bowl VII win",
     "fonte": "A Football Life · NFL.com"
+   },
+   "grafico": {
+    "tipo": "stagione",
+    "titolo": "17 partite, 17 vittorie: lo scarto di ogni partita",
+    "unita": "punti di scarto",
+    "barre": [
+     [
+      "1",
+      10,
+      false
+     ],
+     [
+      "2",
+      21,
+      false
+     ],
+     [
+      "3",
+      2,
+      false
+     ],
+     [
+      "4",
+      10,
+      false
+     ],
+     [
+      "5",
+      14,
+      false
+     ],
+     [
+      "6",
+      1,
+      false
+     ],
+     [
+      "7",
+      23,
+      false
+     ],
+     [
+      "8",
+      14,
+      false
+     ],
+     [
+      "9",
+      52,
+      false
+     ],
+     [
+      "10",
+      4,
+      false
+     ],
+     [
+      "11",
+      21,
+      false
+     ],
+     [
+      "12",
+      16,
+      false
+     ],
+     [
+      "13",
+      10,
+      false
+     ],
+     [
+      "14",
+      16,
+      false
+     ],
+     [
+      "DIV",
+      6,
+      true
+     ],
+     [
+      "AFC",
+      4,
+      true
+     ],
+     [
+      "SB",
+      7,
+      true
+     ]
+    ],
+    "nota": "Numeri = giornate di stagione regolare; DIV, AFC e SB = playoff e Super Bowl VII.",
+    "fonte": {
+     "titolo": "Wikipedia, 1972 Miami Dolphins season",
+     "url": "https://en.wikipedia.org/wiki/1972_Miami_Dolphins_season"
+    },
+    "intestazione": "La stagione in un grafico"
    }
   },
   {
@@ -206,6 +372,63 @@
     "url": "https://www.nfl.com/videos/super-bowl-li-tom-brady-highlights",
     "titolo": "Super Bowl LI: Tom Brady highlights",
     "fonte": "NFL.com"
+   },
+   "grafico": {
+    "tipo": "partita",
+    "titolo": "Differenza di punteggio: Patriots − Falcons",
+    "pro": "Patriots",
+    "contro": "Falcons",
+    "supplementari": true,
+    "serie": [
+     [
+      0,
+      0
+     ],
+     [
+      17.8,
+      -7
+     ],
+     [
+      21.2,
+      -14
+     ],
+     [
+      27.6,
+      -21
+     ],
+     [
+      29.9,
+      -18
+     ],
+     [
+      36.5,
+      -25
+     ],
+     [
+      42.8,
+      -19
+     ],
+     [
+      50.2,
+      -16
+     ],
+     [
+      54.1,
+      -8
+     ],
+     [
+      59.0,
+      0
+     ],
+     [
+      63.9,
+      6
+     ]
+    ],
+    "fonte": {
+     "titolo": "nflverse, play-by-play 2016 (CC-BY 4.0)",
+     "url": "https://github.com/nflverse/nflverse-data"
+    }
    }
   },
   {
@@ -256,6 +479,42 @@
     "url": "https://www.nfl.com/videos/can-t-miss-play-david-tyree-s-helmet-catch-in-super-bowl-xlii-504121",
     "titolo": "David Tyree's helmet catch in Super Bowl XLII",
     "fonte": "Can't-Miss Plays · NFL.com"
+   },
+   "grafico": {
+    "tipo": "partita",
+    "titolo": "Differenza di punteggio: Giants − Patriots",
+    "pro": "Giants",
+    "contro": "Patriots",
+    "serie": [
+     [
+      0,
+      0
+     ],
+     [
+      9.9,
+      3
+     ],
+     [
+      15.1,
+      -4
+     ],
+     [
+      48.9,
+      3
+     ],
+     [
+      57.3,
+      -4
+     ],
+     [
+      59.4,
+      3
+     ]
+    ],
+    "fonte": {
+     "titolo": "nflverse, play-by-play 2007 (CC-BY 4.0)",
+     "url": "https://github.com/nflverse/nflverse-data"
+    }
    }
   },
   {
@@ -307,6 +566,69 @@
     "url": "https://www.nfl.com/videos/barry-sanders-mini-movie-nfl-throwback",
     "titolo": "Most iconic Barry Sanders moments",
     "fonte": "NFL Throwback · NFL.com"
+   },
+   "grafico": {
+    "tipo": "stagione",
+    "titolo": "Le yard di corsa stagione per stagione",
+    "unita": "yard",
+    "barre": [
+     [
+      "1989",
+      1470,
+      false
+     ],
+     [
+      "1990",
+      1304,
+      false
+     ],
+     [
+      "1991",
+      1548,
+      false
+     ],
+     [
+      "1992",
+      1352,
+      false
+     ],
+     [
+      "1993",
+      1115,
+      false
+     ],
+     [
+      "1994",
+      1883,
+      false
+     ],
+     [
+      "1995",
+      1500,
+      false
+     ],
+     [
+      "1996",
+      1553,
+      false
+     ],
+     [
+      "1997",
+      2053,
+      true
+     ],
+     [
+      "1998",
+      1491,
+      false
+     ]
+    ],
+    "nota": "Totale in carriera 15.269 yard: si ritira con 1.457 yard di distanza dal record di Walter Payton.",
+    "fonte": {
+     "titolo": "Wikipedia, Barry Sanders",
+     "url": "https://en.wikipedia.org/wiki/Barry_Sanders"
+    },
+    "intestazione": "La carriera in un grafico"
    }
   },
   {
@@ -360,6 +682,54 @@
     "url": "https://global.espn.com/video/clip/_/id/24413683",
     "titolo": "Relive Doug Flutie's famous Hail Mary vs. Miami",
     "fonte": "ESPN"
+   },
+   "grafico": {
+    "tipo": "sequenza",
+    "titolo": "Differenza di punteggio, marcatura dopo marcatura: Boston College − Miami",
+    "pro": "Boston College",
+    "contro": "Miami",
+    "periodi": [
+     [
+      "1° quarto",
+      [
+       7,
+       14,
+       7
+      ]
+     ],
+     [
+      "2° quarto",
+      [
+       0,
+       7,
+       0,
+       7
+      ]
+     ],
+     [
+      "3° quarto",
+      [
+       0,
+       -3,
+       0
+      ]
+     ],
+     [
+      "4° quarto",
+      [
+       3,
+       -4,
+       3,
+       -4,
+       2
+      ]
+     ]
+    ],
+    "nota": "Wikipedia non dà il minuto di ogni marcatura: le marcature sono in ordine, divise per quarto.",
+    "fonte": {
+     "titolo": "Wikipedia, Hail Flutie",
+     "url": "https://en.wikipedia.org/wiki/Hail_Flutie"
+    }
    }
   },
   {
@@ -409,6 +779,37 @@
     "url": "https://alumni.berkeley.edu/california-magazine/online/watch-play",
     "titolo": "Watch The Play",
     "fonte": "California Magazine · Cal Alumni Association"
+   },
+   "grafico": {
+    "tipo": "sequenza",
+    "titolo": "Differenza di punteggio, marcatura dopo marcatura: California − Stanford",
+    "pro": "California",
+    "contro": "Stanford",
+    "periodi": [
+     [
+      "1° tempo",
+      [
+       10
+      ]
+     ],
+     [
+      "2° tempo",
+      [
+       3,
+       -4,
+       -1,
+       5,
+       2,
+       -1,
+       5
+      ]
+     ]
+    ],
+    "nota": "Del primo tempo è noto solo il 10-0 all'intervallo; poi le marcature in ordine.",
+    "fonte": {
+     "titolo": "Wikipedia, The Play",
+     "url": "https://en.wikipedia.org/wiki/The_Play_(American_football)"
+    }
    }
   },
   {
@@ -458,6 +859,58 @@
     "url": "https://www.espn.com/video/clip/_/id/38973747",
     "titolo": "How the Iron Bowl's 'Kick-Six' altered the Alabama-Auburn rivalry's history",
     "fonte": "ESPN"
+   },
+   "grafico": {
+    "tipo": "partita",
+    "titolo": "Differenza di punteggio: Auburn − Alabama",
+    "pro": "Auburn",
+    "contro": "Alabama",
+    "serie": [
+     [
+      0,
+      0
+     ],
+     [
+      9.92,
+      7
+     ],
+     [
+      19.0,
+      0
+     ],
+     [
+      22.8,
+      -7
+     ],
+     [
+      26.2,
+      -14
+     ],
+     [
+      28.33,
+      -7
+     ],
+     [
+      33.07,
+      0
+     ],
+     [
+      49.53,
+      -7
+     ],
+     [
+      59.47,
+      0
+     ],
+     [
+      60,
+      6
+     ]
+    ],
+    "fonte": {
+     "titolo": "Wikipedia, 2013 Iron Bowl",
+     "url": "https://en.wikipedia.org/wiki/2013_Iron_Bowl"
+    }
    }
   },
   {
@@ -507,6 +960,76 @@
     "url": "https://www.espn.com/video/clip/_/id/18364083",
     "titolo": "Ian Johnson ricorda la «Statue of Liberty» e la proposta di matrimonio",
     "fonte": "ESPN"
+   },
+   "grafico": {
+    "tipo": "partita",
+    "titolo": "Differenza di punteggio: Boise State − Oklahoma",
+    "pro": "Boise State",
+    "contro": "Oklahoma",
+    "supplementari": true,
+    "serie": [
+     [
+      0,
+      0
+     ],
+     [
+      5.9,
+      7
+     ],
+     [
+      7.53,
+      14
+     ],
+     [
+      14.57,
+      7
+     ],
+     [
+      24.37,
+      4
+     ],
+     [
+      29.47,
+      11
+     ],
+     [
+      36.92,
+      18
+     ],
+     [
+      40.52,
+      11
+     ],
+     [
+      45.05,
+      8
+     ],
+     [
+      58.57,
+      0
+     ],
+     [
+      58.97,
+      -7
+     ],
+     [
+      59.88,
+      0
+     ],
+     [
+      62,
+      -7
+     ],
+     [
+      64,
+      1
+     ]
+    ],
+    "nota": "Ai supplementari si gioca un possesso a testa, senza cronometro.",
+    "fonte": {
+     "titolo": "Wikipedia, 2007 Fiesta Bowl",
+     "url": "https://en.wikipedia.org/wiki/2007_Fiesta_Bowl"
+    }
    }
   }
  ]
