@@ -422,8 +422,10 @@ def giudizio(campionato: str, s: dict) -> str:
         nuovi = [g for g in a["giocatori"] if g.get("nuovo")]
         pezzi = []
         if campionato == "College" and a.get("rango"):
-            pezzi.append(f"assenze tra le più pesanti d'America ({int(a['rango'])}ª su 138, {int(a['n'] or 0)} in lista)"
-                         if a["rango"] <= 15 else f"{int(a['n'] or 0)} in lista, peso delle assenze {int(a['rango'])}ª su 138")
+            # 21/11/2026: «d'America» si leggeva come un nome; ora dice chiaro di cosa è la classifica
+            pezzi.append(f"assenze tra le più pesanti del college: {int(a['rango'])}ª squadra su 138, "
+                         f"{int(a['n'] or 0)} giocatori in lista" if a["rango"] <= 15 else
+                         f"{int(a['n'] or 0)} giocatori in lista, peso delle assenze {int(a['rango'])}ª squadra su 138")
         elif a.get("impatto"):
             pezzi.append(f"assenti per circa il {round(a['impatto'] * 10)}% della produzione")
         if nomi:

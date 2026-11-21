@@ -272,6 +272,10 @@ def pressioni_settimana_prima(stagione, settimana, n=5):
 
 # ------------------------------------------------------------------ indici di forza (EPA)
 MOMENTI_PER_PARTITA = 5
+MOMENTI_PER_QUARTO = 2      # così il racconto copre tutta la partita (21/11/2026)
+SOGLIA_MOMENTO = 0.03       # sotto 3 punti di probabilità solo touchdown, palle perse, quarti down, safety
+PESO_CONTRARIO = 0.6        # azioni che andavano contro il risultato finale
+PESO_CHIAVE = 1.25          # touchdown, intercetti, fumble persi, quarti down falliti, safety
 
 
 def _riassunto_pbp(stagione, settimana_momenti=None, momenti=None, raccolta=None):
@@ -292,9 +296,17 @@ def _riassunto_pbp(stagione, settimana_momenti=None, momenti=None, raccolta=None
                     print(f"  Giornata: riga del play-by-play non letta ({type(e).__name__}: {e})")
                     raccolta._avvisato = True
         if settimana_momenti is not None and momenti is not None and r.get("week") == str(settimana_momenti):
-            wpa, hw, hwp = f(r.get("wpa")), f(r.get("home_wp")), f(r.get("home_wp_post"))
+            # dal 21/11/2026 la probabilità parte dalla linea del mercato (vegas_home_wp): con quella «neutra»
+            # un favorito di 12,5 partiva al 57% e i momenti finivano tutti nel primo quarto
+            hw, dw = f(r.get("vegas_home_wp")), f(r.get("vegas_home_wpa"))
+            if hw is None or dw is None:
+                hw, hwp0 = f(r.get("home_wp")), f(r.get("home_wp_post"))
+                dw = hwp0 - hw if hw is not None and hwp0 is not None else None
+            hwp = hw + dw if hw is not None and dw is not None else None
             desc = r.get("desc") or ""
-            if (wpa is not None and hw is not None and hwp is not None and desc
+            chiave = any(r.get(c) == "1" for c in ("touchdown", "interception", "fumble_lost", "fourth_down_failed", "safety"))
+            ris = f(r.get("result"))
+            if (hw is not None and hwp is not None and desc and (abs(dw) >= SOGLIA_MOMENTO or chiave)
                     and not any(x in desc for x in ("No Play", "Timeout", "kneels", "END QUARTER", "END GAME"))):
                 # tolgo dal testo l'orario e le indicazioni di formazione, già mostrati o inutili
                 desc = re.sub(r"^\(\d+:\d+\)\s*", "", desc)
@@ -304,7 +316,10 @@ def _riassunto_pbp(stagione, settimana_momenti=None, momenti=None, raccolta=None
                     "quarto": r.get("qtr"), "tempo": r.get("time"), "squadra": r.get("posteam"),
                     "descrizione": desc[:220], "testo": testo[:220], "chi": chi,
                     "yard": f(r.get("yards_gained")), "touchdown": r.get("touchdown") == "1",
-                    "casaPrima": round(hw * 100), "casaDopo": round(hwp * 100), "peso": abs(hwp - hw)})
+                    "casaPrima": round(hw * 100), "casaDopo": round(max(0.0, min(1.0, hwp)) * 100),
+                    # peso: quanto ha spostato, pieno se verso il risultato finale, di più per le azioni chiave
+                    "peso": abs(dw) * (1.0 if ris is None or ris == 0 or (dw > 0) == (ris > 0) else PESO_CONTRARIO)
+                            * (PESO_CHIAVE if chiave else 1.0)})
         if r.get("season_type") not in ("REG", "POST"):
             continue
         tipo = "pass" if r.get("pass") == "1" else "rush" if r.get("rush") == "1" else None
@@ -441,7 +456,11 @@ def calcola(info=None):
         # abbinamento alla partita con la sigla nflverse del game_id: <stagione>_<settimana>_<ospite>_<casa>
         for g in giorn["partite"]:
             gid = f"{giorn['stagione']}_{int(giorn['settimana']):02d}_{g['ospite']}_{g['casa']}"
-            scelti = sorted(momenti.get(gid, []), key=lambda m: -m["peso"])[:MOMENTI_PER_PARTITA]
+            scelti, per_quarto = [], defaultdict(int)
+            for m in sorted(momenti.get(gid, []), key=lambda m: -m["peso"]):
+                if per_quarto[m["quarto"]] < MOMENTI_PER_QUARTO and len(scelti) < MOMENTI_PER_PARTITA:
+                    per_quarto[m["quarto"]] += 1
+                    scelti.append(m)
             scelti.sort(key=lambda m: (int(m["quarto"] or 0), -_secondi(m["tempo"])))
             for m in scelti:
                 m.pop("peso", None)
