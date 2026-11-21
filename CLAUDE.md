@@ -304,6 +304,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   e `_rosso.png`, due maschere 128 px ricavate togliendo il bianco e separando il rosso; `iconaH(nome)` le colora con
   `--fb-text` e `--fb-acc`, quindi seguono da sole tema chiaro e scuro. tv, giornale, clessidra, casco, freccia,
   grafico, barre.
+- Maglia dei racconti (21/11/2026, disegno di Valerio): `docs/icone/maglia_corpo.png` e `maglia_bordi.png` (maschere 512 px);
+  `legGrandeNum` la usa quando «grande» è un numero di maglia (1-2 cifre), colorata con i colori della squadra del
+  racconto (corpo = primo colore, bordi = secondo) e con il numero sopra; punteggi e cifre simbolo restano il riquadro
+  a due colori. Testata della pagina STATISTICHE: `docs/icone/statistiche_testata.jpg` (immagine di Valerio).
 - `scripts/home_nfl.py` (workflow NFL, dopo fetch_duelli) → `docs/home_nfl.json`: corsa ai playoff con
   `nfl_playoff.corsa` (stessa simulazione di Charlie, tutte le partite rimaste; `stato` di Charlie invariato, verificato
   identico), partite decisive (somma dei salti vittoria/sconfitta), ranking (metà margini corretti per gli avversari,
