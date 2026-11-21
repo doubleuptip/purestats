@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-20T18:58:11.799997+00:00",
+  "aggiornato": "2026-11-21T05:43:18.574806+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC-BY-SA 4.0)",
   "stagioni": [
@@ -141675,51 +141675,6 @@
         "momenti": [
           {
             "quarto": "1",
-            "tempo": "14:18",
-            "squadra": "IND",
-            "descrizione": "17-D.Jones pass short middle to 16-A.Dulin pushed ob at HOU 29 for 25 yards (24-D.Stingley).",
-            "testo": "Jones lancia corto al centro per Dulin, 25 yard",
-            "chi": [
-              "Jones",
-              "Dulin"
-            ],
-            "yard": 25.0,
-            "touchdown": false,
-            "casaPrima": 57,
-            "casaDopo": 45
-          },
-          {
-            "quarto": "1",
-            "tempo": "06:59",
-            "squadra": "HOU",
-            "descrizione": "7-C.Stroud pass deep right intended for 12-N.Collins INTERCEPTED by 25-A.Haulcy (0-C.Bynum) at IND 25. 25-A.Haulcy to IND 27 for 2 yards (1-T.Dell).",
-            "testo": "Stroud intercettato da Haulcy",
-            "chi": [
-              "Stroud",
-              "Haulcy"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 53,
-            "casaDopo": 45
-          },
-          {
-            "quarto": "1",
-            "tempo": "06:14",
-            "squadra": "IND",
-            "descrizione": "17-D.Jones pass deep right to 9-Q.Watkins to HOU 46 for 26 yards (5-J.Pitre).",
-            "testo": "Jones lancia lungo a destra per Watkins, 26 yard",
-            "chi": [
-              "Jones",
-              "Watkins"
-            ],
-            "yard": 26.0,
-            "touchdown": false,
-            "casaPrima": 46,
-            "casaDopo": 39
-          },
-          {
-            "quarto": "1",
             "tempo": "03:44",
             "squadra": "IND",
             "descrizione": "3-S.Shrader 56 yard field goal is No Good, Wide Left, Center-46-L.Rhodes, Holder-8-R.Sanchez.",
@@ -141729,8 +141684,8 @@
             ],
             "yard": 0.0,
             "touchdown": false,
-            "casaPrima": 46,
-            "casaDopo": 55
+            "casaPrima": 78,
+            "casaDopo": 82
           },
           {
             "quarto": "1",
@@ -141744,11 +141699,64 @@
             ],
             "yard": 42.0,
             "touchdown": true,
-            "casaPrima": 59,
-            "casaDopo": 68,
+            "casaPrima": 83,
+            "casaDopo": 88,
             "clip": {
               "id": "IPccsCCHIfQ",
               "titolo": "43 yards later Nico Collins comes down with it!!"
+            }
+          },
+          {
+            "quarto": "2",
+            "tempo": "15:00",
+            "squadra": "IND",
+            "descrizione": "17-D.Jones pass deep middle intended for 80-D.Burks INTERCEPTED by 3-K.Lassiter [96-L.Hall] at HOU 15. 3-K.Lassiter to HOU 15 for no gain (80-D.Burks).",
+            "testo": "Jones intercettato da Lassiter",
+            "chi": [
+              "Jones",
+              "Lassiter"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 89,
+            "casaDopo": 90
+          },
+          {
+            "quarto": "2",
+            "tempo": "07:43",
+            "squadra": "HOU",
+            "descrizione": "7-C.Stroud pass deep middle to 14-K.Boutte for 24 yards, TOUCHDOWN.",
+            "testo": "Stroud lancia lungo al centro per Boutte, 24 yard: touchdown",
+            "chi": [
+              "Stroud",
+              "Boutte"
+            ],
+            "yard": 24.0,
+            "touchdown": true,
+            "casaPrima": 93,
+            "casaDopo": 96,
+            "clip": {
+              "id": "3uyKZrOnbQU",
+              "titolo": "Amazing catch by Kayshon Boutte! Puts another 6 on the board!"
+            }
+          },
+          {
+            "quarto": "3",
+            "tempo": "04:28",
+            "squadra": "HOU",
+            "descrizione": "7-C.Stroud pass short right to 83-M.Klein for 13 yards, TOUCHDOWN. ** Injury Update: IND-34-K.Gushiken has returned to the game.",
+            "testo": "Stroud lancia corto a destra per Klein, 13 yard: touchdown",
+            "chi": [
+              "Stroud",
+              "Klein"
+            ],
+            "yard": 13.0,
+            "touchdown": true,
+            "casaPrima": 99,
+            "casaDopo": 100,
+            "clip": {
+              "id": "keTFK1XJTQ8",
+              "titolo": "The Texans have Marlin Klein’s back 🫶"
             }
           }
         ],
@@ -141937,7 +141945,7 @@
         "pc": null,
         "po": null,
         "favorita": "SF",
-        "linea": 3.5,
+        "linea": 3.0,
         "totaleLinea": 46.5,
         "battutaDa": null,
         "totaleEsito": null,
