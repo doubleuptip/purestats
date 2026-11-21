@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-21T06:45+00:00",
+ "aggiornato": "2026-11-21T06:55+00:00",
  "record": {
   "QB": [
    {
@@ -2883,6 +2883,218 @@
     }
    ],
    "titoli": 6
+  }
+ ],
+ "maiBattuti": [
+  {
+   "chiave": "passaggi_yard",
+   "titolo": "Yard lanciate",
+   "detentore": "Tom Brady",
+   "valore": 89214.0,
+   "squadre": [
+    "New England Patriots",
+    "Tampa Bay Buccaneers"
+   ],
+   "hof": false,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Aaron Rodgers",
+    "valore": 68288.0,
+    "pos": 5
+   },
+   "aggiornataWiki": "Through Week 11 Thursday game of 2026 season.",
+   "fonte": {
+    "titolo": "List of NFL career passing yards leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_passing_yards_leaders"
+   }
+  },
+  {
+   "chiave": "passaggi_td",
+   "titolo": "Touchdown lanciati",
+   "detentore": "Tom Brady",
+   "valore": 649.0,
+   "squadre": [
+    "New England Patriots",
+    "Tampa Bay Buccaneers"
+   ],
+   "hof": false,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Aaron Rodgers",
+    "valore": 542.0,
+    "pos": 3
+   },
+   "aggiornataWiki": "Through Week 11 Thursday game of 2026 season.",
+   "fonte": {
+    "titolo": "List of NFL career passing touchdowns leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_passing_touchdowns_leaders"
+   }
+  },
+  {
+   "chiave": "corse_yard",
+   "titolo": "Yard di corsa",
+   "detentore": "Emmitt Smith",
+   "valore": 18355.0,
+   "squadre": [
+    "Dallas Cowboys (1990–2002); Arizona Cardinals (2003–2004)"
+   ],
+   "hof": true,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Derrick Henry",
+    "valore": 13717.0,
+    "pos": 7
+   },
+   "aggiornataWiki": "Through Week 10 of the 2026 season.",
+   "fonte": {
+    "titolo": "List of NFL career rushing yards leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_rushing_yards_leaders"
+   }
+  },
+  {
+   "chiave": "corse_td",
+   "titolo": "Touchdown di corsa",
+   "detentore": "Emmitt Smith",
+   "valore": 164.0,
+   "squadre": [
+    "Dallas Cowboys (1990–2002); Arizona Cardinals (2003–2004)"
+   ],
+   "hof": true,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Derrick Henry",
+    "valore": 132.0,
+    "pos": 3
+   },
+   "aggiornataWiki": "Through Week 10 of the 2026 season",
+   "fonte": {
+    "titolo": "List of NFL career rushing touchdowns leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_rushing_touchdowns_leaders"
+   }
+  },
+  {
+   "chiave": "ricezioni_yard",
+   "titolo": "Yard ricevute",
+   "detentore": "Jerry Rice",
+   "valore": 22895.0,
+   "squadre": [
+    "San Francisco 49ers (1985–2000); Oakland Raiders (2001–2004); Seattle Seahawks (2004)"
+   ],
+   "hof": true,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Travis Kelce",
+    "valore": 13514.0,
+    "pos": 17
+   },
+   "aggiornataWiki": "Through Week 10 of 2026 season.",
+   "fonte": {
+    "titolo": "List of NFL career receiving yards leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receiving_yards_leaders"
+   }
+  },
+  {
+   "chiave": "ricezioni",
+   "titolo": "Ricezioni",
+   "detentore": "Jerry Rice",
+   "valore": 1549.0,
+   "squadre": [
+    "San Francisco 49ers (1985–2000); Oakland Raiders (2001–2004); Seattle Seahawks (2004)"
+   ],
+   "hof": true,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Travis Kelce",
+    "valore": 1115.0,
+    "pos": 5
+   },
+   "aggiornataWiki": "Through Week 10 of 2026 season",
+   "fonte": {
+    "titolo": "List of NFL career receptions leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receptions_leaders"
+   }
+  },
+  {
+   "chiave": "ricezioni_td",
+   "titolo": "Touchdown su ricezione",
+   "detentore": "Jerry Rice",
+   "valore": 197.0,
+   "squadre": [
+    "San Francisco 49ers (1985–2000); Oakland Raiders (2001–2004); Seattle Seahawks (2004)"
+   ],
+   "hof": true,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Davante Adams",
+    "valore": 121.0,
+    "pos": 7
+   },
+   "aggiornataWiki": "Through Week 10 of 2026 season.",
+   "fonte": {
+    "titolo": "List of NFL career receiving touchdowns leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receiving_touchdowns_leaders"
+   }
+  },
+  {
+   "chiave": "sack",
+   "titolo": "Sack (ufficiali dal 1982)",
+   "detentore": "Bruce Smith",
+   "valore": 200.0,
+   "squadre": [
+    "Buffalo Bills (1985–1999); Washington Redskins (2000–2003)"
+   ],
+   "hof": true,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Von Miller",
+    "valore": 139.5,
+    "pos": 7
+   },
+   "aggiornataWiki": "through Week 10 of the 2026 NFL season.",
+   "fonte": {
+    "titolo": "List of NFL career sacks leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_sacks_leaders"
+   }
+  },
+  {
+   "chiave": "intercetti",
+   "titolo": "Intercetti",
+   "detentore": "Paul Krause",
+   "valore": 81.0,
+   "squadre": [
+    "Washington Redskins (1964–1967)",
+    "Minnesota Vikings (1968–1979)"
+   ],
+   "hof": true,
+   "detentoreAttivo": false,
+   "vicino": null,
+   "aggiornataWiki": "",
+   "fonte": {
+    "titolo": "List of NFL career interceptions leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_interceptions_leaders"
+   }
+  },
+  {
+   "chiave": "allenatori",
+   "titolo": "Vittorie in stagione regolare",
+   "detentore": "Don Shula",
+   "valore": 328.0,
+   "squadre": [
+    "Baltimore Colts",
+    "Miami Dolphins"
+   ],
+   "hof": true,
+   "detentoreAttivo": false,
+   "vicino": {
+    "nome": "Andy Reid",
+    "valore": 286.0,
+    "pos": 4
+   },
+   "aggiornataWiki": "",
+   "fonte": {
+    "titolo": "List of NFL head coach wins leaders",
+    "url": "https://en.wikipedia.org/wiki/List_of_NFL_head_coach_wins_leaders"
+   }
   }
  ],
  "superBowl": [

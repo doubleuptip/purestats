@@ -275,7 +275,14 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   Wikipedia; nflverse li conferma per i giocatori dal 1999 (✓ in pagina, tolleranza 2 o 0,5%: le statistiche
   ricostruite azione per azione differiscono di poco da quelle ufficiali). Una differenza più grande finisce nel
   registro come «ATTENZIONE ... da controllare». Se una voce cambia struttura lo script si ferma e il file resta com'era.
-- Da fare: racconti (numero di maglia grande nei colori della squadra), «Mai battuto», college.
+- Racconti (21/11/2026): `docs/leggende/racconti.json` scritto a mano (id, titolo, occhiello, grande = numero di maglia
+  o cifra simbolo, colori della squadra dell'epoca, numeri, paragrafi, fonti). Il primo della lista è «In evidenza» in
+  cima alla pagina; indirizzo diretto `#leggenda=<id>`. Ogni fatto si verifica sulla voce Wikipedia citata (scaricata
+  dal ramo bozze, workflow bozze.yml) prima di pubblicare; testo nostro, niente frasi copiate. Fatti: Kurt Warner,
+  Joe Montana, Dolphins 1972.
+- «Mai battuto»: per ogni classifica il detentore e il migliore ancora in attività con la distanza (`maiBattuti` in
+  leggende.json), più la stagione perfetta 17-0 dei Dolphins.
+- Da fare: altri racconti (lista sotto), college.
 
 ## Fonti a credito (chiamate limitate)
 
@@ -369,7 +376,8 @@ davvero che si veda quello che deve vedersi.
 
 ## Da fare da sabato 21/11/2026 (dopo il rinnovo dell'abbonamento, ore 5)
 
-1. Sezione «LEGGENDE»: struttura e classifiche fatte il 21/11 (vedi sopra); restano racconti, «Mai battuto», college. (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
+1. Sezione «LEGGENDE»: struttura, classifiche, «Mai battuto» e i primi 3 racconti fatti il 21/11 (vedi sopra); restano gli
+   altri racconti e il college. (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
    mostrato il 19/11: menu accanto ad ARTICOLI; racconto in evidenza con il numero di maglia grande nei colori della
    squadra (niente foto dei giocatori); «I più grandi» per ruolo (QB, RB, WR, TE, difesa, allenatori) in due elenchi:
    Record (dati) e I più grandi (criteri dichiarati: titoli, MVP, All-Pro, record, Canton, squadra dei 100 anni NFL);

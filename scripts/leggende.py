@@ -512,6 +512,19 @@ def costruisci(cartella_wiki: Path, cartella_nflverse: Path) -> None:
                                       "righe": righe,
                                       "nota": "tight end tra i primi della classifica di carriera" if ruolo == "TE" else ""})
 
+    # «Mai battuto»: chi detiene il record e quanto manca al migliore ancora in attività (stesse classifiche intere)
+    mai_battuti = []
+    for chiave, cl in classifiche.items():
+        primo = cl["righe"][0]
+        attivi = [r for r in cl["righe"] if r["attivo"]]
+        vicino = attivi[0] if attivi else None
+        mai_battuti.append({
+            "chiave": chiave, "titolo": cl["titolo"], "detentore": primo["nome"], "valore": primo["valore"],
+            "squadre": primo["squadre"], "hof": primo["hof"], "detentoreAttivo": primo["attivo"],
+            "vicino": ({"nome": vicino["nome"], "valore": vicino["valore"], "pos": cl["righe"].index(vicino) + 1}
+                       if vicino and vicino is not primo else None),
+            "aggiornataWiki": cl["aggiornataWiki"], "fonte": cl["fonte"]})
+
     grandi = centenario(voci["centenario"])
     finali = super_bowl(voci["super_bowl"])
     if len(finali) < 50:
@@ -521,6 +534,7 @@ def costruisci(cartella_wiki: Path, cartella_nflverse: Path) -> None:
         "record": record,
         "grandi": grandi,
         "dinastie": dinastie(finali),
+        "maiBattuti": mai_battuti,
         "superBowl": finali,
         "fonti": [{"titolo": v["titolo"], "url": v["url"]} for v in voci.values()],
         "licenze": "Testi e numeri da Wikipedia (CC BY-SA 4.0); verifiche dal 1999 con nflverse (CC-BY 4.0).",
