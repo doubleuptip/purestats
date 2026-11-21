@@ -16,6 +16,20 @@ Ogni settimana: 3 partite NFL e 3 college, anteprima prima del via e cronaca dop
 5. Rileggere il testo da caporedattore (fatti, italiano, regole sotto), poi commit e push su main.
    Il meteo lo aggiorna da solo il workflow «Articoli - meteo delle anteprime».
 
+## Lavoro del giorno (attività programmata, dal 21/11/2026)
+- `python3 scripts/articoli.py da_fare` dice cosa scrivere oggi: anteprime delle partite scelte che iniziano entro 48 ore
+  e cronache delle partite scelte già finite. Le partite scelte (3 NFL e 3 college a settimana) si calcolano una volta,
+  a ridosso della settimana, e restano in `data/articoli/scelte_<lega>_<stagione>_<week>.json`.
+- College: i fatti si preparano con `fatti_college <stagione> <week> "<ospite>" "<casa>"` (comando già scritto in da_fare);
+  l'id dell'articolo è quello di da_fare (spazi e simboli diventano «-»).
+- Prima di scrivere, cercare sul web le notizie della vigilia (o del dopo partita): infortuni con lo stato ufficiale,
+  quarterback titolare, scambi, allenatore, orario spostato dalla tv, sede particolare. Quello che serve al racconto va in
+  `data/articoli/notizie_<id>.json` = [{"fatto": "...", "fonte": "https://..."}] (una fonte per ogni fatto, sennò
+  `pubblica` si ferma). Orari spostati e città: `data/articoli/correzioni_<id>.json` = {"inizioEt": "AAAA-MM-GGTHH:MM",
+  "citta": "...", "fonte": "https://..."}, poi rifare `fatti`.
+- Se nflverse non ha ancora il play-by-play (o ESPN il tabellino del college), `fatti` lo dice: quella cronaca si
+  rimanda al giorno dopo, senza inventare nulla.
+
 ## Cosa raccontare (indicazioni di Valerio, 18/11/2026)
 - Si parte dall'ATTUALITÀ: come stanno andando le squadre, momento positivo o negativo, chi cerca riscatto,
   cosa è cambiato con un'assenza (es. una squadra crollata da quando manca il quarterback titolare),
