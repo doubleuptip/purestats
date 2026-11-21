@@ -259,6 +259,19 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Sito: menu ARTICOLI, articolo con impaginazione B (testo a sinistra, colonna con meteo e numeri), collegamento
   «Leggi l'anteprima/la cronaca» dalle schede partita, indirizzo diretto `#articolo=<id>`.
 
+## Leggende (dal 21/11/2026, scelta di Valerio)
+
+- Menu LEGGENDE (solo NFL) accanto ad ARTICOLI, tre schede: «I più grandi» (squadra del centenario NFL, 2019, giuria di
+  26 votanti, ordinabile per All-Pro, titoli, MVP, Pro Bowl; per gli allenatori titoli e allenatore dell'anno AP),
+  «Record» (prime 10 di carriera in stagione regolare per ruolo; TE = i tight end presenti nelle classifiche dei
+  ricevitori) e «Dinastie» (finestre e protagonisti scelti da noi in `leggende.DINASTIE`, finali dalla voce dei Super Bowl).
+- `scripts/leggende.py aggiorna` (workflow leggende.yml, mercoledì 06:17 UTC): voci Wikipedia via API (citate, CC BY-SA)
+  + stats_player_reg nflverse 1999-oggi; scrive `docs/leggende/leggende.json`. I numeri restano quelli ufficiali di
+  Wikipedia; nflverse li conferma per i giocatori dal 1999 (✓ in pagina, tolleranza 2 o 0,5%: le statistiche
+  ricostruite azione per azione differiscono di poco da quelle ufficiali). Una differenza più grande finisce nel
+  registro come «ATTENZIONE ... da controllare». Se una voce cambia struttura lo script si ferma e il file resta com'era.
+- Da fare: racconti (numero di maglia grande nei colori della squadra), «Mai battuto», college.
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate
@@ -351,7 +364,7 @@ davvero che si veda quello che deve vedersi.
 
 ## Da fare da sabato 21/11/2026 (dopo il rinnovo dell'abbonamento, ore 5)
 
-1. Sezione «LEGGENDE» (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
+1. Sezione «LEGGENDE»: struttura e classifiche fatte il 21/11 (vedi sopra); restano racconti, «Mai battuto», college. (nome scelto al posto di «Hall of Fame», marchio del museo di Canton), stile del template
    mostrato il 19/11: menu accanto ad ARTICOLI; racconto in evidenza con il numero di maglia grande nei colori della
    squadra (niente foto dei giocatori); «I più grandi» per ruolo (QB, RB, WR, TE, difesa, allenatori) in due elenchi:
    Record (dati) e I più grandi (criteri dichiarati: titoli, MVP, All-Pro, record, Canton, squadra dei 100 anni NFL);

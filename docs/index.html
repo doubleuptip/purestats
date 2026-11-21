@@ -645,6 +645,56 @@
   .ar-cf-num>span{font:12px var(--f-testo);color:var(--fb-muted);padding:0 6px}
   .ar-cf-num .ar-cf-g b{font:600 18px var(--f-tit)}
   .ar-cf-quarti{display:flex;gap:4px;flex-wrap:wrap}
+  /* ---- Leggende (21/11/2026) ---- */
+  .leg-ruoli,.leg-filtri{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;align-items:center}
+  .leg-filtri span{font-size:13px;color:var(--fb-muted);margin-right:2px}
+  .leg-ruoli button,.leg-filtri button{font:600 14px var(--f-testo);padding:8px 14px;border-radius:999px;border:1px solid var(--fb-border);
+    background:var(--fb-card);color:var(--fb-text);cursor:pointer}
+  .leg-filtri button{font-size:13px;padding:6px 12px}
+  .leg-ruoli button.on,.leg-filtri button.on{background:var(--fb-text);color:var(--fb-bg);border-color:var(--fb-text)}
+  .leg-lista{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+  .leg-grande{display:flex;gap:14px;align-items:flex-start;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:14px}
+  .leg-pos{flex:none;min-width:34px;font:800 26px/1 var(--fb-head);color:var(--fb-acc);text-align:right}
+  .leg-g-testo,.leg-r-testo{flex:1;min-width:0}
+  .leg-g-testo b,.leg-r-testo b{font-size:17px;color:var(--fb-text)}
+  .leg-g-testo small,.leg-r-testo small{display:block;font-size:13px;color:var(--fb-muted);margin-top:3px;line-height:1.4}
+  .leg-onori{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .leg-onore{font-size:12.5px;padding:3px 9px;border-radius:6px;background:var(--fb-bg);border:1px solid var(--fb-border);color:var(--fb-text)}
+  .leg-onore.on{border-color:var(--fb-acc);color:var(--fb-acc)}
+  .leg-hof,.leg-att{display:inline-block;margin-left:8px;font:700 11px var(--f-testo);letter-spacing:.04em;padding:2px 6px;border-radius:4px;vertical-align:2px}
+  .leg-hof{background:#C9A227;color:#1a1400}
+  .leg-att{background:transparent;border:1px solid var(--fb-acc);color:var(--fb-acc);font-weight:600}
+  .leg-griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px}
+  .leg-classifica{list-style:none;padding:0;margin:8px 0 0}
+  .leg-classifica li{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--fb-border)}
+  .leg-classifica .leg-pos{font-size:20px;min-width:26px}
+  .leg-classifica .fb-num{flex:none;font:700 18px var(--f-testo);color:var(--fb-text);text-align:right}
+  .leg-ok{font-style:normal;font-size:12px;color:var(--fb-acc);margin-left:5px;vertical-align:2px}
+  .leg-fonte{font-size:12.5px;color:var(--fb-muted);margin:12px 0 0}
+  .leg-fonte a{color:inherit}
+  .leg-tempo{list-style:none;padding:0;margin:0;position:relative}
+  .leg-tempo:before{content:"";position:absolute;left:44px;top:6px;bottom:6px;width:2px;background:var(--fb-border)}
+  .leg-din{display:flex;gap:18px;margin-bottom:18px;position:relative}
+  .leg-din-anni{flex:none;width:90px;font:800 20px var(--fb-head);color:var(--fb-acc);background:var(--fb-bg);position:relative;padding:6px 0;text-align:center;align-self:flex-start}
+  .leg-din-corpo{flex:1;min-width:0;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:16px}
+  .leg-din-testa{display:flex;gap:12px;align-items:center}
+  .leg-din-testa .fb-h2{margin:0}
+  .leg-din-testa small{color:var(--fb-muted);font-size:13px}
+  .leg-din-testa>div{flex:1;min-width:0}
+  .leg-din-tit{flex:none;text-align:center;font-size:12px;color:var(--fb-muted);line-height:1.1}
+  .leg-din-tit b{display:block;font:800 30px var(--fb-head);color:var(--fb-text)}
+  .leg-din-corpo p{margin:10px 0;color:var(--fb-text);font-size:15px}
+  .leg-finali{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+  .leg-finali li{border-radius:8px;padding:8px 10px;font-size:13px;border:1px solid var(--fb-border);display:flex;flex-direction:column;gap:2px}
+  .leg-finali li.vinta{border-left:4px solid #16A34A}
+  .leg-finali li.persa{border-left:4px solid var(--fb-muted)}
+  .leg-finali li span{color:var(--fb-muted)}
+  @media (max-width:640px){
+    .leg-lista,.leg-griglia{grid-template-columns:1fr}
+    .leg-tempo:before{left:0}
+    .leg-din{flex-direction:column;gap:6px;padding-left:14px}
+    .leg-din-anni{width:auto;text-align:left;padding:0;background:none}
+  }
   .gara-sezione{grid-column:1/-1;font:600 12px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;color:var(--fb-muted);margin:6px 2px 0}
   .ar-link-riga{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
   .ar-link{display:inline-flex;align-items:center;gap:4px;font:700 12px var(--f-testo);text-decoration:none;padding:5px 10px;border-radius:999px;
@@ -695,6 +745,7 @@
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
     <button id="n-sta" onclick="vai('statistiche')" style="display:none">STATISTICHE</button>
     <button id="n-art" onclick="ART_APERTO=null;vai('articoli')" style="display:none">ARTICOLI</button>
+    <button id="n-leg" onclick="vai('leggende')" style="display:none">LEGGENDE</button>
     <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata">MATCHUP</button>
     <button id="n-esci" onclick="esci()" style="display:none" title="Togli l'accesso privato da questo dispositivo">ESCI</button>
   </nav>
@@ -1122,13 +1173,14 @@ function render(){
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
   const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
         conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
-  [["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
+  [["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-leg",soloFootball&&legaAttiva==="nfl"],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
   if((vista==="giornata"&&!conGio)||(vista==="indici"&&!conInd)||(vista==="prossima"&&!conPro)) vista = soloFootball ? "squadre" : "arbitri";
   if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista="squadre";
   if(!soloFootball && vista==="articoli") vista="arbitri";
+  if(vista==="leggende" && !(soloFootball && legaAttiva==="nfl")) vista = soloFootball ? "squadre" : "arbitri";
   if(ART_DAL_LINK && soloFootball){ vista="articoli"; ART_APERTO=ART_DAL_LINK; ART_DAL_LINK=null; }
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
@@ -1144,6 +1196,7 @@ function render(){
   document.getElementById("n-pro").className = vista==="prossima"?"on":"";
   document.getElementById("n-sta").className = vista==="statistiche"?"on":"";
   document.getElementById("n-art").className = vista==="articoli"?"on":"";
+  document.getElementById("n-leg").className = vista==="leggende"?"on":"";
 
   const app=document.getElementById("app"); app.className="";
   if(soloArbitri()){
@@ -1151,6 +1204,7 @@ function render(){
   }
   else if(eFootball()){
     app.innerHTML = vista==="articoli" ? vArticoli()
+                  : vista==="leggende" ? vLeggende()
                   : vista==="giornata" ? vFootballGiornata()
                   : vista==="statistiche" ? vStatistiche()
                   : vista==="indici" ? vFootballIndici()
@@ -2092,6 +2146,113 @@ function sezioniGiornata(G){
   return `<div class="sottomenu gio-schede" role="tablist">${schede.map(([k,t])=>
       `<button role="tab" aria-selected="${k===att[0]}" class="${k===att[0]?"on":""}" onclick="scegliSchedaGiornata('${k}')">${t}</button>`).join("")}</div>
     <div class="gio-pannello">${att[2]}</div>`;
+}
+
+/* ===================== LEGGENDE (21/11/2026) =====================
+   Record di carriera, «I più grandi» (squadra del centenario NFL) e dinastie. Dati in docs/leggende/leggende.json
+   (scripts/leggende.py: Wikipedia, verificata dal 1999 con nflverse). I racconti arriveranno nella stessa vista. */
+let LEG=null, legSez="grandi", legRuolo="QB", legOrdine="allPro";
+const LEG_RUOLI=[["QB","Quarterback"],["RB","Running back"],["WR","Ricevitori"],["TE","Tight end"],["DIF","Difesa"],["ALL","Allenatori"]];
+const LEG_ONORI=[["titoli","titolo","titoli"],["mvp","MVP","MVP"],["superBowlMvp","MVP del Super Bowl","MVP del Super Bowl"],
+  ["allPro","All-Pro","All-Pro"],["proBowl","Pro Bowl","Pro Bowl"],["difensoreAnno","difensore dell'anno","difensore dell'anno"],
+  ["attaccanteAnno","attaccante dell'anno","attaccante dell'anno"],["allenatoreAnno","allenatore dell'anno (AP)","allenatore dell'anno (AP)"]];
+function caricaLeggende(){
+  if(LEG!==null) return;
+  LEG=false;
+  scaricaDati("leggende/leggende.json").then(x=>{ LEG=x; render(); }).catch(()=>{ LEG={errore:true}; render(); });
+}
+function legScegli(campo, valore){
+  if(campo==="sez") legSez=valore; else if(campo==="ruolo") legRuolo=valore; else legOrdine=valore;
+  const el=document.getElementById("leg-corpo");
+  if(el) el.innerHTML=legCorpo(); else render();
+}
+function legAggiornata(t){
+  const w=/week\s*(\d+)/i.exec(t||""), a=/(\d{4})/.exec(t||"");
+  return w ? `aggiornata alla week ${w[1]}${a?" del "+a[1]:""}` : "";
+}
+function legSquadre(lista){
+  return (lista||[]).flatMap(x=>String(x).split(";")).map(x=>x.trim().replace(/\(([^)]*)\)/g,"$1").replace(/present/g,"oggi"))
+    .filter(Boolean).join(" · ");
+}
+function legBadge(r){
+  return `${r.hof?`<span class="leg-hof" title="Pro Football Hall of Fame">HOF</span>`:""}${r.attivo?`<span class="leg-att" title="In attività">in attività</span>`:""}`;
+}
+function legNum(v){ return Number(v).toLocaleString("it-IT",{minimumFractionDigits:v%1?1:0,maximumFractionDigits:1}); }
+function legOrdinaGrandi(lista){
+  const chiavi=[legOrdine,"titoli","mvp","allPro","proBowl","allenatoreAnno"].filter((k,i,a)=>a.indexOf(k)===i);
+  return [...lista].sort((a,b)=>{
+    for(const k of chiavi){ const d=(b.onori[k]||0)-(a.onori[k]||0); if(d) return d; }
+    return a.nome.localeCompare(b.nome);
+  });
+}
+function legGrandi(){
+  const G=(LEG.grandi||{}), lista=(G.gruppi||{})[legRuolo]||[];
+  const ordini = legRuolo==="ALL" ? [["titoli","Titoli"],["allenatoreAnno","Allenatore dell'anno"]]
+                                  : [["allPro","All-Pro"],["titoli","Titoli"],["mvp","MVP"],["proBowl","Pro Bowl"]];
+  if(!ordini.some(o=>o[0]===legOrdine)) legOrdine=ordini[0][0];
+  const scheda=(g,i)=>{
+    const o=g.onori||{};
+    const pezzi=LEG_ONORI.filter(([k])=>o[k]).map(([k,uno,tanti])=>
+      `<span class="leg-onore${k===legOrdine?" on":""}"><b>${o[k]}</b> ${o[k]===1?uno:tanti}</span>`);
+    return `<li class="leg-grande">
+      <span class="leg-pos">${i+1}</span>
+      <span class="leg-g-testo"><b>${esc(g.nome)}</b>${o.hof?`<span class="leg-hof" title="Pro Football Hall of Fame">HOF ${o.hof}</span>`:""}
+        <small>${esc(legSquadre(g.squadre))}${legRuolo==="DIF"||legRuolo==="RB"?" · "+esc(g.ruolo):""}</small>
+        <span class="leg-onori">${pezzi.join("")||`<span class="fb-note">—</span>`}</span></span></li>`;
+  };
+  return `<p class="fb-note">La squadra del centenario della NFL: i giocatori e gli allenatori scelti nel 2019 da una giuria di
+    26 votanti (allenatori, dirigenti, ex giocatori, giornalisti). Qui in ordine per ${esc((ordini.find(x=>x[0]===legOrdine)||ordini[0])[1])},
+    poi per gli altri riconoscimenti: titoli (Super Bowl e campionati prima del Super Bowl), MVP, All-Pro (primo quintetto), Pro Bowl.</p>
+    <div class="leg-filtri"><span>Ordina per</span>${ordini.map(([k,t])=>`<button class="${k===legOrdine?"on":""}" onclick="legScegli('ordine','${k}')">${t}</button>`).join("")}</div>
+    <ol class="leg-lista">${legOrdinaGrandi(lista).map(scheda).join("")}</ol>
+    <p class="leg-fonte">Fonte: <a href="${esc((G.fonte||{}).url||"")}" target="_blank" rel="noopener">Wikipedia, ${esc((G.fonte||{}).titolo||"")}</a> (CC BY-SA 4.0)</p>`;
+}
+function legRecord(){
+  const lista=(LEG.record||{})[legRuolo]||[];
+  const tabella=c=>`<section class="fb-box leg-rec">
+    <h2 class="fb-h2">${esc(c.titolo)}</h2>
+    <p class="fb-note">Carriera in stagione regolare${c.aggiornataWiki?" · "+esc(legAggiornata(c.aggiornataWiki)):""}${c.nota?" · "+esc(c.nota):""}</p>
+    <ol class="leg-classifica">${c.righe.map(r=>`<li>
+      <span class="leg-pos">${r.pos}</span>
+      <span class="leg-r-testo"><b>${esc(r.nome)}</b>${legBadge(r)}<small>${esc(legSquadre(r.squadre))}</small></span>
+      <span class="fb-num">${legNum(r.valore)}${r.verifica==="nflverse"?`<i class="leg-ok" title="Numero confermato con i dati nflverse (dal 1999)">✓</i>`:""}</span></li>`).join("")}</ol>
+    <p class="leg-fonte">Fonte: <a href="${esc(c.fonte.url)}" target="_blank" rel="noopener">Wikipedia</a></p></section>`;
+  return `<p class="fb-note">I primi ${lista[0]?lista[0].righe.length:10} di sempre. ✓ = numero confermato con i dati azione per azione
+    di nflverse (giocatori dal 1999). HOF = nella Pro Football Hall of Fame.</p>
+    <div class="leg-griglia">${lista.map(tabella).join("")}</div>`;
+}
+function legDinastie(){
+  const D2=LEG.dinastie||[];
+  return `<p class="fb-note">Le squadre che hanno dominato un'epoca: periodo, protagonisti e tutte le finali del Super Bowl giocate in quegli anni.</p>
+  <ol class="leg-tempo">${D2.map(d=>`<li class="leg-din">
+    <div class="leg-din-anni">${d.dal}–${String(d.al).slice(2)}</div>
+    <div class="leg-din-corpo">
+      <div class="leg-din-testa">${stemma(d.squadra)}<div><h2 class="fb-h2">${esc(d.nome)}</h2>
+        <small>Allenatore: ${esc(d.allenatore)} · QB: ${esc(d.qb)}</small></div>
+        <span class="leg-din-tit"><b>${d.titoli}</b> ${d.titoli===1?"Super Bowl":"Super Bowl"}</span></div>
+      <p>${esc(d.nota)}</p>
+      <ul class="leg-finali">${d.finali.map(f=>`<li class="${f.vinta?"vinta":"persa"}">
+        <b>Super Bowl ${esc(f.sb)}</b><span>stagione ${f.stagione}</span>
+        <span>${f.vinta?"vinto":"perso"} ${esc(f.punteggio)} contro ${esc(f.avversario)}</span></li>`).join("")}</ul>
+    </div></li>`).join("")}</ol>
+  <p class="leg-fonte">Finali: <a href="https://en.wikipedia.org/wiki/List_of_Super_Bowl_champions" target="_blank" rel="noopener">Wikipedia, List of Super Bowl champions</a>. Periodi e protagonisti scelti da PureStats.</p>`;
+}
+function legCorpo(){
+  const sez=[["grandi","I più grandi"],["record","Record"],["dinastie","Dinastie"]];
+  const conRuolo = legSez!=="dinastie";
+  return `<div class="sottomenu gio-schede" role="tablist">${sez.map(([k,t])=>
+      `<button role="tab" aria-selected="${k===legSez}" class="${k===legSez?"on":""}" onclick="legScegli('sez','${k}')">${t}</button>`).join("")}</div>
+    ${conRuolo?`<div class="leg-ruoli">${LEG_RUOLI.map(([k,t])=>`<button class="${k===legRuolo?"on":""}" onclick="legScegli('ruolo','${k}')">${t}</button>`).join("")}</div>`:""}
+    ${legSez==="grandi"?legGrandi():legSez==="record"?legRecord():legDinastie()}`;
+}
+function vLeggende(){
+  caricaLeggende();
+  const testa=`<h1 class="fb-h1">Leggende</h1>
+    <p class="fb-lead">I più grandi di sempre, i record di carriera e le dinastie che hanno fatto la storia della NFL.</p>`;
+  if(!LEG) return testa+`<div class="loading">Caricamento…</div>`;
+  if(LEG.errore) return testa+`<p class="fb-note">Le Leggende non sono disponibili in questo momento.</p>`;
+  return testa+`<div id="leg-corpo">${legCorpo()}</div>
+    <p class="leg-fonte">${esc(LEG.licenze||"")}</p>`;
 }
 
 /* ===================== STATISTICHE (18/11/2026) =====================
