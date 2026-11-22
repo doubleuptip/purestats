@@ -11,6 +11,7 @@
  "oraIt": "21:30",
  "inizioUtc": "2026-11-21T20:30+00:00",
  "stadio": "Neyland Stadium",
+ "citta": "",
  "campoNeutro": false,
  "coperto": false,
  "sfidaDiConference": true,
@@ -54,42 +55,42 @@
     "nome": "Sam Leavitt",
     "ruolo": "quarterback",
     "misura": "yard passate",
-    "mediaStagione": 279.7,
-    "mediaUltime3": 337.3,
+    "mediaStagione": 274.5,
+    "mediaUltime3": 282.0,
     "mediaAnnoScorso": 232.6,
-    "forma": "in forma",
-    "nota": "10 partite su 10 · 19 TD, 12 INT",
-    "corseAPartita": 33.7
+    "forma": null,
+    "nota": "11 partite su 11 · 20 TD, 12 INT",
+    "corseAPartita": 29.8
    },
    {
     "nome": "Dilin Jones",
     "ruolo": "running back",
     "misura": "yard corse",
-    "mediaStagione": 83.8,
-    "mediaUltime3": 90.7,
+    "mediaStagione": 80.7,
+    "mediaUltime3": 77.0,
     "mediaAnnoScorso": 42.9,
     "forma": "in forma",
-    "nota": "10 partite su 10 · 185 corse, 8 TD"
-   },
-   {
-    "nome": "Jackson Harris",
-    "ruolo": "ricevitore",
-    "misura": "yard ricevute",
-    "mediaStagione": 86.4,
-    "mediaUltime3": 136.0,
-    "mediaAnnoScorso": 107.0,
-    "forma": "in forma",
-    "nota": "10 partite su 10 · 55 ricezioni, 9 TD"
+    "nota": "11 partite su 11 · 202 corse, 8 TD"
    },
    {
     "nome": "Trey'Dez Green",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 67.7,
-    "mediaUltime3": 61.3,
+    "mediaStagione": 68.3,
+    "mediaUltime3": 68.7,
     "mediaAnnoScorso": 50.4,
-    "forma": null,
-    "nota": "6 partite su 10 · 34 ricezioni, 2 TD"
+    "forma": "in forma",
+    "nota": "7 partite su 11 · 41 ricezioni, 3 TD"
+   },
+   {
+    "nome": "Jackson Harris",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 79.2,
+    "mediaUltime3": 79.0,
+    "mediaAnnoScorso": 107.0,
+    "forma": "in calo",
+    "nota": "11 partite su 11 · 57 ricezioni, 9 TD"
    }
   ],
   "soprannome": "LSU"
@@ -123,41 +124,41 @@
     "nome": "George MacIntyre",
     "ruolo": "quarterback",
     "misura": "yard passate",
-    "mediaStagione": 120.2,
-    "mediaUltime3": 123.3,
+    "mediaStagione": 115.7,
+    "mediaUltime3": 104.3,
     "mediaAnnoScorso": null,
     "forma": null,
-    "nota": "8 partite su 10 · 2 TD, 3 INT"
+    "nota": "9 partite su 11 · 3 TD, 3 INT"
    },
    {
     "nome": "DeSean Bishop",
     "ruolo": "running back",
     "misura": "yard corse",
-    "mediaStagione": 116.3,
-    "mediaUltime3": 108.7,
+    "mediaStagione": 110.5,
+    "mediaUltime3": 86.0,
     "mediaAnnoScorso": 81.9,
-    "forma": "in forma",
-    "nota": "10 partite su 10 · 230 corse, 13 TD"
+    "forma": null,
+    "nota": "11 partite su 11 · 248 corse, 13 TD"
    },
    {
     "nome": "Braylon Staley",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 34.3,
-    "mediaUltime3": 46.7,
+    "mediaStagione": 32.5,
+    "mediaUltime3": 32.7,
     "mediaAnnoScorso": 67.2,
     "forma": "in calo",
-    "nota": "10 partite su 10 · 40 ricezioni, 2 TD"
+    "nota": "11 partite su 11 · 42 ricezioni, 2 TD"
    },
    {
-    "nome": "Mike Matthews",
+    "nome": "DaSaahn Brame",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 60.8,
-    "mediaUltime3": 42.3,
-    "mediaAnnoScorso": 64.2,
+    "mediaStagione": 26.6,
+    "mediaUltime3": 19.3,
+    "mediaAnnoScorso": null,
     "forma": "in calo",
-    "nota": "10 partite su 10 · 39 ricezioni, 4 TD"
+    "nota": "9 partite su 11 · 24 ricezioni, 2 TD"
    }
   ],
   "soprannome": "Tennessee"
@@ -165,5 +166,186 @@
  "colori": {
   "ospite": "#461d7c",
   "casa": "#ff8200"
+ },
+ "partitaGiocata": {
+  "risultato": "LSU 13 - Tennessee 27",
+  "puntiOspite": 13,
+  "puntiCasa": 27,
+  "vincitore": "Tennessee",
+  "scarto": 14,
+  "parziali": [],
+  "marcature": [],
+  "momentiDecisivi": [
+   {
+    "quarto": "1",
+    "tempo": "8:24",
+    "squadra": "LSU",
+    "azione": "F.Brandon subisce un sack, −9 yard, fumble perso",
+    "evento": "fumble recuperato",
+    "probabilitaVittoria": "LSU da 52% a 73%",
+    "giocatori": [
+     "Faizon Brandon"
+    ]
+   },
+   {
+    "quarto": "2",
+    "tempo": "0:12",
+    "squadra": "Tennessee",
+    "azione": "G.MacIntyre lancia corto a sinistra per D.Brame, 2 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "Tennessee da 51% a 64%",
+    "giocatori": [
+     "George MacIntyre",
+     "DaSaahn Brame"
+    ]
+   },
+   {
+    "quarto": "3",
+    "tempo": "1:34",
+    "squadra": "LSU",
+    "azione": "S.Leavitt lancia corto al centro per T.Green, 9 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "LSU da 40% a 48%",
+    "giocatori": [
+     "Sam Leavitt",
+     "Stephiylan Green"
+    ]
+   },
+   {
+    "quarto": "4",
+    "tempo": "12:04",
+    "squadra": "Tennessee",
+    "azione": "D.Bishop corre al centro, 1 yard",
+    "evento": "",
+    "probabilitaVittoria": "Tennessee da 47% a 59%",
+    "giocatori": [
+     "DeSean Bishop"
+    ]
+   },
+   {
+    "quarto": "4",
+    "tempo": "8:22",
+    "squadra": "Tennessee",
+    "azione": "F.Brandon corre a sinistra, 18 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "Tennessee da 70% a 84%",
+    "giocatori": [
+     "Faizon Brandon"
+    ]
+   },
+   {
+    "quarto": "4",
+    "tempo": "4:46",
+    "squadra": "Tennessee",
+    "azione": "S.Leavitt subisce un sack, −10 yard, fumble perso",
+    "evento": "fumble recuperato",
+    "probabilitaVittoria": "Tennessee da 80% a 93%",
+    "giocatori": [
+     "Sam Leavitt"
+    ]
+   }
+  ],
+  "numeri": {
+   "ospiti": {
+    "yardTotali": 265,
+    "azioni": 73,
+    "palle perse": 3,
+    "penalita": 16,
+    "yardPenalita": 98,
+    "puntiUltimiDueMinuti": 0
+   },
+   "padroniDiCasa": {
+    "yardTotali": 308,
+    "azioni": 71,
+    "palle perse": 3,
+    "penalita": 11,
+    "yardPenalita": 89,
+    "puntiUltimiDueMinuti": 14
+   }
+  },
+  "protagonisti": {
+   "ospiti": [
+    {
+     "ruolo": "QB",
+     "nome": "Sam Leavitt",
+     "completiTentati": "27/39",
+     "yardLanciate": 222,
+     "tdLancio": 1,
+     "intercettiSubiti": 0
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Dilin Jones",
+     "corse": 17,
+     "yardCorsa": 50,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Trey'Dez Green",
+     "ricezioni": 7,
+     "yardRicevute": 72,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Malik Elzy",
+     "ricezioni": 4,
+     "yardRicevute": 53,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Davhon Keys",
+     "placcaggi": 14,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 1
+    }
+   ],
+   "padroniDiCasa": [
+    {
+     "ruolo": "QB",
+     "nome": "George MacIntyre",
+     "completiTentati": "12/21",
+     "yardLanciate": 79,
+     "tdLancio": 1,
+     "intercettiSubiti": 0
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Faizon Brandon",
+     "corse": 12,
+     "yardCorsa": 112,
+     "tdCorsa": 2
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "DaSaahn Brame",
+     "ricezioni": 6,
+     "yardRicevute": 40,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Amare Campbell",
+     "placcaggi": 6,
+     "sack": 2.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ]
+  },
+  "contoLaLinea": {
+   "linea": "LSU favoriti di 2,5: hanno perso",
+   "totale": "40 punti in tutto contro un totale di 45,5: sotto"
+  },
+  "bilancioDopo": {
+   "ospiti": "6-5",
+   "padroniDiCasa": "9-2"
+  },
+  "video": "lI7ANrA0jy8"
  }
 }

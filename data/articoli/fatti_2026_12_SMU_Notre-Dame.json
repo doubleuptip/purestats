@@ -11,6 +11,7 @@
  "oraIt": "01:30",
  "inizioUtc": "2026-11-22T00:30+00:00",
  "stadio": "Notre Dame Stadium",
+ "citta": "",
  "campoNeutro": false,
  "coperto": false,
  "sfidaDiConference": false,
@@ -49,41 +50,41 @@
     "nome": "Kevin Jennings",
     "ruolo": "quarterback",
     "misura": "yard passate",
-    "mediaStagione": 297.3,
-    "mediaUltime3": 303.7,
+    "mediaStagione": 289.9,
+    "mediaUltime3": 258.3,
     "mediaAnnoScorso": 280.2,
     "forma": null,
-    "nota": "10 partite su 10 · 26 TD, 7 INT"
+    "nota": "11 partite su 11 · 26 TD, 8 INT"
    },
    {
     "nome": "Kendrick Raphael",
     "ruolo": "running back",
     "misura": "yard corse",
-    "mediaStagione": 80.9,
-    "mediaUltime3": 56.0,
+    "mediaStagione": 82.6,
+    "mediaUltime3": 72.3,
     "mediaAnnoScorso": 71.1,
     "forma": null,
-    "nota": "10 partite su 10 · 165 corse, 10 TD"
+    "nota": "11 partite su 11 · 177 corse, 10 TD"
    },
    {
     "nome": "Yamir Knight",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 67.0,
-    "mediaUltime3": 75.7,
+    "mediaStagione": 71.4,
+    "mediaUltime3": 87.3,
     "mediaAnnoScorso": 48.5,
     "forma": "in forma",
-    "nota": "10 partite su 10 · 55 ricezioni, 6 TD"
+    "nota": "11 partite su 11 · 64 ricezioni, 6 TD"
    },
    {
-    "nome": "Yannick Smith",
+    "nome": "Randy Pittman Jr.",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 60.0,
-    "mediaUltime3": 66.0,
-    "mediaAnnoScorso": 58.3,
-    "forma": null,
-    "nota": "9 partite su 10 · 34 ricezioni, 3 TD"
+    "mediaStagione": 30.8,
+    "mediaUltime3": 41.7,
+    "mediaAnnoScorso": 23.1,
+    "forma": "in forma",
+    "nota": "11 partite su 11 · 34 ricezioni, 4 TD"
    }
   ],
   "soprannome": "SMU"
@@ -117,41 +118,41 @@
     "nome": "CJ Carr",
     "ruolo": "quarterback",
     "misura": "yard passate",
-    "mediaStagione": 238.5,
-    "mediaUltime3": 248.7,
+    "mediaStagione": 245.2,
+    "mediaUltime3": 282.7,
     "mediaAnnoScorso": 228.4,
     "forma": null,
-    "nota": "10 partite su 10 · 23 TD, 2 INT"
+    "nota": "11 partite su 11 · 24 TD, 3 INT"
    },
    {
     "nome": "Nolan James Jr.",
     "ruolo": "running back",
     "misura": "yard corse",
-    "mediaStagione": 64.4,
-    "mediaUltime3": 77.3,
+    "mediaStagione": 67.5,
+    "mediaUltime3": 74.3,
     "mediaAnnoScorso": null,
     "forma": null,
-    "nota": "10 partite su 10 · 120 corse, 10 TD"
-   },
-   {
-    "nome": "Micah Gilbert",
-    "ruolo": "ricevitore",
-    "misura": "yard ricevute",
-    "mediaStagione": 61.4,
-    "mediaUltime3": 68.3,
-    "mediaAnnoScorso": null,
-    "forma": null,
-    "nota": "10 partite su 10 · 38 ricezioni, 6 TD"
+    "nota": "11 partite su 11 · 135 corse, 11 TD"
    },
    {
     "nome": "Jordan Faison",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 61.5,
-    "mediaUltime3": 54.7,
+    "mediaStagione": 65.8,
+    "mediaUltime3": 75.7,
     "mediaAnnoScorso": 53.3,
-    "forma": null,
-    "nota": "10 partite su 10 · 49 ricezioni, 6 TD"
+    "forma": "in forma",
+    "nota": "11 partite su 11 · 56 ricezioni, 7 TD"
+   },
+   {
+    "nome": "Micah Gilbert",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 61.1,
+    "mediaUltime3": 80.7,
+    "mediaAnnoScorso": null,
+    "forma": "in forma",
+    "nota": "11 partite su 11 · 41 ricezioni, 6 TD"
    }
   ],
   "soprannome": "Notre Dame"
@@ -159,5 +160,194 @@
  "colori": {
   "ospite": "#d70000",
   "casa": "#0c2340"
+ },
+ "partitaGiocata": {
+  "risultato": "SMU 3 - Notre Dame 24",
+  "puntiOspite": 3,
+  "puntiCasa": 24,
+  "vincitore": "Notre Dame",
+  "scarto": 21,
+  "parziali": [],
+  "marcature": [],
+  "momentiDecisivi": [
+   {
+    "quarto": "1",
+    "tempo": "14:37",
+    "squadra": "SMU",
+    "azione": "K.Raphael corre al centro, 70 yard",
+    "evento": "",
+    "probabilitaVittoria": "SMU da 6% a 10%",
+    "giocatori": [
+     "Kendrick Raphael"
+    ]
+   },
+   {
+    "quarto": "1",
+    "tempo": "13:04",
+    "squadra": "Notre Dame",
+    "azione": "W.Olson subisce un sack, −7 yard",
+    "evento": "sack",
+    "probabilitaVittoria": "Notre Dame da 92% a 93%",
+    "giocatori": [
+     "Wiley Olson"
+    ]
+   },
+   {
+    "quarto": "1",
+    "tempo": "8:54",
+    "squadra": "SMU",
+    "azione": "C.Carr lancia corto a destra per J.Faison, 17 yard, fumble perso",
+    "evento": "fumble recuperato",
+    "probabilitaVittoria": "SMU da 6% a 9%",
+    "giocatori": [
+     "CJ Carr",
+     "Jordan Faison"
+    ]
+   },
+   {
+    "quarto": "1",
+    "tempo": "6:07",
+    "squadra": "Notre Dame",
+    "azione": "C.Carr lancia lungo a sinistra per J.Greathouse, 62 yard",
+    "evento": "",
+    "probabilitaVittoria": "Notre Dame da 92% a 94%",
+    "giocatori": [
+     "CJ Carr",
+     "Jaden Greathouse"
+    ]
+   },
+   {
+    "quarto": "1",
+    "tempo": "1:49",
+    "squadra": "Notre Dame",
+    "azione": "C.Flanagan corre a destra, 2 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "Notre Dame da 93% a 95%",
+    "giocatori": [
+     "Cooper Flanagan"
+    ]
+   },
+   {
+    "quarto": "2",
+    "tempo": "11:49",
+    "squadra": "SMU",
+    "azione": "K.Jennings lancia corto al centro per Y.Knight, 4 yard",
+    "evento": "",
+    "probabilitaVittoria": "SMU da 4% a 6%",
+    "giocatori": [
+     "Kevin Jennings",
+     "Yamir Knight"
+    ]
+   }
+  ],
+  "numeri": {
+   "ospiti": {
+    "yardTotali": 327,
+    "azioni": 70,
+    "palle perse": 1,
+    "penalita": 2,
+    "yardPenalita": 20,
+    "puntiUltimiDueMinuti": 0
+   },
+   "padroniDiCasa": {
+    "yardTotali": 464,
+    "azioni": 64,
+    "palle perse": 2,
+    "penalita": 5,
+    "yardPenalita": 53,
+    "puntiUltimiDueMinuti": 3
+   }
+  },
+  "protagonisti": {
+   "ospiti": [
+    {
+     "ruolo": "QB",
+     "nome": "Kevin Jennings",
+     "completiTentati": "24/45",
+     "yardLanciate": 216,
+     "tdLancio": 0,
+     "intercettiSubiti": 1
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Kendrick Raphael",
+     "corse": 12,
+     "yardCorsa": 100,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Yamir Knight",
+     "ricezioni": 9,
+     "yardRicevute": 115,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Theo Melin Ohrstrom",
+     "ricezioni": 2,
+     "yardRicevute": 28,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Kevin Allen",
+     "placcaggi": 1,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ],
+   "padroniDiCasa": [
+    {
+     "ruolo": "QB",
+     "nome": "CJ Carr",
+     "completiTentati": "19/29",
+     "yardLanciate": 312,
+     "tdLancio": 1,
+     "intercettiSubiti": 1
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Nolan James Jr.",
+     "corse": 15,
+     "yardCorsa": 98,
+     "tdCorsa": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Jordan Faison",
+     "ricezioni": 7,
+     "yardRicevute": 109,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Jaden Greathouse",
+     "ricezioni": 1,
+     "yardRicevute": 62,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Adon Shuler",
+     "placcaggi": 5,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ]
+  },
+  "contoLaLinea": {
+   "linea": "Notre Dame favoriti di 20,5: hanno vinto con un margine più largo",
+   "totale": "27 punti in tutto contro un totale di 55,5: sotto"
+  },
+  "bilancioDopo": {
+   "ospiti": "7-4",
+   "padroniDiCasa": "10-1"
+  },
+  "video": "Hyy_mUUZJIo"
  }
 }

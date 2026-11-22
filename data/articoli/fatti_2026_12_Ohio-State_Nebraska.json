@@ -55,41 +55,41 @@
     "nome": "Luke Fahey",
     "ruolo": "quarterback",
     "misura": "yard passate",
-    "mediaStagione": 170.7,
-    "mediaUltime3": 273.7,
+    "mediaStagione": 183.3,
+    "mediaUltime3": 273.3,
     "mediaAnnoScorso": null,
     "forma": "in forma",
-    "nota": "6 partite su 10 · 8 TD, 4 INT"
+    "nota": "7 partite su 11 · 10 TD, 5 INT"
    },
    {
     "nome": "Bo Jackson",
     "ruolo": "running back",
     "misura": "yard corse",
-    "mediaStagione": 79.9,
-    "mediaUltime3": 94.3,
+    "mediaStagione": 77.4,
+    "mediaUltime3": 71.3,
     "mediaAnnoScorso": 86.2,
     "forma": null,
-    "nota": "10 partite su 10 · 159 corse, 7 TD"
+    "nota": "11 partite su 11 · 171 corse, 9 TD"
    },
    {
     "nome": "Jeremiah Smith",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 131.7,
-    "mediaUltime3": 111.0,
+    "mediaStagione": 134.7,
+    "mediaUltime3": 138.3,
     "mediaAnnoScorso": 90.5,
-    "forma": null,
-    "nota": "10 partite su 10 · 80 ricezioni, 15 TD"
+    "forma": "in forma",
+    "nota": "11 partite su 11 · 86 ricezioni, 17 TD"
    },
    {
     "nome": "Devin McCuin",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 41.9,
-    "mediaUltime3": 36.3,
+    "mediaStagione": 40.6,
+    "mediaUltime3": 40.3,
     "mediaAnnoScorso": 59.4,
     "forma": "in calo",
-    "nota": "9 partite su 10 · 30 ricezioni, 3 TD"
+    "nota": "10 partite su 11 · 32 ricezioni, 3 TD"
    }
   ],
   "soprannome": "Ohio State"
@@ -123,42 +123,42 @@
     "nome": "Anthony Colandrea",
     "ruolo": "quarterback",
     "misura": "yard passate",
-    "mediaStagione": 229.7,
-    "mediaUltime3": 242.3,
+    "mediaStagione": 227.0,
+    "mediaUltime3": 224.0,
     "mediaAnnoScorso": 272.9,
     "forma": null,
-    "nota": "10 partite su 10 · 18 TD, 7 INT",
-    "corseAPartita": 44.7
+    "nota": "11 partite su 11 · 21 TD, 7 INT",
+    "corseAPartita": 46.4
    },
    {
     "nome": "Jamal Rule",
     "ruolo": "running back",
     "misura": "yard corse",
-    "mediaStagione": 70.6,
-    "mediaUltime3": 81.3,
+    "mediaStagione": 70.5,
+    "mediaUltime3": 80.7,
     "mediaAnnoScorso": null,
     "forma": null,
-    "nota": "9 partite su 10 · 110 corse, 5 TD"
-   },
-   {
-    "nome": "Jacory Barney Jr.",
-    "ruolo": "ricevitore",
-    "misura": "yard ricevute",
-    "mediaStagione": 56.4,
-    "mediaUltime3": 62.0,
-    "mediaAnnoScorso": 38.6,
-    "forma": "in forma",
-    "nota": "10 partite su 10 · 44 ricezioni, 3 TD"
+    "nota": "10 partite su 11 · 133 corse, 5 TD"
    },
    {
     "nome": "Luke Lindenmeyer",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 33.3,
-    "mediaUltime3": 49.0,
+    "mediaStagione": 35.1,
+    "mediaUltime3": 46.3,
     "mediaAnnoScorso": 30.6,
     "forma": "in forma",
-    "nota": "10 partite su 10 · 35 ricezioni, 2 TD"
+    "nota": "11 partite su 11 · 40 ricezioni, 3 TD"
+   },
+   {
+    "nome": "Kwazi Gilmer",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 67.6,
+    "mediaUltime3": 61.3,
+    "mediaAnnoScorso": 44.6,
+    "forma": "in forma",
+    "nota": "10 partite su 11 · 53 ricezioni, 8 TD"
    }
   ],
   "soprannome": "Nebraska"
@@ -166,5 +166,194 @@
  "colori": {
   "ospite": "#ba0c2f",
   "casa": "#d00000"
+ },
+ "partitaGiocata": {
+  "risultato": "Ohio State 28 - Nebraska 31",
+  "puntiOspite": 28,
+  "puntiCasa": 31,
+  "vincitore": "Nebraska",
+  "scarto": 3,
+  "parziali": [],
+  "marcature": [],
+  "momentiDecisivi": [
+   {
+    "quarto": "1",
+    "tempo": "13:48",
+    "squadra": "Ohio State",
+    "azione": "A.Colandrea subisce un sack, −2 yard",
+    "evento": "sack",
+    "probabilitaVittoria": "Ohio State da 74% a 75%",
+    "giocatori": [
+     "Anthony Colandrea"
+    ]
+   },
+   {
+    "quarto": "1",
+    "tempo": "11:43",
+    "squadra": "Ohio State",
+    "azione": "L.Fahey lancia lungo al centro per J.Smith, 67 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "Ohio State da 72% a 83%",
+    "giocatori": [
+     "Luke Fahey",
+     "James Smith"
+    ]
+   },
+   {
+    "quarto": "2",
+    "tempo": "0:55",
+    "squadra": "Ohio State",
+    "azione": "L.Fahey lancia lungo a destra per J.Smith, 31 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "Ohio State da 29% a 42%",
+    "giocatori": [
+     "Luke Fahey",
+     "James Smith"
+    ]
+   },
+   {
+    "quarto": "4",
+    "tempo": "13:32",
+    "squadra": "Nebraska",
+    "azione": "L.Fahey subisce un sack, −7 yard",
+    "evento": "sack",
+    "probabilitaVittoria": "Nebraska da 51% a 58%",
+    "giocatori": [
+     "Luke Fahey"
+    ]
+   },
+   {
+    "quarto": "4",
+    "tempo": "10:29",
+    "squadra": "Nebraska",
+    "azione": "J.Rule corre a destra, 2 yard",
+    "evento": "",
+    "probabilitaVittoria": "Nebraska da 56% a 70%",
+    "giocatori": [
+     "Jamal Rule"
+    ]
+   },
+   {
+    "quarto": "4",
+    "tempo": "7:41",
+    "squadra": "Nebraska",
+    "azione": "A.Colandrea lancia lungo a sinistra per Q.Clark, 26 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "Nebraska da 75% a 93%",
+    "giocatori": [
+     "Anthony Colandrea",
+     "Quinn Clark"
+    ]
+   }
+  ],
+  "numeri": {
+   "ospiti": {
+    "yardTotali": 335,
+    "azioni": 49,
+    "palle perse": 2,
+    "penalita": 7,
+    "yardPenalita": 55,
+    "puntiUltimiDueMinuti": 7
+   },
+   "padroniDiCasa": {
+    "yardTotali": 376,
+    "azioni": 73,
+    "palle perse": 0,
+    "penalita": 7,
+    "yardPenalita": 45,
+    "puntiUltimiDueMinuti": 0
+   }
+  },
+  "protagonisti": {
+   "ospiti": [
+    {
+     "ruolo": "QB",
+     "nome": "Luke Fahey",
+     "completiTentati": "16/27",
+     "yardLanciate": 259,
+     "tdLancio": 2,
+     "intercettiSubiti": 1
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Bo Jackson",
+     "corse": 12,
+     "yardCorsa": 52,
+     "tdCorsa": 2
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Jeremiah Smith",
+     "ricezioni": 6,
+     "yardRicevute": 165,
+     "tdRicezione": 2
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Devin McCuin",
+     "ricezioni": 2,
+     "yardRicevute": 29,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Riley Pettijohn",
+     "placcaggi": 4,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ],
+   "padroniDiCasa": [
+    {
+     "ruolo": "QB",
+     "nome": "Anthony Colandrea",
+     "completiTentati": "19/28",
+     "yardLanciate": 200,
+     "tdLancio": 3,
+     "intercettiSubiti": 0
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Jamal Rule",
+     "corse": 23,
+     "yardCorsa": 70,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Kwazi Gilmer",
+     "ricezioni": 7,
+     "yardRicevute": 73,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Luke Lindenmeyer",
+     "ricezioni": 5,
+     "yardRicevute": 53,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Cameron Lenhardt",
+     "placcaggi": 4,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ]
+  },
+  "contoLaLinea": {
+   "linea": "Ohio State favoriti di 3,5: hanno perso",
+   "totale": "59 punti in tutto contro un totale di 42,5: sopra"
+  },
+  "bilancioDopo": {
+   "ospiti": "7-4",
+   "padroniDiCasa": "7-4"
+  },
+  "video": "tyRmMgMgknU"
  }
 }
