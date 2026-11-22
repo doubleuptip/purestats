@@ -36,7 +36,7 @@ DATI = RADICE / "docs" / "data_nfl.json"
 BASE = "https://www.dazn.com"
 ELENCO = BASE + "/it-IT/news/competition/nfl-game-pass/wy3kluvb4efae1of0d8146c1"
 PAGINE_ELENCO = 3                      # le notizie di circa una settimana e mezza
-UA = "Mozilla/5.0 (compatible; PureStats/1.0; statistiche personali, https://doubleuptip.github.io/purestats/)"
+UA = "Mozilla/5.0 (compatible; PureStats/1.0; statistiche personali, https://purestats.it/)"
 NOTTE = ("00:30", "04:30")             # ora italiana del via delle partite in prima serata americana
 MAX_LETTI = 300
 

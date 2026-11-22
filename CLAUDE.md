@@ -193,7 +193,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 ## Calcio e Matchup solo per Valerio (dal 17/11/2026)
 
 - Il sito si apre su NFL (pagina HOME); per tutti si vedono solo NFL e College FB. Calcio (tutti i campionati e il calendario) e il
-  pulsante MATCHUP compaiono solo con il collegamento privato `https://doubleuptip.github.io/purestats/#k=<password>`
+  pulsante MATCHUP compaiono solo con il collegamento privato `https://purestats.it/#k=<password>` (prima doubleuptip.github.io/purestats, che ora rimanda qui)
   (stessa password di Matchup, secret DUELLI_PASSWORD). La pagina legge la chiave, la toglie subito dalla barra degli
   indirizzi (history.replaceState) e la tiene solo in memoria; la passa a duelli.html (`#NFL&k=...`), che si apre da
   solo, e il logo di duelli.html riporta alla pagina principale già sbloccata. Chiave sbagliata: il calcio resta nascosto.
@@ -272,7 +272,9 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 
 ## Pagine statiche e dominio (dal 22/11/2026)
 
-- Dominio comprato da Valerio: purestats.it (attivazione: record DNS + docs/CNAME, vedi sotto).
+- Dominio purestats.it ATTIVO dal 22/11/2026 (OVH, nameserver dns200/ns200.anycast.me; zona: 4 A 185.199.108-111.153,
+  4 AAAA 2606:50c0:8000-8003::153, www CNAME doubleuptip.github.io.; tolti i record di parcheggio OVH). docs/CNAME =
+  purestats.it; il vecchio indirizzo github.io/purestats rimanda qui da solo.
 - `scripts/pagine_statiche.py` (workflow pagine-statiche.yml, a ogni push di articoli, racconti, CNAME o dello script):
   una pagina HTML per articolo (`docs/a/<id>.html`) e per racconto (`docs/l/<id>.html`) con canonical, og e dati
   strutturati, più `sitemap.xml`, `robots.txt` e `404.html`. Indirizzo di base da `docs/CNAME`, altrimenti GitHub

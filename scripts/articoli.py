@@ -1084,7 +1084,7 @@ def aggiorna_foto() -> None:
             print(f"{file.name}: foto {foto or 'nessuna'}")
 
 
-WIKI_UA = {"User-Agent": "PureStats/1.0 (https://doubleuptip.github.io/purestats/; statistiche sportive)"}
+WIKI_UA = {"User-Agent": "PureStats/1.0 (https://purestats.it/; statistiche sportive)"}
 
 
 def _wiki(url: str, parametri: dict) -> dict:
