@@ -466,7 +466,8 @@ davvero che si veda quello che deve vedersi.
   5. Privacy: Google Fonts, jsDelivr (Chart.js), anteprime YouTube e loghi ESPN caricati da server esterni: ospitare
      caratteri e Chart.js sul sito (con integrity), anteprime video → collegamento «Highlights ↗»; pagina privacy;
      banner di consenso certificato Google prima di AdSense.
-  6. nflverse CC-BY 4.0: rileggere LICENSE.md (non si è aperto) per note sull'origine NFL dei dati.
+  6. FATTO il 22/11: nflverse-data è CC BY 4.0 (LICENSE.md letto; nflreadr: «NFL data ... belong to their respective
+     owners»); FTN è CC-BY-SA ma non lo usiamo, PFR/NGS/QBR senza licenza (PFR solo nel privato). Footer corretto.
   7. Condizioni d'uso DAZN da leggere (oggi leggiamo solo quali partite sono incluse).
   8. Vecchi dati del calcio in chiaro nella storia git fino al 9/11 (cancellarli = riscrivere la storia: decide Valerio).
   Altro emerso: titolo della pagina «PureStats · Premier League» e descrizione che cita calcio/linee/arbitri (da
