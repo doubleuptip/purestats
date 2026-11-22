@@ -348,8 +348,8 @@ function squadra(g, sigla){
   const casa = sigla === g.casa;
   return {sigla, nome: casa ? g.nomeCasa : g.nomeOspite, logo: casa ? g.logoCasa : g.logoOspite, colore: casa ? g.coloreCasa : g.coloreOspite};
 }
-/* Stemmi PureStats (22/11/2026, opzione C come in index.html): nessun logo ufficiale; sigle e colori da stemmi.json */
-let STEMMI = {};
+/* Stemmi PureStats (22/11/2026, opzione B «pastiglia a due toni» come in index.html): nessun logo ufficiale; sigle e colori da stemmi.json */
+let STEMMI = {}, STEMMA_N = 0;
 function lumi(hex){
   const h = (hex || "#555555").replace("#", "");
   const c = [0, 2, 4].map(i => parseInt(h.substr(i, 2), 16) / 255).map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4));
@@ -363,10 +363,11 @@ function stemma(t, taglia){
   const c1 = x ? x.c1 : (t.colore || "#555555");
   let c2 = x ? x.c2 : "#FFFFFF";
   if (Math.abs(lumi(c2) - lumi(c1)) < 0.06) c2 = lumi(c1) > 0.5 ? "#111827" : "#FFFFFF";
-  const n = sig.length, fs = n <= 2 ? 50 : n === 3 ? 42 : n === 4 ? 33 : 27, tx = lumi(c1) > 0.42 ? "#111827" : "#FFFFFF";
-  return `<span class="bd st${cl}" title="${esc(t.nome || t.sigla)}"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="3" y="3" width="94" height="94" rx="20" fill="${esc(c1)}"/>` +
-    `<rect x="3" y="71" width="94" height="12" fill="${esc(c2)}"/><rect x="3" y="3" width="94" height="94" rx="20" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="2"/>` +
-    `<text x="50" y="${n <= 2 ? 58 : 56}" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="800" font-size="${fs}" fill="${tx}" letter-spacing="-1">${esc(sig)}</text></svg></span>`;
+  const n = sig.length, fs = n <= 2 ? 44 : n === 3 ? 38 : n === 4 ? 30 : 25, tx = lumi(c1) > 0.42 ? "#111827" : "#FFFFFF", id = "st" + (++STEMMA_N);
+  return `<span class="bd st${cl}" title="${esc(t.nome || t.sigla)}"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><clipPath id="${id}"><circle cx="50" cy="50" r="46"/></clipPath></defs>` +
+    `<g clip-path="url(#${id})"><rect width="100" height="100" fill="${esc(c1)}"/><path d="M100 58 L100 100 L30 100 Z" fill="${esc(c2)}"/></g>` +
+    `<circle cx="50" cy="50" r="46" fill="none" stroke="${esc(c2)}" stroke-width="4"/>` +
+    `<text x="50" y="${n <= 2 ? 65 : n === 3 ? 63 : 61}" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="800" font-size="${fs}" fill="${tx}" letter-spacing="-1">${esc(sig)}</text></svg></span>`;
 }
 const classeRank = (r, n) => r <= Math.round(n * 10 / 32) ? "buono" : r >= n - Math.round(n * 11 / 32) + 1 ? "scarso" : "";
 const freccia = f => f === "in forma" ? '<span class="su">▲</span>' : f === "in calo" ? '<span class="giu">▼</span>' : "";

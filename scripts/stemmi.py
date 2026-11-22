@@ -30,12 +30,16 @@ UA = "PureStats/1.0 (statistiche personali)"
 ESCLUSE_NFL = {"AFC", "NFC", "NFL"}
 
 
+ERRORI: list[str] = []      # finiscono nel file (solo codice e tipo, mai la chiave): i log del workflow non si leggono da fuori
+
+
 def scarica(url: str, intestazioni: dict | None = None) -> bytes | None:
     try:
         with urlopen(Request(url, headers={"User-Agent": UA, **(intestazioni or {})}), timeout=60) as r:
             return r.read()
     except Exception as e:                                                    # noqa: BLE001
         print(f"Stemmi: {url.split('?')[0]} non scaricato ({e}).")
+        ERRORI.append(f"{url.split('?')[0].rsplit('/', 1)[-1]}: {type(e).__name__} {getattr(e, 'code', '')}".strip())
         return None
 
 
@@ -72,6 +76,7 @@ def college(nomi_sito: set[str]) -> dict | None:
     chiave = os.environ.get("CFBD_API_KEY", "").strip()
     if not chiave:
         print("Stemmi: CFBD_API_KEY non impostata, le sigle college restano quelle del file precedente.")
+        ERRORI.append("CFBD_API_KEY non impostata")
         return None
     print("Stemmi: 1 chiamata a CollegeFootballData (/teams).")
     dati = scarica(CFBD_URL, {"Authorization": f"Bearer {chiave}", "Accept": "application/json"})
@@ -124,6 +129,8 @@ def main() -> int:
                 out["college"][n] = {"s": sigla_da_nome(n), "c1": colore(c) or "#555555", "c2": "#FFFFFF"}
     except NameError:
         pass
+    if ERRORI:
+        out["ultimiErrori"] = ERRORI
     tmp = USCITA.with_suffix(".tmp")
     tmp.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     tmp.replace(USCITA)
