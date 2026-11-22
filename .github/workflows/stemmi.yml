@@ -1,0 +1,36 @@
+name: Stemmi delle squadre
+
+# Sigle e colori per gli stemmi PureStats (nessun logo ufficiale). Una chiamata a CollegeFootballData per giro:
+# si lancia a mano e una volta l'anno, prima della stagione (1 agosto).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 1 8 *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stemmi
+  cancel-in-progress: false
+
+jobs:
+  stemmi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sigle e colori (nflverse + CollegeFootballData, 1 chiamata)
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python scripts/stemmi.py
+      - name: Pubblica
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/stemmi.json
+          git diff --cached --quiet && { echo "Stemmi invariati"; exit 0; }
+          git commit -m "Stemmi delle squadre aggiornati"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done

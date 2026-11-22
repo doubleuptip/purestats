@@ -337,6 +337,11 @@
   .fb-chips{display:flex;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:1px solid var(--fb-border)}
   .fb-chip{font-size:14px;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--fb-chip);color:var(--fb-chiptext)}
   .fb-chip.ok{background:var(--fb-okbg);color:var(--fb-ok)}
+  .vid-btn{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--fb-border);border-radius:12px;background:var(--fb-pill);color:var(--fb-text);text-decoration:none;margin:8px 0;transition:border-color .15s}
+  .vid-btn:hover{border-color:var(--fb-acc)}
+  .vid-ico{flex:none;width:40px;height:40px;border-radius:50%;background:var(--fb-acc);color:var(--fb-acc-text);display:flex;align-items:center;justify-content:center;padding-left:3px}
+  .vid-t b{display:block;font:800 16px var(--f-testo)}.vid-t small{display:block;font-size:12.5px;color:var(--fb-muted);margin-top:2px}
+  .h-vid .vid-btn{margin:0 0 12px}
   .fb-video{position:relative;display:block;width:100%;padding:0;border:0;text-decoration:none;border-radius:10px;overflow:hidden;cursor:pointer;background:#000;aspect-ratio:16/9}
   .fb-video img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
   .fb-video .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--fb-acc);color:var(--fb-acc-text);display:flex;align-items:center;justify-content:center}
@@ -563,6 +568,9 @@
   .ar-ora b{font:800 clamp(34px,8vw,64px)/1 var(--f-tit)} .ar-ora small{font:600 12px var(--f-testo);margin-top:6px;text-transform:uppercase;letter-spacing:.05em}
   .ar-cop-basso{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font:600 12px var(--f-testo)}
   .ar-cop-basso small{font-weight:400;font-size:10px;opacity:.75;text-align:right;max-width:50%}
+  .ar-cop-basso small a,.ar-crediti a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  .h-cred{display:block;font:400 10px/1.3 var(--f-testo);color:rgba(255,255,255,.72);margin-top:10px;text-shadow:0 1px 2px rgba(0,0,0,.7)}
+  .h-img{position:relative}.h-img .h-cred{position:absolute;right:6px;bottom:4px;left:6px;margin:0;text-align:right;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .ar-occhiello{margin:18px 0 6px;font:700 13px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;color:var(--fb-acc,#B91C1C)}
   .ar h1{margin:0 0 10px;font:800 clamp(28px,5vw,40px)/1.08 var(--f-tit)}
   .ar-firma{font-size:13px;color:var(--fb-muted);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--fb-border)}
@@ -771,6 +779,13 @@
   .h-tk.fin small{color:var(--fb-acc)}
   .h-tk span{display:flex;align-items:center;gap:6px;color:var(--fb-muted)} .h-tk span.vince{color:var(--fb-text);font-weight:700}
   .h-tk:not(.fin) span{color:var(--fb-text)}
+  body.fb .fb-stemma,.fb-stemma{background:none!important;border-radius:0!important;padding:0!important;overflow:visible;display:inline-flex}
+  .fb-stemma svg{width:100%;height:100%;display:block}
+  .fb-stemma.xl{width:72px;height:72px} @media (max-width:640px){ .fb-stemma.xl{width:56px;height:56px} }
+  .ar-sq .fb-stemma{width:clamp(56px,13vw,104px)!important;height:clamp(56px,13vw,104px)!important;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+  .ar-m-sq .fb-stemma{width:58px!important;height:58px!important}
+  .ar-sq-testa .fb-stemma{width:30px!important;height:30px!important}
+  .ar-cf-testa .fb-stemma{width:22px!important;height:22px!important}
   .h-tk b{margin-left:auto} .h-tk .fb-logo.s,.h-tk .fb-badge.s{width:18px;height:18px}
   /* apertura */
   .h-hero{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;margin-top:16px}
@@ -2134,15 +2149,42 @@ function _lum(hex){
   const c=[0,2,4].map(i=>parseInt(h.substr(i,2),16)/255).map(v=>v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4));
   return 0.2126*c[0]+0.7152*c[1]+0.0722*c[2];
 }
-/* Logo ufficiale se c'è; altrimenti un cerchio con il colore e la sigla della squadra */
+/* Stemmi PureStats (22/11/2026, scelta di Valerio: opzione C «monogramma con banda»): nessun logo ufficiale.
+   Quadrato arrotondato nel colore principale, banda nel secondo colore, sigla della squadra; sigle e colori in
+   stemmi.json (scripts/stemmi.py: nflverse per l'NFL, CollegeFootballData per il college). */
+let STEMMI=null;
+function caricaStemmi(){
+  if(STEMMI!==null) return; STEMMI=false;
+  scaricaDati("stemmi.json").then(x=>{ STEMMI=x||{}; render(); }).catch(()=>{ STEMMI={}; });
+}
+/* Highlights senza immagine (22/11/2026, scelta di Valerio): nessuna anteprima di YouTube (fotogrammi NFL),
+   solo un bottone che apre il video ufficiale su YouTube. */
+function bottoneHighlights(id, sotto){
+  return `<a class="vid-btn" href="https://www.youtube.com/watch?v=${encodeURIComponent(id)}" target="_blank" rel="noopener" aria-label="Guarda gli highlights su YouTube">
+    <span class="vid-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></span>
+    <span class="vid-t"><b>Highlights</b><small>${esc(sotto||"Video ufficiale · si apre su YouTube")} ↗</small></span></a>`;
+}
+function svgStemma(sig, c1, c2){
+  const t=_lum(c1)>0.42?"#111827":"#FFFFFF", n=sig.length;
+  const fs=n<=2?50:n===3?42:n===4?33:27;
+  let b=c2||"#FFFFFF";
+  if(Math.abs(_lum(b)-_lum(c1))<0.06) b=_lum(c1)>0.5?"#111827":"#FFFFFF";   // banda invisibile: contrasto
+  return `<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="3" y="3" width="94" height="94" rx="20" fill="${esc(c1)}"/>`+
+    `<rect x="3" y="71" width="94" height="12" fill="${esc(b)}"/>`+
+    `<rect x="3" y="3" width="94" height="94" rx="20" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="2"/>`+
+    `<text x="50" y="${n<=2?58:56}" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="800" font-size="${fs}" fill="${t}" letter-spacing="-1">${esc(sig)}</text></svg>`;
+}
+function siglaDaNome(nome){
+  const p=String(nome||"").split(/[\s\-&()'.]+/).filter(Boolean);
+  return (p.length===1?p[0].slice(0,4):p.map(x=>x[0]).join("").slice(0,4)).toUpperCase();
+}
 function stemma(sigla, piccolo){
-  const l=(D.loghi||{})[sigla]||(D.loghiExtra||{})[sigla]||{};   // loghiExtra: squadre FCS (loghi ESPN)
-  const cl=piccolo?" s":"";
-  if(l.logo && /^https:\/\//.test(l.logo))
-    return `<img class="fb-logo${cl}" src="${esc(l.logo)}" alt="" onerror="this.style.visibility='hidden'">`;
-  const col=l.colore||"#555555", fg=_lum(col)>0.35?"#111111":"#FFFFFF";
-  const sig=String(sigla||"").slice(0,4).toUpperCase();
-  return `<span class="fb-badge${cl}" aria-hidden="true" style="background:${esc(col)};color:${fg}">${esc(sig)}</span>`;
+  caricaStemmi();
+  const st=STEMMI||{}, x=(st.nfl||{})[sigla]||(st.college||{})[sigla];
+  const l=(D.loghi||{})[sigla]||(D.loghiExtra||{})[sigla]||{};
+  const sig=x?x.s:(/^[A-Z]{2,4}$/.test(String(sigla))?String(sigla):siglaDaNome(sigla));
+  const c1=x?x.c1:(l.colore||"#555555"), c2=x?x.c2:"#FFFFFF";
+  return `<span class="fb-badge fb-stemma${piccolo?" s":""}" title="${esc(nomeSquadra?nomeSquadra(sigla):sigla)}">${svgStemma(sig,c1,c2)}</span>`;
 }
 function breve(sigla){ const l=(D.loghi||{})[sigla]; return (l&&l.breve)||nomeSquadra(sigla); }
 function numIt(x,dec){
@@ -2184,11 +2226,7 @@ function schedaRisultato(g){
     <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):(giocata?"":" · orario da definire")}${giocata?" · Finale":" · da giocare"}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${chips?`<div class="fb-chips">${chips}</div>`:""}
-    <a class="fb-video" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener" aria-label="Guarda gli highlights su YouTube: ${esc(g.video.titolo||"")}">
-      <img src="https://i.ytimg.com/vi/${vid}/hqdefault.jpg" alt="" loading="lazy">
-      <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></span>
-      <span class="tit">${esc(g.video.etichetta||"Highlights ufficiali NFL · si apre su YouTube")}</span>
-    </a>
+    ${bottoneHighlights(vid, g.video.etichetta||"Highlights ufficiali NFL · si apre su YouTube")}
     ${momenti(g)}
   </article>`;
   }
@@ -2874,6 +2912,14 @@ function articoloPieno(id){
   return ART_CACHE[id]||null;
 }
 function articoliLega(lega){ return (ART||[]).filter(a=>a.lega===lega).slice().sort((a,b)=>String(b.pubblicato).localeCompare(String(a.pubblicato))); }
+/* Crediti delle foto degli stadi (Wikimedia Commons, 22/11/2026): autore, licenza con il suo collegamento e
+   pagina del file. Accetta anche i crediti vecchi in testo («autore · licenza»). conLink=false dentro i collegamenti. */
+function creditoFoto(c, conLink){
+  if(!c) return "";
+  if(typeof c==="string") return "Foto: "+esc(c)+" · Wikimedia Commons";
+  const L=(u,t)=>conLink&&/^https:\/\//.test(u||"")?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t);
+  return `Foto: ${L(c.pagina, c.autore)} · ${L(c.licenzaUrl, c.licenza)} · ${L(c.pagina,"Wikimedia Commons")}`;
+}
 function copertinaH(a, lega){
   if(!a) return `<div class="h-cover vuota"><b>Gli articoli della settimana arrivano qui</b></div>`;
   const pieno=articoloPieno(a.id)||{};
@@ -2883,7 +2929,8 @@ function copertinaH(a, lega){
   return `<a class="h-cover" style="${sfondo}" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false">
     <span class="h-tag luce">${a.tipo==="cronaca"?"LA CRONACA":"LA PARTITA DELLA SETTIMANA · ANTEPRIMA"}</span>
     <b>${esc(a.titolo)}</b>
-    <small>${esc(breve(a.ospite))}–${esc(breve(a.casa))} · ${esc(quandoBreve(a))}${pieno.stadio?" · "+esc(pieno.stadio):""}</small></a>`;
+    <small>${esc(breve(a.ospite))}–${esc(breve(a.casa))} · ${esc(quandoBreve(a))}${pieno.stadio?" · "+esc(pieno.stadio):""}</small>
+    ${pieno.foto&&pieno.fotoCrediti?`<span class="h-cred">${creditoFoto(pieno.fotoCrediti,false)}</span>`:""}</a>`;
 }
 function ultimaPartitaH(DD){
   const G=DD.giornata||{}, quando=p=>(p.dataIt||p.data||"")+"T"+(p.oraIt||"");
@@ -2909,8 +2956,7 @@ function meglioH(H){
   const m=H.meglio; if(!m || !m.settimana) return "";
   const gioc=m.giocata, gi=m.giocatore, sq=m.squadra;
   const c1=gioc?cardH("GIOCATA DELLA SETTIMANA", `
-    ${gioc.video&&gioc.video.id?`<a class="h-video" href="https://www.youtube.com/watch?v=${encodeURIComponent(gioc.video.id)}" target="_blank" rel="noopener" aria-label="Highlights su YouTube">
-      <img src="https://i.ytimg.com/vi/${encodeURIComponent(gioc.video.id)}/hqdefault.jpg" alt="" loading="lazy"><span class="h-play">▶</span><span class="h-dur">Highlights · YouTube</span></a>`:""}
+    ${gioc.video&&gioc.video.id?`<div class="h-vid">${bottoneHighlights(gioc.video.id,"Video ufficiale della partita · YouTube")}</div>`:""}
     <b class="h-t">${esc(gioc.testo)}</b>
     <small class="h-s">${esc(breve(gioc.squadra))} contro ${esc(breve(gioc.avversario))} · ${esc(gioc.quarto)}° quarto ${esc(gioc.tempo)} · probabilità di vittoria da ${gioc.prima}% a ${gioc.dopo}%</small>`):"";
   const c2=gi?cardH("GIOCATORE DELLA SETTIMANA", `<div class="h-big"><span class="h-num">${numIt(gi.punti)}</span>
@@ -2999,7 +3045,7 @@ function leggereH(lega){
   const carte=L.map(a=>{
     const pieno=articoloPieno(a.id)||{}, col=pieno.colori||[];
     const img=pieno.foto?`background-image:url(${esc(pieno.foto)})`:`background:linear-gradient(135deg,${esc(col[0]||"#1F2937")},${esc(col[1]||"#0B0F1A")})`;
-    return `<a class="h-card h-art" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false"><span class="h-img" style="${img}"></span>
+    return `<a class="h-card h-art" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false"><span class="h-img" style="${img}">${pieno.foto&&pieno.fotoCrediti?`<span class="h-cred">${creditoFoto(pieno.fotoCrediti,false)}</span>`:""}</span>
       <span class="h-art-t"><span class="h-tag rosso">${a.tipo==="cronaca"?"CRONACA":"ANTEPRIMA"} · WEEK ${esc(a.settimana)}</span><b>${esc(a.titolo)}</b></span></a>`;
   }).join("");
   const rc=r?`<a class="h-card h-art" href="#leggenda=${esc(r.id)}" onclick="apriLeggenda('${esc(r.id)}');return false">
@@ -3249,9 +3295,7 @@ function vArticolo(id){
   // Highlights dentro il testo, come nei siti di giornali: dopo l'attacco (metà articolo, mai prima del secondo
   // paragrafo). Anteprima che apre YouTube: la NFL blocca la visione dei suoi video dentro altri siti (21/11/2026).
   const video = cronaca && a.video ? `<figure class="ar-video" id="ar-video">
-      <a class="ar-mini" href="https://www.youtube.com/watch?v=${esc(a.video)}" target="_blank" rel="noopener" aria-label="Guarda gli highlights su YouTube">
-        <img src="https://i.ytimg.com/vi/${esc(a.video)}/hqdefault.jpg" alt="" loading="lazy"><span class="ar-play"></span>
-        <span class="ar-vbadge">▶ Highlights</span><span class="ar-vyt">Guarda su YouTube ↗</span></a>
+      ${bottoneHighlights(a.video,"Video ufficiale della partita · si apre su YouTube")}
       <figcaption>Gli highlights ufficiali della partita: la NFL ne permette la visione solo su YouTube.</figcaption>
     </figure>` : "";
   const par=(a.paragrafi||[]).map(p=>`<p>${esc(p).replace(/(\d+)-(\d+)/g,'<span class="ar-nw">$1-$2</span>')}</p>`);
@@ -3265,7 +3309,7 @@ function vArticolo(id){
         ${mezzo}
         <div class="ar-sq">${stemma(a.casa)}<span>${esc(breve(a.casa))}</span>${!cronaca&&a.bilanci?`<small>${esc(a.bilanci.casa)}</small>`:""}</div>
       </div>
-      <div class="ar-cop-basso"><span>${esc(a.stadio||"")}${a.campoNeutro?" · campo neutro":""}</span><small>${a.fotoCrediti?"Foto: "+esc(a.fotoCrediti):""}</small></div>
+      <div class="ar-cop-basso"><span>${esc(a.stadio||"")}${a.campoNeutro?" · campo neutro":""}</span><small>${a.foto?creditoFoto(a.fotoCrediti,true):""}</small></div>
     </div></div>
     <div class="ar-titolo"><div class="ar-occhiello">${cronaca?"Cronaca":"Anteprima"} · ${esc(breve(a.ospite))}–${esc(breve(a.casa))}</div>
       <h1>${esc(a.titolo)}</h1>
@@ -3273,7 +3317,7 @@ function vArticolo(id){
     <div class="ar-testo">${par.join("")}</div>
     <aside class="ar-lato">${cronaca?"":schedaMeteo(a)}
       ${riquadroSquadre(a)}
-      <div class="ar-crediti">Articolo scritto con l'aiuto di Claude (Anthropic) su dati ${a.lega==="college"?"ESPN e SP+ (CollegeFootballData)":"nflverse (CC-BY 4.0)"}, verificati prima della pubblicazione.${a.fotoCrediti?" Foto dello stadio: Wikimedia Commons.":""}</div>
+      <div class="ar-crediti">Articolo scritto con l'aiuto di Claude (Anthropic) su dati ${a.lega==="college"?"ESPN e SP+ (CollegeFootballData)":"nflverse (CC-BY 4.0)"}, verificati prima della pubblicazione.${a.foto&&a.fotoCrediti?" "+creditoFoto(a.fotoCrediti,true).replace(/^Foto:/,"Foto dello stadio:")+".":""}</div>
     </aside>
   </article>`;
 }
@@ -3515,7 +3559,7 @@ function vSquadraFootball(){
 
   <div class="scheda-top">
     <div class="scheda-testa">
-      ${((D.loghi||{})[s.nome]||{}).logo ? stemma(s.nome).replace('class="fb-logo"','class="fb-logo xl"') : avatar(s.nomeCompleto||s.nome, 54)}
+      ${stemma(s.nome).replace('fb-badge fb-stemma','fb-badge fb-stemma xl')}
       <div>
         <div class="scheda-nome">${esc(s.nomeCompleto||s.nome)}</div>
         <div class="scheda-meta">${s.division||s.conference||""} · ${pos}° per percentuale vittorie</div>

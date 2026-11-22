@@ -333,6 +333,19 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Da controllare: se l'articolo DAZN delle cinque partite esce ogni settimana (trovato per la Week 11). Se manca spesso,
   riserva da fare: comando nel bot per segnarle a mano (serve un token GitHub nel config.toml del server).
 
+## Stemmi, highlights e crediti delle foto (dal 22/11/2026, scelta di Valerio)
+
+- Nessun logo ufficiale nel sito (marchi delle squadre): `stemma()` in index.html e duelli.html disegna lo stemma
+  PureStats «opzione C» (quadrato arrotondato nel colore principale, banda nel secondo colore, sigla in Barlow
+  Condensed). Sigle e colori in `docs/stemmi.json` da `scripts/stemmi.py` (workflow stemmi.yml, a mano e il 1° agosto):
+  NFL da nflverse, college da CollegeFootballData /teams (1 chiamata per giro). Squadre che mancano: sigla dalle
+  iniziali del nome, banda bianca. I campi `logo` nei dati restano ma il sito non li usa.
+- Highlights senza anteprima (niente fotogrammi NFL da i.ytimg.com): bottone `bottoneHighlights` che apre YouTube.
+- Foto degli stadi: crediti completi in `docs/articoli/stadi/crediti.json` (autore, licenza, licenzaUrl, file, pagina
+  Commons); `creditoFoto` li mostra nella copertina e in fondo all'articolo (con collegamenti) e sulle copertine della
+  Home (testo). `articoli.py foto_mancanti` scrive già il formato completo e `completa_crediti` aggiorna quelli vecchi
+  in testo (stessa voce Wikipedia; se l'autore non coincide lo segnala «ATTENZIONE» e non tocca nulla).
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate
@@ -432,9 +445,8 @@ davvero che si veda quello che deve vedersi.
      «Sorprese» sulla linea nella Giornata, riquadro «Contro la linea» nelle cronache): da togliere, restano solo in
      Matchup; «Sorprese» da rifare sulla nostra probabilità prepartita. Google conta «tips, odds and handicapping» come
      contenuti legati al gioco.
-  3. Loghi delle squadre (marchi): sostituire con stemmi nostri (sigla nei colori della squadra).
-  4. Foto degli stadi CC BY-SA: la pagina scrive solo «Wikimedia Commons»; servono autore, licenza e collegamento
-     (i dati sono in docs/articoli/stadi/crediti.json).
+  3. FATTO il 22/11: loghi sostituiti dagli stemmi PureStats (vedi «Stemmi, highlights e crediti»).
+  4. FATTO il 22/11: crediti completi delle foto degli stadi (autore, licenza con collegamento, pagina Commons).
   5. Privacy: Google Fonts, jsDelivr (Chart.js), anteprime YouTube e loghi ESPN caricati da server esterni: ospitare
      caratteri e Chart.js sul sito (con integrity), anteprime video → collegamento «Highlights ↗»; pagina privacy;
      banner di consenso certificato Google prima di AdSense.

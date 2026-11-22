@@ -1093,6 +1093,78 @@ def _wiki(url: str, parametri: dict) -> dict:
         return json.loads(r.read())
 
 
+def _foto_commons(lega: str, stadio: str, casa: str) -> tuple[dict, dict] | None:
+    """Foto principale della voce Wikipedia dello stadio, solo se libera: (imageinfo di Commons, credito completo).
+    Credito = autore, licenza, collegamento alla licenza, nome del file e pagina del file su Commons (CC BY/BY-SA
+    chiedono autore, licenza e collegamento)."""
+    cerca = stadio if lega == "nfl" else f"{stadio} {casa} football stadium"
+    risultati = _wiki("https://en.wikipedia.org/w/api.php", {"action": "query", "list": "search", "srsearch": cerca, "srlimit": 1})
+    voce = risultati["query"]["search"][0]["title"]
+    pagina = list(_wiki("https://en.wikipedia.org/w/api.php", {"action": "query", "titles": voce, "prop": "pageimages",
+                                                                 "piprop": "name", "redirects": 1})["query"]["pages"].values())[0]
+    immagine = pagina.get("pageimage")
+    if not immagine or not immagine.lower().endswith((".jpg", ".jpeg")):
+        print(f"{stadio} ({casa}): la voce «{voce}» non ha una foto principale in jpg, resta la copertina a colori")
+        return None
+    info = list(_wiki("https://commons.wikimedia.org/w/api.php", {"action": "query", "titles": "File:" + immagine,
+                      "prop": "imageinfo", "iiprop": "url|extmetadata", "iiurlwidth": 1400})["query"]["pages"].values())[0]
+    if "imageinfo" not in info:
+        print(f"{stadio} ({casa}): «{immagine}» non è su Commons (forse non libera), saltata")
+        return None
+    ii = info["imageinfo"][0]
+    meta = ii["extmetadata"]
+    licenza = meta.get("LicenseShortName", {}).get("value", "")
+    if not re.search(r"CC|Public domain|PD", licenza, re.I):
+        print(f"{stadio} ({casa}): licenza «{licenza}» non libera, saltata")
+        return None
+    autore = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", ""))).strip() or "autore non indicato"
+    url_licenza = meta.get("LicenseUrl", {}).get("value", "")
+    credito = {"autore": autore[:80], "licenza": licenza,
+               "licenzaUrl": url_licenza if url_licenza.startswith("http") else "",
+               "file": immagine, "pagina": ii.get("descriptionurl") or
+               "https://commons.wikimedia.org/wiki/File:" + urllib.parse.quote(immagine.replace(" ", "_"))}
+    return ii, credito
+
+
+def completa_crediti(crediti: dict | None = None) -> None:
+    """Crediti scritti prima del 22/11/2026 (solo «autore · licenza»): ritrova sulla stessa voce Wikipedia il file
+    e aggiunge pagina del file e collegamento alla licenza. Se la voce ora mostra un'altra foto (autore diverso)
+    il credito vecchio resta com'è e lo si segnala: la foto salvata va controllata a mano."""
+    crediti_file = USCITA / "stadi" / "crediti.json"
+    crediti = crediti if crediti is not None else json.loads(crediti_file.read_text())
+    luoghi = {}
+    for file in USCITA.glob("*_*.json"):
+        art = json.loads(file.read_text())
+        if art.get("stadio"):
+            nome = _slug_stadio(art["stadio"]) + ("__" + _slug_stadio(art["casa"]) if art["lega"] == "college" else "")
+            luoghi[f"{nome}.jpg"] = (art["lega"], art["stadio"], art["casa"])
+    cambiati = 0
+    for nome, vecchio in list(crediti.items()):
+        if isinstance(vecchio, dict) or nome not in luoghi:
+            continue
+        try:
+            trovata = _foto_commons(*luoghi[nome])
+        except Exception as e:                                                    # noqa: BLE001
+            print(f"{nome}: credito non completato ({e!r}), resta «{vecchio}»")
+            continue
+        if not trovata:
+            continue
+        credito = trovata[1]
+        autore_vecchio = vecchio.split(" · ")[0].strip()
+        if autore_vecchio[:40] != credito["autore"][:40]:
+            print(f"ATTENZIONE {nome}: la voce ora mostra «{credito['file']}» di {credito['autore']}, la foto salvata è di "
+                  f"{autore_vecchio}: credito lasciato com'era, da controllare")
+            continue
+        crediti[nome] = credito
+        cambiati += 1
+        print(f"{nome}: credito completato ({credito['file']}, {credito['licenza']})")
+    if cambiati:
+        crediti_file.write_text(json.dumps(dict(sorted(crediti.items())), ensure_ascii=False, indent=1))
+    rimasti = [n for n, c in crediti.items() if not isinstance(c, dict)]
+    if rimasti:
+        print(f"Crediti ancora incompleti: {len(rimasti)} ({', '.join(rimasti[:10])})")
+
+
 def foto_mancanti() -> None:
     """Scarica da Wikimedia Commons la foto dello stadio degli articoli che non ce l'hanno (gira nel workflow
     articoli-meteo: dalla sandbox Wikimedia non si raggiunge). Immagine principale della voce Wikipedia trovata
@@ -1107,34 +1179,18 @@ def foto_mancanti() -> None:
     for lega, stadio, casa in mancanti:
         nome = _slug_stadio(stadio) + ("__" + _slug_stadio(casa) if lega == "college" else "")
         try:
-            cerca = stadio if lega == "nfl" else f"{stadio} {casa} football stadium"
-            risultati = _wiki("https://en.wikipedia.org/w/api.php", {"action": "query", "list": "search", "srsearch": cerca, "srlimit": 1})
-            voce = risultati["query"]["search"][0]["title"]
-            pagina = list(_wiki("https://en.wikipedia.org/w/api.php", {"action": "query", "titles": voce, "prop": "pageimages",
-                                                                         "piprop": "name", "redirects": 1})["query"]["pages"].values())[0]
-            immagine = pagina.get("pageimage")
-            if not immagine or not immagine.lower().endswith((".jpg", ".jpeg")):
-                print(f"{stadio} ({casa}): la voce «{voce}» non ha una foto principale in jpg, resta la copertina a colori")
+            trovata = _foto_commons(lega, stadio, casa)
+            if not trovata:
                 continue
-            info = list(_wiki("https://commons.wikimedia.org/w/api.php", {"action": "query", "titles": "File:" + immagine,
-                              "prop": "imageinfo", "iiprop": "url|extmetadata", "iiurlwidth": 1400})["query"]["pages"].values())[0]
-            if "imageinfo" not in info:
-                print(f"{stadio} ({casa}): «{immagine}» non è su Commons (forse non libera), saltata")
-                continue
-            ii = info["imageinfo"][0]
-            meta = ii["extmetadata"]
-            licenza = meta.get("LicenseShortName", {}).get("value", "")
-            if not re.search(r"CC|Public domain|PD", licenza, re.I):
-                print(f"{stadio} ({casa}): licenza «{licenza}» non libera, saltata")
-                continue
-            autore = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", ""))).strip() or "autore non indicato"
+            ii, credito = trovata
             with urllib.request.urlopen(urllib.request.Request(ii.get("thumburl") or ii["url"], headers=WIKI_UA), timeout=60) as r:
                 (USCITA / "stadi" / f"{nome}.jpg").write_bytes(r.read())
-            crediti[f"{nome}.jpg"] = f"{autore[:60]} · {licenza}"
+            crediti[f"{nome}.jpg"] = credito
             crediti_file.write_text(json.dumps(dict(sorted(crediti.items())), ensure_ascii=False, indent=1))
-            print(f"{stadio} ({casa}): foto «{immagine}» dalla voce «{voce}», {licenza}")
+            print(f"{stadio} ({casa}): foto «{credito['file']}», {credito['licenza']}")
         except Exception as e:
             print(f"{stadio} ({casa}): foto non scaricata ({e!r}), resta la copertina a colori")
+    completa_crediti(crediti)
     aggiorna_foto()
 
 
