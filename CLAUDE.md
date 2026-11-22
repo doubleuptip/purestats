@@ -489,8 +489,12 @@ davvero che si veda quello che deve vedersi.
      pubblicità). Resta: banner di consenso certificato prima di AdSense.
   6. FATTO il 22/11: nflverse-data è CC BY 4.0 (LICENSE.md letto; nflreadr: «NFL data ... belong to their respective
      owners»); FTN è CC-BY-SA ma non lo usiamo, PFR/NGS/QBR senza licenza (PFR solo nel privato). Footer corretto.
-  7. Condizioni d'uso DAZN da leggere (oggi leggiamo solo quali partite sono incluse).
-  8. Vecchi dati del calcio in chiaro nella storia git fino al 9/11 (cancellarli = riscrivere la storia: decide Valerio).
+  7. DECISO il 22/11 (Valerio: «restano, non creano problemi»): bollini DAZN letti in automatico come oggi, anche con
+     la pubblicità (condizioni lette: uso «personale e non commerciale», nessun divieto di robot).
+  8. DECISO il 22/11: i vecchi dati del calcio restano nella storia git (in chiaro fino al 17/11, medie da CSV pubblici).
+  In attesa (Valerio: «aspetta», 22/11): GoatCounter e nuove pagine statiche (Chi siamo, archivio, week, squadre,
+  classifica, calendario); commercialista prima dei dati di pagamento AdSense (lo fa Valerio). Piano nel documento
+  https://claude.ai/artifact/UBgHBMkY3GmWwFTGFMd4Xa
   Altro emerso: titolo della pagina «PureStats · Premier League» e descrizione che cita calcio/linee/arbitri (da
   correggere per vista); articoli e racconti con indirizzi #… non indicizzabili da Google (servono pagine HTML statiche
   per ogni articolo e racconto, sitemap.xml, robots.txt, 404, Search Console); AdSense richiede un dominio proprio
