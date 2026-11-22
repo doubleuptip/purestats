@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PureStats · Premier League</title>
+<title>PureStats · NFL e College Football</title>
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Archivo:wght@600;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
@@ -916,11 +916,11 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#E9EDF2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0F1A" media="(prefers-color-scheme: dark)">
-<meta name="description" content="Statistiche NFL, college football e calcio: risultati, linee del mercato, arbitri e leader della giornata.">
+<meta name="description" content="Statistiche NFL e college football: risultati, linee del mercato, leader della giornata, articoli e leggende.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PureStats">
 <meta property="og:title" content="PureStats">
-<meta property="og:description" content="Statistiche NFL, college football e calcio">
+<meta property="og:description" content="Statistiche NFL e college football">
 <meta property="og:url" content="https://doubleuptip.github.io/purestats/">
 <meta property="og:image" content="https://doubleuptip.github.io/purestats/brand/anteprima-link-scuro.png">
 <meta property="og:image:width" content="1200">
@@ -1460,24 +1460,29 @@ function render(){
 
 function apriLegale(){ legaleAperto = !legaleAperto; render(); }
 
+/* Le fonti del calcio (quarto elemento true) compaiono solo con l'accesso privato (22/11/2026):
+   senza, la pagina pubblica non deve nominare il calcio. */
 const FONTI = [
   ["Premier League, Serie A, LaLiga, Ligue 1, Bundesliga, calendario",
-   "football-data.co.uk", "licenza PDDL (pubblico dominio)"],
-  ["Designazioni arbitrali Serie A", "AIA e Lega Serie A", "inserite manualmente"],
-  ["Designazioni arbitrali LaLiga", "RFEF — Comité Técnico de Árbitros", "pubblicazioni ufficiali"],
-  ["Designazioni arbitrali Ligue 1", "LFP — ligue1.com", "pubblicazioni ufficiali"],
-  ["Designazioni arbitrali Bundesliga", "DFB Datencenter", "pubblicazioni ufficiali"],
+   "football-data.co.uk", "licenza PDDL (pubblico dominio)", true],
+  ["Designazioni arbitrali Serie A", "AIA e Lega Serie A", "inserite manualmente", true],
+  ["Designazioni arbitrali LaLiga", "RFEF — Comité Técnico de Árbitros", "pubblicazioni ufficiali", true],
+  ["Designazioni arbitrali Ligue 1", "LFP — ligue1.com", "pubblicazioni ufficiali", true],
+  ["Designazioni arbitrali Bundesliga", "DFB Datencenter", "pubblicazioni ufficiali", true],
   ["Designazioni arbitrali Süper Lig", "Türkiye Futbol Federasyonu (tff.org)",
-   "consentito citando la fonte, uso non commerciale"],
-  ["Statistiche arbitrali A-League", "Ultimate A-League", "usate con permesso, licenza CC BY"],
+   "consentito citando la fonte, uso non commerciale", true],
+  ["Statistiche arbitrali A-League", "Ultimate A-League", "usate con permesso, licenza CC BY", true],
   ["NFL", "nflverse", "licenza CC-BY-SA 4.0"],
-  ["College Football", "CollegeFootballData.com", "API pubblica"],
+  ["College Football", "ESPN (calendario, risultati, tabellini) e CollegeFootballData.com (SP+, loghi)", "API pubbliche"],
+  ["Leggende", "Wikipedia", "licenza CC BY-SA, voci citate in pagina"],
 ];
+// il calcio è sbloccato solo se dopo l'avvio in LEGHE è rimasto almeno un campionato privato
+const calcioVisibile = () => LEGHE.some(l => l.privato);
 
 function testoLegale(){
   return `<div class="pie-legale">
     <h4>DA DOVE ARRIVANO I DATI</h4>
-    <ul>${FONTI.map(([cosa,chi,lic])=>
+    <ul>${FONTI.filter(f=>!f[3] || calcioVisibile()).map(([cosa,chi,lic])=>
       `<li><b>${esc(chi)}</b> — ${esc(cosa)}<br>${esc(lic)}</li>`).join("")}</ul>
 
     <h4>COSA PUOI RIUTILIZZARE</h4>
@@ -1485,8 +1490,8 @@ function testoLegale(){
     provengono dalle fonti elencate sopra e restano soggetti alle loro
     licenze. Chi vuole riutilizzarli deve rispettare le condizioni di
     ciascuna fonte, non le nostre. In particolare i dati NFL sono
-    CC-BY-SA 4.0, che obbliga a ridistribuirli con la stessa licenza,
-    e quelli A-League richiedono di citare Ultimate A-League.
+    CC-BY-SA 4.0, che obbliga a ridistribuirli con la stessa licenza${calcioVisibile()
+      ? ", e quelli A-League richiedono di citare Ultimate A-League" : ""}.
 
     <h4>COSA È DI PURESTATS</h4>
     Sono opera nostra e non possono essere copiati senza consenso: il

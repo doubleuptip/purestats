@@ -201,6 +201,8 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   (stesso metodo di fetch_duelli.cifra), che scrive il .dat, lo verifica e cancella sempre il .json in chiaro; i .json
   del calcio sono in .gitignore. Senza password il chiaro non esce e resta il .dat precedente.
 - Restano pubblici gli archivi grezzi in data/ (CSV di football-data.co.uk, già pubblici alla fonte).
+- Pagina pubblica senza la parola calcio (22/11/2026): titolo, descrizioni (meta, og, manifest) solo NFL e college;
+  in «Fonti e condizioni d'uso» le fonti del calcio (quarto campo true in FONTI) si vedono solo con l'accesso privato.
 - Il logo della pagina principale è un collegamento: riporta alla pagina iniziale (`tornaHome`).
 - Accesso ricordato (17/11/2026, scelta di Valerio): `docs/accesso.html`, pagina non collegata da nessun menu, controlla
   la password su un file cifrato e la salva in localStorage (`purestats_accesso`) su quel dispositivo; index.html e
