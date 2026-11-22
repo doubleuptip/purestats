@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-22T05:23:17.365344+00:00",
+  "aggiornato": "2026-11-22T07:04:36.841846+00:00",
   "campionato": "College Football",
   "fonte": "ESPN (calendario, risultati, tabellini) · CollegeFootballData (SP+)",
   "stagioni": [
@@ -9,8 +9,8 @@
     "2023",
     "2022"
   ],
-  "totalePartite": 4550,
-  "partiteGiocate": 4476,
+  "totalePartite": 4551,
+  "partiteGiocate": 4480,
   "squadre": [
     {
       "nome": "Georgia",
@@ -1197,102 +1197,6 @@
       ]
     },
     {
-      "nome": "Boise State",
-      "nomeCompleto": "Boise State",
-      "conference": "Pac-12",
-      "conferenza": "Pac-12",
-      "partite": 66,
-      "vittorie": 48,
-      "sconfitte": 18,
-      "pareggi": 0,
-      "percVittorie": 72.7,
-      "mediaFatti": 33.3,
-      "mediaSubiti": 23.5,
-      "differenza": 648,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Pac-12",
-          "partite": 10,
-          "vittorie": 9,
-          "sconfitte": 1,
-          "pareggi": 0,
-          "percVittorie": 90.0,
-          "mediaFatti": 39.7,
-          "mediaSubiti": 26.8,
-          "differenza": 129,
-          "vittorieCasa": 5,
-          "partiteCasa": 5,
-          "vittorieFuori": 4,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Mountain West",
-          "partite": 14,
-          "vittorie": 9,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 64.3,
-          "mediaFatti": 29.9,
-          "mediaSubiti": 24.1,
-          "differenza": 81,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Mountain West",
-          "partite": 14,
-          "vittorie": 12,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 85.7,
-          "mediaFatti": 37.3,
-          "mediaSubiti": 22.6,
-          "differenza": 206,
-          "vittorieCasa": 7,
-          "partiteCasa": 8,
-          "vittorieFuori": 5,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Mountain West",
-          "partite": 14,
-          "vittorie": 8,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 57.1,
-          "mediaFatti": 32.1,
-          "mediaSubiti": 25.6,
-          "differenza": 92,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Mountain West",
-          "partite": 14,
-          "vittorie": 10,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 71.4,
-          "mediaFatti": 29.5,
-          "mediaSubiti": 19.5,
-          "differenza": 140,
-          "vittorieCasa": 6,
-          "partiteCasa": 8,
-          "vittorieFuori": 4,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "Washington",
       "nomeCompleto": "Washington",
       "conference": "Big Ten",
@@ -1385,6 +1289,102 @@
           "partiteCasa": 8,
           "vittorieFuori": 3,
           "partiteFuori": 5
+        }
+      ]
+    },
+    {
+      "nome": "Boise State",
+      "nomeCompleto": "Boise State",
+      "conference": "Pac-12",
+      "conferenza": "Pac-12",
+      "partite": 67,
+      "vittorie": 48,
+      "sconfitte": 19,
+      "pareggi": 0,
+      "percVittorie": 71.6,
+      "mediaFatti": 33.1,
+      "mediaSubiti": 23.5,
+      "differenza": 646,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Pac-12",
+          "partite": 11,
+          "vittorie": 9,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 81.8,
+          "mediaFatti": 37.9,
+          "mediaSubiti": 26.4,
+          "differenza": 127,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 4,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Mountain West",
+          "partite": 14,
+          "vittorie": 9,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 64.3,
+          "mediaFatti": 29.9,
+          "mediaSubiti": 24.1,
+          "differenza": 81,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Mountain West",
+          "partite": 14,
+          "vittorie": 12,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 85.7,
+          "mediaFatti": 37.3,
+          "mediaSubiti": 22.6,
+          "differenza": 206,
+          "vittorieCasa": 7,
+          "partiteCasa": 8,
+          "vittorieFuori": 5,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Mountain West",
+          "partite": 14,
+          "vittorie": 8,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 57.1,
+          "mediaFatti": 32.1,
+          "mediaSubiti": 25.6,
+          "differenza": 92,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Mountain West",
+          "partite": 14,
+          "vittorie": 10,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 71.4,
+          "mediaFatti": 29.5,
+          "mediaSubiti": 19.5,
+          "differenza": 140,
+          "vittorieCasa": 6,
+          "partiteCasa": 8,
+          "vittorieFuori": 4,
+          "partiteFuori": 6
         }
       ]
     },
@@ -1485,6 +1485,102 @@
       ]
     },
     {
+      "nome": "Utah",
+      "nomeCompleto": "Utah",
+      "conference": "Big 12",
+      "conferenza": "Big 12",
+      "partite": 63,
+      "vittorie": 45,
+      "sconfitte": 18,
+      "pareggi": 0,
+      "percVittorie": 71.4,
+      "mediaFatti": 33.0,
+      "mediaSubiti": 19.8,
+      "differenza": 831,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Big 12",
+          "partite": 11,
+          "vittorie": 11,
+          "sconfitte": 0,
+          "pareggi": 0,
+          "percVittorie": 100.0,
+          "mediaFatti": 37.9,
+          "mediaSubiti": 18.5,
+          "differenza": 214,
+          "vittorieCasa": 6,
+          "partiteCasa": 6,
+          "vittorieFuori": 5,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Big 12",
+          "partite": 13,
+          "vittorie": 11,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 84.6,
+          "mediaFatti": 41.3,
+          "mediaSubiti": 18.9,
+          "differenza": 291,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 5,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 23.6,
+          "mediaSubiti": 20.7,
+          "differenza": 35,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Pac-12",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 23.2,
+          "mediaSubiti": 19.3,
+          "differenza": 50,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Pac-12",
+          "partite": 14,
+          "vittorie": 10,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 71.4,
+          "mediaFatti": 38.6,
+          "mediaSubiti": 21.4,
+          "differenza": 241,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        }
+      ]
+    },
+    {
       "nome": "Penn State",
       "nomeCompleto": "Penn State",
       "conference": "Big Ten",
@@ -1577,102 +1673,6 @@
           "partiteCasa": 7,
           "vittorieFuori": 5,
           "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Utah",
-      "nomeCompleto": "Utah",
-      "conference": "Big 12",
-      "conferenza": "Big 12",
-      "partite": 62,
-      "vittorie": 44,
-      "sconfitte": 18,
-      "pareggi": 0,
-      "percVittorie": 71.0,
-      "mediaFatti": 32.9,
-      "mediaSubiti": 19.9,
-      "differenza": 810,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Big 12",
-          "partite": 10,
-          "vittorie": 10,
-          "sconfitte": 0,
-          "pareggi": 0,
-          "percVittorie": 100.0,
-          "mediaFatti": 37.9,
-          "mediaSubiti": 18.6,
-          "differenza": 193,
-          "vittorieCasa": 6,
-          "partiteCasa": 6,
-          "vittorieFuori": 4,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Big 12",
-          "partite": 13,
-          "vittorie": 11,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 84.6,
-          "mediaFatti": 41.3,
-          "mediaSubiti": 18.9,
-          "differenza": 291,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 5,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Big 12",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 23.6,
-          "mediaSubiti": 20.7,
-          "differenza": 35,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Pac-12",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 23.2,
-          "mediaSubiti": 19.3,
-          "differenza": 50,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Pac-12",
-          "partite": 14,
-          "vittorie": 10,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 71.4,
-          "mediaFatti": 38.6,
-          "mediaSubiti": 21.4,
-          "differenza": 241,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
         }
       ]
     },
@@ -3197,102 +3197,6 @@
       ]
     },
     {
-      "nome": "TCU",
-      "nomeCompleto": "TCU",
-      "conference": "Big 12",
-      "conferenza": "Big 12",
-      "partite": 63,
-      "vittorie": 41,
-      "sconfitte": 22,
-      "pareggi": 0,
-      "percVittorie": 65.1,
-      "mediaFatti": 32.2,
-      "mediaSubiti": 24.9,
-      "differenza": 456,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Big 12",
-          "partite": 10,
-          "vittorie": 5,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 50.0,
-          "mediaFatti": 23.4,
-          "mediaSubiti": 15.2,
-          "differenza": 82,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 3
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Big 12",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 30.7,
-          "mediaSubiti": 25.3,
-          "differenza": 70,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Big 12",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 33.5,
-          "mediaSubiti": 24.6,
-          "differenza": 115,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Big 12",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 31.3,
-          "mediaSubiti": 27.8,
-          "differenza": 42,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Big 12",
-          "partite": 15,
-          "vittorie": 13,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 86.7,
-          "mediaFatti": 38.8,
-          "mediaSubiti": 29.0,
-          "differenza": 147,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 7,
-          "partiteFuori": 8
-        }
-      ]
-    },
-    {
       "nome": "UNLV",
       "nomeCompleto": "UNLV",
       "conference": "Mountain West",
@@ -3385,6 +3289,102 @@
           "partiteCasa": 6,
           "vittorieFuori": 1,
           "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "TCU",
+      "nomeCompleto": "TCU",
+      "conference": "Big 12",
+      "conferenza": "Big 12",
+      "partite": 64,
+      "vittorie": 41,
+      "sconfitte": 23,
+      "pareggi": 0,
+      "percVittorie": 64.1,
+      "mediaFatti": 31.9,
+      "mediaSubiti": 25.1,
+      "differenza": 435,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Big 12",
+          "partite": 11,
+          "vittorie": 5,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 45.5,
+          "mediaFatti": 22.8,
+          "mediaSubiti": 17.3,
+          "differenza": 61,
+          "vittorieCasa": 4,
+          "partiteCasa": 8,
+          "vittorieFuori": 1,
+          "partiteFuori": 3
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Big 12",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 30.7,
+          "mediaSubiti": 25.3,
+          "differenza": 70,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Big 12",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 33.5,
+          "mediaSubiti": 24.6,
+          "differenza": 115,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 31.3,
+          "mediaSubiti": 27.8,
+          "differenza": 42,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Big 12",
+          "partite": 15,
+          "vittorie": 13,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 86.7,
+          "mediaFatti": 38.8,
+          "mediaSubiti": 29.0,
+          "differenza": 147,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 7,
+          "partiteFuori": 8
         }
       ]
     },
@@ -6797,6 +6797,102 @@
       ]
     },
     {
+      "nome": "Oregon State",
+      "nomeCompleto": "Oregon State",
+      "conference": "Pac-12",
+      "conferenza": "Pac-12",
+      "partite": 61,
+      "vittorie": 31,
+      "sconfitte": 30,
+      "pareggi": 0,
+      "percVittorie": 50.8,
+      "mediaFatti": 28.8,
+      "mediaSubiti": 25.9,
+      "differenza": 174,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Pac-12",
+          "partite": 11,
+          "vittorie": 6,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 54.5,
+          "mediaFatti": 37.6,
+          "mediaSubiti": 28.4,
+          "differenza": 102,
+          "vittorieCasa": 4,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Pac-12",
+          "partite": 12,
+          "vittorie": 2,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 16.7,
+          "mediaFatti": 18.2,
+          "mediaSubiti": 29.4,
+          "differenza": -135,
+          "vittorieCasa": 2,
+          "partiteCasa": 7,
+          "vittorieFuori": 0,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Pac-12",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 24.2,
+          "mediaSubiti": 29.9,
+          "differenza": -68,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Pac-12",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 31.8,
+          "mediaSubiti": 22.9,
+          "differenza": 116,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Pac-12",
+          "partite": 13,
+          "vittorie": 10,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 76.9,
+          "mediaFatti": 32.2,
+          "mediaSubiti": 20.0,
+          "differenza": 159,
+          "vittorieCasa": 7,
+          "partiteCasa": 8,
+          "vittorieFuori": 3,
+          "partiteFuori": 5
+        }
+      ]
+    },
+    {
       "nome": "Georgia Tech",
       "nomeCompleto": "Georgia Tech",
       "conference": "ACC",
@@ -6889,102 +6985,6 @@
           "partiteCasa": 6,
           "vittorieFuori": 3,
           "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Oregon State",
-      "nomeCompleto": "Oregon State",
-      "conference": "Pac-12",
-      "conferenza": "Pac-12",
-      "partite": 60,
-      "vittorie": 30,
-      "sconfitte": 30,
-      "pareggi": 0,
-      "percVittorie": 50.0,
-      "mediaFatti": 28.8,
-      "mediaSubiti": 26.0,
-      "differenza": 167,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Pac-12",
-          "partite": 10,
-          "vittorie": 5,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 50.0,
-          "mediaFatti": 38.3,
-          "mediaSubiti": 28.8,
-          "differenza": 95,
-          "vittorieCasa": 3,
-          "partiteCasa": 5,
-          "vittorieFuori": 2,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Pac-12",
-          "partite": 12,
-          "vittorie": 2,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 16.7,
-          "mediaFatti": 18.2,
-          "mediaSubiti": 29.4,
-          "differenza": -135,
-          "vittorieCasa": 2,
-          "partiteCasa": 7,
-          "vittorieFuori": 0,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Pac-12",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 24.2,
-          "mediaSubiti": 29.9,
-          "differenza": -68,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Pac-12",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 31.8,
-          "mediaSubiti": 22.9,
-          "differenza": 116,
-          "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Pac-12",
-          "partite": 13,
-          "vittorie": 10,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 76.9,
-          "mediaFatti": 32.2,
-          "mediaSubiti": 20.0,
-          "differenza": 159,
-          "vittorieCasa": 7,
-          "partiteCasa": 8,
-          "vittorieFuori": 3,
-          "partiteFuori": 5
         }
       ]
     },
@@ -8045,6 +8045,102 @@
       ]
     },
     {
+      "nome": "San Diego State",
+      "nomeCompleto": "San Diego State",
+      "conference": "Pac-12",
+      "conferenza": "Pac-12",
+      "partite": 61,
+      "vittorie": 29,
+      "sconfitte": 32,
+      "pareggi": 0,
+      "percVittorie": 47.5,
+      "mediaFatti": 23.2,
+      "mediaSubiti": 24.3,
+      "differenza": -71,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Pac-12",
+          "partite": 11,
+          "vittorie": 6,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 54.5,
+          "mediaFatti": 26.4,
+          "mediaSubiti": 31.1,
+          "differenza": -52,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Mountain West",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 26.4,
+          "mediaSubiti": 15.4,
+          "differenza": 143,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 21.3,
+          "mediaSubiti": 29.6,
+          "differenza": -99,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 20.5,
+          "mediaSubiti": 26.8,
+          "differenza": -75,
+          "vittorieCasa": 3,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Mountain West",
+          "partite": 13,
+          "vittorie": 7,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 53.8,
+          "mediaFatti": 21.5,
+          "mediaSubiti": 20.5,
+          "differenza": 12,
+          "vittorieCasa": 5,
+          "partiteCasa": 8,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        }
+      ]
+    },
+    {
       "nome": "Virginia",
       "nomeCompleto": "Virginia",
       "conference": "ACC",
@@ -8521,102 +8617,6 @@
           "partiteCasa": 8,
           "vittorieFuori": 0,
           "partiteFuori": 4
-        }
-      ]
-    },
-    {
-      "nome": "San Diego State",
-      "nomeCompleto": "San Diego State",
-      "conference": "Pac-12",
-      "conferenza": "Pac-12",
-      "partite": 60,
-      "vittorie": 28,
-      "sconfitte": 32,
-      "pareggi": 0,
-      "percVittorie": 46.7,
-      "mediaFatti": 23.2,
-      "mediaSubiti": 24.4,
-      "differenza": -73,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Pac-12",
-          "partite": 10,
-          "vittorie": 5,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 50.0,
-          "mediaFatti": 26.8,
-          "mediaSubiti": 32.2,
-          "differenza": -54,
-          "vittorieCasa": 5,
-          "partiteCasa": 6,
-          "vittorieFuori": 0,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Mountain West",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 26.4,
-          "mediaSubiti": 15.4,
-          "differenza": 143,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Mountain West",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 21.3,
-          "mediaSubiti": 29.6,
-          "differenza": -99,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Mountain West",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 20.5,
-          "mediaSubiti": 26.8,
-          "differenza": -75,
-          "vittorieCasa": 3,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Mountain West",
-          "partite": 13,
-          "vittorie": 7,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 53.8,
-          "mediaFatti": 21.5,
-          "mediaSubiti": 20.5,
-          "differenza": 12,
-          "vittorieCasa": 5,
-          "partiteCasa": 8,
-          "vittorieFuori": 2,
-          "partiteFuori": 5
         }
       ]
     },
@@ -9981,102 +9981,6 @@
       ]
     },
     {
-      "nome": "Utah State",
-      "nomeCompleto": "Utah State",
-      "conference": "Pac-12",
-      "conferenza": "Pac-12",
-      "partite": 61,
-      "vittorie": 26,
-      "sconfitte": 35,
-      "pareggi": 0,
-      "percVittorie": 42.6,
-      "mediaFatti": 27.4,
-      "mediaSubiti": 31.1,
-      "differenza": -227,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Pac-12",
-          "partite": 10,
-          "vittorie": 4,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 40.0,
-          "mediaFatti": 16.5,
-          "mediaSubiti": 21.5,
-          "differenza": -50,
-          "vittorieCasa": 4,
-          "partiteCasa": 5,
-          "vittorieFuori": 0,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Mountain West",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 30.9,
-          "mediaSubiti": 28.7,
-          "differenza": 29,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Mountain West",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 31.9,
-          "mediaSubiti": 37.8,
-          "differenza": -70,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Mountain West",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 33.2,
-          "mediaSubiti": 34.7,
-          "differenza": -20,
-          "vittorieCasa": 3,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Mountain West",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 22.2,
-          "mediaSubiti": 31.2,
-          "differenza": -116,
-          "vittorieCasa": 4,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "California",
       "nomeCompleto": "California",
       "conference": "ACC",
@@ -10169,6 +10073,102 @@
           "partiteCasa": 7,
           "vittorieFuori": 0,
           "partiteFuori": 5
+        }
+      ]
+    },
+    {
+      "nome": "Utah State",
+      "nomeCompleto": "Utah State",
+      "conference": "Pac-12",
+      "conferenza": "Pac-12",
+      "partite": 62,
+      "vittorie": 26,
+      "sconfitte": 36,
+      "pareggi": 0,
+      "percVittorie": 41.9,
+      "mediaFatti": 27.3,
+      "mediaSubiti": 31.1,
+      "differenza": -234,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Pac-12",
+          "partite": 11,
+          "vittorie": 4,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 36.4,
+          "mediaFatti": 17.2,
+          "mediaSubiti": 22.4,
+          "differenza": -57,
+          "vittorieCasa": 4,
+          "partiteCasa": 5,
+          "vittorieFuori": 0,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Mountain West",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 30.9,
+          "mediaSubiti": 28.7,
+          "differenza": 29,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 31.9,
+          "mediaSubiti": 37.8,
+          "differenza": -70,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Mountain West",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 33.2,
+          "mediaSubiti": 34.7,
+          "differenza": -20,
+          "vittorieCasa": 3,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Mountain West",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 22.2,
+          "mediaSubiti": 31.2,
+          "differenza": -116,
+          "vittorieCasa": 4,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
         }
       ]
     },
@@ -10369,30 +10369,30 @@
       "nomeCompleto": "Hawai'i",
       "conference": "Mountain West",
       "conferenza": "Mountain West",
-      "partite": 61,
+      "partite": 62,
       "vittorie": 25,
-      "sconfitte": 36,
+      "sconfitte": 37,
       "pareggi": 0,
-      "percVittorie": 41.0,
-      "mediaFatti": 22.6,
-      "mediaSubiti": 28.3,
-      "differenza": -350,
+      "percVittorie": 40.3,
+      "mediaFatti": 22.3,
+      "mediaSubiti": 28.1,
+      "differenza": -358,
       "perStagione": [
         {
           "stagione": "2026",
           "conferenza": "Mountain West",
-          "partite": 10,
+          "partite": 11,
           "vittorie": 3,
-          "sconfitte": 7,
+          "sconfitte": 8,
           "pareggi": 0,
-          "percVittorie": 30.0,
-          "mediaFatti": 19.6,
-          "mediaSubiti": 23.1,
-          "differenza": -35,
+          "percVittorie": 27.3,
+          "mediaFatti": 18.5,
+          "mediaSubiti": 22.5,
+          "differenza": -43,
           "vittorieCasa": 1,
           "partiteCasa": 5,
           "vittorieFuori": 2,
-          "partiteFuori": 5
+          "partiteFuori": 6
         },
         {
           "stagione": "2025",
@@ -12461,6 +12461,102 @@
       ]
     },
     {
+      "nome": "Nevada",
+      "nomeCompleto": "Nevada",
+      "conference": "Mountain West",
+      "conferenza": "Mountain West",
+      "partite": 60,
+      "vittorie": 15,
+      "sconfitte": 45,
+      "pareggi": 0,
+      "percVittorie": 25.0,
+      "mediaFatti": 19.6,
+      "mediaSubiti": 28.4,
+      "differenza": -527,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Mountain West",
+          "partite": 11,
+          "vittorie": 5,
+          "sconfitte": 6,
+          "pareggi": 0,
+          "percVittorie": 45.5,
+          "mediaFatti": 21.0,
+          "mediaSubiti": 20.6,
+          "differenza": 4,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 3,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 25.0,
+          "mediaFatti": 17.6,
+          "mediaSubiti": 27.5,
+          "differenza": -119,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Mountain West",
+          "partite": 13,
+          "vittorie": 3,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 23.1,
+          "mediaFatti": 23.1,
+          "mediaSubiti": 28.8,
+          "differenza": -74,
+          "vittorieCasa": 2,
+          "partiteCasa": 7,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 2,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 16.7,
+          "mediaFatti": 17.3,
+          "mediaSubiti": 33.4,
+          "differenza": -193,
+          "vittorieCasa": 1,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Mountain West",
+          "partite": 12,
+          "vittorie": 2,
+          "sconfitte": 10,
+          "pareggi": 0,
+          "percVittorie": 16.7,
+          "mediaFatti": 18.8,
+          "mediaSubiti": 30.9,
+          "differenza": -145,
+          "vittorieCasa": 1,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
       "nome": "Kent State",
       "nomeCompleto": "Kent State",
       "conference": "Mid-American",
@@ -12553,102 +12649,6 @@
           "partiteCasa": 5,
           "vittorieFuori": 2,
           "partiteFuori": 7
-        }
-      ]
-    },
-    {
-      "nome": "Nevada",
-      "nomeCompleto": "Nevada",
-      "conference": "Mountain West",
-      "conferenza": "Mountain West",
-      "partite": 59,
-      "vittorie": 14,
-      "sconfitte": 45,
-      "pareggi": 0,
-      "percVittorie": 23.7,
-      "mediaFatti": 19.7,
-      "mediaSubiti": 28.7,
-      "differenza": -535,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Mountain West",
-          "partite": 10,
-          "vittorie": 4,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 40.0,
-          "mediaFatti": 21.5,
-          "mediaSubiti": 21.9,
-          "differenza": -4,
-          "vittorieCasa": 2,
-          "partiteCasa": 5,
-          "vittorieFuori": 2,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Mountain West",
-          "partite": 12,
-          "vittorie": 3,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 25.0,
-          "mediaFatti": 17.6,
-          "mediaSubiti": 27.5,
-          "differenza": -119,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Mountain West",
-          "partite": 13,
-          "vittorie": 3,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 23.1,
-          "mediaFatti": 23.1,
-          "mediaSubiti": 28.8,
-          "differenza": -74,
-          "vittorieCasa": 2,
-          "partiteCasa": 7,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Mountain West",
-          "partite": 12,
-          "vittorie": 2,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 16.7,
-          "mediaFatti": 17.3,
-          "mediaSubiti": 33.4,
-          "differenza": -193,
-          "vittorieCasa": 1,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Mountain West",
-          "partite": 12,
-          "vittorie": 2,
-          "sconfitte": 10,
-          "pareggi": 0,
-          "percVittorie": 16.7,
-          "mediaFatti": 18.8,
-          "mediaSubiti": 30.9,
-          "differenza": -145,
-          "vittorieCasa": 1,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
         }
       ]
     },
@@ -193526,28 +193526,88 @@
       "dataIt": "2026-11-22",
       "oraIt": "03:00",
       "inizio": "2026-11-22T02:00Z",
-      "pc": null,
-      "po": null,
+      "pc": 17,
+      "po": 38,
       "conferenzaCasa": "Big 12",
       "stadio": "Amon G. Carter Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
-    },
-    {
-      "stagione": "2026",
-      "settimana": "12",
-      "data": "2026-11-22",
-      "casa": "Boise State",
-      "ospite": "San Diego State",
-      "dataIt": "2026-11-22",
-      "oraIt": "03:30",
-      "inizio": "2026-11-22T02:30Z",
-      "pc": null,
-      "po": null,
-      "conferenzaCasa": "Pac-12",
-      "stadio": "Albertsons Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Adam Schobel",
+          "ruolo": "QB",
+          "valore": 106,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 INT"
+          ]
+        },
+        {
+          "nome": "Jeremy Payne",
+          "ruolo": "RB",
+          "valore": 108,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Jordan Dwyer",
+          "ruolo": "WR",
+          "valore": 55,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Jeremy Scott",
+          "ruolo": "WR",
+          "valore": 16,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Devon Dampier",
+          "ruolo": "QB",
+          "valore": 278,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Devon Dampier",
+          "ruolo": "RB",
+          "valore": 62,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Larry Simmons",
+          "ruolo": "WR",
+          "valore": 114,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Braden Pegan",
+          "ruolo": "WR",
+          "valore": 75,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -193574,12 +193634,79 @@
       "dataIt": "2026-11-22",
       "oraIt": "04:30",
       "inizio": "2026-11-22T03:30Z",
-      "pc": null,
-      "po": null,
+      "pc": 16,
+      "po": 8,
       "conferenzaCasa": "Mountain West",
       "stadio": "Mackay Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "AJ Bianco",
+          "ruolo": "QB",
+          "valore": 106,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Herschel Turner",
+          "ruolo": "RB",
+          "valore": 73,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Marshaun Brown",
+          "ruolo": "WR",
+          "valore": 61,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Herschel Turner",
+          "ruolo": "WR",
+          "valore": 32,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Micah Alejado",
+          "ruolo": "QB",
+          "valore": 95,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Cam Barfield",
+          "ruolo": "RB",
+          "valore": 22,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Titan Lacaden",
+          "ruolo": "WR",
+          "valore": 28,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Koa Eldredge",
+          "ruolo": "WR",
+          "valore": 19,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -193590,12 +193717,175 @@
       "dataIt": "2026-11-22",
       "oraIt": "04:30",
       "inizio": "2026-11-22T03:30Z",
-      "pc": null,
-      "po": null,
+      "pc": 31,
+      "po": 24,
       "conferenzaCasa": "Pac-12",
       "stadio": "Reser Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Maalik Murphy",
+          "ruolo": "QB",
+          "valore": 276,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Kourdey Glass",
+          "ruolo": "RB",
+          "valore": 64,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jesse Legree",
+          "ruolo": "WR",
+          "valore": 69,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Cynai Thomas",
+          "ruolo": "WR",
+          "valore": 65,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "McCae Hillstead",
+          "ruolo": "QB",
+          "valore": 277,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Sesi Vailahi",
+          "ruolo": "RB",
+          "valore": 31,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Javon Robinson",
+          "ruolo": "WR",
+          "valore": 91,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Anthony Garcia",
+          "ruolo": "WR",
+          "valore": 75,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric.",
+            "1 TD"
+          ]
+        }
+      ]
+    },
+    {
+      "stagione": "2026",
+      "settimana": "12",
+      "data": "2026-11-22",
+      "casa": "Boise State",
+      "ospite": "San Diego State",
+      "dataIt": "2026-12-05",
+      "oraIt": "02:00",
+      "inizio": "2026-12-05T01:00Z",
+      "pc": 20,
+      "po": 22,
+      "conferenzaCasa": "Pac-12",
+      "stadio": "Albertsons Stadium",
+      "giocatoriCasa": [
+        {
+          "nome": "Maddux Madsen",
+          "ruolo": "QB",
+          "valore": 311,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "2 INT"
+          ]
+        },
+        {
+          "nome": "Dylan Riley",
+          "ruolo": "RB",
+          "valore": 69,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Dylan Riley",
+          "ruolo": "WR",
+          "valore": 89,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Matt Wagner",
+          "ruolo": "WR",
+          "valore": 47,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Stone Saunders",
+          "ruolo": "QB",
+          "valore": 227,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Javion Kinnard",
+          "ruolo": "RB",
+          "valore": 86,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jaylon Hawkins",
+          "ruolo": "WR",
+          "valore": 89,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Nathan Acevedo",
+          "ruolo": "WR",
+          "valore": 41,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -194650,6 +194940,22 @@
       "po": null,
       "conferenzaCasa": "Conference USA",
       "stadio": "Williams Stadium (VA)",
+      "giocatoriCasa": [],
+      "giocatoriOspite": []
+    },
+    {
+      "stagione": "2026",
+      "settimana": "14",
+      "data": "2026-12-05",
+      "casa": "Boise State",
+      "ospite": "San Diego State",
+      "dataIt": "2026-12-05",
+      "oraIt": "02:00",
+      "inizio": "2026-12-05T01:00Z",
+      "pc": null,
+      "po": null,
+      "conferenzaCasa": "Pac-12",
+      "stadio": "Albertsons Stadium",
       "giocatoriCasa": [],
       "giocatoriOspite": []
     },
@@ -196491,7 +196797,7 @@
         }
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Utah+vs+TCU+football+highlights+November+22%2C+2026",
         "data": "2026-11-22",
         "ora": "",
         "dataIt": "2026-11-22",
@@ -196499,20 +196805,27 @@
         "inizio": "2026-11-22T02:00Z",
         "casa": "TCU",
         "ospite": "Utah",
-        "pc": null,
-        "po": null,
+        "pc": 17,
+        "po": 38,
         "favorita": "Utah",
         "linea": 9.5,
         "totaleLinea": 46.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "battutaDa": "Utah",
+        "totaleEsito": "over",
+        "scartoLinea": 11.5,
         "stadio": "",
         "confCasa": "Big 12",
-        "confOspite": "Big 12"
+        "confOspite": "Big 12",
+        "video": {
+          "id": "Z8aSFYiyQgw",
+          "titolo": "Utah Utes vs. TCU Horned Frogs | Full Game Highlights | ESPN College Football",
+          "canale": "ESPN College Football",
+          "ufficiale": true,
+          "etichetta": "Highlights · ESPN College Football · si apre su YouTube"
+        }
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=San+Diego+State+vs+Boise+State+football+highlights+November+22%2C+2026",
         "data": "2026-11-22",
         "ora": "",
         "dataIt": "2026-11-22",
@@ -196520,17 +196833,24 @@
         "inizio": "2026-11-22T02:30Z",
         "casa": "Boise State",
         "ospite": "San Diego State",
-        "pc": null,
-        "po": null,
+        "pc": 20,
+        "po": 22,
         "favorita": "Boise State",
         "linea": 20.5,
         "totaleLinea": 60.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "battutaDa": "San Diego State",
+        "totaleEsito": "under",
+        "scartoLinea": 22.5,
         "stadio": "",
         "confCasa": "Pac-12",
-        "confOspite": "Pac-12"
+        "confOspite": "Pac-12",
+        "video": {
+          "id": "vjZ-uk8wyZ4",
+          "titolo": "San Diego State vs. Boise State | FULL GAME HIGHLIGHTS | 11/21/26 | USA SPORTS",
+          "canale": "USA Sports",
+          "ufficiale": false,
+          "etichetta": "Highlights non ufficiali · USA Sports · si apre su YouTube"
+        }
       },
       {
         "highlights": null,
@@ -196554,7 +196874,7 @@
         "confOspite": "Big 12"
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Hawai%27i+vs+Nevada+football+highlights+November+22%2C+2026",
         "data": "2026-11-22",
         "ora": "",
         "dataIt": "2026-11-22",
@@ -196562,20 +196882,27 @@
         "inizio": "2026-11-22T03:30Z",
         "casa": "Nevada",
         "ospite": "Hawai'i",
-        "pc": null,
-        "po": null,
+        "pc": 16,
+        "po": 8,
         "favorita": "Nevada",
         "linea": 7.0,
         "totaleLinea": 40.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "battutaDa": "Nevada",
+        "totaleEsito": "under",
+        "scartoLinea": 1.0,
         "stadio": "",
         "confCasa": "Mountain West",
-        "confOspite": "Mountain West"
+        "confOspite": "Mountain West",
+        "video": {
+          "id": "tMyo_iO8yYM",
+          "titolo": "Hawai'i vs Nevada | Full Game Highlights | Nov 21,2026 |  College Football 2026",
+          "canale": "Pabna Pigeon and Birds House",
+          "ufficiale": false,
+          "etichetta": "Highlights non ufficiali · Pabna Pigeon and Birds House · si apre su YouTube"
+        }
       },
       {
-        "highlights": null,
+        "highlights": "https://www.youtube.com/results?search_query=Utah+State+vs+Oregon+State+football+highlights+November+22%2C+2026",
         "data": "2026-11-22",
         "ora": "",
         "dataIt": "2026-11-22",
@@ -196583,17 +196910,24 @@
         "inizio": "2026-11-22T03:30Z",
         "casa": "Oregon State",
         "ospite": "Utah State",
-        "pc": null,
-        "po": null,
+        "pc": 31,
+        "po": 24,
         "favorita": "Oregon State",
         "linea": 6.5,
         "totaleLinea": 51.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
+        "battutaDa": "Oregon State",
+        "totaleEsito": "over",
+        "scartoLinea": 0.5,
         "stadio": "",
         "confCasa": "Pac-12",
-        "confOspite": "Pac-12"
+        "confOspite": "Pac-12",
+        "video": {
+          "id": "4zv2PmpPbwQ",
+          "titolo": "🔴 LIVE Oregon State vs Utah State | College Football 26 Full Game Highlights 🏈 Gameplay ",
+          "canale": "Agamer BR",
+          "ufficiale": false,
+          "etichetta": "Highlights non ufficiali · Agamer BR · si apre su YouTube"
+        }
       }
     ],
     "sorprese": [
@@ -196629,10 +196963,10 @@
       }
     ],
     "riepilogo": {
-      "partite": 65,
-      "favoriteCoperte": 25,
-      "over": 37,
-      "under": 28
+      "partite": 69,
+      "favoriteCoperte": 28,
+      "over": 39,
+      "under": 30
     },
     "prestazioni": {
       "lanci": [
@@ -196791,14 +197125,21 @@
           "dettagli": "3 placcaggi con perdita"
         },
         {
-          "nome": "John Henry Daley",
-          "squadra": "Michigan",
-          "avversario": "UCLA",
+          "nome": "Elijah Elliss",
+          "squadra": "Utah",
+          "avversario": "TCU",
           "valore": 2,
-          "dettagli": "2 placcaggi con perdita"
+          "dettagli": "3 placcaggi con perdita"
         }
       ],
       "intercetti": [
+        {
+          "nome": "Jackson Bennee",
+          "squadra": "Utah",
+          "avversario": "TCU",
+          "valore": 2,
+          "dettagli": "99 yard di ritorno"
+        },
         {
           "nome": "Joshua Clarke",
           "squadra": "Virginia Tech",
@@ -196826,13 +197167,6 @@
           "avversario": "Mississippi State",
           "valore": 1,
           "dettagli": "6 yard di ritorno"
-        },
-        {
-          "nome": "Jardin Gilbert",
-          "squadra": "Mississippi State",
-          "avversario": "Tennessee Tech",
-          "valore": 1,
-          "dettagli": ""
         }
       ],
       "placcaggi": [
@@ -197245,13 +197579,13 @@
         {
           "squadra": "Utah",
           "nome": "Utah",
-          "partite": 10,
-          "fatti1": 6.5,
-          "fatti2": 0.7,
-          "subiti1": 1.0,
-          "subiti2": 0.7,
+          "partite": 11,
+          "fatti1": 6.55,
+          "fatti2": 1.27,
+          "subiti1": 0.91,
+          "subiti2": 0.64,
           "quota": null,
-          "netto": 5.5
+          "netto": 6.27
         },
         {
           "squadra": "Oregon",
@@ -197606,17 +197940,6 @@
           "netto": 3.64
         },
         {
-          "squadra": "Oregon State",
-          "nome": "Oregon State",
-          "partite": 10,
-          "fatti1": 2.4,
-          "fatti2": 3.0,
-          "subiti1": 2.7,
-          "subiti2": 2.1,
-          "quota": null,
-          "netto": 0.6
-        },
-        {
           "squadra": "Bowling Green",
           "nome": "Bowling Green",
           "partite": 11,
@@ -197725,6 +198048,17 @@
           "subiti2": 1.18,
           "quota": null,
           "netto": 2.36
+        },
+        {
+          "squadra": "Oregon State",
+          "nome": "Oregon State",
+          "partite": 11,
+          "fatti1": 2.18,
+          "fatti2": 2.73,
+          "subiti1": 2.73,
+          "subiti2": 1.91,
+          "quota": null,
+          "netto": 0.27
         },
         {
           "squadra": "Stanford",
@@ -198079,17 +198413,6 @@
           "netto": -1.27
         },
         {
-          "squadra": "Boise State",
-          "nome": "Boise State",
-          "partite": 10,
-          "fatti1": 3.0,
-          "fatti2": 1.0,
-          "subiti1": 3.7,
-          "subiti2": 1.7,
-          "quota": null,
-          "netto": -1.4
-        },
-        {
           "squadra": "USC",
           "nome": "USC",
           "partite": 11,
@@ -198244,6 +198567,17 @@
           "netto": 1.0
         },
         {
+          "squadra": "Boise State",
+          "nome": "Boise State",
+          "partite": 11,
+          "fatti1": 2.73,
+          "fatti2": 0.91,
+          "subiti1": 3.36,
+          "subiti2": 2.36,
+          "quota": null,
+          "netto": -2.09
+        },
+        {
           "squadra": "Buffalo",
           "nome": "Buffalo",
           "partite": 11,
@@ -198343,6 +198677,17 @@
           "netto": 1.0
         },
         {
+          "squadra": "San Diego State",
+          "nome": "San Diego State",
+          "partite": 11,
+          "fatti1": 1.64,
+          "fatti2": 1.73,
+          "subiti1": 2.09,
+          "subiti2": 1.18,
+          "quota": null,
+          "netto": 0.09
+        },
+        {
           "squadra": "Wisconsin",
           "nome": "Wisconsin",
           "partite": 11,
@@ -198387,17 +198732,6 @@
           "netto": -0.36
         },
         {
-          "squadra": "TCU",
-          "nome": "TCU",
-          "partite": 10,
-          "fatti1": 1.4,
-          "fatti2": 1.8,
-          "subiti1": 0.9,
-          "subiti2": 0.9,
-          "quota": null,
-          "netto": 1.4
-        },
-        {
           "squadra": "NC State",
           "nome": "NC State",
           "partite": 11,
@@ -198429,6 +198763,17 @@
           "subiti2": 2.0,
           "quota": null,
           "netto": -4.73
+        },
+        {
+          "squadra": "Hawai'i",
+          "nome": "Hawai'i",
+          "partite": 11,
+          "fatti1": 2.45,
+          "fatti2": 0.73,
+          "subiti1": 2.45,
+          "subiti2": 3.36,
+          "quota": null,
+          "netto": -2.64
         },
         {
           "squadra": "Texas A&M",
@@ -198464,6 +198809,17 @@
           "netto": -1.09
         },
         {
+          "squadra": "TCU",
+          "nome": "TCU",
+          "partite": 11,
+          "fatti1": 1.27,
+          "fatti2": 1.64,
+          "subiti1": 1.45,
+          "subiti2": 1.45,
+          "quota": null,
+          "netto": 0.0
+        },
+        {
           "squadra": "Minnesota",
           "nome": "Minnesota",
           "partite": 11,
@@ -198484,17 +198840,6 @@
           "subiti2": 0.64,
           "quota": null,
           "netto": 0.91
-        },
-        {
-          "squadra": "San Diego State",
-          "nome": "San Diego State",
-          "partite": 10,
-          "fatti1": 1.8,
-          "fatti2": 1.0,
-          "subiti1": 2.3,
-          "subiti2": 1.3,
-          "quota": null,
-          "netto": -0.8
         },
         {
           "squadra": "Eastern Michigan",
@@ -198528,17 +198873,6 @@
           "subiti2": 0.27,
           "quota": null,
           "netto": -0.36
-        },
-        {
-          "squadra": "Hawai'i",
-          "nome": "Hawai'i",
-          "partite": 10,
-          "fatti1": 2.7,
-          "fatti2": 0.0,
-          "subiti1": 2.4,
-          "subiti2": 3.7,
-          "quota": null,
-          "netto": -3.4
         },
         {
           "squadra": "Baylor",
@@ -198618,6 +198952,17 @@
           "netto": -2.09
         },
         {
+          "squadra": "Utah State",
+          "nome": "Utah State",
+          "partite": 11,
+          "fatti1": 0.82,
+          "fatti2": 1.18,
+          "subiti1": 2.0,
+          "subiti2": 0.91,
+          "quota": null,
+          "netto": -0.91
+        },
+        {
           "squadra": "Akron",
           "nome": "Akron",
           "partite": 11,
@@ -198638,17 +198983,6 @@
           "subiti2": 0.64,
           "quota": null,
           "netto": -1.73
-        },
-        {
-          "squadra": "Utah State",
-          "nome": "Utah State",
-          "partite": 10,
-          "fatti1": 0.6,
-          "fatti2": 1.3,
-          "subiti1": 2.2,
-          "subiti2": 1.0,
-          "quota": null,
-          "netto": -1.3
         },
         {
           "squadra": "West Virginia",
@@ -198697,13 +199031,13 @@
         {
           "squadra": "Nevada",
           "nome": "Nevada",
-          "partite": 10,
-          "fatti1": 0.6,
-          "fatti2": 0.7,
-          "subiti1": 2.9,
-          "subiti2": 1.6,
+          "partite": 11,
+          "fatti1": 0.82,
+          "fatti2": 0.64,
+          "subiti1": 2.64,
+          "subiti2": 2.18,
           "quota": null,
-          "netto": -3.2
+          "netto": -3.36
         },
         {
           "squadra": "Sacramento State",
@@ -198718,8 +199052,8 @@
         }
       ],
       "media": {
-        "fatti1": 2.94,
-        "fatti2": 1.49
+        "fatti1": 2.93,
+        "fatti2": 1.5
       },
       "nota": "Punti a partita segnati e subiti negli ultimi 2 minuti del primo e del secondo tempo (nel college il two-minute warning non esiste). Sono pochi minuti a partita: come segnale va ancora misurata."
     },
@@ -199122,6 +199456,24 @@
           "tipi": []
         },
         {
+          "squadra": "Utah State",
+          "nome": "Utah State",
+          "partite": 11,
+          "flag": 6.91,
+          "yard": 59.1,
+          "subite": 6.27,
+          "tipi": []
+        },
+        {
+          "squadra": "Hawai'i",
+          "nome": "Hawai'i",
+          "partite": 11,
+          "flag": 6.91,
+          "yard": 55.5,
+          "subite": 7.27,
+          "tipi": []
+        },
+        {
           "squadra": "Maryland",
           "nome": "Maryland",
           "partite": 11,
@@ -199155,15 +199507,6 @@
           "flag": 6.82,
           "yard": 61.7,
           "subite": 8.27,
-          "tipi": []
-        },
-        {
-          "squadra": "Hawai'i",
-          "nome": "Hawai'i",
-          "partite": 10,
-          "flag": 6.8,
-          "yard": 54.5,
-          "subite": 7.1,
           "tipi": []
         },
         {
@@ -199203,21 +199546,21 @@
           "tipi": []
         },
         {
-          "squadra": "Utah State",
-          "nome": "Utah State",
-          "partite": 10,
-          "flag": 6.7,
-          "yard": 57.1,
-          "subite": 6.5,
-          "tipi": []
-        },
-        {
           "squadra": "Clemson",
           "nome": "Clemson",
           "partite": 11,
           "flag": 6.64,
           "yard": 60.6,
           "subite": 6.09,
+          "tipi": []
+        },
+        {
+          "squadra": "TCU",
+          "nome": "TCU",
+          "partite": 11,
+          "flag": 6.64,
+          "yard": 60.7,
+          "subite": 6.0,
           "tipi": []
         },
         {
@@ -199263,15 +199606,6 @@
           "flag": 6.55,
           "yard": 58.0,
           "subite": 8.55,
-          "tipi": []
-        },
-        {
-          "squadra": "TCU",
-          "nome": "TCU",
-          "partite": 10,
-          "flag": 6.5,
-          "yard": 60.6,
-          "subite": 5.6,
           "tipi": []
         },
         {
@@ -199365,6 +199699,15 @@
           "tipi": []
         },
         {
+          "squadra": "Nevada",
+          "nome": "Nevada",
+          "partite": 11,
+          "flag": 6.27,
+          "yard": 53.9,
+          "subite": 8.09,
+          "tipi": []
+        },
+        {
           "squadra": "Charlotte",
           "nome": "Charlotte",
           "partite": 11,
@@ -199428,12 +199771,12 @@
           "tipi": []
         },
         {
-          "squadra": "Nevada",
-          "nome": "Nevada",
-          "partite": 10,
+          "squadra": "Utah",
+          "nome": "Utah",
+          "partite": 11,
           "flag": 6.0,
-          "yard": 52.2,
-          "subite": 8.1,
+          "yard": 50.3,
+          "subite": 7.27,
           "tipi": []
         },
         {
@@ -199482,15 +199825,6 @@
           "tipi": []
         },
         {
-          "squadra": "Oregon State",
-          "nome": "Oregon State",
-          "partite": 10,
-          "flag": 5.9,
-          "yard": 52.3,
-          "subite": 6.1,
-          "tipi": []
-        },
-        {
           "squadra": "Texas A&M",
           "nome": "Texas A&M",
           "partite": 11,
@@ -199515,6 +199849,15 @@
           "flag": 5.82,
           "yard": 46.8,
           "subite": 4.27,
+          "tipi": []
+        },
+        {
+          "squadra": "Oregon State",
+          "nome": "Oregon State",
+          "partite": 11,
+          "flag": 5.73,
+          "yard": 52.1,
+          "subite": 6.36,
           "tipi": []
         },
         {
@@ -199599,24 +199942,6 @@
           "tipi": []
         },
         {
-          "squadra": "Utah",
-          "nome": "Utah",
-          "partite": 10,
-          "flag": 5.6,
-          "yard": 46.3,
-          "subite": 7.2,
-          "tipi": []
-        },
-        {
-          "squadra": "Boise State",
-          "nome": "Boise State",
-          "partite": 10,
-          "flag": 5.6,
-          "yard": 53.5,
-          "subite": 5.4,
-          "tipi": []
-        },
-        {
           "squadra": "UCF",
           "nome": "UCF",
           "partite": 11,
@@ -199680,21 +200005,21 @@
           "tipi": []
         },
         {
+          "squadra": "San Diego State",
+          "nome": "San Diego State",
+          "partite": 11,
+          "flag": 5.45,
+          "yard": 47.3,
+          "subite": 5.55,
+          "tipi": []
+        },
+        {
           "squadra": "App State",
           "nome": "App State",
           "partite": 11,
           "flag": 5.45,
           "yard": 45.9,
           "subite": 6.27,
-          "tipi": []
-        },
-        {
-          "squadra": "San Diego State",
-          "nome": "San Diego State",
-          "partite": 10,
-          "flag": 5.4,
-          "yard": 47.0,
-          "subite": 5.8,
           "tipi": []
         },
         {
@@ -199713,6 +200038,15 @@
           "flag": 5.36,
           "yard": 48.2,
           "subite": 5.91,
+          "tipi": []
+        },
+        {
+          "squadra": "Boise State",
+          "nome": "Boise State",
+          "partite": 11,
+          "flag": 5.36,
+          "yard": 50.5,
+          "subite": 5.45,
           "tipi": []
         },
         {
@@ -199968,7 +200302,7 @@
           "tipi": []
         }
       ],
-      "media": 6.32,
+      "media": 6.33,
       "nota": "Penalità accettate a partita, dal tabellino ESPN. Gli arbitri del college non sono nei dati.",
       "arbitri": []
     }
