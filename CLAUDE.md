@@ -458,6 +458,12 @@ davvero che si veda quello che deve vedersi.
   misura del 19/11); stesso principio in `titolari_college` e `giocatori_prop`; sul sito, nelle schede partita del
   college, le etichette sono PASS / CORSA / RIC.
 
+- 22/11/2026: la Giornata del college era vuota (week 14, 3 partite da giocare). Causa: fetch_college conservava il
+  punteggio già in archivio con la chiave (tipo, casa, ospite), ma nel Pac-12 a 8 squadre la stessa partita si gioca due
+  volte: il risultato della prima finiva sulla seconda, futura, e la Giornata prendeva la week più alta con un risultato.
+  Da allora la chiave ha anche la data, nessun risultato copiato su una partita futura, e `college_indici.calcola` sceglie
+  l'ultima week con almeno metà delle partite giocate.
+
 ## Stato attuale
 
 - Premier League: funzionante, con arbitri

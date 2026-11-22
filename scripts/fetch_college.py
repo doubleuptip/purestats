@@ -668,8 +668,13 @@ def main():
             sostituisci = False
         else:
             sostituisci = True
-        # il punteggio già in archivio non si perde se ESPN, per qualunque motivo, non lo ha
-        con_punti = {(r["Tipo"], r["Casa"], r["Ospite"]): r for r in vecchie.values() if _con_risultato(r)}
+        # il punteggio già in archivio non si perde se ESPN, per qualunque motivo, non lo ha. Chiave con la DATA:
+        # nella stessa stagione la stessa partita (casa e ospite) può ripetersi (22/11/2026: nel Pac-12 a 8 squadre
+        # Colorado State-Boise State, Fresno State-Oregon State e Boise State-San Diego State si giocano due volte e il
+        # risultato della prima finiva sulla seconda, ancora da giocare). Mai un risultato su una partita futura.
+        oggi = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        con_punti = {(r["Tipo"], r["Casa"], r["Ospite"], r["Data"][:10]): r for r in vecchie.values()
+                     if _con_risultato(r) and r["Data"][:10] <= oggi}
         if sostituisci:
             # la stagione in corso si riprende com'è su ESPN: una partita spostata di settimana non resta doppia
             for k in vecchie:
@@ -677,7 +682,7 @@ def main():
         nuove = 0
         for r in righe_espn:
             riga = {c: r.get(c, "") for c in COLONNE}
-            vecchia = con_punti.get((riga["Tipo"], riga["Casa"], riga["Ospite"]))
+            vecchia = con_punti.get((riga["Tipo"], riga["Casa"], riga["Ospite"], riga["Data"][:10]))
             if not _con_risultato(riga) and vecchia:
                 riga["PuntiCasa"], riga["PuntiOspite"] = vecchia["PuntiCasa"], vecchia["PuntiOspite"]
             k = chiave(riga)

@@ -25,6 +25,7 @@ Solo libreria standard.
 
 import html
 import json
+from collections import defaultdict
 import os
 import re
 import statistics
@@ -536,7 +537,15 @@ def calcola(chiama, stats, stagione, partite_espn=None):
     out = {"loghi": _loghi(chiama, stagione), "giornata": None, "prossima": None, "indici": None}
     if not giocate:
         return out
-    w = max(giocate)
+    # week della Giornata: l'ultima in cui è già giocata almeno metà delle partite (22/11/2026). Con il massimo
+    # semplice bastava una partita del martedì (o un risultato sbagliato) per mostrare una week quasi vuota.
+    per_week = defaultdict(lambda: [0, 0])
+    for p in ultime:
+        if str(p.get("stagione")) == str(stagione) and str(p.get("settimana", "")).isdigit():
+            per_week[int(p["settimana"])][0] += 1
+            per_week[int(p["settimana"])][1] += p.get("pc") is not None
+    piene = [k for k, (n, g) in per_week.items() if g and g * 2 >= n]
+    w = max(piene) if piene else max(giocate)
     linee = _carica(LINEE)
     righe = _gare_espn(partite_espn, w, linee) if partite_espn else chiama("lines", year=stagione, week=w, seasonType="regular")
     if righe:
