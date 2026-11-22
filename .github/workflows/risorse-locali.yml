@@ -1,0 +1,36 @@
+name: Risorse locali (caratteri e Chart.js)
+
+# Privacy (22/11/2026): caratteri e Chart.js serviti dal sito invece che da Google Fonts e jsDelivr.
+# Si lancia a mano: scarica dal registro npm (gratis, senza chiave) i pacchetti @fontsource e chart.js 4.4.1,
+# scripts/risorse_locali.py scrive docs/font e docs/vendor. Da rifare solo se cambiano caratteri o versione.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  risorse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scarica i pacchetti
+        run: |
+          mkdir -p /tmp/pacchetti && cd /tmp/pacchetti
+          npm pack @fontsource/inter@5 @fontsource/archivo@5 @fontsource/barlow-condensed@5 \
+                   @fontsource/teko@5 @fontsource/jetbrains-mono@5 chart.js@4.4.1
+          ls -l
+      - name: Scrivi docs/font e docs/vendor
+        run: python scripts/risorse_locali.py /tmp/pacchetti
+      - name: Committa
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/font docs/vendor
+          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+          git commit -q -m "Caratteri e Chart.js ospitati sul sito"
+          for t in 1 2 3 4; do git push && exit 0; git pull -q --rebase origin main; done
+          exit 1

@@ -1479,6 +1479,8 @@ const FONTI = [
 ];
 // il calcio è sbloccato solo se dopo l'avvio in LEGHE è rimasto almeno un campionato privato
 const calcioVisibile = () => LEGHE.some(l => l.privato);
+// accesso privato attivo: solo allora si mostrano linee, totali e sorprese del mercato (22/11/2026, pubblico senza termini da scommesse)
+const privato = () => calcioVisibile();
 
 function testoLegale(){
   return `<div class="pie-legale">
@@ -2146,7 +2148,8 @@ function vFootballPartite(){
 }
 
 /* ---------- GIORNATA, PROSSIMA E INDICI (football) ----------
-   Dati statistici e di mercato pubblici: risultati con la linea di chiusura,
+   Pubblico: risultati, prestazioni migliori, confronti tra giocatori, forza delle squadre; linee e totali
+   del mercato solo con l'accesso privato (privato()). Prima: risultati con la linea di chiusura,
    prestazioni migliori, confronti tra giocatori, forza delle squadre.
    Nessuna giocata e nessuna segnalazione di valore. */
 
@@ -2215,14 +2218,15 @@ function schedaRisultato(g){
   const vinceOsp = giocata && g.po>g.pc, vinceCasa = giocata && g.pc>g.po;
   const riga=(sig,pt,w)=>`<div class="fb-team${w?" w":""}">${stemma(sig)}<span class="n">${esc(breve(sig))}</span><span class="s">${giocata?pt:""}</span></div>`;
   let chips="";
-  if(giocata && g.favorita){
+  if(!privato()){}            // pagine pubbliche: niente linee né totali del mercato (22/11/2026)
+  else if(giocata && g.favorita){
     const ok = g.battutaDa && g.battutaDa===g.favorita;
     chips += `<span class="fb-chip${ok?" ok":""}">Linea ${esc(g.favorita)} −${numIt(g.linea)} · ${
       ok?"rispettata":(g.battutaDa?"ribaltata da "+esc(g.battutaDa):"pari")}</span>`;
   } else if(g.favorita){
     chips += `<span class="fb-chip">Favorita ${esc(g.favorita)} di ${numIt(g.linea)}</span>`;
   }
-  if(g.totaleLinea!==null && g.totaleLinea!==undefined){
+  if(privato() && g.totaleLinea!==null && g.totaleLinea!==undefined){
     chips += giocata && g.totaleEsito
       ? `<span class="fb-chip">Totale ${numIt(g.totaleLinea)} · ${g.totaleEsito.toUpperCase()} (${g.pc+g.po})</span>`
       : `<span class="fb-chip">Totale ${numIt(g.totaleLinea)}</span>`;
@@ -2288,7 +2292,18 @@ function vFootballGiornata(){
   const conConf=(G.partite||[]).some(g=>g.confCasa);
   const nelGruppo=g=>gruppoFootball==="tutti"||g.confCasa===gruppoFootball||g.confOspite===gruppoFootball;
   const ris=(G.partite||[]).filter(nelGruppo);
-  const numeri=`<div class="fb-tiles gio-numeri">
+  // pubblico (22/11/2026): numeri dai soli risultati, niente linee né over/under; quelli del mercato solo con l'accesso privato
+  const gioc=(G.partite||[]).filter(g=>g.pc!==null&&g.pc!==undefined&&g.po!==null&&g.po!==undefined);
+  const ptMedi=gioc.length?numIt(gioc.reduce((s,g)=>s+g.pc+g.po,0)/gioc.length,1):"—";
+  const strette=gioc.filter(g=>Math.abs(g.pc-g.po)<=8).length;
+  const larga=gioc.slice().sort((a,b)=>Math.abs(b.pc-b.po)-Math.abs(a.pc-a.po))[0];
+  const numeri=!privato()?`<div class="fb-tiles gio-numeri">
+    <div class="fb-tile"><b>${n(r.partite)}</b><span>Partite giocate</span></div>
+    <div class="fb-tile"><b>${ptMedi}</b><span>Punti a partita</span></div>
+    <div class="fb-tile"><b>${strette}<small> / ${gioc.length}</small></b><span>Decise da 8 punti o meno</span></div>
+    ${larga?`<div class="fb-tile"><b>+${Math.abs(larga.pc-larga.po)}</b><span>Vittoria più larga: ${esc(breve(larga.pc>larga.po?larga.casa:larga.ospite))}</span></div>`
+          :`<div class="fb-tile"><b>—</b><span>Vittoria più larga</span></div>`}
+  </div>`:`<div class="fb-tiles gio-numeri">
     <div class="fb-tile"><b>${n(r.partite)}</b><span>Partite giocate</span></div>
     <div class="fb-tile"><b>${n(r.favoriteCoperte)}</b><span>Favorite oltre la linea</span></div>
     <div class="fb-tile"><b>${n(r.over)}<small> / ${n(r.under)}</small></b><span>Over / under</span></div>
@@ -2301,7 +2316,7 @@ function vFootballGiornata(){
       <span>${segnoGio(x.netto)} · contro ${esc(breve(x.avversario))}</span></div></div>`).join("")}</div>`:"";
   return `
   <h1 class="fb-h1">${esc(D.campionato||"")} · Week ${esc(G.settimana)}${G.completa?"":" (in corso)"}</h1>
-  <p class="fb-lead">Stagione ${esc(G.stagione)} · risultati con la linea di chiusura del mercato</p>
+  <p class="fb-lead">Stagione ${esc(G.stagione)} · ${privato()?"risultati con la linea di chiusura del mercato":"risultati, giocate, squadre e protagonisti della week"}</p>
   ${numeri}${podio}
   <h2 class="fb-h2">Risultati <span class="gio-conta">${ris.length} partite</span></h2>
   ${conConf?barraGruppi():""}
@@ -2321,11 +2336,12 @@ function schedaTabellone(g){
   const vinceOsp = giocata && g.po>g.pc, vinceCasa = giocata && g.pc>g.po;
   const riga=(sig,pt,w)=>`<div class="fb-team${w?" w":""}">${stemma(sig,true)}<span class="n">${esc(breve(sig))}</span><span class="s">${giocata?pt:""}</span></div>`;
   let esito="";
-  if(giocata && g.favorita){
+  if(!privato()){}            // pagine pubbliche: niente linee né totali del mercato
+  else if(giocata && g.favorita){
     const ok = g.battutaDa && g.battutaDa===g.favorita;
     esito += `<span class="fb-chip${ok?" ok":""}">${esc(g.favorita)} −${numIt(g.linea)} · ${ok?"rispettata":(g.battutaDa?"ribaltata":"pari")}</span>`;
   } else if(g.favorita) esito += `<span class="fb-chip">${esc(g.favorita)} −${numIt(g.linea)}</span>`;
-  if(g.totaleLinea!==null && g.totaleLinea!==undefined)
+  if(privato() && g.totaleLinea!==null && g.totaleLinea!==undefined)
     esito += `<span class="fb-chip">${giocata&&g.totaleEsito?(g.totaleEsito==="over"?"Over ":g.totaleEsito==="under"?"Under ":"Pari ")+numIt(g.totaleLinea):"Totale "+numIt(g.totaleLinea)}</span>`;
   const vid = g.video && /^[A-Za-z0-9_-]{6,20}$/.test(g.video.id||"") ? g.video.id : "";
   const play=`<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>`;
@@ -2371,7 +2387,7 @@ function sezioniGiornata(G){
     ${pr.pressioni&&(pr.pressioni.lista||[]).length?riquadro("Pressioni sul QB",`<p class="fb-note" style="margin-top:0">${pr.pressioni.ritardo
         ?`⚠️ Week ${esc(pr.pressioni.settimana)}, non questa: i dati delle pressioni (Pro Football Reference) arrivano circa 7 giorni dopo.`
         :`Week ${esc(pr.pressioni.settimana)} (Pro Football Reference).`}</p>${listaLeader("",pr.pressioni.lista)}`):""}</div>`:""}`]);
-  if(sorp) schede.push(["sorprese","Sorprese",riquadro("Sorprese della week",
+  if(sorp && privato()) schede.push(["sorprese","Sorprese",riquadro("Sorprese della week",
     `<p class="fb-note" style="margin-top:0">Partite finite più lontano dalla linea del mercato (punti)</p><ul class="fb-list">${sorp}</ul>`)]);
   if(due) schede.push(["due","Ultimi 2 minuti",riquadro("Punti negli ultimi 2 minuti · stagione",`
     <p class="fb-note">${esc(due.nota||"")} Media della lega: ${numIt(due.media.fatti1)} punti a partita nel 1° tempo, ${numIt(due.media.fatti2)} nel 2°.</p>
@@ -2994,7 +3010,7 @@ function corsaH(H){
     };
     pl=cardH("CORSA AI PLAYOFF", `<div class="h-schede">${["AFC","NFC"].map(x=>`<button class="${x===homeConf?"on":""}" onclick="homeScegliConf('${x}')">${x}</button>`).join("")}</div>
       <div class="h-due">${lato("AFC")}${lato("NFC")}</div>
-      <p class="h-nota">Probabilità di andare ai playoff: ${numIt(c.simulazioni,0).replace(/\B(?=(\d{3})+(?!\d))/g,".")} simulazioni del resto della stagione con le linee del mercato. In ordine di probabilità, non di seed.</p>`);
+      <p class="h-nota">Probabilità di andare ai playoff: ${numIt(c.simulazioni,0).replace(/\B(?=(\d{3})+(?!\d))/g,".")} simulazioni del resto della stagione, partita per partita. In ordine di probabilità, non di seed.</p>`);
   }
   let rk="";
   if(r && r.squadre){
@@ -3282,7 +3298,7 @@ function riquadroSquadre(a){
       `<div class="ar-cf-g"><div class="ar-cf-d"><b>${esc(O.punti.fatti)}</b><small>fatti</small></div><div class="ar-cf-d"><b>${esc(O.punti.subiti)}</b><small>subiti</small></div></div>`,
       `<div class="ar-cf-g"><div class="ar-cf-d"><b>${esc(C.punti.fatti)}</b><small>fatti</small></div><div class="ar-cf-d"><b>${esc(C.punti.subiti)}</b><small>subiti</small></div></div>`):""}
     ${ruoli.map(r=>riga(r, cella(O.giocatori.find(g=>g.ruolo===r)), cella(C.giocatori.find(g=>g.ruolo===r)))).join("")}
-    ${R.linea?`<div class="ar-cf-et">${R.titolo?"Contro la linea del mercato americano":"Linea e totale del mercato americano"}</div><div class="ar-cf-linea">${esc(R.linea)}</div>`:""}
+    ${R.linea&&privato()?`<div class="ar-cf-et">${R.titolo?"Contro la linea del mercato americano":"Linea e totale del mercato americano"}</div><div class="ar-cf-linea">${esc(R.linea)}</div>`:""}
   </div>`;
 }
 function vArticolo(id){
@@ -3507,7 +3523,7 @@ function vFootballProssima(){
     <article class="fb-duel">
       <div class="fb-duel-head">${stemma(d.ospite)}<span class="t">${esc(breve(d.ospite))} @ ${esc(breve(d.casa))}</span>${stemma(d.casa)}</div>
       <p class="fb-duel-when">${esc(giornoIt(d.dataIt||d.data))}${(d.oraIt||d.ora)?" · "+esc(d.oraIt||d.ora):" · orario da definire"}${
-          d.favorita?" · favorita "+esc(d.favorita)+" di "+numIt(d.linea):""}${d.totaleLinea!=null?" · totale "+numIt(d.totaleLinea):""}</p>
+          d.favorita&&privato()?" · favorita "+esc(d.favorita)+" di "+numIt(d.linea):""}${d.totaleLinea!=null&&privato()?" · totale "+numIt(d.totaleLinea):""}</p>
       ${linkArticolo(d, P.stagione, P.settimana)?`<div class="ar-link-riga">${linkArticolo(d, P.stagione, P.settimana)}</div>`:""}
       <div class="fb-vs">
         <div><h3 class="fb-h3" style="margin-top:0">${esc(breve(d.ospite))}${difesa(d.difesaOspite)}</h3>${(d.giocatoriOspite||[]).map(rigaGiocatore).join("")}</div>

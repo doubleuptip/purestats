@@ -30,7 +30,7 @@ from datetime import datetime, timezone
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(RADICE, "docs")
 BASE_GITHUB = "https://doubleuptip.github.io/purestats/"
-VIETATE = re.compile(r"\b(charlie|matchup|spread|bet365|snai|sisal|quota del bookmaker|over/under)\b", re.I)
+VIETATE = re.compile(r"\b(charlie|matchup|spread|bet365|snai|sisal|bookmaker|mercato americano|scommess\w*|over/under|contro la linea)\b", re.I)
 
 
 def base_sito():

@@ -389,7 +389,7 @@ def fatti(gid: str) -> dict:
         "coperto": coperto,
         "sfidaDiDivision": r["div_game"] == "1",
         "mercato": {"favorita": favorita, "vantaggio": abs(sp) if sp else None, "totale": num(r["total_line"], None),
-                    "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"},
+                    "nota": "solo per dire chi parte favorito, a parole comuni (favoriti di poco fino a 3, favoriti, nettamente favoriti da 7,5), senza citare mercato, bookmaker, linea o totale"},
         "precedenti": prec,
         "ospiti": fatti_squadra(D, osp, casa, settimana, giorno, r["away_coach"], cl),
         "padroniDiCasa": fatti_squadra(D, casa, osp, settimana, giorno, r["home_coach"], cl),
@@ -938,6 +938,10 @@ def da_fare() -> list[dict]:
 
 # ------------------------------------------------------------------ controllo e pubblicazione
 
+# Pagine pubbliche senza termini da scommesse (22/11/2026): il testo non cita mercato, bookmaker, linee, totali, over/under
+VIETATE = re.compile(r"mercato americano|bookmaker|scommess|\bspread\b|\bover\b|\bunder\b|contro la linea|"
+                     r"linea (?:di chiusura|del mercato|d'apertura)|totale di \d|pronostic", re.I)
+
 PAROLE_OK = {"NFL", "AFC", "NFC", "Super", "Bowl", "PureStats", "Week", "Pro", "East", "West", "North", "South"}
 
 
@@ -948,7 +952,7 @@ def controlla(testo: dict, f: dict) -> list[str]:
     numeri |= {x.replace(".", ",") for x in numeri} | {x.split(".")[0] for x in numeri}
     numeri |= {n_it(int(x)) for x in re.findall(r"\b\d{4,}\b", corpo)}
     tutto = testo["titolo"] + "\n" + "\n".join(testo["paragrafi"])
-    problemi = []
+    problemi = [f"termine da scommesse, da togliere: «{m.group(0)}»" for m in VIETATE.finditer(tutto)]
     for t in re.findall(r"\d+(?:\.\d{3})*(?:,\d+)?", tutto):
         if t not in numeri and t.replace(".", "") not in numeri:
             problemi.append(f"numero non presente nei fatti: {t}")

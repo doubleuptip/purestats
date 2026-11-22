@@ -471,10 +471,12 @@ davvero che si veda quello che deve vedersi.
      in stagione + circa 250 una tantum per lo storico, da ricontare prima di lanciare). FPI tolto il 22/11 (rating
      PureStats al suo posto; classifica CFP/AP da CFBD). La sentinella college oggi interroga ESPN ogni 15 minuti: con CFBD aggiornamenti a orari
      stimati + riserve. Charlie e bot usano ESPN in privato (rischio solo blocco): decidere se spostarli.
-  2. Termini da scommesse nelle pagine pubbliche (linee e totali nelle schede, «Favorite oltre la linea», Over/Under,
-     «Sorprese» sulla linea nella Giornata, riquadro «Contro la linea» nelle cronache): da togliere, restano solo in
-     Matchup; «Sorprese» da rifare sulla nostra probabilità prepartita. Google conta «tips, odds and handicapping» come
-     contenuti legati al gioco.
+  2. FATTO il 22/11: pagine pubbliche senza termini da scommesse. In index.html linee, totali, over/under, «Favorite
+     oltre la linea», Sorprese e «Contro la linea» delle cronache si vedono solo con l'accesso privato (`privato()`);
+     la Giornata pubblica mostra partite, punti a partita, partite decise da 8 punti o meno, vittoria più larga.
+     Articoli e racconti riscritti senza «mercato americano»/bookmaker/punti di vantaggio; `articoli.controlla` e
+     `pagine_statiche.py` rifiutano quei termini (ARTICOLI_GUIDA aggiornata). Nei racconti: «partono favoriti», mai
+     i punti di vantaggio. I dati grezzi (linee nei JSON pubblici) restano: da spostare con il college (punto 1).
   3. FATTO il 22/11: loghi sostituiti dagli stemmi PureStats (vedi «Stemmi, highlights e crediti»).
   4. FATTO il 22/11: crediti completi delle foto degli stadi (autore, licenza con collegamento, pagina Commons).
   5. Privacy: Google Fonts, jsDelivr (Chart.js), anteprime YouTube e loghi ESPN caricati da server esterni: ospitare

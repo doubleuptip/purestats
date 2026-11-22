@@ -45,7 +45,9 @@ Ogni settimana: 3 partite NFL e 3 college, anteprima prima del via e cronaca dop
 ## Regole fisse
 - Solo fatti presenti nel file: niente cause, citazioni, atmosfera, storia, statistiche o meteo inventati.
 - Numeri: punteggi, bilanci, data e ora; al massimo un paio di altri se rendono la storia. Le statistiche stanno nel riquadro.
-- Mercato solo a parole («nettamente favoriti», «favoriti di poco»), mai quote né consigli di scommessa.
+- Niente scommesse (22/11/2026, sito pubblico per Google): mai «mercato americano», bookmaker, linee, totali, over/under,
+  quote, pronostici o l'esito «contro la linea» delle cronache. Chi parte favorito si può dire con parole comuni
+  («partono favoriti», «nettamente favoriti», «favoriti di poco»), senza citarne la fonte. `pubblica` rifiuta i termini vietati.
   Mai segnali di Charlie o della sezione privata.
 - Squadre al plurale maschile («i Texans»); prima citazione nome e cognome, poi il cognome; yard (mai iarde);
   «partita» (mai match); niente punti esclamativi, domande retoriche, cliché.
