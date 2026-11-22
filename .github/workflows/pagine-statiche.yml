@@ -1,0 +1,40 @@
+name: Pagine statiche per Google
+
+# Rifà docs/a, docs/l, sitemap.xml, robots.txt e 404.html quando cambiano articoli o racconti
+# (scripts/pagine_statiche.py legge solo file già pubblici). Nessuna fonte esterna, nessuna chiamata.
+# I commit fatti con GITHUB_TOKEN non rilanciano questo workflow: niente giri a catena.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/articoli/**.json'
+      - 'docs/leggende/racconti.json'
+      - 'docs/CNAME'
+      - 'scripts/pagine_statiche.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pagine:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pagine-statiche
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Scrivi le pagine
+        run: python scripts/pagine_statiche.py
+      - name: Committa
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/a docs/l docs/sitemap.xml docs/robots.txt docs/404.html
+          if git diff --staged --quiet; then echo "Nessuna variazione."; exit 0; fi
+          git commit -q -m "Pagine statiche aggiornate $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for t in 1 2 3 4; do git push && exit 0; git pull -q --rebase origin main; done
+          exit 1

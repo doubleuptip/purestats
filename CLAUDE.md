@@ -270,6 +270,18 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Sito: menu ARTICOLI, articolo con impaginazione B (testo a sinistra, colonna con meteo e numeri), collegamento
   «Leggi l'anteprima/la cronaca» dalle schede partita, indirizzo diretto `#articolo=<id>`.
 
+## Pagine statiche e dominio (dal 22/11/2026)
+
+- Dominio comprato da Valerio: purestats.it (attivazione: record DNS + docs/CNAME, vedi sotto).
+- `scripts/pagine_statiche.py` (workflow pagine-statiche.yml, a ogni push di articoli, racconti, CNAME o dello script):
+  una pagina HTML per articolo (`docs/a/<id>.html`) e per racconto (`docs/l/<id>.html`) con canonical, og e dati
+  strutturati, più `sitemap.xml`, `robots.txt` e `404.html`. Indirizzo di base da `docs/CNAME`, altrimenti GitHub
+  Pages. Legge solo file pubblici; si ferma se trova termini della parte privata o delle scommesse. Le pagine
+  rimandano al sito con `#articolo=` / `#leggenda=`.
+- Alla prima attivazione del dominio: docs/CNAME con `purestats.it`, og:url/og:image di index.html sul nuovo
+  dominio, User-Agent degli script (articoli, leggende, tv_italia) e indirizzo di duelli.html nel bot. Le chiavi
+  ricordate (localStorage) valgono per dominio: su purestats.it Valerio rifà l'accesso una volta.
+
 ## Leggende (dal 21/11/2026, scelta di Valerio)
 
 - Menu LEGGENDE (solo NFL) accanto ad ARTICOLI, tre schede: «I più grandi» (squadra del centenario NFL, 2019, giuria di
