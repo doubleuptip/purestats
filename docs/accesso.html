@@ -8,11 +8,16 @@
 <link rel="icon" href="icona.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icona-180.png">
 <link href="font/font.css" rel="stylesheet">
+<meta name="theme-color" content="#0B0F1A" id="coloreTema">
+<script>/* Tema (22/11/2026, scelta di Valerio): scuro per tutti; il bottone passa al chiaro e la scelta resta su questo dispositivo (localStorage «purestats_tema», seconda eccezione alla regola). */
+(function(){var t="scuro";try{if(localStorage.getItem("purestats_tema")==="chiaro")t="chiaro"}catch(e){}document.documentElement.dataset.tema=t;if(t==="chiaro")document.getElementById("coloreTema").content="#E9EDF2"})();
+function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"?"scuro":"chiaro";r.dataset.tema=t;try{localStorage.setItem("purestats_tema",t)}catch(e){}document.getElementById("coloreTema").content=t==="chiaro"?"#E9EDF2":"#0B0F1A";document.dispatchEvent(new Event("tema"))}</script>
+
 <style>
   :root{--bg:#E9EDF2;--card:#FFFFFF;--bordo:#CDD4DE;--testo:#111827;--muto:#4B5563;--acc:#B91C1C;--acc-t:#FFFFFF;
     --logo-testo:#0B1428;--logo-rosso:#B91C1C;--tit:'Archivo',sans-serif;color-scheme:light}
-  @media (prefers-color-scheme: dark){:root{--bg:#0B0F1A;--card:#131A2B;--bordo:#232C42;--testo:#F5F7FB;--muto:#A3ADC2;
-    --acc:#EF4444;--acc-t:#FFFFFF;--logo-testo:#F5F7FB;--logo-rosso:#EF4444;--tit:'Barlow Condensed',sans-serif;color-scheme:dark}}
+  html:not([data-tema="chiaro"]){--bg:#0B0F1A;--card:#131A2B;--bordo:#232C42;--testo:#F5F7FB;--muto:#A3ADC2;
+    --acc:#EF4444;--acc-t:#FFFFFF;--logo-testo:#F5F7FB;--logo-rosso:#EF4444;--tit:'Barlow Condensed',sans-serif;color-scheme:dark}
   body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--testo);
     font-family:Inter,system-ui,sans-serif}
   form{background:var(--card);border:1px solid var(--bordo);border-radius:14px;padding:28px 24px;width:min(360px,90vw)}
@@ -28,9 +33,12 @@
     color:var(--acc-t);cursor:pointer}
   #msg{min-height:20px;font-size:14px;margin-top:12px;color:var(--muto)}
   .nascosto{position:absolute;left:-9999px}
+  .tema-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;margin:0;opacity:.55;transition:opacity .15s}.tema-btn:hover,.tema-btn:focus-visible{opacity:1}.tema-btn svg{width:17px;height:17px;display:block}html:not([data-tema="chiaro"]) .t-luna,html[data-tema="chiaro"] .t-sole{display:none}
+  .tema-btn{position:fixed;top:14px;right:14px;color:var(--testo);width:34px;margin:0;font-size:0;background:transparent}
 </style>
 </head>
 <body>
+<button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button>
 <form id="accesso" action="#" method="post">
   <div class="marchio"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></div>
   <input class="nascosto" type="text" name="username" autocomplete="username" value="purestats" tabindex="-1" aria-hidden="true">

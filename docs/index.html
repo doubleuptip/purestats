@@ -245,8 +245,8 @@
   code{color:var(--acc);font-size:9px}
 
   /* ============ FOOTBALL: NUOVO ASPETTO ============
-     Chiaro di giorno, scuro di notte: segue l'impostazione del dispositivo
-     (come il tema automatico di Windows, Android e iOS). Il calcio non cambia. */
+     Scuro per tutti (22/11/2026, scelta di Valerio); il bottone in alto a destra passa al chiaro
+     (attributo data-tema su <html>, regole scure con il prefisso html:not([data-tema="chiaro"])). */
   body.fb{
     --fb-bg:#E9EDF2; --fb-card:#FFFFFF; --fb-text:#111827; --fb-muted:#4B5563; --fb-border:#CDD4DE;
     --fb-acc:#B91C1C; --fb-acc-text:#FFFFFF; --fb-pill:#E5E7EB; --fb-okbg:#DCFCE7; --fb-ok:#166534;
@@ -256,15 +256,15 @@
     --acc-rgb:185,28,28; --data:var(--fb-muted); --rosso:#C81E1E; --giallo:#B7791F;
     font-family:'Inter',sans-serif;
   }
-  @media (prefers-color-scheme: dark){
-    body.fb{
+  html:not([data-tema="chiaro"]) body.fb{
       --fb-bg:#0B0F1A; --fb-card:#131A2B; --fb-text:#F5F7FB; --fb-muted:#A3ADC2; --fb-border:#232C42;
       --fb-acc:#EF4444; --fb-acc-text:#FFFFFF; --fb-pill:#1B2338; --fb-okbg:#3A1618; --fb-ok:#FCA5A5;
       --fb-chip:#1F2840; --fb-chiptext:#C9D1E3; --fb-lose:#8D97AD; --fb-head:'Barlow Condensed',sans-serif;
       --acc-rgb:239,68,68; --rosso:#FF7A7A; --giallo:#FFD400;
     }
-  }
   body.fb header{background:var(--fb-bg)}
+  .tema-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;margin:0;opacity:.55;transition:opacity .15s}.tema-btn:hover,.tema-btn:focus-visible{opacity:1}.tema-btn svg{width:17px;height:17px;display:block}html:not([data-tema="chiaro"]) .t-luna,html[data-tema="chiaro"] .t-sole{display:none}
+  header .tema-btn{position:absolute;top:14px;right:14px;color:var(--fb-text,var(--testo))}
   body.fb .logo span{font-family:var(--fb-head);font-weight:800;color:var(--fb-text)}
   body.fb .dot{box-shadow:none}
   body.fb .lega button{font-family:'Inter',sans-serif;font-size:15px;font-weight:600}
@@ -420,7 +420,7 @@
   body.fb .nome{word-break:normal;overflow-wrap:normal}
   body.fb .nome.corto{display:none}
   @media (max-width:640px){
-    body.fb header{position:static}
+    body.fb header{position:relative}
     body.fb nav{flex-wrap:nowrap;overflow-x:auto;gap:6px;padding-bottom:4px;-webkit-overflow-scrolling:touch}
     body.fb nav button{flex:none;font-size:14px;padding:9px 12px}
     body.fb .lega button{font-size:14px}
@@ -468,7 +468,7 @@
   @media (max-width:640px){ .gio-podio{grid-template-columns:minmax(0,1fr);gap:8px} .gio-pos b{font-size:22px!important} }
   /* Logo PureStats (16/11/2026, disegno di Valerio ridisegnato in vettoriale): colori dal tema, rosso acceso di notte */
   :root{--logo-testo:#0B1428;--logo-rosso:#B91C1C}
-  @media (prefers-color-scheme: dark){ :root{--logo-testo:#F5F7FB;--logo-rosso:#EF4444} }
+  html:not([data-tema="chiaro"]){--logo-testo:#F5F7FB;--logo-rosso:#EF4444}
   .logo-simbolo{height:34px;width:auto;flex:none;display:block}
   .logo-simbolo .lt{fill:var(--logo-testo)} .logo-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}
   .logo-simbolo .lr rect,.logo-simbolo .lr circle{stroke:none}
@@ -915,8 +915,10 @@
 <link rel="icon" href="icona.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#E9EDF2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0F1A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0B0F1A" id="coloreTema">
+<script>/* Tema (22/11/2026, scelta di Valerio): scuro per tutti; il bottone passa al chiaro e la scelta resta su questo dispositivo (localStorage «purestats_tema», seconda eccezione alla regola). */
+(function(){var t="scuro";try{if(localStorage.getItem("purestats_tema")==="chiaro")t="chiaro"}catch(e){}document.documentElement.dataset.tema=t;if(t==="chiaro")document.getElementById("coloreTema").content="#E9EDF2"})();
+function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"?"scuro":"chiaro";r.dataset.tema=t;try{localStorage.setItem("purestats_tema",t)}catch(e){}document.getElementById("coloreTema").content=t==="chiaro"?"#E9EDF2":"#0B0F1A";document.dispatchEvent(new Event("tema"))}</script>
 <meta name="description" content="Statistiche NFL e college football: risultati, classifiche, leader della giornata, articoli e leggende.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PureStats">
@@ -935,6 +937,7 @@
 
 <header>
   <a class="logo" href="./" onclick="return tornaHome()" aria-label="PureStats, torna alla pagina iniziale"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></a>
+  <button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button>
   <div class="lega" id="scelta-lega"></div>
   <div class="sub-lega" id="sub-lega" style="display:none"></div>
   <nav>
@@ -975,11 +978,12 @@ function aggiornaColori(){
   const cs = getComputedStyle(document.body), v = (k, d) => (cs.getPropertyValue(k) || "").trim() || d;
   FLUO = v("--acc", FLUO); FLUO2 = v("--acc2", FLUO2); ROSSO = v("--rosso", ROSSO); ACC_RGB = v("--acc-rgb", ACC_RGB);
   MUTED = v("--muted", MUTED); BORDO = v("--bordo", BORDO); TESTO = v("--testo", TESTO); NERO = v("--nero", NERO);
-  GIALLO = matchMedia("(prefers-color-scheme: dark)").matches ? "#FFD400" : "#B7791F";
+  GIALLO = document.documentElement.dataset.tema === "chiaro" ? "#B7791F" : "#FFD400";
   F_TESTO = v("--f-testo", F_TESTO).split(",")[0].replace(/['"]/g, "");
   F_TIT = v("--f-tit", F_TIT).split(",")[0].replace(/['"]/g, "");
 }
 
+document.addEventListener("tema", () => { aggiornaColori(); if (typeof render === "function" && D) render(); });
 let D=null, vista="arbitri", arbitroAperto=null, charts=[];
 let ricerca="", stagione=null;
 let annoFootball=null, gruppoFootball="tutti", squadraAperta=null;

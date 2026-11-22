@@ -137,6 +137,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 
 ## Calendario e Matchup (dal 16/11/2026)
 
+- Tema (22/11/2026, scelta di Valerio): scuro per tutti; bottone tondo sole/luna (`tema-btn`, `cambiaTema()`) in alto a
+  destra in index, duelli, accesso, privacy e in tutte le pagine statiche (TEMA_TESTA / TEMA_BOTTONE in
+  pagine_statiche.py). Script in <head> che mette `data-tema` su <html> prima del disegno; le regole scure hanno il
+  prefisso `html:not([data-tema="chiaro"])` (niente più prefers-color-scheme); al cambio parte l'evento «tema»
+  (index: aggiornaColori + render). Scelta ricordata in localStorage `purestats_tema`. Il calcio resta col suo stile.
 - Stile unico per tutto il sito (calcio compreso): tema `fb` sempre attivo (Inter per il testo, Archivo in chiaro e
   Barlow Condensed in scuro per i titoli, colori --fb-*). Le regole usano `var(--f-testo)` e `var(--f-tit)`; i colori
   nel JavaScript (FLUO, MUTED, ... e i grafici) si leggono dal tema con `aggiornaColori()`. Le misure piccole scritte
@@ -394,7 +399,8 @@ loghi, stagioni concluse) si scaricano una volta e si salvano nel repository.
   posteriori, l'aggiornamento successivo la sistema anche in archivio.
 - **La dashboard non ha build step**: HTML, CSS e JavaScript in un unico
   file, Chart.js e caratteri ospitati sul sito (docs/vendor, docs/font: niente CDN esterni). Va servita così com'è da GitHub Pages.
-- **Niente localStorage** nella dashboard, tranne la chiave dell'accesso privato (`purestats_accesso`).
+- **Niente localStorage** nella dashboard, tranne la chiave dell'accesso privato (`purestats_accesso`) e la scelta
+  del tema (`purestats_tema`, «chiaro»/«scuro», dal 22/11/2026, citata nella pagina privacy).
 
 ## Convenzioni
 

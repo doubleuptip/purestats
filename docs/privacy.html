@@ -8,13 +8,20 @@
 <link rel="canonical" href="https://purestats.it/privacy.html">
 <link rel="icon" href="icona.svg" type="image/svg+xml">
 <link href="font/font.css" rel="stylesheet">
+<meta name="theme-color" content="#0B0F1A" id="coloreTema">
+<script>/* Tema (22/11/2026, scelta di Valerio): scuro per tutti; il bottone passa al chiaro e la scelta resta su questo dispositivo (localStorage «purestats_tema», seconda eccezione alla regola). */
+(function(){var t="scuro";try{if(localStorage.getItem("purestats_tema")==="chiaro")t="chiaro"}catch(e){}document.documentElement.dataset.tema=t;if(t==="chiaro")document.getElementById("coloreTema").content="#E9EDF2"})();
+function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"?"scuro":"chiaro";r.dataset.tema=t;try{localStorage.setItem("purestats_tema",t)}catch(e){}document.getElementById("coloreTema").content=t==="chiaro"?"#E9EDF2":"#0B0F1A";document.dispatchEvent(new Event("tema"))}</script>
+
 <style>
 :root{--fondo:#E9EDF2;--carta:#fff;--testo:#0B1428;--tenue:#5B6476;--acc:#C8102E;--bordo:#D5DBE3}
-@media (prefers-color-scheme:dark){:root{--fondo:#0B1428;--carta:#121D35;--testo:#E8ECF3;--tenue:#9AA5B8;--acc:#EF4444;--bordo:#22304F}}
+html:not([data-tema="chiaro"]){--fondo:#0B1428;--carta:#121D35;--testo:#E8ECF3;--tenue:#9AA5B8;--acc:#EF4444;--bordo:#22304F}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fondo);color:var(--testo);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 header,main,footer{max-width:760px;margin:0 auto;padding:0 16px}
-header{display:flex;justify-content:space-between;align-items:center;padding-top:18px;padding-bottom:18px}
+header{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:18px;padding-bottom:18px}
+.apri{margin-left:auto}
+.tema-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;margin:0;opacity:.55;transition:opacity .15s}.tema-btn:hover,.tema-btn:focus-visible{opacity:1}.tema-btn svg{width:17px;height:17px;display:block}html:not([data-tema="chiaro"]) .t-luna,html[data-tema="chiaro"] .t-sole{display:none}
 .marchio{font:800 20px Archivo,Inter,sans-serif;letter-spacing:.04em;color:var(--testo);text-decoration:none}
 .marchio span{color:var(--acc)}
 .apri{color:var(--acc);font-weight:600;text-decoration:none;font-size:15px}
@@ -31,7 +38,7 @@ footer a{color:var(--tenue)}
 </style>
 </head>
 <body>
-<header><a class="marchio" href="./">PURE<span>STATS</span></a><a class="apri" href="./">Apri il sito →</a></header>
+<header><a class="marchio" href="./">PURE<span>STATS</span></a><a class="apri" href="./">Apri il sito →</a><button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button></header>
 <main>
 <article>
 <h1>Informativa privacy</h1>
@@ -63,10 +70,13 @@ registri e non li usa. Il trattamento si basa sul legittimo interesse a rendere 
 relative garanzie, vale l'<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">informativa di GitHub</a>.</p>
 
 <h2>Memoria del browser</h2>
-<p>Il sito non salva nulla sul tuo dispositivo durante la normale navigazione. Esiste un'area riservata, usata solo
-dal titolare: chi vi accede con la password può scegliere di farla ricordare al proprio browser (localStorage).
-È un'informazione tecnica strettamente necessaria a quella funzione, resta sul dispositivo, non viene inviata a
-nessuno e si cancella con il comando «Esci».</p>
+<p>Il sito salva sul tuo dispositivo solo la scelta del tema: se usi il bottone per passare dal tema scuro al chiaro
+(o viceversa), il browser ricorda la parola «chiaro» o «scuro» nella sua memoria locale (localStorage), così la
+pagina si apre come l'hai lasciata. È una preferenza tecnica che chiedi tu, resta sul dispositivo, non viene inviata a
+nessuno e non serve a riconoscerti; la cancelli svuotando i dati del sito nel browser.</p>
+<p>Esiste poi un'area riservata, usata solo dal titolare: chi vi accede con la password può scegliere di farla
+ricordare al proprio browser (localStorage). È un'informazione tecnica strettamente necessaria a quella funzione,
+resta sul dispositivo, non viene inviata a nessuno e si cancella con il comando «Esci».</p>
 
 <h2>Collegamenti a siti esterni</h2>
 <p>Alcune pagine contengono collegamenti a YouTube, NFL.com, Wikipedia e Wikimedia Commons (video degli highlights,

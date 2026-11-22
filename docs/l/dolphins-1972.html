@@ -14,13 +14,19 @@
 <meta property="og:image" content="https://purestats.it/brand/anteprima-link-scuro.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../icona.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0B0F1A" id="coloreTema">
+<script>/* Tema (22/11/2026, scelta di Valerio): scuro per tutti; il bottone passa al chiaro e la scelta resta su questo dispositivo (localStorage «purestats_tema», seconda eccezione alla regola). */
+(function(){var t="scuro";try{if(localStorage.getItem("purestats_tema")==="chiaro")t="chiaro"}catch(e){}document.documentElement.dataset.tema=t;if(t==="chiaro")document.getElementById("coloreTema").content="#E9EDF2"})();
+function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"?"scuro":"chiaro";r.dataset.tema=t;try{localStorage.setItem("purestats_tema",t)}catch(e){}document.getElementById("coloreTema").content=t==="chiaro"?"#E9EDF2":"#0B0F1A";document.dispatchEvent(new Event("tema"))}</script>
 <style>
 :root{--fondo:#E9EDF2;--carta:#fff;--testo:#0B1428;--tenue:#5B6476;--acc:#C8102E;--bordo:#D5DBE3}
-@media (prefers-color-scheme:dark){:root{--fondo:#0B1428;--carta:#121D35;--testo:#E8ECF3;--tenue:#9AA5B8;--acc:#EF4444;--bordo:#22304F}}
+html:not([data-tema="chiaro"]){--fondo:#0B1428;--carta:#121D35;--testo:#E8ECF3;--tenue:#9AA5B8;--acc:#EF4444;--bordo:#22304F}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fondo);color:var(--testo);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 header,main,footer{max-width:760px;margin:0 auto;padding:0 16px}
-header{display:flex;justify-content:space-between;align-items:center;padding-top:18px;padding-bottom:18px}
+header{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:18px;padding-bottom:18px}
+.apri{margin-left:auto}
+.tema-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;margin:0;opacity:.55;transition:opacity .15s}.tema-btn:hover,.tema-btn:focus-visible{opacity:1}.tema-btn svg{width:17px;height:17px;display:block}html:not([data-tema="chiaro"]) .t-luna,html[data-tema="chiaro"] .t-sole{display:none}
 .marchio{font-weight:800;letter-spacing:.06em;color:var(--testo);text-decoration:none;font-size:20px}
 .marchio span{color:var(--acc)}
 .apri{color:var(--acc);font-weight:600;text-decoration:none;font-size:15px}
@@ -46,7 +52,7 @@ footer a{color:var(--tenue)}
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Miami 1972, la stagione perfetta", "description": "Nel 1972 i Miami Dolphins di Don Shula, al terzo anno sulla panchina della Florida, fanno qualcosa che nella NFL non è riuscito né prima né dopo: vincere…", "inLanguage": "it", "author": {"@type": "Organization", "name": "PureStats"}, "mainEntityOfPage": "https://purestats.it/l/dolphins-1972.html"}</script>
 </head>
 <body>
-<header><a class="marchio" href="../">PURE<span>STATS</span></a><a class="apri" href="../">Apri il sito →</a></header>
+<header><a class="marchio" href="../">PURE<span>STATS</span></a><a class="apri" href="../">Apri il sito →</a><button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button></header>
 <main>
 <article>
 <div class="copertina" style="height:14px;background:linear-gradient(90deg,#008E97,#FC4C02)"></div>
