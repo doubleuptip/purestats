@@ -1144,8 +1144,14 @@ def completa_crediti(crediti: dict | None = None) -> None:
             luoghi[f"{nome}.jpg"] = (art["lega"], art["stadio"], art["casa"])
     cambiati = 0
     for nome, vecchio in list(crediti.items()):
-        if isinstance(vecchio, dict) or nome not in luoghi:
+        if isinstance(vecchio, dict):
             continue
+        if nome not in luoghi:
+            # foto scaricate prima degli articoli (tutti gli stadi NFL): stadio dal nome del file; la ricerca su
+            # Wikipedia tollera gli spazi al posto di apostrofi e trattini; college «<Stadio>__<Casa>»
+            base = nome.rsplit(".", 1)[0]
+            stadio, _, casa = base.partition("__")
+            luoghi[nome] = ("college" if casa else "nfl", stadio.replace("_", " "), casa.replace("_", " "))
         try:
             trovata = _foto_commons(*luoghi[nome])
         except Exception as e:                                                    # noqa: BLE001
