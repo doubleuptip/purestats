@@ -351,6 +351,15 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   Home (testo). `articoli.py foto_mancanti` scrive già il formato completo e `completa_crediti` aggiorna quelli vecchi
   in testo (stessa voce Wikipedia; se l'autore non coincide lo segnala «ATTENZIONE» e non tocca nulla).
 
+## Pubblico e privato: fonti separate (22/11/2026, scelta di Valerio)
+
+- Parte privata (Matchup, Charlie, bot Radar Assenze): resta su ESPN (mercato.py, contesto.py, fetch_duelli.py,
+  tabellini per chiudere le giocate). È cifrata o sul server: va bene così.
+- Parte pubblica (pagine del sito in chiaro): solo fonti che ne permettono la ripubblicazione (nflverse,
+  CollegeFootballData, Wikimedia, calcoli nostri). Quando si sposta il college pubblico da ESPN, ESPN continua ad
+  alimentare la parte cifrata e il bot.
+- Matchup usa anche lui gli stemmi PureStats (Valerio: «lascia così»).
+
 ## Fonti a credito (chiamate limitate)
 
 Prima di scrivere o lanciare qualunque script o workflow che usa una fonte con un limite di chiamate
