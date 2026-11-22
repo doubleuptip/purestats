@@ -1,10 +1,46 @@
 {
- "AT_T_Stadium.jpg": "Michael Barera · CC BY-SA 4.0",
- "Acrisure_Stadium.jpg": "Cramerwiki · CC0",
- "Allegiant_Stadium.jpg": "U.S. Customs and Border Protection · Public domain",
- "Bank_of_America_Stadium.jpg": "Quintin Soloviev · CC BY 4.0",
- "Caesars_Superdome.jpg": "DHSgov · Public domain",
- "Empower_Field_at_Mile_High.jpg": "Pdubs.94 · CC BY-SA 4.0",
+ "AT_T_Stadium.jpg": {
+  "autore": "Michael Barera",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "Arlington_June_2020_4_(AT&T_Stadium).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_4_(AT%26T_Stadium).jpg"
+ },
+ "Acrisure_Stadium.jpg": {
+  "autore": "Cramerwiki",
+  "licenza": "CC0",
+  "licenzaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "file": "Acrisure_Stadium_2024.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Acrisure_Stadium_2024.jpg"
+ },
+ "Allegiant_Stadium.jpg": {
+  "autore": "U.S. Customs and Border Protection",
+  "licenza": "Public domain",
+  "licenzaUrl": "",
+  "file": "Allegiant_Stadium_Street_View_on_Super_Bowl_LVIII.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Allegiant_Stadium_Street_View_on_Super_Bowl_LVIII.jpg"
+ },
+ "Bank_of_America_Stadium.jpg": {
+  "autore": "Quintin Soloviev",
+  "licenza": "CC BY 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by/4.0",
+  "file": "Aerial_view_of_Bank_of_America_Stadium_in_Charlotte.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Bank_of_America_Stadium_in_Charlotte.jpg"
+ },
+ "Caesars_Superdome.jpg": {
+  "autore": "DHSgov",
+  "licenza": "Public domain",
+  "licenzaUrl": "",
+  "file": "DHS_Agencies_Support_Super_Bowl_LIX_Security_February_2025_-_108.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:DHS_Agencies_Support_Super_Bowl_LIX_Security_February_2025_-_108.jpg"
+ },
+ "Empower_Field_at_Mile_High.jpg": {
+  "autore": "Pdubs.94",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "Empower_Field_at_Mile_High_20241001.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Empower_Field_at_Mile_High_20241001.jpg"
+ },
  "Estadio_Banorte.jpg": {
   "autore": "ProtoplasmaKid",
   "licenza": "CC BY 4.0",
@@ -12,19 +48,91 @@
   "file": "Vista_aérea_del_Estadio_Azteca_-_2026_-_02.jpg",
   "pagina": "https://commons.wikimedia.org/wiki/File:Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg"
  },
- "EverBank_Stadium.jpg": "Quintin Soloviev · CC BY 4.0",
- "Ford_Field.jpg": "Michael Barera · CC BY-SA 4.0",
- "GEHA_Field_at_Arrowhead_Stadium.jpg": "Ichabod · CC BY-SA 3.0",
- "Gillette_Stadium.jpg": "Art N. · CC BY 2.0",
- "Hard_Rock_Stadium.jpg": "elisfkc2 · CC BY-SA 2.0",
- "Highmark_Stadium.jpg": "Dekema · CC0",
+ "EverBank_Stadium.jpg": {
+  "autore": "Quintin Soloviev",
+  "licenza": "CC BY 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by/4.0",
+  "file": "EverBank_Stadium_aerial_view.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:EverBank_Stadium_aerial_view.jpg"
+ },
+ "Ford_Field.jpg": {
+  "autore": "Michael Barera",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "Detroit_December_2015_09_(Ford_Field).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Detroit_December_2015_09_(Ford_Field).jpg"
+ },
+ "GEHA_Field_at_Arrowhead_Stadium.jpg": {
+  "autore": "Ichabod",
+  "licenza": "CC BY-SA 3.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "file": "Aerial_view_of_Arrowhead_Stadium_08-31-2013.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Arrowhead_Stadium_08-31-2013.jpg"
+ },
+ "Gillette_Stadium.jpg": {
+  "autore": "Art N.",
+  "licenza": "CC BY 2.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by/2.0",
+  "file": "Gillette_Stadium_(Top_View).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Gillette_Stadium_(Top_View).jpg"
+ },
+ "Hard_Rock_Stadium.jpg": {
+  "autore": "elisfkc2",
+  "licenza": "CC BY-SA 2.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "file": "Hard_Rock_Stadium_for_Super_Bowl_LIV_(49606710103).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Hard_Rock_Stadium_for_Super_Bowl_LIV_(49606710103).jpg"
+ },
+ "Highmark_Stadium.jpg": {
+  "autore": "Dekema",
+  "licenza": "CC0",
+  "licenzaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "file": "Bills_Stadium_May26.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Bills_Stadium_May26.jpg"
+ },
  "Huntington_Bank_Field.jpg": "Cards84664 · CC BY-SA 4.0",
- "Lambeau_Field.jpg": "Tony Webster · CC BY 2.0",
- "Levi_s_Stadium.jpg": "U.S. Customs and Border Protection · Public domain",
- "Lincoln_Financial_Field.jpg": "Dough4872 · CC BY-SA 4.0",
- "Lucas_Oil_Stadium.jpg": "Carol M. Highsmith · Public domain",
- "Lumen_Field.jpg": "SounderBruce · CC BY-SA 4.0",
- "M_T_Bank_Stadium.jpg": "Quintin Soloviev · CC BY 4.0",
+ "Lambeau_Field.jpg": {
+  "autore": "Tony Webster",
+  "licenza": "CC BY 2.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by/2.0",
+  "file": "Lambeau_Field_-_Green_Bay_Packers_Football_Stadium_-_Wisconsin.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Lambeau_Field_-_Green_Bay_Packers_Football_Stadium_-_Wisconsin.jpg"
+ },
+ "Levi_s_Stadium.jpg": {
+  "autore": "U.S. Customs and Border Protection",
+  "licenza": "Public domain",
+  "licenzaUrl": "",
+  "file": "Levi's_Stadium_in_February_2016_prior_to_Super_Bowl_50_(24398261729).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Levi%27s_Stadium_in_February_2016_prior_to_Super_Bowl_50_(24398261729).jpg"
+ },
+ "Lincoln_Financial_Field.jpg": {
+  "autore": "Dough4872",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "Lincoln_Financial_Field,_Philadelphia,_Pennsylvania,_United_States.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Lincoln_Financial_Field,_Philadelphia,_Pennsylvania,_United_States.jpg"
+ },
+ "Lucas_Oil_Stadium.jpg": {
+  "autore": "Carol M. Highsmith",
+  "licenza": "Public domain",
+  "licenzaUrl": "",
+  "file": "Aerial_view_of_Indianapolis,_Indiana,_with_a_focus_on_Lucas_Oil_Stadium,_highsm.40934.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Indianapolis,_Indiana,_with_a_focus_on_Lucas_Oil_Stadium,_highsm.40934.jpg"
+ },
+ "Lumen_Field.jpg": {
+  "autore": "SounderBruce",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "2026_FIFA_World_Cup_-_Belgium_v._Egypt_in_Seattle_-_04.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:2026_FIFA_World_Cup_-_Belgium_v._Egypt_in_Seattle_-_04.jpg"
+ },
+ "M_T_Bank_Stadium.jpg": {
+  "autore": "Quintin Soloviev",
+  "licenza": "CC BY 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by/4.0",
+  "file": "M&T_Bank_Stadium_in_Baltimore.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:M%26T_Bank_Stadium_in_Baltimore.jpg"
+ },
  "Memorial_Stadium__Nebraska.jpg": {
   "autore": "Quintin Soloviev",
   "licenza": "CC BY 4.0",
@@ -32,7 +140,13 @@
   "file": "Memorial_Stadium_(Nebraska_Cornhuskers).jpg",
   "pagina": "https://commons.wikimedia.org/wiki/File:Memorial_Stadium_(Nebraska_Cornhuskers).jpg"
  },
- "Mercedes_Benz_Stadium.jpg": "Atlanta Falcons · CC BY 3.0",
+ "Mercedes_Benz_Stadium.jpg": {
+  "autore": "Atlanta Falcons",
+  "licenza": "CC BY 3.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by/3.0",
+  "file": "Mercedes_Benz_Stadium_time_lapse_capture_2017-08-13.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Mercedes_Benz_Stadium_time_lapse_capture_2017-08-13.jpg"
+ },
  "MetLife_Stadium.jpg": {
   "autore": "Anthony Quintano from Hillsborough, NJ, United States",
   "licenza": "CC BY 2.0",
@@ -63,10 +177,46 @@
   "pagina": "https://commons.wikimedia.org/wiki/File:Commanders_vs_Giants_(53345178211).jpg"
  },
  "Notre_Dame_Stadium__Notre_Dame.jpg": "Eccekevin · CC BY-SA 4.0",
- "Paycor_Stadium.jpg": "JonRidinger · CC BY-SA 4.0",
- "Raymond_James_Stadium.jpg": "Devin Morris · CC BY-SA 4.0",
- "SoFi_Stadium.jpg": "Troutfarm27 · CC BY-SA 4.0",
- "Soldier_Field.jpg": "Sea Cow · CC BY-SA 4.0",
- "State_Farm_Stadium.jpg": "Troutfarm27 · CC BY-SA 4.0",
- "U_S_Bank_Stadium.jpg": "Lectrician2 · CC BY-SA 4.0"
+ "Paycor_Stadium.jpg": {
+  "autore": "JonRidinger",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "Paul_Brown_Stadium_interior_2017.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Paul_Brown_Stadium_interior_2017.jpg"
+ },
+ "Raymond_James_Stadium.jpg": {
+  "autore": "Devin Morris",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "Raymond_James_Stadium_Aerial_(2).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Raymond_James_Stadium_Aerial_(2).jpg"
+ },
+ "SoFi_Stadium.jpg": {
+  "autore": "Troutfarm27",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "SoFi_Stadium_2023.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:SoFi_Stadium_2023.jpg"
+ },
+ "Soldier_Field.jpg": {
+  "autore": "Sea Cow",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "Soldier_Field_S.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Soldier_Field_S.jpg"
+ },
+ "State_Farm_Stadium.jpg": {
+  "autore": "Troutfarm27",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "State_Farm_Stadium_2022.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:State_Farm_Stadium_2022.jpg"
+ },
+ "U_S_Bank_Stadium.jpg": {
+  "autore": "Lectrician2",
+  "licenza": "CC BY-SA 4.0",
+  "licenzaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "U.S._Bank_Stadium_(cropped).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:U.S._Bank_Stadium_(cropped).jpg"
+ }
 }
