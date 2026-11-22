@@ -393,7 +393,7 @@ loghi, stagioni concluse) si scaricano una volta e si salvano nel repository.
 - **Il file remoto è autorevole**: se una statistica viene corretta a
   posteriori, l'aggiornamento successivo la sistema anche in archivio.
 - **La dashboard non ha build step**: HTML, CSS e JavaScript in un unico
-  file, Chart.js da CDN. Va servita così com'è da GitHub Pages.
+  file, Chart.js e caratteri ospitati sul sito (docs/vendor, docs/font: niente CDN esterni). Va servita così com'è da GitHub Pages.
 - **Niente localStorage** nella dashboard, tranne la chiave dell'accesso privato (`purestats_accesso`).
 
 ## Convenzioni
@@ -479,9 +479,11 @@ davvero che si veda quello che deve vedersi.
      i punti di vantaggio. I dati grezzi (linee nei JSON pubblici) restano: da spostare con il college (punto 1).
   3. FATTO il 22/11: loghi sostituiti dagli stemmi PureStats (vedi «Stemmi, highlights e crediti»).
   4. FATTO il 22/11: crediti completi delle foto degli stadi (autore, licenza con collegamento, pagina Commons).
-  5. Privacy: Google Fonts, jsDelivr (Chart.js), anteprime YouTube e loghi ESPN caricati da server esterni: ospitare
-     caratteri e Chart.js sul sito (con integrity), anteprime video → collegamento «Highlights ↗»; pagina privacy;
-     banner di consenso certificato Google prima di AdSense.
+  5. Privacy: FATTO il 22/11 caratteri e Chart.js sul sito (docs/font/font.css + woff2 latin/latin-ext da @fontsource,
+     docs/vendor/chart.umd.min.js 4.4.1 con integrity; li scrive il workflow risorse-locali.yml con
+     scripts/risorse_locali.py, da rilanciare solo se cambiano caratteri o versione: se cambia Chart.js aggiornare
+     l'integrity in index.html da docs/vendor/integrita.json). index, duelli e accesso non chiamano più server esterni;
+     anteprime YouTube e loghi ESPN già tolti. Restano: pagina privacy; banner di consenso certificato prima di AdSense.
   6. FATTO il 22/11: nflverse-data è CC BY 4.0 (LICENSE.md letto; nflreadr: «NFL data ... belong to their respective
      owners»); FTN è CC-BY-SA ma non lo usiamo, PFR/NGS/QBR senza licenza (PFR solo nel privato). Footer corretto.
   7. Condizioni d'uso DAZN da leggere (oggi leggiamo solo quali partite sono incluse).
