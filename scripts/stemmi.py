@@ -105,9 +105,17 @@ def main() -> int:
         nomi = set(d.get("loghi", {})) | set(d.get("loghiExtra", {}))
     except (OSError, ValueError):
         pass
+    # la chiamata a CFBD si fa solo se le sigle college non vengono già da lì (o se si forza con --rifai): il giro
+    # settimanale riprova finché non riesce (chiave esaurita, rete), poi non spende più nulla fino al 1° agosto
+    forza = "--rifai" in sys.argv
+    gia = vecchio.get("fonteCollege") == "cfbd" and not forza
+    if gia:
+        print("Stemmi: sigle college già da CollegeFootballData, nessuna chiamata.")
+    nuovo_college = None if gia else college(nomi)
     out = {"nota": "Stemmi PureStats: sigla e colori della squadra, disegno nostro (nessun logo ufficiale).",
+           "fonteCollege": "cfbd" if (nuovo_college or gia) else "nomi",
            "nfl": nfl() or vecchio.get("nfl", {}),
-           "college": college(nomi) or vecchio.get("college", {})}
+           "college": nuovo_college or vecchio.get("college", {})}
     # squadre del sito che non hanno ancora uno stemma: sigla dal nome, colore del sito se c'è
     try:
         for n in nomi:

@@ -1,14 +1,16 @@
 name: Stemmi delle squadre
 
 # Sigle e colori per gli stemmi PureStats (nessun logo ufficiale). Una chiamata a CollegeFootballData per giro:
-# si lancia a mano, quando cambia lo script e una volta l'anno, prima della stagione (1 agosto).
+# a mano e il 1 agosto rifà tutto; quando cambia lo script e ogni lunedì chiama CFBD solo se le sigle college
+# non vengono ancora da lì (dopo il primo successo: zero chiamate).
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths: ["scripts/stemmi.py"]
   schedule:
-    - cron: "17 6 1 8 *"
+    - cron: "17 6 1 8 *"     # 1 agosto: rifà tutto (--rifai)
+    - cron: "41 7 * * 1"     # lunedì: riprova solo se le sigle college non vengono ancora da CFBD
 
 permissions:
   contents: write
@@ -28,7 +30,12 @@ jobs:
       - name: Sigle e colori (nflverse + CollegeFootballData, 1 chiamata)
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python scripts/stemmi.py
+        run: |
+          if [ "${{ github.event.schedule }}" = "17 6 1 8 *" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python scripts/stemmi.py --rifai
+          else
+            python scripts/stemmi.py
+          fi
       - name: Pubblica
         run: |
           git config user.name "github-actions[bot]"
