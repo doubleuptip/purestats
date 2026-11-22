@@ -21,7 +21,7 @@ Cifratura (verificabile, solo libreria standard):
   controllo = HMAC-SHA256(chiave_controllo, nonce || dati cifrati): una password sbagliata viene riconosciuta
 La pagina rifà gli stessi passaggi nel browser con WebCrypto.
 
-Fonti (gratuite, nessuna chiave): play-by-play nflverse (CC-BY-SA 4.0) per l'NFL e cfbfastR
+Fonti (gratuite, nessuna chiave): play-by-play nflverse (CC BY 4.0) per l'NFL e cfbfastR
 (sportsdataverse-data) per il college.
 """
 from __future__ import annotations
@@ -1030,7 +1030,7 @@ def main() -> int:
     schede.sort(key=lambda g: (g["data"], g["ora"] or "99", g["ospite"]))
     contenuto = {"aggiornato": datetime.now(timezone.utc).isoformat(timespec="seconds"), "versione": VERSIONE,
                  "campionato": campionato,
-                 "fonti": "nflverse (CC-BY-SA 4.0)" if lega == "nfl" else "cfbfastR / sportsdataverse",
+                 "fonti": "nflverse (CC BY 4.0)" if lega == "nfl" else "cfbfastR / sportsdataverse",
                  "partite": schede, "indici": indici or None, "giovani": prossima.get("giovani"), "loghi": loghi}
     try:
         contenuto["charlie"] = dati_charlie(lega)

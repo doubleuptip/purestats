@@ -229,6 +229,7 @@
   footer{font-size:8px;color:var(--muted);margin:32px 14px 0;
     padding-top:15px;border-top:1px solid var(--bordo);line-height:1.9}
   .pie-riga{text-align:center}
+  a.pie-apri{width:fit-content;text-decoration:none}
   .pie-apri{display:block;margin:14px auto 0;font-family:var(--f-testo);
     font-size:8px;letter-spacing:.1em;color:var(--acc);background:transparent;
     border:1px solid var(--bordo);border-radius:5px;padding:7px 14px;cursor:pointer}
@@ -1444,6 +1445,7 @@ function render(){
      </div>
      <button class="pie-apri" onclick="apriLegale()">
        ${legaleAperto?"▴ CHIUDI":"▾ FONTI E CONDIZIONI D'USO"}</button>
+     <a class="pie-apri" href="privacy.html">PRIVACY</a>
      ${legaleAperto?testoLegale():""}`;
 
   if(vista==="arbitri"&&arbitroAperto) gScheda();

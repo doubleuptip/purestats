@@ -483,7 +483,10 @@ davvero che si veda quello che deve vedersi.
      docs/vendor/chart.umd.min.js 4.4.1 con integrity; li scrive il workflow risorse-locali.yml con
      scripts/risorse_locali.py, da rilanciare solo se cambiano caratteri o versione: se cambia Chart.js aggiornare
      l'integrity in index.html da docs/vendor/integrita.json). index, duelli e accesso non chiamano più server esterni;
-     anteprime YouTube e loghi ESPN già tolti. Restano: pagina privacy; banner di consenso certificato prima di AdSense.
+     anteprime YouTube e loghi ESPN già tolti. Pagina privacy FATTA il 22/11: `docs/privacy.html` (titolare Valerio
+     La Rocca, info@purestats.it, casella Zimbra OVH), collegata dal piede di index.html, delle pagine statiche e della
+     404, in sitemap. Da aggiornare PRIMA di aggiungere pubblicità o statistiche (oggi dice: niente cookie, analisi,
+     pubblicità). Resta: banner di consenso certificato prima di AdSense.
   6. FATTO il 22/11: nflverse-data è CC BY 4.0 (LICENSE.md letto; nflreadr: «NFL data ... belong to their respective
      owners»); FTN è CC-BY-SA ma non lo usiamo, PFR/NGS/QBR senza licenza (PFR solo nel privato). Footer corretto.
   7. Condizioni d'uso DAZN da leggere (oggi leggiamo solo quali partite sono incluse).

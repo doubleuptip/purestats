@@ -151,7 +151,7 @@ def pagina(base, percorso, titolo, desc, corpo, ld=None, immagine=None, tipo_og=
 <main>
 {corpo}
 </main>
-<footer>PureStats · statistiche NFL e college football · <a href="../">pagina principale</a></footer>
+<footer>PureStats · statistiche NFL e college football · <a href="../">pagina principale</a> · <a href="../privacy.html">privacy</a></footer>
 </body>
 </html>
 """
@@ -249,7 +249,7 @@ def pagina_404(base):
 <body><header><a class="marchio" href="{radice}">PURE<span>STATS</span></a></header>
 <main><article><div class="corpo"><p class="occhiello">Errore 404</p><h1>Questa pagina non esiste</h1>
 <p>L'indirizzo potrebbe essere sbagliato o la pagina è stata spostata.</p>
-<a class="bottone" href="{radice}">Torna a PureStats</a></div></article></main></body></html>
+<a class="bottone" href="{radice}">Torna a PureStats</a> <a href="{radice}privacy.html">Privacy</a></div></article></main></body></html>
 """
 
 
@@ -272,7 +272,7 @@ def main():
     try:
         os.makedirs(os.path.join(tmp, "a"))
         os.makedirs(os.path.join(tmp, "l"))
-        url_sitemap = [(base, oggi)]
+        url_sitemap = [(base, oggi), (base + "privacy.html", None)]
 
         for voce in indice:
             percorso = os.path.join(DOCS, "articoli", voce["id"] + ".json")

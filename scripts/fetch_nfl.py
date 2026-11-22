@@ -3,7 +3,7 @@ Archivio NFL — statistiche di squadra e partite.
 
 Fonte: nflverse, il progetto che pubblica i dati NFL come file CSV su
 GitHub. Nessuna chiave, nessuna registrazione: i file si scaricano per
-indirizzo. Licenza CC-BY-SA 4.0, con attribuzione a nflverse.
+indirizzo. Licenza CC BY 4.0, con attribuzione a nflverse.
 
 Si conservano al massimo cinque stagioni: oltre quel limite l'archivio
 crescerebbe senza che i dati più antichi vengano mai consultati.
@@ -404,7 +404,7 @@ def calcola_statistiche(righe, anagrafica=None, giocatori=None):
     return {
         "aggiornato": datetime.now(timezone.utc).isoformat(),
         "campionato": "NFL",
-        "fonte": "nflverse (CC-BY-SA 4.0)",
+        "fonte": "nflverse (CC BY 4.0)",
         "stagioni": stagioni,
         "totalePartite": len(righe),
         "partiteGiocate": giocate,

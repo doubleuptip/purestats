@@ -15,7 +15,7 @@ Usato da fetch_nfl.py. Tre blocchi in più nel file della dashboard:
 Sono dati statistici e di mercato pubblici. Non contengono giocate né
 segnalazioni di valore.
 
-Fonte: nflverse (CC-BY-SA 4.0). Solo libreria standard.
+Fonte: nflverse (CC BY 4.0). Solo libreria standard.
 """
 
 import csv
