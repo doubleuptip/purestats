@@ -7,7 +7,7 @@ il disegno lo fa la pagina (`stemma` in index.html e duelli.html), così resta n
 Fonti:
   · NFL: anagrafica squadre nflverse (teams_colors_logos.csv: team_abbr, team_color, team_color2), gratis;
   · college: CollegeFootballData /teams (school, abbreviation, color, alternateColor), UNA chiamata per giro
-    (uso commerciale consentito dalle condizioni di CFBD). Si lancia a mano (workflow stemmi.yml) e una volta l'anno.
+    (uso commerciale consentito dalle condizioni di CFBD). Si lancia a mano (workflow stemmi.yml), quando cambia questo script e una volta l'anno.
 Squadre college che CFBD non ha: sigla ricavata dal nome, banda bianca. Se una fonte non risponde, la sua parte
 resta com'era nel file precedente. Scrive docs/stemmi.json. Solo libreria standard.
 """

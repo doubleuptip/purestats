@@ -1,9 +1,12 @@
 name: Stemmi delle squadre
 
 # Sigle e colori per gli stemmi PureStats (nessun logo ufficiale). Una chiamata a CollegeFootballData per giro:
-# si lancia a mano e una volta l'anno, prima della stagione (1 agosto).
+# si lancia a mano, quando cambia lo script e una volta l'anno, prima della stagione (1 agosto).
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/stemmi.py"]
   schedule:
     - cron: "17 6 1 8 *"
 
