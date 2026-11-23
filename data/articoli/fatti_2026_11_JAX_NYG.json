@@ -18,8 +18,8 @@
  "mercato": {
   "favorita": "Jacksonville Jaguars",
   "vantaggio": 6.0,
-  "totale": 46.5,
-  "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"
+  "totale": 45.5,
+  "nota": "solo per dire chi parte favorito, a parole comuni (favoriti di poco fino a 3, favoriti, nettamente favoriti da 7,5), senza citare mercato, bookmaker, linea o totale"
  },
  "precedenti": [
   {
@@ -125,7 +125,7 @@
     "rispettoAllAnnoScorso": "in netta crescita",
     "rapportoInfortuni": {
      "stato": "",
-     "allenamento": "Did Not Participate In Practice",
+     "allenamento": "Limited Participation in Practice",
      "infortunio": "Ankle"
     }
    },
@@ -162,7 +162,7 @@
     "rispettoAllAnnoScorso": "in netta crescita",
     "rapportoInfortuni": {
      "stato": "",
-     "allenamento": "Limited Participation in Practice",
+     "allenamento": "Full Participation in Practice",
      "infortunio": "Rib"
     }
    }
@@ -193,10 +193,18 @@
     "giocatoreImportante": true
    },
    {
+    "nome": "Robert Hainsey",
+    "ruolo": "C",
+    "stato": "Out",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": false
+   },
+   {
     "nome": "Travon Walker",
     "ruolo": "DE",
     "stato": "(stato non ancora dato)",
-    "allenamento": "Limited Participation in Practice",
+    "allenamento": "Full Participation in Practice",
     "infortunio": "Rib",
     "giocatoreImportante": true
    },
@@ -212,7 +220,7 @@
     "nome": "Chris Rodriguez Jr.",
     "ruolo": "RB",
     "stato": "(stato non ancora dato)",
-    "allenamento": "Limited Participation in Practice",
+    "allenamento": "Full Participation in Practice",
     "infortunio": "Hand",
     "giocatoreImportante": true
    },
@@ -225,9 +233,17 @@
     "giocatoreImportante": true
    },
    {
+    "nome": "BJ Green II",
+    "ruolo": "DE",
+    "stato": "Out",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Forearm",
+    "giocatoreImportante": false
+   },
+   {
     "nome": "Danny Striggow",
     "ruolo": "DE",
-    "stato": "(stato non ancora dato)",
+    "stato": "Questionable",
     "allenamento": "Limited Participation in Practice",
     "infortunio": "Concussion",
     "giocatoreImportante": true
@@ -236,7 +252,7 @@
     "nome": "Bhayshul Tuten",
     "ruolo": "RB",
     "stato": "(stato non ancora dato)",
-    "allenamento": "Did Not Participate In Practice",
+    "allenamento": "Limited Participation in Practice",
     "infortunio": "Ankle",
     "giocatoreImportante": true
    }
@@ -355,7 +371,12 @@
     "stagione": "575 yard ricevute, 55 ricezioni, 7 TD",
     "posizioneNellaLega": 20,
     "eta": 26,
-    "rispettoAllAnnoScorso": "in netta crescita"
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Did Not Participate In Practice",
+     "infortunio": "Groin"
+    }
    },
    {
     "nome": "Arvell Reese",
@@ -370,6 +391,14 @@
   "arrivatiInStagione": [],
   "rapportoInfortuni": [
    {
+    "nome": "Isaiah Likely",
+    "ruolo": "TE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Groin",
+    "giocatoreImportante": true
+   },
+   {
     "nome": "Cam Skattebo",
     "ruolo": "RB",
     "stato": "(stato non ancora dato)",
@@ -382,5 +411,393 @@
  "colori": {
   "ospite": "#006778",
   "casa": "#0B2265"
+ },
+ "partitaGiocata": {
+  "risultato": "Jacksonville Jaguars 18 - New York Giants 23",
+  "puntiOspite": 18,
+  "puntiCasa": 23,
+  "vincitore": "New York Giants",
+  "scarto": 5,
+  "parziali": [
+   {
+    "quarto": "1°",
+    "ospite": 3,
+    "casa": 10
+   },
+   {
+    "quarto": "2°",
+    "ospite": 3,
+    "casa": 10
+   },
+   {
+    "quarto": "3°",
+    "ospite": 0,
+    "casa": 0
+   },
+   {
+    "quarto": "4°",
+    "ospite": 12,
+    "casa": 3
+   }
+  ],
+  "marcature": [
+   {
+    "quarto": "1",
+    "tempo": "12:02",
+    "squadra": "Jacksonville Jaguars",
+    "tipo": "field goal",
+    "azione": "Little: field goal da 42 yard riuscito",
+    "chi": [
+     "Little"
+    ],
+    "giocatori": [
+     "Cam Little"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 3 - New York Giants 0"
+   },
+   {
+    "quarto": "1",
+    "tempo": "06:10",
+    "squadra": "New York Giants",
+    "tipo": "field goal",
+    "azione": "Zvada: field goal da 53 yard riuscito",
+    "chi": [
+     "Zvada"
+    ],
+    "giocatori": [
+     "Dominic Zvada"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 3 - New York Giants 3"
+   },
+   {
+    "quarto": "1",
+    "tempo": "02:09",
+    "squadra": "New York Giants",
+    "tipo": "touchdown",
+    "azione": "Winston corre centralmente, 1 yard: touchdown",
+    "chi": [
+     "Winston"
+    ],
+    "giocatori": [
+     "Jameis Winston"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 3 - New York Giants 10"
+   },
+   {
+    "quarto": "2",
+    "tempo": "11:28",
+    "squadra": "Jacksonville Jaguars",
+    "tipo": "field goal",
+    "azione": "Little: field goal da 35 yard riuscito",
+    "chi": [
+     "Little"
+    ],
+    "giocatori": [
+     "Cam Little"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 6 - New York Giants 10"
+   },
+   {
+    "quarto": "2",
+    "tempo": "06:09",
+    "squadra": "New York Giants",
+    "tipo": "touchdown",
+    "azione": "McCarthy lancia corto a destra per Nabers, 8 yard: touchdown",
+    "chi": [
+     "McCarthy",
+     "Nabers"
+    ],
+    "giocatori": [
+     "J.J. McCarthy",
+     "Malik Nabers"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 6 - New York Giants 17"
+   },
+   {
+    "quarto": "2",
+    "tempo": "00:16",
+    "squadra": "New York Giants",
+    "tipo": "field goal",
+    "azione": "Zvada: field goal da 54 yard riuscito",
+    "chi": [
+     "Zvada"
+    ],
+    "giocatori": [
+     "Dominic Zvada"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 6 - New York Giants 20"
+   },
+   {
+    "quarto": "4",
+    "tempo": "12:20",
+    "squadra": "Jacksonville Jaguars",
+    "tipo": "field goal",
+    "azione": "Little: field goal da 31 yard riuscito",
+    "chi": [
+     "Little"
+    ],
+    "giocatori": [
+     "Cam Little"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 9 - New York Giants 20"
+   },
+   {
+    "quarto": "4",
+    "tempo": "10:08",
+    "squadra": "New York Giants",
+    "tipo": "field goal",
+    "azione": "Zvada: field goal da 43 yard riuscito",
+    "chi": [
+     "Zvada"
+    ],
+    "giocatori": [
+     "Dominic Zvada"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 9 - New York Giants 23"
+   },
+   {
+    "quarto": "4",
+    "tempo": "06:47",
+    "squadra": "Jacksonville Jaguars",
+    "tipo": "touchdown",
+    "azione": "Lawrence lancia lungo al centro per Thomas, 18 yard: touchdown",
+    "chi": [
+     "Lawrence",
+     "Thomas"
+    ],
+    "giocatori": [
+     "Trevor Lawrence",
+     "Brian Thomas Jr."
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 15 - New York Giants 23"
+   },
+   {
+    "quarto": "4",
+    "tempo": "03:43",
+    "squadra": "Jacksonville Jaguars",
+    "tipo": "field goal",
+    "azione": "Little: field goal da 26 yard riuscito",
+    "chi": [
+     "Little"
+    ],
+    "giocatori": [
+     "Cam Little"
+    ],
+    "punteggioDopo": "Jacksonville Jaguars 18 - New York Giants 23"
+   }
+  ],
+  "momentiDecisivi": [
+   {
+    "quarto": "1",
+    "tempo": "02:09",
+    "squadra": "New York Giants",
+    "azione": "Winston corre centralmente, 1 yard: touchdown",
+    "chi": [
+     "Winston"
+    ],
+    "giocatori": [
+     "Jameis Winston"
+    ],
+    "probabilitaVittoria": "New York Giants da 41% a 47%"
+   },
+   {
+    "quarto": "3",
+    "tempo": "04:02",
+    "squadra": "New York Giants",
+    "azione": "Skattebo corre a sinistra, 1 yard, fumble, recuperato da Johnson (JAX)",
+    "chi": [
+     "Skattebo"
+    ],
+    "giocatori": [
+     "Cam Skattebo",
+     "Antonio Johnson"
+    ],
+    "probabilitaVittoria": "New York Giants da 91% a 77%"
+   },
+   {
+    "quarto": "3",
+    "tempo": "01:06",
+    "squadra": "Jacksonville Jaguars",
+    "azione": "Lawrence: lancio corto a sinistra per Meyers incompleto",
+    "chi": [
+     "Lawrence"
+    ],
+    "giocatori": [
+     "Trevor Lawrence",
+     "Jakobi Meyers"
+    ],
+    "probabilitaVittoria": "New York Giants da 81% a 89%"
+   },
+   {
+    "quarto": "4",
+    "tempo": "11:08",
+    "squadra": "Jacksonville Jaguars",
+    "azione": "Lawrence intercettato da Adebo",
+    "chi": [
+     "Lawrence",
+     "Adebo"
+    ],
+    "giocatori": [
+     "Trevor Lawrence",
+     "Jakobi Meyers",
+     "Paulson Adebo"
+    ],
+    "probabilitaVittoria": "New York Giants da 85% a 92%"
+   },
+   {
+    "quarto": "4",
+    "tempo": "03:02",
+    "squadra": "New York Giants",
+    "azione": "McCarthy lancia corto al centro per Fields, 19 yard",
+    "chi": [
+     "McCarthy",
+     "Fields"
+    ],
+    "giocatori": [
+     "J.J. McCarthy",
+     "Malachi Fields"
+    ],
+    "probabilitaVittoria": "New York Giants da 82% a 94%"
+   }
+  ],
+  "numeri": {
+   "ospiti": {
+    "yardTotali": 355,
+    "yardLancio": 301,
+    "yardCorsa": 78,
+    "azioni": 68,
+    "primiDown": 18,
+    "terziDown": "5/15",
+    "quartiDown": "1/2",
+    "palle perse": 2,
+    "sackSubiti": 3,
+    "penalita": 13,
+    "possesso": "29:41"
+   },
+   "padroniDiCasa": {
+    "yardTotali": 243,
+    "yardLancio": 173,
+    "yardCorsa": 82,
+    "azioni": 62,
+    "primiDown": 17,
+    "terziDown": "4/15",
+    "quartiDown": "2/2",
+    "palle perse": 1,
+    "sackSubiti": 1,
+    "penalita": 6,
+    "possesso": "30:19"
+   }
+  },
+  "protagonisti": {
+   "ospiti": [
+    {
+     "ruolo": "QB",
+     "nome": "Trevor Lawrence",
+     "completiTentati": "25/47",
+     "yardLanciate": 301,
+     "tdLancio": 1,
+     "intercettiSubiti": 2,
+     "sackSubiti": 3,
+     "yardCorsa": 7
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Bhayshul Tuten",
+     "posizione": "RB",
+     "corse": 10,
+     "yardCorsa": 33,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Parker Washington",
+     "posizione": "WR",
+     "ricezioni": 8,
+     "bersagli": 17,
+     "yardRicevute": 103,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Jakobi Meyers",
+     "posizione": "WR",
+     "ricezioni": 4,
+     "bersagli": 10,
+     "yardRicevute": 85,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Josh Hines-Allen",
+     "posizione": "DE",
+     "placcaggi": 5,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 1,
+     "passaggiDeviati": 1
+    }
+   ],
+   "padroniDiCasa": [
+    {
+     "ruolo": "QB",
+     "nome": "J.J. McCarthy",
+     "completiTentati": "18/38",
+     "yardLanciate": 173,
+     "tdLancio": 1,
+     "intercettiSubiti": 0,
+     "sackSubiti": 1,
+     "yardCorsa": 33
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Cam Skattebo",
+     "posizione": "RB",
+     "corse": 14,
+     "yardCorsa": 34,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Malik Nabers",
+     "posizione": "WR",
+     "ricezioni": 7,
+     "bersagli": 12,
+     "yardRicevute": 55,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Isaiah Likely",
+     "posizione": "TE",
+     "ricezioni": 1,
+     "bersagli": 3,
+     "yardRicevute": 35,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Deonte Banks",
+     "posizione": "CB",
+     "placcaggi": 6,
+     "sack": 0.0,
+     "intercetti": 1,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 3
+    }
+   ]
+  },
+  "contoLaLinea": {
+   "linea": "Jacksonville Jaguars favoriti di 6: hanno perso",
+   "totale": "41 punti in tutto contro un totale di 45,5: sotto"
+  },
+  "bilancioDopo": {
+   "ospiti": "7-3",
+   "padroniDiCasa": "6-3-1"
+  },
+  "serieDopo": {
+   "ospiti": "",
+   "padroniDiCasa": ""
+  },
+  "video": "VFJ5DTTNN9A"
  }
 }
