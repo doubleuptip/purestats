@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-23T02:25:41.170232+00:00",
+  "aggiornato": "2026-11-23T05:59:06.587282+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC BY 4.0)",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 1411,
-  "partiteGiocate": 1300,
+  "partiteGiocate": 1301,
   "squadre": [
     {
       "nome": "BUF",
@@ -421,29 +421,29 @@
       "nomeCompleto": "San Francisco 49ers",
       "conference": "NFC",
       "division": "NFC West",
-      "partite": 85,
-      "vittorie": 56,
+      "partite": 86,
+      "vittorie": 57,
       "sconfitte": 29,
       "pareggi": 0,
-      "percVittorie": 65.9,
-      "mediaFatti": 26.2,
-      "mediaSubiti": 21.0,
-      "differenza": 443,
+      "percVittorie": 66.3,
+      "mediaFatti": 26.3,
+      "mediaSubiti": 20.8,
+      "differenza": 468,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 9,
-          "vittorie": 8,
+          "partite": 10,
+          "vittorie": 9,
           "sconfitte": 1,
           "pareggi": 0,
-          "percVittorie": 88.9,
-          "puntiFatti": 281,
-          "puntiSubiti": 196,
-          "mediaFatti": 31.2,
-          "mediaSubiti": 21.8,
-          "differenza": 85,
-          "vittorieCasa": 5,
-          "partiteCasa": 5,
+          "percVittorie": 90.0,
+          "puntiFatti": 316,
+          "puntiSubiti": 206,
+          "mediaFatti": 31.6,
+          "mediaSubiti": 20.6,
+          "differenza": 110,
+          "vittorieCasa": 6,
+          "partiteCasa": 6,
           "vittorieFuori": 3,
           "partiteFuori": 4
         },
@@ -522,31 +522,31 @@
       "nomeCompleto": "Minnesota Vikings",
       "conference": "NFC",
       "division": "NFC North",
-      "partite": 79,
+      "partite": 80,
       "vittorie": 50,
-      "sconfitte": 29,
+      "sconfitte": 30,
       "pareggi": 0,
-      "percVittorie": 63.3,
-      "mediaFatti": 22.2,
-      "mediaSubiti": 20.7,
-      "differenza": 115,
+      "percVittorie": 62.5,
+      "mediaFatti": 22.0,
+      "mediaSubiti": 20.9,
+      "differenza": 90,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 9,
+          "partite": 10,
           "vittorie": 7,
-          "sconfitte": 2,
+          "sconfitte": 3,
           "pareggi": 0,
-          "percVittorie": 77.8,
-          "puntiFatti": 176,
-          "puntiSubiti": 126,
-          "mediaFatti": 19.6,
-          "mediaSubiti": 14.0,
-          "differenza": 50,
+          "percVittorie": 70.0,
+          "puntiFatti": 186,
+          "puntiSubiti": 161,
+          "mediaFatti": 18.6,
+          "mediaSubiti": 16.1,
+          "differenza": 25,
           "vittorieCasa": 3,
           "partiteCasa": 4,
           "vittorieFuori": 4,
-          "partiteFuori": 5
+          "partiteFuori": 6
         },
         {
           "stagione": "2025",
@@ -140693,8 +140693,97 @@
       "pc": 23,
       "po": 18,
       "stadio": "MetLife Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "J.J. McCarthy",
+          "ruolo": "QB",
+          "valore": 173,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Cam Skattebo",
+          "ruolo": "RB",
+          "valore": 34,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Malik Nabers",
+          "ruolo": "WR",
+          "valore": 55,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Malachi Fields",
+          "ruolo": "WR",
+          "valore": 25,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        },
+        {
+          "nome": "Isaiah Likely",
+          "ruolo": "TE",
+          "valore": 35,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Trevor Lawrence",
+          "ruolo": "QB",
+          "valore": 301,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Bhayshul Tuten",
+          "ruolo": "RB",
+          "valore": 33,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Parker Washington",
+          "ruolo": "WR",
+          "valore": 103,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric."
+          ]
+        },
+        {
+          "nome": "Jakobi Meyers",
+          "ruolo": "WR",
+          "valore": 85,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Brenton Strange",
+          "ruolo": "TE",
+          "valore": 16,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -140706,11 +140795,101 @@
       "oraIt": "02:20",
       "casa": "SF",
       "ospite": "MIN",
-      "pc": null,
-      "po": null,
+      "pc": 35,
+      "po": 10,
       "stadio": "Estadio Banorte",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Brock Purdy",
+          "ruolo": "QB",
+          "valore": 255,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Christian McCaffrey",
+          "ruolo": "RB",
+          "valore": 49,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Mike Evans",
+          "ruolo": "WR",
+          "valore": 109,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Keenan Allen",
+          "ruolo": "WR",
+          "valore": 38,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "George Kittle",
+          "ruolo": "TE",
+          "valore": 34,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "2 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Kirk Cousins",
+          "ruolo": "QB",
+          "valore": 235,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Jordan Mason",
+          "ruolo": "RB",
+          "valore": 38,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Justin Jefferson",
+          "ruolo": "WR",
+          "valore": 86,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        },
+        {
+          "nome": "Tai Felton",
+          "ruolo": "WR",
+          "valore": 42,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "T.J. Hockenson",
+          "ruolo": "TE",
+          "valore": 55,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -143378,6 +143557,84 @@
         "scartoLinea": 11.0,
         "stadio": "MetLife Stadium",
         "highlights": "https://www.youtube.com/results?search_query=Jacksonville+Jaguars+vs.+New+York+Giants+highlights+November+22%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "1",
+            "tempo": "02:09",
+            "squadra": "NYG",
+            "descrizione": "19-J.Winston up the middle for 1 yard, TOUCHDOWN. Penalty on JAX-47-D.Gardeck, Defensive Offside, declined.",
+            "testo": "Winston corre centralmente, 1 yard: touchdown",
+            "chi": [
+              "Winston"
+            ],
+            "yard": 1.0,
+            "touchdown": true,
+            "casaPrima": 41,
+            "casaDopo": 47,
+            "clip": {
+              "id": "sem0XJbEIso",
+              "titolo": "INT. by Deonte Banks leads to Jameis Winston rushing it in himself!!"
+            }
+          },
+          {
+            "quarto": "3",
+            "tempo": "04:02",
+            "squadra": "NYG",
+            "descrizione": "44-C.Skattebo left tackle to JAX 31 for 1 yard (41-J.Hines-Allen). FUMBLES (41-J.Hines-Allen), RECOVERED by JAX-6-A.Johnson at JAX 27. 6-A.Johnson to NYG 31 for 42 yards (18-J.McCarthy).",
+            "testo": "Skattebo corre a sinistra, 1 yard, fumble, recuperato da Johnson (JAX)",
+            "chi": [
+              "Skattebo"
+            ],
+            "yard": 1.0,
+            "touchdown": false,
+            "casaPrima": 91,
+            "casaDopo": 77
+          },
+          {
+            "quarto": "3",
+            "tempo": "01:06",
+            "squadra": "JAX",
+            "descrizione": "16-T.Lawrence pass incomplete short left to 3-J.Meyers (22-A.Phillips).",
+            "testo": "Lawrence: lancio corto a sinistra per Meyers incompleto",
+            "chi": [
+              "Lawrence"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 81,
+            "casaDopo": 89
+          },
+          {
+            "quarto": "4",
+            "tempo": "11:08",
+            "squadra": "JAX",
+            "descrizione": "16-T.Lawrence pass short left intended for 3-J.Meyers INTERCEPTED by 21-P.Adebo at JAX 28. 21-P.Adebo to JAX 28 for no gain (3-J.Meyers).",
+            "testo": "Lawrence intercettato da Adebo",
+            "chi": [
+              "Lawrence",
+              "Adebo"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 85,
+            "casaDopo": 92
+          },
+          {
+            "quarto": "4",
+            "tempo": "03:02",
+            "squadra": "NYG",
+            "descrizione": "18-J.McCarthy pass short middle to 88-M.Fields to JAX 43 for 19 yards (0-J.Bates).",
+            "testo": "McCarthy lancia corto al centro per Fields, 19 yard",
+            "chi": [
+              "McCarthy",
+              "Fields"
+            ],
+            "yard": 19.0,
+            "touchdown": false,
+            "casaPrima": 82,
+            "casaDopo": 94
+          }
+        ],
         "video": {
           "id": "VFJ5DTTNN9A",
           "titolo": "Jacksonville Jaguars vs. New York Giants Game Highlights | NFL 2026 Season Week 11"
@@ -143492,15 +143749,100 @@
         "oraIt": "02:20",
         "casa": "SF",
         "ospite": "MIN",
-        "pc": null,
-        "po": null,
+        "pc": 35,
+        "po": 10,
         "favorita": "SF",
         "linea": 4.5,
         "totaleLinea": 44.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
-        "stadio": "Estadio Banorte"
+        "battutaDa": "SF",
+        "totaleEsito": "over",
+        "scartoLinea": 20.5,
+        "stadio": "Estadio Banorte",
+        "highlights": "https://www.youtube.com/results?search_query=Minnesota+Vikings+vs.+San+Francisco+49ers+highlights+November+22%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "1",
+            "tempo": "07:38",
+            "squadra": "MIN",
+            "descrizione": "16-W.Reichard 55 yard field goal is No Good, Wide Left, Center-42-A.DePaola, Holder-19-B.Thorson.",
+            "testo": "Reichard: field goal da 55 yard sbagliato",
+            "chi": [
+              "Reichard"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 76,
+            "casaDopo": 81
+          },
+          {
+            "quarto": "1",
+            "tempo": "00:15",
+            "squadra": "SF",
+            "descrizione": "(:15) 13-B.Purdy pass deep middle to 5-M.Evans to MIN 14 for 34 yards (26-T.Jackson).",
+            "testo": "Purdy lancia lungo al centro per Evans, 34 yard",
+            "chi": [
+              "Purdy",
+              "Evans"
+            ],
+            "yard": 34.0,
+            "touchdown": false,
+            "casaPrima": 66,
+            "casaDopo": 73
+          },
+          {
+            "quarto": "2",
+            "tempo": "03:29",
+            "squadra": "SF",
+            "descrizione": "13-B.Purdy pass short right to 5-M.Evans pushed ob at MIN 6 for 29 yards (23-J.Pierre).",
+            "testo": "Purdy lancia corto a destra per Evans, 29 yard",
+            "chi": [
+              "Purdy",
+              "Evans"
+            ],
+            "yard": 29.0,
+            "touchdown": false,
+            "casaPrima": 78,
+            "casaDopo": 84
+          },
+          {
+            "quarto": "2",
+            "tempo": "02:05",
+            "squadra": "MIN",
+            "descrizione": "8-K.Cousins pass short middle intended for 13-T.Felton INTERCEPTED by 27-J.Brown at MIN 18. 27-J.Brown for 18 yards, TOUCHDOWN.",
+            "testo": "Cousins intercettato da Brown: touchdown",
+            "chi": [
+              "Cousins",
+              "Brown"
+            ],
+            "yard": 0.0,
+            "touchdown": true,
+            "casaPrima": 87,
+            "casaDopo": 95,
+            "clip": {
+              "id": "nuWGss_C0Yw",
+              "titolo": "Goff zips it to St. Brown for the Touchdown!"
+            }
+          },
+          {
+            "quarto": "3",
+            "tempo": "12:52",
+            "squadra": "MIN",
+            "descrizione": "8-K.Cousins pass deep left to 18-J.Jefferson to SF 25 for 25 yards (2-D.Lenoir). FUMBLES (2-D.Lenoir), RECOVERED by SF-2-D.Lenoir at SF 25. 2-D.Lenoir to SF 42 for 17 yards (71-C.Darrisaw).",
+            "testo": "Cousins lancia lungo a sinistra per Jefferson, 25 yard, fumble, recuperato da Lenoir (SF)",
+            "chi": [
+              "Cousins",
+              "Jefferson"
+            ],
+            "yard": 25.0,
+            "touchdown": false,
+            "casaPrima": 95,
+            "casaDopo": 98
+          }
+        ],
+        "video": {
+          "id": "ceMTl2eqYDA",
+          "titolo": "Minnesota Vikings vs San Francisco 49ers Game Highlights | 2026 NFL Season Week 11 Mexico City Game"
+        }
       },
       {
         "data": "2026-11-23",
@@ -143522,6 +143864,12 @@
     ],
     "sorprese": [
       {
+        "casa": "SF",
+        "ospite": "MIN",
+        "scarto": 20.5,
+        "battutaDa": "SF"
+      },
+      {
         "casa": "DAL",
         "ospite": "TEN",
         "scarto": 13.5,
@@ -143532,19 +143880,13 @@
         "ospite": "ARI",
         "scarto": 11.5,
         "battutaDa": "KC"
-      },
-      {
-        "casa": "NYG",
-        "ospite": "JAX",
-        "scarto": 11.0,
-        "battutaDa": "NYG"
       }
     ],
     "completa": false,
     "riepilogo": {
-      "partite": 11,
-      "favoriteCoperte": 6,
-      "over": 6,
+      "partite": 12,
+      "favoriteCoperte": 7,
+      "over": 7,
       "under": 5
     },
     "prestazioni": {
@@ -143574,20 +143916,20 @@
           "dettagli": "1 TD · 2 INT"
         },
         {
+          "nome": "Trevor Lawrence",
+          "ruolo": "QB",
+          "squadra": "JAX",
+          "avversario": "NYG",
+          "valore": 301,
+          "dettagli": "1 TD · 2 INT"
+        },
+        {
           "nome": "Jared Goff",
           "ruolo": "QB",
           "squadra": "DET",
           "avversario": "TB",
           "valore": 279,
           "dettagli": "2 TD"
-        },
-        {
-          "nome": "Jacoby Brissett",
-          "ruolo": "QB",
-          "squadra": "BAL",
-          "avversario": "CAR",
-          "valore": 276,
-          "dettagli": "1 TD · 1 INT"
         }
       ],
       "corse": [
@@ -143642,6 +143984,22 @@
           "dettagli": "11 ricezioni · 1 TD"
         },
         {
+          "nome": "Mike Evans",
+          "ruolo": "WR",
+          "squadra": "SF",
+          "avversario": "MIN",
+          "valore": 109,
+          "dettagli": "6 ricezioni · 1 TD"
+        },
+        {
+          "nome": "Parker Washington",
+          "ruolo": "WR",
+          "squadra": "JAX",
+          "avversario": "NYG",
+          "valore": 103,
+          "dettagli": "8 ricezioni"
+        },
+        {
           "nome": "Chris Olave",
           "ruolo": "WR",
           "squadra": "NO",
@@ -143656,22 +144014,6 @@
           "avversario": "TEN",
           "valore": 102,
           "dettagli": "7 ricezioni · 1 TD"
-        },
-        {
-          "nome": "Khalil Shakir",
-          "ruolo": "WR",
-          "squadra": "BUF",
-          "avversario": "MIA",
-          "valore": 101,
-          "dettagli": "5 ricezioni"
-        },
-        {
-          "nome": "Zay Flowers",
-          "ruolo": "WR",
-          "squadra": "BAL",
-          "avversario": "CAR",
-          "valore": 97,
-          "dettagli": "8 ricezioni"
         }
       ],
       "sack": [
@@ -143742,20 +144084,20 @@
           "dettagli": "1 passaggi deviati"
         },
         {
+          "nome": "Paulson Adebo",
+          "ruolo": "CB",
+          "squadra": "NYG",
+          "avversario": "JAX",
+          "valore": 1,
+          "dettagli": "4 passaggi deviati"
+        },
+        {
           "nome": "Ja'Quan McMillian",
           "ruolo": "CB",
           "squadra": "DEN",
           "avversario": "LV",
           "valore": 1,
           "dettagli": "35 yard di ritorno · 1 TD · 1 passaggi deviati"
-        },
-        {
-          "nome": "Isaiah Pola-Mao",
-          "ruolo": "SAF",
-          "squadra": "LV",
-          "avversario": "DEN",
-          "valore": 1,
-          "dettagli": "1 passaggi deviati"
         }
       ],
       "placcaggi": [
@@ -143818,6 +144160,14 @@
           "dettagli": "1 placcaggi da solo"
         },
         {
+          "nome": "Josh Hines-Allen",
+          "ruolo": "DE",
+          "squadra": "JAX",
+          "avversario": "NYG",
+          "valore": 1,
+          "dettagli": "3 placcaggi da solo"
+        },
+        {
           "nome": "Quinnen Williams",
           "ruolo": "DT",
           "squadra": "DAL",
@@ -143832,17 +144182,17 @@
           "avversario": "PHI",
           "valore": 1,
           "dettagli": "2 placcaggi da solo"
-        },
-        {
-          "nome": "DJ Wonnum",
-          "ruolo": "DE",
-          "squadra": "DET",
-          "avversario": "TB",
-          "valore": 1,
-          "dettagli": "5 placcaggi da solo"
         }
       ],
       "deviati": [
+        {
+          "nome": "Paulson Adebo",
+          "ruolo": "CB",
+          "squadra": "NYG",
+          "avversario": "JAX",
+          "valore": 4,
+          "dettagli": "1 intercetti"
+        },
         {
           "nome": "Jonathan Jones",
           "ruolo": "DB",
@@ -143868,20 +144218,12 @@
           "dettagli": "1 intercetti"
         },
         {
-          "nome": "Maxx Crosby",
-          "ruolo": "DE",
-          "squadra": "LV",
-          "avversario": "DEN",
-          "valore": 2,
-          "dettagli": ""
-        },
-        {
-          "nome": "Mike Jackson",
+          "nome": "Deonte Banks",
           "ruolo": "CB",
-          "squadra": "CAR",
-          "avversario": "BAL",
-          "valore": 2,
-          "dettagli": ""
+          "squadra": "NYG",
+          "avversario": "JAX",
+          "valore": 3,
+          "dettagli": "1 intercetti"
         }
       ]
     },
@@ -143988,6 +144330,20 @@
           "partita": "2026_11_BAL_CAR"
         },
         {
+          "squadra": "NYG",
+          "avversario": "JAX",
+          "quarto": "1",
+          "tempo": "07:45",
+          "testo": "Lawrence intercettato da Banks",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 14.7,
+          "prima": 47,
+          "dopo": 61,
+          "partita": "2026_11_JAX_NYG"
+        },
+        {
           "squadra": "DET",
           "avversario": "TB",
           "quarto": "1",
@@ -144014,30 +144370,27 @@
           "prima": 28,
           "dopo": 41,
           "partita": "2026_11_BAL_CAR"
-        },
-        {
-          "squadra": "BAL",
-          "avversario": "CAR",
-          "quarto": "1",
-          "tempo": "12:26",
-          "testo": "Young subisce un sack, -8 yard (perdita), safety",
-          "yard": -8.0,
-          "touchdown": false,
-          "evento": "sack",
-          "valore": 10.5,
-          "prima": 44,
-          "dopo": 55,
-          "partita": "2026_11_BAL_CAR"
         }
       ]
     },
     "squadreSettimana": {
       "attacchi": [
         {
+          "squadra": "SF",
+          "nome": "San Francisco 49ers",
+          "avversario": "MIN",
+          "attacco": 0.387,
+          "difesa": 0.046,
+          "netto": 0.433,
+          "epaAzione": 0.344,
+          "epaConcesso": -0.088,
+          "partita": "2026_11_MIN_SF"
+        },
+        {
           "squadra": "DAL",
           "nome": "Dallas Cowboys",
           "avversario": "TEN",
-          "attacco": 0.362,
+          "attacco": 0.361,
           "difesa": -0.129,
           "netto": 0.233,
           "epaAzione": 0.435,
@@ -144059,7 +144412,7 @@
           "squadra": "NYJ",
           "nome": "New York Jets",
           "avversario": "LAC",
-          "attacco": 0.224,
+          "attacco": 0.225,
           "difesa": -0.202,
           "netto": 0.023,
           "epaAzione": 0.233,
@@ -144070,23 +144423,12 @@
           "squadra": "KC",
           "nome": "Kansas City Chiefs",
           "avversario": "ARI",
-          "attacco": 0.195,
-          "difesa": 0.125,
-          "netto": 0.32,
+          "attacco": 0.196,
+          "difesa": 0.126,
+          "netto": 0.322,
           "epaAzione": 0.263,
           "epaConcesso": -0.139,
           "partita": "2026_11_ARI_KC"
-        },
-        {
-          "squadra": "LAC",
-          "nome": "Los Angeles Chargers",
-          "avversario": "NYJ",
-          "attacco": 0.089,
-          "difesa": -0.24,
-          "netto": -0.152,
-          "epaAzione": 0.163,
-          "epaConcesso": 0.233,
-          "partita": "2026_11_NYJ_LAC"
         }
       ],
       "difese": [
@@ -144113,10 +144455,21 @@
           "partita": "2026_11_MIA_BUF"
         },
         {
+          "squadra": "NYG",
+          "nome": "New York Giants",
+          "avversario": "JAX",
+          "attacco": -0.075,
+          "difesa": 0.173,
+          "netto": 0.098,
+          "epaAzione": -0.104,
+          "epaConcesso": -0.126,
+          "partita": "2026_11_JAX_NYG"
+        },
+        {
           "squadra": "PIT",
           "nome": "Pittsburgh Steelers",
           "avversario": "PHI",
-          "attacco": -0.124,
+          "attacco": -0.125,
           "difesa": 0.132,
           "netto": 0.007,
           "epaAzione": -0.113,
@@ -144127,33 +144480,33 @@
           "squadra": "KC",
           "nome": "Kansas City Chiefs",
           "avversario": "ARI",
-          "attacco": 0.195,
-          "difesa": 0.125,
-          "netto": 0.32,
+          "attacco": 0.196,
+          "difesa": 0.126,
+          "netto": 0.322,
           "epaAzione": 0.263,
           "epaConcesso": -0.139,
           "partita": "2026_11_ARI_KC"
-        },
-        {
-          "squadra": "CHI",
-          "nome": "Chicago Bears",
-          "avversario": "NO",
-          "attacco": -0.063,
-          "difesa": 0.105,
-          "netto": 0.041,
-          "epaAzione": -0.048,
-          "epaConcesso": -0.124,
-          "partita": "2026_11_NO_CHI"
         }
       ],
       "migliori": [
         {
+          "squadra": "SF",
+          "nome": "San Francisco 49ers",
+          "avversario": "MIN",
+          "attacco": 0.387,
+          "difesa": 0.046,
+          "netto": 0.433,
+          "epaAzione": 0.344,
+          "epaConcesso": -0.088,
+          "partita": "2026_11_MIN_SF"
+        },
+        {
           "squadra": "KC",
           "nome": "Kansas City Chiefs",
           "avversario": "ARI",
-          "attacco": 0.195,
-          "difesa": 0.125,
-          "netto": 0.32,
+          "attacco": 0.196,
+          "difesa": 0.126,
+          "netto": 0.322,
           "epaAzione": 0.263,
           "epaConcesso": -0.139,
           "partita": "2026_11_ARI_KC"
@@ -144168,17 +144521,6 @@
           "epaAzione": 0.077,
           "epaConcesso": -0.286,
           "partita": "2026_11_IND_HOU"
-        },
-        {
-          "squadra": "DAL",
-          "nome": "Dallas Cowboys",
-          "avversario": "TEN",
-          "attacco": 0.362,
-          "difesa": -0.129,
-          "netto": 0.233,
-          "epaAzione": 0.435,
-          "epaConcesso": 0.1,
-          "partita": "2026_11_TEN_DAL"
         }
       ],
       "nota": "EPA per azione corretto per la forza dell'avversario (stesse stime degli indici): +0,10 vuol dire circa 6 punti in più di una squadra media contro lo stesso avversario."
@@ -144235,10 +144577,10 @@
           "partite": 10,
           "fatti1": 4.1,
           "fatti2": 1.3,
-          "subiti1": 0.7,
+          "subiti1": 1.0,
           "subiti2": 1.3,
           "quota": 18.8,
-          "netto": 3.4
+          "netto": 3.1
         },
         {
           "squadra": "BUF",
@@ -144417,17 +144759,6 @@
           "netto": -2.2
         },
         {
-          "squadra": "SF",
-          "nome": "San Francisco 49ers",
-          "partite": 9,
-          "fatti1": 2.22,
-          "fatti2": 1.11,
-          "subiti1": 1.67,
-          "subiti2": 1.56,
-          "quota": 10.7,
-          "netto": 0.11
-        },
-        {
           "squadra": "CAR",
           "nome": "Carolina Panthers",
           "partite": 10,
@@ -144437,6 +144768,17 @@
           "subiti2": 1.1,
           "quota": 13.0,
           "netto": -1.5
+        },
+        {
+          "squadra": "SF",
+          "nome": "San Francisco 49ers",
+          "partite": 10,
+          "fatti1": 2.1,
+          "fatti2": 1.0,
+          "subiti1": 1.5,
+          "subiti2": 1.4,
+          "quota": 9.8,
+          "netto": 0.2
         },
         {
           "squadra": "IND",
@@ -144450,6 +144792,17 @@
           "netto": -1.64
         },
         {
+          "squadra": "NYG",
+          "nome": "New York Giants",
+          "partite": 10,
+          "fatti1": 1.6,
+          "fatti2": 1.3,
+          "subiti1": 3.1,
+          "subiti2": 1.7,
+          "quota": 12.8,
+          "netto": -1.9
+        },
+        {
           "squadra": "MIA",
           "nome": "Miami Dolphins",
           "partite": 10,
@@ -144459,17 +144812,6 @@
           "subiti2": 0.3,
           "quota": 18.5,
           "netto": 0.2
-        },
-        {
-          "squadra": "NYG",
-          "nome": "New York Giants",
-          "partite": 10,
-          "fatti1": 1.3,
-          "fatti2": 1.3,
-          "subiti1": 3.1,
-          "subiti2": 1.7,
-          "quota": 11.5,
-          "netto": -2.2
         },
         {
           "squadra": "ARI",
@@ -144507,13 +144849,13 @@
         {
           "squadra": "MIN",
           "nome": "Minnesota Vikings",
-          "partite": 9,
-          "fatti1": 1.11,
-          "fatti2": 1.0,
-          "subiti1": 2.22,
+          "partite": 10,
+          "fatti1": 1.0,
+          "fatti2": 0.9,
+          "subiti1": 2.1,
           "subiti2": 0.0,
-          "quota": 10.8,
-          "netto": -0.11
+          "quota": 10.2,
+          "netto": -0.2
         },
         {
           "squadra": "ATL",
@@ -144540,7 +144882,7 @@
       ],
       "media": {
         "fatti1": 2.38,
-        "fatti2": 1.43
+        "fatti2": 1.42
       },
       "nota": "Punti a partita segnati e subiti dopo il two-minute warning (ultimi 2 minuti) del primo e del secondo tempo; quota = parte dei punti della squadra fatta in quei minuti. Sono pochi minuti a partita: come segnale per giocare va ancora misurata."
     },
@@ -144789,6 +145131,28 @@
           ]
         },
         {
+          "squadra": "JAX",
+          "nome": "Jacksonville Jaguars",
+          "partite": 10,
+          "flag": 7.3,
+          "yard": 60.6,
+          "subite": 7.9,
+          "tipi": [
+            [
+              "falsa partenza",
+              18
+            ],
+            [
+              "holding in attacco",
+              18
+            ],
+            [
+              "interferenza in difesa",
+              7
+            ]
+          ]
+        },
+        {
           "squadra": "NE",
           "nome": "New England Patriots",
           "partite": 10,
@@ -144813,21 +145177,21 @@
         {
           "squadra": "NYG",
           "nome": "New York Giants",
-          "partite": 9,
-          "flag": 7.11,
-          "yard": 62.7,
-          "subite": 6.89,
+          "partite": 10,
+          "flag": 7.0,
+          "yard": 61.0,
+          "subite": 7.5,
           "tipi": [
             [
               "falsa partenza",
-              19
-            ],
-            [
-              "interferenza in difesa",
-              9
+              20
             ],
             [
               "holding in attacco",
+              11
+            ],
+            [
+              "interferenza in difesa",
               9
             ]
           ]
@@ -144987,28 +145351,6 @@
           ]
         },
         {
-          "squadra": "JAX",
-          "nome": "Jacksonville Jaguars",
-          "partite": 9,
-          "flag": 6.67,
-          "yard": 55.4,
-          "subite": 8.11,
-          "tipi": [
-            [
-              "holding in attacco",
-              16
-            ],
-            [
-              "falsa partenza",
-              14
-            ],
-            [
-              "interferenza in difesa",
-              6
-            ]
-          ]
-        },
-        {
           "squadra": "SEA",
           "nome": "Seattle Seahawks",
           "partite": 10,
@@ -145075,28 +145417,6 @@
           ]
         },
         {
-          "squadra": "SF",
-          "nome": "San Francisco 49ers",
-          "partite": 9,
-          "flag": 6.33,
-          "yard": 56.2,
-          "subite": 6.0,
-          "tipi": [
-            [
-              "holding in attacco",
-              12
-            ],
-            [
-              "falsa partenza",
-              10
-            ],
-            [
-              "interferenza in difesa",
-              4
-            ]
-          ]
-        },
-        {
           "squadra": "TEN",
           "nome": "Tennessee Titans",
           "partite": 10,
@@ -145133,6 +145453,28 @@
             [
               "interferenza in difesa",
               6
+            ],
+            [
+              "fuorigioco in difesa",
+              5
+            ]
+          ]
+        },
+        {
+          "squadra": "SF",
+          "nome": "San Francisco 49ers",
+          "partite": 10,
+          "flag": 6.2,
+          "yard": 53.9,
+          "subite": 5.7,
+          "tipi": [
+            [
+              "holding in attacco",
+              13
+            ],
+            [
+              "falsa partenza",
+              12
             ],
             [
               "fuorigioco in difesa",
@@ -145207,28 +145549,6 @@
           ]
         },
         {
-          "squadra": "MIN",
-          "nome": "Minnesota Vikings",
-          "partite": 9,
-          "flag": 5.56,
-          "yard": 45.4,
-          "subite": 7.78,
-          "tipi": [
-            [
-              "falsa partenza",
-              13
-            ],
-            [
-              "holding in attacco",
-              8
-            ],
-            [
-              "formazione illegale",
-              4
-            ]
-          ]
-        },
-        {
           "squadra": "PIT",
           "nome": "Pittsburgh Steelers",
           "partite": 10,
@@ -145249,9 +145569,31 @@
               6
             ]
           ]
+        },
+        {
+          "squadra": "MIN",
+          "nome": "Minnesota Vikings",
+          "partite": 10,
+          "flag": 5.3,
+          "yard": 43.2,
+          "subite": 7.5,
+          "tipi": [
+            [
+              "falsa partenza",
+              13
+            ],
+            [
+              "holding in attacco",
+              8
+            ],
+            [
+              "ritardo di gioco",
+              4
+            ]
+          ]
         }
       ],
-      "media": 7.0,
+      "media": 6.99,
       "nota": "Penalità accettate a partita (le rifiutate non contano). Se in un'azione ci sono più flag, nflverse ne registra una sola.",
       "arbitri": [
         {
