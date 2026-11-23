@@ -89,10 +89,8 @@ jobs:
           CHARLIE_BOT: ${{ secrets.CHARLIE_BOT }}
         run: python scripts/fetch_duelli.py college
 
-      - name: Home (classifica CFP/AP da CollegeFootballData, max 4 chiamate a settimana; rating PureStats)
+      - name: Home (classifica CFP e FPI ESPN, 2 richieste gratis)
         continue-on-error: true
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python scripts/home_college.py
 
       - name: Statistiche pubbliche (giocatori e squadre, stagione in corso)

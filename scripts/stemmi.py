@@ -6,8 +6,10 @@ il disegno lo fa la pagina (`stemma` in index.html e duelli.html), così resta n
 
 Fonti:
   · NFL: anagrafica squadre nflverse (teams_colors_logos.csv: team_abbr, team_color, team_color2), gratis;
-  · college: CollegeFootballData /teams (school, abbreviation, color, alternateColor), UNA chiamata per giro
-    (uso commerciale consentito dalle condizioni di CFBD). Si lancia a mano (workflow stemmi.yml), quando cambia questo script e una volta l'anno.
+  · college (dal 23/11/2026, scelta di Valerio: dati college da ESPN): elenco squadre ESPN (abbreviation, color,
+    alternateColor), 2 richieste gratis senza chiave (FBS e FCS); nome del sito dall'id ESPN nell'indirizzo del logo.
+    Riserva: CollegeFootballData /teams (1 chiamata). Si lancia a mano (workflow stemmi.yml), quando cambia questo
+    script, il lunedì finché le sigle non arrivano e una volta l'anno.
 Squadre college che CFBD non ha: sigla ricavata dal nome, banda bianca. Se una fonte non risponde, la sua parte
 resta com'era nel file precedente. Scrive docs/stemmi.json. Solo libreria standard.
 """
@@ -56,6 +58,38 @@ def sigla_da_nome(nome: str) -> str:
     if len(parole) == 1:
         return parole[0][:4].upper()
     return "".join(p[0] for p in parole if p[0].isalnum())[:4].upper()
+
+
+ESPN_SQUADRE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams?limit=1000&groups={g}"
+
+
+def college_espn(dati_sito: dict) -> dict | None:
+    """Sigle e colori dall'elenco squadre ESPN (FBS gruppo 80, FCS gruppo 81); nome come nel sito dall'id del logo."""
+    per_id = {}
+    for gruppo in ("loghi", "loghiExtra"):
+        for nome, l in (dati_sito.get(gruppo) or {}).items():
+            m = re.search(r"/(\d+)\.png", l.get("logo") or "")
+            if m:
+                per_id.setdefault(m.group(1), nome)
+    out = {}
+    for g in (80, 81):
+        testo = scarica(ESPN_SQUADRE.format(g=g))
+        if not testo:
+            continue
+        try:
+            squadre = json.loads(testo)["sports"][0]["leagues"][0]["teams"]
+        except (ValueError, KeyError, IndexError):
+            ERRORI.append(f"espn gruppo {g}: risposta di forma diversa")
+            continue
+        for voce in squadre:
+            t = voce.get("team") or {}
+            nome = per_id.get(str(t.get("id"))) or t.get("location")
+            sig = re.sub(r"[^A-Za-z0-9&]", "", t.get("abbreviation") or "")[:5].upper()
+            if not nome or not sig:
+                continue
+            out[nome] = {"s": sig, "c1": colore(t.get("color")) or "#555555", "c2": colore(t.get("alternateColor")) or "#FFFFFF"}
+    print(f"Stemmi: college {len(out)} squadre dall'elenco ESPN.")
+    return out or None
 
 
 def nfl() -> dict | None:
@@ -113,12 +147,22 @@ def main() -> int:
     # la chiamata a CFBD si fa solo se le sigle college non vengono già da lì (o se si forza con --rifai): il giro
     # settimanale riprova finché non riesce (chiave esaurita, rete), poi non spende più nulla fino al 1° agosto
     forza = "--rifai" in sys.argv
-    gia = vecchio.get("fonteCollege") == "cfbd" and not forza
+    gia = vecchio.get("fonteCollege") in ("espn", "cfbd") and not forza
+    fonte = vecchio.get("fonteCollege") if gia else "nomi"
+    nuovo_college = None
     if gia:
-        print("Stemmi: sigle college già da CollegeFootballData, nessuna chiamata.")
-    nuovo_college = None if gia else college(nomi)
+        print(f"Stemmi: sigle college già lette ({fonte}), nessuna richiesta.")
+    else:
+        try:
+            nuovo_college = college_espn(d)
+        except NameError:
+            nuovo_college = None
+        fonte = "espn" if nuovo_college else fonte
+        if not nuovo_college:
+            nuovo_college = college(nomi)
+            fonte = "cfbd" if nuovo_college else fonte
     out = {"nota": "Stemmi PureStats: sigla e colori della squadra, disegno nostro (nessun logo ufficiale).",
-           "fonteCollege": "cfbd" if (nuovo_college or gia) else "nomi",
+           "fonteCollege": fonte,
            "nfl": nfl() or vecchio.get("nfl", {}),
            "college": nuovo_college or vecchio.get("college", {})}
     # squadre del sito che non hanno ancora uno stemma: sigla dal nome, colore del sito se c'è

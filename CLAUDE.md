@@ -342,11 +342,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   (giocata dalla Giornata, giocatore per punti fantasy standard nflverse, squadra EPA; resta l'ultima week completa finché
   quella nuova ha solo il giovedì), accadde oggi (partita più importante della data dal 1999: turno di playoff, punti,
   supplementari, finale punto a punto).
-- `scripts/home_college.py` (workflow College) → `docs/home_college.json` (dal 22/11/2026 niente ESPN): classifica CFP
-  (prima che esca, AP) da CollegeFootballData /rankings, al massimo 1 chiamata ogni 20 ore e solo domenica, lunedì,
-  mercoledì e giovedì UTC (≤ 4 a settimana); «forza delle squadre» = rating PureStats calcolato dai risultati di
-  data/college.csv (margine corretto per gli avversari, scarto massimo 28, campo +2,96, FCS come un'unica squadra,
-  freno 2 partite; posizione precedente = stesso calcolo senza l'ultima week). FPI di ESPN tolto.
+- `scripts/home_college.py` (workflow College) → `docs/home_college.json`: classifica CFP (prima che esca, AP) e FPI
+  ESPN (playoff %, finale %), 2 richieste ESPN gratis; nomi delle squadre dall'id nel logo. Il 22/11 era passato a
+  CollegeFootballData + rating PureStats, ma la chiave CFBD esaurita fermava gli aggiornamenti: il 23/11 Valerio ha
+  deciso di tornare a ESPN per tutti i dati college («il sito non ha ancora AdSense»); il rating PureStats resta nella
+  storia git (commit d32ae69) se servirà.
 - TV in Italia (`scripts/tv_italia.py`, workflow NFL) → `docs/tv_italia.json`. Tutte le partite NFL con NFL Game Pass su
   DAZN (bollino DAZN); cinque a settimana incluse anche negli abbonamenti DAZN Sports, Full e Family (conferma di Valerio,
   abbonato): Thursday Night, una delle 19:00, una delle 22:05/22:25, Sunday Night, Monday Night. Le partite con il via tra
@@ -363,7 +363,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   PureStats «opzione B, pastiglia a due toni» (scelta di Valerio il 22/11, dopo la C: cerchio nel colore principale,
   spicchio in basso a destra e anello nel secondo colore, sigla in Barlow Condensed; clipPath con id unico STEMMA_N). Sigle e colori in `docs/stemmi.json` da `scripts/stemmi.py` (workflow stemmi.yml: a mano e il 1° agosto rifà tutto; quando
   cambia lo script e ogni lunedì chiama CFBD solo se le sigle college non vengono ancora da lì, `fonteCollege`):
-  NFL da nflverse, college da CollegeFootballData /teams (1 chiamata per giro). Errori dell'ultimo giro in
+  NFL da nflverse, college dall'elenco squadre ESPN (2 richieste gratis, dal 23/11), riserva CollegeFootballData /teams. Errori dell'ultimo giro in
   `ultimiErrori` dentro stemmi.json (i log dei workflow non si leggono da fuori). Squadre che mancano: sigla dalle
   iniziali del nome, banda bianca. I campi `logo` nei dati restano ma il sito non li usa.
 - Highlights senza anteprima (niente fotogrammi NFL da i.ytimg.com): bottone `bottoneHighlights` che apre YouTube.
@@ -480,8 +480,9 @@ davvero che si veda quello che deve vedersi.
   1. Dati ESPN pubblicati (college quasi tutto, FPI e percentuali playoff, classifiche, loghi dal CDN ESPN): le
      condizioni Disney/ESPN vietano accesso automatico, uso commerciale e ripubblicazione. Sostituto: CollegeFootballData
      (uso commerciale consentito anche con pubblicità; quota 1.000 chiamate/mese condivisa col bot: stima 200-250 al mese
-     in stagione + circa 250 una tantum per lo storico, da ricontare prima di lanciare). FPI tolto il 22/11 (rating
-     PureStats al suo posto; classifica CFP/AP da CFBD). La sentinella college oggi interroga ESPN ogni 15 minuti: con CFBD aggiornamenti a orari
+     in stagione + circa 250 una tantum per lo storico, da ricontare prima di lanciare). DECISO il 23/11 (Valerio): per
+     ora tutti i dati college restano su ESPN, compresi classifica e FPI; loghi no (restano gli stemmi PureStats).
+     Da riprendere prima di AdSense. La sentinella college oggi interroga ESPN ogni 15 minuti: con CFBD aggiornamenti a orari
      stimati + riserve. Charlie e bot usano ESPN in privato (rischio solo blocco): decidere se spostarli.
   2. FATTO il 22/11: pagine pubbliche senza termini da scommesse. In index.html linee, totali, over/under, «Favorite
      oltre la linea», Sorprese e «Contro la linea» delle cronache si vedono solo con l'accesso privato (`privato()`);

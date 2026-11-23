@@ -1,131 +1,103 @@
 """
-Home College (dal 22/11/2026, senza dati ESPN pubblicati):
-  · classifica ufficiale del comitato del College Football Playoff (prima che esca, l'AP Top 25) da
-    CollegeFootballData /rankings (uso commerciale consentito): 1 chiamata per giro, al massimo una ogni 20 ore e
-    solo nei giorni in cui escono le classifiche (AP la domenica sera americana, CFP il martedì sera: in UTC
-    domenica, lunedì, mercoledì, giovedì) → al massimo 4 chiamate a settimana, circa 17 al mese;
-  · forza delle squadre «rating PureStats», calcolato qui dai risultati della stagione (data/college.csv): margine
-    corretto per gli avversari (scarto limitato a 28 punti, fattore campo +2,96, zero in campo neutro, le FCS
-    contano come un'unica squadra), con un piccolo freno verso la media. Nessuna chiamata, numeri nostri.
-Bilanci dai risultati in archivio. Se CFBD non risponde la classifica resta quella di prima. Solo libreria standard.
+Home College: classifica ufficiale del College Football Playoff (comitato CFP; prima che esca, l'AP Top 25) e
+probabilità di andare ai playoff e alla finale secondo l'FPI di ESPN. Scrive docs/home_college.json.
+
+Fonti ESPN, gratis, senza chiave: 2 richieste per giro (classifiche e FPI).
+  site.api.espn.com/apis/site/v2/sports/football/college-football/rankings
+  site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex?season=<anno>&limit=200
+Le squadre si chiamano come nel resto del sito: nome ESPN dall'id del logo (gli id ESPN e CollegeFootballData
+coincidono). Se ESPN non risponde o cambia forma, il blocco resta com'era. Solo libreria standard.
 """
 from __future__ import annotations
 
-import csv
 import datetime as dt
 import json
-import os
+import re
 import sys
+import time
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 RADICE = Path(__file__).resolve().parent.parent
 USCITA = RADICE / "docs" / "home_college.json"
 PUBBLICO = RADICE / "docs" / "data_college.json"
-PARTITE = RADICE / "data" / "college.csv"
-CFBD = "https://api.collegefootballdata.com/rankings"
-UA = "PureStats/1.0 (statistiche sportive)"
-POLL_CFP, POLL_AP = "Playoff Committee Rankings", "AP Top 25"
-CAMPO, TETTO, FRENO = 2.96, 28, 2.0
+UA = {"User-Agent": "Mozilla/5.0 (compatible; PureStats/1.0; statistiche personali)"}
+CLASSIFICHE = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings"
+FPI = ("https://site.web.api.espn.com/apis/fitt/v3/sports/football/college-football/powerindex"
+       "?region=us&lang=en&season={s}&limit=200")
+# colonne della categoria «fpi» (etichette ESPN): le cerchiamo per nome, non per posizione
+COL_PLAYOFF, COL_FINALE = "PLAYOFFS%", "MAKE NC%"
 
 
-def leggi_partite(stagione: int) -> list[dict]:
-    out = []
-    with PARTITE.open(encoding="utf-8") as f:
-        for r in csv.DictReader(f):
-            if r["Stagione"] != str(stagione) or not r["PuntiCasa"] or not r["PuntiOspite"]:
-                continue
-            out.append({"sett": int(r["Settimana"] or 0), "tipo": r["Tipo"], "casa": r["Casa"], "ospite": r["Ospite"],
-                        "pc": int(r["PuntiCasa"]), "po": int(r["PuntiOspite"]),
-                        "neutro": r["CampoNeutro"].strip().lower() in ("1", "true", "si", "sì", "yes")})
+def scarica(url: str):
+    for i in range(3):
+        try:
+            with urlopen(Request(url, headers=UA), timeout=40) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except (HTTPError, URLError, TimeoutError, OSError, ValueError) as e:
+            ultimo = e
+            time.sleep(3 * (i + 1))
+    print(f"Home College: ESPN non risponde per {url.split('?')[0].rsplit('/', 1)[-1]} ({ultimo}).")
+    return None
+
+
+def nomi_da_id(dati: dict) -> dict:
+    """id ESPN → nome usato nel sito, dal numero nell'indirizzo del logo."""
+    out = {}
+    for gruppo in ("loghi", "loghiExtra"):
+        for nome, l in (dati.get(gruppo) or {}).items():
+            m = re.search(r"/(\d+)\.png", l.get("logo") or "")
+            if m:
+                out.setdefault(m.group(1), nome)
     return out
 
 
-def bilanci(partite: list[dict]) -> dict:
-    b = {}
-    for p in partite:
-        for sq, f, s in ((p["casa"], p["pc"], p["po"]), (p["ospite"], p["po"], p["pc"])):
-            v, sc = b.get(sq, (0, 0))
-            b[sq] = (v + (f > s), sc + (f < s))
-    return {k: f"{v}-{s}" for k, (v, s) in b.items()}
+def nome(team: dict, mappa: dict) -> str:
+    return mappa.get(str(team.get("id"))) or team.get("location") or team.get("nickname") or team.get("displayName") or "?"
 
 
-def rating(partite: list[dict], fbs: set[str]) -> dict:
-    """Margine medio corretto per gli avversari (iterazione alla Gauss-Seidel), media FBS = 0."""
-    chi = lambda x: x if x in fbs else "FCS"
-    righe = [(chi(p["casa"]), chi(p["ospite"]),
-              max(-TETTO, min(TETTO, p["pc"] - p["po"])) - (0 if p["neutro"] else CAMPO)) for p in partite]
-    r = {t: 0.0 for c, o, _ in righe for t in (c, o)}
-    for _ in range(300):
-        somma = {t: 0.0 for t in r}
-        conta = {t: 0 for t in r}
-        for c, o, m in righe:
-            somma[c] += m + r[o]; conta[c] += 1
-            somma[o] += -m + r[c]; conta[o] += 1
-        r = {t: somma[t] / (conta[t] + FRENO) for t in r}
-        media = sum(v for t, v in r.items() if t in fbs) / max(1, sum(1 for t in r if t in fbs))
-        r = {t: v - media for t, v in r.items()}
-    return {t: v for t, v in r.items() if t in fbs}
-
-
-def forza(partite: list[dict], fbs: set[str], bil: dict) -> dict | None:
-    if not partite:
+def classifica(dati: dict, mappa: dict) -> dict | None:
+    if not dati:
         return None
-    ultima = max(p["sett"] for p in partite if p["tipo"] == "regular") if any(p["tipo"] == "regular" for p in partite) else 0
-    ora = rating(partite, fbs)
-    prima = rating([p for p in partite if p["tipo"] == "regular" and p["sett"] < ultima], fbs)
-    pos_prima = {t: i + 1 for i, (t, _) in enumerate(sorted(prima.items(), key=lambda x: -x[1]))}
-    lista = sorted(ora.items(), key=lambda x: -x[1])[:25]
-    return {"settimana": ultima, "squadre": [{"pos": i + 1, "prec": pos_prima.get(t), "nome": t, "rating": round(v, 1),
-                                               "bilancio": bil.get(t)} for i, (t, v) in enumerate(lista)]}
+    elenco = dati.get("rankings") or []
+    scelta = next((r for r in elenco if r.get("type") == "cfp"), None) or next((r for r in elenco if r.get("type") == "ap"), None)
+    if not scelta or not scelta.get("ranks"):
+        return None
+    squadre = []
+    for r in scelta["ranks"]:
+        t = r.get("team") or {}
+        squadre.append({"pos": r.get("current"), "prec": r.get("previous") or None, "nome": nome(t, mappa),
+                        "bilancio": r.get("recordSummary"), "conference": r.get("conference"),
+                        "logo": (t.get("logos") or [{}])[0].get("href") or t.get("logo")})
+    w = re.search(r"Week (\d+)", scelta.get("headline") or "")
+    return {"tipo": scelta.get("type"), "titolo": "Classifica ufficiale CFP" if scelta.get("type") == "cfp" else "AP Top 25",
+            "settimana": int(w.group(1)) if w else None, "data": (scelta.get("date") or "")[:10], "squadre": squadre}
 
 
-def chiama_cfbd(stagione: int, vecchio: dict) -> list | None:
-    chiave = os.environ.get("CFBD_API_KEY", "").strip()
-    if not chiave:
-        print("Home College: CFBD_API_KEY non impostata, la classifica resta com'era.")
+def fpi(dati: dict, mappa: dict) -> dict | None:
+    if not dati or not dati.get("teams"):
         return None
-    ora = dt.datetime.now(dt.timezone.utc)
-    if ora.weekday() not in (6, 0, 2, 3):
-        print("Home College: oggi non escono classifiche, nessuna chiamata a CollegeFootballData.")
+    cat = next((c for c in dati.get("categories", []) if c.get("name") == "fpi"), None)
+    etichette = (cat or {}).get("labels") or []
+    if COL_PLAYOFF not in etichette:
+        print(f"Home College: FPI senza la colonna {COL_PLAYOFF}: ESPN ha cambiato forma, il blocco resta com'era.")
         return None
-    letto = vecchio.get("lettoCfbd")
-    if letto and ora - dt.datetime.fromisoformat(letto.replace("Z", "+00:00")) < dt.timedelta(hours=20):
-        print(f"Home College: classifica letta da meno di 20 ore ({letto}), nessuna chiamata.")
-        return None
-    print("Home College: 1 chiamata a CollegeFootballData (/rankings).")
-    try:
-        req = Request(f"{CFBD}?{urlencode({'year': stagione})}",
-                      headers={"User-Agent": UA, "Authorization": f"Bearer {chiave}", "Accept": "application/json"})
-        with urlopen(req, timeout=60) as r:
-            return json.loads(r.read().decode("utf-8"))
-    except (HTTPError, URLError, TimeoutError, OSError, ValueError) as e:
-        print(f"Home College: CollegeFootballData non risponde ({type(e).__name__} {getattr(e, 'code', '')}), la classifica resta com'era.")
-        return None
-
-
-def classifica(dati: list, bil: dict) -> dict | None:
-    """Ultima classifica CFP della stagione; se non è ancora uscita, l'ultimo AP Top 25. Posizione precedente dalla
-    settimana prima dello stesso sondaggio."""
-    for nome_poll, tipo, titolo in ((POLL_CFP, "cfp", "Classifica ufficiale CFP"), (POLL_AP, "ap", "AP Top 25")):
-        uscite = []
-        for w in dati or []:
-            for poll in w.get("polls") or []:
-                if poll.get("poll") == nome_poll and poll.get("ranks"):
-                    uscite.append((w.get("seasonType") == "postseason", w.get("week") or 0, poll["ranks"]))
-        if not uscite:
+    ip, ifin = etichette.index(COL_PLAYOFF), (etichette.index(COL_FINALE) if COL_FINALE in etichette else None)
+    lista = []
+    for x in dati["teams"]:
+        c = next((c for c in x.get("categories", []) if c.get("name") == "fpi"), None)
+        if not c:
             continue
-        uscite.sort()
-        _, sett, ranks = uscite[-1]
-        prima = {x["school"]: x["rank"] for x in uscite[-2][2]} if len(uscite) > 1 else {}
-        return {"tipo": tipo, "titolo": titolo, "settimana": sett,
-                "squadre": [{"pos": x["rank"], "prec": prima.get(x["school"]), "nome": x["school"],
-                             "bilancio": bil.get(x["school"]), "conference": x.get("conference")}
-                            for x in sorted(ranks, key=lambda x: x["rank"])][:25]}
-    print("Home College: nella risposta di CollegeFootballData non c'è né la classifica CFP né l'AP.")
-    return None
+        v = c.get("values") or []
+        if len(v) <= ip:
+            continue
+        t = x.get("team") or {}
+        lista.append({"nome": nome(t, mappa), "conference": ((t.get("group") or {}).get("shortName")),
+                      "fpi": round(v[0], 1), "playoff": round(v[ip], 1),
+                      "finale": round(v[ifin], 1) if ifin is not None and len(v) > ifin else None})
+    lista.sort(key=lambda x: (-x["playoff"], -x["fpi"]))
+    return {"squadre": [x for x in lista if x["playoff"] >= 0.5][:25], "aggiornato": dati.get("lastUpdated")}
 
 
 def main() -> int:
@@ -138,28 +110,22 @@ def main() -> int:
         pubblico = json.loads(PUBBLICO.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         pubblico = {}
+    mappa = nomi_da_id(pubblico)
+    out = dict(vecchio)
+    c = classifica(scarica(CLASSIFICHE), mappa)
+    if c:
+        out["classifica"] = c
+        print(f"Home College: {c['titolo']} (week {c['settimana']}), {len(c['squadre'])} squadre.")
     stagione = max((int(s) for s in pubblico.get("stagioni", []) if str(s).isdigit()), default=dt.date.today().year)
-    fbs = set(pubblico.get("loghi") or {})
-    partite = leggi_partite(stagione)
-    bil = bilanci(partite)
-    out = {k: v for k, v in vecchio.items() if k not in ("fpi",)}
-    dati = chiama_cfbd(stagione, vecchio)
-    if dati is not None:
-        out["lettoCfbd"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
-        c = classifica(dati, bil)
-        if c:
-            out["classifica"] = c
-            print(f"Home College: {c['titolo']} (week {c['settimana']}), {len(c['squadre'])} squadre.")
-    elif out.get("classifica"):
-        for s in out["classifica"].get("squadre", []):        # bilanci aggiornati anche senza chiamata
-            s["bilancio"] = bil.get(s["nome"], s.get("bilancio"))
-            s.pop("logo", None)
-    f = forza(partite, fbs, bil)
+    f = fpi(scarica(FPI.format(s=stagione)), mappa)
     if f:
-        out["forza"] = f
-        print(f"Home College: rating PureStats, prime 25 su {len(fbs)} squadre FBS (fino alla week {f['settimana']}).")
+        out["fpi"] = f
+        print(f"Home College: FPI, {len(f['squadre'])} squadre con almeno lo 0,5% di playoff.")
+    senza = [x["nome"] for x in (out.get("classifica") or {}).get("squadre", []) if x["nome"] not in (pubblico.get("loghi") or {})]
+    if senza:
+        print(f"Home College: nomi non riconosciuti nei loghi del sito: {', '.join(senza)}")
     out["aggiornato"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
-    out["fonte"] = "Classifiche CFP e AP: CollegeFootballData. Rating: PureStats dai risultati della stagione."
+    out["fonte"] = "ESPN: classifica del comitato CFP e Football Power Index"
     tmp = USCITA.with_suffix(".tmp")
     tmp.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     tmp.replace(USCITA)

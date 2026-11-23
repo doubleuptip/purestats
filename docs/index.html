@@ -3140,19 +3140,16 @@ function vaiLegaArticolo(lega, id){ ART_DAL_LINK=id; vaiLega(lega); }
 
 /* ---------- college: classifica CFP e FPI ---------- */
 function collegeCorsaH(H){
-  const c=H.classifica, f=H.forza;
+  const c=H.classifica, f=H.fpi;
   if(!c && !f) return "";
   const cl=c?cardH(`${esc(c.titolo).toUpperCase()}${c.settimana?` · WEEK ${esc(c.settimana)}`:""}`, `<ol class="h-lista due">${c.squadre.map(s=>{
       const mv=s.prec==null?"":s.prec>s.pos?`<span class="h-mov su">▲${s.prec-s.pos}</span>`:s.prec<s.pos?`<span class="h-mov giu">▼${s.pos-s.prec}</span>`:`<span class="h-mov">=</span>`;
       return `<li><span class="h-pos">${s.pos}</span>${stemma(s.nome,true)}<b>${esc(s.nome)}<small>${esc(s.bilancio||"")}${s.conference?" · "+esc(s.conference):""}</small></b>${mv}</li>`;
     }).join("")}</ol><p class="h-nota">${c.tipo==="cfp"?"La classifica del comitato del College Football Playoff: le prime 12 squadre del tabellone vengono da qui (con i posti garantiti ai campioni di conference).":"Prima della classifica del comitato: il sondaggio AP."}</p>`):"";
-  // forza delle squadre: rating PureStats dai risultati (scripts/home_college.py), al posto dell'FPI di ESPN (22/11/2026)
-  const mx=f&&f.squadre&&f.squadre.length?Math.max(...f.squadre.map(x=>x.rating)):1;
-  const fp=f&&f.squadre?cardH(`FORZA DELLE SQUADRE · RATING PURESTATS${f.settimana?` · WEEK ${esc(f.settimana)}`:""}`, `<ol class="h-lista">${f.squadre.slice(0, homeTutte?25:13).map(s=>{
-      const mv=s.prec==null?"":s.prec>s.pos?`<span class="h-mov su">▲${s.prec-s.pos}</span>`:s.prec<s.pos?`<span class="h-mov giu">▼${s.pos-s.prec}</span>`:`<span class="h-mov">=</span>`;
-      return `<li><span class="h-pos">${s.pos}</span>${stemma(s.nome,true)}<b>${esc(s.nome)}<small>${esc(s.bilancio||"")}</small></b>
-        <span class="h-bar"><i style="width:${Math.max(4,Math.round(100*s.rating/mx))}%"></i></span><em>${s.rating>0?"+":""}${numIt(s.rating)}</em>${mv}</li>`;}).join("")}</ol>
-      <p class="h-nota">Il nostro indice di forza: punti di scarto a partita contro una squadra FBS media, corretti per la forza degli avversari e per il fattore campo (scarti oltre i 28 punti non contano di più).</p>`):"";
+  const fp=f&&f.squadre?cardH("PROBABILITÀ DI PLAYOFF · FPI ESPN", `<ol class="h-lista">${f.squadre.slice(0, homeTutte?25:13).map((s,i)=>`
+      <li><span class="h-pos">${i+1}</span>${stemma(s.nome,true)}<b>${esc(s.nome)}<small>finale ${s.finale==null?"–":numIt(s.finale)+"%"}</small></b>
+        <span class="h-bar"><i style="width:${Math.round(s.playoff)}%"></i></span><em>${numIt(s.playoff)}%</em></li>`).join("")}</ol>
+      <p class="h-nota">Stime di ESPN (Football Power Index) sul resto della stagione: probabilità di entrare nei 12 dei playoff e di arrivare alla finale.</p>`):"";
   return sezioneH("La corsa ai playoff", `<div class="h-g11">${cl}${fp}</div>`, `<a href="#" onclick="homeTutteRank();return false">${homeTutte?"Mostra meno":"Mostra tutte"} →</a>`, "grafico");
 }
 function strisciaCollege(wk, H){
@@ -3165,7 +3162,7 @@ function cfpOggiH(H){
   const c=H.classifica; if(!c) return cardH("COLLEGE FOOTBALL PLAYOFF", `<p class="h-nota">La classifica arriva a breve.</p>`);
   return cardH(c.tipo==="cfp"?"SE I PLAYOFF INIZIASSERO OGGI · PRIME 4":"AP TOP 25 · PRIME 4", `<ol class="h-lista">${c.squadre.slice(0,4).map(s=>`
     <li><span class="h-pos">${s.pos}</span>${stemma(s.nome,true)}<b>${esc(s.nome)}<small>${esc(s.bilancio||"")}${s.conference?" · "+esc(s.conference):""}</small></b></li>`).join("")}</ol>
-    <p class="h-nota">${c.data?`Aggiornata ${esc(giornoIt(c.data))}`:c.settimana?`Classifica della week ${esc(c.settimana)}`:""}. Fonte: CollegeFootballData.</p>`, "h-ultima");
+    <p class="h-nota">Aggiornata ${esc(giornoIt(c.data))}.</p>`, "h-ultima");
 }
 
 function vHome(){
