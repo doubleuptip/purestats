@@ -948,8 +948,7 @@ function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"
     <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
     <button id="n-arb" onclick="vai('arbitri')" style="display:none">ARBITRI</button>
     <button id="n-squ" onclick="vai('squadre')" style="display:none">SQUADRE</button>
-    <button id="n-par" onclick="vai('partite')" style="display:none">PARTITE</button>
-    <button id="n-cal" onclick="vai('calendario')" style="display:none">CALENDARIO</button>
+    <button id="n-par" onclick="vai('partite')" style="display:none">CALENDARIO</button>
     <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
     <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
     <button id="n-sta" onclick="window.scrollTo(0,0);schedaStat(ultimaStat)" style="display:none">STATISTICHE</button>
@@ -1376,8 +1375,10 @@ function render(){
   // Le schede del calcio non hanno senso per il football: si nascondono
   const soloFootball = eFootball();
   const soloArb = soloArbitri();
-  [["n-arb",!soloFootball],["n-squ",!soloArb && !soloFootball],["n-par",!soloArb],
-   ["n-cal",!soloFootball && !soloArb]].forEach(([id,visibile])=>{
+  // 23/11/2026 (scelta di Valerio): la voce PARTITE si chiama CALENDARIO in tutto il sito e prende il posto del
+  // vecchio CALENDARIO del calcio, che ora sta in cima alla stessa vista (prossime partite, poi risultati)
+  if(vista==="calendario") vista="partite";
+  [["n-arb",!soloFootball],["n-squ",!soloArb && !soloFootball],["n-par",!soloArb]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
@@ -1405,7 +1406,6 @@ function render(){
   document.getElementById("n-arb").className = vista==="arbitri"?"on":"";
   document.getElementById("n-squ").className = vista==="squadre"?"on":"";
   document.getElementById("n-par").className = vista==="partite"?"on":"";
-  const bc=document.getElementById("n-cal"); if(bc) bc.className = vista==="calendario"?"on":"";
   document.getElementById("n-home").className = vista==="home"?"on":"";
   document.getElementById("n-gio").className = vista==="giornata"?"on":"";
   document.getElementById("n-ind").className = vista==="indici"?"on":"";
@@ -1431,7 +1431,7 @@ function render(){
   }
   else if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
   else if(vista==="squadre") app.innerHTML = vSquadre();
-  else if(vista==="partite") app.innerHTML = vPartite();
+  else if(vista==="partite") app.innerHTML = vCalendario() + vPartite();
   else app.innerHTML = vCalendario();
 
   const conteggi = D.totalePartite!==undefined
@@ -3796,18 +3796,12 @@ function traQuanto(iso){
 
 function vCalendario(){
   if(!calendario){
-    caricaCalendario().then(()=>render()).catch(()=>{
-      const a=document.getElementById("app"); a.className="";
-      a.innerHTML=`<div class="empty">
-        <div style="font-size:26px;margin-bottom:10px">⚑</div>
-        <div class="nome" style="font-size:20px;margin-bottom:10px">CALENDARIO NON DISPONIBILE</div>
-        <div style="font-size:10px;color:${MUTED};line-height:1.9">
-          Manca il file <code>docs/calendario.dat</code>.<br>
-          Lancia il workflow "Aggiorna calendario" dal tab Actions.</div></div>`;
-    });
+    // senza il file delle prossime partite la vista mostra comunque i risultati (vPartite) sotto
+    caricaCalendario().then(()=>render()).catch(()=>{ calendario={campionati:{},errore:true}; render(); });
     return `<div class="loading">Caricamento calendario…</div>`;
   }
 
+  if(calendario.errore) return `<div class="sub" style="margin-top:0">Prossime partite non disponibili in questo momento.</div>`;
   const C = (calendario.campionati||{})[legaAttiva];
   const gare = (C && C.partite) || [];
 

@@ -147,6 +147,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   nel JavaScript (FLUO, MUTED, ... e i grafici) si leggono dal tema con `aggiornaColori()`. Le misure piccole scritte
   nel codice delle viste del calcio (font-size 8-11px) sono portate a 12-14px dal CSS.
 
+- Menu (23/11/2026, scelta di Valerio): la voce PARTITE si chiama CALENDARIO in tutto il sito (vista interna sempre
+  «partite», bottone `n-par`). Nel calcio prende il posto del vecchio CALENDARIO: la stessa vista mostra prima le
+  prossime partite (vCalendario, calendario.dat) e sotto i risultati (vPartite); il vecchio bottone `n-cal` è tolto e
+  «calendario» porta a «partite».
 - Calendario week per week ordinato per orario d'inizio, con data e ora italiane (`dataIt`, `oraIt`): NFL dall'ora
   della costa est di nflverse, college dall'inizio ESPN in UTC (solo le stagioni lette da ESPN nel giro).
 - Matchup: ogni partita è un riquadro chiuso (classe `riquadro`: striscia con i colori delle squadre, bordo,
