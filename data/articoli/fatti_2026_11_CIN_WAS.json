@@ -18,8 +18,8 @@
  "mercato": {
   "favorita": "Cincinnati Bengals",
   "vantaggio": 6.0,
-  "totale": 53.5,
-  "nota": "solo a parole: favoriti di poco (fino a 3), favoriti, nettamente favoriti (da 7,5); molti punti da 49,5, pochi fino a 41"
+  "totale": 54.5,
+  "nota": "solo per dire chi parte favorito, a parole comuni (favoriti di poco fino a 3, favoriti, nettamente favoriti da 7,5), senza citare mercato, bookmaker, linea o totale"
  },
  "precedenti": [
   {
@@ -169,9 +169,41 @@
     "nome": "Jonathan Allen",
     "ruolo": "DT",
     "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Not injury related - resting player",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Jalen Davis",
+    "ruolo": "CB",
+    "stato": "Doubtful",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Hamstring",
+    "giocatoreImportante": false
+   },
+   {
+    "nome": "Oren Burks",
+    "ruolo": "LB",
+    "stato": "Out",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Groin",
+    "giocatoreImportante": false
+   },
+   {
+    "nome": "Dexter Lawrence",
+    "ruolo": "DT",
+    "stato": "(stato non ancora dato)",
     "allenamento": "Did Not Participate In Practice",
     "infortunio": "Not injury related - resting player",
     "giocatoreImportante": true
+   },
+   {
+    "nome": "Dalton Risner",
+    "ruolo": "G",
+    "stato": "Out",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": false
    },
    {
     "nome": "Tee Higgins",
@@ -192,10 +224,18 @@
    {
     "nome": "Daxton Hill",
     "ruolo": "CB",
-    "stato": "(stato non ancora dato)",
+    "stato": "Questionable",
     "allenamento": "Did Not Participate In Practice",
     "infortunio": "Illness",
     "giocatoreImportante": true
+   },
+   {
+    "nome": "Andrei Iosivas",
+    "ruolo": "WR",
+    "stato": "Doubtful",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Thumb",
+    "giocatoreImportante": false
    }
   ]
  },
@@ -295,7 +335,12 @@
     "stagione": "275 yard di corsa, 1 TD",
     "posizioneNellaLega": 38,
     "eta": 27,
-    "rispettoAllAnnoScorso": "sugli stessi livelli"
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "Questionable",
+     "allenamento": "Did Not Participate In Practice",
+     "infortunio": "Heel"
+    }
    },
    {
     "nome": "Stefon Diggs",
@@ -347,6 +392,22 @@
     "giocatoreImportante": true
    },
    {
+    "nome": "Amik Robertson",
+    "ruolo": "CB",
+    "stato": "Questionable",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Ankle",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Rachaad White",
+    "ruolo": "RB",
+    "stato": "Questionable",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Heel",
+    "giocatoreImportante": true
+   },
+   {
     "nome": "Treylon Burks",
     "ruolo": "WR",
     "stato": "(stato non ancora dato)",
@@ -366,7 +427,7 @@
     "nome": "Quan Martin",
     "ruolo": "S",
     "stato": "(stato non ancora dato)",
-    "allenamento": "Limited Participation in Practice",
+    "allenamento": "Full Participation in Practice",
     "infortunio": "Shoulder",
     "giocatoreImportante": true
    },
@@ -381,7 +442,7 @@
    {
     "nome": "Jacory Croskey-Merritt",
     "ruolo": "RB",
-    "stato": "(stato non ancora dato)",
+    "stato": "Questionable",
     "allenamento": "Full Participation in Practice",
     "infortunio": "Groin",
     "giocatoreImportante": true
@@ -391,5 +452,389 @@
  "colori": {
   "ospite": "#FB4F14",
   "casa": "#5A1414"
+ },
+ "partitaGiocata": {
+  "risultato": "Cincinnati Bengals 20 - Washington Commanders 22",
+  "puntiOspite": 20,
+  "puntiCasa": 22,
+  "vincitore": "Washington Commanders",
+  "scarto": 2,
+  "parziali": [
+   {
+    "quarto": "1°",
+    "ospite": 0,
+    "casa": 0
+   },
+   {
+    "quarto": "2°",
+    "ospite": 10,
+    "casa": 7
+   },
+   {
+    "quarto": "3°",
+    "ospite": 7,
+    "casa": 6
+   },
+   {
+    "quarto": "4°",
+    "ospite": 3,
+    "casa": 9
+   }
+  ],
+  "marcature": [
+   {
+    "quarto": "2",
+    "tempo": "06:21",
+    "squadra": "Cincinnati Bengals",
+    "tipo": "field goal",
+    "azione": "McPherson: field goal da 38 yard riuscito",
+    "chi": [
+     "McPherson"
+    ],
+    "giocatori": [
+     "Evan McPherson"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 3 - Washington Commanders 0"
+   },
+   {
+    "quarto": "2",
+    "tempo": "02:00",
+    "squadra": "Cincinnati Bengals",
+    "tipo": "touchdown",
+    "azione": "Burrow lancia lungo a sinistra per Higgins, 31 yard: touchdown",
+    "chi": [
+     "Burrow",
+     "Higgins"
+    ],
+    "giocatori": [
+     "Joe Burrow",
+     "Tee Higgins"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 10 - Washington Commanders 0"
+   },
+   {
+    "quarto": "2",
+    "tempo": "00:16",
+    "squadra": "Washington Commanders",
+    "tipo": "touchdown",
+    "azione": "N.Allegretti and J.Croskey-Merritt left guard for 1 yard, TOUCHDOWN.",
+    "chi": [],
+    "giocatori": [
+     "Jacory Croskey-Merritt"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 10 - Washington Commanders 7"
+   },
+   {
+    "quarto": "3",
+    "tempo": "11:50",
+    "squadra": "Washington Commanders",
+    "tipo": "field goal",
+    "azione": "Stevens: field goal da 36 yard riuscito",
+    "chi": [
+     "Stevens"
+    ],
+    "giocatori": [
+     "Drew Stevens"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 10 - Washington Commanders 10"
+   },
+   {
+    "quarto": "3",
+    "tempo": "07:12",
+    "squadra": "Cincinnati Bengals",
+    "tipo": "touchdown",
+    "azione": "Burrow lancia corto a destra per Young, 4 yard: touchdown",
+    "chi": [
+     "Burrow",
+     "Young"
+    ],
+    "giocatori": [
+     "Joe Burrow",
+     "Colbie Young"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 17 - Washington Commanders 10"
+   },
+   {
+    "quarto": "3",
+    "tempo": "02:40",
+    "squadra": "Washington Commanders",
+    "tipo": "field goal",
+    "azione": "Stevens: field goal da 40 yard riuscito",
+    "chi": [
+     "Stevens"
+    ],
+    "giocatori": [
+     "Drew Stevens"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 17 - Washington Commanders 13"
+   },
+   {
+    "quarto": "4",
+    "tempo": "10:35",
+    "squadra": "Washington Commanders",
+    "tipo": "field goal",
+    "azione": "Stevens: field goal da 25 yard riuscito",
+    "chi": [
+     "Stevens"
+    ],
+    "giocatori": [
+     "Drew Stevens"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 17 - Washington Commanders 16"
+   },
+   {
+    "quarto": "4",
+    "tempo": "02:30",
+    "squadra": "Washington Commanders",
+    "tipo": "field goal",
+    "azione": "Stevens: field goal da 41 yard riuscito",
+    "chi": [
+     "Stevens"
+    ],
+    "giocatori": [
+     "Drew Stevens"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 17 - Washington Commanders 19"
+   },
+   {
+    "quarto": "4",
+    "tempo": "00:50",
+    "squadra": "Cincinnati Bengals",
+    "tipo": "field goal",
+    "azione": "McPherson: field goal da 56 yard riuscito",
+    "chi": [
+     "McPherson"
+    ],
+    "giocatori": [
+     "Evan McPherson"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 20 - Washington Commanders 19"
+   },
+   {
+    "quarto": "4",
+    "tempo": "00:04",
+    "squadra": "Washington Commanders",
+    "tipo": "field goal",
+    "azione": "Stevens: field goal da 26 yard riuscito",
+    "chi": [
+     "Stevens"
+    ],
+    "giocatori": [
+     "Drew Stevens"
+    ],
+    "punteggioDopo": "Cincinnati Bengals 20 - Washington Commanders 22"
+   }
+  ],
+  "momentiDecisivi": [
+   {
+    "quarto": "1",
+    "tempo": "01:01",
+    "squadra": "Cincinnati Bengals",
+    "azione": "Burrow corre sull'esterno sinistro, nessun guadagno",
+    "chi": [
+     "Burrow"
+    ],
+    "giocatori": [
+     "Joe Burrow"
+    ],
+    "probabilitaVittoria": "Washington Commanders da 32% a 38%"
+   },
+   {
+    "quarto": "2",
+    "tempo": "03:02",
+    "squadra": "Cincinnati Bengals",
+    "azione": "Burrow lancia corto al centro per Perine, 44 yard",
+    "chi": [
+     "Burrow",
+     "Perine"
+    ],
+    "giocatori": [
+     "Joe Burrow",
+     "Samaje Perine"
+    ],
+    "probabilitaVittoria": "Washington Commanders da 27% a 18%"
+   },
+   {
+    "quarto": "3",
+    "tempo": "13:44",
+    "squadra": "Washington Commanders",
+    "azione": "Daniels esce dalla tasca e corre centralmente, 47 yard",
+    "chi": [
+     "Daniels"
+    ],
+    "giocatori": [
+     "Jayden Daniels"
+    ],
+    "probabilitaVittoria": "Washington Commanders da 28% a 36%"
+   },
+   {
+    "quarto": "4",
+    "tempo": "01:35",
+    "squadra": "Cincinnati Bengals",
+    "azione": "Burrow subisce un sack, -7 yard (perdita)",
+    "chi": [
+     "Burrow"
+    ],
+    "giocatori": [
+     "Joe Burrow",
+     "Nick Cross"
+    ],
+    "probabilitaVittoria": "Washington Commanders da 35% a 54%"
+   },
+   {
+    "quarto": "4",
+    "tempo": "00:23",
+    "squadra": "Washington Commanders",
+    "azione": "Daniels lancia lungo al centro per Williams, 42 yard",
+    "chi": [
+     "Daniels",
+     "Williams"
+    ],
+    "giocatori": [
+     "Jayden Daniels",
+     "Antonio Williams"
+    ],
+    "probabilitaVittoria": "Washington Commanders da 32% a 98%"
+   }
+  ],
+  "numeri": {
+   "ospiti": {
+    "yardTotali": 313,
+    "yardLancio": 300,
+    "yardCorsa": 32,
+    "azioni": 56,
+    "primiDown": 17,
+    "terziDown": "4/12",
+    "quartiDown": "1/2",
+    "palle perse": 0,
+    "sackSubiti": 3,
+    "penalita": 5,
+    "possesso": "28:29"
+   },
+   "padroniDiCasa": {
+    "yardTotali": 428,
+    "yardLancio": 289,
+    "yardCorsa": 150,
+    "azioni": 62,
+    "primiDown": 23,
+    "terziDown": "2/10",
+    "quartiDown": "0/0",
+    "palle perse": 0,
+    "sackSubiti": 3,
+    "penalita": 5,
+    "possesso": "31:31"
+   }
+  },
+  "protagonisti": {
+   "ospiti": [
+    {
+     "ruolo": "QB",
+     "nome": "Joe Burrow",
+     "completiTentati": "28/40",
+     "yardLanciate": 300,
+     "tdLancio": 2,
+     "intercettiSubiti": 0,
+     "sackSubiti": 3,
+     "yardCorsa": -1
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Samaje Perine",
+     "posizione": "RB",
+     "corse": 6,
+     "yardCorsa": 26,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Mike Gesicki",
+     "posizione": "TE",
+     "ricezioni": 5,
+     "bersagli": 6,
+     "yardRicevute": 77,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Tee Higgins",
+     "posizione": "WR",
+     "ricezioni": 2,
+     "bersagli": 3,
+     "yardRicevute": 43,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Boye Mafe",
+     "posizione": "DE",
+     "placcaggi": 5,
+     "sack": 3.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ],
+   "padroniDiCasa": [
+    {
+     "ruolo": "QB",
+     "nome": "Jayden Daniels",
+     "completiTentati": "23/35",
+     "yardLanciate": 289,
+     "tdLancio": 0,
+     "intercettiSubiti": 0,
+     "sackSubiti": 3,
+     "yardCorsa": 55
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Jacory Croskey-Merritt",
+     "posizione": "RB",
+     "corse": 13,
+     "yardCorsa": 54,
+     "tdCorsa": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Antonio Williams",
+     "posizione": "WR",
+     "ricezioni": 9,
+     "bersagli": 11,
+     "yardRicevute": 122,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Chig Okonkwo",
+     "posizione": "TE",
+     "ricezioni": 4,
+     "bersagli": 5,
+     "yardRicevute": 66,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Tim Settle",
+     "posizione": "DT",
+     "placcaggi": 5,
+     "sack": 1.5,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ]
+  },
+  "contoLaLinea": {
+   "linea": "Cincinnati Bengals favoriti di 6: hanno perso",
+   "totale": "42 punti in tutto contro un totale di 54,5: sotto"
+  },
+  "bilancioDopo": {
+   "ospiti": "7-3",
+   "padroniDiCasa": "4-5-1"
+  },
+  "serieDopo": {
+   "ospiti": "",
+   "padroniDiCasa": "2 vittorie di fila"
+  },
+  "video": ""
  }
 }
