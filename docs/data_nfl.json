@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-23T22:27:39.362988+00:00",
+  "aggiornato": "2026-11-24T12:59:52.907593+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC BY 4.0)",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 1411,
-  "partiteGiocate": 1301,
+  "partiteGiocate": 1302,
   "squadre": [
     {
       "nome": "BUF",
@@ -821,107 +821,6 @@
       ]
     },
     {
-      "nome": "CIN",
-      "nomeCompleto": "Cincinnati Bengals",
-      "conference": "AFC",
-      "division": "AFC North",
-      "partite": 79,
-      "vittorie": 45,
-      "sconfitte": 34,
-      "pareggi": 0,
-      "percVittorie": 57.0,
-      "mediaFatti": 25.6,
-      "mediaSubiti": 23.7,
-      "differenza": 144,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "partite": 9,
-          "vittorie": 7,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 77.8,
-          "puntiFatti": 278,
-          "puntiSubiti": 193,
-          "mediaFatti": 30.9,
-          "mediaSubiti": 21.4,
-          "differenza": 85,
-          "vittorieCasa": 3,
-          "partiteCasa": 4,
-          "vittorieFuori": 4,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2025",
-          "partite": 17,
-          "vittorie": 6,
-          "sconfitte": 11,
-          "pareggi": 0,
-          "percVittorie": 35.3,
-          "puntiFatti": 414,
-          "puntiSubiti": 492,
-          "mediaFatti": 24.4,
-          "mediaSubiti": 28.9,
-          "differenza": -78,
-          "vittorieCasa": 3,
-          "partiteCasa": 9,
-          "vittorieFuori": 3,
-          "partiteFuori": 8
-        },
-        {
-          "stagione": "2024",
-          "partite": 17,
-          "vittorie": 9,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 52.9,
-          "puntiFatti": 472,
-          "puntiSubiti": 434,
-          "mediaFatti": 27.8,
-          "mediaSubiti": 25.5,
-          "differenza": 38,
-          "vittorieCasa": 3,
-          "partiteCasa": 8,
-          "vittorieFuori": 6,
-          "partiteFuori": 9
-        },
-        {
-          "stagione": "2023",
-          "partite": 17,
-          "vittorie": 9,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 52.9,
-          "puntiFatti": 366,
-          "puntiSubiti": 384,
-          "mediaFatti": 21.5,
-          "mediaSubiti": 22.6,
-          "differenza": -18,
-          "vittorieCasa": 6,
-          "partiteCasa": 9,
-          "vittorieFuori": 3,
-          "partiteFuori": 8
-        },
-        {
-          "stagione": "2022",
-          "partite": 19,
-          "vittorie": 14,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 73.7,
-          "puntiFatti": 489,
-          "puntiSubiti": 372,
-          "mediaFatti": 25.7,
-          "mediaSubiti": 19.6,
-          "differenza": 117,
-          "vittorieCasa": 7,
-          "partiteCasa": 8,
-          "vittorieFuori": 7,
-          "partiteFuori": 11
-        }
-      ]
-    },
-    {
       "nome": "DEN",
       "nomeCompleto": "Denver Broncos",
       "conference": "AFC",
@@ -1019,6 +918,107 @@
           "partiteCasa": 8,
           "vittorieFuori": 1,
           "partiteFuori": 9
+        }
+      ]
+    },
+    {
+      "nome": "CIN",
+      "nomeCompleto": "Cincinnati Bengals",
+      "conference": "AFC",
+      "division": "AFC North",
+      "partite": 80,
+      "vittorie": 45,
+      "sconfitte": 35,
+      "pareggi": 0,
+      "percVittorie": 56.2,
+      "mediaFatti": 25.5,
+      "mediaSubiti": 23.7,
+      "differenza": 142,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "partite": 10,
+          "vittorie": 7,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 70.0,
+          "puntiFatti": 298,
+          "puntiSubiti": 215,
+          "mediaFatti": 29.8,
+          "mediaSubiti": 21.5,
+          "differenza": 83,
+          "vittorieCasa": 3,
+          "partiteCasa": 4,
+          "vittorieFuori": 4,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2025",
+          "partite": 17,
+          "vittorie": 6,
+          "sconfitte": 11,
+          "pareggi": 0,
+          "percVittorie": 35.3,
+          "puntiFatti": 414,
+          "puntiSubiti": 492,
+          "mediaFatti": 24.4,
+          "mediaSubiti": 28.9,
+          "differenza": -78,
+          "vittorieCasa": 3,
+          "partiteCasa": 9,
+          "vittorieFuori": 3,
+          "partiteFuori": 8
+        },
+        {
+          "stagione": "2024",
+          "partite": 17,
+          "vittorie": 9,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 52.9,
+          "puntiFatti": 472,
+          "puntiSubiti": 434,
+          "mediaFatti": 27.8,
+          "mediaSubiti": 25.5,
+          "differenza": 38,
+          "vittorieCasa": 3,
+          "partiteCasa": 8,
+          "vittorieFuori": 6,
+          "partiteFuori": 9
+        },
+        {
+          "stagione": "2023",
+          "partite": 17,
+          "vittorie": 9,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 52.9,
+          "puntiFatti": 366,
+          "puntiSubiti": 384,
+          "mediaFatti": 21.5,
+          "mediaSubiti": 22.6,
+          "differenza": -18,
+          "vittorieCasa": 6,
+          "partiteCasa": 9,
+          "vittorieFuori": 3,
+          "partiteFuori": 8
+        },
+        {
+          "stagione": "2022",
+          "partite": 19,
+          "vittorie": 14,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 73.7,
+          "puntiFatti": 489,
+          "puntiSubiti": 372,
+          "mediaFatti": 25.7,
+          "mediaSubiti": 19.6,
+          "differenza": 117,
+          "vittorieCasa": 7,
+          "partiteCasa": 8,
+          "vittorieFuori": 7,
+          "partiteFuori": 11
         }
       ]
     },
@@ -2138,29 +2138,29 @@
       "nomeCompleto": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "partite": 80,
-      "vittorie": 34,
+      "partite": 81,
+      "vittorie": 35,
       "sconfitte": 44,
       "pareggi": 2,
-      "percVittorie": 42.5,
+      "percVittorie": 43.2,
       "mediaFatti": 22.2,
-      "mediaSubiti": 25.4,
-      "differenza": -254,
+      "mediaSubiti": 25.3,
+      "differenza": -252,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 9,
-          "vittorie": 3,
+          "partite": 10,
+          "vittorie": 4,
           "sconfitte": 5,
           "pareggi": 1,
-          "percVittorie": 33.3,
-          "puntiFatti": 196,
-          "puntiSubiti": 223,
+          "percVittorie": 40.0,
+          "puntiFatti": 218,
+          "puntiSubiti": 243,
           "mediaFatti": 21.8,
-          "mediaSubiti": 24.8,
-          "differenza": -27,
-          "vittorieCasa": 2,
-          "partiteCasa": 5,
+          "mediaSubiti": 24.3,
+          "differenza": -25,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
           "vittorieFuori": 1,
           "partiteFuori": 4
         },
@@ -140901,11 +140901,100 @@
       "oraIt": "02:15",
       "casa": "WAS",
       "ospite": "CIN",
-      "pc": null,
-      "po": null,
+      "pc": 22,
+      "po": 20,
       "stadio": "Northwest Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Jayden Daniels",
+          "ruolo": "QB",
+          "valore": 289,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Jacory Croskey-Merritt",
+          "ruolo": "RB",
+          "valore": 54,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Antonio Williams",
+          "ruolo": "WR",
+          "valore": 122,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "9 ric."
+          ]
+        },
+        {
+          "nome": "Stefon Diggs",
+          "ruolo": "WR",
+          "valore": 45,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Chig Okonkwo",
+          "ruolo": "TE",
+          "valore": 66,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Joe Burrow",
+          "ruolo": "QB",
+          "valore": 300,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Samaje Perine",
+          "ruolo": "RB",
+          "valore": 26,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Tee Higgins",
+          "ruolo": "WR",
+          "valore": 43,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Ja'Marr Chase",
+          "ruolo": "WR",
+          "valore": 31,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Mike Gesicki",
+          "ruolo": "TE",
+          "valore": 77,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -143859,15 +143948,94 @@
         "oraIt": "02:15",
         "casa": "WAS",
         "ospite": "CIN",
-        "pc": null,
-        "po": null,
+        "pc": 22,
+        "po": 20,
         "favorita": "CIN",
         "linea": 6.0,
         "totaleLinea": 54.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
-        "stadio": "Northwest Stadium"
+        "battutaDa": "WAS",
+        "totaleEsito": "under",
+        "scartoLinea": 8.0,
+        "stadio": "Northwest Stadium",
+        "highlights": "https://www.youtube.com/results?search_query=Cincinnati+Bengals+vs.+Washington+Commanders+highlights+November+23%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "1",
+            "tempo": "01:01",
+            "squadra": "CIN",
+            "descrizione": "9-J.Burrow left end to CIN 45 for no gain (4-F.Luvu).",
+            "testo": "Burrow corre sull'esterno sinistro, nessun guadagno",
+            "chi": [
+              "Burrow"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 32,
+            "casaDopo": 38
+          },
+          {
+            "quarto": "2",
+            "tempo": "03:02",
+            "squadra": "CIN",
+            "descrizione": "9-J.Burrow pass short middle to 34-S.Perine pushed ob at WAS 34 for 44 yards (39-J.Reaves).",
+            "testo": "Burrow lancia corto al centro per Perine, 44 yard",
+            "chi": [
+              "Burrow",
+              "Perine"
+            ],
+            "yard": 44.0,
+            "touchdown": false,
+            "casaPrima": 27,
+            "casaDopo": 18
+          },
+          {
+            "quarto": "3",
+            "tempo": "13:44",
+            "squadra": "WAS",
+            "descrizione": "5-J.Daniels scrambles up the middle to CIN 14 for 47 yards (6-B.Cook).",
+            "testo": "Daniels esce dalla tasca e corre centralmente, 47 yard",
+            "chi": [
+              "Daniels"
+            ],
+            "yard": 47.0,
+            "touchdown": false,
+            "casaPrima": 28,
+            "casaDopo": 36
+          },
+          {
+            "quarto": "4",
+            "tempo": "01:35",
+            "squadra": "CIN",
+            "descrizione": "9-J.Burrow sacked at WAS 37 for -7 yards (sack split by 25-N.Cross and 56-K.Medrano). ** Injury Update: WAS-29-R.Douglas has returned to the game.",
+            "testo": "Burrow subisce un sack, -7 yard (perdita)",
+            "chi": [
+              "Burrow"
+            ],
+            "yard": -7.0,
+            "touchdown": false,
+            "casaPrima": 35,
+            "casaDopo": 54
+          },
+          {
+            "quarto": "4",
+            "tempo": "00:23",
+            "squadra": "WAS",
+            "descrizione": "(:23) 5-J.Daniels pass deep middle to 14-A.Williams to CIN 8 for 42 yards (0-D.Turner).",
+            "testo": "Daniels lancia lungo al centro per Williams, 42 yard",
+            "chi": [
+              "Daniels",
+              "Williams"
+            ],
+            "yard": 42.0,
+            "touchdown": false,
+            "casaPrima": 32,
+            "casaDopo": 98
+          }
+        ],
+        "video": {
+          "id": "C3ZJX7on7OE",
+          "titolo": "Cincinnati Bengals vs Washington Commanders Game Highlights | 2026 NFL Season Week 11"
+        }
       }
     ],
     "sorprese": [
@@ -143890,12 +144058,12 @@
         "battutaDa": "KC"
       }
     ],
-    "completa": false,
+    "completa": true,
     "riepilogo": {
-      "partite": 12,
+      "partite": 13,
       "favoriteCoperte": 7,
       "over": 7,
-      "under": 5
+      "under": 6
     },
     "prestazioni": {
       "lanci": [
@@ -143932,11 +144100,11 @@
           "dettagli": "1 TD · 2 INT"
         },
         {
-          "nome": "Jared Goff",
+          "nome": "Joe Burrow",
           "ruolo": "QB",
-          "squadra": "DET",
-          "avversario": "TB",
-          "valore": 279,
+          "squadra": "CIN",
+          "avversario": "WAS",
+          "valore": 300,
           "dettagli": "2 TD"
         }
       ],
@@ -143992,6 +144160,14 @@
           "dettagli": "11 ricezioni · 1 TD"
         },
         {
+          "nome": "Antonio Williams",
+          "ruolo": "WR",
+          "squadra": "WAS",
+          "avversario": "CIN",
+          "valore": 122,
+          "dettagli": "9 ricezioni"
+        },
+        {
           "nome": "Mike Evans",
           "ruolo": "WR",
           "squadra": "SF",
@@ -144014,14 +144190,6 @@
           "avversario": "CHI",
           "valore": 102,
           "dettagli": "9 ricezioni"
-        },
-        {
-          "nome": "George Pickens",
-          "ruolo": "WR",
-          "squadra": "DAL",
-          "avversario": "TEN",
-          "valore": 102,
-          "dettagli": "7 ricezioni · 1 TD"
         }
       ],
       "sack": [
@@ -144030,6 +144198,14 @@
           "ruolo": "DT",
           "squadra": "CHI",
           "avversario": "NO",
+          "valore": 3,
+          "dettagli": "3 colpi al QB · 3 placcaggi con perdita"
+        },
+        {
+          "nome": "Boye Mafe",
+          "ruolo": "DE",
+          "squadra": "CIN",
+          "avversario": "WAS",
           "valore": 3,
           "dettagli": "3 colpi al QB · 3 placcaggi con perdita"
         },
@@ -144056,14 +144232,6 @@
           "avversario": "PHI",
           "valore": 2,
           "dettagli": "1 colpi al QB · 2 placcaggi con perdita"
-        },
-        {
-          "nome": "Greg Rousseau",
-          "ruolo": "LB",
-          "squadra": "BUF",
-          "avversario": "MIA",
-          "valore": 2,
-          "dettagli": "2 colpi al QB · 2 placcaggi con perdita"
         }
       ],
       "intercetti": [
@@ -144142,12 +144310,12 @@
           "dettagli": "8 da solo · 5 assist"
         },
         {
-          "nome": "Zayne Anderson",
-          "ruolo": "SAF",
-          "squadra": "MIA",
-          "avversario": "BUF",
+          "nome": "Frankie Luvu",
+          "ruolo": "LB",
+          "squadra": "WAS",
+          "avversario": "CIN",
           "valore": 12,
-          "dettagli": "8 da solo · 4 assist · 1 con perdita"
+          "dettagli": "5 da solo · 7 assist"
         }
       ],
       "fumbleForzati": [
@@ -144238,6 +144406,34 @@
     "giocate": {
       "attacco": [
         {
+          "squadra": "WAS",
+          "avversario": "CIN",
+          "quarto": "4",
+          "tempo": "00:23",
+          "testo": "Daniels lancia lungo al centro per Williams, 42 yard",
+          "yard": 42.0,
+          "touchdown": false,
+          "evento": "",
+          "valore": 37.3,
+          "prima": 42,
+          "dopo": 80,
+          "partita": "2026_11_CIN_WAS"
+        },
+        {
+          "squadra": "CIN",
+          "avversario": "WAS",
+          "quarto": "4",
+          "tempo": "02:00",
+          "testo": "Burrow lancia lungo a destra per Gesicki, 32 yard",
+          "yard": 32.0,
+          "touchdown": false,
+          "evento": "",
+          "valore": 16.8,
+          "prima": 36,
+          "dopo": 52,
+          "partita": "2026_11_CIN_WAS"
+        },
+        {
           "squadra": "BAL",
           "avversario": "CAR",
           "quarto": "4",
@@ -144277,34 +144473,6 @@
           "valore": 12.8,
           "prima": 35,
           "dopo": 48,
-          "partita": "2026_11_BAL_CAR"
-        },
-        {
-          "squadra": "CAR",
-          "avversario": "BAL",
-          "quarto": "4",
-          "tempo": "02:49",
-          "testo": "Young lancia corto al centro per Tremble, 18 yard",
-          "yard": 18.0,
-          "touchdown": false,
-          "evento": "",
-          "valore": 12.8,
-          "prima": 58,
-          "dopo": 71,
-          "partita": "2026_11_BAL_CAR"
-        },
-        {
-          "squadra": "BAL",
-          "avversario": "CAR",
-          "quarto": "2",
-          "tempo": "00:10",
-          "testo": "Brissett lancia lungo al centro per Flowers, 25 yard",
-          "yard": 25.0,
-          "touchdown": false,
-          "evento": "",
-          "valore": 12.5,
-          "prima": 56,
-          "dopo": 69,
           "partita": "2026_11_BAL_CAR"
         }
       ],
@@ -144399,7 +144567,7 @@
           "nome": "Dallas Cowboys",
           "avversario": "TEN",
           "attacco": 0.365,
-          "difesa": -0.131,
+          "difesa": -0.13,
           "netto": 0.235,
           "epaAzione": 0.441,
           "epaConcesso": 0.106,
@@ -144409,7 +144577,7 @@
           "squadra": "DET",
           "nome": "Detroit Lions",
           "avversario": "TB",
-          "attacco": 0.303,
+          "attacco": 0.302,
           "difesa": -0.101,
           "netto": 0.202,
           "epaAzione": 0.287,
@@ -144420,7 +144588,7 @@
           "squadra": "NYJ",
           "nome": "New York Jets",
           "avversario": "LAC",
-          "attacco": 0.225,
+          "attacco": 0.224,
           "difesa": -0.201,
           "netto": 0.024,
           "epaAzione": 0.24,
@@ -144431,8 +144599,8 @@
           "squadra": "KC",
           "nome": "Kansas City Chiefs",
           "avversario": "ARI",
-          "attacco": 0.186,
-          "difesa": 0.131,
+          "attacco": 0.185,
+          "difesa": 0.132,
           "netto": 0.317,
           "epaAzione": 0.256,
           "epaConcesso": -0.139,
@@ -144444,7 +144612,7 @@
           "squadra": "HOU",
           "nome": "Houston Texans",
           "avversario": "IND",
-          "attacco": 0.049,
+          "attacco": 0.048,
           "difesa": 0.246,
           "netto": 0.294,
           "epaAzione": 0.077,
@@ -144488,8 +144656,8 @@
           "squadra": "KC",
           "nome": "Kansas City Chiefs",
           "avversario": "ARI",
-          "attacco": 0.186,
-          "difesa": 0.131,
+          "attacco": 0.185,
+          "difesa": 0.132,
           "netto": 0.317,
           "epaAzione": 0.256,
           "epaConcesso": -0.139,
@@ -144512,8 +144680,8 @@
           "squadra": "KC",
           "nome": "Kansas City Chiefs",
           "avversario": "ARI",
-          "attacco": 0.186,
-          "difesa": 0.131,
+          "attacco": 0.185,
+          "difesa": 0.132,
           "netto": 0.317,
           "epaAzione": 0.256,
           "epaConcesso": -0.139,
@@ -144523,7 +144691,7 @@
           "squadra": "HOU",
           "nome": "Houston Texans",
           "avversario": "IND",
-          "attacco": 0.049,
+          "attacco": 0.048,
           "difesa": 0.246,
           "netto": 0.294,
           "epaAzione": 0.077,
@@ -144602,6 +144770,28 @@
           "netto": -0.1
         },
         {
+          "squadra": "WAS",
+          "nome": "Washington Commanders",
+          "partite": 10,
+          "fatti1": 2.9,
+          "fatti2": 2.4,
+          "subiti1": 2.3,
+          "subiti2": 1.0,
+          "quota": 24.3,
+          "netto": 2.0
+        },
+        {
+          "squadra": "CIN",
+          "nome": "Cincinnati Bengals",
+          "partite": 10,
+          "fatti1": 4.1,
+          "fatti2": 1.0,
+          "subiti1": 3.0,
+          "subiti2": 0.9,
+          "quota": 17.1,
+          "netto": 1.2
+        },
+        {
           "squadra": "PIT",
           "nome": "Pittsburgh Steelers",
           "partite": 10,
@@ -144611,28 +144801,6 @@
           "subiti2": 0.6,
           "quota": 22.9,
           "netto": 1.2
-        },
-        {
-          "squadra": "WAS",
-          "nome": "Washington Commanders",
-          "partite": 9,
-          "fatti1": 2.44,
-          "fatti2": 2.33,
-          "subiti1": 1.78,
-          "subiti2": 0.78,
-          "quota": 21.9,
-          "netto": 2.22
-        },
-        {
-          "squadra": "CIN",
-          "nome": "Cincinnati Bengals",
-          "partite": 9,
-          "fatti1": 3.78,
-          "fatti2": 0.78,
-          "subiti1": 2.56,
-          "subiti2": 0.67,
-          "quota": 14.7,
-          "netto": 1.33
         },
         {
           "squadra": "DAL",
@@ -144889,8 +145057,8 @@
         }
       ],
       "media": {
-        "fatti1": 2.38,
-        "fatti2": 1.42
+        "fatti1": 2.41,
+        "fatti2": 1.43
       },
       "nota": "Punti a partita segnati e subiti dopo il two-minute warning (ultimi 2 minuti) del primo e del secondo tempo; quota = parte dei punti della squadra fatta in quei minuti. Sono pochi minuti a partita: come segnale per giocare va ancora misurata."
     },
@@ -145227,28 +145395,6 @@
           ]
         },
         {
-          "squadra": "CIN",
-          "nome": "Cincinnati Bengals",
-          "partite": 9,
-          "flag": 7.0,
-          "yard": 57.4,
-          "subite": 8.33,
-          "tipi": [
-            [
-              "falsa partenza",
-              12
-            ],
-            [
-              "holding in attacco",
-              12
-            ],
-            [
-              "fuorigioco in difesa",
-              6
-            ]
-          ]
-        },
-        {
           "squadra": "TB",
           "nome": "Tampa Bay Buccaneers",
           "partite": 10,
@@ -145267,28 +145413,6 @@
             [
               "ritardo di gioco",
               8
-            ]
-          ]
-        },
-        {
-          "squadra": "WAS",
-          "nome": "Washington Commanders",
-          "partite": 9,
-          "flag": 7.0,
-          "yard": 53.1,
-          "subite": 6.56,
-          "tipi": [
-            [
-              "falsa partenza",
-              19
-            ],
-            [
-              "holding in attacco",
-              8
-            ],
-            [
-              "ritardo di gioco",
-              6
             ]
           ]
         },
@@ -145333,6 +145457,50 @@
             [
               "interferenza in difesa",
               7
+            ]
+          ]
+        },
+        {
+          "squadra": "CIN",
+          "nome": "Cincinnati Bengals",
+          "partite": 10,
+          "flag": 6.8,
+          "yard": 55.6,
+          "subite": 8.0,
+          "tipi": [
+            [
+              "falsa partenza",
+              12
+            ],
+            [
+              "holding in attacco",
+              12
+            ],
+            [
+              "fuorigioco in difesa",
+              7
+            ]
+          ]
+        },
+        {
+          "squadra": "WAS",
+          "nome": "Washington Commanders",
+          "partite": 10,
+          "flag": 6.8,
+          "yard": 51.8,
+          "subite": 6.4,
+          "tipi": [
+            [
+              "falsa partenza",
+              21
+            ],
+            [
+              "holding in attacco",
+              10
+            ],
+            [
+              "ritardo di gioco",
+              6
             ]
           ]
         },
@@ -145601,7 +145769,7 @@
           ]
         }
       ],
-      "media": 6.99,
+      "media": 6.98,
       "nota": "Penalità accettate a partita (le rifiutate non contano). Se in un'azione ci sono più flag, nflverse ne registra una sola.",
       "arbitri": [
         {
