@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-24T20:59:53.454154+00:00",
+  "aggiornato": "2026-11-25T13:26:29.488161+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC BY 4.0)",
   "stagioni": [
@@ -27280,21 +27280,22 @@
           "dettagli": []
         },
         {
-          "nome": "Velus Jones Jr.",
-          "ruolo": "WR",
-          "valore": 52,
-          "misura": "yard ricevute",
-          "dettagli": [
-            "2 ric."
-          ]
-        },
-        {
           "nome": "Byron Pringle",
           "ruolo": "WR",
           "valore": 34,
           "misura": "yard ricevute",
           "dettagli": [
             "2 ric."
+          ]
+        },
+        {
+          "nome": "Dante Pettis",
+          "ruolo": "WR",
+          "valore": 11,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric.",
+            "1 TD"
           ]
         },
         {
@@ -30663,12 +30664,12 @@
           ]
         },
         {
-          "nome": "Velus Jones Jr.",
+          "nome": "Dante Pettis",
           "ruolo": "WR",
-          "valore": 28,
+          "valore": 19,
           "misura": "yard ricevute",
           "dettagli": [
-            "1 ric."
+            "2 ric."
           ]
         },
         {
@@ -78555,7 +78556,7 @@
           ]
         },
         {
-          "nome": "Audric Estimé",
+          "nome": "Audric Estime",
           "ruolo": "RB",
           "valore": 53,
           "misura": "yard corse",
@@ -87161,7 +87162,7 @@
           ]
         },
         {
-          "nome": "Audric Estimé",
+          "nome": "Audric Estime",
           "ruolo": "RB",
           "valore": 48,
           "misura": "yard corse",
@@ -118097,7 +118098,7 @@
           ]
         },
         {
-          "nome": "Audric Estimé",
+          "nome": "Audric Estime",
           "ruolo": "RB",
           "valore": 19,
           "misura": "yard corse",
@@ -120234,7 +120235,7 @@
           ]
         },
         {
-          "nome": "Audric Estimé",
+          "nome": "Audric Estime",
           "ruolo": "RB",
           "valore": 94,
           "misura": "yard corse",
@@ -120974,7 +120975,7 @@
           ]
         },
         {
-          "nome": "Audric Estimé",
+          "nome": "Audric Estime",
           "ruolo": "RB",
           "valore": 63,
           "misura": "yard corse",
@@ -144555,8 +144556,8 @@
           "squadra": "SF",
           "nome": "San Francisco 49ers",
           "avversario": "MIN",
-          "attacco": 0.38,
-          "difesa": 0.058,
+          "attacco": 0.379,
+          "difesa": 0.059,
           "netto": 0.438,
           "epaAzione": 0.343,
           "epaConcesso": -0.094,
@@ -144578,8 +144579,8 @@
           "nome": "Detroit Lions",
           "avversario": "TB",
           "attacco": 0.302,
-          "difesa": -0.101,
-          "netto": 0.202,
+          "difesa": -0.102,
+          "netto": 0.201,
           "epaAzione": 0.287,
           "epaConcesso": 0.091,
           "partita": "2026_11_TB_DET"
@@ -144588,9 +144589,9 @@
           "squadra": "NYJ",
           "nome": "New York Jets",
           "avversario": "LAC",
-          "attacco": 0.224,
-          "difesa": -0.201,
-          "netto": 0.024,
+          "attacco": 0.223,
+          "difesa": -0.199,
+          "netto": 0.025,
           "epaAzione": 0.24,
           "epaConcesso": 0.168,
           "partita": "2026_11_NYJ_LAC"
@@ -144600,8 +144601,8 @@
           "nome": "Kansas City Chiefs",
           "avversario": "ARI",
           "attacco": 0.185,
-          "difesa": 0.132,
-          "netto": 0.317,
+          "difesa": 0.133,
+          "netto": 0.318,
           "epaAzione": 0.256,
           "epaConcesso": -0.139,
           "partita": "2026_11_ARI_KC"
@@ -144642,6 +144643,17 @@
           "partita": "2026_11_JAX_NYG"
         },
         {
+          "squadra": "KC",
+          "nome": "Kansas City Chiefs",
+          "avversario": "ARI",
+          "attacco": 0.185,
+          "difesa": 0.133,
+          "netto": 0.318,
+          "epaAzione": 0.256,
+          "epaConcesso": -0.139,
+          "partita": "2026_11_ARI_KC"
+        },
+        {
           "squadra": "PIT",
           "nome": "Pittsburgh Steelers",
           "avversario": "PHI",
@@ -144651,17 +144663,6 @@
           "epaAzione": -0.113,
           "epaConcesso": -0.156,
           "partita": "2026_11_PIT_PHI"
-        },
-        {
-          "squadra": "KC",
-          "nome": "Kansas City Chiefs",
-          "avversario": "ARI",
-          "attacco": 0.185,
-          "difesa": 0.132,
-          "netto": 0.317,
-          "epaAzione": 0.256,
-          "epaConcesso": -0.139,
-          "partita": "2026_11_ARI_KC"
         }
       ],
       "migliori": [
@@ -144669,8 +144670,8 @@
           "squadra": "SF",
           "nome": "San Francisco 49ers",
           "avversario": "MIN",
-          "attacco": 0.38,
-          "difesa": 0.058,
+          "attacco": 0.379,
+          "difesa": 0.059,
           "netto": 0.438,
           "epaAzione": 0.343,
           "epaConcesso": -0.094,
@@ -144681,8 +144682,8 @@
           "nome": "Kansas City Chiefs",
           "avversario": "ARI",
           "attacco": 0.185,
-          "difesa": 0.132,
-          "netto": 0.317,
+          "difesa": 0.133,
+          "netto": 0.318,
           "epaAzione": 0.256,
           "epaConcesso": -0.139,
           "partita": "2026_11_ARI_KC"
