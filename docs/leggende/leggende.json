@@ -1,11 +1,11 @@
 {
- "aggiornato": "2026-11-21T06:57+00:00",
+ "aggiornato": "2026-11-25T17:15+00:00",
  "record": {
   "QB": [
    {
     "chiave": "passaggi_yard",
     "titolo": "Yard lanciate",
-    "aggiornataWiki": "Through Week 11 Thursday game of 2026 season.",
+    "aggiornataWiki": "Through Week 11 of 2026 season.",
     "fonte": {
      "titolo": "List of NFL career passing yards leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_passing_yards_leaders"
@@ -66,7 +66,7 @@
      {
       "pos": 5,
       "nome": "Aaron Rodgers",
-      "valore": 68288.0,
+      "valore": 68515.0,
       "squadre": [
        "Green Bay Packers",
        "New York Jets",
@@ -145,7 +145,7 @@
    {
     "chiave": "passaggi_td",
     "titolo": "Touchdown lanciati",
-    "aggiornataWiki": "Through Week 11 Thursday game of 2026 season.",
+    "aggiornataWiki": "Through Week 11 of 2026 season.",
     "fonte": {
      "titolo": "List of NFL career passing touchdowns leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_passing_touchdowns_leaders"
@@ -180,7 +180,7 @@
      {
       "pos": 3,
       "nome": "Aaron Rodgers",
-      "valore": 542.0,
+      "valore": 543.0,
       "squadre": [
        "Green Bay Packers",
        "New York Jets",
@@ -287,7 +287,7 @@
    {
     "chiave": "corse_yard",
     "titolo": "Yard di corsa",
-    "aggiornataWiki": "Through Week 10 of the 2026 season.",
+    "aggiornataWiki": "Through Week 11 of the 2026 season.",
     "fonte": {
      "titolo": "List of NFL career rushing yards leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_rushing_yards_leaders"
@@ -362,7 +362,7 @@
      {
       "pos": 7,
       "nome": "Derrick Henry",
-      "valore": 13717.0,
+      "valore": 13811.0,
       "squadre": [
        "Tennessee Titans (2016–2023); Baltimore Ravens (2024–present)"
       ],
@@ -411,7 +411,7 @@
    {
     "chiave": "corse_td",
     "titolo": "Touchdown di corsa",
-    "aggiornataWiki": "Through Week 10 of the 2026 season",
+    "aggiornataWiki": "Through Week 11 of the 2026 season",
     "fonte": {
      "titolo": "List of NFL career rushing touchdowns leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_rushing_touchdowns_leaders"
@@ -443,7 +443,7 @@
      {
       "pos": 3,
       "nome": "Derrick Henry",
-      "valore": 132.0,
+      "valore": 133.0,
       "squadre": [
        "Tennessee Titans (2016–2023); Baltimore Ravens (2024–present)"
       ],
@@ -538,7 +538,7 @@
    {
     "chiave": "ricezioni_yard",
     "titolo": "Yard ricevute",
-    "aggiornataWiki": "Through Week 10 of 2026 season.",
+    "aggiornataWiki": "Through Week 11 of 2026 season.",
     "fonte": {
      "titolo": "List of NFL career receiving yards leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receiving_yards_leaders"
@@ -662,7 +662,7 @@
    {
     "chiave": "ricezioni",
     "titolo": "Ricezioni",
-    "aggiornataWiki": "Through Week 10 of 2026 season",
+    "aggiornataWiki": "Through Week 11 of 2026 season",
     "fonte": {
      "titolo": "List of NFL career receptions leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receptions_leaders"
@@ -717,7 +717,7 @@
      {
       "pos": 5,
       "nome": "Travis Kelce",
-      "valore": 1115.0,
+      "valore": 1121.0,
       "squadre": [
        "Kansas City Chiefs (2013–present)"
       ],
@@ -728,6 +728,18 @@
      },
      {
       "pos": 6,
+      "nome": "Keenan Allen",
+      "valore": 1103.0,
+      "squadre": [
+       "San Diego/Los Angeles Chargers (2013–2023, 2025); Chicago Bears (2024); Indianapolis Colts (2026–present)"
+      ],
+      "ruolo": "",
+      "hof": false,
+      "attivo": true,
+      "verifica": "nflverse"
+     },
+     {
+      "pos": 7,
       "nome": "Marvin Harrison",
       "valore": 1102.0,
       "squadre": [
@@ -738,7 +750,7 @@
       "attivo": false
      },
      {
-      "pos": 7,
+      "pos": 8,
       "nome": "Cris Carter",
       "valore": 1101.0,
       "squadre": [
@@ -747,18 +759,6 @@
       "ruolo": "",
       "hof": true,
       "attivo": false
-     },
-     {
-      "pos": 8,
-      "nome": "Keenan Allen",
-      "valore": 1100.0,
-      "squadre": [
-       "San Diego/Los Angeles Chargers (2013–2023, 2025); Chicago Bears (2024); Indianapolis Colts (2026–present)"
-      ],
-      "ruolo": "",
-      "hof": false,
-      "attivo": true,
-      "verifica": "nflverse"
      },
      {
       "pos": 9,
@@ -788,7 +788,7 @@
    {
     "chiave": "ricezioni_td",
     "titolo": "Touchdown su ricezione",
-    "aggiornataWiki": "Through Week 10 of 2026 season.",
+    "aggiornataWiki": "Through Week 11 of 2026 season.",
     "fonte": {
      "titolo": "List of NFL career receiving touchdowns leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receiving_touchdowns_leaders"
@@ -887,6 +887,17 @@
      },
      {
       "pos": 9,
+      "nome": "Mike Evans",
+      "valore": 112.0,
+      "squadre": [
+       "Tampa Bay Buccaneers (2014–2025); San Francisco 49ers (2026–present)"
+      ],
+      "ruolo": "",
+      "hof": false,
+      "attivo": true
+     },
+     {
+      "pos": 10,
       "nome": "Tony Gonzalez",
       "valore": 111.0,
       "squadre": [
@@ -895,17 +906,6 @@
       "ruolo": "",
       "hof": true,
       "attivo": false
-     },
-     {
-      "pos": 9,
-      "nome": "Mike Evans",
-      "valore": 111.0,
-      "squadre": [
-       "Tampa Bay Buccaneers (2014–2025); San Francisco 49ers (2026–present)"
-      ],
-      "ruolo": "",
-      "hof": false,
-      "attivo": true
      }
     ],
     "nota": ""
@@ -915,7 +915,7 @@
    {
     "chiave": "ricezioni_yard",
     "titolo": "Yard ricevute",
-    "aggiornataWiki": "Through Week 10 of 2026 season.",
+    "aggiornataWiki": "Through Week 11 of 2026 season.",
     "fonte": {
      "titolo": "List of NFL career receiving yards leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receiving_yards_leaders"
@@ -935,7 +935,7 @@
      {
       "pos": 2,
       "nome": "Travis Kelce",
-      "valore": 13514.0,
+      "valore": 13588.0,
       "squadre": [
        "Kansas City Chiefs (2013–present)"
       ],
@@ -985,7 +985,7 @@
    {
     "chiave": "ricezioni",
     "titolo": "Ricezioni",
-    "aggiornataWiki": "Through Week 10 of 2026 season",
+    "aggiornataWiki": "Through Week 11 of 2026 season",
     "fonte": {
      "titolo": "List of NFL career receptions leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receptions_leaders"
@@ -1017,7 +1017,7 @@
      {
       "pos": 3,
       "nome": "Travis Kelce",
-      "valore": 1115.0,
+      "valore": 1121.0,
       "squadre": [
        "Kansas City Chiefs (2013–present)"
       ],
@@ -1044,7 +1044,7 @@
    {
     "chiave": "ricezioni_td",
     "titolo": "Touchdown su ricezione",
-    "aggiornataWiki": "Through Week 10 of 2026 season.",
+    "aggiornataWiki": "Through Week 11 of 2026 season.",
     "fonte": {
      "titolo": "List of NFL career receiving touchdowns leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receiving_touchdowns_leaders"
@@ -1100,7 +1100,7 @@
      {
       "pos": 5,
       "nome": "Travis Kelce",
-      "valore": 84.0,
+      "valore": 86.0,
       "squadre": [
        "Kansas City Chiefs (2013–present)"
       ],
@@ -1117,7 +1117,7 @@
    {
     "chiave": "sack",
     "titolo": "Sack (ufficiali dal 1982)",
-    "aggiornataWiki": "through Week 10 of the 2026 NFL season.",
+    "aggiornataWiki": "through Week 11 of the 2026 NFL season.",
     "fonte": {
      "titolo": "List of NFL career sacks leaders",
      "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_sacks_leaders"
@@ -1428,7 +1428,7 @@
      {
       "pos": 4,
       "nome": "Andy Reid",
-      "valore": 286.0,
+      "valore": 287.0,
       "squadre": [
        "Philadelphia Eagles",
        "Kansas City Chiefs"
@@ -2899,10 +2899,10 @@
    "detentoreAttivo": false,
    "vicino": {
     "nome": "Aaron Rodgers",
-    "valore": 68288.0,
+    "valore": 68515.0,
     "pos": 5
    },
-   "aggiornataWiki": "Through Week 11 Thursday game of 2026 season.",
+   "aggiornataWiki": "Through Week 11 of 2026 season.",
    "fonte": {
     "titolo": "List of NFL career passing yards leaders",
     "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_passing_yards_leaders"
@@ -2921,10 +2921,10 @@
    "detentoreAttivo": false,
    "vicino": {
     "nome": "Aaron Rodgers",
-    "valore": 542.0,
+    "valore": 543.0,
     "pos": 3
    },
-   "aggiornataWiki": "Through Week 11 Thursday game of 2026 season.",
+   "aggiornataWiki": "Through Week 11 of 2026 season.",
    "fonte": {
     "titolo": "List of NFL career passing touchdowns leaders",
     "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_passing_touchdowns_leaders"
@@ -2942,10 +2942,10 @@
    "detentoreAttivo": false,
    "vicino": {
     "nome": "Derrick Henry",
-    "valore": 13717.0,
+    "valore": 13811.0,
     "pos": 7
    },
-   "aggiornataWiki": "Through Week 10 of the 2026 season.",
+   "aggiornataWiki": "Through Week 11 of the 2026 season.",
    "fonte": {
     "titolo": "List of NFL career rushing yards leaders",
     "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_rushing_yards_leaders"
@@ -2963,10 +2963,10 @@
    "detentoreAttivo": false,
    "vicino": {
     "nome": "Derrick Henry",
-    "valore": 132.0,
+    "valore": 133.0,
     "pos": 3
    },
-   "aggiornataWiki": "Through Week 10 of the 2026 season",
+   "aggiornataWiki": "Through Week 11 of the 2026 season",
    "fonte": {
     "titolo": "List of NFL career rushing touchdowns leaders",
     "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_rushing_touchdowns_leaders"
@@ -2984,10 +2984,10 @@
    "detentoreAttivo": false,
    "vicino": {
     "nome": "Travis Kelce",
-    "valore": 13514.0,
+    "valore": 13588.0,
     "pos": 17
    },
-   "aggiornataWiki": "Through Week 10 of 2026 season.",
+   "aggiornataWiki": "Through Week 11 of 2026 season.",
    "fonte": {
     "titolo": "List of NFL career receiving yards leaders",
     "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receiving_yards_leaders"
@@ -3005,10 +3005,10 @@
    "detentoreAttivo": false,
    "vicino": {
     "nome": "Travis Kelce",
-    "valore": 1115.0,
+    "valore": 1121.0,
     "pos": 5
    },
-   "aggiornataWiki": "Through Week 10 of 2026 season",
+   "aggiornataWiki": "Through Week 11 of 2026 season",
    "fonte": {
     "titolo": "List of NFL career receptions leaders",
     "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receptions_leaders"
@@ -3029,7 +3029,7 @@
     "valore": 121.0,
     "pos": 7
    },
-   "aggiornataWiki": "Through Week 10 of 2026 season.",
+   "aggiornataWiki": "Through Week 11 of 2026 season.",
    "fonte": {
     "titolo": "List of NFL career receiving touchdowns leaders",
     "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_receiving_touchdowns_leaders"
@@ -3050,7 +3050,7 @@
     "valore": 139.5,
     "pos": 7
    },
-   "aggiornataWiki": "through Week 10 of the 2026 NFL season.",
+   "aggiornataWiki": "through Week 11 of the 2026 NFL season.",
    "fonte": {
     "titolo": "List of NFL career sacks leaders",
     "url": "https://en.wikipedia.org/wiki/List_of_NFL_career_sacks_leaders"
@@ -3087,7 +3087,7 @@
    "detentoreAttivo": false,
    "vicino": {
     "nome": "Andy Reid",
-    "valore": 286.0,
+    "valore": 287.0,
     "pos": 4
    },
    "aggiornataWiki": "",
