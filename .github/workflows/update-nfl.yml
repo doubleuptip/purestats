@@ -72,6 +72,12 @@ jobs:
         continue-on-error: true
         run: python scripts/statistiche.py nfl
 
+      - name: Pagine statiche per Google (week, squadre, classifica, calendario, archivio, sitemap)
+        # Qui e non in pagine-statiche.yml: i commit fatti con GITHUB_TOKEN non lanciano altri workflow, quindi
+        # il push di data_nfl.json non lo farebbe partire. Un solo commit per giro; se fallisce restano le pagine di prima.
+        continue-on-error: true
+        run: python scripts/pagine_statiche.py
+
       - name: Committa le modifiche
         run: |
           git config user.name  "github-actions[bot]"
@@ -81,6 +87,7 @@ jobs:
           [ -f docs/home_nfl.json ] && git add docs/home_nfl.json
           [ -f docs/duelli_nfl.dat ] && git add docs/duelli_nfl.dat
           git add docs/stats/nfl_*.json docs/stats/indice_nfl.json 2>/dev/null || true
+          git add -A docs/nfl docs/a docs/l docs/archivio.html docs/chi-siamo.html docs/sitemap.xml docs/robots.txt docs/404.html 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "Nessuna variazione."
             exit 0

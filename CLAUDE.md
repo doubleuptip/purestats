@@ -289,6 +289,19 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   strutturati, più `sitemap.xml`, `robots.txt` e `404.html`. Indirizzo di base da `docs/CNAME`, altrimenti GitHub
   Pages. Legge solo file pubblici; si ferma se trova termini della parte privata o delle scommesse. Le pagine
   rimandano al sito con `#articolo=` / `#leggenda=`.
+- Pagine NFL, archivio e Chi siamo (25/11/2026, scelta di Valerio del 22/11; solo NFL, il college a dicembre dopo il
+  passaggio a CollegeFootballData): lo stesso `pagine_statiche.py` scrive `docs/archivio.html` (tutti gli articoli e
+  racconti, dal più recente), `docs/chi-siamo.html`, `docs/nfl/week/<stagione>-<N>.html` (week giocate e quella in corso:
+  orari italiani, punteggi, bollino «Inclusa in DAZN», anteprima/cronaca), `docs/nfl/squadre/<sigla>.html` (32, sigle
+  di data_nfl.json: i Rams sono LA; stemma PureStats in SVG come svgStemma, mai loghi), `docs/nfl/classifica.html`
+  (division e conference, ordine del sito: % vittorie e differenza, senza spareggi ufficiali) e `docs/nfl/calendario.html`
+  (week in corso e prossima). Legge solo data_nfl.json, tv_italia.json, stemmi.json e gli indici di articoli e racconti.
+  `controlla_nuova` (VIETATE_NUOVE) rifiuta anche linea, totale, over/under, quote, favorite, mercato. dateModified e
+  lastmod della sitemap cambiano SOLO se il contenuto della pagina cambia (`con_data` confronta col file già scritto):
+  i giri ripetuti non cambiano nulla. Si rifanno nel workflow NFL (passo prima del commit: i commit con GITHUB_TOKEN non
+  lanciano pagine-statiche.yml) e in pagine-statiche.yml. «Apri nel sito» usa `#vista=<partite|squadre|articoli…>` e
+  `#squadra=<sigla>` (index.html, VISTA_DAL_LINK / SQUADRA_DAL_LINK). Piede di index.html: ARCHIVIO e CHI SIAMO.
+  Chi siamo va riletto da Valerio (può aggiungere 2-3 righe sue).
 - Alla prima attivazione del dominio: docs/CNAME con `purestats.it`, og:url/og:image di index.html sul nuovo
   dominio, User-Agent degli script (articoli, leggende, tv_italia) e indirizzo di duelli.html nel bot. Le chiavi
   ricordate (localStorage) valgono per dominio: su purestats.it Valerio rifà l'accesso una volta.
@@ -511,8 +524,8 @@ davvero che si veda quello che deve vedersi.
   7. DECISO il 22/11 (Valerio: «restano, non creano problemi»): bollini DAZN letti in automatico come oggi, anche con
      la pubblicità (condizioni lette: uso «personale e non commerciale», nessun divieto di robot).
   8. DECISO il 22/11: i vecchi dati del calcio restano nella storia git (in chiaro fino al 17/11, medie da CSV pubblici).
-  In attesa (Valerio: «aspetta», 22/11): GoatCounter e nuove pagine statiche (Chi siamo, archivio, week, squadre,
-  classifica, calendario); commercialista prima dei dati di pagamento AdSense (lo fa Valerio). Piano nel documento
+  FATTO il 25/11: pagine statiche NFL (Chi siamo, archivio, week, squadre, classifica, calendario; college a dicembre).
+  In attesa (Valerio: «aspetta», 22/11): GoatCounter; commercialista prima dei dati di pagamento AdSense (lo fa Valerio). Piano nel documento
   https://claude.ai/artifact/UBgHBMkY3GmWwFTGFMd4Xa
   Altro emerso: titolo della pagina «PureStats · Premier League» e descrizione che cita calcio/linee/arbitri (da
   correggere per vista); articoli e racconti con indirizzi #… non indicizzabili da Google (servono pagine HTML statiche

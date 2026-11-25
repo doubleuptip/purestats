@@ -1045,6 +1045,9 @@ if (!CHIAVE) for (let i = LEGHE.length - 1; i >= 0; i--) if (LEGHE[i].privato) L
 addEventListener("hashchange", () => { if (/(?:^#|&)k=/.test(location.hash)) location.reload(); });
 let ART_DAL_LINK = (location.hash.match(/^#articolo=([A-Za-z0-9_-]+)$/)||[])[1] || null;
 let LEG_DAL_LINK = (location.hash.match(/^#leggenda=([a-z0-9-]+)$/)||[])[1] || null;
+/* Pagine statiche NFL (25/11/2026): «Apri nel sito» porta alla vista con #vista=<nome> o alla scheda #squadra=<sigla> */
+let VISTA_DAL_LINK = (location.hash.match(/^#vista=(home|partite|squadre|giornata|statistiche|articoli|leggende)$/)||[])[1] || null;
+let SQUADRA_DAL_LINK = (location.hash.match(/^#squadra=([A-Z]{2,3})$/)||[])[1] || null;
 /* Avviso discreto se il collegamento privato non funziona (si vede solo a chi ha messo #k= nell'indirizzo) */
 function avvisoChiave(testo){
   const d = document.createElement("div");
@@ -1398,6 +1401,8 @@ function render(){
   if(vista==="leggende" && !soloFootball) vista = "arbitri";
   if(ART_DAL_LINK && soloFootball){ vista="articoli"; ART_APERTO=ART_DAL_LINK; ART_DAL_LINK=null; }
   if(LEG_DAL_LINK && soloFootball){ vista="leggende"; LEG_APERTO=LEG_DAL_LINK; LEG_DAL_LINK=null; LEG_SEGUI=true; }
+  if(VISTA_DAL_LINK && soloFootball){ vista=VISTA_DAL_LINK; VISTA_DAL_LINK=null; if(vista==="squadre") ultimaStat="classifica"; }
+  if(SQUADRA_DAL_LINK && soloFootball){ vista="squadre"; ultimaStat="classifica"; if((D.squadre||[]).some(x=>x.nome===SQUADRA_DAL_LINK)) squadraAperta=SQUADRA_DAL_LINK; SQUADRA_DAL_LINK=null; }
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
     const b=document.getElementById("lg-"+l.id);
@@ -1450,6 +1455,8 @@ function render(){
      <button class="pie-apri" onclick="apriLegale()">
        ${legaleAperto?"▴ CHIUDI":"▾ FONTI E CONDIZIONI D'USO"}</button>
      <a class="pie-apri" href="privacy.html">PRIVACY</a>
+     <a class="pie-apri" href="archivio.html">ARCHIVIO</a>
+     <a class="pie-apri" href="chi-siamo.html">CHI SIAMO</a>
      ${legaleAperto?testoLegale():""}`;
 
   if(vista==="arbitri"&&arbitroAperto) gScheda();

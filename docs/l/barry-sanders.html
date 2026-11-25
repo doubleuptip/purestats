@@ -12,8 +12,10 @@
 <meta property="og:description" content="Barry Sanders era alto un metro e 73 ed è stato uno dei corridori più sfuggenti nella storia della NFL. Prima, all&#x27;università di Oklahoma State, aveva…">
 <meta property="og:url" content="https://purestats.it/l/barry-sanders.html">
 <meta property="og:image" content="https://purestats.it/brand/anteprima-link-scuro.png">
+<meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../icona.svg" type="image/svg+xml">
+<link href="../font/font.css" rel="stylesheet">
 <meta name="theme-color" content="#0B0F1A" id="coloreTema">
 <script>/* Tema (22/11/2026, scelta di Valerio): scuro per tutti; il bottone passa al chiaro e la scelta resta su questo dispositivo (localStorage «purestats_tema», seconda eccezione alla regola). */
 (function(){var t="scuro";try{if(localStorage.getItem("purestats_tema")==="chiaro")t="chiaro"}catch(e){}document.documentElement.dataset.tema=t;if(t==="chiaro")document.getElementById("coloreTema").content="#E9EDF2"})();
@@ -22,8 +24,11 @@ function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"
 :root{--fondo:#E9EDF2;--carta:#fff;--testo:#0B1428;--tenue:#5B6476;--acc:#C8102E;--bordo:#D5DBE3}
 html:not([data-tema="chiaro"]){--fondo:#0B1428;--carta:#121D35;--testo:#E8ECF3;--tenue:#9AA5B8;--acc:#EF4444;--bordo:#22304F}
 *{box-sizing:border-box}
-body{margin:0;background:var(--fondo);color:var(--testo);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{margin:0;background:var(--fondo);color:var(--testo);font:17px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 header,main,footer{max-width:760px;margin:0 auto;padding:0 16px}
+body.largo header,body.largo main,body.largo footer{max-width:900px}
+h1,h2,.marchio{font-family:"Barlow Condensed",Inter,sans-serif;letter-spacing:.01em}
+html[data-tema="chiaro"] h1,html[data-tema="chiaro"] h2,html[data-tema="chiaro"] .marchio{font-family:Archivo,Inter,sans-serif;letter-spacing:0}
 header{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:18px;padding-bottom:18px}
 .apri{margin-left:auto}
 .tema-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;margin:0;opacity:.55;transition:opacity .15s}.tema-btn:hover,.tema-btn:focus-visible{opacity:1}.tema-btn svg{width:17px;height:17px;display:block}html:not([data-tema="chiaro"]) .t-luna,html[data-tema="chiaro"] .t-sole{display:none}
@@ -47,12 +52,45 @@ p{margin:0 0 16px}
 .bottone{display:inline-block;margin:6px 0 18px;padding:10px 16px;border-radius:10px;background:var(--acc);color:#fff!important;text-decoration:none;font-weight:600}
 footer{color:var(--tenue);font-size:13px;padding-top:22px;padding-bottom:30px}
 footer a{color:var(--tenue)}
-@media (max-width:520px){h1{font-size:24px}.corpo{padding:18px 16px 20px}}
+h2{font-size:22px;line-height:1.25;margin:26px 0 10px}
+.naviga{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;margin:0 0 16px}
+.naviga a{color:var(--acc);text-decoration:none;font-weight:600}
+.elenco{list-style:none;padding:0;margin:0 0 8px}
+.elenco li{border-top:1px solid var(--bordo);padding:10px 0}
+.elenco li:first-child{border-top:0}
+.elenco a{color:var(--testo);font-weight:600;text-decoration:none}
+.elenco a:hover{color:var(--acc)}
+.elenco small{display:block;color:var(--tenue);font-size:13px}
+.gara{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center}
+.squadre-gara{display:flex;flex-direction:column;gap:4px}
+.sq{display:flex;align-items:center;gap:8px;font-weight:600}
+.sq a{color:var(--testo);text-decoration:none}
+.sq a:hover{color:var(--acc)}
+.sq.vince{font-weight:800}
+.sq .pt{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:800;min-width:2ch;text-align:right}
+.st{display:inline-block;width:26px;height:26px;flex:none}
+.st svg{width:100%;height:100%;display:block}
+.st.grande{width:72px;height:72px}
+.quando{color:var(--tenue);font-size:13px;text-align:right}
+.dett{grid-column:1/-1;color:var(--tenue);font-size:13px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center}
+.dett a{color:var(--acc)}
+.bollino{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:999px;border:1px solid var(--acc);color:var(--acc)}
+.tabella{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;margin:0 0 10px}
+.tabella th{font-size:12px;color:var(--tenue);text-align:right;font-weight:600;padding:6px 6px;border-bottom:1px solid var(--bordo)}
+.tabella td{text-align:right;padding:8px 6px;border-bottom:1px solid var(--bordo)}
+.tabella th:first-child,.tabella td:first-child{text-align:left}
+.tabella td:first-child a{color:var(--testo);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.tabella td:first-child a:hover{color:var(--acc)}
+.scorri{overflow-x:auto}
+.testa-squadra{display:flex;align-items:center;gap:16px;margin:0 0 12px}
+.testa-squadra h1{margin:0}
+.nota{color:var(--tenue);font-size:14px}
+@media (max-width:520px){h1{font-size:24px}.corpo{padding:18px 16px 20px}.tabella{font-size:14px}.tabella .facolt{display:none}.gara{grid-template-columns:1fr}.quando{text-align:left;grid-row:2}.st.grande{width:56px;height:56px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Barry Sanders, l'addio al massimo", "description": "Barry Sanders era alto un metro e 73 ed è stato uno dei corridori più sfuggenti nella storia della NFL. Prima, all'università di Oklahoma State, aveva…", "inLanguage": "it", "author": {"@type": "Organization", "name": "PureStats"}, "mainEntityOfPage": "https://purestats.it/l/barry-sanders.html"}</script>
 </head>
 <body>
-<header><a class="marchio" href="../">PURE<span>STATS</span></a><a class="apri" href="../">Apri il sito →</a><button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button></header>
+<header><a class="marchio" href="../">PURE<span>STATS</span></a><a class="apri" href="../">Apri nel sito →</a><button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button></header>
 <main>
 <article>
 <div class="copertina" style="height:14px;background:linear-gradient(90deg,#0076B6,#B0B7BC)"></div>
@@ -73,6 +111,6 @@ footer a{color:var(--tenue)}
 </div>
 </article>
 </main>
-<footer>PureStats · statistiche NFL e college football · <a href="../">pagina principale</a> · <a href="../privacy.html">privacy</a></footer>
+<footer>PureStats · statistiche NFL e college football · <a href="../">pagina principale</a> · <a href="../nfl/calendario.html">calendario NFL</a> · <a href="../nfl/classifica.html">classifica NFL</a> · <a href="../archivio.html">archivio</a> · <a href="../chi-siamo.html">chi siamo</a> · <a href="../privacy.html">privacy</a></footer>
 </body>
 </html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chi siamo · PureStats</title>
+<meta name="description" content="PureStats è un sito italiano di statistiche su NFL e college football: chi lo cura, da dove vengono i dati e come sono fatti gli articoli.">
+<link rel="canonical" href="https://purestats.it/chi-siamo.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PureStats">
+<meta property="og:title" content="Chi siamo">
+<meta property="og:description" content="PureStats è un sito italiano di statistiche su NFL e college football: chi lo cura, da dove vengono i dati e come sono fatti gli articoli.">
+<meta property="og:url" content="https://purestats.it/chi-siamo.html">
+<meta property="og:image" content="https://purestats.it/brand/anteprima-link-scuro.png">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link href="font/font.css" rel="stylesheet">
+<meta name="theme-color" content="#0B0F1A" id="coloreTema">
+<script>/* Tema (22/11/2026, scelta di Valerio): scuro per tutti; il bottone passa al chiaro e la scelta resta su questo dispositivo (localStorage «purestats_tema», seconda eccezione alla regola). */
+(function(){var t="scuro";try{if(localStorage.getItem("purestats_tema")==="chiaro")t="chiaro"}catch(e){}document.documentElement.dataset.tema=t;if(t==="chiaro")document.getElementById("coloreTema").content="#E9EDF2"})();
+function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"?"scuro":"chiaro";r.dataset.tema=t;try{localStorage.setItem("purestats_tema",t)}catch(e){}document.getElementById("coloreTema").content=t==="chiaro"?"#E9EDF2":"#0B0F1A";document.dispatchEvent(new Event("tema"))}</script>
+<style>
+:root{--fondo:#E9EDF2;--carta:#fff;--testo:#0B1428;--tenue:#5B6476;--acc:#C8102E;--bordo:#D5DBE3}
+html:not([data-tema="chiaro"]){--fondo:#0B1428;--carta:#121D35;--testo:#E8ECF3;--tenue:#9AA5B8;--acc:#EF4444;--bordo:#22304F}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--testo);font:17px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header,main,footer{max-width:760px;margin:0 auto;padding:0 16px}
+body.largo header,body.largo main,body.largo footer{max-width:900px}
+h1,h2,.marchio{font-family:"Barlow Condensed",Inter,sans-serif;letter-spacing:.01em}
+html[data-tema="chiaro"] h1,html[data-tema="chiaro"] h2,html[data-tema="chiaro"] .marchio{font-family:Archivo,Inter,sans-serif;letter-spacing:0}
+header{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:18px;padding-bottom:18px}
+.apri{margin-left:auto}
+.tema-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;margin:0;opacity:.55;transition:opacity .15s}.tema-btn:hover,.tema-btn:focus-visible{opacity:1}.tema-btn svg{width:17px;height:17px;display:block}html:not([data-tema="chiaro"]) .t-luna,html[data-tema="chiaro"] .t-sole{display:none}
+.marchio{font-weight:800;letter-spacing:.06em;color:var(--testo);text-decoration:none;font-size:20px}
+.marchio span{color:var(--acc)}
+.apri{color:var(--acc);font-weight:600;text-decoration:none;font-size:15px}
+article{background:var(--carta);border:1px solid var(--bordo);border-radius:14px;overflow:hidden}
+.copertina{height:10px}
+.foto{width:100%;max-height:340px;object-fit:cover;display:block}
+.corpo{padding:22px 24px 26px}
+.occhiello{color:var(--acc);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px}
+h1{font-size:30px;line-height:1.2;margin:0 0 10px}
+.info{color:var(--tenue);font-size:14px;margin:0 0 18px}
+.punteggio{font-size:22px;font-weight:800;margin:0 0 14px}
+p{margin:0 0 16px}
+.numeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0 20px;padding:0;list-style:none}
+.numeri li{border:1px solid var(--bordo);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--tenue)}
+.numeri b{display:block;font-size:24px;color:var(--testo)}
+.piede{font-size:13px;color:var(--tenue);border-top:1px solid var(--bordo);padding-top:14px;margin-top:8px}
+.piede a,.corpo a{color:var(--acc)}
+.bottone{display:inline-block;margin:6px 0 18px;padding:10px 16px;border-radius:10px;background:var(--acc);color:#fff!important;text-decoration:none;font-weight:600}
+footer{color:var(--tenue);font-size:13px;padding-top:22px;padding-bottom:30px}
+footer a{color:var(--tenue)}
+h2{font-size:22px;line-height:1.25;margin:26px 0 10px}
+.naviga{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;margin:0 0 16px}
+.naviga a{color:var(--acc);text-decoration:none;font-weight:600}
+.elenco{list-style:none;padding:0;margin:0 0 8px}
+.elenco li{border-top:1px solid var(--bordo);padding:10px 0}
+.elenco li:first-child{border-top:0}
+.elenco a{color:var(--testo);font-weight:600;text-decoration:none}
+.elenco a:hover{color:var(--acc)}
+.elenco small{display:block;color:var(--tenue);font-size:13px}
+.gara{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center}
+.squadre-gara{display:flex;flex-direction:column;gap:4px}
+.sq{display:flex;align-items:center;gap:8px;font-weight:600}
+.sq a{color:var(--testo);text-decoration:none}
+.sq a:hover{color:var(--acc)}
+.sq.vince{font-weight:800}
+.sq .pt{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:800;min-width:2ch;text-align:right}
+.st{display:inline-block;width:26px;height:26px;flex:none}
+.st svg{width:100%;height:100%;display:block}
+.st.grande{width:72px;height:72px}
+.quando{color:var(--tenue);font-size:13px;text-align:right}
+.dett{grid-column:1/-1;color:var(--tenue);font-size:13px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center}
+.dett a{color:var(--acc)}
+.bollino{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:999px;border:1px solid var(--acc);color:var(--acc)}
+.tabella{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;margin:0 0 10px}
+.tabella th{font-size:12px;color:var(--tenue);text-align:right;font-weight:600;padding:6px 6px;border-bottom:1px solid var(--bordo)}
+.tabella td{text-align:right;padding:8px 6px;border-bottom:1px solid var(--bordo)}
+.tabella th:first-child,.tabella td:first-child{text-align:left}
+.tabella td:first-child a{color:var(--testo);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.tabella td:first-child a:hover{color:var(--acc)}
+.scorri{overflow-x:auto}
+.testa-squadra{display:flex;align-items:center;gap:16px;margin:0 0 12px}
+.testa-squadra h1{margin:0}
+.nota{color:var(--tenue);font-size:14px}
+@media (max-width:520px){h1{font-size:24px}.corpo{padding:18px 16px 20px}.tabella{font-size:14px}.tabella .facolt{display:none}.gara{grid-template-columns:1fr}.quando{text-align:left;grid-row:2}.st.grande{width:56px;height:56px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "AboutPage", "name": "Chi siamo · PureStats", "description": "PureStats è un sito italiano di statistiche su NFL e college football: chi lo cura, da dove vengono i dati e come sono fatti gli articoli.", "inLanguage": "it", "url": "https://purestats.it/chi-siamo.html", "dateModified": "2026-11-25", "isPartOf": {"@type": "WebSite", "name": "PureStats", "url": "https://purestats.it/"}, "publisher": {"@type": "Organization", "name": "PureStats", "url": "https://purestats.it/"}, "mainEntity": {"@type": "Organization", "name": "PureStats", "url": "https://purestats.it/", "email": "info@purestats.it", "logo": "https://purestats.it/icona-512.png", "founder": {"@type": "Person", "name": "Valerio La Rocca"}}}</script>
+</head>
+<body>
+<header><a class="marchio" href="">PURE<span>STATS</span></a><a class="apri" href="">Apri nel sito →</a><button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button></header>
+<main>
+<article><div class="corpo">
+<p class="occhiello">PureStats</p>
+<h1>Chi siamo</h1>
+<p>PureStats è un sito italiano di statistiche sul football americano: la NFL e il college football. Lo cura
+Valerio La Rocca, che ne è il titolare. Per scrivere: <a href="mailto:info@purestats.it">info@purestats.it</a>.</p>
+<h2>Cosa trovi</h2>
+<p>Risultati e calendario di ogni settimana con gli orari italiani, le classifiche, le statistiche di squadre e
+giocatori partita per partita, il riassunto della giornata, anteprime e cronache delle partite più importanti e la
+sezione Leggende, con i record e i racconti delle grandi storie del football. Il sito non chiede registrazioni e non
+ha pubblicità.</p>
+<h2>Da dove vengono i dati</h2>
+<p>I dati della NFL (calendario, risultati, statistiche, azione per azione) vengono da
+<a href="https://github.com/nflverse" rel="noopener">nflverse</a>, un progetto aperto distribuito con licenza
+CC BY 4.0. Le medie, le classifiche e gli orari italiani sono calcolati da PureStats su questi dati. I numeri e le
+carriere delle Leggende vengono dalle voci di Wikipedia (CC BY-SA), citate in ogni racconto; per i giocatori dal 1999
+li confrontiamo con i dati di nflverse. Le foto degli stadi vengono da Wikimedia Commons, solo con licenze libere, e
+ogni foto riporta autore e licenza. Le fonti del college football sono elencate nella pagina principale, in «Fonti e
+condizioni d'uso». Gli stemmi delle squadre sono disegnati da PureStats con sigla e colori: il sito non usa i loghi
+ufficiali.</p>
+<h2>Come sono fatti gli articoli</h2>
+<p>Anteprime e cronache sono scritte con l'aiuto di Claude, l'intelligenza artificiale di Anthropic, partendo da un
+elenco di fatti preparato dai dati. Prima della pubblicazione ogni numero e ogni nome viene controllato su quei dati,
+e le notizie (infortuni, cambi di formazione) sulle fonti citate: un articolo che contiene un numero o un nome che non
+torna non viene pubblicato. Ogni articolo è firmato PureStats e porta la data di pubblicazione.</p>
+<h2>Dove trovare tutto</h2>
+<p><a href="archivio.html">Archivio di articoli e racconti</a> · <a href="nfl/calendario.html">Calendario NFL in ora
+italiana</a> · <a href="nfl/classifica.html">Classifica NFL</a> · <a href="privacy.html">Informativa privacy</a></p>
+</div></article>
+</main>
+<footer>PureStats · statistiche NFL e college football · <a href="">pagina principale</a> · <a href="nfl/calendario.html">calendario NFL</a> · <a href="nfl/classifica.html">classifica NFL</a> · <a href="archivio.html">archivio</a> · <a href="chi-siamo.html">chi siamo</a> · <a href="privacy.html">privacy</a><br>Pagina aggiornata il 25/11/2026</footer>
+</body>
+</html>
