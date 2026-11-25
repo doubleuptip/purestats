@@ -3073,17 +3073,21 @@ function leggereH(lega){
   const L=articoliLega(lega).slice(1,4);
   const r=(LEG_RAC||[]).filter(x=>(x.lega||"nfl")===lega).slice(-1)[0];
   if(!L.length && !r) return "";
-  const carte=L.map(a=>{
+  // 25/11/2026 (Valerio): l'ultimo pubblicato viene per primo, racconto compreso.
+  // Un racconto senza «pubblicato» conta come il più recente (è l'ultimo aggiunto).
+  const dataR=r?(r.pubblicato||"9999"):"";
+  const prima=L.filter(a=>String(a.pubblicato||"")>dataR), dopo=L.filter(a=>String(a.pubblicato||"")<=dataR);
+  const cartaA=a=>{
     const pieno=articoloPieno(a.id)||{}, col=pieno.colori||[];
     const img=pieno.foto?`background-image:url(${esc(pieno.foto)})`:`background:linear-gradient(135deg,${esc(col[0]||"#1F2937")},${esc(col[1]||"#0B0F1A")})`;
     return `<a class="h-card h-art" href="#articolo=${esc(a.id)}" onclick="apriArticolo('${esc(a.id)}');return false"><span class="h-img" style="${img}">${pieno.foto&&pieno.fotoCrediti?`<span class="h-cred">${creditoFoto(pieno.fotoCrediti,false)}</span>`:""}</span>
       <span class="h-art-t"><span class="h-tag rosso">${a.tipo==="cronaca"?"CRONACA":"ANTEPRIMA"} · WEEK ${esc(a.settimana)}</span><b>${esc(a.titolo)}</b></span></a>`;
-  }).join("");
+  };
   const rc=r?`<a class="h-card h-art" href="#leggenda=${esc(r.id)}" onclick="apriLeggenda('${esc(r.id)}');return false">
       ${legCopertina(r,"carta")}
       <span class="h-art-t"><span class="h-tag rosso">LEGGENDE · RACCONTO</span><b>${esc(r.titolo)}</b></span></a>`:"";
   const n=L.length+(r?1:0);
-  return sezioneH("Da leggere", `<div class="h-g4" style="--n:${n}">${carte}${rc}</div>`, linkH("Tutti gli articoli","ART_APERTO=null;vai('articoli')"), "giornale");
+  return sezioneH("Da leggere", `<div class="h-g4" style="--n:${n}">${prima.map(cartaA).join("")}${rc}${dopo.map(cartaA).join("")}</div>`, linkH("Tutti gli articoli","ART_APERTO=null;vai('articoli')"), "giornale");
 }
 
 /* ---------- storia: accadde oggi, mai battuto, dinastie ---------- */
