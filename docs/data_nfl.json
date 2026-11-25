@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T13:26:29.488161+00:00",
+  "aggiornato": "2026-11-25T20:23:20.083605+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC BY 4.0)",
   "stagioni": [
@@ -143643,106 +143643,6 @@
         "ora": "16:25",
         "dataIt": "2026-11-22",
         "oraIt": "22:25",
-        "casa": "NYG",
-        "ospite": "JAX",
-        "pc": 23,
-        "po": 18,
-        "favorita": "JAX",
-        "linea": 6.0,
-        "totaleLinea": 45.5,
-        "battutaDa": "NYG",
-        "totaleEsito": "under",
-        "scartoLinea": 11.0,
-        "stadio": "MetLife Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Jacksonville+Jaguars+vs.+New+York+Giants+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "02:09",
-            "squadra": "NYG",
-            "descrizione": "19-J.Winston up the middle for 1 yard, TOUCHDOWN. Penalty on JAX-47-D.Gardeck, Defensive Offside, declined.",
-            "testo": "Winston corre centralmente, 1 yard: touchdown",
-            "chi": [
-              "Winston"
-            ],
-            "yard": 1.0,
-            "touchdown": true,
-            "casaPrima": 41,
-            "casaDopo": 47,
-            "clip": {
-              "id": "sem0XJbEIso",
-              "titolo": "INT. by Deonte Banks leads to Jameis Winston rushing it in himself!!"
-            }
-          },
-          {
-            "quarto": "3",
-            "tempo": "04:02",
-            "squadra": "NYG",
-            "descrizione": "44-C.Skattebo left tackle to JAX 31 for 1 yard (41-J.Hines-Allen). FUMBLES (41-J.Hines-Allen), RECOVERED by JAX-6-A.Johnson at JAX 27. 6-A.Johnson to NYG 31 for 42 yards (18-J.McCarthy).",
-            "testo": "Skattebo corre a sinistra, 1 yard, fumble, recuperato da Johnson (JAX)",
-            "chi": [
-              "Skattebo"
-            ],
-            "yard": 1.0,
-            "touchdown": false,
-            "casaPrima": 91,
-            "casaDopo": 77
-          },
-          {
-            "quarto": "3",
-            "tempo": "01:06",
-            "squadra": "JAX",
-            "descrizione": "16-T.Lawrence pass incomplete short left to 3-J.Meyers (22-A.Phillips).",
-            "testo": "Lawrence: lancio corto a sinistra per Meyers incompleto",
-            "chi": [
-              "Lawrence"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 81,
-            "casaDopo": 89
-          },
-          {
-            "quarto": "4",
-            "tempo": "11:08",
-            "squadra": "JAX",
-            "descrizione": "16-T.Lawrence pass short left intended for 3-J.Meyers INTERCEPTED by 21-P.Adebo at JAX 28. 21-P.Adebo to JAX 28 for no gain (3-J.Meyers).",
-            "testo": "Lawrence intercettato da Adebo",
-            "chi": [
-              "Lawrence",
-              "Adebo"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 85,
-            "casaDopo": 92
-          },
-          {
-            "quarto": "4",
-            "tempo": "03:02",
-            "squadra": "NYG",
-            "descrizione": "18-J.McCarthy pass short middle to 88-M.Fields to JAX 43 for 19 yards (0-J.Bates).",
-            "testo": "McCarthy lancia corto al centro per Fields, 19 yard",
-            "chi": [
-              "McCarthy",
-              "Fields"
-            ],
-            "yard": 19.0,
-            "touchdown": false,
-            "casaPrima": 82,
-            "casaDopo": 94
-          }
-        ],
-        "video": {
-          "id": "VFJ5DTTNN9A",
-          "titolo": "Jacksonville Jaguars vs. New York Giants Game Highlights | NFL 2026 Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "16:25",
-        "dataIt": "2026-11-22",
-        "oraIt": "22:25",
         "casa": "DEN",
         "ospite": "LV",
         "pc": 38,
@@ -143838,6 +143738,106 @@
         "video": {
           "id": "i13fzifkiE8",
           "titolo": "Las Vegas Raiders vs Denver Broncos Game Highlights | 2026 NFL Season Week 11"
+        }
+      },
+      {
+        "data": "2026-11-22",
+        "ora": "16:25",
+        "dataIt": "2026-11-22",
+        "oraIt": "22:25",
+        "casa": "NYG",
+        "ospite": "JAX",
+        "pc": 23,
+        "po": 18,
+        "favorita": "JAX",
+        "linea": 6.0,
+        "totaleLinea": 45.5,
+        "battutaDa": "NYG",
+        "totaleEsito": "under",
+        "scartoLinea": 11.0,
+        "stadio": "MetLife Stadium",
+        "highlights": "https://www.youtube.com/results?search_query=Jacksonville+Jaguars+vs.+New+York+Giants+highlights+November+22%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "1",
+            "tempo": "02:09",
+            "squadra": "NYG",
+            "descrizione": "19-J.Winston up the middle for 1 yard, TOUCHDOWN. Penalty on JAX-47-D.Gardeck, Defensive Offside, declined.",
+            "testo": "Winston corre centralmente, 1 yard: touchdown",
+            "chi": [
+              "Winston"
+            ],
+            "yard": 1.0,
+            "touchdown": true,
+            "casaPrima": 41,
+            "casaDopo": 47,
+            "clip": {
+              "id": "sem0XJbEIso",
+              "titolo": "INT. by Deonte Banks leads to Jameis Winston rushing it in himself!!"
+            }
+          },
+          {
+            "quarto": "3",
+            "tempo": "04:02",
+            "squadra": "NYG",
+            "descrizione": "44-C.Skattebo left tackle to JAX 31 for 1 yard (41-J.Hines-Allen). FUMBLES (41-J.Hines-Allen), RECOVERED by JAX-6-A.Johnson at JAX 27. 6-A.Johnson to NYG 31 for 42 yards (18-J.McCarthy).",
+            "testo": "Skattebo corre a sinistra, 1 yard, fumble, recuperato da Johnson (JAX)",
+            "chi": [
+              "Skattebo"
+            ],
+            "yard": 1.0,
+            "touchdown": false,
+            "casaPrima": 91,
+            "casaDopo": 77
+          },
+          {
+            "quarto": "3",
+            "tempo": "01:06",
+            "squadra": "JAX",
+            "descrizione": "16-T.Lawrence pass incomplete short left to 3-J.Meyers (22-A.Phillips).",
+            "testo": "Lawrence: lancio corto a sinistra per Meyers incompleto",
+            "chi": [
+              "Lawrence"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 81,
+            "casaDopo": 89
+          },
+          {
+            "quarto": "4",
+            "tempo": "11:08",
+            "squadra": "JAX",
+            "descrizione": "16-T.Lawrence pass short left intended for 3-J.Meyers INTERCEPTED by 21-P.Adebo at JAX 28. 21-P.Adebo to JAX 28 for no gain (3-J.Meyers).",
+            "testo": "Lawrence intercettato da Adebo",
+            "chi": [
+              "Lawrence",
+              "Adebo"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 85,
+            "casaDopo": 92
+          },
+          {
+            "quarto": "4",
+            "tempo": "03:02",
+            "squadra": "NYG",
+            "descrizione": "18-J.McCarthy pass short middle to 88-M.Fields to JAX 43 for 19 yards (0-J.Bates).",
+            "testo": "McCarthy lancia corto al centro per Fields, 19 yard",
+            "chi": [
+              "McCarthy",
+              "Fields"
+            ],
+            "yard": 19.0,
+            "touchdown": false,
+            "casaPrima": 82,
+            "casaDopo": 94
+          }
+        ],
+        "video": {
+          "id": "VFJ5DTTNN9A",
+          "titolo": "Jacksonville Jaguars vs. New York Giants Game Highlights | NFL 2026 Season Week 11"
         }
       },
       {
