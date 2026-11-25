@@ -151,6 +151,24 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   «partite», bottone `n-par`). Nel calcio prende il posto del vecchio CALENDARIO: la stessa vista mostra prima le
   prossime partite (vCalendario, calendario.dat) e sotto i risultati (vPartite); il vecchio bottone `n-cal` è tolto e
   «calendario» porta a «partite».
+- Grafica (25/11/2026, scelta di Valerio: A su PC, C su telefono). index.html: `header.testata > .t-barra` con logo,
+  interruttore del campionato (`#scelta-lega`, NFL | College; le voci del calcio, `data-calcio`, sul PC stanno nella
+  tendina «Calcio ▾» `#lega-piu`/`#lega-tendina`), `nav.t-menu` (stessi id n-…, testo con iniziale maiuscola, attiva
+  sottolineata in rosso), `.t-destra` (Matchup `n-due`, Esci `n-esci`, tema); `.sub-lega` sotto la barra. Da 900 px in giù:
+  striscia scura con campionati e week (`#t-week`), logo e tema, linea rossa di 3 px; il menu diventa la barra fissa in
+  basso (icone SVG `.n-ico` nel codice) con 4 voci principali (`MENU_PRINCIPALI`: football Home, Giornata, Calendario,
+  Statistiche; calcio Arbitri, Squadre, Calendario) e «Altro» (`#n-altro`, pannello `#altroVelo` che sale dal basso:
+  `apriAltro`, `chiudiAltro`, `sceltaAltro`; si chiude toccando fuori, con Esc o col tasto indietro, voce in cronologia
+  con pushState). `aggiornaMenu()` (chiamata da render) mette aria-current, `data-altro` sulle voci che vanno in «Altro»
+  e la week. render() sovrascrive className di n-… e lg-…: usare attributi data-, non classi. Contenuto con
+  padding-bottom e «torna su» sopra la barra. Bottoni su tre livelli (index e duelli): principale pieno rosso con ombra
+  (vid-btn Highlights, h-az a.pieno, gio-azione, su-in-cima; in duelli .ch-azioni button.on, Entra); secondario fondo
+  --fb-pill senza bordo, raggio 10, attivo pieno rosso (sottomenu, stagioni, st-seg, st-cat, leg-ruoli/filtri, h-schede,
+  h-az, ar-link, st-altri, back, toggle-gio, pie-apri; in duelli tutti i button tranne .top); collegamento testo con «→»
+  (linkH, .h-st a, st-mini). Pagine accessorie (duelli, accesso, privacy, pagine statiche, 404): stessa testata da
+  `pagine_statiche.testata()` / `TESTATA_STILE` (copiata a mano nelle tre pagine fisse: se cambia, cambiarla anche lì),
+  sul telefono senza barra in basso. `con_data` ignora stile e testata (`senza_grafica`): cambiare solo l'aspetto non
+  cambia dateModified né la sitemap. In duelli il logo e «Apri il sito» riportano al sito già sbloccato.
 - Calendario week per week ordinato per orario d'inizio, con data e ora italiane (`dataIt`, `oraIt`): NFL dall'ora
   della costa est di nflverse, college dall'inizio ESPN in UTC (solo le stagioni lette da ESPN nel giro).
 - Matchup: ogni partita è un riquadro chiuso (classe `riquadro`: striscia con i colori delle squadre, bordo,

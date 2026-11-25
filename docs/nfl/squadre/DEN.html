@@ -87,11 +87,34 @@ h2{font-size:22px;line-height:1.25;margin:26px 0 10px}
 .testa-squadra h1{margin:0}
 .nota{color:var(--tenue);font-size:14px}
 @media (max-width:520px){h1{font-size:24px}.corpo{padding:18px 16px 20px}.tabella{font-size:14px}.tabella .facolt{display:none}.gara{grid-template-columns:1fr}.quando{text-align:left;grid-row:2}.st.grande{width:56px;height:56px}}
-</style>
+
+:root{--ts-bg:#E9EDF2;--ts-testo:#111827;--ts-muto:#4B5563;--ts-bordo:#CDD4DE;--ts-acc:#B91C1C;--ts-pill:#E5E7EB;--logo-testo:#0B1428;--logo-rosso:#B91C1C}
+html:not([data-tema="chiaro"]){--ts-bg:#0B0F1A;--ts-testo:#F5F7FB;--ts-muto:#A3ADC2;--ts-bordo:#232C42;--ts-acc:#EF4444;--ts-pill:#1B2338;--logo-testo:#F5F7FB;--logo-rosso:#EF4444}
+header.testata{position:sticky;top:0;z-index:40;max-width:none;margin:0;padding:0;display:block;background:color-mix(in srgb,var(--ts-sfondo,var(--ts-bg)) 94%,transparent);border-bottom:1px solid var(--ts-bordo);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+html body header.testata{max-width:none;margin:0;padding:0}
+.testata .t-barra{display:flex;align-items:center;gap:18px;height:60px;max-width:1232px;margin:0 auto;padding:0 16px}
+.t-logo{display:flex;align-items:center;gap:8px;flex:none;text-decoration:none;color:var(--logo-testo);font:800 26px/1 "Barlow Condensed",Inter,sans-serif;letter-spacing:.02em}
+html[data-tema="chiaro"] .t-logo{font-family:Archivo,Inter,sans-serif;font-size:23px;letter-spacing:0}
+.t-logo b{color:var(--logo-rosso);font-weight:inherit}
+.t-simbolo{height:30px;width:auto;display:block;flex:none}
+.t-simbolo .lt{fill:var(--logo-testo)}.t-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}.t-simbolo .lr rect,.t-simbolo .lr circle{stroke:none}
+.t-sezione{display:flex;align-items:center;height:60px;padding:0 4px;font:600 14px/1 Inter,sans-serif;color:var(--ts-testo);box-shadow:inset 0 -3px 0 var(--ts-acc);white-space:nowrap}
+.t-destra{margin-left:auto;display:flex;align-items:center;gap:14px}
+.t-apri{color:var(--ts-acc);font:600 14px/1 Inter,sans-serif;text-decoration:none;white-space:nowrap}
+.t-apri:hover{text-decoration:underline}
+.testata .tema-btn{position:static;color:var(--ts-testo)}
+.testata a:focus-visible,.testata button:focus-visible{outline:2px solid var(--ts-acc);outline-offset:2px}
+@media (max-width:899.98px){
+header.testata{position:relative;background:var(--ts-sfondo,var(--ts-bg));border-bottom:3px solid var(--ts-acc);-webkit-backdrop-filter:none;backdrop-filter:none}
+.testata .t-barra{height:56px;gap:12px}
+.t-logo{font-size:23px}html[data-tema="chiaro"] .t-logo{font-size:21px}.t-simbolo{height:26px}
+.t-sezione{display:none}
+}
+:root{--ts-sfondo:var(--fondo)}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "name": "Denver Broncos: risultati, calendario e orari italiani 2026", "description": "Denver Broncos nella stagione NFL 2026: bilancio 8-2, 236 punti fatti e 210 subiti. Ultime partite, prossime partite in ora italiana e articoli.", "inLanguage": "it", "url": "https://purestats.it/nfl/squadre/DEN.html", "dateModified": "2026-11-25", "isPartOf": {"@type": "WebSite", "name": "PureStats", "url": "https://purestats.it/"}, "publisher": {"@type": "Organization", "name": "PureStats", "url": "https://purestats.it/"}, "mainEntity": {"@type": "SportsTeam", "name": "Denver Broncos", "sport": "American football", "url": "https://purestats.it/nfl/squadre/DEN.html", "memberOf": {"@type": "SportsOrganization", "name": "NFL · AFC West"}}, "subjectOf": [{"@type": "SportsEvent", "name": "Denver Broncos @ Pittsburgh Steelers", "sport": "American football", "awayTeam": {"@type": "SportsTeam", "name": "Denver Broncos", "url": "https://purestats.it/nfl/squadre/DEN.html"}, "homeTeam": {"@type": "SportsTeam", "name": "Pittsburgh Steelers", "url": "https://purestats.it/nfl/squadre/PIT.html"}, "startDate": "2026-11-27T21:00:00+01:00", "location": {"@type": "Place", "name": "Acrisure Stadium"}}, {"@type": "SportsEvent", "name": "Miami Dolphins @ Denver Broncos", "sport": "American football", "awayTeam": {"@type": "SportsTeam", "name": "Miami Dolphins", "url": "https://purestats.it/nfl/squadre/MIA.html"}, "homeTeam": {"@type": "SportsTeam", "name": "Denver Broncos", "url": "https://purestats.it/nfl/squadre/DEN.html"}, "startDate": "2026-12-06T22:05:00+01:00", "location": {"@type": "Place", "name": "Empower Field at Mile High"}}, {"@type": "SportsEvent", "name": "Denver Broncos @ New York Jets", "sport": "American football", "awayTeam": {"@type": "SportsTeam", "name": "Denver Broncos", "url": "https://purestats.it/nfl/squadre/DEN.html"}, "homeTeam": {"@type": "SportsTeam", "name": "New York Jets", "url": "https://purestats.it/nfl/squadre/NYJ.html"}, "startDate": "2026-12-13T19:00:00+01:00", "location": {"@type": "Place", "name": "MetLife Stadium"}}]}</script>
 </head>
 <body>
-<header><a class="marchio" href="../../">PURE<span>STATS</span></a><a class="apri" href="../../#squadra=DEN">Apri nel sito →</a><button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button></header>
+<header class="testata"><div class="t-barra"><a class="t-logo" href="../../" aria-label="PureStats, pagina principale"><svg class="t-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></a><div class="t-destra"><a class="t-apri" href="../../#squadra=DEN">Apri il sito →</a><button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button></div></div></header>
 <main>
 <article><div class="corpo">
 <p class="occhiello">NFL · AFC West · Stagione 2026</p>

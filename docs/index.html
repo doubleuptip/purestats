@@ -916,6 +916,136 @@
     .leg-cop.ev .leg-cop-vetro b,.leg-cop.testa .leg-cop-h1{font-size:32px}
     .leg-graf{padding:16px 14px}.leg-graf-pc{display:none}.leg-graf-tel{display:block}
   }
+
+  /* ============ GRAFICA (25/11/2026, scelta di Valerio: «A» su PC, «C» su telefono) ============
+     Testata: .testata > .t-barra (logo, interruttore .lega, .t-week, nav.t-menu, .t-destra) + .sub-lega.
+     Bottoni su tre livelli: principale (pieno rosso, ombra), secondario (fondo --fb-pill, attivo pieno), collegamento (testo →). */
+  html body.fb header.testata{position:sticky;top:0;z-index:40;padding:0;backdrop-filter:none;
+    background:color-mix(in srgb,var(--fb-bg) 94%,transparent);border-bottom:1px solid var(--fb-border)}
+  @supports (backdrop-filter:blur(8px)){ @media (min-width:900px){ html body.fb header.testata{backdrop-filter:blur(8px)} } }
+  .t-barra{display:flex;align-items:center;gap:20px;height:60px;max-width:1232px;margin:0 auto;padding:0 16px}
+  html body.fb .testata .logo{flex:none;gap:8px}
+  html body.fb .testata .logo-simbolo{height:30px}
+  html body.fb .testata .logo span{font-size:26px}
+  .testata .t-week{display:none}
+  .n-ico{display:none;width:24px;height:24px;flex:none}
+  /* interruttore del campionato */
+  html body.fb .testata .lega{flex:none;display:inline-flex;align-items:center;gap:2px;margin:0;padding:3px;border-radius:999px;
+    background:var(--fb-pill);overflow:visible}
+  html body.fb .testata .lega button{font:700 13px/1 var(--f-testo);letter-spacing:.04em;text-transform:uppercase;color:var(--fb-muted);
+    background:transparent;border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+  html body.fb .testata .lega button:hover{color:var(--fb-text)}
+  html body.fb .testata .lega button.on{background:var(--fb-acc);color:#fff}
+  html body.fb .testata .lega button[data-calcio]{display:none}
+  .lega-piu-box{position:relative;display:inline-flex}
+  .lega-tendina{position:absolute;top:calc(100% + 8px);left:0;z-index:45;min-width:190px;display:flex;flex-direction:column;gap:2px;padding:6px;
+    background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+  .lega-tendina[hidden]{display:none}
+  html body.fb .testata .lega-tendina button{display:block;text-align:left;border-radius:8px;padding:10px 12px;color:var(--fb-text)}
+  html body.fb .testata .lega-tendina button:hover{background:var(--fb-pill)}
+  /* voci del menu: testo, attiva sottolineata in rosso */
+  html body.fb .testata nav.t-menu{flex:1;min-width:0;display:flex;align-items:stretch;gap:2px;height:60px;flex-wrap:nowrap;overflow:visible}
+  html body.fb .testata nav.t-menu button,html body.fb .testata .t-destra #n-esci{font:600 14px/1 var(--f-testo);letter-spacing:0;text-transform:none;color:var(--fb-muted);
+    background:transparent;border:0;border-radius:0;padding:0 11px;height:60px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap}
+  html body.fb .testata nav.t-menu button:hover,html body.fb .testata .t-destra #n-esci:hover{color:var(--fb-text)}
+  html body.fb .testata nav.t-menu button.on{color:var(--fb-text);background:transparent;box-shadow:inset 0 -3px 0 var(--fb-acc)}
+  html body.fb .testata #n-altro{display:none!important}
+  .t-destra{flex:none;display:flex;align-items:center;gap:10px;margin-left:auto}
+  html body.fb .testata .t-destra #n-due{font:700 13px/1 var(--f-testo);letter-spacing:.04em;text-transform:uppercase;color:var(--fb-text);
+    background:var(--fb-pill);border:0;border-radius:10px;padding:10px 14px;cursor:pointer;display:inline-flex;align-items:center}
+  html body.fb .testata .t-destra #n-due:hover{background:var(--fb-acc);color:#fff}
+  html body.fb .testata .t-destra #n-esci{height:auto;padding:8px 4px;text-transform:uppercase;font-size:13px;letter-spacing:.04em}
+  html body.fb header.testata .tema-btn{position:static;color:var(--fb-text)}
+  html body.fb .testata button:focus-visible,html body.fb .testata a:focus-visible{outline:2px solid var(--fb-acc);outline-offset:-2px}
+  /* sotto-lega del calcio: sobria, sotto la barra */
+  html body.fb .testata .sub-lega{max-width:1232px;margin:0 auto;padding:8px 16px;gap:6px;border-top:1px solid var(--fb-border);overflow-x:auto}
+  html body.fb .testata .sub-lega button{font:600 12.5px/1 var(--f-testo);letter-spacing:.02em;color:var(--fb-muted);background:transparent;border:0;border-radius:8px;padding:7px 10px;cursor:pointer;white-space:nowrap}
+  html body.fb .testata .sub-lega button.on{color:var(--fb-text);background:var(--fb-pill)}
+  /* PC stretto: voci più fitte */
+  @media (min-width:900px) and (max-width:1180px){
+    .t-barra{gap:12px} html body.fb .testata nav.t-menu button{padding:0 7px;font-size:13.5px}
+    html body.fb .testata .logo span{font-size:22px} html body.fb .testata .logo-simbolo{height:26px}
+  }
+  .altro-velo{display:none}
+
+  /* ---- telefono: «C · menu fisso in basso» ---- */
+  @media (max-width:899.98px){
+    html body.fb header.testata{position:relative;background:var(--fb-bg);border-bottom:3px solid var(--fb-acc)}
+    .t-barra{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"lega week" "logo destra";align-items:center;height:auto;gap:0;padding:0;max-width:none}
+    .t-barra::before{content:"";grid-area:1/1/2/3;align-self:stretch;background:#070A12}
+    html[data-tema="chiaro"] .t-barra::before{background:#0B1428}
+    html body.fb .testata .lega{grid-area:lega;display:flex;gap:16px;height:26px;padding:0 16px;margin:0;border-radius:0;background:transparent;overflow-x:auto;min-width:0}
+    html body.fb .testata .lega button{font:700 11px/26px var(--f-testo);letter-spacing:.08em;padding:0;border-radius:0;color:rgba(255,255,255,.62);flex:none}
+    html body.fb .testata .lega button:hover{color:#fff}
+    html body.fb .testata .lega button.on{background:transparent;color:#fff}
+    html body.fb .testata .lega button[data-calcio]{display:inline-block}
+    .lega-piu-box{display:none}
+    .testata .t-week{display:block;grid-area:week;font:600 11px/26px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.78);padding:0 16px 0 8px;white-space:nowrap}
+    html body.fb .testata .logo{grid-area:logo;padding:10px 16px}
+    html body.fb .testata .logo-simbolo{height:26px}
+    html body.fb .testata .logo span{font-size:23px}
+    .t-destra{grid-area:destra;padding:0 16px 0 0}
+    html body.fb .testata .t-destra #n-due,html body.fb .testata .t-destra #n-esci{display:none!important}
+    /* barra in basso */
+    html body.fb .testata nav.t-menu{position:fixed;left:0;right:0;bottom:0;z-index:45;height:auto;
+      display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;padding:0 4px env(safe-area-inset-bottom);
+      background:var(--fb-card);border-top:1px solid var(--fb-border);box-shadow:0 -4px 16px rgba(0,0,0,.12)}
+    html body.fb .testata nav.t-menu button{height:62px;padding:6px 2px 5px;flex-direction:column;justify-content:center;gap:4px;
+      font:600 10.5px/1.1 var(--f-testo);color:var(--fb-muted);min-width:0}
+    html body.fb .testata nav.t-menu button span{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+    html body.fb .testata nav.t-menu button.on{color:var(--fb-acc);box-shadow:none}
+    html body.fb .testata nav.t-menu button[data-altro]{display:none!important}
+    html body.fb .testata #n-altro{display:flex!important}
+    html body.fb .testata #n-altro[style*="none"]{display:none!important}
+    .t-menu .n-ico{display:block}
+    html body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+    .su-in-cima{bottom:calc(76px + env(safe-area-inset-bottom))!important}
+    html body.fb .testata .sub-lega{padding:8px 16px;border-top:0;border-bottom:0}
+    /* pannello «Altro» */
+    .altro-velo{display:block;position:fixed;inset:0;z-index:70;background:rgba(3,6,12,0);transition:background .2s}
+    .altro-velo[hidden]{display:none}
+    .altro-velo.aperto{background:rgba(3,6,12,.5)}
+    .altro-pannello{position:absolute;left:0;right:0;bottom:0;background:var(--fb-card);color:var(--fb-text);border-radius:18px 18px 0 0;
+      border-top:1px solid var(--fb-border);padding:8px 12px calc(14px + env(safe-area-inset-bottom));transform:translateY(100%);transition:transform .22s ease-out}
+    .altro-velo.aperto .altro-pannello{transform:none}
+    .altro-maniglia{width:40px;height:4px;border-radius:2px;background:var(--fb-border);margin:2px auto 10px}
+    .altro-lista{display:flex;flex-direction:column;gap:2px}
+    .altro-lista button{display:flex;align-items:center;gap:14px;width:100%;min-height:52px;padding:0 14px;border:0;border-radius:12px;
+      background:transparent;color:var(--fb-text);font:600 16px var(--f-testo);text-align:left;cursor:pointer}
+    .altro-lista button:hover,.altro-lista button:focus-visible{background:var(--fb-pill);outline:none}
+    .altro-lista button.on{color:var(--fb-acc)}
+    .altro-lista .n-ico{display:block}
+  }
+  @media (prefers-reduced-motion:reduce){ .altro-velo,.altro-pannello{transition:none} }
+
+  /* ---- bottoni su tre livelli (25/11/2026) ---- */
+  /* 1 · principale: pieno rosso, testo bianco, raggio 10, leggera ombra rossa */
+  html body.fb .vid-btn,html body.fb .h-az a.pieno,html body.fb .gio-azione,html body.fb .su-in-cima{
+    background:var(--fb-acc);color:#fff;border:0;box-shadow:0 4px 14px rgba(var(--acc-rgb),.30);text-decoration:none}
+  html body.fb .vid-btn,html body.fb .h-az a.pieno,html body.fb .gio-azione{border-radius:10px}
+  html body.fb .vid-btn:hover,html body.fb .h-az a.pieno:hover,html body.fb .gio-azione:hover{filter:brightness(1.07);text-decoration:none}
+  html body.fb .vid-btn .vid-ico{background:rgba(255,255,255,.2);color:#fff}
+  html body.fb .vid-btn .vid-t small{color:rgba(255,255,255,.86)}
+  html body.fb .gio-azione{padding:0 12px;min-height:34px}
+  /* 2 · secondario: fondo --fb-pill, senza bordo, raggio 10; l'attivo è pieno rosso */
+  html body.fb .h-az a:not(.pieno),html body.fb .ar-link,html body.fb .ar-link.cronaca,html body.fb .sottomenu button,html body.fb .stagioni button,
+  html body.fb .st-cat button,html body.fb .leg-ruoli button,html body.fb .leg-filtri button,html body.fb .h-schede button,
+  html body.fb .st-altri,html body.fb .back,html body.fb .toggle-gio,html body.fb .pie-apri{
+    background:var(--fb-pill);color:var(--fb-text);border:0;border-radius:10px;box-shadow:none}
+  html body.fb .st-seg{border:0;border-radius:10px;background:var(--fb-pill);padding:3px;gap:2px}
+  html body.fb .st-seg button{background:transparent;color:var(--fb-muted);border-radius:8px;min-height:38px}
+  html body.fb .h-az a:not(.pieno):hover,html body.fb .ar-link:hover,html body.fb .sottomenu button:not(.on):hover,html body.fb .stagioni button:not(.on):hover,
+  html body.fb .st-cat button:not(.on):hover,html body.fb .leg-ruoli button:not(.on):hover,html body.fb .leg-filtri button:not(.on):hover,
+  html body.fb .h-schede button:not(.on):hover,html body.fb .st-altri:hover,html body.fb .back:hover,html body.fb .toggle-gio:hover,
+  html body.fb .pie-apri:hover,html body.fb .st-seg button:not(.on):hover{box-shadow:inset 0 0 0 1px var(--fb-border);color:var(--fb-text)}
+  html body.fb .sottomenu button.on,html body.fb .stagioni button.on,html body.fb .st-cat button.on,html body.fb .leg-ruoli button.on,
+  html body.fb .leg-filtri button.on,html body.fb .h-schede button.on,html body.fb .st-seg button.on{background:var(--fb-acc);color:#fff;border-color:transparent}
+  html body.fb .back,html body.fb .toggle-gio{color:var(--fb-text);letter-spacing:0}
+  html body.fb .pie-apri{color:var(--fb-text);font-size:12px;padding:8px 14px}
+  /* 3 · collegamento: solo testo con freccia (linkH: «… →») */
+  html body.fb .h-st a{color:var(--fb-acc);font-weight:600;text-decoration:none;background:none;border:0}
+  html body.fb .h-st a:hover{text-decoration:underline}
+  html body.fb .st-mini{background:none;border:0;padding:0;color:var(--fb-acc);font:inherit;font-weight:600;cursor:pointer;text-decoration:underline}
 </style>
 <link rel="icon" href="icona.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -940,29 +1070,45 @@ function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"
 </head>
 <body class="fb">
 
-<header>
-  <a class="logo" href="./" onclick="return tornaHome()" aria-label="PureStats, torna alla pagina iniziale"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></a>
-  <button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button>
-  <div class="lega" id="scelta-lega"></div>
+<!-- Testata (25/11/2026, scelta di Valerio): sul PC «A · barra unica compatta» (logo, interruttore del campionato,
+     voci a testo, a destra Matchup/Esci e tema); sotto i 900 px «C»: striscia dei campionati con la week, logo e tema,
+     menu fisso in basso (nav.t-menu) con «Altro» (pannello #altroVelo). Gli id delle voci (n-…) restano quelli di prima:
+     render() le mostra o nasconde e mette «on»; aggiornaMenu() aggiunge aria-current, «Altro» e la week. -->
+<header class="testata">
+  <div class="t-barra">
+    <a class="logo" href="./" onclick="return tornaHome()" aria-label="PureStats, torna alla pagina iniziale"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></a>
+    <div class="lega" id="scelta-lega" role="group" aria-label="Campionato"></div>
+    <span class="t-week" id="t-week"></span>
+    <nav class="t-menu" id="t-menu" aria-label="Menu principale">
+      <!-- HOME per prima: nel football è la pagina d'apertura (21/11/2026); nel calcio HOME e GIORNATA sono nascoste.
+           Tutte le voci partono nascoste: le mostra render() quando sa quale campionato è aperto, così all'apertura
+           non compare per un attimo il menu del calcio (ARBITRI). -->
+      <button id="n-home" type="button" onclick="vai('home')" style="display:none" aria-label="Home"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7V20a1 1 0 0 1-1 1h-5v-6h-5v6h-5a1 1 0 0 1-1-1z"/></svg><span>Home</span></button>
+      <button id="n-gio" type="button" onclick="vai('giornata')" style="display:none" aria-label="Giornata"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M12 5v14"/><circle cx="12" cy="12" r="2.6"/><path d="M2.5 9.5h2.5v5H2.5M21.5 9.5H19v5h2.5"/></svg><span>Giornata</span></button>
+      <button id="n-arb" type="button" onclick="vai('arbitri')" style="display:none" aria-label="Arbitri"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.5" cy="14.5" r="5"/><path d="M12.5 11.5 21 7.5v3.5l-6.5 2.5"/><circle cx="8.5" cy="14.5" r="1.4"/></svg><span>Arbitri</span></button>
+      <button id="n-squ" type="button" onclick="vai('squadre')" style="display:none" aria-label="Squadre"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.8 3.2 8 7.5 9.5 4.3-1.5 7.5-4.7 7.5-9.5V6z"/></svg><span>Squadre</span></button>
+      <button id="n-par" type="button" onclick="vai('partite')" style="display:none" aria-label="Calendario"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17h2M11 17h2"/></svg><span>Calendario</span></button>
+      <button id="n-pro" type="button" onclick="vai('prossima')" style="display:none" aria-label="Prossima"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Prossima</span></button>
+      <button id="n-ind" type="button" onclick="vai('indici')" style="display:none" aria-label="Indici"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></svg><span>Indici</span></button>
+      <button id="n-sta" type="button" onclick="window.scrollTo(0,0);schedaStat(ultimaStat)" style="display:none" aria-label="Statistiche"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5h17M6.5 20.5V12M12 20.5V5M17.5 20.5v-6"/></svg><span>Statistiche</span></button>
+      <button id="n-art" type="button" onclick="ART_APERTO=null;vai('articoli')" style="display:none" aria-label="Articoli"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>Articoli</span></button>
+      <button id="n-leg" type="button" onclick="vai('leggende')" style="display:none" aria-label="Leggende"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5.5a4 4 0 0 1-8 0zM12 13.5V17M8.5 20.5h7M10 17h4v3.5h-4zM8 6H5.5a2.5 2.5 0 0 0 2.6 4.4M16 6h2.5a2.5 2.5 0 0 1-2.6 4.4"/></svg><span>Leggende</span></button>
+      <button id="n-altro" type="button" onclick="apriAltro()" style="display:none" aria-label="Altro" aria-haspopup="dialog" aria-expanded="false"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18.5" cy="12" r="1.6"/></svg><span>Altro</span></button>
+    </nav>
+    <div class="t-destra">
+      <button id="n-due" type="button" onclick="apriDuelli()" style="display:none" title="Area privata" aria-label="Matchup"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 20 4M15 4h5v5M4 4l6 6M14 14l6 6M20 15v5h-5"/></svg><span>Matchup</span></button>
+      <button id="n-esci" type="button" onclick="esci()" style="display:none" title="Togli l'accesso privato da questo dispositivo" aria-label="Esci"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 8l-4 4 4 4M6 12h10"/></svg><span>Esci</span></button>
+      <button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button>
+    </div>
+  </div>
   <div class="sub-lega" id="sub-lega" style="display:none"></div>
-  <nav>
-    <!-- HOME per prima: nel football è la pagina d'apertura (21/11/2026); nel calcio HOME e GIORNATA sono nascoste.
-         Tutte le voci partono nascoste: le mostra render() quando sa quale campionato è aperto, così all'apertura
-         non compare per un attimo il menu del calcio (ARBITRI). -->
-    <button id="n-home" onclick="vai('home')" style="display:none">HOME</button>
-    <button id="n-gio" onclick="vai('giornata')" style="display:none">GIORNATA</button>
-    <button id="n-arb" onclick="vai('arbitri')" style="display:none">ARBITRI</button>
-    <button id="n-squ" onclick="vai('squadre')" style="display:none">SQUADRE</button>
-    <button id="n-par" onclick="vai('partite')" style="display:none">CALENDARIO</button>
-    <button id="n-pro" onclick="vai('prossima')" style="display:none">PROSSIMA</button>
-    <button id="n-ind" onclick="vai('indici')" style="display:none">INDICI</button>
-    <button id="n-sta" onclick="window.scrollTo(0,0);schedaStat(ultimaStat)" style="display:none">STATISTICHE</button>
-    <button id="n-art" onclick="ART_APERTO=null;vai('articoli')" style="display:none">ARTICOLI</button>
-    <button id="n-leg" onclick="vai('leggende')" style="display:none">LEGGENDE</button>
-    <button id="n-due" onclick="apriDuelli()" style="display:none" title="Area privata">MATCHUP</button>
-    <button id="n-esci" onclick="esci()" style="display:none" title="Togli l'accesso privato da questo dispositivo">ESCI</button>
-  </nav>
 </header>
+<div class="altro-velo" id="altroVelo" hidden onclick="if(event.target===this)chiudiAltro()">
+  <div class="altro-pannello" role="dialog" aria-modal="true" aria-label="Altre sezioni">
+    <div class="altro-maniglia" aria-hidden="true"></div>
+    <div class="altro-lista" id="altroLista"></div>
+  </div>
+</div>
 
 <main><div id="app" class="loading">Caricamento archivio…</div></main>
 <footer id="pie"></footer>
@@ -1327,6 +1473,65 @@ Promise.all(LEGHE.map(l =>
 function vai(v){vista=v;arbitroAperto=null;window.scrollTo(0,0);render();}
 // Matchup: sezione privata a parte (duelli.html), protetta da password, aperta sul campionato in vista
 function apriDuelli(){location.href="duelli.html#"+(legaAttiva==="college"?"College":"NFL")+(CHIAVE?"&k="+encodeURIComponent(CHIAVE):"");}
+/* Menu (25/11/2026, grafica A su PC, C su telefono). Sul telefono la barra in basso tiene 4 voci principali
+   (football: Home, Giornata, Calendario, Statistiche; calcio: Arbitri, Squadre, Calendario) e «Altro»; le altre voci
+   visibili (data-altro) passano nel pannello che sale dal basso, chiuso toccando fuori, con Esc o con il tasto indietro. */
+const MENU_PRINCIPALI = {football:["n-home","n-gio","n-par","n-sta"], calcio:["n-arb","n-squ","n-par"]};
+const MENU_ALTRO = ["n-home","n-gio","n-arb","n-squ","n-par","n-pro","n-ind","n-sta","n-art","n-leg","n-due","n-esci"];
+function aggiornaMenu(soloFootball){
+  const princ = MENU_PRINCIPALI[soloFootball ? "football" : "calcio"];
+  let altroAttivo = false, altri = 0;
+  MENU_ALTRO.forEach(id => {
+    const b = document.getElementById(id); if(!b) return;
+    const on = b.classList.contains("on"), visibile = b.style.display !== "none";
+    if(on) b.setAttribute("aria-current","page"); else b.removeAttribute("aria-current");
+    const extra = visibile && !princ.includes(id);
+    if(extra){ b.setAttribute("data-altro","1"); altri++; if(on) altroAttivo = true; } else b.removeAttribute("data-altro");
+  });
+  const a = document.getElementById("n-altro");
+  if(a){ a.style.display = altri ? "" : "none"; a.className = altroAttivo ? "on" : ""; }
+  // week della striscia in alto (solo telefono)
+  const w = document.getElementById("t-week");
+  if(w){ let t = ""; try{ if(soloFootball){ const wk = weekCorrente(D); if(wk && wk.settimana) t = "Week " + wk.settimana; } }catch(e){} w.textContent = t; }
+}
+let ALTRO_STORIA = false, ALTRO_DOPO = null;
+function apriAltro(){
+  const velo = document.getElementById("altroVelo"), lista = document.getElementById("altroLista");
+  lista.innerHTML = MENU_ALTRO.map(id => document.getElementById(id)).filter(b => b && b.hasAttribute("data-altro"))
+    .map(b => `<button type="button" class="${b.classList.contains("on")?"on":""}"${b.classList.contains("on")?' aria-current="page"':""} onclick="sceltaAltro('${b.id}')">${b.querySelector("svg").outerHTML}<span>${esc(b.querySelector("span").textContent)}</span></button>`).join("");
+  velo.hidden = false;
+  requestAnimationFrame(() => velo.classList.add("aperto"));
+  document.getElementById("n-altro").setAttribute("aria-expanded","true");
+  try{ history.pushState({altro:1}, "", location.href); ALTRO_STORIA = true; }catch(e){ ALTRO_STORIA = false; }
+  const primo = lista.querySelector("button"); if(primo) primo.focus();
+}
+function nascondiAltro(){
+  const velo = document.getElementById("altroVelo"); if(velo.hidden) return;
+  velo.classList.remove("aperto"); velo.hidden = true;
+  const a = document.getElementById("n-altro"); a.setAttribute("aria-expanded","false");
+  const dopo = ALTRO_DOPO; ALTRO_DOPO = null;
+  if(dopo) dopo(); else a.focus();
+}
+// chiude il pannello; se ha aggiunto una voce alla cronologia, la toglie prima (tasto indietro = chiudi)
+function chiudiAltro(dopo){
+  ALTRO_DOPO = dopo || null;
+  if(ALTRO_STORIA){ ALTRO_STORIA = false; history.back(); } else nascondiAltro();
+}
+function sceltaAltro(id){ chiudiAltro(() => { const b = document.getElementById(id); if(b) b.click(); }); }
+addEventListener("popstate", () => { if(!document.getElementById("altroVelo").hidden){ ALTRO_STORIA = false; nascondiAltro(); } });
+addEventListener("keydown", e => { if(e.key === "Escape"){ if(!document.getElementById("altroVelo").hidden) chiudiAltro(); chiudiTendinaLega(); } });
+// tendina del calcio nell'interruttore del campionato (PC)
+function apriTendinaLega(ev){
+  ev.stopPropagation();
+  const t = document.getElementById("lega-tendina"), b = document.getElementById("lega-piu"); if(!t) return;
+  t.hidden = !t.hidden; b.setAttribute("aria-expanded", String(!t.hidden));
+  if(!t.hidden){ const x = t.querySelector("button"); if(x) x.focus(); }
+}
+function chiudiTendinaLega(){
+  const t = document.getElementById("lega-tendina"), b = document.getElementById("lega-piu");
+  if(t && !t.hidden){ t.hidden = true; if(b) b.setAttribute("aria-expanded","false"); }
+}
+addEventListener("click", e => { if(!e.target.closest || !e.target.closest(".lega-piu-box")) chiudiTendinaLega(); });
 /* Logo: torna alla pagina iniziale (primo campionato, vista di partenza), senza ricaricare */
 function tornaHome(){
   const primo = LEGHE[0]; if (!primo) return true;
@@ -1423,6 +1628,7 @@ function render(){
   document.getElementById("n-sta").className = vista==="statistiche"||(soloFootball&&vista==="squadre")?"on":"";
   document.getElementById("n-art").className = vista==="articoli"?"on":"";
   document.getElementById("n-leg").className = vista==="leggende"?"on":"";
+  aggiornaMenu(soloFootball);
 
   const app=document.getElementById("app"); app.className="";
   if(soloArbitri()){
@@ -1550,11 +1756,18 @@ function disegnaMenu(){
   const attiva = LEGHE.find(l => l.id === legaAttiva);
   const gruppoAttivo = attiva ? (attiva.gruppo || attiva.nome) : null;
 
-  document.getElementById("scelta-lega").innerHTML = vociMenu().map((v,i) =>
-    (i ? `<span>·</span>` : "") +
-    `<button id="lg-${v.leghe[0].id}" class="${v.etichetta===gruppoAttivo?"on":""}"
-       onclick="vaiLega('${v.leghe[0].id}')">${v.etichetta}</button>`
-  ).join("");
+  // Interruttore del campionato (25/11/2026): NFL | College; le voci del calcio (solo con l'accesso privato) sul PC
+  // stanno in una tendina («Calcio ▾», #lega-piu), sul telefono scorrono nella striscia in alto (data-calcio)
+  const voci = vociMenu(), calcio = voci.filter(v => !v.leghe.some(l => l.football));
+  const vCalcioAttiva = calcio.find(v => v.etichetta === gruppoAttivo);
+  const etichettaLega = e => e === "COLLEGE FB" ? "College" : e;
+  document.getElementById("scelta-lega").innerHTML = voci.map(v =>
+    `<button type="button" id="lg-${v.leghe[0].id}" class="${v.etichetta===gruppoAttivo?"on":""}"${v.leghe.some(l=>l.football)?"":" data-calcio=\"1\""}
+       aria-pressed="${v.etichetta===gruppoAttivo}" onclick="vaiLega('${v.leghe[0].id}')">${etichettaLega(v.etichetta)}</button>`
+  ).join("") + (calcio.length ? `<span class="lega-piu-box"><button type="button" id="lega-piu" class="${vCalcioAttiva?"on":""}"
+       aria-haspopup="true" aria-expanded="false" onclick="apriTendinaLega(event)">${vCalcioAttiva?esc(vCalcioAttiva.etichetta):"Calcio"} ▾</button>
+     <span class="lega-tendina" id="lega-tendina" hidden>${calcio.map(v=>`<button type="button" class="${v===vCalcioAttiva?"on":""}"
+       onclick="chiudiTendinaLega();vaiLega('${v.leghe[0].id}')">${esc(v.etichetta)}</button>`).join("")}</span></span>` : "");
 
   // secondo livello, solo se il paese scelto ha più campionati
   const box = document.getElementById("sub-lega");

@@ -32,19 +32,13 @@ function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"
   *{box-sizing:border-box}
   body{margin:0;background:var(--fb-bg);color:var(--fb-text);font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.5}
   .pagina{max-width:820px;margin:0 auto;padding:16px 14px 48px}
-  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
   .tema-btn{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;margin:0;opacity:.55;transition:opacity .15s}.tema-btn:hover,.tema-btn:focus-visible{opacity:1}.tema-btn svg{width:17px;height:17px;display:block}html:not([data-tema="chiaro"]) .t-luna,html[data-tema="chiaro"] .t-sole{display:none}
-  header .tema-btn{color:var(--fb-text);align-self:center;width:34px;height:34px;padding:0;min-width:0;border-radius:50%;background:transparent}
-  .marchio{display:block;font-family:var(--fb-head);font-weight:800;font-size:28px;letter-spacing:.03em;line-height:1;color:inherit;text-decoration:none}
   /* Logo PureStats (16/11/2026, disegno di Valerio ridisegnato in vettoriale): colori dal tema, rosso acceso di notte */
   :root{--logo-testo:#0B1428;--logo-rosso:#B91C1C}
   html:not([data-tema="chiaro"]){--logo-testo:#F5F7FB;--logo-rosso:#EF4444}
   .logo-simbolo{height:34px;width:auto;flex:none;display:block}
   .logo-simbolo .lt{fill:var(--logo-testo)} .logo-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}
   .logo-simbolo .lr rect,.logo-simbolo .lr circle{stroke:none}
-  .marchio{display:flex!important;align-items:center;gap:9px;color:var(--logo-testo)!important}
-  .marchio b{color:var(--logo-rosso);font-weight:inherit}
-  .marchio .logo-simbolo{height:30px}
   .sotto{font-size:13px;color:var(--fb-muted)}
   button,.bottone{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--fb-border);background:var(--fb-card);color:var(--fb-text);padding:8px 14px;min-height:40px;text-decoration:none;display:inline-flex;align-items:center}
   button.on{background:var(--fb-acc);color:var(--fb-acc-text);border-color:var(--fb-acc)}
@@ -182,24 +176,54 @@ function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"
   .aff.A{background:var(--buono-bg);color:var(--buono)} .aff.C{background:var(--scarso-bg);color:var(--scarso)}
   @media (max-width:520px){ .ch-griglia{grid-template-columns:1fr} .ch-num b{font-size:19px} }
   @media (max-width:420px){ .riga,.int{grid-template-columns:minmax(0,1fr) 40px 40px 96px} .testa .nomi{font-size:18px} .lato .num{font-size:18px} }
+  /* testata comune (25/11/2026): stessa di scripts/pagine_statiche.py, TESTATA_STILE */
+:root{--ts-bg:#E9EDF2;--ts-testo:#111827;--ts-muto:#4B5563;--ts-bordo:#CDD4DE;--ts-acc:#B91C1C;--ts-pill:#E5E7EB;--logo-testo:#0B1428;--logo-rosso:#B91C1C}
+html:not([data-tema="chiaro"]){--ts-bg:#0B0F1A;--ts-testo:#F5F7FB;--ts-muto:#A3ADC2;--ts-bordo:#232C42;--ts-acc:#EF4444;--ts-pill:#1B2338;--logo-testo:#F5F7FB;--logo-rosso:#EF4444}
+header.testata{position:sticky;top:0;z-index:40;max-width:none;margin:0;padding:0;display:block;background:color-mix(in srgb,var(--ts-sfondo,var(--ts-bg)) 94%,transparent);border-bottom:1px solid var(--ts-bordo);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+html body header.testata{max-width:none;margin:0;padding:0}
+.testata .t-barra{display:flex;align-items:center;gap:18px;height:60px;max-width:1232px;margin:0 auto;padding:0 16px}
+.t-logo{display:flex;align-items:center;gap:8px;flex:none;text-decoration:none;color:var(--logo-testo);font:800 26px/1 "Barlow Condensed",Inter,sans-serif;letter-spacing:.02em}
+html[data-tema="chiaro"] .t-logo{font-family:Archivo,Inter,sans-serif;font-size:23px;letter-spacing:0}
+.t-logo b{color:var(--logo-rosso);font-weight:inherit}
+.t-simbolo{height:30px;width:auto;display:block;flex:none}
+.t-simbolo .lt{fill:var(--logo-testo)}.t-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}.t-simbolo .lr rect,.t-simbolo .lr circle{stroke:none}
+.t-sezione{display:flex;align-items:center;height:60px;padding:0 4px;font:600 14px/1 Inter,sans-serif;color:var(--ts-testo);box-shadow:inset 0 -3px 0 var(--ts-acc);white-space:nowrap}
+.t-destra{margin-left:auto;display:flex;align-items:center;gap:14px}
+.t-apri{color:var(--ts-acc);font:600 14px/1 Inter,sans-serif;text-decoration:none;white-space:nowrap}
+.t-apri:hover{text-decoration:underline}
+.testata .tema-btn{position:static;color:var(--ts-testo)}
+.testata a:focus-visible,.testata button:focus-visible{outline:2px solid var(--ts-acc);outline-offset:2px}
+@media (max-width:899.98px){
+header.testata{position:relative;background:var(--ts-sfondo,var(--ts-bg));border-bottom:3px solid var(--ts-acc);-webkit-backdrop-filter:none;backdrop-filter:none}
+.testata .t-barra{height:56px;gap:12px}
+.t-logo{font-size:23px}html[data-tema="chiaro"] .t-logo{font-size:21px}.t-simbolo{height:26px}
+.t-sezione{display:none}
+}
+
+  :root{--ts-sfondo:var(--fb-bg);--fb-pill:#E5E7EB} html:not([data-tema="chiaro"]){--fb-pill:#1B2338}
+  .t-sotto{margin:0 0 14px}
+  button[hidden]{display:none!important}
+  .testata .t-esci{background:transparent;border:0;min-height:0;padding:6px 2px;font:700 13px/1 Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--ts-muto);box-shadow:none}
+  .testata .t-esci:hover{color:var(--ts-testo)}
+  /* bottoni su tre livelli (25/11/2026), come index.html: secondario = fondo --fb-pill senza bordo, attivo pieno rosso;
+     principale = pieno rosso con ombra (Registra, Calcola, Entra, torna su); collegamento = testo con → */
+  button:not(.top):not(.tema-btn):not(.su-in-cima):not(.t-esci),.bottone{background:var(--fb-pill);border:0;border-radius:10px}
+  button:not(.top):not(.tema-btn):not(.su-in-cima):not(.t-esci):not(.on):hover,.bottone:hover{box-shadow:inset 0 0 0 1px var(--fb-border)}
+  button.on:not(.top):not(.tema-btn):not(.su-in-cima):not(.t-esci),#vistaCharlie.on:not(.top):not(.tema-btn):not(.su-in-cima):not(.t-esci){background:var(--fb-acc);color:var(--fb-acc-text)}
+  .ch-azioni button.on,#accesso button[type=submit],.su-in-cima{box-shadow:0 4px 14px color-mix(in srgb,var(--fb-acc) 30%,transparent)}
+  .ch-azioni button.on:hover,#accesso button[type=submit]:hover{filter:brightness(1.07)}
+  .ch-modi{border:0;background:var(--fb-pill);padding:3px;gap:2px;border-radius:10px}
+  .ch-modi button:not(.top):not(.tema-btn):not(.su-in-cima):not(.t-esci){background:transparent;border-radius:8px}
+  .ch-modi button.on:not(.top):not(.tema-btn):not(.su-in-cima):not(.t-esci){background:var(--fb-acc)}
 </style>
 <link rel="icon" href="icona.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="icona-180.png">
 </head>
 <body>
+<header class="testata"><div class="t-barra"><a class="t-logo marchio" href="./" aria-label="PureStats, pagina principale"><svg class="t-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></a><span class="t-sezione" aria-current="page">Matchup</span><div class="t-destra"><a class="t-apri" href="./">Apri il sito →</a><button type="button" id="esci" class="t-esci" hidden>Esci</button><button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button></div></div></header>
 <div class="pagina">
-  <header>
-    <div>
-      <a class="marchio" href="./" title="Torna a PureStats" aria-label="PureStats"><svg class="logo-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg><span>PURE<b>STATS</b></span></a>
-      <div class="sotto">Matchup · partite, vantaggi e giocatori · area privata</div>
-    </div>
-    <div style="display:flex;gap:8px">
-      <button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button>
-      <a class="bottone" href="./">← Sito</a>
-      <button id="esci" hidden>Esci</button>
-    </div>
-  </header>
+  <div class="sotto t-sotto">Matchup · partite, vantaggi e giocatori · area privata</div>
 
   <form class="scheda accesso" id="accesso" action="#" method="post">
     <div style="font-weight:600">Inserisci la password</div>
@@ -300,8 +324,7 @@ document.getElementById("accesso").addEventListener("submit", async ev => {
   // Chrome e Android: proposta esplicita di salvare la password (gli altri browser lo fanno dal modulo)
   if (!CHIAVE_LINK && !CHIAVE_RICORDATA) try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({id:"purestats", password:pw, name:"PureStats Matchup"})); } catch (e) {}
   // il logo riporta alla pagina principale già sbloccata (calcio e Matchup visibili)
-  const marchio = document.querySelector(".marchio");
-  if (marchio) marchio.href = "./#k=" + encodeURIComponent(pw);
+  document.querySelectorAll(".marchio, .t-apri").forEach(a => a.href = "./#k=" + encodeURIComponent(pw));
   document.getElementById("password").value = "";
   document.getElementById("accesso").hidden = true;
   document.getElementById("contenuto").hidden = false;

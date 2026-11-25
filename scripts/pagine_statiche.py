@@ -105,6 +105,44 @@ def credito_foto(c):
 TEMA_TESTA = '<meta name="theme-color" content="#0B0F1A" id="coloreTema">\n<script>/* Tema (22/11/2026, scelta di Valerio): scuro per tutti; il bottone passa al chiaro e la scelta resta su questo dispositivo (localStorage «purestats_tema», seconda eccezione alla regola). */\n(function(){var t="scuro";try{if(localStorage.getItem("purestats_tema")==="chiaro")t="chiaro"}catch(e){}document.documentElement.dataset.tema=t;if(t==="chiaro")document.getElementById("coloreTema").content="#E9EDF2"})();\nfunction cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"?"scuro":"chiaro";r.dataset.tema=t;try{localStorage.setItem("purestats_tema",t)}catch(e){}document.getElementById("coloreTema").content=t==="chiaro"?"#E9EDF2":"#0B0F1A";document.dispatchEvent(new Event("tema"))}</script>\n'
 TEMA_BOTTONE = '<button type="button" class="tema-btn" onclick="cambiaTema()" aria-label="Passa dal tema scuro al chiaro e viceversa" title="Tema chiaro / scuro"><svg class="t-sole" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="t-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></button>'
 
+
+# Testata (25/11/2026, scelta di Valerio: «A» su PC, parte alta di «C» sul telefono). Stessa in duelli.html,
+# accesso.html e privacy.html (copiata a mano: se cambia qui, cambiarla anche lì). Barra di 60 px ferma in cima sul PC;
+# sul telefono logo, tema e «Apri il sito» con la linea rossa di 3 px sotto (niente barra in basso nelle pagine statiche).
+TESTATA_SIMBOLO = '<svg class="t-simbolo" viewBox="84 96 350 272" aria-hidden="true"><g class="lt"><rect x="110" y="285" width="44" height="51" rx="5"/><rect x="174" y="248" width="44" height="88" rx="5"/><rect x="302" y="164" width="44" height="172" rx="5"/><rect x="90" y="344" width="337" height="16" rx="5"/></g><g class="lr"><rect x="238" y="208" width="44" height="128" rx="5"/><rect x="366" y="104" width="44" height="232" rx="5"/><polyline points="95,172 133,172 150,147 170,190 190,116 210,186 228,162 258,162" fill="none" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/><circle cx="262" cy="163" r="13"/></g></svg>'
+TESTATA_STILE = """
+:root{--ts-bg:#E9EDF2;--ts-testo:#111827;--ts-muto:#4B5563;--ts-bordo:#CDD4DE;--ts-acc:#B91C1C;--ts-pill:#E5E7EB;--logo-testo:#0B1428;--logo-rosso:#B91C1C}
+html:not([data-tema="chiaro"]){--ts-bg:#0B0F1A;--ts-testo:#F5F7FB;--ts-muto:#A3ADC2;--ts-bordo:#232C42;--ts-acc:#EF4444;--ts-pill:#1B2338;--logo-testo:#F5F7FB;--logo-rosso:#EF4444}
+header.testata{position:sticky;top:0;z-index:40;max-width:none;margin:0;padding:0;display:block;background:color-mix(in srgb,var(--ts-sfondo,var(--ts-bg)) 94%,transparent);border-bottom:1px solid var(--ts-bordo);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+html body header.testata{max-width:none;margin:0;padding:0}
+.testata .t-barra{display:flex;align-items:center;gap:18px;height:60px;max-width:1232px;margin:0 auto;padding:0 16px}
+.t-logo{display:flex;align-items:center;gap:8px;flex:none;text-decoration:none;color:var(--logo-testo);font:800 26px/1 "Barlow Condensed",Inter,sans-serif;letter-spacing:.02em}
+html[data-tema="chiaro"] .t-logo{font-family:Archivo,Inter,sans-serif;font-size:23px;letter-spacing:0}
+.t-logo b{color:var(--logo-rosso);font-weight:inherit}
+.t-simbolo{height:30px;width:auto;display:block;flex:none}
+.t-simbolo .lt{fill:var(--logo-testo)}.t-simbolo .lr{fill:var(--logo-rosso);stroke:var(--logo-rosso)}.t-simbolo .lr rect,.t-simbolo .lr circle{stroke:none}
+.t-sezione{display:flex;align-items:center;height:60px;padding:0 4px;font:600 14px/1 Inter,sans-serif;color:var(--ts-testo);box-shadow:inset 0 -3px 0 var(--ts-acc);white-space:nowrap}
+.t-destra{margin-left:auto;display:flex;align-items:center;gap:14px}
+.t-apri{color:var(--ts-acc);font:600 14px/1 Inter,sans-serif;text-decoration:none;white-space:nowrap}
+.t-apri:hover{text-decoration:underline}
+.testata .tema-btn{position:static;color:var(--ts-testo)}
+.testata a:focus-visible,.testata button:focus-visible{outline:2px solid var(--ts-acc);outline-offset:2px}
+@media (max-width:899.98px){
+header.testata{position:relative;background:var(--ts-sfondo,var(--ts-bg));border-bottom:3px solid var(--ts-acc);-webkit-backdrop-filter:none;backdrop-filter:none}
+.testata .t-barra{height:56px;gap:12px}
+.t-logo{font-size:23px}html[data-tema="chiaro"] .t-logo{font-size:21px}.t-simbolo{height:26px}
+.t-sezione{display:none}
+}
+"""
+
+
+def testata(radice, apri=None, sezione=None, extra=""):
+    """Testata comune: logo (torna alla pagina principale), sezione facoltativa, «Apri il sito →», tema."""
+    link = f'<a class="t-apri" href="{radice}{e(apri or "")}">Apri il sito →</a>' if apri is not None else ""
+    sez = f'<span class="t-sezione" aria-current="page">{e(sezione)}</span>' if sezione else ""
+    return (f'<header class="testata"><div class="t-barra"><a class="t-logo" href="{radice}" aria-label="PureStats, pagina principale">'
+            f'{TESTATA_SIMBOLO}<span>PURE<b>STATS</b></span></a>{sez}<div class="t-destra">{link}{extra}{TEMA_BOTTONE}</div></div></header>')
+
 STILE = """
 :root{--fondo:#E9EDF2;--carta:#fff;--testo:#0B1428;--tenue:#5B6476;--acc:#C8102E;--bordo:#D5DBE3}
 html:not([data-tema="chiaro"]){--fondo:#0B1428;--carta:#121D35;--testo:#E8ECF3;--tenue:#9AA5B8;--acc:#EF4444;--bordo:#22304F}
@@ -210,10 +248,10 @@ def pagina(base, percorso, titolo, desc, corpo, ld=None, immagine=None, tipo_og=
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{r}icona.svg" type="image/svg+xml">
 <link href="{r}font/font.css" rel="stylesheet">
-{TEMA_TESTA}<style>{STILE}</style>
+{TEMA_TESTA}<style>{STILE}{TESTATA_STILE}:root{{--ts-sfondo:var(--fondo)}}</style>
 {ld_txt}</head>
 <body{' class="largo"' if largo else ''}>
-<header><a class="marchio" href="{r}">PURE<span>STATS</span></a><a class="apri" href="{r}{e(apri or '')}">Apri nel sito →</a>{TEMA_BOTTONE}</header>
+{testata(r, apri or "")}
 <main>
 {corpo}
 </main>
@@ -322,8 +360,8 @@ def pagina_404(base):
     return f"""<!doctype html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pagina non trovata · PureStats</title><meta name="robots" content="noindex">
-<link rel="icon" href="{radice}icona.svg" type="image/svg+xml"><link href="{radice}font/font.css" rel="stylesheet">{TEMA_TESTA}<style>{STILE}</style></head>
-<body><header><a class="marchio" href="{radice}">PURE<span>STATS</span></a>{TEMA_BOTTONE}</header>
+<link rel="icon" href="{radice}icona.svg" type="image/svg+xml"><link href="{radice}font/font.css" rel="stylesheet">{TEMA_TESTA}<style>{STILE}{TESTATA_STILE}:root{{--ts-sfondo:var(--fondo)}}</style></head>
+<body>{testata(radice, "")}
 <main><article><div class="corpo"><p class="occhiello">Errore 404</p><h1>Questa pagina non esiste</h1>
 <p>L'indirizzo potrebbe essere sbagliato o la pagina è stata spostata.</p>
 <a class="bottone" href="{radice}">Torna a PureStats</a> <a href="{radice}archivio.html">Archivio</a> · <a href="{radice}privacy.html">Privacy</a></div></article></main></body></html>
@@ -868,7 +906,15 @@ def con_data(percorso, testo, oggi):
         m = re.search(r'"dateModified": "(\d{4}-\d\d-\d\d)"', vecchio)
         if m and metti_data(testo, m.group(1)) == vecchio:
             return vecchio, m.group(1)
+        # solo la grafica è cambiata (stile o testata, 25/11/2026): si scrive la pagina nuova ma la data resta
+        if m and senza_grafica(metti_data(testo, m.group(1))) == senza_grafica(vecchio):
+            return metti_data(testo, m.group(1)), m.group(1)
     return metti_data(testo, oggi), oggi
+
+
+def senza_grafica(testo):
+    """Il testo della pagina senza <style> e <header>: serve a non cambiare la data quando cambia solo l'aspetto."""
+    return re.sub(r"<header\b.*?</header>", "", re.sub(r"<style>.*?</style>", "", testo, flags=re.S), flags=re.S)
 
 
 def metti_data(testo, data):
