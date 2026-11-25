@@ -1,0 +1,411 @@
+{
+ "id": "2026_12_KC_BUF",
+ "lega": "nfl",
+ "stagione": 2026,
+ "settimana": 12,
+ "partita": "Kansas City Chiefs @ Buffalo Bills",
+ "ospite": "KC",
+ "casa": "BUF",
+ "quando": "nella notte tra giovedì e venerdì 27 novembre, alle 2:20 italiane",
+ "dataIt": "2026-11-27",
+ "oraIt": "02:20",
+ "inizioUtc": "2026-11-27T01:20+00:00",
+ "stadio": "Highmark Stadium",
+ "citta": "",
+ "campoNeutro": false,
+ "coperto": false,
+ "sfidaDiDivision": false,
+ "mercato": {
+  "favorita": "Buffalo Bills",
+  "vantaggio": 3.0,
+  "totale": 46.5,
+  "nota": "solo per dire chi parte favorito, a parole comuni (favoriti di poco fino a 3, favoriti, nettamente favoriti da 7,5), senza citare mercato, bookmaker, linea o totale"
+ },
+ "precedenti": [
+  {
+   "stagione": 2024,
+   "casa": "Buffalo Bills",
+   "ospite": "Kansas City Chiefs",
+   "risultato": "Buffalo Bills 30 - Kansas City Chiefs 21"
+  },
+  {
+   "stagione": 2024,
+   "casa": "Kansas City Chiefs",
+   "ospite": "Buffalo Bills",
+   "risultato": "Kansas City Chiefs 32 - Buffalo Bills 29"
+  },
+  {
+   "stagione": 2025,
+   "casa": "Buffalo Bills",
+   "ospite": "Kansas City Chiefs",
+   "risultato": "Buffalo Bills 28 - Kansas City Chiefs 21"
+  }
+ ],
+ "ospiti": {
+  "squadra": "Kansas City Chiefs",
+  "soprannome": "Chiefs",
+  "bilancio": "8-2",
+  "serieAperta": "3 vittorie di fila",
+  "ultimePartite": [
+   {
+    "settimana": 8,
+    "avversario": "Denver Broncos",
+    "inCasa": false,
+    "esito": "sconfitta",
+    "punteggio": "24-28"
+   },
+   {
+    "settimana": 9,
+    "avversario": "New York Jets",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "35-12"
+   },
+   {
+    "settimana": 10,
+    "avversario": "Atlanta Falcons",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "35-13"
+   },
+   {
+    "settimana": 11,
+    "avversario": "Arizona Cardinals",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "34-7"
+   }
+  ],
+  "andamento": {
+   "prime": "5-0",
+   "ultime": "3-2"
+  },
+  "puntiFattiPartita": 27.1,
+  "puntiSubitiPartita": 16.3,
+  "attacco": "un attacco di buon livello",
+  "difesa": "una delle difese più solide",
+  "division": {
+   "nome": "AFC West",
+   "posizione": "1ª su 4",
+   "capolista": ""
+  },
+  "stagioneScorsa": {
+   "bilancio": "6-11",
+   "playoff": "fuori dai playoff"
+  },
+  "allenatore": {
+   "nome": "Andy Reid",
+   "stagione": 14,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Patrick Mahomes",
+    "partiteDaTitolare": 10,
+    "bilancio": "8-2"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Patrick Mahomes",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "2.709 yard su lancio, 22 TD, 4 intercetti in 10 partite",
+    "posizioneNellaLega": 6,
+    "eta": 31,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Knee"
+    }
+   },
+   {
+    "nome": "Kenneth Walker III",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "872 yard di corsa, 7 TD",
+    "posizioneNellaLega": 5,
+    "eta": 26,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Limited Participation in Practice",
+     "infortunio": "Groin"
+    }
+   },
+   {
+    "nome": "Travis Kelce",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "TE",
+    "stagione": "586 yard ricevute, 41 ricezioni, 4 TD",
+    "posizioneNellaLega": 24,
+    "eta": 37,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Rashee Rice",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "427 yard ricevute, 36 ricezioni, 2 TD",
+    "posizioneNellaLega": 52,
+    "eta": 26,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Knee"
+    }
+   },
+   {
+    "nome": "George Karlaftis",
+    "ruolo": "miglior pass rusher",
+    "posizione": "DE",
+    "stagione": "8 sack",
+    "posizioneNellaLega": 10,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   }
+  ],
+  "cedutiInStagione": [
+   {
+    "nome": "Nikko Remigio",
+    "ruolo": "WR",
+    "oraGiocaCon": "Houston Texans"
+   }
+  ],
+  "arrivatiInStagione": [
+   {
+    "nome": "Josh Downs",
+    "ruolo": "WR",
+    "daSquadra": "Indianapolis Colts"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Patrick Mahomes",
+    "ruolo": "QB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Noah Gray",
+    "ruolo": "TE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Rib",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Kenneth Walker III",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Groin",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Rashee Rice",
+    "ruolo": "WR",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "padroniDiCasa": {
+  "squadra": "Buffalo Bills",
+  "soprannome": "Bills",
+  "bilancio": "9-1",
+  "serieAperta": "6 vittorie di fila",
+  "ultimePartite": [
+   {
+    "settimana": 8,
+    "avversario": "Baltimore Ravens",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "36-10"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Minnesota Vikings",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "23-6"
+   },
+   {
+    "settimana": 10,
+    "avversario": "New York Jets",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "31-12"
+   },
+   {
+    "settimana": 11,
+    "avversario": "Miami Dolphins",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "26-9"
+   }
+  ],
+  "andamento": {
+   "prime": "4-1",
+   "ultime": "5-0"
+  },
+  "puntiFattiPartita": 31.3,
+  "puntiSubitiPartita": 20.8,
+  "attacco": "uno degli attacchi più prolifici della lega",
+  "difesa": "una difesa affidabile",
+  "division": {
+   "nome": "AFC East",
+   "posizione": "1ª su 4",
+   "capolista": ""
+  },
+  "stagioneScorsa": {
+   "bilancio": "12-5",
+   "playoff": "eliminati nel turno di division"
+  },
+  "allenatore": {
+   "nome": "Joe Brady",
+   "stagione": 1,
+   "predecessore": "Sean McDermott"
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Josh Allen",
+    "partiteDaTitolare": 10,
+    "bilancio": "9-1"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Josh Allen",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "2.527 yard su lancio, 14 TD, 9 intercetti in 10 partite",
+    "posizioneNellaLega": 12,
+    "eta": 30,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "James Cook",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "1.060 yard di corsa, 10 TD",
+    "posizioneNellaLega": 2,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Khalil Shakir",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "539 yard ricevute, 38 ricezioni, 1 TD",
+    "posizioneNellaLega": 29,
+    "eta": 26,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Dalton Kincaid",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "TE",
+    "stagione": "487 yard ricevute, 32 ricezioni, 2 TD",
+    "posizioneNellaLega": 35,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "sugli stessi livelli",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Limited Participation in Practice",
+     "infortunio": "Thumb"
+    }
+   },
+   {
+    "nome": "Greg Rousseau",
+    "ruolo": "miglior pass rusher",
+    "posizione": "LB",
+    "stagione": "10 sack",
+    "posizioneNellaLega": 2,
+    "eta": 26,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Full Participation in Practice",
+     "infortunio": "Back"
+    }
+   }
+  ],
+  "cedutiInStagione": [],
+  "arrivatiInStagione": [
+   {
+    "nome": "Amani Hooker",
+    "ruolo": "SAF",
+    "daSquadra": "Tennessee Titans"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Ty Johnson",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Amani Hooker",
+    "ruolo": "S",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": false
+   },
+   {
+    "nome": "Greg Rousseau",
+    "ruolo": "LB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Back",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Christian Benford",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Groin",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Dorian Williams",
+    "ruolo": "LB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Calf",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Dalton Kincaid",
+    "ruolo": "TE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Thumb",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Cole Bishop",
+    "ruolo": "S",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Shoulder",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "colori": {
+  "ospite": "#E31837",
+  "casa": "#00338D"
+ }
+}

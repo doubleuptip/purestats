@@ -1,0 +1,369 @@
+{
+ "id": "2026_12_CHI_DET",
+ "lega": "nfl",
+ "stagione": 2026,
+ "settimana": 12,
+ "partita": "Chicago Bears @ Detroit Lions",
+ "ospite": "CHI",
+ "casa": "DET",
+ "quando": "giovedì 26 novembre, alle 19:00 italiane",
+ "dataIt": "2026-11-26",
+ "oraIt": "19:00",
+ "inizioUtc": "2026-11-26T18:00+00:00",
+ "stadio": "Ford Field",
+ "citta": "",
+ "campoNeutro": false,
+ "coperto": true,
+ "sfidaDiDivision": true,
+ "mercato": {
+  "favorita": "Chicago Bears",
+  "vantaggio": 1.5,
+  "totale": 55.5,
+  "nota": "solo per dire chi parte favorito, a parole comuni (favoriti di poco fino a 3, favoriti, nettamente favoriti da 7,5), senza citare mercato, bookmaker, linea o totale"
+ },
+ "precedenti": [
+  {
+   "stagione": 2024,
+   "casa": "Chicago Bears",
+   "ospite": "Detroit Lions",
+   "risultato": "Chicago Bears 17 - Detroit Lions 34"
+  },
+  {
+   "stagione": 2025,
+   "casa": "Detroit Lions",
+   "ospite": "Chicago Bears",
+   "risultato": "Detroit Lions 52 - Chicago Bears 21"
+  },
+  {
+   "stagione": 2025,
+   "casa": "Chicago Bears",
+   "ospite": "Detroit Lions",
+   "risultato": "Chicago Bears 16 - Detroit Lions 19"
+  }
+ ],
+ "ospiti": {
+  "squadra": "Chicago Bears",
+  "soprannome": "Bears",
+  "bilancio": "8-2",
+  "serieAperta": "5 vittorie di fila",
+  "ultimePartite": [
+   {
+    "settimana": 7,
+    "avversario": "New England Patriots",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "30-24"
+   },
+   {
+    "settimana": 8,
+    "avversario": "Seattle Seahawks",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "34-17"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Tampa Bay Buccaneers",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "27-24"
+   },
+   {
+    "settimana": 11,
+    "avversario": "New Orleans Saints",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "21-13"
+   }
+  ],
+  "andamento": {
+   "prime": "3-2",
+   "ultime": "5-0"
+  },
+  "puntiFattiPartita": 26.2,
+  "puntiSubitiPartita": 19.7,
+  "attacco": "un attacco di buon livello",
+  "difesa": "una difesa affidabile",
+  "division": {
+   "nome": "NFC North",
+   "posizione": "2ª su 4",
+   "capolista": "Detroit Lions"
+  },
+  "stagioneScorsa": {
+   "bilancio": "11-6",
+   "playoff": "eliminati nel turno di division"
+  },
+  "allenatore": {
+   "nome": "Ben Johnson",
+   "stagione": 2,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Caleb Williams",
+    "partiteDaTitolare": 7,
+    "bilancio": "6-1"
+   },
+   {
+    "nome": "Tyson Bagent",
+    "partiteDaTitolare": 2,
+    "bilancio": "1-1"
+   },
+   {
+    "nome": "Case Keenum",
+    "partiteDaTitolare": 1,
+    "bilancio": "1-0"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Caleb Williams",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "1.727 yard su lancio, 10 TD, 6 intercetti in 7 partite",
+    "posizioneNellaLega": 25,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "D'Andre Swift",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "627 yard di corsa, 10 TD",
+    "posizioneNellaLega": 14,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Luther Burden III",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "654 yard ricevute, 51 ricezioni, 4 TD",
+    "posizioneNellaLega": 19,
+    "eta": 22,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   },
+   {
+    "nome": "Rome Odunze",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "573 yard ricevute, 36 ricezioni, 1 TD",
+    "posizioneNellaLega": 25,
+    "eta": 24,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Austin Booker",
+    "ruolo": "miglior pass rusher",
+    "posizione": "DE",
+    "stagione": "5 sack",
+    "posizioneNellaLega": 34,
+    "eta": 23,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   }
+  ],
+  "cedutiInStagione": [
+   {
+    "nome": "Jamree Kromah",
+    "ruolo": "DE",
+    "oraGiocaCon": "Miami Dolphins"
+   }
+  ],
+  "arrivatiInStagione": [
+   {
+    "nome": "Jeffery Simmons",
+    "ruolo": "DT",
+    "daSquadra": "Tennessee Titans"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Kyler Gordon",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Shoulder",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Roschon Johnson",
+    "ruolo": "RB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Ankle",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "padroniDiCasa": {
+  "squadra": "Detroit Lions",
+  "soprannome": "Lions",
+  "bilancio": "8-2",
+  "serieAperta": "6 vittorie di fila",
+  "ultimePartite": [
+   {
+    "settimana": 8,
+    "avversario": "Minnesota Vikings",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "19-15"
+   },
+   {
+    "settimana": 9,
+    "avversario": "Miami Dolphins",
+    "inCasa": false,
+    "esito": "vittoria",
+    "punteggio": "19-9"
+   },
+   {
+    "settimana": 10,
+    "avversario": "New England Patriots",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "35-10"
+   },
+   {
+    "settimana": 11,
+    "avversario": "Tampa Bay Buccaneers",
+    "inCasa": true,
+    "esito": "vittoria",
+    "punteggio": "31-21"
+   }
+  ],
+  "andamento": {
+   "prime": "3-2",
+   "ultime": "5-0"
+  },
+  "puntiFattiPartita": 28.8,
+  "puntiSubitiPartita": 22.0,
+  "attacco": "uno degli attacchi più prolifici della lega",
+  "difesa": "una difesa nella media",
+  "division": {
+   "nome": "NFC North",
+   "posizione": "1ª su 4",
+   "capolista": ""
+  },
+  "stagioneScorsa": {
+   "bilancio": "9-8",
+   "playoff": "fuori dai playoff"
+  },
+  "allenatore": {
+   "nome": "Dan Campbell",
+   "stagione": 6,
+   "predecessore": ""
+  },
+  "quarterbackTitolariStagione": [
+   {
+    "nome": "Jared Goff",
+    "partiteDaTitolare": 10,
+    "bilancio": "8-2"
+   }
+  ],
+  "giocatoriChiave": [
+   {
+    "nome": "Jared Goff",
+    "ruolo": "quarterback (titolare nell'ultima partita)",
+    "posizione": "QB",
+    "stagione": "2.716 yard su lancio, 20 TD, 4 intercetti in 10 partite",
+    "posizioneNellaLega": 5,
+    "eta": 32,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Jahmyr Gibbs",
+    "ruolo": "miglior corridore",
+    "posizione": "RB",
+    "stagione": "1.098 yard di corsa, 13 TD",
+    "posizioneNellaLega": 1,
+    "eta": 24,
+    "rispettoAllAnnoScorso": "in netta crescita"
+   },
+   {
+    "nome": "Amon-Ra St. Brown",
+    "ruolo": "ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "792 yard ricevute, 70 ricezioni, 8 TD",
+    "posizioneNellaLega": 9,
+    "eta": 27,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "Jameson Williams",
+    "ruolo": "secondo ricevitore più produttivo",
+    "posizione": "WR",
+    "stagione": "611 yard ricevute, 36 ricezioni, 6 TD",
+    "posizioneNellaLega": 20,
+    "eta": 25,
+    "rispettoAllAnnoScorso": "sugli stessi livelli"
+   },
+   {
+    "nome": "DJ Wonnum",
+    "ruolo": "miglior pass rusher",
+    "posizione": "DE",
+    "stagione": "7 sack",
+    "posizioneNellaLega": 16,
+    "eta": 29,
+    "rispettoAllAnnoScorso": "in netta crescita",
+    "rapportoInfortuni": {
+     "stato": "",
+     "allenamento": "Did Not Participate In Practice",
+     "infortunio": "Back"
+    }
+   }
+  ],
+  "cedutiInStagione": [],
+  "arrivatiInStagione": [
+   {
+    "nome": "K.J. Britt",
+    "ruolo": "LB",
+    "daSquadra": "New England Patriots"
+   }
+  ],
+  "rapportoInfortuni": [
+   {
+    "nome": "Chuck Clark",
+    "ruolo": "S",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Hamstring",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "D.J. Reed",
+    "ruolo": "CB",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Hip",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "DJ Wonnum",
+    "ruolo": "DE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Back",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Sam LaPorta",
+    "ruolo": "TE",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Full Participation in Practice",
+    "infortunio": "Ankle",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Skyler Gill-Howard",
+    "ruolo": "DT",
+    "stato": "(stato non ancora dato)",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": true
+   }
+  ]
+ },
+ "colori": {
+  "ospite": "#0B162A",
+  "casa": "#0076B6"
+ }
+}
