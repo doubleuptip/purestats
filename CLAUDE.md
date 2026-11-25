@@ -265,6 +265,13 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   bozza, pubblica, commit; meteo lanciato se ci sono anteprime. College: `fatti_college` (SP+, tabellini ESPN; cronache
   dalle «azioni» ESPN in archivio, video solo se ufficiale). Scelta: `scegli_nfl` / `scegli_college` (bilanci, SP+,
   linea, division, prima serata), salvata in scelte_<lega>_<stagione>_<week>.json.
+- Aggiornamenti delle anteprime (25/11/2026, scelta di Valerio): `da_fare` propone le voci «aggiornamento» (anteprima
+  pubblicata, partita fra più di 2 ore, ultimo controllo oltre 18 ore fa). Novità vere → bozza con il campo
+  «aggiornamento» (nota ≤ 300 caratteri) e `pubblica`: restano `pubblicato`, si aggiungono `aggiornato`,
+  `aggiornamenti` [{quando, nota}] e `versioni` (testo precedente); senza novità `articoli.py controllato <id>_anteprima`
+  (campo `controllato`, non visibile). Sito: firma «Pubblicato … · Aggiornato …», riquadro rosso «Aggiornamento ·
+  data, ora» in cima al testo, «Versione del …» in fondo (`quandoIt`); pagine statiche con le stesse date,
+  dateModified e lastmod della sitemap = aggiornato. Regole in ARTICOLI_GUIDA, «Aggiornamenti delle anteprime».
 - Momenti decisivi (21/11/2026): probabilità di vittoria dal mercato (vegas_home_wp/vegas_home_wpa), sotto 3 punti solo
   azioni chiave, peso pieno verso il risultato finale, al massimo 2 per quarto (nfl_indici, costanti MOMENTI_*).
 - Foto degli stadi (21/11/2026): `docs/articoli/stadi/<Stadio>.jpg` per l'NFL (vale anche in campo neutro),

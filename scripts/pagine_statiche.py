@@ -127,6 +127,7 @@ article{background:var(--carta);border:1px solid var(--bordo);border-radius:14px
 .occhiello{color:var(--acc);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px}
 h1{font-size:30px;line-height:1.2;margin:0 0 10px}
 .info{color:var(--tenue);font-size:14px;margin:0 0 18px}
+.aggiornamento{border-left:3px solid #EF4444;padding:8px 12px;margin:0 0 16px;font-size:15px}.aggiornamento b{color:#EF4444;font-size:12px;letter-spacing:1px;text-transform:uppercase}
 .punteggio{font-size:22px;font-weight:800;margin:0 0 14px}
 p{margin:0 0 16px}
 .numeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0 20px;padding:0;list-style:none}
@@ -247,14 +248,25 @@ def pagina_articolo(base, a, nomi):
         video = f'<a class="bottone" href="https://www.youtube.com/watch?v={e(a["video"])}" rel="noopener">▶ Highlights su YouTube</a>'
     fonte = "ESPN e SP+ (CollegeFootballData)" if lega == "college" else "nflverse (CC BY 4.0)"
     pubbl = a.get("pubblicato", "")
+    agg = a.get("aggiornato") or ""
+    def quando_it(iso):
+        try:
+            d = datetime.fromisoformat(iso)
+            return f"{d.day} {MESI[d.month - 1]} {d.year}, {d:%H:%M}"
+        except (TypeError, ValueError):
+            return ""
+    date_txt = f'<p class="info">Pubblicato {e(quando_it(pubbl))}' + (f' · <b>Aggiornato {e(quando_it(agg))}</b>' if agg else "") + "</p>"
+    note = "".join(f'<p class="aggiornamento"><b>Aggiornamento · {e(quando_it(x.get("quando")))}</b><br>{e(x.get("nota"))}</p>'
+                   for x in reversed(a.get("aggiornamenti") or []))
     corpo = f"""<article>
 {striscia}{foto}
 <div class="corpo">
 <p class="occhiello">{tipo} · {campionato}{sett}</p>
 <h1>{e(a.get("titolo"))}</h1>
 <p class="info">{e(ospite)} @ {e(casa)}{quando}{luogo}</p>
+{date_txt}
 {punteggio}
-{paragrafi}
+{note}{paragrafi}
 {video}
 <a class="bottone" href="../#articolo={e(a["id"])}">Leggi su PureStats con meteo e numeri</a>
 <div class="piede">Articolo scritto con l'aiuto di Claude (Anthropic) su dati {fonte}, verificati prima della pubblicazione.
@@ -265,7 +277,7 @@ def pagina_articolo(base, a, nomi):
     desc = descrizione(a.get("paragrafi"))
     immagine = base + a["foto"] if a.get("foto") else None
     ld = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": titolo[:110],
-          "description": desc, "inLanguage": "it", "datePublished": pubbl,
+          "description": desc, "inLanguage": "it", "datePublished": pubbl, "dateModified": agg or pubbl,
           "author": {"@type": "Organization", "name": "PureStats"},
           "publisher": {"@type": "Organization", "name": "PureStats"},
           "mainEntityOfPage": base + f"a/{a['id']}.html"}
@@ -915,7 +927,7 @@ def main():
             controlla(" ".join([a.get("titolo") or ""] + (a.get("paragrafi") or [])), f"articolo {a['id']}")
             with open(os.path.join(tmp, "a", a["id"] + ".html"), "w", encoding="utf-8") as f:
                 f.write(testo)
-            url_sitemap.append((base + f"a/{a['id']}.html", (a.get("pubblicato") or oggi)[:10]))
+            url_sitemap.append((base + f"a/{a['id']}.html", (a.get("aggiornato") or a.get("pubblicato") or oggi)[:10]))
 
         for r in racconti:
             controlla(" ".join([r.get("titolo") or ""] + (r.get("paragrafi") or [])), f"racconto {r['id']}")

@@ -30,6 +30,22 @@ Ogni settimana: 3 partite NFL e 3 college, anteprima prima del via e cronaca dop
 - Se nflverse non ha ancora il play-by-play (o ESPN il tabellino del college), `fatti` lo dice: quella cronaca si
   rimanda al giorno dopo, senza inventare nulla.
 
+## Aggiornamenti delle anteprime (dal 25/11/2026, scelta di Valerio)
+- `da_fare` elenca anche le voci di tipo «aggiornamento»: anteprime già pubblicate di partite non ancora iniziate
+  (mancano più di 2 ore) controllate l'ultima volta più di 18 ore fa.
+- Per ognuna: rifare `fatti`, cercare sul web le novità dalla prima pubblicazione (soprattutto rapporto infortuni
+  ufficiale con lo stato finale: Out, Doubtful, Questionable, Inattivo; QB titolare; orario o sede cambiati).
+  - Nessuna novità che cambi il racconto: `python3 scripts/articoli.py controllato <id>_anteprima` (annota solo l'ora
+    del controllo, il sito non mostra niente). Non riscrivere l'articolo per cambiare solo parole.
+  - Novità vere: aggiungere i fatti nuovi con la fonte a `notizie_<id>.json`, correggere il testo dove serve (le frasi
+    superate vanno riscritte, non lasciate in contraddizione) e mettere nella bozza il campo
+    `"aggiornamento": "una o due frasi su cosa è cambiato"` (massimo 300 caratteri, stessi controlli del testo). Poi
+    `pubblica <id> anteprima <bozza>`: resta la data della prima pubblicazione, si aggiungono data e ora
+    dell'aggiornamento, la nota in cima al testo e la versione precedente consultabile in fondo.
+- Senza il campo «aggiornamento» `pubblica` rifiuta di riscrivere un articolo già pubblicato.
+- Nel testo non promettere aggiornamenti futuri («se arriveranno novità le scriveremo»): l'aggiornamento, se serve,
+  arriva e si vede dalla data.
+
 ## Cosa raccontare (indicazioni di Valerio, 18/11/2026)
 - Si parte dall'ATTUALITÀ: come stanno andando le squadre, momento positivo o negativo, chi cerca riscatto,
   cosa è cambiato con un'assenza (es. una squadra crollata da quando manca il quarterback titolare),

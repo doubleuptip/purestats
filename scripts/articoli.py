@@ -881,6 +881,29 @@ def _scelte(lega: str, stagione: int, settimana: int, calcola) -> list:
     return scelte
 
 
+def _da_ricontrollare(aid: str, inizio: dt.datetime, ora: dt.datetime) -> bool:
+    """Anteprima già pubblicata da ricontrollare (25/11/2026): la partita non è ancora iniziata (mancano più di 2 ore)
+    e l'ultimo controllo (pubblicazione, aggiornamento o «nessuna novità») ha più di 18 ore."""
+    p = USCITA / f"{aid}.json"
+    if not p.exists() or inizio - ora <= dt.timedelta(hours=2):
+        return False
+    a = json.loads(p.read_text())
+    ultimo = a.get("controllato") or a.get("aggiornato") or a.get("pubblicato")
+    try:
+        return ora - dt.datetime.fromisoformat(ultimo) > dt.timedelta(hours=18)
+    except (TypeError, ValueError):
+        return False
+
+
+def segna_controllato(aid: str) -> None:
+    """Nessuna novità per l'anteprima: si annota solo l'ora del controllo (non compare sul sito come aggiornamento)."""
+    p = USCITA / f"{aid}.json"
+    a = json.loads(p.read_text())
+    a["controllato"] = dt.datetime.now(ROMA).isoformat(timespec="minutes")
+    p.write_text(json.dumps(a, ensure_ascii=False, indent=1))
+    print(f"Controllato senza novità: {aid}")
+
+
 def da_fare() -> list[dict]:
     """Anteprime da scrivere (via entro 48 ore) e cronache da scrivere (partita finita) per le partite scelte."""
     ora = dt.datetime.now(dt.timezone.utc)
@@ -908,6 +931,9 @@ def da_fare() -> list[dict]:
                     dt.timedelta(0) < inizio_nfl(x) - ora <= dt.timedelta(hours=ANTEPRIMA_ORE):
                 out.append({"lega": "nfl", "tipo": "anteprima", "id": g["id"], "partita": g["partita"],
                             "fatti": f"python3 scripts/articoli.py fatti {g['id']}"})
+            elif not x["result"] and _da_ricontrollare(f"{g['id']}_anteprima", inizio_nfl(x), ora):
+                out.append({"lega": "nfl", "tipo": "aggiornamento", "id": g["id"], "partita": g["partita"],
+                            "fatti": f"python3 scripts/articoli.py fatti {g['id']}"})
     # College
     pub = json.loads((RADICE / "docs" / "data_college.json").read_text())
     inizi = {(str(x["stagione"]), str(x["settimana"]), x["ospite"], x["casa"]): x.get("inizio") for x in pub["ultimePartite"]}
@@ -933,6 +959,8 @@ def da_fare() -> list[dict]:
             elif not x["PuntiCasa"] and f"{gid}_anteprima" not in fatto and \
                     dt.timedelta(0) < inizio_c(x) - ora <= dt.timedelta(hours=ANTEPRIMA_ORE):
                 out.append({"lega": "college", "tipo": "anteprima", "id": gid, "partita": g["partita"], "fatti": cmd})
+            elif not x["PuntiCasa"] and _da_ricontrollare(f"{gid}_anteprima", inizio_c(x), ora):
+                out.append({"lega": "college", "tipo": "aggiornamento", "id": gid, "partita": g["partita"], "fatti": cmd})
     return out
 
 
@@ -1217,13 +1245,26 @@ def pubblica(gid: str, tipo: str, file_testo: str) -> None:
             sys.exit(1)
         f = dict(f, notizieVerificate=voci)
     testo = json.loads(Path(file_testo).read_text())
-    problemi = controlla(testo, f)
+    aid = f"{gid}_{tipo}"
+    vecchio = USCITA / f"{aid}.json"
+    prima = json.loads(vecchio.read_text()) if vecchio.exists() else None
+    # Aggiornamenti (25/11/2026, scelta di Valerio): un articolo già pubblicato si riscrive solo con il campo
+    # «aggiornamento» = cosa è cambiato, in una o due frasi (es. nuovo stato di un infortunato). La pagina mostra
+    # data e ora della prima pubblicazione e di ogni aggiornamento, la nota e la versione precedente.
+    nota = (testo.get("aggiornamento") or "").strip()
+    if prima and not nota:
+        print(f"NON pubblicato: {aid} è già pubblicato. Per aggiornarlo scrivi nella bozza il campo «aggiornamento» "
+              "con cosa è cambiato (una o due frasi).")
+        sys.exit(1)
+    if nota and len(nota) > 300:
+        print("NON pubblicato: la nota «aggiornamento» deve stare in 300 caratteri.")
+        sys.exit(1)
+    problemi = controlla(dict(testo, paragrafi=list(testo["paragrafi"]) + ([nota] if nota else [])), f)
     if problemi:
         print("NON pubblicato, da correggere:\n  " + "\n  ".join(problemi))
         sys.exit(1)
     USCITA.mkdir(parents=True, exist_ok=True)
     foto, credito = foto_stadio(f["lega"], f["stadio"], f["casa"])
-    aid = f"{gid}_{tipo}"
     art = {"id": aid, "lega": f["lega"], "tipo": tipo, "stagione": f["stagione"], "settimana": f["settimana"], "ospite": f["ospite"], "casa": f["casa"],
            "dataIt": f["dataIt"], "oraIt": f["oraIt"], "inizioUtc": f["inizioUtc"], "stadio": f["stadio"],
            "campoNeutro": f["campoNeutro"], "coperto": f["coperto"],
@@ -1236,19 +1277,26 @@ def pubblica(gid: str, tipo: str, file_testo: str) -> None:
         art["punti"] = {"ospite": p["puntiOspite"], "casa": p["puntiCasa"]}
         art["bilanci"] = {"ospite": p["bilancioDopo"]["ospiti"], "casa": p["bilancioDopo"]["padroniDiCasa"]}
         art["video"] = p.get("video") or ""
-    vecchio = USCITA / f"{aid}.json"
-    if vecchio.exists():
-        art["meteo"] = json.loads(vecchio.read_text()).get("meteo")
+    if prima:
+        art["meteo"] = prima.get("meteo")
+        if nota:
+            art["pubblicato"] = prima.get("pubblicato") or art["pubblicato"]
+            ora_agg = dt.datetime.now(ROMA).isoformat(timespec="minutes")
+            art["aggiornato"] = ora_agg
+            art["aggiornamenti"] = (prima.get("aggiornamenti") or []) + [{"quando": ora_agg, "nota": nota}]
+            art["versioni"] = (prima.get("versioni") or []) + [{
+                "quando": prima.get("aggiornato") or prima.get("pubblicato"),
+                "titolo": prima.get("titolo"), "paragrafi": prima.get("paragrafi")}]
     vecchio.write_text(json.dumps(art, ensure_ascii=False, indent=1))
     aggiorna_indice()
-    print(f"Pubblicato: docs/articoli/{aid}.json")
+    print(f"{'Aggiornato' if prima and nota else 'Pubblicato'}: docs/articoli/{aid}.json")
 
 
 def aggiorna_indice() -> None:
     voci = []
     for p in sorted(USCITA.glob("*_anteprima.json")) + sorted(USCITA.glob("*_cronaca.json")):
         a = json.loads(p.read_text())
-        voci.append({k: a.get(k) for k in ("id", "lega", "tipo", "stagione", "settimana", "ospite", "casa", "dataIt", "oraIt", "titolo", "pubblicato")})
+        voci.append({k: a.get(k) for k in ("id", "lega", "tipo", "stagione", "settimana", "ospite", "casa", "dataIt", "oraIt", "titolo", "pubblicato", "aggiornato")})
     voci.sort(key=lambda v: v["pubblicato"] or "", reverse=True)
     (USCITA / "indice.json").write_text(json.dumps(voci, ensure_ascii=False, indent=1))
 
@@ -1377,6 +1425,8 @@ if __name__ == "__main__":
         fatti(sys.argv[2])
     elif len(sys.argv) >= 5 and sys.argv[1] == "pubblica":
         pubblica(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif len(sys.argv) >= 3 and sys.argv[1] == "controllato":
+        segna_controllato(sys.argv[2])
     elif len(sys.argv) >= 2 and sys.argv[1] == "da_fare":
         lavori = da_fare()
         print(json.dumps(lavori, ensure_ascii=False, indent=1) if lavori else "Niente da fare oggi.")

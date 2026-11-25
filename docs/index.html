@@ -575,6 +575,11 @@
   .ar-occhiello{margin:18px 0 6px;font:700 13px var(--f-testo);letter-spacing:.06em;text-transform:uppercase;color:var(--fb-acc,#B91C1C)}
   .ar h1{margin:0 0 10px;font:800 clamp(28px,5vw,40px)/1.08 var(--f-tit)}
   .ar-firma{font-size:13px;color:var(--fb-muted);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--fb-border)}
+  .ar-agg-firma{color:var(--fb-acc);font-weight:700}
+  .ar-agg{border-left:3px solid var(--fb-acc);background:var(--fb-pill);padding:10px 14px;border-radius:0 10px 10px 0;margin:0 0 16px;font-size:15px;line-height:1.5}
+  .ar-agg b{display:block;font:700 12px var(--f-testo);letter-spacing:1px;text-transform:uppercase;color:var(--fb-acc);margin-bottom:4px}
+  .ar-vers{margin-top:22px;border:1px solid var(--fb-border);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--fb-muted)}
+  .ar-vers summary{cursor:pointer;font-weight:700;color:var(--fb-text)}.ar-vers h3{font-size:16px;margin:12px 0 6px;color:var(--fb-text)}
   .ar-testo p{font-size:18px;line-height:1.65;margin:0 0 16px}
   .ar-numeri,.ar-meteo{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:14px 16px;margin:20px 0}
   .ar-numeri h2{margin:0 0 10px;font:800 18px var(--f-tit);text-transform:uppercase}
@@ -2226,6 +2231,12 @@ function giornoIt(iso){
   return `${GIORNI_IT[d.getDay()]} ${d.getDate()} ${MESI_IT[d.getMonth()]}`;
 }
 
+/* «mer 25 novembre, 11:49» da un'ora ISO con fuso (pubblicato / aggiornato degli articoli) */
+function quandoIt(iso){
+  if(!iso) return "";
+  return `${giornoIt(iso.slice(0,10))}, ${iso.slice(11,16)}`;
+}
+
 function schedaRisultato(g){
   const giocata = g.pc!==null && g.pc!==undefined;
   const vinceOsp = giocata && g.po>g.pc, vinceCasa = giocata && g.pc>g.po;
@@ -3355,8 +3366,9 @@ function vArticolo(id){
     </div></div>
     <div class="ar-titolo"><div class="ar-occhiello">${cronaca?"Cronaca":"Anteprima"} · ${esc(breve(a.ospite))}–${esc(breve(a.casa))}</div>
       <h1>${esc(a.titolo)}</h1>
-      <div class="ar-firma">PureStats · ${esc(giornoIt((a.pubblicato||"").slice(0,10)))} · lettura ${minuti} minut${minuti===1?"o":"i"}</div></div>
-    <div class="ar-testo">${par.join("")}</div>
+      <div class="ar-firma">PureStats · Pubblicato ${esc(quandoIt(a.pubblicato))}${a.aggiornato?` · <b class="ar-agg-firma">Aggiornato ${esc(quandoIt(a.aggiornato))}</b>`:""} · lettura ${minuti} minut${minuti===1?"o":"i"}</div></div>
+    <div class="ar-testo">${(a.aggiornamenti||[]).slice().reverse().map(x=>`<div class="ar-agg"><b>Aggiornamento · ${esc(quandoIt(x.quando))}</b>${esc(x.nota)}</div>`).join("")}${par.join("")}
+      ${(a.versioni||[]).slice().reverse().map(v=>`<details class="ar-vers"><summary>Versione del ${esc(quandoIt(v.quando))}</summary><h3>${esc(v.titolo||"")}</h3>${(v.paragrafi||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</details>`).join("")}</div>
     <aside class="ar-lato">${cronaca?"":schedaMeteo(a)}
       ${riquadroSquadre(a)}
       <div class="ar-crediti">Articolo scritto con l'aiuto di Claude (Anthropic) su dati ${a.lega==="college"?"ESPN e SP+ (CollegeFootballData)":"nflverse (CC-BY 4.0)"}, verificati prima della pubblicazione.${a.foto&&a.fotoCrediti?" "+creditoFoto(a.fotoCrediti,true).replace(/^Foto:/,"Foto dello stadio:")+".":""}</div>
