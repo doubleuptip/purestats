@@ -307,7 +307,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Racconti (21/11/2026): `docs/leggende/racconti.json` scritto a mano (id, titolo, occhiello, grande = numero di maglia
   o cifra simbolo, colori della squadra dell'epoca, numeri, paragrafi, fonti). «In evidenza» in cima alla pagina cambia ogni giorno; indirizzo diretto `#leggenda=<id>`. Ogni fatto si verifica sulla voce Wikipedia citata (scaricata
   dal ramo bozze, workflow bozze.yml) prima di pubblicare; testo nostro, niente frasi copiate. Fatti: Kurt Warner,
-  Joe Montana, Dolphins 1972, rimonta 28-3 (Super Bowl LI), presa di Tyree (Super Bowl XLII), Barry Sanders.
+  Joe Montana, Dolphins 1972, rimonta 28-3 (Super Bowl LI), presa di Tyree (Super Bowl XLII), Barry Sanders, Dan Marino e il 1984.
 - «Mai battuto»: per ogni classifica il detentore e il migliore ancora in attività con la distanza (`maiBattuti` in
   leggende.json), più la stagione perfetta 17-0 dei Dolphins.
 - Video (21/11/2026): ogni racconto ha «Guarda il video» a metà testo, un collegamento (non incorporato) a una pagina
