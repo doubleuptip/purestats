@@ -119,7 +119,10 @@ def css_piena(t, rarita):
 .piena .rar{position:absolute;z-index:3;top:60px;left:24px;font:800 15px "Barlow Condensed";letter-spacing:2.4px;
   padding:6px 13px;border-radius:99px;background:linear-gradient(135deg,%(b1)s,%(b3)s 50%%,%(b2)s);color:%(scuro)s;
   box-shadow:0 4px 14px rgba(0,0,0,.45);text-transform:uppercase}
-.piena .logo{top:auto;bottom:332px;right:28px;width:100px;height:100px;box-shadow:0 0 0 4px #0A1418,0 0 0 7px %(b2)s,0 10px 24px rgba(0,0,0,.6)}
+.piena .riga{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.piena .riga>div{min-width:0}
+.piena .stemma{width:96px;height:96px;border-radius:50%%;background:#fff;flex-shrink:0;
+  box-shadow:0 0 0 4px #0A1418,0 0 0 7px %(b2)s,0 10px 24px rgba(0,0,0,.6)}
 .piena .basso{position:absolute;left:0;right:0;bottom:46px;padding:0 30px;z-index:2}
 .piena .mom{font:700 13px Inter;letter-spacing:2px;color:%(acc)s;text-transform:uppercase}
 .piena h1{font:800 64px/0.95 "Barlow Condensed";letter-spacing:1px;text-transform:uppercase;margin-top:6px;text-shadow:0 3px 18px rgba(0,0,0,.7)}
@@ -139,14 +142,15 @@ def fronte_piena(c, nnn, ritratto, stemma):
     return (
         '<img class="sfondo" src="file://%s" alt=""><div class="velo"></div>'
         '<div class="alto"><img src="file://%s" alt="">LEGA DELLA TERRA UNITA<span class="st">STAGIONE %s</span></div>'
-        '<div class="rar">%s%s</div><img class="logo" src="file://%s" alt="">'
-        '<div class="basso"><div class="mom">%s</div><h1>%s</h1><div class="ruolo">%s · %s</div>'
+        '<div class="rar">%s%s</div>'
+        '<div class="basso"><div class="riga"><div><div class="mom">%s</div><h1>%s</h1><div class="ruolo">%s · %s</div></div>'
+        '<img class="stemma" src="file://%s" alt=""></div>'
         '<div class="tit">%s</div><div class="txt">%s</div><div class="dati">%s</div></div>'
         '<div class="piede"><span>CARTA Nº %s · PERSONAGGIO IMMAGINARIO · IMMAGINE CREATA CON AI</span>'
         '<span class="ps">PURE<i>STATS</i></span></div>'
     ) % (ritratto, BANDIERA, testo(c.get("stagione", 2187)), testo(c["rarita"]),
-         (" · " + testo(m["tipo"])) if m.get("tipo") else "", stemma, testo(m.get("etichetta", "")), testo(c["nome"]),
-         testo(c["ruolo"]), testo(c["squadra"]), testo(m.get("titolo", "")), testo(m.get("testo", "")), dati, nnn)
+         (" · " + testo(m["tipo"])) if m.get("tipo") else "", testo(m.get("etichetta", "")), testo(c["nome"]),
+         testo(c["ruolo"]), testo(c["squadra"]), stemma, testo(m.get("titolo", "")), testo(m.get("testo", "")), dati, nnn)
 
 
 def pagina(stile, corpo, classe="carta"):

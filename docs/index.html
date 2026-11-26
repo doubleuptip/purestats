@@ -943,9 +943,9 @@
   @keyframes lgHolo{0%{background-position:0 0,0% 50%}100%{background-position:0 0,100% 50%}}
   @media (prefers-reduced-motion:reduce){ .lg-carta.spec .holo{animation:none} }
   .lg-album a{position:relative}
-  .lg-bollino{position:absolute;top:8px;left:8px;font:800 11px var(--f-testo);letter-spacing:1.2px;text-transform:uppercase;font-style:normal;
+  .lg-bollino{display:inline-block;vertical-align:1px;margin-right:6px;font:800 10.5px var(--f-testo);letter-spacing:1.2px;text-transform:uppercase;font-style:normal;
     padding:3px 8px;border-radius:99px;background:linear-gradient(135deg,#E6F4F7,#9FE8F2);color:#0E2A33}
-  .lg-bollino.in{position:static;display:inline-block;margin:0 0 10px;font-size:12px}
+  .lg-bollino.in{margin:0 0 10px;font-size:12px}
   [data-rar="Leggendaria"] .lg-bollino,.lg-info .lg-bollino.leg{background:linear-gradient(135deg,#FFE7A3,#FFD45E);color:#2A1D02}
   .lg-album a.spec img{box-shadow:0 0 0 2px #9FE8F2,0 8px 20px rgba(0,0,0,.3)}
   .lg-album a[data-rar="Leggendaria"] img{box-shadow:0 0 0 2px #FFD45E,0 8px 20px rgba(0,0,0,.3)}
@@ -3621,8 +3621,8 @@ function legaAlbum(){
       ${sq?`<button type="button" onclick="legaScegli('squadre')">La sua squadra</button>`:""}
       <a href="${esc(c.fronte)}" download>Scarica la carta</a></div></div>`;
   const album=`<section class="h-sez"><div class="h-st"><h2>L'album · ${C.length} ${C.length===1?"carta uscita":"carte uscite"}</h2></div>
-    <div class="lg-album">${C.map(x=>`<a href="#carta=${x.n}" onclick="legaApri(${x.n});return false"${legaSpeciale(x)?` class="spec" data-rar="${esc(x.rarita)}"`:""}><img src="${esc(x.fronte)}" alt="Carta Nº ${nnn(x.n)}, ${esc(x.nome)}" loading="lazy">${legaSpeciale(x)?`<em class="lg-bollino">${esc(x.rarita)}</em>`:""}
-      <small>Nº ${nnn(x.n)} · ${esc(x.nome)}</small></a>`).join("")}
+    <div class="lg-album">${C.map(x=>`<a href="#carta=${x.n}" onclick="legaApri(${x.n});return false"${legaSpeciale(x)?` class="spec" data-rar="${esc(x.rarita)}"`:""}><img src="${esc(x.fronte)}" alt="Carta Nº ${nnn(x.n)}, ${esc(x.nome)}" loading="lazy">
+      <small>${legaSpeciale(x)?`<em class="lg-bollino">${esc(x.rarita)}</em>`:""}Nº ${nnn(x.n)} · ${esc(x.nome)}</small></a>`).join("")}
       <div><div class="vuota">${nnn(C[0].n+1)}</div><small>Domani</small></div></div></section>`;
   return `<div class="lg-giorno">${cartaGrande(c)}${info}</div>${album}`;
 }
