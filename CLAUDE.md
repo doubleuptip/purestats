@@ -244,7 +244,9 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   cinematografica; Leggendaria ed Esclusiva = B render 3D stilizzato. Rara/Leggendaria/Esclusiva escono da sole «a immagine
   piena» (`css_piena`, `fronte_piena`, cornici in `CORNICI`: argento-ciano, oro, prisma); campi «rarita», «momento»
   {tipo, etichetta, titolo, testo}, «carriera.titolo». Toppa della bandiera sempre RETTANGOLARE. `carte_lega.py <n> --prova`
-  fotografa in /tmp senza toccare lega.json. Sul sito le carte speciali hanno il riflesso olografico (`.holo`, segue dito e
+  fotografa in /tmp senza toccare lega.json. Formato unico (26/11/2026, Valerio): tutte le carte hanno la stessa parte bassa
+  (`basso`: etichetta, nome con lo stemma alla sua destra, dettaglio di altezza fissa, 4 numeri) nella stessa posizione;
+  cambia solo l'immagine (riquadro nelle Comuni, piena nelle speciali). Indirizzi delle foto con ?v= (memoria del browser). Sul sito le carte speciali hanno il riflesso olografico (`.holo`, segue dito e
   mouse con `legaRiflesso`; fermo con «riduci movimento») e il bollino della rarità nell'album. Nº 002 = Rara «La presa
   dell'Eco», uscita anticipata al 26/11/2026 (Valerio); il quarterback dei Tempest resta per il 27/11.
 - Loghi delle squadre della Lega (26/11/2026, Valerio): TUTTI fatti con Gemini, mai disegnati da Claude. Alla prima

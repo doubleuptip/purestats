@@ -64,20 +64,24 @@ body{background:%(b2)s;font-family:Inter,sans-serif;width:750px;height:1050px;ov
 .alto{display:flex;align-items:center;gap:12px;padding:18px 24px 14px;font:700 15px Inter;letter-spacing:2.2px}
 .alto img{height:30px;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
 .alto .st{margin-left:auto;color:%(acc)s}
-.foto{position:relative;margin:0 22px;height:540px;border-radius:18px;overflow:hidden;box-shadow:0 0 0 2px %(linea)s}
+.foto{position:relative;margin:0 22px;height:600px;border-radius:18px;overflow:hidden;box-shadow:0 0 0 2px %(linea)s}
 .foto img{width:100%%;height:100%%;object-fit:cover;object-position:50%% 20%%}
 .foto:after{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(transparent,%(f3)s)}
-.logo{position:absolute;right:34px;top:526px;width:116px;height:116px;border-radius:50%%;box-shadow:0 0 0 5px %(f2)s,0 0 0 8px %(linea)s,0 10px 24px rgba(0,0,0,.6);z-index:3;background:#fff}
-.nome{padding:20px 30px 0;position:relative;z-index:2}
-.nome h1{font:800 60px/0.95 "Barlow Condensed";letter-spacing:1px;text-transform:uppercase}
-.nome p{font:700 16px Inter;letter-spacing:2px;color:%(sotto)s;margin-top:8px;text-transform:uppercase}
-.dono{margin:18px 30px 0;padding:14px 16px;border-radius:14px;background:rgba(10,30,36,.75);border:1px solid %(linea)s}
-.dono b{font:800 21px "Barlow Condensed";letter-spacing:1.6px;color:%(acc)s;text-transform:uppercase}
-.dono b i{font-style:normal;color:%(luce)s}
-.dono p{font-size:14.5px;line-height:1.45;margin-top:4px;color:#DDE8EA}
-.ch{display:flex;gap:8px;margin-top:9px}.ch span{font:700 11.5px Inter;letter-spacing:1px;padding:5px 9px;border-radius:99px;background:%(chip)s;color:%(chipt)s;text-transform:uppercase}
-.dcap{margin:16px 30px 0;font:700 11.5px Inter;letter-spacing:2px;color:#8FA9AE;text-align:center;text-transform:uppercase}
-.dati{display:grid;grid-template-columns:repeat(4,1fr);margin:6px 30px 0;text-align:center}
+/* parte bassa UGUALE in tutte le carte (26/11/2026, Valerio: stesso formato per tutte): stessa altezza e posizione */
+.basso{position:absolute;left:0;right:0;bottom:46px;padding:0 30px;z-index:2}
+.riga{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.riga>div{min-width:0}
+.stemma{width:96px;height:96px;border-radius:50%%;background:#fff;flex-shrink:0;
+  box-shadow:0 0 0 4px %(f2)s,0 0 0 7px %(linea)s,0 10px 24px rgba(0,0,0,.6)}
+.mom{font:700 13px Inter;letter-spacing:2px;color:%(acc)s;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.basso h1{font:800 60px/0.95 "Barlow Condensed";letter-spacing:1px;text-transform:uppercase;margin-top:6px;white-space:nowrap}
+.ruolo{font:700 15px Inter;letter-spacing:2px;color:%(sotto)s;margin-top:6px;text-transform:uppercase}
+.det{height:104px;margin-top:12px;overflow:hidden}
+.det .tit{font:800 23px "Barlow Condensed";letter-spacing:1px;color:%(acc)s;text-transform:uppercase}
+.det .tit i{font-style:normal;color:%(luce)s}
+.det .txt{font-size:14.5px;line-height:1.45;color:#E2ECEE;margin-top:3px}
+.det .pz{font:700 11.5px Inter;letter-spacing:1px;color:%(chipt)s;margin-top:6px;text-transform:uppercase}
+.dati{display:grid;grid-template-columns:repeat(4,1fr);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);text-align:center}
 .dati div{border-right:1px solid rgba(255,255,255,.15)}.dati div:last-child{border:0}
 .dati b{display:block;font:800 36px "Barlow Condensed";color:#fff}.dati span{font:600 11px Inter;letter-spacing:1.3px;color:#9FB9BE;text-transform:uppercase}
 .piede{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 24px;font:600 11px Inter;letter-spacing:1.2px;color:#8FA9AE;background:rgba(0,0,0,.35)}
@@ -119,17 +123,9 @@ def css_piena(t, rarita):
 .piena .rar{position:absolute;z-index:3;top:60px;left:24px;font:800 15px "Barlow Condensed";letter-spacing:2.4px;
   padding:6px 13px;border-radius:99px;background:linear-gradient(135deg,%(b1)s,%(b3)s 50%%,%(b2)s);color:%(scuro)s;
   box-shadow:0 4px 14px rgba(0,0,0,.45);text-transform:uppercase}
-.piena .riga{display:flex;align-items:center;justify-content:space-between;gap:18px}
-.piena .riga>div{min-width:0}
-.piena .stemma{width:96px;height:96px;border-radius:50%%;background:#fff;flex-shrink:0;
-  box-shadow:0 0 0 4px #0A1418,0 0 0 7px %(b2)s,0 10px 24px rgba(0,0,0,.6)}
-.piena .basso{position:absolute;left:0;right:0;bottom:46px;padding:0 30px;z-index:2}
-.piena .mom{font:700 13px Inter;letter-spacing:2px;color:%(acc)s;text-transform:uppercase}
-.piena h1{font:800 64px/0.95 "Barlow Condensed";letter-spacing:1px;text-transform:uppercase;margin-top:6px;text-shadow:0 3px 18px rgba(0,0,0,.7)}
-.piena .ruolo{font:700 15px Inter;letter-spacing:2px;color:#C9DDE2;margin-top:6px;text-transform:uppercase}
-.piena .tit{font:800 24px "Barlow Condensed";letter-spacing:1px;color:%(acc)s;margin-top:14px;text-transform:uppercase}
-.piena .txt{font-size:14.5px;line-height:1.45;color:#E2ECEE;margin-top:4px}
-.piena .dati{margin:14px 0 0;padding-top:10px;border-top:1px solid rgba(255,255,255,.18)}
+.piena .mom,.piena .det .tit{color:%(acc)s}
+.piena .stemma{box-shadow:0 0 0 4px #0A1418,0 0 0 7px %(b2)s,0 10px 24px rgba(0,0,0,.6)}
+.piena .basso h1{text-shadow:0 3px 18px rgba(0,0,0,.7)}
 .piena .piede{background:rgba(0,0,0,.55)}
 .piena.retro .in{background:radial-gradient(120%% 80%% at 50%% 0%%,%(f1)s 0%%,%(f2)s 45%%,%(f3)s 100%%)}
 .piena.retro .rt{border-bottom-color:%(b2)s}
@@ -138,19 +134,15 @@ def css_piena(t, rarita):
 
 def fronte_piena(c, nnn, ritratto, stemma):
     m = c.get("momento") or {}
-    dati = "".join('<div><b>%s</b><span>%s</span></div>' % (testo(v), testo(e)) for v, e in c["dati"])
     return (
         '<img class="sfondo" src="file://%s" alt=""><div class="velo"></div>'
         '<div class="alto"><img src="file://%s" alt="">LEGA DELLA TERRA UNITA<span class="st">STAGIONE %s</span></div>'
-        '<div class="rar">%s%s</div>'
-        '<div class="basso"><div class="riga"><div><div class="mom">%s</div><h1>%s</h1><div class="ruolo">%s · %s</div></div>'
-        '<img class="stemma" src="file://%s" alt=""></div>'
-        '<div class="tit">%s</div><div class="txt">%s</div><div class="dati">%s</div></div>'
+        '<div class="rar">%s%s</div>' + basso(c, stemma, testo(m.get("etichetta", "")),
+        '<div class="tit">%s</div><div class="txt">%s</div>' % (testo(m.get("titolo", "")), testo(m.get("testo", "")))) +
         '<div class="piede"><span>CARTA Nº %s · PERSONAGGIO IMMAGINARIO · IMMAGINE CREATA CON AI</span>'
         '<span class="ps">PURE<i>STATS</i></span></div>'
     ) % (ritratto, BANDIERA, testo(c.get("stagione", 2187)), testo(c["rarita"]),
-         (" · " + testo(m["tipo"])) if m.get("tipo") else "", testo(m.get("etichetta", "")), testo(c["nome"]),
-         testo(c["ruolo"]), testo(c["squadra"]), stemma, testo(m.get("titolo", "")), testo(m.get("testo", "")), dati, nnn)
+         (" · " + testo(m["tipo"])) if m.get("tipo") else "", nnn)
 
 
 def pagina(stile, corpo, classe="carta"):
@@ -160,18 +152,22 @@ def pagina(stile, corpo, classe="carta"):
 
 def fronte(c, nnn, ritratto, stemma):
     d = c["dono"]
-    dati = "".join('<div><b>%s</b><span>%s</span></div>' % (testo(v), testo(e)) for v, e in c["dati"])
     return (
         '<div class="alto"><img src="file://%s" alt="">LEGA DELLA TERRA UNITA<span class="st">STAGIONE %s</span></div>'
-        '<div class="foto"><img src="file://%s" alt=""></div><img class="logo" src="file://%s" alt="">'
-        '<div class="nome"><h1>%s</h1><p>%s · %s</p></div>'
-        '<div class="dono"><b>Dono · <i>%s</i></b><p>%s</p><div class="ch"><span>%s</span><span>Prezzo: %s</span></div></div>'
-        '<div class="dcap">%s</div><div class="dati">%s</div>'
+        '<div class="foto"><img src="file://%s" alt=""></div>' + basso(c, stemma, testo(c["dati_titolo"]),
+        '<div class="tit">Dono · <i>%s</i></div><div class="txt">%s</div><div class="pz">%s · Prezzo: %s</div>'
+        % (testo(d["nome"]), testo(d["testo"]), testo(d["usi"]), testo(d["prezzo"]))) +
         '<div class="piede"><span>CARTA Nº %s · PERSONAGGIO IMMAGINARIO · IMMAGINE CREATA CON AI</span>'
         '<span class="ps">PURE<i>STATS</i></span></div>'
-    ) % (BANDIERA, testo(c.get("stagione", 2187)), ritratto, stemma, testo(c["nome"]), testo(c["ruolo"]),
-         testo(c["squadra"]), testo(d["nome"]), testo(d["testo"]), testo(d["usi"]), testo(d["prezzo"]),
-         testo(c["dati_titolo"]), dati, nnn)
+    ) % (BANDIERA, testo(c.get("stagione", 2187)), ritratto, nnn)
+
+
+def basso(c, stemma, sopra, dettaglio):
+    """Parte bassa comune a tutte le carte: etichetta, nome e stemma sulla stessa riga, dettaglio, numeri."""
+    dati = "".join('<div><b>%s</b><span>%s</span></div>' % (testo(v), testo(e)) for v, e in c["dati"])
+    return ('<div class="basso"><div class="riga"><div><div class="mom">%s</div><h1>%s</h1><div class="ruolo">%s · %s</div></div>'
+            '<img class="stemma" src="file://%s" alt=""></div><div class="det">%s</div><div class="dati">%s</div></div>'
+            % (sopra, testo(c["nome"]), testo(c["ruolo"]), testo(c["squadra"]), stemma, dettaglio, dati)).replace("%", "%%")
 
 
 def retro(c, nnn, stemma, anno):
