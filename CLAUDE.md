@@ -278,8 +278,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   sera (GB@LA) è rimasta senza risultato fino a mezzogiorno: GitHub non ha lanciato nessun giro della sentinella in quella
   finestra (gli orari automatici di GitHub vengono ritardati o saltati, soprattutto allo :00) e le riserve c'erano solo
   ven/lun/mar. CollegeFootballData non cambia: SP+ e loghi hanno i loro limiti interni. Orari scritti per l'ora solare:
-  con l'ora legale vanno anticipati di un'ora. Da fare (Valerio: sì, 26/11): far partire la sentinella dal server OVH
-  (crontab + chiave GitHub con il solo permesso di avviare i workflow nel config.toml), indipendente da GitHub.
+  con l'ora legale vanno anticipati di un'ora. FATTO il 26/11: la sentinella parte anche dal server OVH
+  del bot (crontab dell'utente ubuntu, minuti 4, 19, 34, 49 di ogni ora: `cd /home/ubuntu/radar-assenze && python3
+  strumenti/sentinella_purestats.py`, copia in server/sentinella_purestats.py), con la chiave GitHub «Sentinella server
+  PureStats» (fine-grained, solo purestats, Actions in scrittura, scade il 25/11/2027) nella sezione [github] di
+  config.toml. Registro in data/sentinella_purestats.log; chiave scaduta o sbagliata → avviso Telegram una volta al giorno.
 
 ## Statistiche pubbliche (dal 18/11/2026)
 
