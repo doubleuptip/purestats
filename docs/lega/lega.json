@@ -9,6 +9,21 @@
    "È il 2187. La Terra è un solo Stato, ha una sola bandiera, e il football è lo sport che la unisce. Sedici squadre, da città nate dopo l'innalzamento dei mari, si giocano la Coppa dell'Alba. Le regole sono quelle che conoscete: quattro tentativi, dieci yard, due minuti per rimontare. Con una differenza: alcuni giocatori nascono con un Dono. C'è chi vede un attimo nel futuro, chi rallenta il tempo intorno a sé, chi salta più in alto di quanto dovrebbe. Ogni Dono ha un limite e un prezzo, e nessun Dono vince una partita da solo.",
    "La stagione corre insieme a quella NFL: stesse settimane, stessi playoff, la finale lo stesso giorno del Super Bowl. Ogni settimana le partite della Lega rivivono le situazioni più tese viste davvero sui campi americani, con i nostri giocatori al posto di quelli veri.",
    "Ogni giorno esce una carta da collezione. Si comincia con la Nº 001: Iskander Vale, ricevitore degli Aurelion Tempest, che ricorda il futuro e dimentica il presente."
+  ],
+  "breve": "Un campionato di football inventato, nel 2187, che corre insieme alla stagione NFL.",
+  "punti": [
+   [
+    "scudo",
+    "16 squadre"
+   ],
+   [
+    "carte",
+    "1 carta al giorno"
+   ],
+   [
+    "fulmine",
+    "Doni con un prezzo"
+   ]
   ]
  },
  "mondo": {
@@ -82,30 +97,60 @@
     "aria, acqua, luce intorno a sé e al pallone",
     "febbre, freddo, perdita del Dono per un tempo"
    ]
+  ],
+  "tessere": [
+   [
+    "globo",
+    "Terra Unita",
+    "Un solo Stato dal 2131. Le città sono nate dopo l'innalzamento dei mari."
+   ],
+   [
+    "bandiera",
+    "L'Alba",
+    "La bandiera di un nuovo giorno, cucita sulla spalla di ogni divisa."
+   ],
+   [
+    "fulmine",
+    "I Doni",
+    "Una persona su diecimila ne nasce con uno. Ognuno ha un prezzo."
+   ],
+   [
+    "pianeta",
+    "I Vhar",
+    "Primo contatto nel 2181, da Tau Ceti. Conoscono un gioco simile al football."
+   ]
   ]
  },
- "calendario": [
-  [
-   "Week 1-18",
-   "Stagione regolare, 17 partite per squadra, insieme alla NFL"
-  ],
-  [
-   "16-18 gennaio 2027",
-   "Turno dei Doni: spareggi tra le teste di serie dalla 7 alla 10"
-  ],
-  [
-   "23-24 gennaio",
-   "Quarti di finale, 8 squadre"
-  ],
-  [
-   "31 gennaio",
-   "Semifinali"
-  ],
-  [
-   "14 febbraio 2027",
-   "Finale: la Coppa dell'Alba, lo stesso giorno del Super Bowl"
+ "calendario": {
+  "settimana1": "2026-09-08",
+  "settimane": 18,
+  "playoff": [
+   {
+    "icona": "fulmine",
+    "nome": "Turno dei Doni",
+    "quando": "16-18 gennaio 2027",
+    "nota": "spareggi tra le teste di serie 7-10"
+   },
+   {
+    "icona": "scudo",
+    "nome": "Quarti di finale",
+    "quando": "23-24 gennaio",
+    "nota": "8 squadre"
+   },
+   {
+    "icona": "scudo",
+    "nome": "Semifinali",
+    "quando": "31 gennaio",
+    "nota": "4 squadre"
+   },
+   {
+    "icona": "coppa",
+    "nome": "Coppa dell'Alba",
+    "quando": "14 febbraio 2027",
+    "nota": "la finale, il giorno del Super Bowl"
+   }
   ]
- ],
+ },
  "squadre": [
   {
    "nome": "Aurelion Tempest",

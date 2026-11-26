@@ -232,6 +232,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   allega in chat; sempre con l'immagine di riferimento del personaggio), stemma in `lega/stemmi/`. `python3
   scripts/carte_lega.py <n>` compone fronte e retro con Chrome senza finestra (750×1050 a 1,5×, JPEG) in
   `docs/lega/carte/` e aggiorna la voce in lega.json. Colori della carta per squadra in `TEMI` (oggi solo Tempest).
+- Impaginazione (26/11/2026, scelta di Valerio): Home con riquadro compatto (`legaH`: carta, titolo, «breve», tre
+  «punti», bottone); Il mondo a tessere con icone (`LG_ICO`/`lgIco`, disegnate nel codice), «Che cos'è» apribile, linea
+  del tempo da toccare (`legaAnno`), famiglie di Doni apribili, Codice in riquadri numerati; Calendario con barra della
+  stagione (week da «settimana1») e strada dei playoff. Testi e dati in lega.json (tessere, presentazione, calendario).
 - Ritmo (scelta di Valerio): una carta al giorno; l'immagine arriva in chat. Le cronache settimanali prendono le
   situazioni di gioco vere della week NFL (solo la dinamica, mai nomi) e le fanno vivere ai giocatori della Lega.
 

@@ -939,16 +939,62 @@
   .lg-sq{display:flex;gap:12px;align-items:center;padding:10px;border-radius:12px;background:var(--fb-card);border:1px solid var(--fb-border);margin-bottom:10px}
   .lg-sq .fb-badge{flex-shrink:0}
   .lg-sq b{display:block;font-size:15px}.lg-sq small{color:var(--fb-muted);font-size:12.5px}
-  .lg-h{display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px;align-items:center}
-  .lg-h img.c{width:150px;aspect-ratio:750/1050;border-radius:4%/2.86%;box-shadow:0 10px 24px rgba(0,0,0,.3)}
-  .lg-h .t{display:flex;gap:10px;align-items:center;margin-bottom:6px}.lg-h .t img{width:44px;border-radius:4px}
-  .lg-h h3{font-family:var(--fb-head);font-weight:800;font-size:26px;line-height:1.1;margin:0}
-  .lg-h p{line-height:1.6;margin:8px 0 0;color:var(--fb-text)}
-  @media (max-width:900px){ .lg-conf{grid-template-columns:repeat(2,minmax(0,1fr))} }
+  .lg-ico{width:22px;height:22px;flex-shrink:0}
+  .lg-h{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:center;padding:16px;border-radius:16px;text-decoration:none;
+    background:var(--fb-card);border:1px solid var(--fb-border);color:var(--fb-text)}
+  .lg-h img.c{width:120px;aspect-ratio:750/1050;border-radius:4%/2.86%;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  .lg-h small{display:flex;align-items:center;gap:6px;font:700 12px var(--f-testo);letter-spacing:1.6px;color:var(--oro)}
+  .lg-h small .lg-ico{width:15px;height:15px}
+  .lg-h b{display:block;font-family:var(--fb-head);font-weight:800;font-size:28px;line-height:1.08;margin:6px 0}
+  .lg-h .br{display:block;color:var(--fb-muted);line-height:1.5}
+  .lg-h .pt{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+  .lg-h em{display:inline-flex;align-items:center;gap:6px;font-style:normal;font-size:13px;font-weight:600;padding:6px 10px;border-radius:99px;background:var(--fb-pill)}
+  .lg-h em .lg-ico{width:15px;height:15px;color:var(--oro)}
+  .lg-h .vai{display:inline-block;background:var(--fb-acc);color:var(--fb-acc-text);font-weight:600;font-size:14px;padding:9px 14px;border-radius:10px}
+  .lg-tessere{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:6px 0 14px}
+  .lg-tes{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:14px}
+  .lg-tes .lg-ico{width:28px;height:28px;color:var(--oro)}
+  .lg-tes b{display:block;font-family:var(--fb-head);font-size:20px;margin:8px 0 4px}.lg-tes span{font-size:13.5px;color:var(--fb-muted);line-height:1.45}
+  .lg-cose{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:12px 16px}
+  .lg-cose summary{cursor:pointer;font-weight:700}.lg-cose p{line-height:1.65;margin:10px 0 0}
+  .lg-linea{display:flex;align-items:flex-start;overflow-x:auto;padding:10px 0 4px;position:relative}
+  .lg-linea button{flex:1 0 44px;background:none;border:0;color:var(--fb-muted);font:700 14px var(--f-testo);cursor:pointer;position:relative;padding:22px 2px 4px}
+  .lg-linea button:before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:var(--oro)}
+  .lg-linea button:first-child:before{left:50%}.lg-linea button:last-child:before{right:50%}
+  .lg-linea i{position:absolute;top:3px;left:50%;margin-left:-6px;width:12px;height:12px;border-radius:50%;background:var(--fb-bg);border:2px solid var(--oro)}
+  .lg-linea button.sel{color:var(--fb-text)}.lg-linea button.sel i{background:var(--oro);transform:scale(1.25)}
+  .lg-linea button.oggi i{border-color:var(--fb-acc)}.lg-linea button.oggi.sel i{background:var(--fb-acc)}
+  .lg-fatto{background:var(--fb-pill);border-radius:12px;padding:12px 14px;line-height:1.5;margin:8px 0 0}.lg-fatto b{color:var(--oro);margin-right:6px}
+  .lg-fam{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start}
+  .lg-fam details{background:var(--fb-pill);border-radius:12px;padding:8px 12px;max-width:100%}
+  .lg-fam details[open]{flex-basis:100%}
+  .lg-fam summary{cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:700;list-style:none}
+  .lg-fam summary::-webkit-details-marker{display:none}.lg-fam summary .lg-ico{color:var(--oro);width:20px;height:20px}
+  .lg-fam p{margin:8px 0 0;line-height:1.5}.lg-fam .pz{color:var(--fb-muted)}
+  .lg-codice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .lg-codice div{display:flex;gap:12px;align-items:flex-start;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:12px;padding:12px}
+  .lg-codice b{font-family:var(--fb-head);font-size:26px;line-height:1;color:var(--oro);min-width:18px}.lg-codice span{font-size:14px;line-height:1.45}
+  .lg-stag{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:14px 16px;margin:6px 0 16px}
+  .lg-stag-t{display:flex;justify-content:space-between;font-size:13px;color:var(--fb-muted)}.lg-stag-t b{color:var(--oro)}
+  .lg-barra{height:10px;border-radius:99px;background:var(--fb-pill);margin:8px 0 6px;overflow:hidden}.lg-barra i{display:block;height:100%;background:var(--oro);border-radius:99px}
+  .lg-stag small{font-size:13px;color:var(--fb-muted)}
+  .lg-strada{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
+  .lg-tappa{display:flex;gap:10px;align-items:flex-start;background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:12px;position:relative}
+  .lg-tappa:not(:last-child):after{content:"";position:absolute;right:-14px;top:50%;width:14px;height:2px;background:var(--oro)}
+  .lg-tappa .lg-ico{color:var(--oro)}.lg-tappa b{display:block;font-size:15px}.lg-tappa small{font-size:12.5px;color:var(--fb-muted);line-height:1.4}
+  .lg-tappa.fin{border:2px solid var(--oro)}
+  .lg-chi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0 4px}
+  .lg-chi div{background:var(--fb-card);border:1px solid var(--fb-border);border-radius:14px;padding:12px;text-align:center}
+  .lg-chi b{display:block;font-family:var(--fb-head);font-size:30px}.lg-chi b.o{color:var(--oro)}.lg-chi span{font-size:13px;color:var(--fb-muted)}
+  @media (max-width:900px){ .lg-conf{grid-template-columns:repeat(2,minmax(0,1fr))} .lg-tessere,.lg-strada{grid-template-columns:repeat(2,minmax(0,1fr))} .lg-tappa:not(:last-child):after{display:none} }
   @media (max-width:640px){
     .lg-giorno{grid-template-columns:minmax(0,1fr);gap:18px}.lg-carta{margin:0 auto}
     .lg-conf{grid-template-columns:minmax(0,1fr)} .lg-album{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .lg-h{grid-template-columns:96px minmax(0,1fr);gap:14px}.lg-h img.c{width:96px}.lg-h h3{font-size:21px}
+    .lg-h{grid-template-columns:84px minmax(0,1fr);gap:14px;padding:12px}.lg-h img.c{width:84px}.lg-h b{font-size:21px}.lg-h .br{font-size:14px}
+    .lg-h .pt{margin:10px 0}.lg-h em{font-size:12px;padding:5px 8px}
+    .lg-tessere{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lg-tes{padding:12px}.lg-tes b{font-size:18px}
+    .lg-codice{grid-template-columns:minmax(0,1fr)}
+    .lg-strada{grid-template-columns:minmax(0,1fr);gap:12px}.lg-tappa:not(:last-child):after{display:block;right:auto;left:22px;top:100%;width:2px;height:12px}
     .lg-testa img{width:56px}
   }
   .leg-evid{display:block;margin:0 0 22px;text-decoration:none}
@@ -3545,39 +3591,64 @@ function legaAlbum(){
       <div><div class="vuota">${nnn(C[0].n+1)}</div><small>Domani</small></div></div></section>`;
   return `<div class="lg-giorno">${cartaGrande(c)}${info}</div>${album}`;
 }
-function legaMondo(){
-  const M=LEGA.mondo||{};
-  return `<div class="lg-testo">${(M.paragrafi||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
-    <section class="h-sez"><div class="h-st"><h2>La storia in sette date</h2></div>
-      <ul class="lg-crono">${(M.cronologia||[]).map(([a,t])=>`<li><b>${esc(a)}</b>${esc(t)}</li>`).join("")}</ul></section>
+/* icone a tratto della sezione 2187 (disegnate qui: il sito non carica raccolte esterne) */
+const LG_ICO={
+ globo:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+ bandiera:'<path d="M5 21V4M5 4h12l-2 4 2 4H5"/>',
+ fulmine:'<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>',
+ pianeta:'<circle cx="12" cy="12" r="5"/><path d="M4.5 15.5C2 18 2.5 19.5 5 19c3-.6 8-3.4 11.5-6.9S21.6 5.5 19 5c-1.5-.3-3 .4-4.5 1.5"/>',
+ scudo:'<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/>',
+ carte:'<rect x="7" y="4" width="11" height="16" rx="2"/><path d="M4 7v11a2 2 0 0 0 2 2"/>',
+ coppa:'<path d="M8 4h8v6a4 4 0 0 1-8 0zM12 14v3M8 21h8M10 17h4v4h-4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/>',
+ Tempo:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ Spazio:'<path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3"/>',
+ Mente:'<path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/>',
+ Corpo:'<path d="M3 10v4M6 7v10M18 7v10M21 10v4M6 12h12"/>',
+ Elementi:'<path d="M12 3c1 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-4 3-6 1 2 2 2 3 1 0-2-1-4 0-6z"/>'};
+const lgIco = (n, cls) => `<svg class="lg-ico ${cls||""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${LG_ICO[n]||""}</svg>`;
+let LG_ANNO=null;
+function legaAnno(i){ LG_ANNO=(LG_ANNO===i)?null:i; const el=document.getElementById("lg-corpo-mondo"); if(el) el.innerHTML=legaMondoCorpo(); }
+function legaMondo(){ return `<div id="lg-corpo-mondo">${legaMondoCorpo()}</div>`; }
+function legaMondoCorpo(){
+  const M=LEGA.mondo||{}, P=LEGA.presentazione||{}, C=M.cronologia||[];
+  const sel=LG_ANNO===null ? C.length-1 : LG_ANNO;
+  return `<div class="lg-tessere">${(M.tessere||[]).map(([ic,t,x])=>`<div class="lg-tes">${lgIco(ic)}<b>${esc(t)}</b><span>${esc(x)}</span></div>`).join("")}</div>
+    <details class="lg-cose"><summary>Che cos'è la Lega della Terra Unita</summary>${(P.paragrafi||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
+      ${(M.paragrafi||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</details>
+    <section class="h-sez"><div class="h-st"><h2>La storia in ${C.length} date</h2></div>
+      <div class="lg-linea" role="tablist">${C.map(([a],i)=>`<button type="button" role="tab" aria-selected="${i===sel}" class="${i===sel?"sel":""}${i===C.length-1?" oggi":""}" onclick="legaAnno(${i})"><i></i>${esc(a)}</button>`).join("")}</div>
+      <p class="lg-fatto"><b>${esc((C[sel]||[])[0]||"")}</b> ${esc((C[sel]||[])[1]||"")}</p></section>
+    <section class="h-sez"><div class="h-st"><h2>Le cinque famiglie di Doni</h2></div>
+      <div class="lg-fam">${(M.famiglie||[]).map(([f,e,p])=>`<details><summary>${lgIco(f)}${esc(f)}</summary><p>${esc(e)}.</p><p class="pz">Il prezzo: ${esc(p)}.</p></details>`).join("")}</div></section>
     <section class="h-sez"><div class="h-st"><h2>Il Codice dei Doni</h2></div>
-      <ol class="lg-testo">${(M.codice||[]).map(r=>`<li><p>${esc(r)}</p></li>`).join("")}</ol>
-      <table class="lg-tab"><thead><tr><th>Famiglia</th><th>Esempi</th><th>Il prezzo tipico</th></tr></thead>
-      <tbody>${(M.famiglie||[]).map(([f,e,p])=>`<tr><td><b>${esc(f)}</b></td><td>${esc(e)}</td><td>${esc(p)}</td></tr>`).join("")}</tbody></table></section>`;
-}
-function legaSquadre(){
-  const conf=["Oceanica","Continentale","Boreale","Australe"], S=LEGA.squadre||[];
-  return `<p class="fb-lead">Sedici squadre in quattro conference. Si presentano una alla volta, carta dopo carta.</p>
-    <div class="lg-conf">${conf.map(k=>`<div><h3>${k}</h3>${S.filter(x=>x.conf===k).map(x=>`<div class="lg-sq">
-      <span class="fb-badge fb-stemma">${svgStemma(x.s,x.c1,x.c2)}</span><span><b>${esc(x.nome)}</b><small>${esc(x.citta)}</small></span></div>`).join("")}</div>`).join("")}</div>`;
+      <div class="lg-codice">${(M.codice||[]).map((r,i)=>`<div><b>${i+1}</b><span>${esc(r)}</span></div>`).join("")}</div></section>`;
 }
 function legaCalendario(){
-  return `<p class="fb-lead">La stagione 2187 della Lega corre insieme a quella NFL: stesse settimane, stessi playoff, la finale lo stesso giorno del Super Bowl.</p>
-    <table class="lg-tab"><tbody>${(LEGA.calendario||[]).map(([q,t])=>`<tr><td><b>${esc(q)}</b></td><td>${esc(t)}</td></tr>`).join("")}</tbody></table>
-    <p class="fb-note">Ai playoff vanno le 4 vincitrici di conference e le 6 migliori altre squadre per bilancio. Le teste di serie dalla 7 alla 10 giocano il Turno dei Doni.</p>`;
+  const K=LEGA.calendario||{}, n=K.settimane||18;
+  const giorni=(new Date(oggiRoma()+"T12:00:00Z") - new Date((K.settimana1||"2026-09-08")+"T12:00:00Z"))/86400000;
+  const w=Math.floor(giorni/7)+1, wk=Math.max(1,Math.min(n,w)), finita=w>n;
+  return `<div class="lg-stag"><div class="lg-stag-t"><span>Week 1</span><b>${finita?"Stagione regolare finita":"Week "+wk+" · oggi"}</b><span>Week ${n}</span></div>
+      <div class="lg-barra"><i style="width:${Math.round((finita?n:wk)/n*100)}%"></i></div>
+      <small>Stagione regolare · 17 partite per squadra, insieme alla NFL</small></div>
+    <div class="lg-strada">${(K.playoff||[]).map((t,i,a)=>`<div class="lg-tappa${i===a.length-1?" fin":""}">${lgIco(t.icona)}<span><b>${esc(t.nome)}</b><small>${esc(t.quando)} · ${esc(t.nota)}</small></span></div>`).join("")}</div>
+    <div class="lg-chi"><div><b class="o">1-4</b><span>le vincitrici di conference</span></div><div><b>5-10</b><span>le migliori altre per bilancio</span></div></div>
+    <p class="fb-note">Le teste di serie dalla 7 alla 10 si giocano due posti nei quarti nel Turno dei Doni.</p>`;
 }
 function legaCronache(){
   const K=LEGA.cronache||[];
   if(!K.length) return `<p class="fb-note">Le cronache delle partite della Lega arrivano presto: ogni settimana le situazioni più tese viste davvero in NFL, giocate dai nostri giocatori.</p>`;
   return K.map(k=>`<section class="h-sez"><div class="h-st"><h2>${esc(k.titolo)}</h2></div><div class="lg-testo">${(k.paragrafi||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div></section>`).join("");
 }
-/* Home NFL: il post che presenta la Lega, con l'ultima carta uscita */
+/* Home NFL: riquadro compatto che presenta la Lega, con l'ultima carta uscita (26/11/2026, scelta di Valerio) */
 function legaH(){
   if(!legaVisibile()) return "";
   const P=LEGA.presentazione||{}, c=legaCarte()[0];
-  return sezioneH("Novità · 2187", cardH("", `<div class="lg-h">${c?`<a href="#carta=${c.n}" onclick="vai('lega');legaApri(${c.n});return false"><img class="c" src="${esc(c.fronte)}" alt="Carta Nº ${nnn(c.n)}, ${esc(c.nome)}"></a>`:""}
-    <div><div class="t"><img src="lega/bandiera.png" alt=""><h3>${esc(P.titolo||"Lega della Terra Unita")}</h3></div>
-    ${(P.paragrafi||[]).slice(0,2).map(p=>`<p>${esc(p)}</p>`).join("")}</div></div>`), linkH("Scopri il 2187","LEGA_CARTA=null;vai('lega')"));
+  return `<section class="h-sez"><a class="lg-h" href="#vista=lega" onclick="LEGA_CARTA=null;LEGA_SEZ='carte';vai('lega');return false">
+    ${c?`<img class="c" src="${esc(c.fronte)}" alt="Carta Nº ${nnn(c.n)}, ${esc(c.nome)}">`:""}
+    <span class="tx"><small>${lgIco("fulmine")} NOVITÀ · 2187</small><b>Nasce la Lega della Terra Unita</b>
+      <span class="br">${esc(P.breve||"")}</span>
+      <span class="pt">${(P.punti||[]).map(([ic,t])=>`<em>${lgIco(ic)}${esc(t)}</em>`).join("")}</span>
+      <span class="vai">Scopri il 2187 →</span></span></a></section>`;
 }
 
 /* ===================== ARTICOLI (dal 19/11/2026): anteprime e cronache scritte da Claude su fatti verificati ===================== */
