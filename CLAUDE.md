@@ -236,6 +236,9 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   «punti», bottone); Il mondo a tessere con icone (`LG_ICO`/`lgIco`, disegnate nel codice), «Che cos'è» apribile, linea
   del tempo da toccare (`legaAnno`), famiglie di Doni apribili, Codice in riquadri numerati; Calendario con barra della
   stagione (week da «settimana1») e strada dei playoff. Testi e dati in lega.json (tessere, presentazione, calendario).
+- Attività programmata «PureStats: carta del giorno 2187» (dal 27/11/2026, ogni giorno alle 5:56 italiane, scelta di
+  Valerio: le 6): sceglie e inventa il personaggio, scrive lega/carte/<NNN>.json, aggiorna il documento e manda a Valerio il
+  prompt per Gemini; quando lui allega l'immagine nella stessa sessione compone, controlla e pubblica la carta.
 - Ritmo (scelta di Valerio): una carta al giorno; l'immagine arriva in chat. Le cronache settimanali prendono le
   situazioni di gioco vere della week NFL (solo la dinamica, mai nomi) e le fanno vivere ai giocatori della Lega.
 
