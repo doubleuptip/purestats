@@ -18,7 +18,7 @@
  "mercato": {
   "favorita": "Buffalo Bills",
   "vantaggio": 3.0,
-  "totale": 46.5,
+  "totale": 45.5,
   "nota": "solo per dire chi parte favorito, a parole comuni (favoriti di poco fino a 3, favoriti, nettamente favoriti da 7,5), senza citare mercato, bookmaker, linea o totale"
  },
  "precedenti": [
@@ -129,8 +129,8 @@
     "eta": 26,
     "rispettoAllAnnoScorso": "in netta crescita",
     "rapportoInfortuni": {
-     "stato": "",
-     "allenamento": "Limited Participation in Practice",
+     "stato": "Out",
+     "allenamento": "Did Not Participate In Practice",
      "infortunio": "Groin"
     }
    },
@@ -191,9 +191,17 @@
     "giocatoreImportante": true
    },
    {
+    "nome": "Jaylon Moore",
+    "ruolo": "T",
+    "stato": "Out",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Ankle",
+    "giocatoreImportante": false
+   },
+   {
     "nome": "Noah Gray",
     "ruolo": "TE",
-    "stato": "(stato non ancora dato)",
+    "stato": "Questionable",
     "allenamento": "Full Participation in Practice",
     "infortunio": "Rib",
     "giocatoreImportante": true
@@ -201,8 +209,8 @@
    {
     "nome": "Kenneth Walker III",
     "ruolo": "RB",
-    "stato": "(stato non ancora dato)",
-    "allenamento": "Limited Participation in Practice",
+    "stato": "Out",
+    "allenamento": "Did Not Participate In Practice",
     "infortunio": "Groin",
     "giocatoreImportante": true
    },
@@ -213,6 +221,14 @@
     "allenamento": "Full Participation in Practice",
     "infortunio": "Knee",
     "giocatoreImportante": true
+   },
+   {
+    "nome": "Omarr Norman-Lott",
+    "ruolo": "DT",
+    "stato": "Out",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Knee",
+    "giocatoreImportante": false
    }
   ]
  },
@@ -317,7 +333,7 @@
     "eta": 27,
     "rispettoAllAnnoScorso": "sugli stessi livelli",
     "rapportoInfortuni": {
-     "stato": "",
+     "stato": "Questionable",
      "allenamento": "Limited Participation in Practice",
      "infortunio": "Thumb"
     }
@@ -373,7 +389,7 @@
    {
     "nome": "Christian Benford",
     "ruolo": "CB",
-    "stato": "(stato non ancora dato)",
+    "stato": "Questionable",
     "allenamento": "Limited Participation in Practice",
     "infortunio": "Groin",
     "giocatoreImportante": true
@@ -381,7 +397,7 @@
    {
     "nome": "Dorian Williams",
     "ruolo": "LB",
-    "stato": "(stato non ancora dato)",
+    "stato": "Questionable",
     "allenamento": "Limited Participation in Practice",
     "infortunio": "Calf",
     "giocatoreImportante": true
@@ -389,7 +405,7 @@
    {
     "nome": "Dalton Kincaid",
     "ruolo": "TE",
-    "stato": "(stato non ancora dato)",
+    "stato": "Questionable",
     "allenamento": "Limited Participation in Practice",
     "infortunio": "Thumb",
     "giocatoreImportante": true

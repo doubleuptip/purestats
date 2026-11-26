@@ -18,7 +18,7 @@
  "mercato": {
   "favorita": "Chicago Bears",
   "vantaggio": 1.5,
-  "totale": 55.5,
+  "totale": 56.5,
   "nota": "solo per dire chi parte favorito, a parole comuni (favoriti di poco fino a 3, favoriti, nettamente favoriti da 7,5), senza citare mercato, bookmaker, linea o totale"
  },
  "precedenti": [
@@ -178,9 +178,17 @@
   ],
   "rapportoInfortuni": [
    {
+    "nome": "Elijah Hicks",
+    "ruolo": "S",
+    "stato": "Out",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Concussion",
+    "giocatoreImportante": false
+   },
+   {
     "nome": "Kyler Gordon",
     "ruolo": "CB",
-    "stato": "(stato non ancora dato)",
+    "stato": "Out",
     "allenamento": "Did Not Participate In Practice",
     "infortunio": "Shoulder",
     "giocatoreImportante": true
@@ -188,9 +196,17 @@
    {
     "nome": "Roschon Johnson",
     "ruolo": "RB",
-    "stato": "(stato non ancora dato)",
+    "stato": "Out",
     "allenamento": "Did Not Participate In Practice",
     "infortunio": "Ankle",
+    "giocatoreImportante": true
+   },
+   {
+    "nome": "Tyrique Stevenson",
+    "ruolo": "CB",
+    "stato": "Questionable",
+    "allenamento": "Limited Participation in Practice",
+    "infortunio": "Groin",
     "giocatoreImportante": true
    }
   ]
@@ -305,8 +321,8 @@
     "eta": 29,
     "rispettoAllAnnoScorso": "in netta crescita",
     "rapportoInfortuni": {
-     "stato": "",
-     "allenamento": "Did Not Participate In Practice",
+     "stato": "Questionable",
+     "allenamento": "Limited Participation in Practice",
      "infortunio": "Back"
     }
    }
@@ -323,7 +339,7 @@
    {
     "nome": "Chuck Clark",
     "ruolo": "S",
-    "stato": "(stato non ancora dato)",
+    "stato": "Questionable",
     "allenamento": "Limited Participation in Practice",
     "infortunio": "Hamstring",
     "giocatoreImportante": true
@@ -339,8 +355,8 @@
    {
     "nome": "DJ Wonnum",
     "ruolo": "DE",
-    "stato": "(stato non ancora dato)",
-    "allenamento": "Did Not Participate In Practice",
+    "stato": "Questionable",
+    "allenamento": "Limited Participation in Practice",
     "infortunio": "Back",
     "giocatoreImportante": true
    },
@@ -353,9 +369,17 @@
     "giocatoreImportante": true
    },
    {
+    "nome": "Ennis Rakestraw Jr.",
+    "ruolo": "CB",
+    "stato": "Out",
+    "allenamento": "Did Not Participate In Practice",
+    "infortunio": "Shoulder",
+    "giocatoreImportante": false
+   },
+   {
     "nome": "Skyler Gill-Howard",
     "ruolo": "DT",
-    "stato": "(stato non ancora dato)",
+    "stato": "Out",
     "allenamento": "Did Not Participate In Practice",
     "infortunio": "Knee",
     "giocatoreImportante": true
