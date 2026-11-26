@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-26T20:00:11.937134+00:00",
+  "aggiornato": "2026-11-26T22:19:24.820465+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC BY 4.0)",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 1411,
-  "partiteGiocate": 1303,
+  "partiteGiocate": 1304,
   "squadre": [
     {
       "nome": "BUF",
@@ -320,29 +320,29 @@
       "nomeCompleto": "Detroit Lions",
       "conference": "NFC",
       "division": "NFC North",
-      "partite": 82,
+      "partite": 83,
       "vittorie": 55,
-      "sconfitte": 27,
+      "sconfitte": 28,
       "pareggi": 0,
-      "percVittorie": 67.1,
-      "mediaFatti": 28.8,
-      "mediaSubiti": 23.4,
-      "differenza": 442,
+      "percVittorie": 66.3,
+      "mediaFatti": 28.9,
+      "mediaSubiti": 23.6,
+      "differenza": 438,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 10,
+          "partite": 11,
           "vittorie": 8,
-          "sconfitte": 2,
+          "sconfitte": 3,
           "pareggi": 0,
-          "percVittorie": 80.0,
-          "puntiFatti": 288,
-          "puntiSubiti": 220,
-          "mediaFatti": 28.8,
-          "mediaSubiti": 22.0,
-          "differenza": 68,
+          "percVittorie": 72.7,
+          "puntiFatti": 323,
+          "puntiSubiti": 259,
+          "mediaFatti": 29.4,
+          "mediaSubiti": 23.5,
+          "differenza": 64,
           "vittorieCasa": 6,
-          "partiteCasa": 6,
+          "partiteCasa": 7,
           "vittorieFuori": 2,
           "partiteFuori": 4
         },
@@ -2037,31 +2037,31 @@
       "nomeCompleto": "Chicago Bears",
       "conference": "NFC",
       "division": "NFC North",
-      "partite": 80,
-      "vittorie": 35,
+      "partite": 81,
+      "vittorie": 36,
       "sconfitte": 45,
       "pareggi": 0,
-      "percVittorie": 43.8,
-      "mediaFatti": 21.8,
-      "mediaSubiti": 23.4,
-      "differenza": -124,
+      "percVittorie": 44.4,
+      "mediaFatti": 22.0,
+      "mediaSubiti": 23.5,
+      "differenza": -120,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 10,
-          "vittorie": 8,
+          "partite": 11,
+          "vittorie": 9,
           "sconfitte": 2,
           "pareggi": 0,
-          "percVittorie": 80.0,
-          "puntiFatti": 262,
-          "puntiSubiti": 197,
-          "mediaFatti": 26.2,
-          "mediaSubiti": 19.7,
-          "differenza": 65,
+          "percVittorie": 81.8,
+          "puntiFatti": 301,
+          "puntiSubiti": 232,
+          "mediaFatti": 27.4,
+          "mediaSubiti": 21.1,
+          "differenza": 69,
           "vittorieCasa": 5,
           "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 4
+          "vittorieFuori": 4,
+          "partiteFuori": 5
         },
         {
           "stagione": "2025",
@@ -141112,11 +141112,105 @@
       "oraIt": "19:00",
       "casa": "DET",
       "ospite": "CHI",
-      "pc": null,
-      "po": null,
+      "pc": 35,
+      "po": 39,
       "stadio": "Ford Field",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Jared Goff",
+          "ruolo": "QB",
+          "valore": 313,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Jahmyr Gibbs",
+          "ruolo": "RB",
+          "valore": 205,
+          "misura": "yard corse",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Amon-Ra St. Brown",
+          "ruolo": "WR",
+          "valore": 146,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        },
+        {
+          "nome": "Jameson Williams",
+          "ruolo": "WR",
+          "valore": 68,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric."
+          ]
+        },
+        {
+          "nome": "Sam LaPorta",
+          "ruolo": "TE",
+          "valore": 44,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Caleb Williams",
+          "ruolo": "QB",
+          "valore": 345,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "D'Andre Swift",
+          "ruolo": "RB",
+          "valore": 65,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Rome Odunze",
+          "ruolo": "WR",
+          "valore": 87,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "6 ric.",
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Luther Burden III",
+          "ruolo": "WR",
+          "valore": 44,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        },
+        {
+          "nome": "Sam Roush",
+          "ruolo": "TE",
+          "valore": 31,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -142940,15 +143034,102 @@
         "oraIt": "19:00",
         "casa": "DET",
         "ospite": "CHI",
-        "pc": null,
-        "po": null,
+        "pc": 35,
+        "po": 39,
         "favorita": "CHI",
         "linea": 1.5,
         "totaleLinea": 56.5,
-        "battutaDa": null,
-        "totaleEsito": null,
-        "scartoLinea": null,
-        "stadio": "Ford Field"
+        "battutaDa": "CHI",
+        "totaleEsito": "over",
+        "scartoLinea": 2.5,
+        "stadio": "Ford Field",
+        "highlights": "https://www.youtube.com/results?search_query=Chicago+Bears+vs.+Detroit+Lions+highlights+November+26%2C+2026+NFL",
+        "momenti": [
+          {
+            "quarto": "2",
+            "tempo": "12:46",
+            "squadra": "CHI",
+            "descrizione": "36-S.Ahmed right end to DET 19 for 46 yards (31-K.Joseph).",
+            "testo": "Ahmed corre sull'esterno destro, 46 yard",
+            "chi": [
+              "Ahmed"
+            ],
+            "yard": 46.0,
+            "touchdown": false,
+            "casaPrima": 69,
+            "casaDopo": 61
+          },
+          {
+            "quarto": "3",
+            "tempo": "10:46",
+            "squadra": "CHI",
+            "descrizione": "25-K.Monangai right tackle for 2 yards, TOUCHDOWN.",
+            "testo": "Monangai corre a destra, 2 yard: touchdown",
+            "chi": [
+              "Monangai"
+            ],
+            "yard": 2.0,
+            "touchdown": true,
+            "casaPrima": 62,
+            "casaDopo": 55
+          },
+          {
+            "quarto": "3",
+            "tempo": "03:17",
+            "squadra": "CHI",
+            "descrizione": "4-D.Swift left tackle for 30 yards, TOUCHDOWN.",
+            "testo": "Swift corre a sinistra, 30 yard: touchdown",
+            "chi": [
+              "Swift"
+            ],
+            "yard": 30.0,
+            "touchdown": true,
+            "casaPrima": 68,
+            "casaDopo": 58,
+            "clip": {
+              "id": "k1ePGgoB6ho",
+              "titolo": "D&#39;Andre Swift off to the endzone"
+            }
+          },
+          {
+            "quarto": "4",
+            "tempo": "05:34",
+            "squadra": "DET",
+            "descrizione": "16-J.Goff pass short left intended for 1-J.Williams INTERCEPTED by 31-D.Thieneman (53-T.Edwards) at CHI 21. 31-D.Thieneman to CHI 39 for 18 yards (83-T.Conklin).",
+            "testo": "Goff intercettato da Thieneman",
+            "chi": [
+              "Goff",
+              "Thieneman"
+            ],
+            "yard": 0.0,
+            "touchdown": false,
+            "casaPrima": 80,
+            "casaDopo": 58
+          },
+          {
+            "quarto": "4",
+            "tempo": "00:09",
+            "squadra": "CHI",
+            "descrizione": "(:09) 18-C.Williams pass short right to 15-R.Odunze for 6 yards, TOUCHDOWN. The Replay Official reviewed the pass completion ruling, and the play was Upheld. The ruling on the field stands.",
+            "testo": "Williams lancia corto a destra per Odunze, 6 yard: touchdown",
+            "chi": [
+              "Williams",
+              "Odunze"
+            ],
+            "yard": 6.0,
+            "touchdown": true,
+            "casaPrima": 34,
+            "casaDopo": 0,
+            "clip": {
+              "id": "L-BlMlEAz8M",
+              "titolo": "Caleb going deep to Rome Odunze for the TD"
+            }
+          }
+        ],
+        "video": {
+          "id": "6mDrkExeNSY",
+          "titolo": "Chicago Bears vs. Detroit Lions Game Highlights | 2026 NFL Season Week 12"
+        }
       },
       {
         "data": "2026-11-26",
@@ -143195,17 +143376,39 @@
         "ospite": "GB",
         "scarto": 10.5,
         "battutaDa": "LA"
+      },
+      {
+        "casa": "DET",
+        "ospite": "CHI",
+        "scarto": 2.5,
+        "battutaDa": "CHI"
       }
     ],
     "completa": false,
     "riepilogo": {
-      "partite": 1,
-      "favoriteCoperte": 1,
-      "over": 0,
+      "partite": 2,
+      "favoriteCoperte": 2,
+      "over": 1,
       "under": 1
     },
     "prestazioni": {
       "lanci": [
+        {
+          "nome": "Caleb Williams",
+          "ruolo": "QB",
+          "squadra": "CHI",
+          "avversario": "DET",
+          "valore": 345,
+          "dettagli": "2 TD"
+        },
+        {
+          "nome": "Jared Goff",
+          "ruolo": "QB",
+          "squadra": "DET",
+          "avversario": "CHI",
+          "valore": 313,
+          "dettagli": "1 TD · 1 INT"
+        },
         {
           "nome": "Jordan Love",
           "ruolo": "QB",
@@ -143225,6 +143428,14 @@
       ],
       "corse": [
         {
+          "nome": "Jahmyr Gibbs",
+          "ruolo": "RB",
+          "squadra": "DET",
+          "avversario": "CHI",
+          "valore": 205,
+          "dettagli": "21 corse · 3 TD"
+        },
+        {
           "nome": "Blake Corum",
           "ruolo": "RB",
           "squadra": "LA",
@@ -143233,39 +143444,55 @@
           "dettagli": "32 corse · 1 TD"
         },
         {
+          "nome": "D'Andre Swift",
+          "ruolo": "RB",
+          "squadra": "CHI",
+          "avversario": "DET",
+          "valore": 65,
+          "dettagli": "9 corse · 1 TD"
+        },
+        {
+          "nome": "Salvon Ahmed",
+          "ruolo": "RB",
+          "squadra": "CHI",
+          "avversario": "DET",
+          "valore": 50,
+          "dettagli": "3 corse"
+        },
+        {
           "nome": "Kyren Williams",
           "ruolo": "RB",
           "squadra": "LA",
           "avversario": "GB",
           "valore": 46,
           "dettagli": "12 corse · 1 TD"
-        },
-        {
-          "nome": "Savion Williams",
-          "ruolo": "WR",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 18,
-          "dettagli": "2 corse"
-        },
-        {
-          "nome": "Kaleb Johnson",
-          "ruolo": "RB",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 13,
-          "dettagli": "8 corse"
-        },
-        {
-          "nome": "Xavier Smith",
-          "ruolo": "WR",
-          "squadra": "LA",
-          "avversario": "GB",
-          "valore": 11,
-          "dettagli": "2 corse"
         }
       ],
       "ricezioni": [
+        {
+          "nome": "Amon-Ra St. Brown",
+          "ruolo": "WR",
+          "squadra": "DET",
+          "avversario": "CHI",
+          "valore": 146,
+          "dettagli": "7 ricezioni"
+        },
+        {
+          "nome": "D'Andre Swift",
+          "ruolo": "RB",
+          "squadra": "CHI",
+          "avversario": "DET",
+          "valore": 97,
+          "dettagli": "7 ricezioni"
+        },
+        {
+          "nome": "Rome Odunze",
+          "ruolo": "WR",
+          "squadra": "CHI",
+          "avversario": "DET",
+          "valore": 87,
+          "dettagli": "6 ricezioni · 2 TD"
+        },
         {
           "nome": "Konata Mumpfield",
           "ruolo": "WR",
@@ -143275,44 +143502,44 @@
           "dettagli": "4 ricezioni"
         },
         {
-          "nome": "Christian Watson",
+          "nome": "Jameson Williams",
           "ruolo": "WR",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 65,
-          "dettagli": "4 ricezioni · 1 TD"
-        },
-        {
-          "nome": "Matthew Golden",
-          "ruolo": "WR",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 39,
-          "dettagli": "1 ricezioni"
-        },
-        {
-          "nome": "Tucker Kraft",
-          "ruolo": "TE",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 24,
-          "dettagli": "3 ricezioni"
-        },
-        {
-          "nome": "Chris Brooks",
-          "ruolo": "RB",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 22,
-          "dettagli": "4 ricezioni"
+          "squadra": "DET",
+          "avversario": "CHI",
+          "valore": 68,
+          "dettagli": "6 ricezioni"
         }
       ],
       "sack": [
+        {
+          "nome": "Derrick Moore",
+          "ruolo": "DE",
+          "squadra": "DET",
+          "avversario": "CHI",
+          "valore": 2,
+          "dettagli": "2 colpi al QB · 1 placcaggi con perdita"
+        },
+        {
+          "nome": "Alim McNeill",
+          "ruolo": "DT",
+          "squadra": "DET",
+          "avversario": "CHI",
+          "valore": 1,
+          "dettagli": "1 colpi al QB · 1 placcaggi con perdita"
+        },
         {
           "nome": "Micah Parsons",
           "ruolo": "LB",
           "squadra": "GB",
           "avversario": "LA",
+          "valore": 1,
+          "dettagli": "2 colpi al QB · 1 placcaggi con perdita"
+        },
+        {
+          "nome": "Malcolm Rodriguez",
+          "ruolo": "LB",
+          "squadra": "DET",
+          "avversario": "CHI",
           "valore": 1,
           "dettagli": "2 colpi al QB · 1 placcaggi con perdita"
         },
@@ -143349,9 +143576,25 @@
           "avversario": "LA",
           "valore": 1,
           "dettagli": "21 yard di ritorno · 1 passaggi deviati"
+        },
+        {
+          "nome": "Dillon Thieneman",
+          "ruolo": "SAF",
+          "squadra": "CHI",
+          "avversario": "DET",
+          "valore": 1,
+          "dettagli": "18 yard di ritorno · 1 passaggi deviati"
         }
       ],
       "placcaggi": [
+        {
+          "nome": "Cam Lewis",
+          "ruolo": "CB",
+          "squadra": "CHI",
+          "avversario": "DET",
+          "valore": 10,
+          "dettagli": "8 da solo · 2 assist"
+        },
         {
           "nome": "Keisean Nixon",
           "ruolo": "DB",
@@ -143383,17 +143626,17 @@
           "avversario": "LA",
           "valore": 9,
           "dettagli": "8 da solo · 1 assist"
-        },
-        {
-          "nome": "Chris McClellan",
-          "ruolo": "DT",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 8,
-          "dettagli": "4 da solo · 4 assist · 1 con perdita"
         }
       ],
       "fumbleForzati": [
+        {
+          "nome": "Derrick Moore",
+          "ruolo": "DE",
+          "squadra": "DET",
+          "avversario": "CHI",
+          "valore": 2,
+          "dettagli": "2 placcaggi da solo"
+        },
         {
           "nome": "Nate Landman",
           "ruolo": "LB",
@@ -143404,6 +143647,14 @@
         }
       ],
       "deviati": [
+        {
+          "nome": "Roger McCreary",
+          "ruolo": "CB",
+          "squadra": "DET",
+          "avversario": "CHI",
+          "valore": 3,
+          "dettagli": ""
+        },
         {
           "nome": "Quentin Lake",
           "ruolo": "SAF",
@@ -143429,97 +143680,131 @@
           "dettagli": ""
         },
         {
-          "nome": "Trent McDuffie",
-          "ruolo": "CB",
-          "squadra": "LA",
-          "avversario": "GB",
+          "nome": "T.J. Edwards",
+          "ruolo": "LB",
+          "squadra": "CHI",
+          "avversario": "DET",
           "valore": 1,
           "dettagli": ""
-        },
-        {
-          "nome": "Emmanuel Forbes",
-          "ruolo": "CB",
-          "squadra": "LA",
-          "avversario": "GB",
-          "valore": 1,
-          "dettagli": "1 intercetti"
         }
       ]
     },
     "giocate": {
       "attacco": [
         {
-          "squadra": "LA",
-          "avversario": "GB",
-          "quarto": "3",
-          "tempo": "10:39",
-          "testo": "Stafford lancia lungo a destra per Mumpfield, 20 yard",
-          "yard": 20.0,
-          "touchdown": false,
+          "squadra": "CHI",
+          "avversario": "DET",
+          "quarto": "4",
+          "tempo": "00:09",
+          "testo": "Williams lancia corto a destra per Odunze, 6 yard: touchdown",
+          "yard": 6.0,
+          "touchdown": true,
           "evento": "",
-          "valore": 8.0,
-          "prima": 60,
-          "dopo": 68,
-          "partita": "2026_12_GB_LA"
+          "valore": 39.2,
+          "prima": 52,
+          "dopo": 91,
+          "partita": "2026_12_CHI_DET"
         },
         {
-          "squadra": "GB",
-          "avversario": "LA",
-          "quarto": "1",
-          "tempo": "02:43",
-          "testo": "Love lancia corto a sinistra per Watson, 32 yard",
-          "yard": 32.0,
-          "touchdown": false,
+          "squadra": "DET",
+          "avversario": "CHI",
+          "quarto": "4",
+          "tempo": "08:30",
+          "testo": "Gibbs corre a sinistra, 70 yard: touchdown",
+          "yard": 70.0,
+          "touchdown": true,
           "evento": "",
-          "valore": 6.2,
-          "prima": 24,
-          "dopo": 31,
-          "partita": "2026_12_GB_LA"
+          "valore": 14.0,
+          "prima": 81,
+          "dopo": 95,
+          "partita": "2026_12_CHI_DET"
         },
         {
-          "squadra": "GB",
-          "avversario": "LA",
-          "quarto": "2",
-          "tempo": "11:07",
-          "testo": "Love lancia lungo a destra per Golden, 39 yard",
-          "yard": 39.0,
+          "squadra": "CHI",
+          "avversario": "DET",
+          "quarto": "4",
+          "tempo": "01:51",
+          "testo": "Williams lancia corto al centro per Odunze, 11 yard",
+          "yard": 11.0,
           "touchdown": false,
           "evento": "",
-          "valore": 6.0,
-          "prima": 19,
-          "dopo": 25,
-          "partita": "2026_12_GB_LA"
+          "valore": 10.7,
+          "prima": 30,
+          "dopo": 41,
+          "partita": "2026_12_CHI_DET"
         },
         {
-          "squadra": "LA",
-          "avversario": "GB",
-          "quarto": "2",
-          "tempo": "14:15",
-          "testo": "Stafford lancia corto a destra per Williams, 9 yard",
-          "yard": 9.0,
+          "squadra": "CHI",
+          "avversario": "DET",
+          "quarto": "4",
+          "tempo": "02:00",
+          "testo": "Williams corre sull'esterno destro, 2 yard",
+          "yard": 2.0,
           "touchdown": false,
           "evento": "",
-          "valore": 5.9,
-          "prima": 71,
-          "dopo": 77,
-          "partita": "2026_12_GB_LA"
+          "valore": 10.0,
+          "prima": 25,
+          "dopo": 35,
+          "partita": "2026_12_CHI_DET"
         },
         {
-          "squadra": "LA",
-          "avversario": "GB",
-          "quarto": "3",
-          "tempo": "14:03",
-          "testo": "Stafford lancia corto a destra per Mumpfield, 10 yard",
-          "yard": 10.0,
-          "touchdown": false,
+          "squadra": "CHI",
+          "avversario": "DET",
+          "quarto": "4",
+          "tempo": "07:27",
+          "testo": "Williams lancia lungo a destra per Odunze, 41 yard: touchdown",
+          "yard": 41.0,
+          "touchdown": true,
           "evento": "",
-          "valore": 5.8,
-          "prima": 54,
-          "dopo": 60,
-          "partita": "2026_12_GB_LA"
+          "valore": 9.9,
+          "prima": 9,
+          "dopo": 19,
+          "partita": "2026_12_CHI_DET"
         }
       ],
       "difesa": [
+        {
+          "squadra": "CHI",
+          "avversario": "DET",
+          "quarto": "4",
+          "tempo": "05:34",
+          "testo": "Goff intercettato da Thieneman",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 19.4,
+          "prima": 15,
+          "dopo": 35,
+          "partita": "2026_12_CHI_DET"
+        },
+        {
+          "squadra": "DET",
+          "avversario": "CHI",
+          "quarto": "1",
+          "tempo": "07:52",
+          "testo": "Williams lancia corto a destra per Loveland, 5 yard, fumble, recuperato da Rodriguez (DET)",
+          "yard": 5.0,
+          "touchdown": false,
+          "evento": "fumble recuperato",
+          "valore": 16.3,
+          "prima": 47,
+          "dopo": 63,
+          "partita": "2026_12_CHI_DET"
+        },
+        {
+          "squadra": "CHI",
+          "avversario": "DET",
+          "quarto": "4",
+          "tempo": "02:22",
+          "testo": "Goff lancia corto a sinistra per Gibbs, 1 yard",
+          "yard": 1.0,
+          "touchdown": false,
+          "evento": "stop al quarto down",
+          "valore": 13.0,
+          "prima": 18,
+          "dopo": 31,
+          "partita": "2026_12_CHI_DET"
+        },
         {
           "squadra": "LA",
           "avversario": "GB",
@@ -143535,72 +143820,52 @@
           "partita": "2026_12_GB_LA"
         },
         {
-          "squadra": "GB",
-          "avversario": "LA",
-          "quarto": "3",
-          "tempo": "04:43",
-          "testo": "Stafford intercettato da Hopper",
-          "yard": 0.0,
-          "touchdown": false,
-          "evento": "intercetto",
-          "valore": 11.0,
-          "prima": 16,
-          "dopo": 27,
-          "partita": "2026_12_GB_LA"
-        },
-        {
-          "squadra": "LA",
-          "avversario": "GB",
-          "quarto": "3",
-          "tempo": "03:59",
-          "testo": "Love intercettato da McCollough",
-          "yard": 0.0,
-          "touchdown": false,
-          "evento": "intercetto",
-          "valore": 7.6,
-          "prima": 72,
-          "dopo": 80,
-          "partita": "2026_12_GB_LA"
-        },
-        {
-          "squadra": "LA",
-          "avversario": "GB",
+          "squadra": "DET",
+          "avversario": "CHI",
           "quarto": "4",
-          "tempo": "03:46",
-          "testo": "Love intercettato da Forbes",
+          "tempo": "02:53",
+          "testo": "Williams: lancio lungo a destra per Walker incompleto",
           "yard": 0.0,
           "touchdown": false,
-          "evento": "intercetto",
-          "valore": 5.8,
-          "prima": 93,
-          "dopo": 98,
-          "partita": "2026_12_GB_LA"
-        },
-        {
-          "squadra": "GB",
-          "avversario": "LA",
-          "quarto": "2",
-          "tempo": "01:44",
-          "testo": "Stafford subisce un sack, -8 yard (perdita)",
-          "yard": -8.0,
-          "touchdown": false,
-          "evento": "sack",
-          "valore": 3.1,
-          "prima": 39,
-          "dopo": 42,
-          "partita": "2026_12_GB_LA"
+          "evento": "stop al quarto down",
+          "valore": 11.4,
+          "prima": 68,
+          "dopo": 79,
+          "partita": "2026_12_CHI_DET"
         }
       ]
     },
     "squadreSettimana": {
       "attacchi": [
         {
+          "squadra": "CHI",
+          "nome": "Chicago Bears",
+          "avversario": "DET",
+          "attacco": 0.157,
+          "difesa": -0.089,
+          "netto": 0.068,
+          "epaAzione": 0.196,
+          "epaConcesso": 0.163,
+          "partita": "2026_12_CHI_DET"
+        },
+        {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "avversario": "CHI",
+          "attacco": 0.153,
+          "difesa": -0.154,
+          "netto": -0.001,
+          "epaAzione": 0.163,
+          "epaConcesso": 0.196,
+          "partita": "2026_12_CHI_DET"
+        },
+        {
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "GB",
-          "attacco": 0.022,
+          "attacco": 0.021,
           "difesa": 0.184,
-          "netto": 0.206,
+          "netto": 0.205,
           "epaAzione": 0.031,
           "epaConcesso": -0.138,
           "partita": "2026_12_GB_LA"
@@ -143609,8 +143874,8 @@
           "squadra": "GB",
           "nome": "Green Bay Packers",
           "avversario": "LA",
-          "attacco": -0.114,
-          "difesa": 0.031,
+          "attacco": -0.115,
+          "difesa": 0.032,
           "netto": -0.083,
           "epaAzione": -0.138,
           "epaConcesso": 0.031,
@@ -143622,9 +143887,9 @@
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "GB",
-          "attacco": 0.022,
+          "attacco": 0.021,
           "difesa": 0.184,
-          "netto": 0.206,
+          "netto": 0.205,
           "epaAzione": 0.031,
           "epaConcesso": -0.138,
           "partita": "2026_12_GB_LA"
@@ -143633,12 +143898,34 @@
           "squadra": "GB",
           "nome": "Green Bay Packers",
           "avversario": "LA",
-          "attacco": -0.114,
-          "difesa": 0.031,
+          "attacco": -0.115,
+          "difesa": 0.032,
           "netto": -0.083,
           "epaAzione": -0.138,
           "epaConcesso": 0.031,
           "partita": "2026_12_GB_LA"
+        },
+        {
+          "squadra": "CHI",
+          "nome": "Chicago Bears",
+          "avversario": "DET",
+          "attacco": 0.157,
+          "difesa": -0.089,
+          "netto": 0.068,
+          "epaAzione": 0.196,
+          "epaConcesso": 0.163,
+          "partita": "2026_12_CHI_DET"
+        },
+        {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "avversario": "CHI",
+          "attacco": 0.153,
+          "difesa": -0.154,
+          "netto": -0.001,
+          "epaAzione": 0.163,
+          "epaConcesso": 0.196,
+          "partita": "2026_12_CHI_DET"
         }
       ],
       "migliori": [
@@ -143646,23 +143933,34 @@
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "avversario": "GB",
-          "attacco": 0.022,
+          "attacco": 0.021,
           "difesa": 0.184,
-          "netto": 0.206,
+          "netto": 0.205,
           "epaAzione": 0.031,
           "epaConcesso": -0.138,
           "partita": "2026_12_GB_LA"
         },
         {
-          "squadra": "GB",
-          "nome": "Green Bay Packers",
-          "avversario": "LA",
-          "attacco": -0.114,
-          "difesa": 0.031,
-          "netto": -0.083,
-          "epaAzione": -0.138,
-          "epaConcesso": 0.031,
-          "partita": "2026_12_GB_LA"
+          "squadra": "CHI",
+          "nome": "Chicago Bears",
+          "avversario": "DET",
+          "attacco": 0.157,
+          "difesa": -0.089,
+          "netto": 0.068,
+          "epaAzione": 0.196,
+          "epaConcesso": 0.163,
+          "partita": "2026_12_CHI_DET"
+        },
+        {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "avversario": "CHI",
+          "attacco": 0.153,
+          "difesa": -0.154,
+          "netto": -0.001,
+          "epaAzione": 0.163,
+          "epaConcesso": 0.196,
+          "partita": "2026_12_CHI_DET"
         }
       ],
       "nota": "EPA per azione corretto per la forza dell'avversario (stesse stime degli indici): +0,10 vuol dire circa 6 punti in più di una squadra media contro lo stesso avversario."
@@ -143769,6 +144067,17 @@
           "netto": 1.2
         },
         {
+          "squadra": "CHI",
+          "nome": "Chicago Bears",
+          "partite": 11,
+          "fatti1": 3.36,
+          "fatti2": 1.18,
+          "subiti1": 3.18,
+          "subiti2": 0.82,
+          "quota": 16.6,
+          "netto": 0.55
+        },
+        {
           "squadra": "DAL",
           "nome": "Dallas Cowboys",
           "partite": 11,
@@ -143780,15 +144089,15 @@
           "netto": 0.09
         },
         {
-          "squadra": "CHI",
-          "nome": "Chicago Bears",
-          "partite": 10,
-          "fatti1": 3.7,
-          "fatti2": 0.6,
-          "subiti1": 2.6,
-          "subiti2": 0.9,
-          "quota": 16.4,
-          "netto": 0.8
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "partite": 11,
+          "fatti1": 2.82,
+          "fatti2": 1.55,
+          "subiti1": 0.91,
+          "subiti2": 1.91,
+          "quota": 14.9,
+          "netto": 1.55
         },
         {
           "squadra": "SEA",
@@ -143822,17 +144131,6 @@
           "subiti2": 1.5,
           "quota": 14.8,
           "netto": 0.1
-        },
-        {
-          "squadra": "DET",
-          "nome": "Detroit Lions",
-          "partite": 10,
-          "fatti1": 2.2,
-          "fatti2": 1.7,
-          "subiti1": 1.0,
-          "subiti2": 1.4,
-          "quota": 13.5,
-          "netto": 1.5
         },
         {
           "squadra": "NE",
@@ -144023,8 +144321,8 @@
         }
       ],
       "media": {
-        "fatti1": 2.4,
-        "fatti2": 1.43
+        "fatti1": 2.41,
+        "fatti2": 1.44
       },
       "nota": "Punti a partita segnati e subiti dopo il two-minute warning (ultimi 2 minuti) del primo e del secondo tempo; quota = parte dei punti della squadra fatta in quei minuti. Sono pochi minuti a partita: come segnale per giocare va ancora misurata."
     },
@@ -144229,28 +144527,6 @@
           ]
         },
         {
-          "squadra": "CHI",
-          "nome": "Chicago Bears",
-          "partite": 10,
-          "flag": 7.4,
-          "yard": 57.7,
-          "subite": 7.4,
-          "tipi": [
-            [
-              "holding in attacco",
-              19
-            ],
-            [
-              "falsa partenza",
-              12
-            ],
-            [
-              "ritardo di gioco",
-              6
-            ]
-          ]
-        },
-        {
           "squadra": "JAX",
           "nome": "Jacksonville Jaguars",
           "partite": 10,
@@ -144295,6 +144571,28 @@
           ]
         },
         {
+          "squadra": "DET",
+          "nome": "Detroit Lions",
+          "partite": 11,
+          "flag": 7.18,
+          "yard": 59.0,
+          "subite": 6.18,
+          "tipi": [
+            [
+              "falsa partenza",
+              22
+            ],
+            [
+              "holding in attacco",
+              14
+            ],
+            [
+              "interferenza in difesa",
+              9
+            ]
+          ]
+        },
+        {
           "squadra": "LA",
           "nome": "Los Angeles Rams",
           "partite": 11,
@@ -144317,6 +144615,28 @@
           ]
         },
         {
+          "squadra": "CHI",
+          "nome": "Chicago Bears",
+          "partite": 11,
+          "flag": 7.09,
+          "yard": 54.7,
+          "subite": 7.55,
+          "tipi": [
+            [
+              "holding in attacco",
+              19
+            ],
+            [
+              "falsa partenza",
+              12
+            ],
+            [
+              "ritardo di gioco",
+              6
+            ]
+          ]
+        },
+        {
           "squadra": "NYG",
           "nome": "New York Giants",
           "partite": 10,
@@ -144331,28 +144651,6 @@
             [
               "holding in attacco",
               11
-            ],
-            [
-              "interferenza in difesa",
-              9
-            ]
-          ]
-        },
-        {
-          "squadra": "DET",
-          "nome": "Detroit Lions",
-          "partite": 10,
-          "flag": 7.0,
-          "yard": 57.9,
-          "subite": 6.4,
-          "tipi": [
-            [
-              "falsa partenza",
-              18
-            ],
-            [
-              "holding in attacco",
-              14
             ],
             [
               "interferenza in difesa",
@@ -144735,7 +145033,7 @@
           ]
         }
       ],
-      "media": 6.98,
+      "media": 6.97,
       "nota": "Penalità accettate a partita (le rifiutate non contano). Se in un'azione ci sono più flag, nflverse ne registra una sola.",
       "arbitri": [
         {
