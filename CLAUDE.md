@@ -246,7 +246,7 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   {tipo, etichetta, titolo, testo}, «carriera.titolo». Toppa della bandiera sempre RETTANGOLARE. `carte_lega.py <n> --prova`
   fotografa in /tmp senza toccare lega.json. Sul sito le carte speciali hanno il riflesso olografico (`.holo`, segue dito e
   mouse con `legaRiflesso`; fermo con «riduci movimento») e il bollino della rarità nell'album. Nº 002 = Rara «La presa
-  dell'Eco», uscita 27/11/2026.
+  dell'Eco», uscita anticipata al 26/11/2026 (Valerio); il quarterback dei Tempest resta per il 27/11.
 - Loghi delle squadre della Lega (26/11/2026, Valerio): TUTTI fatti con Gemini, mai disegnati da Claude. Alla prima
   carta di una squadra senza file in lega/stemmi/ l'attività manda anche il prompt del logo (emblema circolare come quello
   dei Tempest); la carta non esce senza logo.
