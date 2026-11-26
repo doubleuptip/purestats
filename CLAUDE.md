@@ -454,6 +454,8 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   partite da non perdere della Week N in ogni fascia oraria» (elenco notizie NFL Game Pass, robots.txt permette
   /it-IT/news; titoletti «X vs. Y» seguiti da «Kick-off Italia»), se manca dalle anteprime «… diretta su DAZN». Ogni
   articolo si legge una volta (`letti`). Prime Video non trasmette la NFL in Italia: nessun bollino.
+  26/11/2026: le anteprime «… come guardarlo su DAZN» (indirizzi con «guarda») valgono come «diretta su DAZN», e anche
+  per le partite delle feste fuori dalla notte (Ringraziamento 19:00 e 22:30, Black Friday, Natale): prima mancavano.
 - Da controllare: se l'articolo DAZN delle cinque partite esce ogni settimana (trovato per la Week 11). Se manca spesso,
   riserva da fare: comando nel bot per segnarle a mano (serve un token GitHub nel config.toml del server).
 

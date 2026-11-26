@@ -10,7 +10,8 @@ Da dove si sa quali:
     incluse per regola, senza bisogno di leggere niente («regola»);
   · le due della domenica pomeriggio le annuncia DAZN Italia ogni settimana nelle sue notizie NFL, nell'articolo
     «... le cinque partite da non perdere della Week N in ogni fascia oraria» («articolo»); se manca, valgono le
-    anteprime della singola partita «... diretta su DAZN» («anteprima»).
+    anteprime della singola partita «... diretta su DAZN» / «... come guardarlo su DAZN» («anteprima»); le stesse
+    anteprime valgono per le partite delle feste fuori dalla notte (Ringraziamento, Black Friday, Natale).
 Pagine lette: l'elenco delle notizie NFL Game Pass di DAZN Italia (robots.txt permette /it-IT/news) e gli articoli
 che servono, una volta sola ciascuno (gli indirizzi già letti restano nel file). Gratis, senza chiave.
 
@@ -90,6 +91,13 @@ def chiave(p: dict) -> str:
 def in_notte(p: dict) -> bool:
     o = p.get("oraIt") or ""
     return bool(o) and NOTTE[0] <= o <= NOTTE[1]
+
+
+def domenica(p: dict) -> bool:
+    try:
+        return dt.date.fromisoformat(p["dataIt"]).weekday() == 6
+    except (KeyError, ValueError):
+        return False
 
 
 def domenica_pomeriggio(p: dict) -> bool:
@@ -177,9 +185,12 @@ def aggiorna() -> int:
             time.sleep(1)
         # 2) se manca, le anteprime della singola partita della domenica pomeriggio
         if not voce.get("articolo"):
-            pomeriggio = {frozenset((p["casa"], p["ospite"])): chiave(p) for p in partite if domenica_pomeriggio(p)}
+            # domenica pomeriggio e partite delle feste fuori dalla notte (Ringraziamento, Black Friday, Natale):
+            # 26/11/2026 le due del Ringraziamento (19:00 e 22:30) erano incluse ma mancavano dalla pagina
+            pomeriggio = {frozenset((p["casa"], p["ospite"])): chiave(p) for p in partite
+                          if domenica_pomeriggio(p) or (not in_notte(p) and not domenica(p))}
             for u in nuovi:
-                if "diretta" not in u and "come-vedere" not in u:
+                if not any(x in u for x in ("diretta", "come-vedere", "guarda", "come-seguir")):
                     continue
                 s = squadre_in(u.rsplit("/", 1)[0].replace("-", " "), nomi)
                 k = pomeriggio.get(frozenset(s[:2])) if len(s) >= 2 else None
