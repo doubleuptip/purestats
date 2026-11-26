@@ -616,6 +616,11 @@ davvero che si veda quello che deve vedersi.
   Ordine proposto: messa in regola → Google (pagine statiche, sitemap) → dominio → AdSense con traffico.
 
 
+- ACCANTONATO (26/11/2026, Valerio): annunci automatici di carte 2187 e articoli nuovi in un canale Telegram pubblico
+  (script sul server ogni 15 minuti, bot separato «PureStats» solo per pubblicare; da chiarire di cosa parla il canale).
+  Segnali di Charlie in un canale pubblico sconsigliati: Decreto Dignità art. 9 (pubblicità anche indiretta di
+  scommesse vietata anche sui social, sanzioni da 50.000 euro) e regola «niente scommesse nella parte pubblica».
+
 - Dicembre 2026, rinunce ai bowl: i titolari si contano sull'intera stagione (Protocollo 12), quindi una squadra
   che ha cambiato QB a metà anno ha ancora il vecchio come titolare (Rice: Jacurri Brown, ora ricevitore; gioca
   Gael Ochoa). Prima di spuntare le rinunce, controllare a mano le squadre che hanno cambiato QB.
