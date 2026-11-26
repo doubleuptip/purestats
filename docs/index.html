@@ -1718,7 +1718,7 @@ function render(){
   if(LEG_DAL_LINK && soloFootball){ vista="leggende"; LEG_APERTO=LEG_DAL_LINK; LEG_DAL_LINK=null; LEG_SEGUI=true; }
   if(VISTA_DAL_LINK && soloFootball){ vista=VISTA_DAL_LINK; VISTA_DAL_LINK=null; if(vista==="squadre") ultimaStat="classifica"; }
   if(SQUADRA_DAL_LINK && soloFootball){ vista="squadre"; ultimaStat="classifica"; if((D.squadre||[]).some(x=>x.nome===SQUADRA_DAL_LINK)) squadraAperta=SQUADRA_DAL_LINK; SQUADRA_DAL_LINK=null; }
-  if(vista==="lega" && !(soloFootball && legaVisibile())){ if(LEGA===null||LEGA===false){ caricaLega(); } else vista = soloFootball ? apertura : "arbitri"; }
+  if(vista==="lega" && !(soloFootball && legaVisibile())){ if(LEGA===null||LEGA===false){ caricaLega2187(); } else vista = soloFootball ? apertura : "arbitri"; }
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
     const b=document.getElementById("lg-"+l.id);
@@ -3543,12 +3543,12 @@ function meglioCollegeH(){
    Dati in lega/lega.json (carte composte da scripts/carte_lega.py). Finché «pubblica» è falso la sezione si vede solo
    con l'accesso privato. Una carta compare dal giorno della sua uscita (data italiana). */
 let LEGA=null, LEGA_SEZ="carte", LEGA_CARTA=null;
-function caricaLega(){
+function caricaLega2187(){
   if(LEGA!==null) return;
   LEGA=false;
   scaricaDati("lega/lega.json").then(x=>{ LEGA=x; render(); }).catch(()=>{ LEGA={errore:true}; });
 }
-function legaVisibile(){ caricaLega(); return !!(LEGA && !LEGA.errore && (LEGA.pubblica || privato())); }
+function legaVisibile(){ caricaLega2187(); return !!(LEGA && !LEGA.errore && (LEGA.pubblica || privato())); }
 const oggiRoma = () => new Date().toLocaleDateString("sv-SE",{timeZone:"Europe/Rome"});
 function legaCarte(){ const o=oggiRoma(); return ((LEGA&&LEGA.carte)||[]).filter(c=>c.uscita<=o).sort((a,b)=>b.n-a.n); }
 const nnn = n => String(n).padStart(3,"0");
@@ -3562,7 +3562,7 @@ function cartaGrande(c){
     <span class="gira"><img src="${esc(c.fronte)}" alt="Carta Nº ${nnn(c.n)}, fronte: ${esc(c.nome)}"><img class="r" src="${esc(c.retro)}" alt="Carta Nº ${nnn(c.n)}, retro: storia e carriera" loading="lazy"></span></button>`;
 }
 function vLega(){
-  caricaLega();
+  caricaLega2187();
   if(!LEGA) return `<div class="loading">Caricamento…</div>`;
   if(LEGA.errore) return `<p class="fb-note">La Lega della Terra Unita non è disponibile in questo momento.</p>`;
   const sez=[["carte","Carte"],["mondo","Il mondo"],["squadre","Squadre"],["calendario","Calendario"],["cronache","Cronache"]];
