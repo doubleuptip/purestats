@@ -5,9 +5,10 @@ name: Sentinella fine partite
 # Controlli gratis e leggeri (ESPN + API di GitHub); i workflow NFL e College tengono i loro orari fissi come riserva.
 on:
   schedule:
-    - cron: '*/15 3-6 * * 2,3,4,5'    # notti di lunedì, martedì, mercoledì, giovedì (MNF, college infrasettimanale, TNF)
-    - cron: '*/15 16-23 * * 0,6'      # sabato e domenica pomeriggio e sera
-    - cron: '*/15 0-7 * * 0,1'        # notti di sabato (college) e domenica (SNF)
+    # 26/11/2026 (scelta di Valerio): tutti i giorni, perché ci sono partite anche di mercoledì, nei giorni di festa
+    # (Ringraziamento, Natale) e il college infrasettimanale. Minuti lontani dallo :00, l'ora in cui GitHub salta più giri.
+    - cron: '7,22,37,52 16-23 * * *'  # pomeriggio e sera
+    - cron: '7,22,37,52 0-7 * * *'    # notte
   workflow_dispatch:
     inputs:
       prova:

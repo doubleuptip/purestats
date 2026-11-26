@@ -273,8 +273,13 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   quando il play-by-play nflverse (rilascio pbp) e il calendario (nfldata games.csv) sono aggiornati dopo la fine
   stimata (inizio + 3h15); mai due giri insieme, pausa 30 min (NFL) / 60 min (college) se la fonte non ha ancora la
   partita. Lancia con GITHUB_TOKEN (workflow_dispatch è permesso).
-- Riserve fisse alle 07:00 e 07:30 italiane (06:00/06:30 UTC) dopo le notti di gioco. Orari scritti per l'ora solare:
-  con l'ora legale vanno anticipati di un'ora.
+- 26/11/2026: la sentinella gira tutti i giorni (minuti 7, 22, 37, 52, dalle 16 alle 23 e dalle 0 alle 7 UTC) e le riserve
+  NFL e College ogni mattina alle 06:07 e 06:37 UTC (07:07 e 07:37 italiane). Motivo: 25-26/11 la partita del mercoledì
+  sera (GB@LA) è rimasta senza risultato fino a mezzogiorno: GitHub non ha lanciato nessun giro della sentinella in quella
+  finestra (gli orari automatici di GitHub vengono ritardati o saltati, soprattutto allo :00) e le riserve c'erano solo
+  ven/lun/mar. CollegeFootballData non cambia: SP+ e loghi hanno i loro limiti interni. Orari scritti per l'ora solare:
+  con l'ora legale vanno anticipati di un'ora. Da fare (Valerio: sì, 26/11): far partire la sentinella dal server OVH
+  (crontab + chiave GitHub con il solo permesso di avviare i workflow nel config.toml), indipendente da GitHub.
 
 ## Statistiche pubbliche (dal 18/11/2026)
 

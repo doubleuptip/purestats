@@ -7,11 +7,11 @@ on:
     # dalla prossima giornata e dai duelli senza aspettare mezzogiorno
     # (orari UTC: in Italia un'ora in più, d'estate due).
     - cron: '0 11 * * *'
-    - cron: '0 6 * * 5'      # venerdì mattina, dopo il giovedì sera
     - cron: '0 22 * * 0'     # domenica sera, dopo le partite del pomeriggio
-    - cron: '0 6 * * 1'      # lunedì mattina, dopo la domenica sera
-    - cron: '0 6 * * 2'      # martedì mattina, dopo il lunedì sera
-    - cron: '30 6 * * 1,2,5' # riserva delle 07:30 italiane, se i giri delle 07:00 e la sentinella sono saltati
+    # riserve di ogni mattina (26/11/2026: prima solo venerdì, lunedì e martedì; la partita del mercoledì sera era
+    # rimasta senza risultato fino a mezzogiorno): 07:07 e 07:37 italiane
+    - cron: '7 6 * * *'
+    - cron: '37 6 * * *'
   workflow_dispatch:
   push:
     branches: [main]
