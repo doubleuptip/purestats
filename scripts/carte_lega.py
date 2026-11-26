@@ -245,7 +245,9 @@ def main():
     voce = {"n": c["n"], "nome": c["nome"], "maglia": c["maglia"], "ruolo": c["ruolo"], "squadra": c["squadra"],
             "conference": c["conference"], "rarita": c.get("rarita", "Comune"), "uscita": c["uscita"],
             "dono": c["dono"]["nome"], "sintesi": c["sintesi"], "momento": (c.get("momento") or {}).get("titolo"),
-            "fronte": "lega/carte/%s_fronte.jpg" % nnn, "retro": "lega/carte/%s_retro.jpg" % nnn}
+            # ?v= cambia a ogni nuova foto: il browser non mostra la versione vecchia rimasta in memoria
+            "fronte": "lega/carte/%s_fronte.jpg?v=%d" % (nnn, os.path.getmtime(os.path.join(USCITA, nnn + "_fronte.jpg"))),
+            "retro": "lega/carte/%s_retro.jpg?v=%d" % (nnn, os.path.getmtime(os.path.join(USCITA, nnn + "_retro.jpg")))}
     carte = [x for x in lega.get("carte", []) if x["n"] != c["n"]] + [voce]
     lega["carte"] = sorted(carte, key=lambda x: x["n"])
     temporaneo = LEGA_JSON + ".tmp"
