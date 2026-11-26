@@ -612,10 +612,17 @@ def scegli_nfl(stagione: int, settimana: int, quante: int = 3, dopo_utc: dt.date
         sera = inizio.hour >= 19 or inizio.weekday() in (0, 3)
         punti = 15 * (pv(x["home_team"]) + pv(x["away_team"])) + 10 * (1 - min(sp, 14) / 14) \
             + (2 if x["div_game"] == "1" else 0) + (2 if sera else 0)
+        # 26/11/2026 (scelta di Valerio, dalla week 13): le partite di prima serata del giovedì, della domenica e del
+        # lunedì (ora della costa est) hanno sempre l'articolo, oltre alle «quante» migliori
+        fissa = ("Thursday Night" if inizio.weekday() == 3 and inizio.hour >= 19 else
+                 "Sunday Night" if inizio.weekday() == 6 and inizio.hour >= 19 else
+                 "Monday Night" if inizio.weekday() == 0 else None)
         out.append({"id": x["game_id"], "partita": f"{x['away_team']} @ {x['home_team']}", "punteggio": round(punti, 1),
                     "bilanci": f"{'-'.join(map(str, bil[x['away_team']]))} / {'-'.join(map(str, bil[x['home_team']]))}",
-                    "linea": sp, "division": x["div_game"] == "1", "primaSerata": sera})
-    return sorted(out, key=lambda g: -g["punteggio"])[:quante]
+                    "linea": sp, "division": x["div_game"] == "1", "primaSerata": sera, "fissa": fissa})
+    migliori = sorted(out, key=lambda g: -g["punteggio"])[:quante]
+    # le fisse già tra le migliori non si ripetono
+    return migliori + [g for g in out if g["fissa"] and g not in migliori]
 
 
 def _college_righe() -> list[dict]:

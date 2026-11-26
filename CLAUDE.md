@@ -326,6 +326,9 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   (campo `controllato`, non visibile). Sito: firma «Pubblicato … · Aggiornato …», riquadro rosso «Aggiornamento ·
   data, ora» in cima al testo, «Versione del …» in fondo (`quandoIt`); pagine statiche con le stesse date,
   dateModified e lastmod della sitemap = aggiornato. Regole in ARTICOLI_GUIDA, «Aggiornamenti delle anteprime».
+- Prima serata sempre (26/11/2026, scelta di Valerio, dalla week 13): oltre alle 3 migliori, `scegli_nfl` aggiunge le
+  partite del giovedì sera, della domenica sera e del lunedì (ora della costa est; campo «fissa»: Thursday Night, Sunday
+  Night, Monday Night); se una è già tra le 3 migliori non si ripete. Le scelte già salvate (fino alla week 12) restano.
 - Momenti decisivi (21/11/2026): probabilità di vittoria dal mercato (vegas_home_wp/vegas_home_wpa), sotto 3 punti solo
   azioni chiave, peso pieno verso il risultato finale, al massimo 2 per quarto (nfl_indici, costanti MOMENTI_*).
 - Foto degli stadi (21/11/2026): `docs/articoli/stadi/<Stadio>.jpg` per l'NFL (vale anche in campo neutro),
@@ -361,7 +364,8 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   lastmod della sitemap cambiano SOLO se il contenuto della pagina cambia (`con_data` confronta col file già scritto):
   i giri ripetuti non cambiano nulla. Si rifanno nel workflow NFL (passo prima del commit: i commit con GITHUB_TOKEN non
   lanciano pagine-statiche.yml) e in pagine-statiche.yml. «Apri nel sito» usa `#vista=<partite|squadre|articoli…>` e
-  `#squadra=<sigla>` (index.html, VISTA_DAL_LINK / SQUADRA_DAL_LINK). Piede di index.html: ARCHIVIO e CHI SIAMO.
+  `#squadra=<sigla>` (index.html, VISTA_DAL_LINK / SQUADRA_DAL_LINK). Piede di index.html: ARCHIVIO e CHI SIAMO (dal 26/11/2026 voci su una riga, `.pie-voci`: «Fonti e condizioni d'uso · Privacy ·
+  Archivio · Chi siamo», sul telefono «Fonti»).
   Chi siamo va riletto da Valerio (può aggiungere 2-3 righe sue).
 - Alla prima attivazione del dominio: docs/CNAME con `purestats.it`, og:url/og:image di index.html sul nuovo
   dominio, User-Agent degli script (articoli, leggende, tv_italia) e indirizzo di duelli.html nel bot. Le chiavi
