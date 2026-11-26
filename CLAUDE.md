@@ -226,8 +226,8 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   ogni carta e pagina dice «Personaggio immaginario · immagine creata con AI». Mai quote, scommesse o premi in denaro.
 - Menu «2187» (bottone `n-lega`, oro `--oro`, stellina) dopo Leggende, vista «lega» (`vLega`: Carte · Il mondo ·
   Squadre · Calendario · Cronache), indirizzi `#vista=lega` e `#carta=<n>`; post di presentazione nella Home NFL
-  (`legaH`). Dati in `docs/lega/lega.json`; con «pubblica»: false la sezione si vede solo con l'accesso privato
-  (`legaVisibile`): la data di partenza la decide Valerio. Una carta compare dal giorno della sua «uscita» (ora italiana).
+  (`legaH`). Dati in `docs/lega/lega.json`; «pubblica»: true dal 26/11/2026 (Valerio); con false la sezione si vede solo
+  con l'accesso privato (`legaVisibile`). Una carta compare dal giorno della sua «uscita» (ora italiana).
 - Carte: dati in `lega/carte/<NNN>.json`, ritratto in `lega/immagini/<NNN>.jpg` (Valerio lo genera con Gemini e lo
   allega in chat; sempre con l'immagine di riferimento del personaggio), stemma in `lega/stemmi/`. `python3
   scripts/carte_lega.py <n>` compone fronte e retro con Chrome senza finestra (750×1050 a 1,5×, JPEG) in
