@@ -1,0 +1,256 @@
+{
+ "nome": "Lega della Terra Unita",
+ "stagione": 2187,
+ "pubblica": false,
+ "presentazione": {
+  "titolo": "Benvenuti nel 2187: nasce la Lega della Terra Unita",
+  "paragrafi": [
+   "Da oggi PureStats ha un secondo campionato. Non lo troverete in tv: lo stiamo inventando noi, una settimana alla volta.",
+   "È il 2187. La Terra è un solo Stato, ha una sola bandiera, e il football è lo sport che la unisce. Sedici squadre, da città nate dopo l'innalzamento dei mari, si giocano la Coppa dell'Alba. Le regole sono quelle che conoscete: quattro tentativi, dieci yard, due minuti per rimontare. Con una differenza: alcuni giocatori nascono con un Dono. C'è chi vede un attimo nel futuro, chi rallenta il tempo intorno a sé, chi salta più in alto di quanto dovrebbe. Ogni Dono ha un limite e un prezzo, e nessun Dono vince una partita da solo.",
+   "La stagione corre insieme a quella NFL: stesse settimane, stessi playoff, la finale lo stesso giorno del Super Bowl. Ogni settimana le partite della Lega rivivono le situazioni più tese viste davvero sui campi americani, con i nostri giocatori al posto di quelli veri.",
+   "Ogni giorno esce una carta da collezione. Si comincia con la Nº 001: Iskander Vale, ricevitore degli Aurelion Tempest, che ricorda il futuro e dimentica il presente."
+  ]
+ },
+ "mondo": {
+  "paragrafi": [
+   "È il 2187: la Terra è un solo Stato da 56 anni e il football è lo sport che la rappresenta. Le città sono nate dopo l'innalzamento dei mari e i grandi spostamenti di popolazione: nessuna ha il nome di una città di oggi.",
+   "La bandiera si chiama l'Alba: sotto il blu oceano, sopra il blu notte, sull'orizzonte sorge mezza Terra bianca dentro un anello dorato, e sopra brilla una stella. Significa un nuovo giorno per l'umanità unita. È cucita sulla spalla sinistra di ogni divisa.",
+   "Dalla metà del secolo una persona su diecimila nasce con un'abilità fuori dal comune, un Dono. Nessuno sa spiegare del tutto perché. La Lega li ha resi uno spettacolo con regole, limiti e prezzi.",
+   "Nel 2181 è arrivato il primo contatto con i Vhar, una civiltà del sistema di Tau Ceti che conosce un gioco molto simile al football. Per ora sono solo voci e trattative: la Coppa delle Stelle è un sogno, non un calendario."
+  ],
+  "cronologia": [
+   [
+    "2131",
+    "Riunificazione: nasce la Terra Unita, adottata la bandiera dell'Alba"
+   ],
+   [
+    "2141",
+    "Prima stagione della Lega della Terra Unita, 12 squadre"
+   ],
+   [
+    "2152",
+    "Codice dei Doni: le abilità entrano nel gioco con regole scritte"
+   ],
+   [
+    "2163",
+    "Nasce Iskander Vale ad Aurelion"
+   ],
+   [
+    "2181",
+    "Primo contatto con i Vhar di Tau Ceti"
+   ],
+   [
+    "2185",
+    "Draft: Iskander Vale scelto alla nona chiamata dagli Aurelion Tempest"
+   ],
+   [
+    "2187",
+    "Stagione in corso, la 47ª della Lega"
+   ]
+  ],
+  "codice": [
+   "Ogni giocatore ha un solo Dono, certificato dalla Lega a 16 anni.",
+   "Al massimo 3 attivazioni per tempo; quelle non usate non si accumulano.",
+   "Ogni Dono ha un Prezzo, fisico o mentale, sempre lo stesso.",
+   "Vietati i Doni che colpiscono il corpo o la mente di un avversario: 15 yard di penalità ed espulsione.",
+   "I Custodi, gli arbitri con i sensori, vedono ogni attivazione e la mostrano sul tabellone.",
+   "In campo al massimo 4 giocatori per squadra con Doni di Tempo o di Spazio."
+  ],
+  "famiglie": [
+   [
+    "Tempo",
+    "vedere avanti di un attimo, rallentare il tempo intorno a sé",
+    "perdita di memoria, invecchiamento di ore"
+   ],
+   [
+    "Spazio",
+    "spostarsi di pochi metri in un lampo, deviare traiettorie",
+    "nausea, vista sfocata"
+   ],
+   [
+    "Mente",
+    "leggere l'intenzione di un avversario, calma assoluta",
+    "emicrania, emozioni spente per ore"
+   ],
+   [
+    "Corpo",
+    "forza, velocità o salto oltre il limite umano",
+    "crampi, ossa fragili, fame feroce"
+   ],
+   [
+    "Elementi",
+    "aria, acqua, luce intorno a sé e al pallone",
+    "febbre, freddo, perdita del Dono per un tempo"
+   ]
+  ]
+ },
+ "calendario": [
+  [
+   "Week 1-18",
+   "Stagione regolare, 17 partite per squadra, insieme alla NFL"
+  ],
+  [
+   "16-18 gennaio 2027",
+   "Turno dei Doni: spareggi tra le teste di serie dalla 7 alla 10"
+  ],
+  [
+   "23-24 gennaio",
+   "Quarti di finale, 8 squadre"
+  ],
+  [
+   "31 gennaio",
+   "Semifinali"
+  ],
+  [
+   "14 febbraio 2027",
+   "Finale: la Coppa dell'Alba, lo stesso giorno del Super Bowl"
+  ]
+ ],
+ "squadre": [
+  {
+   "nome": "Aurelion Tempest",
+   "s": "AUR",
+   "conf": "Oceanica",
+   "c1": "#0E4A55",
+   "c2": "#C98A62",
+   "citta": "città-arcipelago su una costa sommersa"
+  },
+  {
+   "nome": "Meridian Leviathans",
+   "s": "MER",
+   "conf": "Oceanica",
+   "c1": "#0B1F3A",
+   "c2": "#C0C7CF",
+   "citta": "città galleggiante sull'equatore"
+  },
+  {
+   "nome": "Coral Reach Tritons",
+   "s": "COR",
+   "conf": "Oceanica",
+   "c1": "#E0664F",
+   "c2": "#E9D8B4",
+   "citta": "scogliere abitate"
+  },
+  {
+   "nome": "Saltspire Corsairs",
+   "s": "SAL",
+   "conf": "Oceanica",
+   "c1": "#111111",
+   "c2": "#D4A72C",
+   "citta": "porto franco tra le torri di sale"
+  },
+  {
+   "nome": "Nuova Kemet Monoliths",
+   "s": "NKM",
+   "conf": "Continentale",
+   "c1": "#1C1B22",
+   "c2": "#D9C08A",
+   "citta": "città di pietra nel deserto"
+  },
+  {
+   "nome": "Veldgrad Iron Wolves",
+   "s": "VEL",
+   "conf": "Continentale",
+   "c1": "#4A4F57",
+   "c2": "#B3122E",
+   "citta": "capitale industriale delle pianure"
+  },
+  {
+   "nome": "Ardent Plains Thunderhorns",
+   "s": "ARD",
+   "conf": "Continentale",
+   "c1": "#5A3A22",
+   "c2": "#F08A24",
+   "citta": "grandi pascoli e vento"
+  },
+  {
+   "nome": "Halcyon Vanguard",
+   "s": "HAL",
+   "conf": "Continentale",
+   "c1": "#1F3FAE",
+   "c2": "#FFFFFF",
+   "citta": "sede del governo della Terra Unita"
+  },
+  {
+   "nome": "Frosthaven Wardens",
+   "s": "FRO",
+   "conf": "Boreale",
+   "c1": "#0F1D3D",
+   "c2": "#A8DDF0",
+   "citta": "città sotto la calotta"
+  },
+  {
+   "nome": "Aurora Ridge Northlights",
+   "s": "AUN",
+   "conf": "Boreale",
+   "c1": "#1E7A55",
+   "c2": "#8B5CC4",
+   "citta": "osservatorio sulle montagne"
+  },
+  {
+   "nome": "Nordhal Aurochs",
+   "s": "NOR",
+   "conf": "Boreale",
+   "c1": "#6E1A1A",
+   "c2": "#E8DFC8",
+   "citta": "città di legno e fiordi"
+  },
+  {
+   "nome": "Glacier Gate Sentinels",
+   "s": "GLA",
+   "conf": "Boreale",
+   "c1": "#16181D",
+   "c2": "#C9CED6",
+   "citta": "valico tra due ghiacciai"
+  },
+  {
+   "nome": "Solaris Flares",
+   "s": "SOL",
+   "conf": "Australe",
+   "c1": "#E8571E",
+   "c2": "#B3121A",
+   "citta": "città-specchio dell'energia solare"
+  },
+  {
+   "nome": "Emberfall Drakes",
+   "s": "EMB",
+   "conf": "Australe",
+   "c1": "#2B2B2E",
+   "c2": "#F26B1D",
+   "citta": "sulle pendici di un vulcano"
+  },
+  {
+   "nome": "Sunreach Harpies",
+   "s": "SUN",
+   "conf": "Australe",
+   "c1": "#D9A520",
+   "c2": "#111111",
+   "citta": "altopiano dei venti caldi"
+  },
+  {
+   "nome": "Kaal Sandvipers",
+   "s": "KAA",
+   "conf": "Australe",
+   "c1": "#B8862E",
+   "c2": "#141414",
+   "citta": "città nelle dune"
+  }
+ ],
+ "cronache": [],
+ "carte": [
+  {
+   "n": 1,
+   "nome": "Iskander Vale",
+   "maglia": 17,
+   "ruolo": "Ricevitore",
+   "squadra": "Aurelion Tempest",
+   "conference": "Oceanica",
+   "rarita": "Comune",
+   "uscita": "2026-11-26",
+   "dono": "L'Eco",
+   "sintesi": "Il ricevitore degli Aurelion Tempest che vede 1,7 secondi nel futuro e dimentica quei secondi.",
+   "fronte": "lega/carte/001_fronte.jpg",
+   "retro": "lega/carte/001_retro.jpg"
+  }
+ ]
+}

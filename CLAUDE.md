@@ -217,6 +217,24 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   `icona-192/512.png` e `manifest.webmanifest`; anteprima dei link (og:image) = brand/anteprima-link-scuro.png.
   Si rifanno con `misure/genera_marchio.py` (Archivo e Inter installati, larghezze misurate con Pillow).
 
+## 2187 · Lega della Terra Unita (dal 26/11/2026, scelta di Valerio)
+
+- Campionato di football inventato, anno 2187, in parallelo alla stagione NFL (stesse week, finale il giorno del Super
+  Bowl). Regole del mondo, squadre, Doni, calendario, metodo delle cronache, personaggi, carte e vendita nel documento
+  https://claude.ai/artifact/JXLsSTYjucBd2ucadjoGvb : è la fonte di verità, ogni fatto nuovo si scrive lì prima di usarlo.
+- Regole fisse: nessuna persona reale (né nomi né «somiglia a»), nessun marchio NFL/squadre vere, città inventate;
+  ogni carta e pagina dice «Personaggio immaginario · immagine creata con AI». Mai quote, scommesse o premi in denaro.
+- Menu «2187» (bottone `n-lega`, oro `--oro`, stellina) dopo Leggende, vista «lega» (`vLega`: Carte · Il mondo ·
+  Squadre · Calendario · Cronache), indirizzi `#vista=lega` e `#carta=<n>`; post di presentazione nella Home NFL
+  (`legaH`). Dati in `docs/lega/lega.json`; con «pubblica»: false la sezione si vede solo con l'accesso privato
+  (`legaVisibile`): la data di partenza la decide Valerio. Una carta compare dal giorno della sua «uscita» (ora italiana).
+- Carte: dati in `lega/carte/<NNN>.json`, ritratto in `lega/immagini/<NNN>.jpg` (Valerio lo genera con Gemini e lo
+  allega in chat; sempre con l'immagine di riferimento del personaggio), stemma in `lega/stemmi/`. `python3
+  scripts/carte_lega.py <n>` compone fronte e retro con Chrome senza finestra (750×1050 a 1,5×, JPEG) in
+  `docs/lega/carte/` e aggiorna la voce in lega.json. Colori della carta per squadra in `TEMI` (oggi solo Tempest).
+- Ritmo (scelta di Valerio): una carta al giorno; l'immagine arriva in chat. Le cronache settimanali prendono le
+  situazioni di gioco vere della week NFL (solo la dinamica, mai nomi) e le fanno vivere ai giocatori della Lega.
+
 ## Calcio e Matchup solo per Valerio (dal 17/11/2026)
 
 - Il sito si apre su NFL (pagina HOME); per tutti si vedono solo NFL e College FB. Calcio (tutti i campionati e il calendario) e il

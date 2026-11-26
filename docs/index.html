@@ -895,6 +895,62 @@
   .leg-cop.testa .leg-cop-vetro{max-width:780px;padding:20px 22px}.leg-cop.testa .leg-cop-h1{font-size:54px}
   .leg-cop.carta{display:block;aspect-ratio:16/10;border-radius:0;padding:0}.leg-cop.carta .leg-cop-gr{font-size:170px;top:6%}.leg-cop.carta .leg-cop-gr.lungo{font-size:110px;top:20%}
   .leg-cop.carta .leg-cop-anni{display:none}
+  /* ===== 2187 · Lega della Terra Unita (26/11/2026, scelta di Valerio): campionato immaginario a carte ===== */
+  :root{--oro:#9A6B00} html:not([data-tema="chiaro"]){--oro:#E8B84A}
+  html body.fb .testata nav.t-menu #n-lega,html body.fb .testata nav.t-menu #n-lega.on{color:var(--oro)}
+  html body.fb .testata nav.t-menu #n-lega.on{box-shadow:inset 0 -3px 0 var(--oro)}
+  .lg-testa{display:flex;gap:18px;align-items:center;margin:4px 0 6px}
+  .lg-testa img{width:76px;height:auto;border-radius:6px;box-shadow:0 0 0 1px var(--fb-border)}
+  .lg-testa small{font:700 13px var(--f-testo);letter-spacing:2px;color:var(--oro)}
+  .lg-avviso{font-size:13.5px;color:var(--fb-muted);border-left:3px solid var(--oro);padding:6px 12px;margin:10px 0 4px}
+  .lg-giorno{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:28px;align-items:center;margin:10px 0 30px}
+  .lg-carta{perspective:1600px;cursor:pointer;max-width:380px;width:100%;aspect-ratio:750/1050;background:none;border:0;padding:0;display:block}
+  .lg-carta .gira{display:block;position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+  .lg-carta.girata .gira{transform:rotateY(180deg)}
+  .lg-carta img{position:absolute;inset:0;width:100%;height:100%;border-radius:4%/2.86%;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    box-shadow:0 18px 40px rgba(0,0,0,.35)}
+  .lg-carta img.r{transform:rotateY(180deg)}
+  .lg-info small{font:700 13px var(--f-testo);letter-spacing:2px;color:var(--oro)}
+  .lg-info h2{font-family:var(--fb-head);font-weight:800;font-size:40px;line-height:1.05;margin:6px 0 4px;color:var(--fb-text)}
+  .lg-info .ruolo{font-weight:600;color:var(--fb-muted);margin:0 0 14px}
+  .lg-info p{line-height:1.6;color:var(--fb-text)}
+  .lg-info .dono{display:inline-block;margin:6px 0 14px;padding:6px 12px;border-radius:99px;background:var(--fb-pill);font-weight:700;font-size:14px}
+  .lg-info .dono b{color:var(--oro)}
+  .lg-azioni{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .lg-azioni button,.lg-azioni a{font:600 14px var(--f-testo);padding:10px 16px;border-radius:10px;border:0;background:var(--fb-pill);color:var(--fb-text);cursor:pointer;text-decoration:none}
+  .lg-azioni .pieno{background:var(--fb-acc);color:var(--fb-acc-text)}
+  .lg-album{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+  .lg-album a{display:block;text-decoration:none;color:var(--fb-text)}
+  .lg-album img{width:100%;aspect-ratio:750/1050;border-radius:4%/2.86%;box-shadow:0 8px 20px rgba(0,0,0,.25);transition:transform .2s}
+  .lg-album a:hover img{transform:translateY(-3px)}
+  .lg-album small{display:block;margin-top:6px;font-size:12.5px;color:var(--fb-muted)}
+  .lg-album .vuota{aspect-ratio:750/1050;border-radius:4%/2.86%;border:2px dashed var(--fb-border);display:flex;align-items:center;justify-content:center;
+    font:800 28px var(--fb-head);color:var(--fb-border)}
+  .lg-testo p{line-height:1.7;margin:0 0 14px;max-width:760px}
+  .lg-crono{list-style:none;padding:0;margin:8px 0 22px;border-left:2px solid var(--oro)}
+  .lg-crono li{padding:6px 0 6px 16px;position:relative}
+  .lg-crono li:before{content:"";position:absolute;left:-6px;top:13px;width:10px;height:10px;border-radius:50%;background:var(--oro)}
+  .lg-crono b{font-family:var(--fb-head);font-size:20px;margin-right:10px}
+  .lg-tab{width:100%;border-collapse:collapse;font-size:14.5px;margin:6px 0 22px}
+  .lg-tab th{text-align:left;font-size:12.5px;color:var(--fb-muted);padding:8px 10px;border-bottom:1px solid var(--fb-border)}
+  .lg-tab td{padding:10px;border-bottom:1px solid var(--fb-border);vertical-align:top}
+  .lg-conf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .lg-conf h3{font-family:var(--fb-head);font-size:22px;margin:0 0 10px;color:var(--oro)}
+  .lg-sq{display:flex;gap:12px;align-items:center;padding:10px;border-radius:12px;background:var(--fb-card);border:1px solid var(--fb-border);margin-bottom:10px}
+  .lg-sq .fb-badge{flex-shrink:0}
+  .lg-sq b{display:block;font-size:15px}.lg-sq small{color:var(--fb-muted);font-size:12.5px}
+  .lg-h{display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px;align-items:center}
+  .lg-h img.c{width:150px;aspect-ratio:750/1050;border-radius:4%/2.86%;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+  .lg-h .t{display:flex;gap:10px;align-items:center;margin-bottom:6px}.lg-h .t img{width:44px;border-radius:4px}
+  .lg-h h3{font-family:var(--fb-head);font-weight:800;font-size:26px;line-height:1.1;margin:0}
+  .lg-h p{line-height:1.6;margin:8px 0 0;color:var(--fb-text)}
+  @media (max-width:900px){ .lg-conf{grid-template-columns:repeat(2,minmax(0,1fr))} }
+  @media (max-width:640px){
+    .lg-giorno{grid-template-columns:minmax(0,1fr);gap:18px}.lg-carta{margin:0 auto}
+    .lg-conf{grid-template-columns:minmax(0,1fr)} .lg-album{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .lg-h{grid-template-columns:96px minmax(0,1fr);gap:14px}.lg-h img.c{width:96px}.lg-h h3{font-size:21px}
+    .lg-testa img{width:56px}
+  }
   .leg-evid{display:block;margin:0 0 22px;text-decoration:none}
   .leg-rac-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
   .leg-rac{display:block;text-decoration:none;border-radius:20px;transition:transform .15s}
@@ -1093,6 +1149,7 @@ function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"
       <button id="n-sta" type="button" onclick="window.scrollTo(0,0);schedaStat(ultimaStat)" style="display:none" aria-label="Statistiche"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5h17M6.5 20.5V12M12 20.5V5M17.5 20.5v-6"/></svg><span>Statistiche</span></button>
       <button id="n-art" type="button" onclick="ART_APERTO=null;vai('articoli')" style="display:none" aria-label="Articoli"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>Articoli</span></button>
       <button id="n-leg" type="button" onclick="vai('leggende')" style="display:none" aria-label="Leggende"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5.5a4 4 0 0 1-8 0zM12 13.5V17M8.5 20.5h7M10 17h4v3.5h-4zM8 6H5.5a2.5 2.5 0 0 0 2.6 4.4M16 6h2.5a2.5 2.5 0 0 1-2.6 4.4"/></svg><span>Leggende</span></button>
+      <button id="n-lega" type="button" onclick="LEGA_CARTA=null;vai('lega')" style="display:none" aria-label="2187, Lega della Terra Unita (campionato immaginario)"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.5l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></svg><span>2187</span></button>
       <button id="n-altro" type="button" onclick="apriAltro()" style="display:none" aria-label="Altro" aria-haspopup="dialog" aria-expanded="false"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18.5" cy="12" r="1.6"/></svg><span>Altro</span></button>
     </nav>
     <div class="t-destra">
@@ -1195,9 +1252,10 @@ if (!CHIAVE) for (let i = LEGHE.length - 1; i >= 0; i--) if (LEGHE[i].privato) L
 // chiave aggiunta a mano all'indirizzo della pagina già aperta: il browser non ricarica, lo facciamo noi
 addEventListener("hashchange", () => { if (/(?:^#|&)k=/.test(location.hash)) location.reload(); });
 let ART_DAL_LINK = (location.hash.match(/^#articolo=([A-Za-z0-9_-]+)$/)||[])[1] || null;
+let LEGA_DAL_LINK = (location.hash.match(/^#carta=(\d{1,4})$/)||[])[1] || null;
 let LEG_DAL_LINK = (location.hash.match(/^#leggenda=([a-z0-9-]+)$/)||[])[1] || null;
 /* Pagine statiche NFL (25/11/2026): «Apri nel sito» porta alla vista con #vista=<nome> o alla scheda #squadra=<sigla> */
-let VISTA_DAL_LINK = (location.hash.match(/^#vista=(home|partite|squadre|giornata|statistiche|articoli|leggende)$/)||[])[1] || null;
+let VISTA_DAL_LINK = (location.hash.match(/^#vista=(home|partite|squadre|giornata|statistiche|articoli|leggende|lega)$/)||[])[1] || null;
 let SQUADRA_DAL_LINK = (location.hash.match(/^#squadra=([A-Z]{2,3})$/)||[])[1] || null;
 /* Avviso discreto se il collegamento privato non funziona (si vede solo a chi ha messo #k= nell'indirizzo) */
 function avvisoChiave(testo){
@@ -1477,7 +1535,7 @@ function apriDuelli(){location.href="duelli.html#"+(legaAttiva==="college"?"Coll
    (football: Home, Giornata, Calendario, Statistiche; calcio: Arbitri, Squadre, Calendario) e «Altro»; le altre voci
    visibili (data-altro) passano nel pannello che sale dal basso, chiuso toccando fuori, con Esc o con il tasto indietro. */
 const MENU_PRINCIPALI = {football:["n-home","n-gio","n-par","n-sta"], calcio:["n-arb","n-squ","n-par"]};
-const MENU_ALTRO = ["n-home","n-gio","n-arb","n-squ","n-par","n-pro","n-ind","n-sta","n-art","n-leg","n-due","n-esci"];
+const MENU_ALTRO = ["n-home","n-gio","n-arb","n-squ","n-par","n-pro","n-ind","n-sta","n-art","n-leg","n-lega","n-due","n-esci"];
 function aggiornaMenu(soloFootball){
   const princ = MENU_PRINCIPALI[soloFootball ? "football" : "calcio"];
   let altroAttivo = false, altri = 0;
@@ -1598,7 +1656,7 @@ function render(){
   // Giornata e indici esistono solo dove lo script li calcola (per ora NFL)
   const conGio = soloFootball && !!D.giornata, conInd = soloFootball && !!D.indici,
         conPro = soloFootball && !!(D.prossima && (D.prossima.partite||[]).length);
-  [["n-home",soloFootball],["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-leg",soloFootball],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
+  [["n-home",soloFootball],["n-gio",conGio],["n-ind",conInd],["n-sta",soloFootball],["n-art",soloFootball],["n-leg",soloFootball],["n-lega",soloFootball && legaVisibile()],["n-pro",conPro],["n-due",soloFootball && !!CHIAVE],["n-esci",!!CHIAVE]].forEach(([id,visibile])=>{
     const b=document.getElementById(id);
     if(b) b.style.display = visibile ? "" : "none";
   });
@@ -1609,10 +1667,12 @@ function render(){
   if(soloFootball && (vista==="arbitri"||vista==="calendario")) vista=apertura;
   if(!soloFootball && vista==="articoli") vista="arbitri";
   if(vista==="leggende" && !soloFootball) vista = "arbitri";
+  if(LEGA_DAL_LINK && soloFootball){ vista="lega"; LEGA_SEZ="carte"; LEGA_CARTA=+LEGA_DAL_LINK; LEGA_DAL_LINK=null; }
   if(ART_DAL_LINK && soloFootball){ vista="articoli"; ART_APERTO=ART_DAL_LINK; ART_DAL_LINK=null; }
   if(LEG_DAL_LINK && soloFootball){ vista="leggende"; LEG_APERTO=LEG_DAL_LINK; LEG_DAL_LINK=null; LEG_SEGUI=true; }
   if(VISTA_DAL_LINK && soloFootball){ vista=VISTA_DAL_LINK; VISTA_DAL_LINK=null; if(vista==="squadre") ultimaStat="classifica"; }
   if(SQUADRA_DAL_LINK && soloFootball){ vista="squadre"; ultimaStat="classifica"; if((D.squadre||[]).some(x=>x.nome===SQUADRA_DAL_LINK)) squadraAperta=SQUADRA_DAL_LINK; SQUADRA_DAL_LINK=null; }
+  if(vista==="lega" && !(soloFootball && legaVisibile())){ if(LEGA===null||LEGA===false){ caricaLega(); } else vista = soloFootball ? apertura : "arbitri"; }
   if(soloArb) vista="arbitri";
   LEGHE.forEach(l=>{
     const b=document.getElementById("lg-"+l.id);
@@ -1628,6 +1688,7 @@ function render(){
   document.getElementById("n-sta").className = vista==="statistiche"||(soloFootball&&vista==="squadre")?"on":"";
   document.getElementById("n-art").className = vista==="articoli"?"on":"";
   document.getElementById("n-leg").className = vista==="leggende"?"on":"";
+  document.getElementById("n-lega").className = vista==="lega"?"on":"";
   aggiornaMenu(soloFootball);
 
   const app=document.getElementById("app"); app.className="";
@@ -1638,6 +1699,7 @@ function render(){
     app.innerHTML = vista==="home" ? vHome()
                   : vista==="articoli" ? vArticoli()
                   : vista==="leggende" ? vLeggende()
+                  : vista==="lega" ? vLega()
                   : vista==="giornata" ? vFootballGiornata()
                   : vista==="statistiche" ? testataStat()+vStatistiche()
                   : vista==="indici" ? vFootballIndici()
@@ -3411,7 +3473,7 @@ function vHome(){
   }
   return `<div class="h">${strisciaH(wk)}
     <div class="h-hero">${copertinaH(art,lega)}${ultimaPartitaH(D)}</div>
-    ${tvH(wk)}${leggereH(lega)}${storiaH(H)}${altroH(lega)}${meglioH(H)}${corsaH(H)}${stradaH(H,wk)}</div>`;
+    ${legaH()}${tvH(wk)}${leggereH(lega)}${storiaH(H)}${altroH(lega)}${meglioH(H)}${corsaH(H)}${stradaH(H,wk)}</div>`;
 }
 /* college: il meglio della week dalla Giornata (giocata ESPN, miglior passatore e squadra) */
 function meglioCollegeH(){
@@ -3429,6 +3491,94 @@ function meglioCollegeH(){
   return sezioneH(`Il meglio della week ${esc(G.settimana)}${G.completa?"":" · finora"}`, `<div class="h-g3">${c1}${c2}${c3}</div>`, linkH("Tutta la Giornata","vai('giornata')"), "freccia");
 }
 
+
+/* ===================== 2187 · LEGA DELLA TERRA UNITA (dal 26/11/2026, scelta di Valerio) =====================
+   Campionato immaginario che corre in parallelo alla NFL: una carta al giorno, il mondo, le squadre, le cronache.
+   Dati in lega/lega.json (carte composte da scripts/carte_lega.py). Finché «pubblica» è falso la sezione si vede solo
+   con l'accesso privato. Una carta compare dal giorno della sua uscita (data italiana). */
+let LEGA=null, LEGA_SEZ="carte", LEGA_CARTA=null;
+function caricaLega(){
+  if(LEGA!==null) return;
+  LEGA=false;
+  scaricaDati("lega/lega.json").then(x=>{ LEGA=x; render(); }).catch(()=>{ LEGA={errore:true}; });
+}
+function legaVisibile(){ caricaLega(); return !!(LEGA && !LEGA.errore && (LEGA.pubblica || privato())); }
+const oggiRoma = () => new Date().toLocaleDateString("sv-SE",{timeZone:"Europe/Rome"});
+function legaCarte(){ const o=oggiRoma(); return ((LEGA&&LEGA.carte)||[]).filter(c=>c.uscita<=o).sort((a,b)=>b.n-a.n); }
+const nnn = n => String(n).padStart(3,"0");
+function dataLega(d){ const [a,m,g]=String(d).split("-").map(Number); return `${g} ${MESI_LUNGHI[m-1]} ${a}`; }
+const MESI_LUNGHI=["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+function legaScegli(sez){ LEGA_SEZ=sez; LEGA_CARTA=null; render(); }
+function legaApri(n){ LEGA_SEZ="carte"; LEGA_CARTA=n; try{ history.replaceState(null,"","#carta="+n); }catch(e){} window.scrollTo(0,0); render(); }
+function legaGira(el){ el.classList.toggle("girata"); el.setAttribute("aria-pressed", el.classList.contains("girata")); }
+function cartaGrande(c){
+  return `<button type="button" class="lg-carta" onclick="legaGira(this)" aria-pressed="false" aria-label="Carta numero ${nnn(c.n)}, ${esc(c.nome)}: tocca per girarla">
+    <span class="gira"><img src="${esc(c.fronte)}" alt="Carta Nº ${nnn(c.n)}, fronte: ${esc(c.nome)}"><img class="r" src="${esc(c.retro)}" alt="Carta Nº ${nnn(c.n)}, retro: storia e carriera" loading="lazy"></span></button>`;
+}
+function vLega(){
+  caricaLega();
+  if(!LEGA) return `<div class="loading">Caricamento…</div>`;
+  if(LEGA.errore) return `<p class="fb-note">La Lega della Terra Unita non è disponibile in questo momento.</p>`;
+  const sez=[["carte","Carte"],["mondo","Il mondo"],["squadre","Squadre"],["calendario","Calendario"],["cronache","Cronache"]];
+  const testa=`<div class="lg-testa"><img src="lega/bandiera.png" alt="Bandiera della Terra Unita"><div><small>2187 · STAGIONE IN CORSO</small>
+      <h1 class="fb-h1">Lega della Terra Unita</h1></div></div>
+    <p class="fb-lead">Un campionato di football inventato, nel 2187, che corre insieme alla stagione NFL. Ogni giorno una carta nuova.</p>
+    <p class="lg-avviso">Campionato immaginario: squadre, giocatori e città sono inventati e le immagini sono create con l'intelligenza artificiale. Il football, le sue regole e le sue situazioni di gioco sono quelli veri.</p>
+    <div class="sottomenu">${sez.map(([k,t])=>`<button type="button" class="${LEGA_SEZ===k?"on":""}" onclick="legaScegli('${k}')">${t}</button>`).join("")}</div>`;
+  return testa + (LEGA_SEZ==="mondo" ? legaMondo() : LEGA_SEZ==="squadre" ? legaSquadre() : LEGA_SEZ==="calendario" ? legaCalendario()
+    : LEGA_SEZ==="cronache" ? legaCronache() : legaAlbum());
+}
+function legaAlbum(){
+  const C=legaCarte();
+  if(!C.length) return `<p class="fb-note">La prima carta esce a breve.</p>`;
+  const c=C.find(x=>x.n===LEGA_CARTA)||C[0], delGiorno=c===C[0];
+  const sq=(LEGA.squadre||[]).find(x=>x.nome===c.squadra);
+  const info=`<div class="lg-info"><small>${delGiorno?"CARTA DEL GIORNO":"CARTA"} · Nº ${nnn(c.n)} · ${esc(dataLega(c.uscita))}</small>
+      <h2>${esc(c.nome)}</h2><p class="ruolo">${esc(c.ruolo)} n. ${esc(c.maglia)} · ${esc(c.squadra)} · Conference ${esc(c.conference)}</p>
+      <span class="dono">Dono · <b>${esc(c.dono)}</b></span><p>${esc(c.sintesi)}</p>
+      <div class="lg-azioni"><button type="button" class="pieno" onclick="legaGira(document.querySelector('.lg-carta'))">Gira la carta</button>
+      ${sq?`<button type="button" onclick="legaScegli('squadre')">La sua squadra</button>`:""}
+      <a href="${esc(c.fronte)}" download>Scarica la carta</a></div></div>`;
+  const album=`<section class="h-sez"><div class="h-st"><h2>L'album · ${C.length} ${C.length===1?"carta uscita":"carte uscite"}</h2></div>
+    <div class="lg-album">${C.map(x=>`<a href="#carta=${x.n}" onclick="legaApri(${x.n});return false"><img src="${esc(x.fronte)}" alt="Carta Nº ${nnn(x.n)}, ${esc(x.nome)}" loading="lazy">
+      <small>Nº ${nnn(x.n)} · ${esc(x.nome)}</small></a>`).join("")}
+      <div><div class="vuota">${nnn(C[0].n+1)}</div><small>Domani</small></div></div></section>`;
+  return `<div class="lg-giorno">${cartaGrande(c)}${info}</div>${album}`;
+}
+function legaMondo(){
+  const M=LEGA.mondo||{};
+  return `<div class="lg-testo">${(M.paragrafi||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+    <section class="h-sez"><div class="h-st"><h2>La storia in sette date</h2></div>
+      <ul class="lg-crono">${(M.cronologia||[]).map(([a,t])=>`<li><b>${esc(a)}</b>${esc(t)}</li>`).join("")}</ul></section>
+    <section class="h-sez"><div class="h-st"><h2>Il Codice dei Doni</h2></div>
+      <ol class="lg-testo">${(M.codice||[]).map(r=>`<li><p>${esc(r)}</p></li>`).join("")}</ol>
+      <table class="lg-tab"><thead><tr><th>Famiglia</th><th>Esempi</th><th>Il prezzo tipico</th></tr></thead>
+      <tbody>${(M.famiglie||[]).map(([f,e,p])=>`<tr><td><b>${esc(f)}</b></td><td>${esc(e)}</td><td>${esc(p)}</td></tr>`).join("")}</tbody></table></section>`;
+}
+function legaSquadre(){
+  const conf=["Oceanica","Continentale","Boreale","Australe"], S=LEGA.squadre||[];
+  return `<p class="fb-lead">Sedici squadre in quattro conference. Si presentano una alla volta, carta dopo carta.</p>
+    <div class="lg-conf">${conf.map(k=>`<div><h3>${k}</h3>${S.filter(x=>x.conf===k).map(x=>`<div class="lg-sq">
+      <span class="fb-badge fb-stemma">${svgStemma(x.s,x.c1,x.c2)}</span><span><b>${esc(x.nome)}</b><small>${esc(x.citta)}</small></span></div>`).join("")}</div>`).join("")}</div>`;
+}
+function legaCalendario(){
+  return `<p class="fb-lead">La stagione 2187 della Lega corre insieme a quella NFL: stesse settimane, stessi playoff, la finale lo stesso giorno del Super Bowl.</p>
+    <table class="lg-tab"><tbody>${(LEGA.calendario||[]).map(([q,t])=>`<tr><td><b>${esc(q)}</b></td><td>${esc(t)}</td></tr>`).join("")}</tbody></table>
+    <p class="fb-note">Ai playoff vanno le 4 vincitrici di conference e le 6 migliori altre squadre per bilancio. Le teste di serie dalla 7 alla 10 giocano il Turno dei Doni.</p>`;
+}
+function legaCronache(){
+  const K=LEGA.cronache||[];
+  if(!K.length) return `<p class="fb-note">Le cronache delle partite della Lega arrivano presto: ogni settimana le situazioni più tese viste davvero in NFL, giocate dai nostri giocatori.</p>`;
+  return K.map(k=>`<section class="h-sez"><div class="h-st"><h2>${esc(k.titolo)}</h2></div><div class="lg-testo">${(k.paragrafi||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div></section>`).join("");
+}
+/* Home NFL: il post che presenta la Lega, con l'ultima carta uscita */
+function legaH(){
+  if(!legaVisibile()) return "";
+  const P=LEGA.presentazione||{}, c=legaCarte()[0];
+  return sezioneH("Novità · 2187", cardH("", `<div class="lg-h">${c?`<a href="#carta=${c.n}" onclick="vai('lega');legaApri(${c.n});return false"><img class="c" src="${esc(c.fronte)}" alt="Carta Nº ${nnn(c.n)}, ${esc(c.nome)}"></a>`:""}
+    <div><div class="t"><img src="lega/bandiera.png" alt=""><h3>${esc(P.titolo||"Lega della Terra Unita")}</h3></div>
+    ${(P.paragrafi||[]).slice(0,2).map(p=>`<p>${esc(p)}</p>`).join("")}</div></div>`), linkH("Scopri il 2187","LEGA_CARTA=null;vai('lega')"));
+}
 
 /* ===================== ARTICOLI (dal 19/11/2026): anteprime e cronache scritte da Claude su fatti verificati ===================== */
 let ART=null, ART_APERTO=null;
