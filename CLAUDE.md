@@ -253,7 +253,12 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Loghi delle squadre della Lega (26/11/2026, Valerio): TUTTI fatti con Gemini, mai disegnati da Claude. Alla prima
   carta di una squadra senza file in lega/stemmi/ l'attività manda anche il prompt del logo (emblema circolare come quello
   dei Tempest); la carta non esce senza logo.
-- Ritmo (scelta di Valerio): una carta al giorno; l'immagine arriva in chat. Le cronache settimanali prendono le
+- Piano delle rose (26/11/2026, scelta di Valerio): 8 giocatori per squadra (QB, 2 ricevitori/TE, RB, 3 difensori,
+  allenatore) = 128 carte; Iskander copre un ricevitore dei Tempest, ne restano 127. Dal 27/11 TRE carte al giorno
+  («pacchetto del giorno», una squadra alla volta: Tempest, poi Monoliths, poi le altre), complete verso l'8/1/2027.
+  Fino ai playoff della Lega (16/1/2027) solo Comuni: niente Rare né Leggendarie. L'attività del mattino si chiama ora
+  «PureStats: carte del giorno 2187» e manda i 3 prompt (più il logo delle squadre nuove) in un solo messaggio.
+- Ritmo (scelta di Valerio): l'immagine arriva in chat. Le cronache settimanali prendono le
   situazioni di gioco vere della week NFL (solo la dinamica, mai nomi) e le fanno vivere ai giocatori della Lega.
 
 ## Calcio e Matchup solo per Valerio (dal 17/11/2026)
