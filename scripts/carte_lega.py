@@ -100,9 +100,58 @@ body{background:%(b2)s;font-family:Inter,sans-serif;width:750px;height:1050px;ov
 """ % t
 
 
-def pagina(stile, corpo):
+# Cornici delle carte speciali (26/11/2026, scelta di Valerio): Rara argento-ciano, Leggendaria oro, Esclusiva prisma
+CORNICI = {"Rara": ("#E6F4F7", "#7FA8B3", "#FFFFFF", "#5C8794", "#9FE8F2", "#0E2A33"),
+           "Leggendaria": ("#FFE7A3", "#B8860B", "#FFF4CC", "#8A6206", "#FFD45E", "#2A1D02"),
+           "Esclusiva": ("#F9A8D4", "#818CF8", "#67E8F9", "#FDE68A", "#F0ABFC", "#1E1B4B")}
+
+
+def css_piena(t, rarita):
+    """Carta «a immagine piena» per Rara, Leggendaria ed Esclusiva: la figura occupa tutta la carta."""
+    b1, b2, b3, b4, acc, scuro = CORNICI.get(rarita, CORNICI["Rara"])
+    return css(t) + """
+.carta.piena{background:linear-gradient(135deg,%(b1)s,%(b2)s 30%%,%(b3)s 50%%,%(b4)s 70%%,%(b1)s)}
+.piena .in{background:#05090C}
+.piena .sfondo{position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;object-position:50%% 22%%}
+.piena .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,8,12,.78) 0%%,rgba(3,8,12,0) 13%%,
+  rgba(3,8,12,0) 50%%,rgba(3,10,14,.82) 66%%,rgba(3,10,14,.97) 84%%)}
+.piena .alto{position:relative;z-index:2}
+.piena .rar{position:absolute;z-index:3;top:60px;left:24px;font:800 15px "Barlow Condensed";letter-spacing:2.4px;
+  padding:6px 13px;border-radius:99px;background:linear-gradient(135deg,%(b1)s,%(b3)s 50%%,%(b2)s);color:%(scuro)s;
+  box-shadow:0 4px 14px rgba(0,0,0,.45);text-transform:uppercase}
+.piena .logo{top:auto;bottom:332px;right:28px;width:100px;height:100px;box-shadow:0 0 0 4px #0A1418,0 0 0 7px %(b2)s,0 10px 24px rgba(0,0,0,.6)}
+.piena .basso{position:absolute;left:0;right:0;bottom:46px;padding:0 30px;z-index:2}
+.piena .mom{font:700 13px Inter;letter-spacing:2px;color:%(acc)s;text-transform:uppercase}
+.piena h1{font:800 64px/0.95 "Barlow Condensed";letter-spacing:1px;text-transform:uppercase;margin-top:6px;text-shadow:0 3px 18px rgba(0,0,0,.7)}
+.piena .ruolo{font:700 15px Inter;letter-spacing:2px;color:#C9DDE2;margin-top:6px;text-transform:uppercase}
+.piena .tit{font:800 24px "Barlow Condensed";letter-spacing:1px;color:%(acc)s;margin-top:14px;text-transform:uppercase}
+.piena .txt{font-size:14.5px;line-height:1.45;color:#E2ECEE;margin-top:4px}
+.piena .dati{margin:14px 0 0;padding-top:10px;border-top:1px solid rgba(255,255,255,.18)}
+.piena .piede{background:rgba(0,0,0,.55)}
+.piena.retro .in{background:radial-gradient(120%% 80%% at 50%% 0%%,%(f1)s 0%%,%(f2)s 45%%,%(f3)s 100%%)}
+.piena.retro .rt{border-bottom-color:%(b2)s}
+""" % {"b1": b1, "b2": b2, "b3": b3, "b4": b4, "acc": acc, "scuro": scuro, "f1": t["f1"], "f2": t["f2"], "f3": t["f3"]}
+
+
+def fronte_piena(c, nnn, ritratto, stemma):
+    m = c.get("momento") or {}
+    dati = "".join('<div><b>%s</b><span>%s</span></div>' % (testo(v), testo(e)) for v, e in c["dati"])
+    return (
+        '<img class="sfondo" src="file://%s" alt=""><div class="velo"></div>'
+        '<div class="alto"><img src="file://%s" alt="">LEGA DELLA TERRA UNITA<span class="st">STAGIONE %s</span></div>'
+        '<div class="rar">%s%s</div><img class="logo" src="file://%s" alt="">'
+        '<div class="basso"><div class="mom">%s</div><h1>%s</h1><div class="ruolo">%s · %s</div>'
+        '<div class="tit">%s</div><div class="txt">%s</div><div class="dati">%s</div></div>'
+        '<div class="piede"><span>CARTA Nº %s · PERSONAGGIO IMMAGINARIO · IMMAGINE CREATA CON AI</span>'
+        '<span class="ps">PURE<i>STATS</i></span></div>'
+    ) % (ritratto, BANDIERA, testo(c.get("stagione", 2187)), testo(c["rarita"]),
+         (" · " + testo(m["tipo"])) if m.get("tipo") else "", stemma, testo(m.get("etichetta", "")), testo(c["nome"]),
+         testo(c["ruolo"]), testo(c["squadra"]), testo(m.get("titolo", "")), testo(m.get("testo", "")), dati, nnn)
+
+
+def pagina(stile, corpo, classe="carta"):
     return ('<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="file://%s"><style>%s</style>'
-            '</head><body><div class="carta"><div class="in">%s</div></div></body></html>') % (FONT_CSS, stile, corpo)
+            '</head><body><div class="%s"><div class="in">%s</div></div></body></html>') % (FONT_CSS, stile, classe, corpo)
 
 
 def fronte(c, nnn, ritratto, stemma):
@@ -130,7 +179,7 @@ def retro(c, nnn, stemma, anno):
         % (stemma, testo(c["nome"]), testo(c["maglia"]), testo(c["ruolo"]), testo(c["squadra"]), testo(c["conference"])),
         '<div class="storia">%s</div>' % "".join("<p>%s</p>" % testo(p) for p in c["storia"]),
         '<div class="sch">%s</div>' % "".join("<div><b>%s</b>%s</div>" % (testo(a), testo(b)) for a, b in c["schede"]),
-        '<div class="car"><b>LA CARRIERA</b><table>%s</table></div>' % tab,
+        '<div class="car"><b>%s</b><table>%s</table></div>' % (testo(car.get("titolo", "La carriera")).upper(), tab),
     ]
     if c.get("rivale"):
         parti.append('<div class="riv"><b>%s</b>%s</div>' % (testo(c["rivale"]["titolo"]), testo(c["rivale"]["testo"])))
@@ -159,9 +208,11 @@ def fotografa(html_testo, destinazione):
 
 
 def main():
-    if len(sys.argv) != 2 or not sys.argv[1].isdigit():
-        sys.exit("uso: python3 scripts/carte_lega.py <numero della carta>")
-    nnn = "%03d" % int(sys.argv[1])
+    argomenti = [x for x in sys.argv[1:] if x != "--prova"]
+    prova = "--prova" in sys.argv                       # solo le foto in /tmp, lega.json non si tocca
+    if len(argomenti) != 1 or not argomenti[0].isdigit():
+        sys.exit("uso: python3 scripts/carte_lega.py <numero della carta> [--prova]")
+    nnn = "%03d" % int(argomenti[0])
     with open(os.path.join(CARTE_DATI, nnn + ".json"), encoding="utf-8") as f:
         c = json.load(f)
     ritratto = os.path.join(IMMAGINI, nnn + ".jpg")
@@ -171,15 +222,25 @@ def main():
             sys.exit("Manca %s (%s): la carta %s non si compone" % (cosa, p, nnn))
     with open(LEGA_JSON, encoding="utf-8") as f:
         lega = json.load(f)
-    stile = css(TEMI.get(c["squadra"], TEMI["Aurelion Tempest"]))
+    tema = TEMI.get(c["squadra"], TEMI["Aurelion Tempest"])
     anno = c["uscita"][:4]
-    os.makedirs(USCITA, exist_ok=True)
-    fotografa(pagina(stile, fronte(c, nnn, ritratto, stemma)), os.path.join(USCITA, nnn + "_fronte.jpg"))
-    fotografa(pagina(stile, retro(c, nnn, stemma, anno)), os.path.join(USCITA, nnn + "_retro.jpg"))
+    cartella = "/tmp" if prova else USCITA
+    os.makedirs(cartella, exist_ok=True)
+    if c.get("rarita", "Comune") == "Comune":
+        stile = css(tema)
+        fotografa(pagina(stile, fronte(c, nnn, ritratto, stemma)), os.path.join(cartella, nnn + "_fronte.jpg"))
+        fotografa(pagina(stile, retro(c, nnn, stemma, anno)), os.path.join(cartella, nnn + "_retro.jpg"))
+    else:                                               # Rara, Leggendaria, Esclusiva: immagine piena e cornice speciale
+        stile = css_piena(tema, c["rarita"])
+        fotografa(pagina(stile, fronte_piena(c, nnn, ritratto, stemma), "carta piena"), os.path.join(cartella, nnn + "_fronte.jpg"))
+        fotografa(pagina(stile, retro(c, nnn, stemma, anno), "carta piena retro"), os.path.join(cartella, nnn + "_retro.jpg"))
+    if prova:
+        print("Prova della carta %s: foto in /tmp/%s_fronte.jpg e _retro.jpg, lega.json non toccato" % (nnn, nnn))
+        return
 
     voce = {"n": c["n"], "nome": c["nome"], "maglia": c["maglia"], "ruolo": c["ruolo"], "squadra": c["squadra"],
             "conference": c["conference"], "rarita": c.get("rarita", "Comune"), "uscita": c["uscita"],
-            "dono": c["dono"]["nome"], "sintesi": c["sintesi"],
+            "dono": c["dono"]["nome"], "sintesi": c["sintesi"], "momento": (c.get("momento") or {}).get("titolo"),
             "fronte": "lega/carte/%s_fronte.jpg" % nnn, "retro": "lega/carte/%s_retro.jpg" % nnn}
     carte = [x for x in lega.get("carte", []) if x["n"] != c["n"]] + [voce]
     lega["carte"] = sorted(carte, key=lambda x: x["n"])

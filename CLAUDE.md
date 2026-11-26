@@ -239,6 +239,14 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Attività programmata «PureStats: carta del giorno 2187» (dal 27/11/2026, ogni giorno alle 5:56 italiane, scelta di
   Valerio: le 6): sceglie e inventa il personaggio, scrive lega/carte/<NNN>.json, aggiorna il documento e manda a Valerio il
   prompt per Gemini; quando lui allega l'immagine nella stessa sessione compone, controlla e pubblica la carta.
+- Stili per rarità (26/11/2026, scelta di Valerio dopo la prova di tre stili su Iskander, campioni fuori repository):
+  Comune = A illustrazione semi-realistica, carta con ritratto in alto; Rara (momenti di partita) = C concept art
+  cinematografica; Leggendaria ed Esclusiva = B render 3D stilizzato. Rara/Leggendaria/Esclusiva escono da sole «a immagine
+  piena» (`css_piena`, `fronte_piena`, cornici in `CORNICI`: argento-ciano, oro, prisma); campi «rarita», «momento»
+  {tipo, etichetta, titolo, testo}, «carriera.titolo». Toppa della bandiera sempre RETTANGOLARE. `carte_lega.py <n> --prova`
+  fotografa in /tmp senza toccare lega.json. Sul sito le carte speciali hanno il riflesso olografico (`.holo`, segue dito e
+  mouse con `legaRiflesso`; fermo con «riduci movimento») e il bollino della rarità nell'album. Nº 002 = Rara «La presa
+  dell'Eco», uscita 27/11/2026.
 - Loghi delle squadre della Lega (26/11/2026, Valerio): TUTTI fatti con Gemini, mai disegnati da Claude. Alla prima
   carta di una squadra senza file in lega/stemmi/ l'attività manda anche il prompt del logo (emblema circolare come quello
   dei Tempest); la carta non esce senza logo.

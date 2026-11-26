@@ -927,6 +927,28 @@
   .lg-azioni{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
   .lg-azioni button,.lg-azioni a{font:600 14px var(--f-testo);padding:10px 16px;border-radius:10px;border:0;background:var(--fb-pill);color:var(--fb-text);cursor:pointer;text-decoration:none}
   .lg-azioni .pieno{background:var(--fb-acc);color:var(--fb-acc-text)}
+  .lg-carta.spec .holo{position:absolute;inset:0;border-radius:4%/2.86%;pointer-events:none;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    mix-blend-mode:color-dodge;opacity:.45;background:
+      radial-gradient(circle at var(--hx,30%) var(--hy,30%),rgba(255,255,255,.55),transparent 38%),
+      linear-gradient(115deg,transparent 25%,rgba(158,232,242,.65) 45%,rgba(255,255,255,.7) 50%,rgba(158,232,242,.65) 55%,transparent 75%);
+    background-size:100% 100%,300% 300%;animation:lgHolo 5s ease-in-out infinite alternate}
+  .lg-carta.spec[data-rar="Leggendaria"] .holo{background:
+      radial-gradient(circle at var(--hx,30%) var(--hy,30%),rgba(255,244,204,.6),transparent 40%),
+      linear-gradient(115deg,transparent 25%,rgba(255,212,94,.7) 45%,rgba(255,255,255,.75) 50%,rgba(255,212,94,.7) 55%,transparent 75%);
+    background-size:100% 100%,300% 300%}
+  .lg-carta.spec[data-rar="Esclusiva"] .holo{background:
+      radial-gradient(circle at var(--hx,30%) var(--hy,30%),rgba(255,255,255,.55),transparent 40%),
+      linear-gradient(115deg,#f9a8d4,#67e8f9,#fde68a,#c4b5fd,#67e8f9,#f9a8d4);background-size:100% 100%,400% 400%;opacity:.38}
+  .lg-carta.girata .holo{opacity:0}
+  @keyframes lgHolo{0%{background-position:0 0,0% 50%}100%{background-position:0 0,100% 50%}}
+  @media (prefers-reduced-motion:reduce){ .lg-carta.spec .holo{animation:none} }
+  .lg-album a{position:relative}
+  .lg-bollino{position:absolute;top:8px;left:8px;font:800 11px var(--f-testo);letter-spacing:1.2px;text-transform:uppercase;font-style:normal;
+    padding:3px 8px;border-radius:99px;background:linear-gradient(135deg,#E6F4F7,#9FE8F2);color:#0E2A33}
+  .lg-bollino.in{position:static;display:inline-block;margin:0 0 10px;font-size:12px}
+  [data-rar="Leggendaria"] .lg-bollino,.lg-info .lg-bollino.leg{background:linear-gradient(135deg,#FFE7A3,#FFD45E);color:#2A1D02}
+  .lg-album a.spec img{box-shadow:0 0 0 2px #9FE8F2,0 8px 20px rgba(0,0,0,.3)}
+  .lg-album a[data-rar="Leggendaria"] img{box-shadow:0 0 0 2px #FFD45E,0 8px 20px rgba(0,0,0,.3)}
   .lg-album{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
   .lg-album a{display:block;text-decoration:none;color:var(--fb-text)}
   .lg-album img{width:100%;aspect-ratio:750/1050;border-radius:4%/2.86%;box-shadow:0 8px 20px rgba(0,0,0,.25);transition:transform .2s}
@@ -3563,9 +3585,16 @@ const MESI_LUNGHI=["gennaio","febbraio","marzo","aprile","maggio","giugno","lugl
 function legaScegli(sez){ LEGA_SEZ=sez; LEGA_CARTA=null; render(); }
 function legaApri(n){ LEGA_SEZ="carte"; LEGA_CARTA=n; try{ history.replaceState(null,"","#carta="+n); }catch(e){} window.scrollTo(0,0); render(); }
 function legaGira(el){ el.classList.toggle("girata"); el.setAttribute("aria-pressed", el.classList.contains("girata")); }
+/* carte speciali (26/11/2026, scelta di Valerio): riflesso olografico che si muove da solo e segue il dito o il mouse */
+const legaSpeciale = c => c && c.rarita && c.rarita!=="Comune";
+function legaRiflesso(e, el){
+  const r=el.getBoundingClientRect(), x=((e.clientX-r.left)/r.width)*100, y=((e.clientY-r.top)/r.height)*100;
+  el.style.setProperty("--hx", Math.max(0,Math.min(100,x)).toFixed(0)+"%"); el.style.setProperty("--hy", Math.max(0,Math.min(100,y)).toFixed(0)+"%");
+}
 function cartaGrande(c){
-  return `<button type="button" class="lg-carta" onclick="legaGira(this)" aria-pressed="false" aria-label="Carta numero ${nnn(c.n)}, ${esc(c.nome)}: tocca per girarla">
-    <span class="gira"><img src="${esc(c.fronte)}" alt="Carta Nº ${nnn(c.n)}, fronte: ${esc(c.nome)}"><img class="r" src="${esc(c.retro)}" alt="Carta Nº ${nnn(c.n)}, retro: storia e carriera" loading="lazy"></span></button>`;
+  const sp=legaSpeciale(c);
+  return `<button type="button" class="lg-carta${sp?" spec":""}" ${sp?`data-rar="${esc(c.rarita)}" onpointermove="legaRiflesso(event,this)"`:""} onclick="legaGira(this)" aria-pressed="false" aria-label="Carta numero ${nnn(c.n)}, ${esc(c.nome)}${sp?", "+esc(c.rarita):""}: tocca per girarla">
+    <span class="gira"><img src="${esc(c.fronte)}" alt="Carta Nº ${nnn(c.n)}, fronte: ${esc(c.nome)}">${sp?'<span class="holo" aria-hidden="true"></span>':""}<img class="r" src="${esc(c.retro)}" alt="Carta Nº ${nnn(c.n)}, retro: storia e carriera" loading="lazy"></span></button>`;
 }
 function vLega(){
   caricaLega2187();
@@ -3586,13 +3615,13 @@ function legaAlbum(){
   const c=C.find(x=>x.n===LEGA_CARTA)||C[0], delGiorno=c===C[0];
   const sq=(LEGA.squadre||[]).find(x=>x.nome===c.squadra);
   const info=`<div class="lg-info"><small>${delGiorno?"CARTA DEL GIORNO":"CARTA"} · Nº ${nnn(c.n)} · ${esc(dataLega(c.uscita))}</small>
-      <h2>${esc(c.nome)}</h2><p class="ruolo">${esc(c.ruolo)} n. ${esc(c.maglia)} · ${esc(c.squadra)} · Conference ${esc(c.conference)}</p>
+      <h2>${legaSpeciale(c)&&c.momento?esc(c.momento):esc(c.nome)}</h2>${legaSpeciale(c)?`<span class="lg-bollino in">${esc(c.rarita)}</span>`:""}<p class="ruolo">${legaSpeciale(c)&&c.momento?esc(c.nome)+" · ":""}${esc(c.ruolo)} n. ${esc(c.maglia)} · ${esc(c.squadra)} · Conference ${esc(c.conference)}</p>
       <span class="dono">Dono · <b>${esc(c.dono)}</b></span><p>${esc(c.sintesi)}</p>
       <div class="lg-azioni"><button type="button" class="pieno" onclick="legaGira(document.querySelector('.lg-carta'))">Gira la carta</button>
       ${sq?`<button type="button" onclick="legaScegli('squadre')">La sua squadra</button>`:""}
       <a href="${esc(c.fronte)}" download>Scarica la carta</a></div></div>`;
   const album=`<section class="h-sez"><div class="h-st"><h2>L'album · ${C.length} ${C.length===1?"carta uscita":"carte uscite"}</h2></div>
-    <div class="lg-album">${C.map(x=>`<a href="#carta=${x.n}" onclick="legaApri(${x.n});return false"><img src="${esc(x.fronte)}" alt="Carta Nº ${nnn(x.n)}, ${esc(x.nome)}" loading="lazy">
+    <div class="lg-album">${C.map(x=>`<a href="#carta=${x.n}" onclick="legaApri(${x.n});return false"${legaSpeciale(x)?` class="spec" data-rar="${esc(x.rarita)}"`:""}><img src="${esc(x.fronte)}" alt="Carta Nº ${nnn(x.n)}, ${esc(x.nome)}" loading="lazy">${legaSpeciale(x)?`<em class="lg-bollino">${esc(x.rarita)}</em>`:""}
       <small>Nº ${nnn(x.n)} · ${esc(x.nome)}</small></a>`).join("")}
       <div><div class="vuota">${nnn(C[0].n+1)}</div><small>Domani</small></div></div></section>`;
   return `<div class="lg-giorno">${cartaGrande(c)}${info}</div>${album}`;
