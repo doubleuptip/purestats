@@ -1,0 +1,46 @@
+{
+  "n": 3,
+  "uscita": "2026-11-26",
+  "nome": "Iskander Vale",
+  "maglia": 17,
+  "ruolo": "Ricevitore",
+  "squadra": "Aurelion Tempest",
+  "conference": "Oceanica",
+  "stemma": "aurelion-tempest.png",
+  "rarita": "Leggendaria",
+  "sintesi": "Esordiente dell'anno 2186: 11 touchdown al primo anno, mai così tanti per un ricevitore dei Tempest.",
+  "momento": {
+    "tipo": "Leggenda",
+    "etichetta": "Stagione 2186 · Esordiente dell'anno",
+    "titolo": "Il ricevitore del futuro",
+    "testo": "11 touchdown alla prima stagione: nessun ricevitore nella storia dei Tempest ne aveva mai segnati tanti da esordiente."
+  },
+  "dono": {
+    "nome": "L'Eco",
+    "testo": "Vede 1,7 secondi nel futuro e lascia dietro di sé un'immagine residua che inganna i difensori.",
+    "usi": "3 usi per tempo",
+    "prezzo": "Dimentica quei secondi"
+  },
+  "dati_titolo": "Stagione 2186",
+  "dati": [["11", "TD da esordiente"], ["1.126", "Yard"], ["74", "Ricezioni"], ["17", "Partite"]],
+  "storia": [
+    "Arriva ai Tempest con la **nona chiamata** del Draft 2185 e un Dono che nessun difensore della Lega aveva mai affrontato: L'Eco, la capacità di vedere 1,7 secondi nel futuro.",
+    "Nella stagione 2186 gioca tutte le **17 partite**: 74 ricezioni, 1.126 yard e **11 touchdown**, il record dei Tempest per un ricevitore al primo anno.",
+    "A fine stagione la Lega lo nomina **Esordiente dell'anno**. Sul palco dice di ricordare poco delle sue prese più belle: il prezzo dell'Eco gliele porta via, una dopo l'altra.",
+    "Nel 2187 è il ricevitore più temuto della Conference Oceanica, e ogni difesa prepara la partita pensando a lui."
+  ],
+  "schede": [["Premio", "Esordiente dell'anno 2186"], ["Record", "11 TD, Tempest, primo anno"], ["Draft", "2185 · nona chiamata"], ["Dono", "L'Eco · Tempo"]],
+  "carriera": {
+    "titolo": "La carriera",
+    "colonne": ["Stagione", "Partite", "Ric.", "Yard", "TD"],
+    "righe": [["2186", "17", "74", "1.126", "11"], ["2187 *in corso*", "9", "48", "701", "7"]]
+  },
+  "rivale": {
+    "titolo": "Il rivale · Dorran Kesh",
+    "testo": "Difensore dei Nuova Kemet Monoliths. Il suo Dono rallenta il tempo in un raggio di cinque metri: l'unico capace di vedere arrivare L'Eco."
+  },
+  "citazione": {
+    "testo": "Mi chiedono come si prende una palla che non è ancora stata lanciata. Io la vedo già lì.",
+    "fonte": "Iskander Vale, alla premiazione dell'Esordiente dell'anno"
+  }
+}

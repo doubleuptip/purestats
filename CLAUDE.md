@@ -248,7 +248,8 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   (`basso`: etichetta, nome con lo stemma alla sua destra, dettaglio di altezza fissa, 4 numeri) nella stessa posizione;
   cambia solo l'immagine (riquadro nelle Comuni, piena nelle speciali). Indirizzi delle foto con ?v= (memoria del browser). Sul sito le carte speciali hanno il riflesso olografico (`.holo`, segue dito e
   mouse con `legaRiflesso`; fermo con «riduci movimento») e il bollino della rarità nell'album. Nº 002 = Rara «La presa
-  dell'Eco», uscita anticipata al 26/11/2026 (Valerio); il quarterback dei Tempest resta per il 27/11.
+  dell'Eco», uscita anticipata al 26/11/2026 (Valerio); Nº 003 = Leggendaria «Il ricevitore del futuro»
+  (Esordiente dell'anno 2186, stile B), uscita 26/11/2026; il quarterback dei Tempest esce il 27/11 come Nº 004.
 - Loghi delle squadre della Lega (26/11/2026, Valerio): TUTTI fatti con Gemini, mai disegnati da Claude. Alla prima
   carta di una squadra senza file in lega/stemmi/ l'attività manda anche il prompt del logo (emblema circolare come quello
   dei Tempest); la carta non esce senza logo.
