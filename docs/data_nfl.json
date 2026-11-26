@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T20:23:20.083605+00:00",
+  "aggiornato": "2026-11-26T11:01:35.792079+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC BY 4.0)",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 1411,
-  "partiteGiocate": 1302,
+  "partiteGiocate": 1303,
   "squadre": [
     {
       "nome": "BUF",
@@ -1128,29 +1128,29 @@
       "nomeCompleto": "Los Angeles Rams",
       "conference": "NFC",
       "division": "NFC West",
-      "partite": 84,
-      "vittorie": 46,
+      "partite": 85,
+      "vittorie": 47,
       "sconfitte": 38,
       "pareggi": 0,
-      "percVittorie": 54.8,
+      "percVittorie": 55.3,
       "mediaFatti": 23.8,
-      "mediaSubiti": 21.7,
-      "differenza": 177,
+      "mediaSubiti": 21.6,
+      "differenza": 190,
       "perStagione": [
         {
           "stagione": "2026",
-          "partite": 10,
-          "vittorie": 6,
+          "partite": 11,
+          "vittorie": 7,
           "sconfitte": 4,
           "pareggi": 0,
-          "percVittorie": 60.0,
-          "puntiFatti": 248,
-          "puntiSubiti": 187,
-          "mediaFatti": 24.8,
-          "mediaSubiti": 18.7,
-          "differenza": 61,
-          "vittorieCasa": 2,
-          "partiteCasa": 5,
+          "percVittorie": 63.6,
+          "puntiFatti": 274,
+          "puntiSubiti": 200,
+          "mediaFatti": 24.9,
+          "mediaSubiti": 18.2,
+          "differenza": 74,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
           "vittorieFuori": 4,
           "partiteFuori": 5
         },
@@ -1326,107 +1326,6 @@
       ]
     },
     {
-      "nome": "GB",
-      "nomeCompleto": "Green Bay Packers",
-      "conference": "NFC",
-      "division": "NFC North",
-      "partite": 82,
-      "vittorie": 44,
-      "sconfitte": 37,
-      "pareggi": 1,
-      "percVittorie": 53.7,
-      "mediaFatti": 23.6,
-      "mediaSubiti": 21.3,
-      "differenza": 187,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "partite": 10,
-          "vittorie": 6,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 60.0,
-          "puntiFatti": 226,
-          "puntiSubiti": 221,
-          "mediaFatti": 22.6,
-          "mediaSubiti": 22.1,
-          "differenza": 5,
-          "vittorieCasa": 3,
-          "partiteCasa": 5,
-          "vittorieFuori": 3,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2025",
-          "partite": 18,
-          "vittorie": 9,
-          "sconfitte": 8,
-          "pareggi": 1,
-          "percVittorie": 50.0,
-          "puntiFatti": 418,
-          "puntiSubiti": 391,
-          "mediaFatti": 23.2,
-          "mediaSubiti": 21.7,
-          "differenza": 27,
-          "vittorieCasa": 5,
-          "partiteCasa": 8,
-          "vittorieFuori": 4,
-          "partiteFuori": 10
-        },
-        {
-          "stagione": "2024",
-          "partite": 18,
-          "vittorie": 11,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 61.1,
-          "puntiFatti": 470,
-          "puntiSubiti": 360,
-          "mediaFatti": 26.1,
-          "mediaSubiti": 20.0,
-          "differenza": 110,
-          "vittorieCasa": 6,
-          "partiteCasa": 9,
-          "vittorieFuori": 5,
-          "partiteFuori": 9
-        },
-        {
-          "stagione": "2023",
-          "partite": 19,
-          "vittorie": 10,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 52.6,
-          "puntiFatti": 452,
-          "puntiSubiti": 406,
-          "mediaFatti": 23.8,
-          "mediaSubiti": 21.4,
-          "differenza": 46,
-          "vittorieCasa": 5,
-          "partiteCasa": 8,
-          "vittorieFuori": 5,
-          "partiteFuori": 11
-        },
-        {
-          "stagione": "2022",
-          "partite": 17,
-          "vittorie": 8,
-          "sconfitte": 9,
-          "pareggi": 0,
-          "percVittorie": 47.1,
-          "puntiFatti": 370,
-          "puntiSubiti": 371,
-          "mediaFatti": 21.8,
-          "mediaSubiti": 21.8,
-          "differenza": -1,
-          "vittorieCasa": 5,
-          "partiteCasa": 9,
-          "vittorieFuori": 3,
-          "partiteFuori": 8
-        }
-      ]
-    },
-    {
       "nome": "JAX",
       "nomeCompleto": "Jacksonville Jaguars",
       "conference": "AFC",
@@ -1524,6 +1423,107 @@
           "partiteCasa": 9,
           "vittorieFuori": 4,
           "partiteFuori": 10
+        }
+      ]
+    },
+    {
+      "nome": "GB",
+      "nomeCompleto": "Green Bay Packers",
+      "conference": "NFC",
+      "division": "NFC North",
+      "partite": 83,
+      "vittorie": 44,
+      "sconfitte": 38,
+      "pareggi": 1,
+      "percVittorie": 53.0,
+      "mediaFatti": 23.5,
+      "mediaSubiti": 21.4,
+      "differenza": 174,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "partite": 11,
+          "vittorie": 6,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 54.5,
+          "puntiFatti": 239,
+          "puntiSubiti": 247,
+          "mediaFatti": 21.7,
+          "mediaSubiti": 22.5,
+          "differenza": -8,
+          "vittorieCasa": 3,
+          "partiteCasa": 5,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2025",
+          "partite": 18,
+          "vittorie": 9,
+          "sconfitte": 8,
+          "pareggi": 1,
+          "percVittorie": 50.0,
+          "puntiFatti": 418,
+          "puntiSubiti": 391,
+          "mediaFatti": 23.2,
+          "mediaSubiti": 21.7,
+          "differenza": 27,
+          "vittorieCasa": 5,
+          "partiteCasa": 8,
+          "vittorieFuori": 4,
+          "partiteFuori": 10
+        },
+        {
+          "stagione": "2024",
+          "partite": 18,
+          "vittorie": 11,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 61.1,
+          "puntiFatti": 470,
+          "puntiSubiti": 360,
+          "mediaFatti": 26.1,
+          "mediaSubiti": 20.0,
+          "differenza": 110,
+          "vittorieCasa": 6,
+          "partiteCasa": 9,
+          "vittorieFuori": 5,
+          "partiteFuori": 9
+        },
+        {
+          "stagione": "2023",
+          "partite": 19,
+          "vittorie": 10,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 52.6,
+          "puntiFatti": 452,
+          "puntiSubiti": 406,
+          "mediaFatti": 23.8,
+          "mediaSubiti": 21.4,
+          "differenza": 46,
+          "vittorieCasa": 5,
+          "partiteCasa": 8,
+          "vittorieFuori": 5,
+          "partiteFuori": 11
+        },
+        {
+          "stagione": "2022",
+          "partite": 17,
+          "vittorie": 8,
+          "sconfitte": 9,
+          "pareggi": 0,
+          "percVittorie": 47.1,
+          "puntiFatti": 370,
+          "puntiSubiti": 371,
+          "mediaFatti": 21.8,
+          "mediaSubiti": 21.8,
+          "differenza": -1,
+          "vittorieCasa": 5,
+          "partiteCasa": 9,
+          "vittorieFuori": 3,
+          "partiteFuori": 8
         }
       ]
     },
@@ -141007,11 +141007,100 @@
       "oraIt": "02:00",
       "casa": "LA",
       "ospite": "GB",
-      "pc": null,
-      "po": null,
+      "pc": 26,
+      "po": 13,
       "stadio": "SoFi Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Matthew Stafford",
+          "ruolo": "QB",
+          "valore": 140,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Blake Corum",
+          "ruolo": "RB",
+          "valore": 184,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Konata Mumpfield",
+          "ruolo": "WR",
+          "valore": 69,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Xavier Smith",
+          "ruolo": "WR",
+          "valore": 4,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Tyler Higbee",
+          "ruolo": "TE",
+          "valore": 14,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Jordan Love",
+          "ruolo": "QB",
+          "valore": 198,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Kaleb Johnson",
+          "ruolo": "RB",
+          "valore": 13,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Christian Watson",
+          "ruolo": "WR",
+          "valore": 65,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Matthew Golden",
+          "ruolo": "WR",
+          "valore": 39,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Tucker Kraft",
+          "ruolo": "TE",
+          "valore": 24,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -142744,1662 +142833,615 @@
   ],
   "giornata": {
     "stagione": 2026,
-    "settimana": 11,
+    "settimana": 12,
     "partite": [
       {
-        "data": "2026-11-19",
-        "ora": "20:15",
-        "dataIt": "2026-11-20",
-        "oraIt": "02:15",
-        "casa": "HOU",
-        "ospite": "IND",
+        "data": "2026-11-25",
+        "ora": "20:00",
+        "dataIt": "2026-11-26",
+        "oraIt": "02:00",
+        "casa": "LA",
+        "ospite": "GB",
         "pc": 26,
-        "po": 3,
-        "favorita": "HOU",
-        "linea": 12.5,
-        "totaleLinea": 44.5,
-        "battutaDa": "HOU",
+        "po": 13,
+        "favorita": "LA",
+        "linea": 2.5,
+        "totaleLinea": 43.5,
+        "battutaDa": "LA",
         "totaleEsito": "under",
         "scartoLinea": 10.5,
-        "stadio": "NRG Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Indianapolis+Colts+vs.+Houston+Texans+highlights+November+19%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "03:44",
-            "squadra": "IND",
-            "descrizione": "3-S.Shrader 56 yard field goal is No Good, Wide Left, Center-46-L.Rhodes, Holder-8-R.Sanchez.",
-            "testo": "Shrader: field goal da 56 yard sbagliato",
-            "chi": [
-              "Shrader"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 78,
-            "casaDopo": 82
-          },
-          {
-            "quarto": "1",
-            "tempo": "02:21",
-            "squadra": "HOU",
-            "descrizione": "57-B.Fisher reported in as eligible. 7-C.Stroud pass deep right to 12-N.Collins for 42 yards, TOUCHDOWN.",
-            "testo": "Stroud lancia lungo a destra per Collins, 42 yard: touchdown",
-            "chi": [
-              "Stroud",
-              "Collins"
-            ],
-            "yard": 42.0,
-            "touchdown": true,
-            "casaPrima": 83,
-            "casaDopo": 88,
-            "clip": {
-              "id": "IPccsCCHIfQ",
-              "titolo": "43 yards later Nico Collins comes down with it!!"
-            }
-          },
-          {
-            "quarto": "2",
-            "tempo": "15:00",
-            "squadra": "IND",
-            "descrizione": "17-D.Jones pass deep middle intended for 80-D.Burks INTERCEPTED by 3-K.Lassiter [96-L.Hall] at HOU 15. 3-K.Lassiter to HOU 15 for no gain (80-D.Burks).",
-            "testo": "Jones intercettato da Lassiter",
-            "chi": [
-              "Jones",
-              "Lassiter"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 89,
-            "casaDopo": 90
-          },
-          {
-            "quarto": "2",
-            "tempo": "07:43",
-            "squadra": "HOU",
-            "descrizione": "7-C.Stroud pass deep middle to 14-K.Boutte for 24 yards, TOUCHDOWN.",
-            "testo": "Stroud lancia lungo al centro per Boutte, 24 yard: touchdown",
-            "chi": [
-              "Stroud",
-              "Boutte"
-            ],
-            "yard": 24.0,
-            "touchdown": true,
-            "casaPrima": 93,
-            "casaDopo": 96,
-            "clip": {
-              "id": "3uyKZrOnbQU",
-              "titolo": "Amazing catch by Kayshon Boutte! Puts another 6 on the board!"
-            }
-          },
-          {
-            "quarto": "3",
-            "tempo": "04:28",
-            "squadra": "HOU",
-            "descrizione": "7-C.Stroud pass short right to 83-M.Klein for 13 yards, TOUCHDOWN. ** Injury Update: IND-34-K.Gushiken has returned to the game.",
-            "testo": "Stroud lancia corto a destra per Klein, 13 yard: touchdown",
-            "chi": [
-              "Stroud",
-              "Klein"
-            ],
-            "yard": 13.0,
-            "touchdown": true,
-            "casaPrima": 99,
-            "casaDopo": 100,
-            "clip": {
-              "id": "keTFK1XJTQ8",
-              "titolo": "The Texans have Marlin Klein’s back 🫶"
-            }
-          }
-        ],
-        "video": {
-          "id": "E4M4HIAfJl4",
-          "titolo": "Indianapolis Colts vs Houston Texans Game Highlights | 2026 NFL Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "13:00",
-        "dataIt": "2026-11-22",
-        "oraIt": "19:00",
-        "casa": "BUF",
-        "ospite": "MIA",
-        "pc": 26,
-        "po": 9,
-        "favorita": "BUF",
-        "linea": 16.5,
-        "totaleLinea": 45.5,
-        "battutaDa": "BUF",
-        "totaleEsito": "under",
-        "scartoLinea": 0.5,
-        "stadio": "Highmark Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Miami+Dolphins+vs.+Buffalo+Bills+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "2",
-            "tempo": "01:45",
-            "squadra": "BUF",
-            "descrizione": "17-J.Allen pass short middle intended for 83-K.Latu INTERCEPTED by 10-J.Rodriguez (44-C.Robinson) at BUF 48. 10-J.Rodriguez to BUF 22 for 26 yards (26-T.Johnson). BUF-2-D.Moore was injured during the play.",
-            "testo": "Allen intercettato da Rodriguez",
-            "chi": [
-              "Allen",
-              "Rodriguez"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 100,
-            "casaDopo": 99
-          },
-          {
-            "quarto": "2",
-            "tempo": "00:18",
-            "squadra": "MIA",
-            "descrizione": "(:18) 14-K.McCord pass deep middle intended for 18-C.Bell INTERCEPTED by 3-D.Hamlin (55-M.Hoecht) at BUF 47. 3-D.Hamlin to MIA 40 for 13 yards (0-O.Gordon). The Replay Official reviewed the runner was not down by contact",
-            "testo": "McCord intercettato da Hamlin",
-            "chi": [
-              "McCord",
-              "Hamlin"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 99,
-            "casaDopo": 100
-          },
-          {
-            "quarto": "4",
-            "tempo": "08:20",
-            "squadra": "MIA",
-            "descrizione": "14-K.McCord pass incomplete short left to 6-M.Washington (23-D.Alford).",
-            "testo": "McCord: lancio corto a sinistra per Washington incompleto",
-            "chi": [
-              "McCord"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 99,
-            "casaDopo": 100
-          },
-          {
-            "quarto": "4",
-            "tempo": "00:25",
-            "squadra": "MIA",
-            "descrizione": "(:25) 14-K.McCord pass incomplete deep middle to 7-C.Douglas (54-S.Thompson) [90-D.Carter].",
-            "testo": "McCord: lancio lungo al centro per Douglas incompleto",
-            "chi": [
-              "McCord"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 100,
-            "casaDopo": 100
-          }
-        ],
-        "video": {
-          "id": "F69kepglAY0",
-          "titolo": "Miami Dolphins vs. Buffalo Bills Game Highlights | NFL 2026 Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "13:00",
-        "dataIt": "2026-11-22",
-        "oraIt": "19:00",
-        "casa": "CAR",
-        "ospite": "BAL",
-        "pc": 35,
-        "po": 33,
-        "favorita": "CAR",
-        "linea": 2.5,
-        "totaleLinea": 44.5,
-        "battutaDa": "BAL",
-        "totaleEsito": "over",
-        "scartoLinea": 0.5,
-        "stadio": "Bank of America Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Baltimore+Ravens+vs.+Carolina+Panthers+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "2",
-            "tempo": "10:47",
-            "squadra": "CAR",
-            "descrizione": "6-S.Martin punts 45 yards to BAL 28, Center-44-J.Jansen. 10-L.Wester MUFFS catch, touched at BAL 28, RECOVERED by CAR-87-B.Tremayne at BAL 23.",
-            "testo": "Martin calcia un punt da 45 yard",
-            "chi": [
-              "Martin"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 37,
-            "casaDopo": 51
-          },
-          {
-            "quarto": "2",
-            "tempo": "10:01",
-            "squadra": "BAL",
-            "descrizione": "10-R.Fitzgerald kicks 51 yards from CAR 35 to BAL 14. 81-D.Walker for 86 yards, TOUCHDOWN.",
-            "testo": "Fitzgerald batte il kickoff: touchdown",
-            "chi": [
-              "Fitzgerald"
-            ],
-            "yard": 0.0,
-            "touchdown": true,
-            "casaPrima": 59,
-            "casaDopo": 43
-          },
-          {
-            "quarto": "3",
-            "tempo": "05:44",
-            "squadra": "CAR",
-            "descrizione": "9-B.Young pass short right intended for 4-T.McMillan INTERCEPTED by 27-T.Tampa [0-R.Smith] at BAL -8. Touchback.",
-            "testo": "Young intercettato da Tampa",
-            "chi": [
-              "Young",
-              "Tampa"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 78,
-            "casaDopo": 63
-          },
-          {
-            "quarto": "4",
-            "tempo": "02:49",
-            "squadra": "CAR",
-            "descrizione": "9-B.Young pass short middle to 82-T.Tremble to BAL 23 for 18 yards (32-T.Simpson).",
-            "testo": "Young lancia corto al centro per Tremble, 18 yard",
-            "chi": [
-              "Young",
-              "Tremble"
-            ],
-            "yard": 18.0,
-            "touchdown": false,
-            "casaPrima": 52,
-            "casaDopo": 71
-          },
-          {
-            "quarto": "4",
-            "tempo": "00:36",
-            "squadra": "BAL",
-            "descrizione": "(:36) 11-J.Brissett pass short right intended for 7-R.Bateman INTERCEPTED by 33-T.Dodson (24-W.Lee) [98-T.Wharton] at BAL 44. 33-T.Dodson to BAL 44 for no gain.",
-            "testo": "Brissett intercettato da Dodson",
-            "chi": [
-              "Brissett",
-              "Dodson"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 77,
-            "casaDopo": 100
-          }
-        ],
-        "video": {
-          "id": "wdlsXc0by8U",
-          "titolo": "Baltimore Ravens vs. Carolina Panthers Game Highlights | 2026 NFL Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "13:00",
-        "dataIt": "2026-11-22",
-        "oraIt": "19:00",
-        "casa": "CHI",
-        "ospite": "NO",
-        "pc": 21,
-        "po": 13,
-        "favorita": "CHI",
-        "linea": 11.5,
-        "totaleLinea": 47.5,
-        "battutaDa": "NO",
-        "totaleEsito": "under",
-        "scartoLinea": 3.5,
-        "stadio": "Soldier Field",
-        "highlights": "https://www.youtube.com/results?search_query=New+Orleans+Saints+vs.+Chicago+Bears+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "00:40",
-            "squadra": "CHI",
-            "descrizione": "(:40) 18-C.Williams pass incomplete deep middle to 14-K.Raymond (31-J.Howden).",
-            "testo": "Williams: lancio lungo al centro per Raymond incompleto",
-            "chi": [
-              "Williams"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 86,
-            "casaDopo": 81
-          },
-          {
-            "quarto": "2",
-            "tempo": "14:28",
-            "squadra": "NO",
-            "descrizione": "6-T.Shough pass short middle to 43-C.Donaldson to NO 39 for 3 yards (20-C.Phillips). FUMBLES (20-C.Phillips), RECOVERED by CHI-94-A.Booker at NO 41. The Replay Official reviewed the pass completion ruling, and the play w",
-            "testo": "Shough lancia corto al centro per Donaldson, 3 yard, fumble, recuperato da Booker (CHI)",
-            "chi": [
-              "Shough",
-              "Donaldson"
-            ],
-            "yard": 3.0,
-            "touchdown": false,
-            "casaPrima": 82,
-            "casaDopo": 88
-          },
-          {
-            "quarto": "2",
-            "tempo": "09:00",
-            "squadra": "NO",
-            "descrizione": "6-T.Shough pass short right intended for 12-C.Olave INTERCEPTED by 31-D.Thieneman at NO 46. 31-D.Thieneman to NO 46 for no gain (12-C.Olave).",
-            "testo": "Shough intercettato da Thieneman",
-            "chi": [
-              "Shough",
-              "Thieneman"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 92,
-            "casaDopo": 96
-          },
-          {
-            "quarto": "3",
-            "tempo": "10:52",
-            "squadra": "CHI",
-            "descrizione": "18-C.Williams pass deep left to 13-Z.Thomas pushed ob at NO 34 for 40 yards (7-J.Sanker).",
-            "testo": "Williams lancia lungo a sinistra per Thomas, 40 yard",
-            "chi": [
-              "Williams",
-              "Thomas"
-            ],
-            "yard": 40.0,
-            "touchdown": false,
-            "casaPrima": 88,
-            "casaDopo": 93
-          },
-          {
-            "quarto": "4",
-            "tempo": "08:51",
-            "squadra": "NO",
-            "descrizione": "6-T.Shough pass incomplete short left to 87-N.Fant. Penalty on NO, Illegal Shift, declined.",
-            "testo": "Shough: lancio corto a sinistra per Fant incompleto",
-            "chi": [
-              "Shough"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 95,
-            "casaDopo": 98
-          }
-        ],
-        "video": {
-          "id": "TAvO7hOMR70",
-          "titolo": "New Orleans Saints vs. Chicago Bears Game Highlights | NFL 2026 Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "13:00",
-        "dataIt": "2026-11-22",
-        "oraIt": "19:00",
-        "casa": "DAL",
-        "ospite": "TEN",
-        "pc": 51,
-        "po": 30,
-        "favorita": "DAL",
-        "linea": 7.5,
-        "totaleLinea": 55.5,
-        "battutaDa": "DAL",
-        "totaleEsito": "over",
-        "scartoLinea": 13.5,
-        "stadio": "AT&T Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Tennessee+Titans+vs.+Dallas+Cowboys+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "12:37",
-            "squadra": "DAL",
-            "descrizione": "4-D.Prescott pass short left to 88-C.Lamb to TEN 34 for 10 yards (25-Jo.Williams).",
-            "testo": "Prescott lancia corto a sinistra per Lamb, 10 yard",
-            "chi": [
-              "Prescott",
-              "Lamb"
-            ],
-            "yard": 10.0,
-            "touchdown": false,
-            "casaPrima": 74,
-            "casaDopo": 77
-          },
-          {
-            "quarto": "1",
-            "tempo": "01:42",
-            "squadra": "DAL",
-            "descrizione": "9-K.Turpin left end for 22 yards, TOUCHDOWN.",
-            "testo": "Turpin corre sull'esterno sinistro, 22 yard: touchdown",
-            "chi": [
-              "Turpin"
-            ],
-            "yard": 22.0,
-            "touchdown": true,
-            "casaPrima": 84,
-            "casaDopo": 88,
-            "clip": {
-              "id": "1Xgcy8u80bM",
-              "titolo": "Turpin with a 22-yard rushing TD!"
-            }
-          },
-          {
-            "quarto": "2",
-            "tempo": "13:05",
-            "squadra": "DAL",
-            "descrizione": "4-D.Prescott pass short right to 88-C.Lamb for 8 yards, TOUCHDOWN [90-S.Thomas].",
-            "testo": "Prescott lancia corto a destra per Lamb, 8 yard: touchdown",
-            "chi": [
-              "Prescott",
-              "Lamb"
-            ],
-            "yard": 8.0,
-            "touchdown": true,
-            "casaPrima": 94,
-            "casaDopo": 96
-          },
-          {
-            "quarto": "2",
-            "tempo": "04:12",
-            "squadra": "DAL",
-            "descrizione": "4-D.Prescott pass short middle to 3-G.Pickens for 10 yards, TOUCHDOWN.",
-            "testo": "Prescott lancia corto al centro per Pickens, 10 yard: touchdown",
-            "chi": [
-              "Prescott",
-              "Pickens"
-            ],
-            "yard": 10.0,
-            "touchdown": true,
-            "casaPrima": 97,
-            "casaDopo": 98,
-            "clip": {
-              "id": "omuc79x65GA",
-              "titolo": "just an insane catch from Pickens here"
-            }
-          },
-          {
-            "quarto": "3",
-            "tempo": "07:31",
-            "squadra": "TEN",
-            "descrizione": "1-C.Ward pass short left to 14-C.Tate for 59 yards, TOUCHDOWN.",
-            "testo": "Ward lancia corto a sinistra per Tate, 59 yard: touchdown",
-            "chi": [
-              "Ward",
-              "Tate"
-            ],
-            "yard": 59.0,
-            "touchdown": true,
-            "casaPrima": 98,
-            "casaDopo": 95
-          }
-        ],
-        "video": {
-          "id": "8oWgHgf_c_w",
-          "titolo": "Tennessee Titans vs Dallas Cowboys Game Highlights | 2026 NFL Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "13:00",
-        "dataIt": "2026-11-22",
-        "oraIt": "19:00",
-        "casa": "DET",
-        "ospite": "TB",
-        "pc": 31,
-        "po": 21,
-        "favorita": "DET",
-        "linea": 3.5,
-        "totaleLinea": 48.5,
-        "battutaDa": "DET",
-        "totaleEsito": "over",
-        "scartoLinea": 6.5,
-        "stadio": "Ford Field",
-        "highlights": "https://www.youtube.com/results?search_query=Tampa+Bay+Buccaneers+vs.+Detroit+Lions+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "12:42",
-            "squadra": "DET",
-            "descrizione": "16-J.Goff pass deep right to 87-S.LaPorta pushed ob at TB 39 for 47 yards (23-T.Smith).",
-            "testo": "Goff lancia lungo a destra per LaPorta, 47 yard",
-            "chi": [
-              "Goff",
-              "LaPorta"
-            ],
-            "yard": 47.0,
-            "touchdown": false,
-            "casaPrima": 62,
-            "casaDopo": 69
-          },
-          {
-            "quarto": "1",
-            "tempo": "03:05",
-            "squadra": "TB",
-            "descrizione": "77-J.Skule reported in as eligible. 7-B.Irving up the middle to DET 10 for -1 yards (40-K.Britt).",
-            "testo": "Irving corre centralmente, -1 yard (perdita)",
-            "chi": [
-              "Irving"
-            ],
-            "yard": -1.0,
-            "touchdown": false,
-            "casaPrima": 54,
-            "casaDopo": 63
-          },
-          {
-            "quarto": "2",
-            "tempo": "00:10",
-            "squadra": "TB",
-            "descrizione": "(:10) 6-B.Mayfield pass deep right to 17-T.Hurst for 23 yards, TOUCHDOWN.",
-            "testo": "Mayfield lancia lungo a destra per Hurst, 23 yard: touchdown",
-            "chi": [
-              "Mayfield",
-              "Hurst"
-            ],
-            "yard": 23.0,
-            "touchdown": true,
-            "casaPrima": 81,
-            "casaDopo": 71
-          },
-          {
-            "quarto": "3",
-            "tempo": "10:33",
-            "squadra": "DET",
-            "descrizione": "16-J.Goff scrambles right end to DET 39 for 10 yards (34-A.Anzalone; 23-T.Smith).",
-            "testo": "Goff esce dalla tasca e corre sull'esterno destro, 10 yard",
-            "chi": [
-              "Goff"
-            ],
-            "yard": 10.0,
-            "touchdown": false,
-            "casaPrima": 67,
-            "casaDopo": 72
-          },
-          {
-            "quarto": "3",
-            "tempo": "09:10",
-            "squadra": "DET",
-            "descrizione": "16-J.Goff pass deep middle to 1-J.Williams for 57 yards, TOUCHDOWN [51-D.Walker].",
-            "testo": "Goff lancia lungo al centro per Williams, 57 yard: touchdown",
-            "chi": [
-              "Goff",
-              "Williams"
-            ],
-            "yard": 57.0,
-            "touchdown": true,
-            "casaPrima": 72,
-            "casaDopo": 85,
-            "clip": {
-              "id": "e1kvZcM1IKw",
-              "titolo": "Jameson Williams flipping into the endzone"
-            }
-          }
-        ],
-        "video": {
-          "id": "PWphJLZ89e4",
-          "titolo": "Tampa Bay Buccaneers vs Detroit Lions Game Highlights | 2026 NFL Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "13:00",
-        "dataIt": "2026-11-22",
-        "oraIt": "19:00",
-        "casa": "KC",
-        "ospite": "ARI",
-        "pc": 34,
-        "po": 7,
-        "favorita": "KC",
-        "linea": 15.5,
-        "totaleLinea": 40.5,
-        "battutaDa": "KC",
-        "totaleEsito": "over",
-        "scartoLinea": 11.5,
-        "stadio": "GEHA Field at Arrowhead Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Arizona+Cardinals+vs.+Kansas+City+Chiefs+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "09:50",
-            "squadra": "KC",
-            "descrizione": "15-P.Mahomes pass short middle to 87-T.Kelce for 8 yards, TOUCHDOWN.",
-            "testo": "Mahomes lancia corto al centro per Kelce, 8 yard: touchdown",
-            "chi": [
-              "Mahomes",
-              "Kelce"
-            ],
-            "yard": 8.0,
-            "touchdown": true,
-            "casaPrima": 96,
-            "casaDopo": 97,
-            "clip": {
-              "id": "hv6c8iHfHKQ",
-              "titolo": "Mahomes and Kelce make it look effortless"
-            }
-          },
-          {
-            "quarto": "1",
-            "tempo": "00:51",
-            "squadra": "KC",
-            "descrizione": "(:51) 10-E.Johnson up the middle for 3 yards, TOUCHDOWN.",
-            "testo": "Johnson corre centralmente, 3 yard: touchdown",
-            "chi": [
-              "Johnson"
-            ],
-            "yard": 3.0,
-            "touchdown": true,
-            "casaPrima": 99,
-            "casaDopo": 99,
-            "clip": {
-              "id": "CI61PH9xxGg",
-              "titolo": "Emmett Johnson doing what he does best!!"
-            }
-          },
-          {
-            "quarto": "2",
-            "tempo": "03:05",
-            "squadra": "ARI",
-            "descrizione": "80-S.Fehoko right end pushed ob at ARI 37 for no gain (20-N.Williams, 27-C.Conner).",
-            "testo": "Fehoko corre sull'esterno destro, nessun guadagno",
-            "chi": [
-              "Fehoko"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 99,
-            "casaDopo": 99
-          },
-          {
-            "quarto": "4",
-            "tempo": "15:00",
-            "squadra": "KC",
-            "descrizione": "15-P.Mahomes pass short right to 1-X.Worthy for 18 yards, TOUCHDOWN.",
-            "testo": "Mahomes lancia corto a destra per Worthy, 18 yard: touchdown",
-            "chi": [
-              "Mahomes",
-              "Worthy"
-            ],
-            "yard": 18.0,
-            "touchdown": true,
-            "casaPrima": 100,
-            "casaDopo": 100,
-            "clip": {
-              "id": "37jcAgQtXtc",
-              "titolo": "Xavier Worthy continues to run the score up"
-            }
-          },
-          {
-            "quarto": "4",
-            "tempo": "04:04",
-            "squadra": "ARI",
-            "descrizione": "9-J.Johnson pass incomplete short left to 83-H.Wallace.",
-            "testo": "Johnson: lancio corto a sinistra per Wallace incompleto",
-            "chi": [
-              "Johnson"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 100,
-            "casaDopo": 100
-          }
-        ],
-        "video": {
-          "id": "WwsNx--B79g",
-          "titolo": "Arizona Cardinals vs Kansas City Chiefs Game Highlights | 2026 NFL Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "13:00",
-        "dataIt": "2026-11-22",
-        "oraIt": "19:00",
-        "casa": "PHI",
-        "ospite": "PIT",
-        "pc": 19,
-        "po": 16,
-        "favorita": "PIT",
-        "linea": 3.5,
-        "totaleLinea": 37.5,
-        "battutaDa": "PHI",
-        "totaleEsito": "under",
-        "scartoLinea": 6.5,
-        "stadio": "Lincoln Financial Field",
-        "highlights": "https://www.youtube.com/results?search_query=Pittsburgh+Steelers+vs.+Philadelphia+Eagles+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "06:27",
-            "squadra": "PHI",
-            "descrizione": "14-J.Milton pass deep left to 80-D.Cooper ran ob at PIT 43 for 29 yards.",
-            "testo": "Milton lancia lungo a sinistra per Cooper, 29 yard",
-            "chi": [
-              "Milton",
-              "Cooper"
-            ],
-            "yard": 29.0,
-            "touchdown": false,
-            "casaPrima": 46,
-            "casaDopo": 54
-          },
-          {
-            "quarto": "1",
-            "tempo": "04:45",
-            "squadra": "PHI",
-            "descrizione": "14-J.Milton pass short left to 88-D.Goedert to PIT 13 for 38 yards (57-K.Henry).",
-            "testo": "Milton lancia corto a sinistra per Goedert, 38 yard",
-            "chi": [
-              "Milton",
-              "Goedert"
-            ],
-            "yard": 38.0,
-            "touchdown": false,
-            "casaPrima": 51,
-            "casaDopo": 60
-          },
-          {
-            "quarto": "3",
-            "tempo": "15:00",
-            "squadra": "PHI",
-            "descrizione": "9-C.Boswell kicks 62 yards from PIT 35 to PHI 3. 30-J.Blue to PHI 29 for 26 yards (28-R.Spears-Jennings). FUMBLES (28-R.Spears-Jennings), RECOVERED by PIT-44-C.Bruener at PHI 26. 44-C.Bruener ran ob at PHI 24 for 2 yards",
-            "testo": "Boswell batte il kickoff, ritorno di Blue per 26 yard, fumble, recuperato da Bruener (PIT)",
-            "chi": [
-              "Boswell"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 74,
-            "casaDopo": 61
-          },
-          {
-            "quarto": "3",
-            "tempo": "04:58",
-            "squadra": "PIT",
-            "descrizione": "8-A.Rodgers pass incomplete deep left to 17-G.Bernard. PENALTY on PIT-4-D.Metcalf, Disqualification, 15 yards, enforced at PHI 19.",
-            "testo": "Rodgers: lancio lungo a sinistra per Bernard incompleto",
-            "chi": [
-              "Rodgers"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 66,
-            "casaDopo": 74
-          },
-          {
-            "quarto": "4",
-            "tempo": "14:09",
-            "squadra": "PIT",
-            "descrizione": "8-A.Rodgers sacked at PHI 42 for -8 yards (3-N.Smith).",
-            "testo": "Rodgers subisce un sack, -8 yard (perdita)",
-            "chi": [
-              "Rodgers"
-            ],
-            "yard": -8.0,
-            "touchdown": false,
-            "casaPrima": 64,
-            "casaDopo": 73
-          }
-        ],
-        "video": {
-          "id": "9ORFm2xTKNs",
-          "titolo": "Pittsburgh Steelers vs. Philadelphia Eagles Game Highlights | 2026 NFL Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "16:05",
-        "dataIt": "2026-11-22",
-        "oraIt": "22:05",
-        "casa": "LAC",
-        "ospite": "NYJ",
-        "pc": 24,
-        "po": 27,
-        "favorita": "LAC",
-        "linea": 3.0,
-        "totaleLinea": 43.5,
-        "battutaDa": "NYJ",
-        "totaleEsito": "over",
-        "scartoLinea": 6.0,
         "stadio": "SoFi Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=New+York+Jets+vs.+Los+Angeles+Chargers+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "2",
-            "tempo": "13:39",
-            "squadra": "NYJ",
-            "descrizione": "7-G.Smith pass short right to 20-B.Hall for 7 yards, TOUCHDOWN.",
-            "testo": "Smith lancia corto a destra per Hall, 7 yard: touchdown",
-            "chi": [
-              "Smith",
-              "Hall"
-            ],
-            "yard": 7.0,
-            "touchdown": true,
-            "casaPrima": 45,
-            "casaDopo": 40
-          },
-          {
-            "quarto": "2",
-            "tempo": "10:53",
-            "squadra": "LAC",
-            "descrizione": "10-J.Herbert sacked at LAC 35 for -9 yards (31-D.Bailey). FUMBLES (31-D.Bailey) [31-D.Bailey], recovered by LAC-77-T.Burke at LAC 38.",
-            "testo": "Herbert subisce un sack, -9 yard (perdita), fumble",
-            "chi": [
-              "Herbert"
-            ],
-            "yard": -6.0,
-            "touchdown": false,
-            "casaPrima": 39,
-            "casaDopo": 34
-          },
-          {
-            "quarto": "3",
-            "tempo": "14:14",
-            "squadra": "LAC",
-            "descrizione": "10-J.Herbert sacked at LAC 35 for -8 yards (31-D.Bailey).",
-            "testo": "Herbert subisce un sack, -8 yard (perdita)",
-            "chi": [
-              "Herbert"
-            ],
-            "yard": -8.0,
-            "touchdown": false,
-            "casaPrima": 33,
-            "casaDopo": 27
-          },
-          {
-            "quarto": "4",
-            "tempo": "11:12",
-            "squadra": "NYJ",
-            "descrizione": "20-B.Hall left end pushed ob at LAC 16 for 26 yards (22-G.Smith).",
-            "testo": "Hall corre sull'esterno sinistro, 26 yard",
-            "chi": [
-              "Hall"
-            ],
-            "yard": 26.0,
-            "touchdown": false,
-            "casaPrima": 28,
-            "casaDopo": 21
-          },
-          {
-            "quarto": "4",
-            "tempo": "01:49",
-            "squadra": "NYJ",
-            "descrizione": "20-B.Hall left end to NYJ 42 for 7 yards (20-C.Hart).",
-            "testo": "Hall corre sull'esterno sinistro, 7 yard",
-            "chi": [
-              "Hall"
-            ],
-            "yard": 7.0,
-            "touchdown": false,
-            "casaPrima": 10,
-            "casaDopo": 0
-          }
-        ],
-        "video": {
-          "id": "gvZYsXcr_6g",
-          "titolo": "New York Jets vs. Los Angeles Chargers Highlights | NFL 2026 Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "16:25",
-        "dataIt": "2026-11-22",
-        "oraIt": "22:25",
-        "casa": "DEN",
-        "ospite": "LV",
-        "pc": 38,
-        "po": 24,
-        "favorita": "DEN",
-        "linea": 11.5,
-        "totaleLinea": 41.5,
-        "battutaDa": "DEN",
-        "totaleEsito": "over",
-        "scartoLinea": 2.5,
-        "stadio": "Empower Field at Mile High",
-        "highlights": "https://www.youtube.com/results?search_query=Las+Vegas+Raiders+vs.+Denver+Broncos+highlights+November+22%2C+2026+NFL",
+        "highlights": "https://www.youtube.com/results?search_query=Green+Bay+Packers+vs.+Los+Angeles+Rams+highlights+November+25%2C+2026+NFL",
         "momenti": [
           {
             "quarto": "1",
-            "tempo": "13:18",
-            "squadra": "DEN",
-            "descrizione": "10-B.Nix pass deep left to 13-P.Bryant to DEN 41 for 20 yards (3-T.Johnson).",
-            "testo": "Nix lancia lungo a sinistra per Bryant, 20 yard",
+            "tempo": "07:15",
+            "squadra": "GB",
+            "descrizione": "10-J.Love pass short left to 85-T.Kraft to LA 46 for 10 yards (53-N.Landman). FUMBLES (53-N.Landman), RECOVERED by LA-37-Q.Lake at LA 45. 37-Q.Lake to LA 43 for -2 yards (16-B.Melton).",
+            "testo": "Love lancia corto a sinistra per Kraft, 10 yard, fumble, recuperato da Lake (LA)",
             "chi": [
-              "Nix",
-              "Bryant"
+              "Love",
+              "Kraft"
             ],
-            "yard": 20.0,
+            "yard": 10.0,
             "touchdown": false,
-            "casaPrima": 80,
-            "casaDopo": 84
+            "casaPrima": 61,
+            "casaDopo": 70
           },
           {
             "quarto": "3",
-            "tempo": "05:20",
-            "squadra": "LV",
-            "descrizione": "15-F.Mendoza pass short right to 80-I.Thomas for 19 yards, TOUCHDOWN.",
-            "testo": "Mendoza lancia corto a destra per Thomas, 19 yard: touchdown",
+            "tempo": "04:43",
+            "squadra": "LA",
+            "descrizione": "9-M.Stafford pass short left intended for 89-T.Higbee INTERCEPTED by 59-T.Hopper at GB 36. 59-T.Hopper pushed ob at LA 43 for 21 yards (71-W.McClendon).",
+            "testo": "Stafford intercettato da Hopper",
             "chi": [
-              "Mendoza",
-              "Thomas"
+              "Stafford",
+              "Hopper"
             ],
-            "yard": 19.0,
-            "touchdown": true,
+            "yard": 0.0,
+            "touchdown": false,
             "casaPrima": 84,
-            "casaDopo": 75
+            "casaDopo": 70
           },
           {
             "quarto": "3",
-            "tempo": "01:06",
-            "squadra": "DEN",
-            "descrizione": "10-B.Nix pass deep right to 17-J.Waddle to LV 4 for 18 yards (5-E.Stokes) [98-M.Crosby].",
-            "testo": "Nix lancia lungo a destra per Waddle, 18 yard",
+            "tempo": "03:59",
+            "squadra": "GB",
+            "descrizione": "10-J.Love pass deep middle intended for 0-M.Golden INTERCEPTED by 2-J.McCollough at LA 3. 2-J.McCollough to LA 17 for 14 yards (16-B.Melton; 85-T.Kraft).",
+            "testo": "Love intercettato da McCollough",
             "chi": [
-              "Nix",
-              "Waddle"
+              "Love",
+              "McCollough"
             ],
-            "yard": 18.0,
+            "yard": 0.0,
             "touchdown": false,
-            "casaPrima": 79,
-            "casaDopo": 86
+            "casaPrima": 70,
+            "casaDopo": 80
           },
           {
             "quarto": "4",
-            "tempo": "12:16",
-            "squadra": "LV",
-            "descrizione": "15-F.Mendoza pass incomplete short left to 9-J.Nailor.",
-            "testo": "Mendoza: lancio corto a sinistra per Nailor incompleto",
+            "tempo": "09:41",
+            "squadra": "LA",
+            "descrizione": "24-B.Corum up the middle to GB 29 for 35 yards (29-X.McKinney).",
+            "testo": "Corum corre centralmente, 35 yard",
             "chi": [
-              "Mendoza"
+              "Corum"
             ],
-            "yard": 0.0,
+            "yard": 35.0,
             "touchdown": false,
-            "casaPrima": 90,
-            "casaDopo": 94
-          },
-          {
-            "quarto": "4",
-            "tempo": "02:00",
-            "squadra": "LV",
-            "descrizione": "15-F.Mendoza pass short left intended for 1-T.Tucker INTERCEPTED by 29-J.McMillian at LV 35. 29-J.McMillian for 35 yards, TOUCHDOWN.",
-            "testo": "Mendoza intercettato da McMillian: touchdown",
-            "chi": [
-              "Mendoza",
-              "McMillian"
-            ],
-            "yard": 0.0,
-            "touchdown": true,
-            "casaPrima": 96,
-            "casaDopo": 100,
-            "clip": {
-              "id": "7Iap3I-LTGU",
-              "titolo": "PICK 6! JaQuan McMillian picks off Fernando Mendoza and takes it to the house"
-            }
-          }
-        ],
-        "video": {
-          "id": "i13fzifkiE8",
-          "titolo": "Las Vegas Raiders vs Denver Broncos Game Highlights | 2026 NFL Season Week 11"
-        }
-      },
-      {
-        "data": "2026-11-22",
-        "ora": "16:25",
-        "dataIt": "2026-11-22",
-        "oraIt": "22:25",
-        "casa": "NYG",
-        "ospite": "JAX",
-        "pc": 23,
-        "po": 18,
-        "favorita": "JAX",
-        "linea": 6.0,
-        "totaleLinea": 45.5,
-        "battutaDa": "NYG",
-        "totaleEsito": "under",
-        "scartoLinea": 11.0,
-        "stadio": "MetLife Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Jacksonville+Jaguars+vs.+New+York+Giants+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "02:09",
-            "squadra": "NYG",
-            "descrizione": "19-J.Winston up the middle for 1 yard, TOUCHDOWN. Penalty on JAX-47-D.Gardeck, Defensive Offside, declined.",
-            "testo": "Winston corre centralmente, 1 yard: touchdown",
-            "chi": [
-              "Winston"
-            ],
-            "yard": 1.0,
-            "touchdown": true,
-            "casaPrima": 41,
-            "casaDopo": 47,
-            "clip": {
-              "id": "sem0XJbEIso",
-              "titolo": "INT. by Deonte Banks leads to Jameis Winston rushing it in himself!!"
-            }
-          },
-          {
-            "quarto": "3",
-            "tempo": "04:02",
-            "squadra": "NYG",
-            "descrizione": "44-C.Skattebo left tackle to JAX 31 for 1 yard (41-J.Hines-Allen). FUMBLES (41-J.Hines-Allen), RECOVERED by JAX-6-A.Johnson at JAX 27. 6-A.Johnson to NYG 31 for 42 yards (18-J.McCarthy).",
-            "testo": "Skattebo corre a sinistra, 1 yard, fumble, recuperato da Johnson (JAX)",
-            "chi": [
-              "Skattebo"
-            ],
-            "yard": 1.0,
-            "touchdown": false,
-            "casaPrima": 91,
-            "casaDopo": 77
-          },
-          {
-            "quarto": "3",
-            "tempo": "01:06",
-            "squadra": "JAX",
-            "descrizione": "16-T.Lawrence pass incomplete short left to 3-J.Meyers (22-A.Phillips).",
-            "testo": "Lawrence: lancio corto a sinistra per Meyers incompleto",
-            "chi": [
-              "Lawrence"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 81,
-            "casaDopo": 89
-          },
-          {
-            "quarto": "4",
-            "tempo": "11:08",
-            "squadra": "JAX",
-            "descrizione": "16-T.Lawrence pass short left intended for 3-J.Meyers INTERCEPTED by 21-P.Adebo at JAX 28. 21-P.Adebo to JAX 28 for no gain (3-J.Meyers).",
-            "testo": "Lawrence intercettato da Adebo",
-            "chi": [
-              "Lawrence",
-              "Adebo"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 85,
+            "casaPrima": 87,
             "casaDopo": 92
           },
           {
             "quarto": "4",
-            "tempo": "03:02",
-            "squadra": "NYG",
-            "descrizione": "18-J.McCarthy pass short middle to 88-M.Fields to JAX 43 for 19 yards (0-J.Bates).",
-            "testo": "McCarthy lancia corto al centro per Fields, 19 yard",
+            "tempo": "03:46",
+            "squadra": "GB",
+            "descrizione": "10-J.Love pass deep right intended for 16-B.Melton INTERCEPTED by 1-E.Forbes at LA 27. 1-E.Forbes ran ob at LA 27 for no gain.",
+            "testo": "Love intercettato da Forbes",
             "chi": [
-              "McCarthy",
-              "Fields"
+              "Love",
+              "Forbes"
             ],
-            "yard": 19.0,
+            "yard": 0.0,
             "touchdown": false,
-            "casaPrima": 82,
-            "casaDopo": 94
+            "casaPrima": 90,
+            "casaDopo": 98
           }
         ],
         "video": {
-          "id": "VFJ5DTTNN9A",
-          "titolo": "Jacksonville Jaguars vs. New York Giants Game Highlights | NFL 2026 Season Week 11"
+          "id": "__40m4hxmdA",
+          "titolo": "Green Bay Packers vs Los Angeles Rams Game Highlights | 2026 NFL Season Week 12"
         }
       },
       {
-        "data": "2026-11-22",
+        "data": "2026-11-26",
+        "ora": "13:00",
+        "dataIt": "2026-11-26",
+        "oraIt": "19:00",
+        "casa": "DET",
+        "ospite": "CHI",
+        "pc": null,
+        "po": null,
+        "favorita": "CHI",
+        "linea": 1.5,
+        "totaleLinea": 56.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Ford Field"
+      },
+      {
+        "data": "2026-11-26",
+        "ora": "16:30",
+        "dataIt": "2026-11-26",
+        "oraIt": "22:30",
+        "casa": "DAL",
+        "ospite": "PHI",
+        "pc": null,
+        "po": null,
+        "favorita": "DAL",
+        "linea": 8.5,
+        "totaleLinea": 48.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "AT&T Stadium"
+      },
+      {
+        "data": "2026-11-26",
         "ora": "20:20",
-        "dataIt": "2026-11-23",
+        "dataIt": "2026-11-27",
         "oraIt": "02:20",
-        "casa": "SF",
-        "ospite": "MIN",
-        "pc": 35,
-        "po": 10,
-        "favorita": "SF",
-        "linea": 4.5,
-        "totaleLinea": 44.5,
-        "battutaDa": "SF",
-        "totaleEsito": "over",
-        "scartoLinea": 20.5,
-        "stadio": "Estadio Banorte",
-        "highlights": "https://www.youtube.com/results?search_query=Minnesota+Vikings+vs.+San+Francisco+49ers+highlights+November+22%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "07:38",
-            "squadra": "MIN",
-            "descrizione": "16-W.Reichard 55 yard field goal is No Good, Wide Left, Center-42-A.DePaola, Holder-19-B.Thorson.",
-            "testo": "Reichard: field goal da 55 yard sbagliato",
-            "chi": [
-              "Reichard"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 76,
-            "casaDopo": 81
-          },
-          {
-            "quarto": "1",
-            "tempo": "00:15",
-            "squadra": "SF",
-            "descrizione": "(:15) 13-B.Purdy pass deep middle to 5-M.Evans to MIN 14 for 34 yards (26-T.Jackson).",
-            "testo": "Purdy lancia lungo al centro per Evans, 34 yard",
-            "chi": [
-              "Purdy",
-              "Evans"
-            ],
-            "yard": 34.0,
-            "touchdown": false,
-            "casaPrima": 66,
-            "casaDopo": 73
-          },
-          {
-            "quarto": "2",
-            "tempo": "03:29",
-            "squadra": "SF",
-            "descrizione": "13-B.Purdy pass short right to 5-M.Evans pushed ob at MIN 6 for 29 yards (23-J.Pierre).",
-            "testo": "Purdy lancia corto a destra per Evans, 29 yard",
-            "chi": [
-              "Purdy",
-              "Evans"
-            ],
-            "yard": 29.0,
-            "touchdown": false,
-            "casaPrima": 78,
-            "casaDopo": 84
-          },
-          {
-            "quarto": "2",
-            "tempo": "02:05",
-            "squadra": "MIN",
-            "descrizione": "8-K.Cousins pass short middle intended for 13-T.Felton INTERCEPTED by 27-J.Brown at MIN 18. 27-J.Brown for 18 yards, TOUCHDOWN.",
-            "testo": "Cousins intercettato da Brown: touchdown",
-            "chi": [
-              "Cousins",
-              "Brown"
-            ],
-            "yard": 0.0,
-            "touchdown": true,
-            "casaPrima": 87,
-            "casaDopo": 95,
-            "clip": {
-              "id": "nuWGss_C0Yw",
-              "titolo": "Goff zips it to St. Brown for the Touchdown!"
-            }
-          },
-          {
-            "quarto": "3",
-            "tempo": "12:52",
-            "squadra": "MIN",
-            "descrizione": "8-K.Cousins pass deep left to 18-J.Jefferson to SF 25 for 25 yards (2-D.Lenoir). FUMBLES (2-D.Lenoir), RECOVERED by SF-2-D.Lenoir at SF 25. 2-D.Lenoir to SF 42 for 17 yards (71-C.Darrisaw).",
-            "testo": "Cousins lancia lungo a sinistra per Jefferson, 25 yard, fumble, recuperato da Lenoir (SF)",
-            "chi": [
-              "Cousins",
-              "Jefferson"
-            ],
-            "yard": 25.0,
-            "touchdown": false,
-            "casaPrima": 95,
-            "casaDopo": 98
-          }
-        ],
-        "video": {
-          "id": "ceMTl2eqYDA",
-          "titolo": "Minnesota Vikings vs San Francisco 49ers Game Highlights | 2026 NFL Season Week 11 Mexico City Game"
-        }
+        "casa": "BUF",
+        "ospite": "KC",
+        "pc": null,
+        "po": null,
+        "favorita": "BUF",
+        "linea": 3.0,
+        "totaleLinea": 45.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Highmark Stadium"
       },
       {
-        "data": "2026-11-23",
-        "ora": "20:15",
-        "dataIt": "2026-11-24",
-        "oraIt": "02:15",
-        "casa": "WAS",
-        "ospite": "CIN",
-        "pc": 22,
-        "po": 20,
+        "data": "2026-11-27",
+        "ora": "15:00",
+        "dataIt": "2026-11-27",
+        "oraIt": "21:00",
+        "casa": "PIT",
+        "ospite": "DEN",
+        "pc": null,
+        "po": null,
+        "favorita": "DEN",
+        "linea": 3.5,
+        "totaleLinea": 36.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Acrisure Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "13:00",
+        "dataIt": "2026-11-29",
+        "oraIt": "19:00",
+        "casa": "CIN",
+        "ospite": "NO",
+        "pc": null,
+        "po": null,
         "favorita": "CIN",
+        "linea": 10.0,
+        "totaleLinea": 49.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Paycor Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "13:00",
+        "dataIt": "2026-11-29",
+        "oraIt": "19:00",
+        "casa": "HOU",
+        "ospite": "BAL",
+        "pc": null,
+        "po": null,
+        "favorita": "HOU",
+        "linea": 6.5,
+        "totaleLinea": 47.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "NRG Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "13:00",
+        "dataIt": "2026-11-29",
+        "oraIt": "19:00",
+        "casa": "IND",
+        "ospite": "NYG",
+        "pc": null,
+        "po": null,
+        "favorita": "NYG",
         "linea": 6.0,
-        "totaleLinea": 54.5,
-        "battutaDa": "WAS",
-        "totaleEsito": "under",
-        "scartoLinea": 8.0,
-        "stadio": "Northwest Stadium",
-        "highlights": "https://www.youtube.com/results?search_query=Cincinnati+Bengals+vs.+Washington+Commanders+highlights+November+23%2C+2026+NFL",
-        "momenti": [
-          {
-            "quarto": "1",
-            "tempo": "01:01",
-            "squadra": "CIN",
-            "descrizione": "9-J.Burrow left end to CIN 45 for no gain (4-F.Luvu).",
-            "testo": "Burrow corre sull'esterno sinistro, nessun guadagno",
-            "chi": [
-              "Burrow"
-            ],
-            "yard": 0.0,
-            "touchdown": false,
-            "casaPrima": 32,
-            "casaDopo": 38
-          },
-          {
-            "quarto": "2",
-            "tempo": "03:02",
-            "squadra": "CIN",
-            "descrizione": "9-J.Burrow pass short middle to 34-S.Perine pushed ob at WAS 34 for 44 yards (39-J.Reaves).",
-            "testo": "Burrow lancia corto al centro per Perine, 44 yard",
-            "chi": [
-              "Burrow",
-              "Perine"
-            ],
-            "yard": 44.0,
-            "touchdown": false,
-            "casaPrima": 27,
-            "casaDopo": 18
-          },
-          {
-            "quarto": "3",
-            "tempo": "13:44",
-            "squadra": "WAS",
-            "descrizione": "5-J.Daniels scrambles up the middle to CIN 14 for 47 yards (6-B.Cook).",
-            "testo": "Daniels esce dalla tasca e corre centralmente, 47 yard",
-            "chi": [
-              "Daniels"
-            ],
-            "yard": 47.0,
-            "touchdown": false,
-            "casaPrima": 28,
-            "casaDopo": 36
-          },
-          {
-            "quarto": "4",
-            "tempo": "01:35",
-            "squadra": "CIN",
-            "descrizione": "9-J.Burrow sacked at WAS 37 for -7 yards (sack split by 25-N.Cross and 56-K.Medrano). ** Injury Update: WAS-29-R.Douglas has returned to the game.",
-            "testo": "Burrow subisce un sack, -7 yard (perdita)",
-            "chi": [
-              "Burrow"
-            ],
-            "yard": -7.0,
-            "touchdown": false,
-            "casaPrima": 35,
-            "casaDopo": 54
-          },
-          {
-            "quarto": "4",
-            "tempo": "00:23",
-            "squadra": "WAS",
-            "descrizione": "(:23) 5-J.Daniels pass deep middle to 14-A.Williams to CIN 8 for 42 yards (0-D.Turner).",
-            "testo": "Daniels lancia lungo al centro per Williams, 42 yard",
-            "chi": [
-              "Daniels",
-              "Williams"
-            ],
-            "yard": 42.0,
-            "touchdown": false,
-            "casaPrima": 32,
-            "casaDopo": 98
-          }
-        ],
-        "video": {
-          "id": "C3ZJX7on7OE",
-          "titolo": "Cincinnati Bengals vs Washington Commanders Game Highlights | 2026 NFL Season Week 11"
-        }
+        "totaleLinea": 41.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Lucas Oil Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "13:00",
+        "dataIt": "2026-11-29",
+        "oraIt": "19:00",
+        "casa": "JAX",
+        "ospite": "TEN",
+        "pc": null,
+        "po": null,
+        "favorita": "JAX",
+        "linea": 14.5,
+        "totaleLinea": 49.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "EverBank Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "13:00",
+        "dataIt": "2026-11-29",
+        "oraIt": "19:00",
+        "casa": "MIA",
+        "ospite": "NYJ",
+        "pc": null,
+        "po": null,
+        "favorita": "NYJ",
+        "linea": 4.5,
+        "totaleLinea": 40.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Hard Rock Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "13:00",
+        "dataIt": "2026-11-29",
+        "oraIt": "19:00",
+        "casa": "MIN",
+        "ospite": "ATL",
+        "pc": null,
+        "po": null,
+        "favorita": "MIN",
+        "linea": 7.0,
+        "totaleLinea": 41.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "U.S. Bank Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "16:05",
+        "dataIt": "2026-11-29",
+        "oraIt": "22:05",
+        "casa": "LAC",
+        "ospite": "NE",
+        "pc": null,
+        "po": null,
+        "favorita": "NE",
+        "linea": 1.5,
+        "totaleLinea": 35.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "SoFi Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "16:25",
+        "dataIt": "2026-11-29",
+        "oraIt": "22:25",
+        "casa": "ARI",
+        "ospite": "WAS",
+        "pc": null,
+        "po": null,
+        "favorita": "WAS",
+        "linea": 7.0,
+        "totaleLinea": 41.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "State Farm Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "16:25",
+        "dataIt": "2026-11-29",
+        "oraIt": "22:25",
+        "casa": "SF",
+        "ospite": "SEA",
+        "pc": null,
+        "po": null,
+        "favorita": "SF",
+        "linea": 2.5,
+        "totaleLinea": 44.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Levi's Stadium"
+      },
+      {
+        "data": "2026-11-29",
+        "ora": "20:20",
+        "dataIt": "2026-11-30",
+        "oraIt": "02:20",
+        "casa": "CLE",
+        "ospite": "LV",
+        "pc": null,
+        "po": null,
+        "favorita": "CLE",
+        "linea": 4.5,
+        "totaleLinea": 40.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Huntington Bank Field"
+      },
+      {
+        "data": "2026-11-30",
+        "ora": "20:15",
+        "dataIt": "2026-12-01",
+        "oraIt": "02:15",
+        "casa": "TB",
+        "ospite": "CAR",
+        "pc": null,
+        "po": null,
+        "favorita": "TB",
+        "linea": 3.0,
+        "totaleLinea": 43.5,
+        "battutaDa": null,
+        "totaleEsito": null,
+        "scartoLinea": null,
+        "stadio": "Raymond James Stadium"
       }
     ],
     "sorprese": [
       {
-        "casa": "SF",
-        "ospite": "MIN",
-        "scarto": 20.5,
-        "battutaDa": "SF"
-      },
-      {
-        "casa": "DAL",
-        "ospite": "TEN",
-        "scarto": 13.5,
-        "battutaDa": "DAL"
-      },
-      {
-        "casa": "KC",
-        "ospite": "ARI",
-        "scarto": 11.5,
-        "battutaDa": "KC"
+        "casa": "LA",
+        "ospite": "GB",
+        "scarto": 10.5,
+        "battutaDa": "LA"
       }
     ],
-    "completa": true,
+    "completa": false,
     "riepilogo": {
-      "partite": 13,
-      "favoriteCoperte": 7,
-      "over": 7,
-      "under": 6
+      "partite": 1,
+      "favoriteCoperte": 1,
+      "over": 0,
+      "under": 1
     },
     "prestazioni": {
       "lanci": [
         {
-          "nome": "Dak Prescott",
+          "nome": "Jordan Love",
           "ruolo": "QB",
-          "squadra": "DAL",
-          "avversario": "TEN",
-          "valore": 325,
-          "dettagli": "4 TD"
-        },
-        {
-          "nome": "Patrick Mahomes",
-          "ruolo": "QB",
-          "squadra": "KC",
-          "avversario": "ARI",
-          "valore": 324,
-          "dettagli": "3 TD"
-        },
-        {
-          "nome": "Josh Allen",
-          "ruolo": "QB",
-          "squadra": "BUF",
-          "avversario": "MIA",
-          "valore": 304,
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 198,
           "dettagli": "1 TD · 2 INT"
         },
         {
-          "nome": "Trevor Lawrence",
+          "nome": "Matthew Stafford",
           "ruolo": "QB",
-          "squadra": "JAX",
-          "avversario": "NYG",
-          "valore": 301,
-          "dettagli": "1 TD · 2 INT"
-        },
-        {
-          "nome": "Joe Burrow",
-          "ruolo": "QB",
-          "squadra": "CIN",
-          "avversario": "WAS",
-          "valore": 300,
-          "dettagli": "2 TD"
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 140,
+          "dettagli": "1 INT"
         }
       ],
       "corse": [
         {
-          "nome": "Chuba Hubbard",
+          "nome": "Blake Corum",
           "ruolo": "RB",
-          "squadra": "CAR",
-          "avversario": "BAL",
-          "valore": 120,
-          "dettagli": "27 corse · 2 TD"
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 184,
+          "dettagli": "32 corse · 1 TD"
         },
         {
-          "nome": "Jonah Coleman",
+          "nome": "Kyren Williams",
           "ruolo": "RB",
-          "squadra": "DEN",
-          "avversario": "LV",
-          "valore": 111,
-          "dettagli": "24 corse · 3 TD"
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 46,
+          "dettagli": "12 corse · 1 TD"
         },
         {
-          "nome": "Tony Pollard",
-          "ruolo": "RB",
-          "squadra": "TEN",
-          "avversario": "DAL",
-          "valore": 110,
-          "dettagli": "21 corse"
+          "nome": "Savion Williams",
+          "ruolo": "WR",
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 18,
+          "dettagli": "2 corse"
         },
         {
-          "nome": "David Montgomery",
+          "nome": "Kaleb Johnson",
           "ruolo": "RB",
-          "squadra": "HOU",
-          "avversario": "IND",
-          "valore": 107,
-          "dettagli": "26 corse"
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 13,
+          "dettagli": "8 corse"
         },
         {
-          "nome": "Emmett Johnson",
-          "ruolo": "RB",
-          "squadra": "KC",
-          "avversario": "ARI",
-          "valore": 105,
-          "dettagli": "23 corse · 1 TD"
+          "nome": "Xavier Smith",
+          "ruolo": "WR",
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 11,
+          "dettagli": "2 corse"
         }
       ],
       "ricezioni": [
         {
-          "nome": "CeeDee Lamb",
+          "nome": "Konata Mumpfield",
           "ruolo": "WR",
-          "squadra": "DAL",
-          "avversario": "TEN",
-          "valore": 132,
-          "dettagli": "11 ricezioni · 1 TD"
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 69,
+          "dettagli": "4 ricezioni"
         },
         {
-          "nome": "Antonio Williams",
+          "nome": "Christian Watson",
           "ruolo": "WR",
-          "squadra": "WAS",
-          "avversario": "CIN",
-          "valore": 122,
-          "dettagli": "9 ricezioni"
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 65,
+          "dettagli": "4 ricezioni · 1 TD"
         },
         {
-          "nome": "Mike Evans",
+          "nome": "Matthew Golden",
           "ruolo": "WR",
-          "squadra": "SF",
-          "avversario": "MIN",
-          "valore": 109,
-          "dettagli": "6 ricezioni · 1 TD"
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 39,
+          "dettagli": "1 ricezioni"
         },
         {
-          "nome": "Parker Washington",
-          "ruolo": "WR",
-          "squadra": "JAX",
-          "avversario": "NYG",
-          "valore": 103,
-          "dettagli": "8 ricezioni"
+          "nome": "Tucker Kraft",
+          "ruolo": "TE",
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 24,
+          "dettagli": "3 ricezioni"
         },
         {
-          "nome": "Chris Olave",
-          "ruolo": "WR",
-          "squadra": "NO",
-          "avversario": "CHI",
-          "valore": 102,
-          "dettagli": "9 ricezioni"
+          "nome": "Chris Brooks",
+          "ruolo": "RB",
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 22,
+          "dettagli": "4 ricezioni"
         }
       ],
       "sack": [
         {
-          "nome": "Jeffery Simmons",
-          "ruolo": "DT",
-          "squadra": "CHI",
-          "avversario": "NO",
-          "valore": 3,
-          "dettagli": "3 colpi al QB · 3 placcaggi con perdita"
-        },
-        {
-          "nome": "Boye Mafe",
-          "ruolo": "DE",
-          "squadra": "CIN",
-          "avversario": "WAS",
-          "valore": 3,
-          "dettagli": "3 colpi al QB · 3 placcaggi con perdita"
-        },
-        {
-          "nome": "George Karlaftis",
-          "ruolo": "DE",
-          "squadra": "KC",
-          "avversario": "ARI",
-          "valore": 2.5,
-          "dettagli": "5 colpi al QB · 2 placcaggi con perdita"
-        },
-        {
-          "nome": "Quinnen Williams",
-          "ruolo": "DT",
-          "squadra": "DAL",
-          "avversario": "TEN",
-          "valore": 2,
-          "dettagli": "3 colpi al QB · 3 placcaggi con perdita"
-        },
-        {
-          "nome": "Alex Highsmith",
+          "nome": "Micah Parsons",
           "ruolo": "LB",
-          "squadra": "PIT",
-          "avversario": "PHI",
-          "valore": 2,
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 1,
+          "dettagli": "2 colpi al QB · 1 placcaggi con perdita"
+        },
+        {
+          "nome": "Byron Young",
+          "ruolo": "LB",
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 1,
           "dettagli": "1 colpi al QB · 2 placcaggi con perdita"
         }
       ],
       "intercetti": [
         {
-          "nome": "Tyrel Dodson",
+          "nome": "Emmanuel Forbes",
+          "ruolo": "CB",
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 1,
+          "dettagli": "1 passaggi deviati"
+        },
+        {
+          "nome": "Jaylen McCollough",
+          "ruolo": "SAF",
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 1,
+          "dettagli": "14 yard di ritorno · 1 passaggi deviati"
+        },
+        {
+          "nome": "Ty'Ron Hopper",
           "ruolo": "LB",
-          "squadra": "CAR",
-          "avversario": "BAL",
+          "squadra": "GB",
+          "avversario": "LA",
           "valore": 1,
-          "dettagli": "1 passaggi deviati"
-        },
-        {
-          "nome": "Zayne Anderson",
-          "ruolo": "SAF",
-          "squadra": "MIA",
-          "avversario": "BUF",
-          "valore": 1,
-          "dettagli": "4 yard di ritorno · 3 passaggi deviati"
-        },
-        {
-          "nome": "Damar Hamlin",
-          "ruolo": "SAF",
-          "squadra": "BUF",
-          "avversario": "MIA",
-          "valore": 1,
-          "dettagli": "1 passaggi deviati"
-        },
-        {
-          "nome": "Paulson Adebo",
-          "ruolo": "CB",
-          "squadra": "NYG",
-          "avversario": "JAX",
-          "valore": 1,
-          "dettagli": "4 passaggi deviati"
-        },
-        {
-          "nome": "Ja'Quan McMillian",
-          "ruolo": "CB",
-          "squadra": "DEN",
-          "avversario": "LV",
-          "valore": 1,
-          "dettagli": "35 yard di ritorno · 1 TD · 1 passaggi deviati"
+          "dettagli": "21 yard di ritorno · 1 passaggi deviati"
         }
       ],
       "placcaggi": [
         {
-          "nome": "CJ Allen",
-          "ruolo": "LB",
-          "squadra": "IND",
-          "avversario": "HOU",
-          "valore": 16,
-          "dettagli": "7 da solo · 9 assist · 1 con perdita"
+          "nome": "Keisean Nixon",
+          "ruolo": "DB",
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 9,
+          "dettagli": "8 da solo · 1 assist · 1 con perdita"
         },
         {
-          "nome": "Josiah Trotter",
+          "nome": "Isaiah McDuffie",
           "ruolo": "LB",
-          "squadra": "TB",
-          "avversario": "DET",
-          "valore": 14,
-          "dettagli": "8 da solo · 6 assist"
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 9,
+          "dettagli": "4 da solo · 5 assist · 1 con perdita"
         },
         {
-          "nome": "Jeremiah Trotter Jr.",
+          "nome": "Ty'Ron Hopper",
           "ruolo": "LB",
-          "squadra": "PHI",
-          "avversario": "PIT",
-          "valore": 13,
-          "dettagli": "9 da solo · 4 assist"
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 9,
+          "dettagli": "4 da solo · 5 assist"
         },
         {
-          "nome": "Jacob Rodriguez",
-          "ruolo": "LB",
-          "squadra": "MIA",
-          "avversario": "BUF",
-          "valore": 13,
-          "dettagli": "8 da solo · 5 assist"
+          "nome": "Evan Williams",
+          "ruolo": "SAF",
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 9,
+          "dettagli": "8 da solo · 1 assist"
         },
         {
-          "nome": "Frankie Luvu",
-          "ruolo": "LB",
-          "squadra": "WAS",
-          "avversario": "CIN",
-          "valore": 12,
-          "dettagli": "5 da solo · 7 assist"
+          "nome": "Chris McClellan",
+          "ruolo": "DT",
+          "squadra": "GB",
+          "avversario": "LA",
+          "valore": 8,
+          "dettagli": "4 da solo · 4 assist · 1 con perdita"
         }
       ],
       "fumbleForzati": [
         {
-          "nome": "Will Lee III",
-          "ruolo": "CB",
-          "squadra": "CAR",
-          "avversario": "BAL",
-          "valore": 2,
-          "dettagli": "4 placcaggi da solo"
-        },
-        {
-          "nome": "Carl Granderson",
-          "ruolo": "DE",
-          "squadra": "NO",
-          "avversario": "CHI",
-          "valore": 1,
-          "dettagli": "1 placcaggi da solo"
-        },
-        {
-          "nome": "Josh Hines-Allen",
-          "ruolo": "DE",
-          "squadra": "JAX",
-          "avversario": "NYG",
-          "valore": 1,
-          "dettagli": "3 placcaggi da solo"
-        },
-        {
-          "nome": "Quinnen Williams",
-          "ruolo": "DT",
-          "squadra": "DAL",
-          "avversario": "TEN",
-          "valore": 1,
-          "dettagli": "4 placcaggi da solo"
-        },
-        {
-          "nome": "Alex Highsmith",
+          "nome": "Nate Landman",
           "ruolo": "LB",
-          "squadra": "PIT",
-          "avversario": "PHI",
+          "squadra": "LA",
+          "avversario": "GB",
           "valore": 1,
           "dettagli": "2 placcaggi da solo"
         }
       ],
       "deviati": [
         {
-          "nome": "Paulson Adebo",
-          "ruolo": "CB",
-          "squadra": "NYG",
-          "avversario": "JAX",
-          "valore": 4,
-          "dettagli": "1 intercetti"
-        },
-        {
-          "nome": "Jonathan Jones",
-          "ruolo": "DB",
-          "squadra": "PHI",
-          "avversario": "PIT",
-          "valore": 3,
-          "dettagli": ""
-        },
-        {
-          "nome": "Zach Allen",
-          "ruolo": "DE",
-          "squadra": "DEN",
-          "avversario": "LV",
-          "valore": 3,
-          "dettagli": ""
-        },
-        {
-          "nome": "Zayne Anderson",
+          "nome": "Quentin Lake",
           "ruolo": "SAF",
-          "squadra": "MIA",
-          "avversario": "BUF",
-          "valore": 3,
-          "dettagli": "1 intercetti"
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 2,
+          "dettagli": ""
         },
         {
-          "nome": "Deonte Banks",
+          "nome": "Kamren Kinchens",
+          "ruolo": "SAF",
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 2,
+          "dettagli": ""
+        },
+        {
+          "nome": "Aaron Donald",
+          "ruolo": "DE",
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 1,
+          "dettagli": ""
+        },
+        {
+          "nome": "Trent McDuffie",
           "ruolo": "CB",
-          "squadra": "NYG",
-          "avversario": "JAX",
-          "valore": 3,
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 1,
+          "dettagli": ""
+        },
+        {
+          "nome": "Emmanuel Forbes",
+          "ruolo": "CB",
+          "squadra": "LA",
+          "avversario": "GB",
+          "valore": 1,
           "dettagli": "1 intercetti"
         }
       ]
@@ -144407,297 +143449,220 @@
     "giocate": {
       "attacco": [
         {
-          "squadra": "WAS",
-          "avversario": "CIN",
-          "quarto": "4",
-          "tempo": "00:23",
-          "testo": "Daniels lancia lungo al centro per Williams, 42 yard",
-          "yard": 42.0,
+          "squadra": "LA",
+          "avversario": "GB",
+          "quarto": "3",
+          "tempo": "10:39",
+          "testo": "Stafford lancia lungo a destra per Mumpfield, 20 yard",
+          "yard": 20.0,
           "touchdown": false,
           "evento": "",
-          "valore": 37.3,
-          "prima": 42,
-          "dopo": 80,
-          "partita": "2026_11_CIN_WAS"
+          "valore": 8.0,
+          "prima": 60,
+          "dopo": 68,
+          "partita": "2026_12_GB_LA"
         },
         {
-          "squadra": "CIN",
-          "avversario": "WAS",
-          "quarto": "4",
-          "tempo": "02:00",
-          "testo": "Burrow lancia lungo a destra per Gesicki, 32 yard",
+          "squadra": "GB",
+          "avversario": "LA",
+          "quarto": "1",
+          "tempo": "02:43",
+          "testo": "Love lancia corto a sinistra per Watson, 32 yard",
           "yard": 32.0,
           "touchdown": false,
           "evento": "",
-          "valore": 16.8,
-          "prima": 36,
-          "dopo": 52,
-          "partita": "2026_11_CIN_WAS"
+          "valore": 6.2,
+          "prima": 24,
+          "dopo": 31,
+          "partita": "2026_12_GB_LA"
         },
         {
-          "squadra": "BAL",
-          "avversario": "CAR",
-          "quarto": "4",
-          "tempo": "09:21",
-          "testo": "Brissett lancia corto a sinistra per Flowers, 14 yard",
-          "yard": 14.0,
-          "touchdown": false,
-          "evento": "",
-          "valore": 16.2,
-          "prima": 17,
-          "dopo": 33,
-          "partita": "2026_11_BAL_CAR"
-        },
-        {
-          "squadra": "LAC",
-          "avversario": "NYJ",
-          "quarto": "4",
-          "tempo": "15:00",
-          "testo": "Hampton corre sull'esterno sinistro, 36 yard",
-          "yard": 36.0,
-          "touchdown": false,
-          "evento": "",
-          "valore": 13.0,
-          "prima": 20,
-          "dopo": 33,
-          "partita": "2026_11_NYJ_LAC"
-        },
-        {
-          "squadra": "BAL",
-          "avversario": "CAR",
+          "squadra": "GB",
+          "avversario": "LA",
           "quarto": "2",
-          "tempo": "03:08",
-          "testo": "Brissett lancia lungo a destra per Walker, 34 yard",
-          "yard": 34.0,
+          "tempo": "11:07",
+          "testo": "Love lancia lungo a destra per Golden, 39 yard",
+          "yard": 39.0,
           "touchdown": false,
           "evento": "",
-          "valore": 12.8,
-          "prima": 35,
-          "dopo": 48,
-          "partita": "2026_11_BAL_CAR"
+          "valore": 6.0,
+          "prima": 19,
+          "dopo": 25,
+          "partita": "2026_12_GB_LA"
+        },
+        {
+          "squadra": "LA",
+          "avversario": "GB",
+          "quarto": "2",
+          "tempo": "14:15",
+          "testo": "Stafford lancia corto a destra per Williams, 9 yard",
+          "yard": 9.0,
+          "touchdown": false,
+          "evento": "",
+          "valore": 5.9,
+          "prima": 71,
+          "dopo": 77,
+          "partita": "2026_12_GB_LA"
+        },
+        {
+          "squadra": "LA",
+          "avversario": "GB",
+          "quarto": "3",
+          "tempo": "14:03",
+          "testo": "Stafford lancia corto a destra per Mumpfield, 10 yard",
+          "yard": 10.0,
+          "touchdown": false,
+          "evento": "",
+          "valore": 5.8,
+          "prima": 54,
+          "dopo": 60,
+          "partita": "2026_12_GB_LA"
         }
       ],
       "difesa": [
         {
-          "squadra": "CAR",
-          "avversario": "BAL",
-          "quarto": "4",
-          "tempo": "00:36",
-          "testo": "Brissett intercettato da Dodson",
-          "yard": 0.0,
-          "touchdown": false,
-          "evento": "intercetto",
-          "valore": 30.9,
-          "prima": 66,
-          "dopo": 97,
-          "partita": "2026_11_BAL_CAR"
-        },
-        {
-          "squadra": "BAL",
-          "avversario": "CAR",
-          "quarto": "3",
-          "tempo": "05:44",
-          "testo": "Young intercettato da Tampa",
-          "yard": 0.0,
-          "touchdown": false,
-          "evento": "intercetto",
-          "valore": 17.2,
-          "prima": 18,
-          "dopo": 35,
-          "partita": "2026_11_BAL_CAR"
-        },
-        {
-          "squadra": "NYG",
-          "avversario": "JAX",
+          "squadra": "LA",
+          "avversario": "GB",
           "quarto": "1",
-          "tempo": "07:45",
-          "testo": "Lawrence intercettato da Banks",
-          "yard": 0.0,
-          "touchdown": false,
-          "evento": "intercetto",
-          "valore": 14.7,
-          "prima": 47,
-          "dopo": 61,
-          "partita": "2026_11_JAX_NYG"
-        },
-        {
-          "squadra": "DET",
-          "avversario": "TB",
-          "quarto": "1",
-          "tempo": "03:05",
-          "testo": "Irving corre centralmente, -1 yard (perdita)",
-          "yard": -1.0,
-          "touchdown": false,
-          "evento": "stop al quarto down",
-          "valore": 13.3,
-          "prima": 46,
-          "dopo": 60,
-          "partita": "2026_11_TB_DET"
-        },
-        {
-          "squadra": "CAR",
-          "avversario": "BAL",
-          "quarto": "2",
-          "tempo": "12:17",
-          "testo": "Hill corre centralmente, 36 yard, fumble",
-          "yard": 36.0,
+          "tempo": "07:15",
+          "testo": "Love lancia corto a sinistra per Kraft, 10 yard, fumble, recuperato da Lake (LA)",
+          "yard": 10.0,
           "touchdown": false,
           "evento": "fumble recuperato",
-          "valore": 12.6,
-          "prima": 28,
-          "dopo": 41,
-          "partita": "2026_11_BAL_CAR"
+          "valore": 12.2,
+          "prima": 63,
+          "dopo": 75,
+          "partita": "2026_12_GB_LA"
+        },
+        {
+          "squadra": "GB",
+          "avversario": "LA",
+          "quarto": "3",
+          "tempo": "04:43",
+          "testo": "Stafford intercettato da Hopper",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 11.0,
+          "prima": 16,
+          "dopo": 27,
+          "partita": "2026_12_GB_LA"
+        },
+        {
+          "squadra": "LA",
+          "avversario": "GB",
+          "quarto": "3",
+          "tempo": "03:59",
+          "testo": "Love intercettato da McCollough",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 7.6,
+          "prima": 72,
+          "dopo": 80,
+          "partita": "2026_12_GB_LA"
+        },
+        {
+          "squadra": "LA",
+          "avversario": "GB",
+          "quarto": "4",
+          "tempo": "03:46",
+          "testo": "Love intercettato da Forbes",
+          "yard": 0.0,
+          "touchdown": false,
+          "evento": "intercetto",
+          "valore": 5.8,
+          "prima": 93,
+          "dopo": 98,
+          "partita": "2026_12_GB_LA"
+        },
+        {
+          "squadra": "GB",
+          "avversario": "LA",
+          "quarto": "2",
+          "tempo": "01:44",
+          "testo": "Stafford subisce un sack, -8 yard (perdita)",
+          "yard": -8.0,
+          "touchdown": false,
+          "evento": "sack",
+          "valore": 3.1,
+          "prima": 39,
+          "dopo": 42,
+          "partita": "2026_12_GB_LA"
         }
       ]
     },
     "squadreSettimana": {
       "attacchi": [
         {
-          "squadra": "SF",
-          "nome": "San Francisco 49ers",
-          "avversario": "MIN",
-          "attacco": 0.379,
-          "difesa": 0.059,
-          "netto": 0.438,
-          "epaAzione": 0.343,
-          "epaConcesso": -0.094,
-          "partita": "2026_11_MIN_SF"
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "avversario": "GB",
+          "attacco": 0.022,
+          "difesa": 0.184,
+          "netto": 0.206,
+          "epaAzione": 0.031,
+          "epaConcesso": -0.138,
+          "partita": "2026_12_GB_LA"
         },
         {
-          "squadra": "DAL",
-          "nome": "Dallas Cowboys",
-          "avversario": "TEN",
-          "attacco": 0.365,
-          "difesa": -0.13,
-          "netto": 0.235,
-          "epaAzione": 0.441,
-          "epaConcesso": 0.106,
-          "partita": "2026_11_TEN_DAL"
-        },
-        {
-          "squadra": "DET",
-          "nome": "Detroit Lions",
-          "avversario": "TB",
-          "attacco": 0.302,
-          "difesa": -0.102,
-          "netto": 0.201,
-          "epaAzione": 0.287,
-          "epaConcesso": 0.091,
-          "partita": "2026_11_TB_DET"
-        },
-        {
-          "squadra": "NYJ",
-          "nome": "New York Jets",
-          "avversario": "LAC",
-          "attacco": 0.223,
-          "difesa": -0.199,
-          "netto": 0.025,
-          "epaAzione": 0.24,
-          "epaConcesso": 0.168,
-          "partita": "2026_11_NYJ_LAC"
-        },
-        {
-          "squadra": "KC",
-          "nome": "Kansas City Chiefs",
-          "avversario": "ARI",
-          "attacco": 0.185,
-          "difesa": 0.133,
-          "netto": 0.318,
-          "epaAzione": 0.256,
-          "epaConcesso": -0.139,
-          "partita": "2026_11_ARI_KC"
+          "squadra": "GB",
+          "nome": "Green Bay Packers",
+          "avversario": "LA",
+          "attacco": -0.114,
+          "difesa": 0.031,
+          "netto": -0.083,
+          "epaAzione": -0.138,
+          "epaConcesso": 0.031,
+          "partita": "2026_12_GB_LA"
         }
       ],
       "difese": [
         {
-          "squadra": "HOU",
-          "nome": "Houston Texans",
-          "avversario": "IND",
-          "attacco": 0.048,
-          "difesa": 0.246,
-          "netto": 0.294,
-          "epaAzione": 0.077,
-          "epaConcesso": -0.285,
-          "partita": "2026_11_IND_HOU"
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "avversario": "GB",
+          "attacco": 0.022,
+          "difesa": 0.184,
+          "netto": 0.206,
+          "epaAzione": 0.031,
+          "epaConcesso": -0.138,
+          "partita": "2026_12_GB_LA"
         },
         {
-          "squadra": "BUF",
-          "nome": "Buffalo Bills",
-          "avversario": "MIA",
-          "attacco": -0.033,
-          "difesa": 0.196,
-          "netto": 0.163,
-          "epaAzione": 0.007,
-          "epaConcesso": -0.215,
-          "partita": "2026_11_MIA_BUF"
-        },
-        {
-          "squadra": "NYG",
-          "nome": "New York Giants",
-          "avversario": "JAX",
-          "attacco": -0.083,
-          "difesa": 0.162,
-          "netto": 0.079,
-          "epaAzione": -0.109,
-          "epaConcesso": -0.111,
-          "partita": "2026_11_JAX_NYG"
-        },
-        {
-          "squadra": "KC",
-          "nome": "Kansas City Chiefs",
-          "avversario": "ARI",
-          "attacco": 0.185,
-          "difesa": 0.133,
-          "netto": 0.318,
-          "epaAzione": 0.256,
-          "epaConcesso": -0.139,
-          "partita": "2026_11_ARI_KC"
-        },
-        {
-          "squadra": "PIT",
-          "nome": "Pittsburgh Steelers",
-          "avversario": "PHI",
-          "attacco": -0.128,
-          "difesa": 0.133,
-          "netto": 0.005,
-          "epaAzione": -0.113,
-          "epaConcesso": -0.156,
-          "partita": "2026_11_PIT_PHI"
+          "squadra": "GB",
+          "nome": "Green Bay Packers",
+          "avversario": "LA",
+          "attacco": -0.114,
+          "difesa": 0.031,
+          "netto": -0.083,
+          "epaAzione": -0.138,
+          "epaConcesso": 0.031,
+          "partita": "2026_12_GB_LA"
         }
       ],
       "migliori": [
         {
-          "squadra": "SF",
-          "nome": "San Francisco 49ers",
-          "avversario": "MIN",
-          "attacco": 0.379,
-          "difesa": 0.059,
-          "netto": 0.438,
-          "epaAzione": 0.343,
-          "epaConcesso": -0.094,
-          "partita": "2026_11_MIN_SF"
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "avversario": "GB",
+          "attacco": 0.022,
+          "difesa": 0.184,
+          "netto": 0.206,
+          "epaAzione": 0.031,
+          "epaConcesso": -0.138,
+          "partita": "2026_12_GB_LA"
         },
         {
-          "squadra": "KC",
-          "nome": "Kansas City Chiefs",
-          "avversario": "ARI",
-          "attacco": 0.185,
-          "difesa": 0.133,
-          "netto": 0.318,
-          "epaAzione": 0.256,
-          "epaConcesso": -0.139,
-          "partita": "2026_11_ARI_KC"
-        },
-        {
-          "squadra": "HOU",
-          "nome": "Houston Texans",
-          "avversario": "IND",
-          "attacco": 0.048,
-          "difesa": 0.246,
-          "netto": 0.294,
-          "epaAzione": 0.077,
-          "epaConcesso": -0.285,
-          "partita": "2026_11_IND_HOU"
+          "squadra": "GB",
+          "nome": "Green Bay Packers",
+          "avversario": "LA",
+          "attacco": -0.114,
+          "difesa": 0.031,
+          "netto": -0.083,
+          "epaAzione": -0.138,
+          "epaConcesso": 0.031,
+          "partita": "2026_12_GB_LA"
         }
       ],
       "nota": "EPA per azione corretto per la forza dell'avversario (stesse stime degli indici): +0,10 vuol dire circa 6 punti in più di una squadra media contro lo stesso avversario."
@@ -144718,13 +143683,13 @@
         {
           "squadra": "LA",
           "nome": "Los Angeles Rams",
-          "partite": 10,
-          "fatti1": 4.1,
-          "fatti2": 2.1,
-          "subiti1": 1.9,
-          "subiti2": 1.7,
-          "quota": 25.0,
-          "netto": 2.6
+          "partite": 11,
+          "fatti1": 3.73,
+          "fatti2": 2.18,
+          "subiti1": 2.0,
+          "subiti2": 1.55,
+          "quota": 23.7,
+          "netto": 2.36
         },
         {
           "squadra": "HOU",
@@ -145002,6 +143967,17 @@
           "netto": -3.64
         },
         {
+          "squadra": "GB",
+          "nome": "Green Bay Packers",
+          "partite": 11,
+          "fatti1": 2.45,
+          "fatti2": 0.0,
+          "subiti1": 1.36,
+          "subiti2": 1.09,
+          "quota": 11.3,
+          "netto": 0.0
+        },
+        {
           "squadra": "LAC",
           "nome": "Los Angeles Chargers",
           "partite": 10,
@@ -145011,17 +143987,6 @@
           "subiti2": 0.5,
           "quota": 14.3,
           "netto": -3.1
-        },
-        {
-          "squadra": "GB",
-          "nome": "Green Bay Packers",
-          "partite": 10,
-          "fatti1": 2.4,
-          "fatti2": 0.0,
-          "subiti1": 1.5,
-          "subiti2": 0.9,
-          "quota": 10.6,
-          "netto": 0.0
         },
         {
           "squadra": "MIN",
@@ -145058,7 +144023,7 @@
         }
       ],
       "media": {
-        "fatti1": 2.41,
+        "fatti1": 2.4,
         "fatti2": 1.43
       },
       "nota": "Punti a partita segnati e subiti dopo il two-minute warning (ultimi 2 minuti) del primo e del secondo tempo; quota = parte dei punti della squadra fatta in quei minuti. Sono pochi minuti a partita: come segnale per giocare va ancora misurata."
@@ -145156,22 +144121,22 @@
         {
           "squadra": "GB",
           "nome": "Green Bay Packers",
-          "partite": 10,
-          "flag": 8.0,
-          "yard": 65.0,
-          "subite": 6.2,
+          "partite": 11,
+          "flag": 7.91,
+          "yard": 66.1,
+          "subite": 6.09,
           "tipi": [
+            [
+              "falsa partenza",
+              15
+            ],
             [
               "holding in attacco",
               15
             ],
             [
-              "falsa partenza",
-              14
-            ],
-            [
               "fallo sul quarterback",
-              9
+              10
             ]
           ]
         },
@@ -145286,28 +144251,6 @@
           ]
         },
         {
-          "squadra": "LA",
-          "nome": "Los Angeles Rams",
-          "partite": 10,
-          "flag": 7.4,
-          "yard": 58.9,
-          "subite": 5.5,
-          "tipi": [
-            [
-              "falsa partenza",
-              16
-            ],
-            [
-              "holding in attacco",
-              11
-            ],
-            [
-              "fuorigioco in difesa",
-              8
-            ]
-          ]
-        },
-        {
           "squadra": "JAX",
           "nome": "Jacksonville Jaguars",
           "partite": 10,
@@ -145348,6 +144291,28 @@
             [
               "ritardo di gioco",
               5
+            ]
+          ]
+        },
+        {
+          "squadra": "LA",
+          "nome": "Los Angeles Rams",
+          "partite": 11,
+          "flag": 7.18,
+          "yard": 56.7,
+          "subite": 5.64,
+          "tipi": [
+            [
+              "falsa partenza",
+              16
+            ],
+            [
+              "holding in attacco",
+              13
+            ],
+            [
+              "fuorigioco in difesa",
+              8
             ]
           ]
         },
