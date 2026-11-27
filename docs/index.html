@@ -2796,8 +2796,19 @@ function scegliSchedaGiornata(k){
 }
 
 /* Una partita nel tabellone: sempre la stessa forma (niente anteprima grande del video, che allungava la scheda) */
+/* Migliori della partita (27/11/2026): dall'archivio delle partite (ultimePartite), indice rifatto quando cambiano i dati */
+let MIGLI_IDX=null, MIGLI_DI=null;
+function migliPartita(st, w, osp, casa){
+  if(MIGLI_DI!==D.ultimePartite){
+    MIGLI_IDX={}; MIGLI_DI=D.ultimePartite;
+    (D.ultimePartite||[]).forEach(p=>{ if((p.giocatoriCasa||[]).length||(p.giocatoriOspite||[]).length)
+      MIGLI_IDX[`${p.stagione}|${Number(p.settimana)}|${p.ospite}|${p.casa}`]=p; });
+  }
+  return MIGLI_IDX[`${st}|${Number(w)}|${osp}|${casa}`]||null;
+}
 function schedaTabellone(g, sett){
-  const SW=sett||D.giornata||{};
+  // .map(schedaTabellone) passa l'indice come secondo argomento: vale solo un oggetto {stagione, settimana}
+  const SW=(sett&&typeof sett==="object")?sett:(D.giornata||{});
   const giocata = g.pc!==null && g.pc!==undefined;
   const vinceOsp = giocata && g.po>g.pc, vinceCasa = giocata && g.pc>g.po;
   const riga=(sig,pt,w)=>`<div class="fb-team${w?" w":""}">${stemma(sig,true)}<span class="n">${esc(breve(sig))}</span><span class="s">${giocata?pt:""}</span></div>`;
@@ -2814,6 +2825,10 @@ function schedaTabellone(g, sett){
   const video = vid ? `<a class="gio-azione" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener" title="${esc(g.video.titolo||"")}">${play} Highlights</a>`
     : g.highlights && /^https:\/\/www\.youtube\.com\//.test(g.highlights) ? `<a class="gio-azione" href="${esc(g.highlights)}" target="_blank" rel="noopener">${play} Cerca video</a>` : "";
   const mom = momenti(g);
+  if(!(g.giocatoriOspite||[]).length&&!(g.giocatoriCasa||[]).length){      // migliori dall'archivio delle partite
+    const a=migliPartita(SW.stagione,SW.settimana,g.ospite,g.casa);
+    if(a) g={...g, giocatoriOspite:a.giocatoriOspite, giocatoriCasa:a.giocatoriCasa};
+  }
   const migliori = (g.giocatoriOspite||[]).length||(g.giocatoriCasa||[]).length
     ? `<details class="fb-mom"><summary>Migliori della partita</summary><div class="rose">${rosa(breve(g.ospite),g.giocatoriOspite)}${rosa(breve(g.casa),g.giocatoriCasa)}</div></details>` : "";
   return `<article class="fb-game gio-gara">
