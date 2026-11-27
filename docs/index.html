@@ -853,9 +853,54 @@
   .tv.incl.mini{margin-left:2px;font-size:9px;padding:1px 4px}
   .tv-nota{font-size:12px;color:var(--fb-muted);margin-left:6px}
   .gara-tv{display:flex;align-items:center;flex-wrap:wrap;gap:4px;font-size:12.5px;color:var(--fb-muted);margin-top:6px}
-  .h-tvs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
-  .h-tv{border:1px solid var(--fb-border);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
-  .h-tv small{font:700 11px var(--f-testo);color:var(--fb-muted)} .h-tv span{display:flex;align-items:center;gap:6px;font-weight:600}.h-tv b{margin-left:auto}
+  /* In TV in Italia come guida TV (27/11/2026, Valerio: «assomiglia alla barra dei risultati»): righe per giorno,
+     ora grande a sinistra, canale, fascia, stato (in onda con barra di avanzamento, finale, conto alla rovescia) */
+  .gt{display:grid;grid-template-columns:150px minmax(0,1fr);border:1px solid var(--fb-border);border-radius:12px;overflow:hidden;background:var(--fb-card)}
+  .gt-testa{grid-column:1/-1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--fb-border);background:var(--fb-pill)}
+  .gt-testa b{font:700 13px var(--f-testo);letter-spacing:.08em;text-transform:uppercase}
+  .gt-testa small{font-size:12.5px;color:var(--fb-muted);margin-left:auto}
+  .gt-giorno{padding:14px 16px;border-top:1px solid var(--fb-border);border-right:1px solid var(--fb-border);display:flex;flex-direction:column;gap:2px}
+  .gt-giorno b{font:700 24px/1 var(--f-tit);text-transform:uppercase;letter-spacing:.02em}
+  .gt-giorno small{font:600 12px var(--f-testo);color:var(--fb-muted);text-transform:uppercase;letter-spacing:.06em}
+  .gt-giorno.oggi b{color:var(--fb-acc)}
+  .gt-righe{border-top:1px solid var(--fb-border)}
+  .gt-giorno.primo,.gt-giorno.primo+.gt-righe{border-top:0}
+  .gt-riga{position:relative;display:grid;grid-template-columns:74px 58px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 16px}
+  .gt-riga+.gt-riga{border-top:1px dashed var(--fb-border)}
+  .gt-ora{font:700 26px/1 var(--f-tit);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .gt-can{display:flex;justify-content:center}
+  .gt-prog{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .gt-fascia{font:800 10.5px var(--f-testo);letter-spacing:.1em;text-transform:uppercase;color:var(--fb-acc)}
+  .gt-tit{display:flex;align-items:center;gap:7px;font:600 15px var(--f-testo);min-width:0;flex-wrap:wrap}
+  .gt-tit i{font-style:normal;color:var(--fb-muted);font-weight:500}
+  .gt-luogo{font-size:12px;color:var(--fb-muted)}
+  .gt-stato{font:700 12px var(--f-testo);letter-spacing:.04em;text-align:right;white-space:nowrap;color:var(--fb-muted)}
+  .gt-stato b{font:700 18px var(--f-tit);color:var(--fb-text);margin-left:6px;letter-spacing:0}
+  .gt-riga.finita .gt-ora,.gt-riga.finita .gt-tit{opacity:.55}
+  .gt-riga.live{background:linear-gradient(90deg,rgba(239,68,68,.12),transparent 70%)}
+  .gt-riga.live::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--fb-acc)}
+  .gt-riga.live .gt-stato{color:var(--fb-acc)}
+  .gt-pallino{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--fb-acc);margin-right:6px;vertical-align:1px;animation:gtBatti 1.4s ease-in-out infinite}
+  @keyframes gtBatti{50%{opacity:.25}}
+  @media (prefers-reduced-motion:reduce){.gt-pallino{animation:none}}
+  .gt-barra{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(239,68,68,.18)}.gt-barra i{display:block;height:100%;background:var(--fb-acc)}
+  .gt-riga.prossima .gt-stato{color:var(--fb-text)}
+  .gt-piede{grid-column:1/-1;padding:11px 16px;border-top:1px solid var(--fb-border);font-size:12.5px;color:var(--fb-muted)}
+  .gt-piede a{color:var(--fb-text)}
+  @media (max-width:760px){
+    .gt{grid-template-columns:1fr}
+    .gt-testa small{margin-left:0;flex-basis:100%}
+    .gt-giorno{flex-direction:row;align-items:baseline;gap:8px;border-right:0;padding:10px 14px;background:var(--fb-pill)}
+    .gt-giorno b{font-size:18px}
+    .gt-righe{border-top:0}
+    .gt-riga{grid-template-columns:56px minmax(0,1fr);gap:4px 10px;padding:11px 14px}
+    .gt-stato{grid-column:2;text-align:left}
+    .gt-stato:empty{display:none}
+    .gt-tit{flex-wrap:nowrap}
+    .gt-can{display:none}
+    .gt-ora{font-size:22px}
+    .gt-tit{font-size:14px}
+  }
   /* partite decisive */
   .dc{list-style:none;padding:0;margin:0}
   .dc li{display:grid;grid-template-columns:140px minmax(0,1fr) 120px;gap:14px;align-items:center;padding:10px 0;border-top:1px solid var(--fb-border)}
@@ -871,9 +916,8 @@
     .h-st h2{font-size:22px}.h-ico{width:26px;height:26px}
     .h-hero,.h-g21,.h-g11,.h-due,.h-altro{grid-template-columns:1fr}
     .h-coll{grid-template-columns:1fr}
-    .h-g3,.h-g4,.h-tvs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px}
+    .h-g3,.h-g4{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px}
     .h-g3>*,.h-g4>*{flex:none;width:82%;scroll-snap-align:start}
-    .h-tvs>*{flex:none;width:44%}
     .h-cover{min-height:300px;padding:18px}.h-cover b{font-size:28px}
     .h-schede{display:flex;gap:6px;margin-bottom:10px}
     .h-schede button{flex:1;padding:7px 0;border-radius:8px;border:1px solid var(--fb-border);background:transparent;color:var(--fb-text);font:700 13px var(--f-testo)}
@@ -3448,13 +3492,57 @@ function stradaH(H, wk){
 function tvH(wk){
   if(legaAttiva!=="nfl" || !wk.partite.length) return "";
   const s=((TV_IT||{}).settimane||{})[`${wk.stagione}|${wk.settimana}`]||{};
-  const inc=wk.partite.filter(p=>tvInclusa(p));
-  const carte=inc.map(p=>`<div class="h-tv"><small>${esc(quandoBreve(p))}</small>
-    <span>${stemma(p.ospite,true)}${esc(breve(p.ospite))}${finitaP(p)?`<b>${p.po}</b>`:""}</span><span>${stemma(p.casa,true)}${esc(breve(p.casa))}${finitaP(p)?`<b>${p.pc}</b>`:""}</span></div>`).join("");
-  const nota=s.articolo?`Scelte da DAZN Italia: <a href="${esc(s.articolo)}" target="_blank" rel="noopener">l'articolo della settimana ↗</a>.`
-    :inc.length?"Le partite della domenica pomeriggio incluse non sono ancora state annunciate da DAZN.":"DAZN non ha ancora annunciato le partite incluse.";
-  return sezioneH("In TV in Italia", cardH("INCLUSE NEGLI ABBONAMENTI DAZN SPORTS, FULL E FAMILY", `${inc.length?`<div class="h-tvs">${carte}</div>`:""}
-    <p class="h-nota"><span class="tv dazn">DAZN</span> Tutte le ${wk.partite.length} partite della week si vedono con NFL Game Pass. ${nota}</p>`), "", "tv");
+  const inc=wk.partite.filter(p=>tvInclusa(p)).map(p=>({p, t:istanteRoma(p.dataIt||p.data,p.oraIt)}))
+    .sort((x,y)=>(x.t||0)-(y.t||0));
+  const ora=Date.now(), DURATA=3.25*3600e3;
+  const prossima=inc.find(x=>!finitaP(x.p) && x.t && x.t.getTime()>ora);
+  const GIORNI=["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];
+  const oggi=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Rome"}).format(new Date());
+  // gruppi per giorno italiano
+  const gruppi=[]; inc.forEach(x=>{ const d=x.p.dataIt||x.p.data; let g=gruppi.find(y=>y.d===d); if(!g) gruppi.push(g={d,l:[]}); g.l.push(x); });
+  const riga=({p,t})=>{
+    const fin=finitaP(p), ini=t?t.getTime():null, live=!fin && ini && ora>=ini && ora<ini+DURATA;
+    let stato="", cls=fin?"finita":live?"live":(prossima&&prossima.p===p)?"prossima":"";
+    if(fin) stato=`FINALE<b>${p.po}–${p.pc}</b>`;
+    else if(live) stato=`<span class="gt-pallino"></span>IN ONDA`;
+    else if(ini && ini-ora<24*3600e3){ const m=Math.round((ini-ora)/60000); stato=`tra ${m>=60?Math.floor(m/60)+" h ":""}${m%60} min`; }
+    else if(cls==="prossima") stato="PROSSIMA";
+    const barra=live?`<span class="gt-barra"><i style="width:${Math.min(100,Math.round((ora-ini)/DURATA*100))}%"></i></span>`:"";
+    const f=fasciaTv(t);
+    return `<div class="gt-riga ${cls}"><time class="gt-ora">${esc(p.oraIt||"")}</time><span class="gt-can"><span class="tv dazn">DAZN</span></span>
+      <div class="gt-prog">${f?`<span class="gt-fascia">${esc(f)}</span>`:""}
+        <span class="gt-tit">${stemma(p.ospite,true)}${esc(breve(p.ospite))} <i>@</i> ${stemma(p.casa,true)}${esc(breve(p.casa))}</span>
+        ${p.stadio?`<span class="gt-luogo">${esc(p.stadio)}</span>`:""}</div>
+      <span class="gt-stato">${stato}</span>${barra}</div>`;
+  };
+  const corpo=gruppi.map((g,i)=>{ const d=new Date(g.d+"T12:00:00");
+    return `<div class="gt-giorno${i?"":" primo"}${g.d===oggi?" oggi":""}"><b>${g.d===oggi?"Oggi":esc(GIORNI[d.getDay()])}</b><small>${d.getDate()} ${esc(MESI_IT[d.getMonth()])}</small></div>
+      <div class="gt-righe">${g.l.map(riga).join("")}</div>`; }).join("");
+  const nota=s.articolo?`Scelte da DAZN Italia: <a href="${esc(s.articolo)}" target="_blank" rel="noopener">l'articolo della settimana ↗</a>`
+    :inc.length?"Le partite della domenica pomeriggio incluse non sono ancora state annunciate da DAZN":"DAZN non ha ancora annunciato le partite incluse";
+  return sezioneH("In TV in Italia", `<div class="gt">
+    <div class="gt-testa"><span class="tv dazn">DAZN</span><b>Guida TV · Week ${esc(wk.settimana)}</b><small>Incluse negli abbonamenti DAZN Sports, Full e Family · ora italiana</small></div>
+    ${corpo}
+    <div class="gt-piede">Tutte le ${wk.partite.length} partite della week si vedono anche con NFL Game Pass su DAZN. ${nota}.</div></div>`,
+    linkH("Calendario completo","vai('partite')"), "tv");
+}
+/* fascia della partita con i nomi che usano i tifosi, dall'ora della costa est */
+function fasciaTv(t){
+  if(!t) return "";
+  let g, h, m, d;
+  try{
+    const x=Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",hour:"numeric",hourCycle:"h23",month:"numeric",day:"numeric"})
+      .formatToParts(t).map(y=>[y.type,y.value]));
+    g=x.weekday; h=+x.hour; m=+x.month; d=+x.day;
+  }catch(e){ return ""; }
+  if(m===12 && d===25) return "Natale";
+  if(m===11 && g==="Thu" && d>=22 && d<=28) return "Thanksgiving";
+  if(m===11 && g==="Fri" && d>=23 && d<=29) return "Black Friday";
+  if(g==="Thu") return "Thursday Night Football";
+  if(g==="Mon") return "Monday Night Football";
+  if(g==="Sun") return h>=19 ? "Sunday Night Football" : h>=15 ? "Domenica · seconda fascia" : "Domenica · prima fascia";
+  if(h>=19) return "Partita in notturna";
+  return "";
 }
 
 /* ---------- da leggere ---------- */

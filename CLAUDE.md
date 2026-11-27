@@ -466,6 +466,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   articolo si legge una volta (`letti`). Prime Video non trasmette la NFL in Italia: nessun bollino.
   26/11/2026: le anteprime «… come guardarlo su DAZN» (indirizzi con «guarda») valgono come «diretta su DAZN», e anche
   per le partite delle feste fuori dalla notte (Ringraziamento 19:00 e 22:30, Black Friday, Natale): prima mancavano.
+- Aspetto (27/11/2026, Valerio: le carte sembravano la barra dei risultati in alto): `tvH` è una guida TV (`.gt`): giorni
+  italiani a sinistra («Oggi» in rosso), per ogni partita ora grande, canale DAZN, fascia (`fasciaTv` dall'ora della costa
+  est: Thanksgiving, Black Friday, Natale, Thursday/Sunday/Monday Night Football, Domenica prima/seconda fascia, Partita in
+  notturna), squadre e stadio, stato a destra: FINALE col punteggio, IN ONDA con pallino e barra di avanzamento (durata
+  3h15), «tra N h» nelle 24 ore, PROSSIMA. Sul telefono i giorni diventano intestazioni e lo stato va sotto le squadre.
 - Da controllare: se l'articolo DAZN delle cinque partite esce ogni settimana (trovato per la Week 11). Se manca spesso,
   riserva da fare: comando nel bot per segnarle a mano (serve un token GitHub nel config.toml del server).
 
