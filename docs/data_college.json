@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-27T20:34:44.357205+00:00",
+  "aggiornato": "2026-11-27T21:49:46.829961+00:00",
   "campionato": "College Football",
   "fonte": "ESPN (calendario, risultati, tabellini) · CollegeFootballData (SP+)",
   "stagioni": [
@@ -9,8 +9,8 @@
     "2023",
     "2022"
   ],
-  "totalePartite": 4556,
-  "partiteGiocate": 4488,
+  "totalePartite": 4557,
+  "partiteGiocate": 4489,
   "squadre": [
     {
       "nome": "Georgia",
@@ -1005,102 +1005,6 @@
       ]
     },
     {
-      "nome": "Ohio",
-      "nomeCompleto": "Ohio",
-      "conference": "Mid-American",
-      "conferenza": "Mid-American",
-      "partite": 65,
-      "vittorie": 48,
-      "sconfitte": 17,
-      "pareggi": 0,
-      "percVittorie": 73.8,
-      "mediaFatti": 28.4,
-      "mediaSubiti": 21.5,
-      "differenza": 451,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Mid-American",
-          "partite": 11,
-          "vittorie": 8,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 72.7,
-          "mediaFatti": 28.8,
-          "mediaSubiti": 23.4,
-          "differenza": 60,
-          "vittorieCasa": 5,
-          "partiteCasa": 5,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Mid-American",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 27.8,
-          "mediaSubiti": 21.9,
-          "differenza": 76,
-          "vittorieCasa": 7,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Mid-American",
-          "partite": 14,
-          "vittorie": 11,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 78.6,
-          "mediaFatti": 29.3,
-          "mediaSubiti": 18.1,
-          "differenza": 156,
-          "vittorieCasa": 6,
-          "partiteCasa": 6,
-          "vittorieFuori": 5,
-          "partiteFuori": 8
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Mid-American",
-          "partite": 13,
-          "vittorie": 10,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 76.9,
-          "mediaFatti": 24.3,
-          "mediaSubiti": 15.8,
-          "differenza": 110,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Mid-American",
-          "partite": 14,
-          "vittorie": 10,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 71.4,
-          "mediaFatti": 31.8,
-          "mediaSubiti": 28.3,
-          "differenza": 49,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
-        }
-      ]
-    },
-    {
       "nome": "Tulane",
       "nomeCompleto": "Tulane",
       "conference": "American Athletic",
@@ -1193,6 +1097,102 @@
           "partiteCasa": 8,
           "vittorieFuori": 6,
           "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "Ohio",
+      "nomeCompleto": "Ohio",
+      "conference": "Mid-American",
+      "conferenza": "Mid-American",
+      "partite": 66,
+      "vittorie": 48,
+      "sconfitte": 18,
+      "pareggi": 0,
+      "percVittorie": 72.7,
+      "mediaFatti": 28.5,
+      "mediaSubiti": 21.7,
+      "differenza": 448,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Mid-American",
+          "partite": 12,
+          "vittorie": 8,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 66.7,
+          "mediaFatti": 29.0,
+          "mediaSubiti": 24.2,
+          "differenza": 57,
+          "vittorieCasa": 5,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Mid-American",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 27.8,
+          "mediaSubiti": 21.9,
+          "differenza": 76,
+          "vittorieCasa": 7,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Mid-American",
+          "partite": 14,
+          "vittorie": 11,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 78.6,
+          "mediaFatti": 29.3,
+          "mediaSubiti": 18.1,
+          "differenza": 156,
+          "vittorieCasa": 6,
+          "partiteCasa": 6,
+          "vittorieFuori": 5,
+          "partiteFuori": 8
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Mid-American",
+          "partite": 13,
+          "vittorie": 10,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 76.9,
+          "mediaFatti": 24.3,
+          "mediaSubiti": 15.8,
+          "differenza": 110,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Mid-American",
+          "partite": 14,
+          "vittorie": 10,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 71.4,
+          "mediaFatti": 31.8,
+          "mediaSubiti": 28.3,
+          "differenza": 49,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
         }
       ]
     },
@@ -1869,6 +1869,102 @@
       ]
     },
     {
+      "nome": "Toledo",
+      "nomeCompleto": "Toledo",
+      "conference": "Mid-American",
+      "conferenza": "Mid-American",
+      "partite": 66,
+      "vittorie": 46,
+      "sconfitte": 20,
+      "pareggi": 0,
+      "percVittorie": 69.7,
+      "mediaFatti": 31.1,
+      "mediaSubiti": 20.6,
+      "differenza": 694,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Mid-American",
+          "partite": 12,
+          "vittorie": 10,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 83.3,
+          "mediaFatti": 33.0,
+          "mediaSubiti": 20.9,
+          "differenza": 145,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Mid-American",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 30.8,
+          "mediaSubiti": 13.3,
+          "differenza": 228,
+          "vittorieCasa": 6,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Mid-American",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 28.3,
+          "mediaSubiti": 23.2,
+          "differenza": 66,
+          "vittorieCasa": 5,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Mid-American",
+          "partite": 14,
+          "vittorie": 11,
+          "sconfitte": 3,
+          "pareggi": 0,
+          "percVittorie": 78.6,
+          "mediaFatti": 32.3,
+          "mediaSubiti": 20.3,
+          "differenza": 168,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 5,
+          "partiteFuori": 7
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Mid-American",
+          "partite": 14,
+          "vittorie": 9,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 64.3,
+          "mediaFatti": 31.3,
+          "mediaSubiti": 25.1,
+          "differenza": 87,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 7
+        }
+      ]
+    },
+    {
       "nome": "Liberty",
       "nomeCompleto": "Liberty",
       "conference": "Conference USA",
@@ -2247,102 +2343,6 @@
           "differenza": 44,
           "vittorieCasa": 4,
           "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 7
-        }
-      ]
-    },
-    {
-      "nome": "Toledo",
-      "nomeCompleto": "Toledo",
-      "conference": "Mid-American",
-      "conferenza": "Mid-American",
-      "partite": 65,
-      "vittorie": 45,
-      "sconfitte": 20,
-      "pareggi": 0,
-      "percVittorie": 69.2,
-      "mediaFatti": 31.1,
-      "mediaSubiti": 20.5,
-      "differenza": 691,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Mid-American",
-          "partite": 11,
-          "vittorie": 9,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 81.8,
-          "mediaFatti": 32.9,
-          "mediaSubiti": 20.0,
-          "differenza": 142,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Mid-American",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 30.8,
-          "mediaSubiti": 13.3,
-          "differenza": 228,
-          "vittorieCasa": 6,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Mid-American",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 28.3,
-          "mediaSubiti": 23.2,
-          "differenza": 66,
-          "vittorieCasa": 5,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Mid-American",
-          "partite": 14,
-          "vittorie": 11,
-          "sconfitte": 3,
-          "pareggi": 0,
-          "percVittorie": 78.6,
-          "mediaFatti": 32.3,
-          "mediaSubiti": 20.3,
-          "differenza": 168,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 5,
-          "partiteFuori": 7
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Mid-American",
-          "partite": 14,
-          "vittorie": 9,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 64.3,
-          "mediaFatti": 31.3,
-          "mediaSubiti": 25.1,
-          "differenza": 87,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
           "vittorieFuori": 3,
           "partiteFuori": 7
         }
@@ -194332,12 +194332,88 @@
       "dataIt": "2026-11-27",
       "oraIt": "18:00",
       "inizio": "2026-11-27T17:00Z",
-      "pc": null,
-      "po": null,
+      "pc": 31,
+      "po": 34,
       "conferenzaCasa": "Mid-American",
       "stadio": "Peden Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Levi Davis",
+          "ruolo": "QB",
+          "valore": 288,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD",
+            "1 INT"
+          ]
+        },
+        {
+          "nome": "Levi Davis",
+          "ruolo": "RB",
+          "valore": 70,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Preston Bowman",
+          "ruolo": "WR",
+          "valore": 150,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "8 ric."
+          ]
+        },
+        {
+          "nome": "Dom Dorwart",
+          "ruolo": "WR",
+          "valore": 120,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "John Alan Richter",
+          "ruolo": "QB",
+          "valore": 211,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "CJ Miller",
+          "ruolo": "RB",
+          "valore": 109,
+          "misura": "yard corse",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Daryl Barnett Jr.",
+          "ruolo": "WR",
+          "valore": 65,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "7 ric."
+          ]
+        },
+        {
+          "nome": "Bryson Hammer",
+          "ruolo": "WR",
+          "valore": 60,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -195633,6 +195709,22 @@
       "po": null,
       "conferenzaCasa": "Big 12",
       "stadio": "AT&T Stadium",
+      "giocatoriCasa": [],
+      "giocatoriOspite": []
+    },
+    {
+      "stagione": "2026",
+      "settimana": "14",
+      "data": "2026-12-05",
+      "casa": "Buffalo",
+      "ospite": "Toledo",
+      "dataIt": "2026-12-05",
+      "oraIt": "18:00",
+      "inizio": "2026-12-05T17:00Z",
+      "pc": null,
+      "po": null,
+      "conferenzaCasa": "Mid-American",
+      "stadio": "Ford Field",
       "giocatoriCasa": [],
       "giocatoriOspite": []
     },
@@ -198414,6 +198506,17 @@
           "netto": 3.5
         },
         {
+          "squadra": "Toledo",
+          "nome": "Toledo",
+          "partite": 12,
+          "fatti1": 3.92,
+          "fatti2": 2.33,
+          "subiti1": 2.25,
+          "subiti2": 0.75,
+          "quota": null,
+          "netto": 3.25
+        },
+        {
           "squadra": "Louisiana",
           "nome": "Louisiana",
           "partite": 11,
@@ -198480,17 +198583,6 @@
           "netto": 3.91
         },
         {
-          "squadra": "Toledo",
-          "nome": "Toledo",
-          "partite": 11,
-          "fatti1": 4.27,
-          "fatti2": 1.64,
-          "subiti1": 1.82,
-          "subiti2": 0.82,
-          "quota": null,
-          "netto": 3.27
-        },
-        {
           "squadra": "Massachusetts",
           "nome": "Massachusetts",
           "partite": 11,
@@ -198502,6 +198594,17 @@
           "netto": 1.45
         },
         {
+          "squadra": "Ohio",
+          "nome": "Ohio",
+          "partite": 12,
+          "fatti1": 4.0,
+          "fatti2": 1.75,
+          "subiti1": 1.83,
+          "subiti2": 3.67,
+          "quota": null,
+          "netto": 0.25
+        },
+        {
           "squadra": "Southern Miss",
           "nome": "Southern Miss",
           "partite": 11,
@@ -198511,17 +198614,6 @@
           "subiti2": 0.91,
           "quota": null,
           "netto": 2.09
-        },
-        {
-          "squadra": "Ohio",
-          "nome": "Ohio",
-          "partite": 11,
-          "fatti1": 3.73,
-          "fatti2": 1.91,
-          "subiti1": 2.0,
-          "subiti2": 3.09,
-          "quota": null,
-          "netto": 0.55
         },
         {
           "squadra": "South Carolina",
@@ -199757,7 +199849,7 @@
         }
       ],
       "media": {
-        "fatti1": 2.92,
+        "fatti1": 2.93,
         "fatti2": 1.5
       },
       "nota": "Punti a partita segnati e subiti negli ultimi 2 minuti del primo e del secondo tempo (nel college il two-minute warning non esiste). Sono pochi minuti a partita: come segnale va ancora misurata."
@@ -199855,15 +199947,6 @@
           "tipi": []
         },
         {
-          "squadra": "Toledo",
-          "nome": "Toledo",
-          "partite": 11,
-          "flag": 8.18,
-          "yard": 70.2,
-          "subite": 4.73,
-          "tipi": []
-        },
-        {
           "squadra": "Liberty",
           "nome": "Liberty",
           "partite": 11,
@@ -199906,6 +199989,15 @@
           "flag": 8.0,
           "yard": 73.1,
           "subite": 6.18,
+          "tipi": []
+        },
+        {
+          "squadra": "Toledo",
+          "nome": "Toledo",
+          "partite": 12,
+          "flag": 8.0,
+          "yard": 69.4,
+          "subite": 4.83,
           "tipi": []
         },
         {
@@ -200764,6 +200856,15 @@
           "tipi": []
         },
         {
+          "squadra": "Ohio",
+          "nome": "Ohio",
+          "partite": 12,
+          "flag": 5.25,
+          "yard": 46.5,
+          "subite": 6.5,
+          "tipi": []
+        },
+        {
           "squadra": "Eastern Michigan",
           "nome": "Eastern Michigan",
           "partite": 12,
@@ -200779,15 +200880,6 @@
           "flag": 5.18,
           "yard": 40.5,
           "subite": 5.55,
-          "tipi": []
-        },
-        {
-          "squadra": "Ohio",
-          "nome": "Ohio",
-          "partite": 11,
-          "flag": 5.18,
-          "yard": 45.1,
-          "subite": 6.55,
           "tipi": []
         },
         {
@@ -201126,6 +201218,34 @@
             "canale": "CBS Sports College Football",
             "ufficiale": true,
             "etichetta": "Highlights · CBS Sports College Football · si apre su YouTube"
+          }
+        },
+        {
+          "highlights": "https://www.youtube.com/results?search_query=Toledo+vs+Ohio+football+highlights+November+27%2C+2026",
+          "data": "2026-11-27",
+          "ora": "",
+          "dataIt": "2026-11-27",
+          "oraIt": "18:00",
+          "inizio": "2026-11-27T17:00Z",
+          "casa": "Ohio",
+          "ospite": "Toledo",
+          "pc": 31,
+          "po": 34,
+          "favorita": "Toledo",
+          "linea": 3.5,
+          "totaleLinea": 44.5,
+          "battutaDa": "Ohio",
+          "totaleEsito": "over",
+          "scartoLinea": 0.5,
+          "stadio": "",
+          "confCasa": "Mid-American",
+          "confOspite": "Mid-American",
+          "video": {
+            "id": "UdzkM1mxtzc",
+            "titolo": "Toledo vs. Ohio | Full Game Highlights | ESPN College Football",
+            "canale": "ESPN College Football",
+            "ufficiale": true,
+            "etichetta": "Highlights · ESPN College Football · si apre su YouTube"
           }
         },
         {
