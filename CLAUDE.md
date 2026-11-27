@@ -250,6 +250,10 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   mouse con `legaRiflesso`; fermo con «riduci movimento») e il bollino della rarità nell'album. Nº 002 = Rara «La presa
   dell'Eco», uscita anticipata al 26/11/2026 (Valerio); Nº 003 = Leggendaria «Il ricevitore del futuro»
   (Esordiente dell'anno 2186, stile B), uscita 26/11/2026; il quarterback dei Tempest esce il 27/11 come Nº 004.
+- Formato dei ritratti (27/11/2026, Valerio): Gemini in 5:4 orizzontale, figura dalla vita in su, Dono e oggetti in mano
+  dentro l'inquadratura all'altezza di petto, spalle o viso. Il riquadro della carta è 706×600: i ritratti verticali 9:16
+  ne perdevano braccia e Dono (005 e 006 rifatte così). Allenatori senza Dono: «dono» Nessuno con «prezzo» vuoto e
+  «maglia» vuota (la carta toglie «Prezzo» e il sito «n.»).
 - Loghi delle squadre della Lega (26/11/2026, Valerio): TUTTI fatti con Gemini, mai disegnati da Claude. Alla prima
   carta di una squadra senza file in lega/stemmi/ l'attività manda anche il prompt del logo (emblema circolare come quello
   dei Tempest); la carta non esce senza logo.
