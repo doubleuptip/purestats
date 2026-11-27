@@ -18,7 +18,7 @@
  "mercato": {
   "favorita": "Buffalo Bills",
   "vantaggio": 3.0,
-  "totale": 45.5,
+  "totale": 46.5,
   "nota": "solo per dire chi parte favorito, a parole comuni (favoriti di poco fino a 3, favoriti, nettamente favoriti da 7,5), senza citare mercato, bookmaker, linea o totale"
  },
  "precedenti": [
@@ -423,5 +423,309 @@
  "colori": {
   "ospite": "#E31837",
   "casa": "#00338D"
+ },
+ "partitaGiocata": {
+  "risultato": "Kansas City Chiefs 10 - Buffalo Bills 13",
+  "puntiOspite": 10,
+  "puntiCasa": 13,
+  "vincitore": "Buffalo Bills",
+  "scarto": 3,
+  "parziali": [
+   {
+    "quarto": "1°",
+    "ospite": 0,
+    "casa": 0
+   },
+   {
+    "quarto": "2°",
+    "ospite": 3,
+    "casa": 7
+   },
+   {
+    "quarto": "3°",
+    "ospite": 7,
+    "casa": 0
+   },
+   {
+    "quarto": "4°",
+    "ospite": 0,
+    "casa": 6
+   }
+  ],
+  "marcature": [
+   {
+    "quarto": "2",
+    "tempo": "14:36",
+    "squadra": "Buffalo Bills",
+    "tipo": "touchdown",
+    "azione": "Cook corre centralmente, 5 yard: touchdown",
+    "chi": [
+     "Cook"
+    ],
+    "giocatori": [
+     "James Cook"
+    ],
+    "punteggioDopo": "Kansas City Chiefs 0 - Buffalo Bills 7"
+   },
+   {
+    "quarto": "2",
+    "tempo": "00:05",
+    "squadra": "Kansas City Chiefs",
+    "tipo": "field goal",
+    "azione": "Butker: field goal da 26 yard riuscito",
+    "chi": [
+     "Butker"
+    ],
+    "giocatori": [
+     "Harrison Butker"
+    ],
+    "punteggioDopo": "Kansas City Chiefs 3 - Buffalo Bills 7"
+   },
+   {
+    "quarto": "3",
+    "tempo": "11:31",
+    "squadra": "Kansas City Chiefs",
+    "tipo": "touchdown",
+    "azione": "Johnson corre a destra, in mezzo, 1 yard: touchdown",
+    "chi": [
+     "Johnson"
+    ],
+    "giocatori": [
+     "Emmett Johnson"
+    ],
+    "punteggioDopo": "Kansas City Chiefs 10 - Buffalo Bills 7"
+   },
+   {
+    "quarto": "4",
+    "tempo": "12:03",
+    "squadra": "Buffalo Bills",
+    "tipo": "field goal",
+    "azione": "Bass: field goal da 54 yard riuscito",
+    "chi": [
+     "Bass"
+    ],
+    "giocatori": [
+     "Tyler Bass"
+    ],
+    "punteggioDopo": "Kansas City Chiefs 10 - Buffalo Bills 10"
+   },
+   {
+    "quarto": "4",
+    "tempo": "00:04",
+    "squadra": "Buffalo Bills",
+    "tipo": "field goal",
+    "azione": "Bass: field goal da 57 yard riuscito",
+    "chi": [
+     "Bass"
+    ],
+    "giocatori": [
+     "Tyler Bass"
+    ],
+    "punteggioDopo": "Kansas City Chiefs 10 - Buffalo Bills 13"
+   }
+  ],
+  "momentiDecisivi": [
+   {
+    "quarto": "2",
+    "tempo": "07:55",
+    "squadra": "Buffalo Bills",
+    "azione": "Allen intercettato da Gilman",
+    "chi": [
+     "Allen",
+     "Gilman"
+    ],
+    "giocatori": [
+     "Josh Allen",
+     "Dawson Knox",
+     "Alohi Gilman"
+    ],
+    "probabilitaVittoria": "Buffalo Bills da 84% a 73%"
+   },
+   {
+    "quarto": "3",
+    "tempo": "05:48",
+    "squadra": "Buffalo Bills",
+    "azione": "Allen intercettato da Williams",
+    "chi": [
+     "Allen",
+     "Williams"
+    ],
+    "giocatori": [
+     "Josh Allen",
+     "Khalil Shakir",
+     "Nohl Williams"
+    ],
+    "probabilitaVittoria": "Buffalo Bills da 57% a 39%"
+   },
+   {
+    "quarto": "3",
+    "tempo": "05:04",
+    "squadra": "Kansas City Chiefs",
+    "azione": "Johnson corre centralmente, nessun guadagno",
+    "chi": [
+     "Johnson"
+    ],
+    "giocatori": [
+     "Emmett Johnson"
+    ],
+    "probabilitaVittoria": "Buffalo Bills da 38% a 46%"
+   },
+   {
+    "quarto": "4",
+    "tempo": "06:01",
+    "squadra": "Kansas City Chiefs",
+    "azione": "Butker: field goal da 46 yard sbagliato",
+    "chi": [
+     "Butker"
+    ],
+    "giocatori": [
+     "Harrison Butker"
+    ],
+    "probabilitaVittoria": "Buffalo Bills da 44% a 61%"
+   },
+   {
+    "quarto": "4",
+    "tempo": "00:04",
+    "squadra": "Buffalo Bills",
+    "azione": "Bass: field goal da 57 yard riuscito",
+    "chi": [
+     "Bass"
+    ],
+    "giocatori": [
+     "Tyler Bass"
+    ],
+    "probabilitaVittoria": "Buffalo Bills da 81% a 100%"
+   }
+  ],
+  "numeri": {
+   "ospiti": {
+    "yardTotali": 241,
+    "yardLancio": 174,
+    "yardCorsa": 74,
+    "azioni": 50,
+    "primiDown": 13,
+    "terziDown": "2/11",
+    "quartiDown": "1/1",
+    "palle perse": 0,
+    "sackSubiti": 1,
+    "penalita": 8,
+    "possesso": "23:05"
+   },
+   "padroniDiCasa": {
+    "yardTotali": 230,
+    "yardLancio": 81,
+    "yardCorsa": 166,
+    "azioni": 66,
+    "primiDown": 17,
+    "terziDown": "9/16",
+    "quartiDown": "1/1",
+    "palle perse": 2,
+    "sackSubiti": 2,
+    "penalita": 3,
+    "possesso": "36:55"
+   }
+  },
+  "protagonisti": {
+   "ospiti": [
+    {
+     "ruolo": "QB",
+     "nome": "Patrick Mahomes",
+     "completiTentati": "16/29",
+     "yardLanciate": 174,
+     "tdLancio": 0,
+     "intercettiSubiti": 0,
+     "sackSubiti": 1,
+     "yardCorsa": 2
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Emmett Johnson",
+     "posizione": "RB",
+     "corse": 17,
+     "yardCorsa": 72,
+     "tdCorsa": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Travis Kelce",
+     "posizione": "TE",
+     "ricezioni": 4,
+     "bersagli": 7,
+     "yardRicevute": 71,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Noah Gray",
+     "posizione": "TE",
+     "ricezioni": 3,
+     "bersagli": 3,
+     "yardRicevute": 23,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Nick Bolton",
+     "posizione": "LB",
+     "placcaggi": 14,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ],
+   "padroniDiCasa": [
+    {
+     "ruolo": "QB",
+     "nome": "Josh Allen",
+     "completiTentati": "10/21",
+     "yardLanciate": 81,
+     "tdLancio": 0,
+     "intercettiSubiti": 2,
+     "sackSubiti": 2,
+     "yardCorsa": 43
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "James Cook",
+     "posizione": "RB",
+     "corse": 32,
+     "yardCorsa": 117,
+     "tdCorsa": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Khalil Shakir",
+     "posizione": "WR",
+     "ricezioni": 3,
+     "bersagli": 6,
+     "yardRicevute": 33,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Greg Rousseau",
+     "posizione": "LB",
+     "placcaggi": 4,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ]
+  },
+  "contoLaLinea": {
+   "linea": "Buffalo Bills favoriti di 3: hanno vinto ma con un margine più stretto",
+   "totale": "23 punti in tutto contro un totale di 46,5: sotto"
+  },
+  "bilancioDopo": {
+   "ospiti": "8-3",
+   "padroniDiCasa": "10-1"
+  },
+  "serieDopo": {
+   "ospiti": "",
+   "padroniDiCasa": "7 vittorie di fila"
+  },
+  "video": "WDYynoHb2Bs"
  }
 }

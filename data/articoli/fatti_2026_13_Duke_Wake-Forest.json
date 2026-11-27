@@ -1,0 +1,178 @@
+{
+ "id": "2026_13_Duke_Wake-Forest",
+ "lega": "college",
+ "stagione": 2026,
+ "settimana": 13,
+ "partita": "Duke @ Wake Forest",
+ "ospite": "Duke",
+ "casa": "Wake Forest",
+ "quando": "sabato 28 novembre, alle 21:30 italiane",
+ "dataIt": "2026-11-28",
+ "oraIt": "21:30",
+ "inizioUtc": "2026-11-28T20:30+00:00",
+ "stadio": "Allegacy Federal Credit Union Stadium",
+ "citta": "",
+ "campoNeutro": false,
+ "coperto": false,
+ "sfidaDiConference": true,
+ "precedenti": [
+  {
+   "stagione": 2023,
+   "risultato": "Duke 24 - Wake Forest 21"
+  },
+  {
+   "stagione": 2024,
+   "risultato": "Wake Forest 17 - Duke 23"
+  },
+  {
+   "stagione": 2025,
+   "risultato": "Duke 49 - Wake Forest 32"
+  }
+ ],
+ "mercato": {
+  "favorita": "",
+  "vantaggio": null,
+  "totale": null
+ },
+ "ospiti": {
+  "nome": "Duke",
+  "mascotte": "Blue Devils",
+  "conference": "ACC",
+  "bilancio": "7-4",
+  "bilancioConference": "4-4",
+  "serieAperta": "2 sconfitte di fila",
+  "ultimePartite": [
+   "vittoria 19-16 a Virginia",
+   "vittoria 47-2 contro Boston College",
+   "vittoria 41-3 a NC State",
+   "sconfitta 25-36 a Miami",
+   "sconfitta 10-20 contro Clemson"
+  ],
+  "puntiFattiPartita": 30.2,
+  "puntiSubitiPartita": 15.7,
+  "spPlus": {
+   "posizione": 28,
+   "attacco": 33,
+   "difesa": 31,
+   "squadre": 139,
+   "nota": "SP+ di CollegeFootballData: indice di forza; dire «tra le migliori/peggiori», non i decimali"
+  },
+  "stagioneScorsa": "9-5",
+  "giocatoriChiave": [
+   {
+    "nome": "Walker Eget",
+    "ruolo": "quarterback",
+    "misura": "yard passate",
+    "mediaStagione": 199.4,
+    "mediaUltime3": 184.0,
+    "mediaAnnoScorso": 277.0,
+    "forma": "in calo",
+    "nota": "11 partite su 11 · 11 TD, 5 INT"
+   },
+   {
+    "nome": "Nate Sheppard",
+    "ruolo": "running back",
+    "misura": "yard corse",
+    "mediaStagione": 130.5,
+    "mediaUltime3": 154.7,
+    "mediaAnnoScorso": 74.0,
+    "forma": "in forma",
+    "nota": "11 partite su 11 · 226 corse, 20 TD"
+   },
+   {
+    "nome": "Jeremiah Hasley",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 41.1,
+    "mediaUltime3": 35.3,
+    "mediaAnnoScorso": 33.7,
+    "forma": null,
+    "nota": "10 partite su 11 · 40 ricezioni, 2 TD"
+   },
+   {
+    "nome": "Javen Nicholas",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 34.2,
+    "mediaUltime3": 49.3,
+    "mediaAnnoScorso": 61.7,
+    "forma": null,
+    "nota": "6 partite su 11 · 17 ricezioni, 0 TD"
+   }
+  ],
+  "soprannome": "Duke"
+ },
+ "padroniDiCasa": {
+  "nome": "Wake Forest",
+  "mascotte": "Demon Deacons",
+  "conference": "ACC",
+  "bilancio": "10-1",
+  "bilancioConference": "7-1",
+  "serieAperta": "8 vittorie di fila",
+  "ultimePartite": [
+   "vittoria 41-7 a California",
+   "vittoria 51-7 contro Virginia",
+   "vittoria 77-0 contro Merrimack",
+   "vittoria 49-7 a SMU",
+   "vittoria 50-29 a Georgia Tech"
+  ],
+  "puntiFattiPartita": 44.5,
+  "puntiSubitiPartita": 16.3,
+  "spPlus": {
+   "posizione": 7,
+   "attacco": 9,
+   "difesa": 18,
+   "squadre": 139,
+   "nota": "SP+ di CollegeFootballData: indice di forza; dire «tra le migliori/peggiori», non i decimali"
+  },
+  "stagioneScorsa": "9-4",
+  "giocatoriChiave": [
+   {
+    "nome": "Gio Lopez",
+    "ruolo": "quarterback",
+    "misura": "yard passate",
+    "mediaStagione": 270.1,
+    "mediaUltime3": 251.3,
+    "mediaAnnoScorso": 158.8,
+    "forma": "in forma",
+    "nota": "10 partite su 11 · 21 TD, 1 INT",
+    "corseAPartita": 36.9
+   },
+   {
+    "nome": "Ty Clark III",
+    "ruolo": "running back",
+    "misura": "yard corse",
+    "mediaStagione": 53.7,
+    "mediaUltime3": 71.7,
+    "mediaAnnoScorso": 21.1,
+    "forma": "in forma",
+    "nota": "11 partite su 11 · 115 corse, 11 TD"
+   },
+   {
+    "nome": "Carlos Hernandez",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 118.4,
+    "mediaUltime3": 109.3,
+    "mediaAnnoScorso": 48.9,
+    "forma": "in forma",
+    "nota": "10 partite su 11 · 75 ricezioni, 8 TD"
+   },
+   {
+    "nome": "Antonio Meeks",
+    "ruolo": "ricevitore",
+    "misura": "yard ricevute",
+    "mediaStagione": 38.3,
+    "mediaUltime3": 52.7,
+    "mediaAnnoScorso": 20.4,
+    "forma": "in forma",
+    "nota": "9 partite su 11 · 23 ricezioni, 1 TD"
+   }
+  ],
+  "soprannome": "Wake Forest"
+ },
+ "colori": {
+  "ospite": "#00539b",
+  "casa": "#ceb888"
+ }
+}
