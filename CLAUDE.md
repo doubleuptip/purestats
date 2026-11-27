@@ -169,6 +169,12 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   `pagine_statiche.testata()` / `TESTATA_STILE` (copiata a mano nelle tre pagine fisse: se cambia, cambiarla anche lì),
   sul telefono senza barra in basso. `con_data` ignora stile e testata (`senza_grafica`): cambiare solo l'aspetto non
   cambia dateModified né la sitemap. In duelli il logo e «Apri il sito» riportano al sito già sbloccato.
+- Indirizzo della pagina (27/11/2026): `aggiornaIndirizzo()` (in render, solo football) scrive nella barra la pagina aperta
+  con replaceState: `#articolo=`, `#leggenda=`, `#carta=`, `#squadra=` (NFL), `#vista=<vista>` e `&lega=college` (Home college =
+  `#lega=college`, Home NFL = nessun #); all'avvio `CAMPIONATO_DAL_LINK` sceglie il campionato. Ricaricando si resta dove
+  si era. Il calcio non va mai nell'indirizzo. Articolo dell'altro campionato: ci si sposta da soli solo se aperto da un
+  collegamento (`ART_SEGUI`, come `LEG_SEGUI`); se chi legge preme NFL/College l'articolo si chiude e si va all'elenco
+  (prima la pagina lo riportava indietro e il bottone sembrava morto). `vai()` chiude articolo e racconto aperti.
 - Calendario week per week ordinato per orario d'inizio, con data e ora italiane (`dataIt`, `oraIt`): NFL dall'ora
   della costa est di nflverse, college dall'inizio ESPN in UTC (solo le stagioni lette da ESPN nel giro).
 - Matchup: ogni partita è un riquadro chiuso (classe `riquadro`: striscia con i colori delle squadre, bordo,

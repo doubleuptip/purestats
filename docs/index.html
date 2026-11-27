@@ -1331,7 +1331,23 @@ let ART_DAL_LINK = (location.hash.match(/^#articolo=([A-Za-z0-9_-]+)$/)||[])[1] 
 let LEGA_DAL_LINK = (location.hash.match(/^#carta=(\d{1,4})$/)||[])[1] || null;
 let LEG_DAL_LINK = (location.hash.match(/^#leggenda=([a-z0-9-]+)$/)||[])[1] || null;
 /* Pagine statiche NFL (25/11/2026): «Apri nel sito» porta alla vista con #vista=<nome> o alla scheda #squadra=<sigla> */
-let VISTA_DAL_LINK = (location.hash.match(/^#vista=(home|partite|squadre|giornata|statistiche|articoli|leggende|lega)$/)||[])[1] || null;
+let VISTA_DAL_LINK = (location.hash.match(/^#vista=(home|partite|squadre|giornata|statistiche|articoli|leggende|lega)(?:&lega=(?:nfl|college))?$/)||[])[1] || null;
+/* 27/11/2026: l'indirizzo segue la pagina aperta (aggiornaIndirizzo, in render) e dice anche il campionato
+   (#vista=…&lega=college, #lega=college): ricaricando si resta dove si era */
+let CAMPIONATO_DAL_LINK = (location.hash.match(/^#(?:vista=[a-z]+&)?lega=(nfl|college)$/)||[])[1] || null;
+const VISTE_INDIRIZZO = /^(home|partite|squadre|giornata|statistiche|articoli|leggende|lega)$/;
+function aggiornaIndirizzo(){
+  if(!eFootball()) return;                                   // calcio: sezione privata, niente nell'indirizzo
+  const col = legaAttiva!=="nfl" ? "&lega="+legaAttiva : "";
+  let h = "";
+  if(vista==="articoli" && ART_APERTO) h = "#articolo="+ART_APERTO;
+  else if(vista==="leggende" && LEG_APERTO) h = "#leggenda="+LEG_APERTO;
+  else if(vista==="lega" && LEGA_CARTA) h = "#carta="+LEGA_CARTA;
+  else if(vista==="squadre" && squadraAperta && legaAttiva==="nfl" && /^[A-Z]{2,3}$/.test(squadraAperta)) h = "#squadra="+squadraAperta;
+  else if(vista==="home" || !VISTE_INDIRIZZO.test(vista)) h = col ? "#lega="+legaAttiva : "";
+  else h = "#vista="+vista+col;
+  if(h !== location.hash) try{ history.replaceState(null, "", h || location.pathname+location.search); }catch(e){}
+}
 let SQUADRA_DAL_LINK = (location.hash.match(/^#squadra=([A-Z]{2,3})$/)||[])[1] || null;
 /* Avviso discreto se il collegamento privato non funziona (si vede solo a chi ha messo #k= nell'indirizzo) */
 function avvisoChiave(testo){
@@ -1598,13 +1614,18 @@ Promise.all(LEGHE.map(l =>
   const primo = esiti.find(e=>e.ok);
   if(!primo){ mostraErrore(new Error("nessun archivio trovato")); return; }
 
-  legaAttiva = primo.lega.id;
+  const scelto = CAMPIONATO_DAL_LINK && esiti.find(e=>e.ok && e.lega.id===CAMPIONATO_DAL_LINK);
+  legaAttiva = (scelto || primo).lega.id;
   D = cache[legaAttiva];
   stagione = stagionePredefinita(D);
   render();
 });
 
-function vai(v){vista=v;arbitroAperto=null;window.scrollTo(0,0);render();}
+function vai(v){
+  // cambiando sezione dal menu si chiudono articolo e racconto aperti (prima restavano nell'indirizzo)
+  if(v!==vista){ ART_APERTO=null; LEG_APERTO=null; }
+  vista=v;arbitroAperto=null;window.scrollTo(0,0);render();
+}
 // Matchup: sezione privata a parte (duelli.html), protetta da password, aperta sul campionato in vista
 function apriDuelli(){location.href="duelli.html#"+(legaAttiva==="college"?"College":"NFL")+(CHIAVE?"&k="+encodeURIComponent(CHIAVE):"");}
 /* Menu (25/11/2026, grafica A su PC, C su telefono). Sul telefono la barra in basso tiene 4 voci principali
@@ -1744,7 +1765,7 @@ function render(){
   if(!soloFootball && vista==="articoli") vista="arbitri";
   if(vista==="leggende" && !soloFootball) vista = "arbitri";
   if(LEGA_DAL_LINK && soloFootball){ vista="lega"; LEGA_SEZ="carte"; LEGA_CARTA=+LEGA_DAL_LINK; LEGA_DAL_LINK=null; }
-  if(ART_DAL_LINK && soloFootball){ vista="articoli"; ART_APERTO=ART_DAL_LINK; ART_DAL_LINK=null; }
+  if(ART_DAL_LINK && soloFootball){ vista="articoli"; ART_APERTO=ART_DAL_LINK; ART_DAL_LINK=null; ART_SEGUI=true; }
   if(LEG_DAL_LINK && soloFootball){ vista="leggende"; LEG_APERTO=LEG_DAL_LINK; LEG_DAL_LINK=null; LEG_SEGUI=true; }
   if(VISTA_DAL_LINK && soloFootball){ vista=VISTA_DAL_LINK; VISTA_DAL_LINK=null; if(vista==="squadre") ultimaStat="classifica"; }
   if(SQUADRA_DAL_LINK && soloFootball){ vista="squadre"; ultimaStat="classifica"; if((D.squadre||[]).some(x=>x.nome===SQUADRA_DAL_LINK)) squadraAperta=SQUADRA_DAL_LINK; SQUADRA_DAL_LINK=null; }
@@ -1782,6 +1803,7 @@ function render(){
                   : vista==="prossima" ? vFootballProssima()
                   : vista==="partite" ? vFootballPartite()
                   : squadraAperta ? vSquadraFootball() : testataStat()+vFootballSquadre();
+    aggiornaIndirizzo();
   }
   else if(vista==="arbitri") app.innerHTML = arbitroAperto ? vScheda() : vArbitri();
   else if(vista==="squadre") app.innerHTML = vSquadre();
@@ -3688,7 +3710,7 @@ function legaH(){
 }
 
 /* ===================== ARTICOLI (dal 19/11/2026): anteprime e cronache scritte da Claude su fatti verificati ===================== */
-let ART=null, ART_APERTO=null;
+let ART=null, ART_APERTO=null, ART_SEGUI=false;   // ART_SEGUI: articolo aperto da un collegamento, si passa al suo campionato
 const ART_CACHE={};
 function caricaArticoli(){
   if(ART!==null) return;
@@ -3803,8 +3825,14 @@ function vArticolo(id){
       .catch(()=>{ ART_CACHE[id]={errore:true}; render(); });
     return `<p class="fb-lead">Caricamento dell'articolo…</p>`;
   }
-  // un articolo del college aperto da un collegamento: si passa al college per avere stemmi e nomi giusti
-  if(a.lega && a.lega!==legaAttiva && LEGHE.some(l=>l.id===a.lega)) setTimeout(()=>vaiLega(a.lega),0);
+  // un articolo del college aperto da un collegamento: si passa al college per avere stemmi e nomi giusti.
+  // Se invece è chi legge a cambiare campionato (NFL | College) l'articolo si chiude e si va all'elenco del
+  // campionato scelto: prima la pagina lo riportava subito indietro e il bottone sembrava non funzionare (27/11/2026)
+  if(a.lega && a.lega!==legaAttiva && LEGHE.some(l=>l.id===a.lega)){
+    if(ART_SEGUI){ setTimeout(()=>vaiLega(a.lega),0); return `<p class="fb-lead">Caricamento dell'articolo…</p>`; }
+    ART_APERTO=null; return vArticoli();
+  }
+  ART_SEGUI=false;
   if(a.errore) return `<p class="fb-lead">Articolo non trovato.</p><p><a class="ar-torna" href="#" onclick="chiudiArticolo();return false">← Tutti gli articoli</a></p>`;
   const cronaca=a.tipo==="cronaca";
   const sfondo=a.foto?`background-image:url(${esc(a.foto)})`:"";
