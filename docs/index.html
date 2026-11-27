@@ -3615,7 +3615,7 @@ function legaAlbum(){
   const c=C.find(x=>x.n===LEGA_CARTA)||C[0], delGiorno=c===C[0];
   const sq=(LEGA.squadre||[]).find(x=>x.nome===c.squadra);
   const info=`<div class="lg-info"><small>${delGiorno?"CARTA DEL GIORNO":"CARTA"} · Nº ${nnn(c.n)} · ${esc(dataLega(c.uscita))}</small>
-      <h2>${legaSpeciale(c)&&c.momento?esc(c.momento):esc(c.nome)}</h2>${legaSpeciale(c)?`<span class="lg-bollino in${c.rarita==="Leggendaria"?" leg":""}">${esc(c.rarita)}</span>`:""}<p class="ruolo">${legaSpeciale(c)&&c.momento?esc(c.nome)+" · ":""}${esc(c.ruolo)} n. ${esc(c.maglia)} · ${esc(c.squadra)} · Conference ${esc(c.conference)}</p>
+      <h2>${legaSpeciale(c)&&c.momento?esc(c.momento):esc(c.nome)}</h2>${legaSpeciale(c)?`<span class="lg-bollino in${c.rarita==="Leggendaria"?" leg":""}">${esc(c.rarita)}</span>`:""}<p class="ruolo">${legaSpeciale(c)&&c.momento?esc(c.nome)+" · ":""}${esc(c.ruolo)}${c.maglia!==""&&c.maglia!=null?" n. "+esc(c.maglia):""} · ${esc(c.squadra)} · Conference ${esc(c.conference)}</p>
       <span class="dono">Dono · <b>${esc(c.dono)}</b></span><p>${esc(c.sintesi)}</p>
       <div class="lg-azioni"><button type="button" class="pieno" onclick="legaGira(document.querySelector('.lg-carta'))">Gira la carta</button>
       ${sq?`<button type="button" onclick="legaScegli('squadre')">La sua squadra</button>`:""}

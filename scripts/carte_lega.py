@@ -155,8 +155,9 @@ def fronte(c, nnn, ritratto, stemma):
     return (
         '<div class="alto"><img src="file://%s" alt="">LEGA DELLA TERRA UNITA<span class="st">STAGIONE %s</span></div>'
         '<div class="foto"><img src="file://%s" alt=""></div>' + basso(c, stemma, testo(c["dati_titolo"]),
-        '<div class="tit">Dono · <i>%s</i></div><div class="txt">%s</div><div class="pz">%s · Prezzo: %s</div>'
-        % (testo(d["nome"]), testo(d["testo"]), testo(d["usi"]), testo(d["prezzo"]))) +
+        '<div class="tit">Dono · <i>%s</i></div><div class="txt">%s</div><div class="pz">%s%s</div>'
+        % (testo(d["nome"]), testo(d["testo"]), testo(d["usi"]),
+           (" · Prezzo: " + testo(d["prezzo"])) if d.get("prezzo") else "")) +   # senza Dono (allenatori) niente prezzo
         '<div class="piede"><span>CARTA Nº %s · PERSONAGGIO IMMAGINARIO · IMMAGINE CREATA CON AI</span>'
         '<span class="ps">PURE<i>STATS</i></span></div>'
     ) % (BANDIERA, testo(c.get("stagione", 2187)), ritratto, nnn)
@@ -175,8 +176,9 @@ def retro(c, nnn, stemma, anno):
     tab = "<tr>%s</tr>" % "".join("<th>%s</th>" % testo(x) for x in car["colonne"])
     tab += "".join("<tr>%s</tr>" % "".join("<td>%s</td>" % testo(x) for x in r) for r in car["righe"])
     parti = [
-        '<div class="rt"><img src="file://%s" alt=""><div><h2>%s · %s</h2><p>%s · %s · Conference %s</p></div></div>'
-        % (stemma, testo(c["nome"]), testo(c["maglia"]), testo(c["ruolo"]), testo(c["squadra"]), testo(c["conference"])),
+        '<div class="rt"><img src="file://%s" alt=""><div><h2>%s%s</h2><p>%s · %s · Conference %s</p></div></div>'
+        % (stemma, testo(c["nome"]), (" · " + testo(c["maglia"])) if c.get("maglia") not in (None, "") else "",  # allenatori senza maglia
+           testo(c["ruolo"]), testo(c["squadra"]), testo(c["conference"])),
         '<div class="storia">%s</div>' % "".join("<p>%s</p>" % testo(p) for p in c["storia"]),
         '<div class="sch">%s</div>' % "".join("<div><b>%s</b>%s</div>" % (testo(a), testo(b)) for a, b in c["schede"]),
         '<div class="car"><b>%s</b><table>%s</table></div>' % (testo(car.get("titolo", "La carriera")).upper(), tab),
