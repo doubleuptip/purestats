@@ -3619,7 +3619,8 @@ function legaAlbum(){
       <span class="dono">Dono · <b>${esc(c.dono)}</b></span><p>${esc(c.sintesi)}</p>
       <div class="lg-azioni"><button type="button" class="pieno" onclick="legaGira(document.querySelector('.lg-carta'))">Gira la carta</button>
       ${sq?`<button type="button" onclick="legaScegli('squadre')">La sua squadra</button>`:""}
-      <a href="${esc(c.fronte)}" download>Scarica la carta</a></div></div>`;
+      <a href="${esc(c.fronte)}" download="PureStats-2187-${nnn(c.n)}-fronte.jpg">Scarica il fronte</a>
+      ${c.retro?`<a href="${esc(c.retro)}" download="PureStats-2187-${nnn(c.n)}-retro.jpg">Scarica il retro</a>`:""}</div></div>`;
   const album=`<section class="h-sez"><div class="h-st"><h2>L'album · ${C.length} ${C.length===1?"carta uscita":"carte uscite"}</h2></div>
     <div class="lg-album">${C.map(x=>`<a href="#carta=${x.n}" onclick="legaApri(${x.n});return false"${legaSpeciale(x)?` class="spec" data-rar="${esc(x.rarita)}"`:""}><img src="${esc(x.fronte)}" alt="Carta Nº ${nnn(x.n)}, ${esc(x.nome)}" loading="lazy">
       <small>${legaSpeciale(x)?`<em class="lg-bollino">${esc(x.rarita)}</em>`:""}Nº ${nnn(x.n)} · ${esc(x.nome)}</small></a>`).join("")}
