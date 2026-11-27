@@ -203,7 +203,11 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
 - Week già iniziata (27/11/2026, scelta di Valerio): finché la week successiva ha meno di metà partite giocate, la
   Giornata resta sulla precedente e mostra in cima, prima del titolo, la sezione «Week N · già giocate» (`weekIniziata`,
   `.gio-nuova`: stesse schede del tabellone, `schedaTabellone(p, {stagione, settimana})`, in ordine di data, al massimo 6 +
-  «Altre N partite nel Calendario →»; linea di separazione sotto). NFL e college.
+  «Altre N partite nel Calendario →»; linea di separazione sotto). Solo college: la Giornata NFL passa alla week nuova già
+  alla prima partita (`nfl_indici.giornata_e_prossima`). Dati: `giornata.iniziata` {stagione, settimana, totale, partite}
+  da `college_indici.calcola` (stesse righe `_riga` con linee e highlights, video con `video_college` nello stesso tetto
+  di ricerche del giro: `massimo` = MAX_RICERCHE_VIDEO meno quelle già fatte); senza, la pagina usa ultimePartite.
+  Le schede del tabellone mostrano «Migliori della partita» (giocatoriCasa/Ospite, `rosa`) quando la partita li ha.
 - Indizi di Charlie (16/11/2026), sempre da spuntare, affidabilità C:
   · squadra già fuori dai playoff (NFL, dalla settimana 12): `scripts/nfl_playoff.py` simula 4.000 volte il resto
     della stagione (linee note; per le settimane future linea stimata dalle forze di mercato), «fuori» = probabilità

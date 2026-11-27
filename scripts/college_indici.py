@@ -372,7 +372,7 @@ def _nomina(testo, nomi):
     return False
 
 
-def video_college(giornata, loghi):
+def video_college(giornata, loghi, massimo=MAX_RICERCHE_VIDEO):
     """Highlights su YouTube per ogni partita giocata della giornata. Prima i canali verificati (network,
     conference, canali delle due squadre); se nessuno ha il video, un video il cui titolo nomina entrambe le
     squadre, segnato come non ufficiale. Altrimenti resta il link di ricerca. Senza chiave non fa nulla."""
@@ -399,7 +399,7 @@ def video_college(giornata, loghi):
                     voce[k] = html.unescape(voce[k])
             g["video"] = voce
             continue
-        if not chiave or fatte >= MAX_RICERCHE_VIDEO or not fbs(g):
+        if not chiave or fatte >= massimo or not fbs(g):
             continue
         # ricerca senza risultato: si riprova al giro successivo, ma non prima di 12 ore
         if voce and voce.get("cercato") and adesso - datetime.fromisoformat(voce["cercato"]) < timedelta(hours=12):
@@ -456,6 +456,7 @@ def video_college(giornata, loghi):
     tmp = ARCHIVIO_VIDEO.with_suffix(".tmp")
     tmp.write_text(json.dumps(archivio, ensure_ascii=False, indent=1), encoding="utf-8")
     os.replace(tmp, ARCHIVIO_VIDEO)
+    return fatte
 
 
 def canale_breve(c):
@@ -580,12 +581,29 @@ def calcola(chiama, stats, stagione, partite_espn=None):
                   f"flag {len((b.get('flag') or {}).get('squadre') or [])} squadre")
         except Exception as e:      # i blocchi nuovi non devono mai bloccare il resto
             print(f"  Blocchi della Giornata college non calcolati: {type(e).__name__}: {e}")
+    fatte_video = 0
+    if out["giornata"]:
         try:
-            video_college(out["giornata"], out["loghi"] or {})
+            fatte_video = video_college(out["giornata"], out["loghi"] or {}) or 0
         except (KeyError, TypeError, ValueError, OSError) as e:
             # i video sono un di più: senza, resta il link di ricerca
             print(f"  Video college non cercati: {e!r}. Restano i link di ricerca.")
     prossime = _gare_espn(partite_espn, w + 1, linee) if partite_espn else chiama("lines", year=stagione, week=w + 1, seasonType="regular")
+    if out["giornata"] and prossime:
+        # week successiva già iniziata (27/11/2026): le partite già giocate, con linee, highlights e video come quelle
+        # della Giornata; la pagina le mostra in cima finché la Giornata non passa alla week nuova (metà partite).
+        # Video: stesso archivio e stesso tetto di ricerche del giro (si conta quanto già usato sopra)
+        righe_n = sorted((_riga(g) for g in prossime), key=lambda g: ((g.get("inizio") if len(g.get("inizio") or "") > 10
+                                                                      else g["data"] + "T99"), g["casa"] or ""))
+        giocate_n = [g for g in righe_n if g["pc"] is not None]
+        if giocate_n:
+            iniz = {"stagione": stagione, "settimana": w + 1, "totale": len(righe_n), "partite": giocate_n}
+            try:
+                video_college(iniz, out["loghi"] or {}, max(0, MAX_RICERCHE_VIDEO - fatte_video))
+            except (KeyError, TypeError, ValueError, OSError) as e:
+                print(f"  Video college della week {w + 1} non cercati: {e!r}. Restano i link di ricerca.")
+            out["giornata"]["iniziata"] = iniz
+            print(f"  Week {w + 1} già iniziata: {len(giocate_n)} partite giocate su {len(righe_n)}")
     if partite_espn:
         _salva(LINEE, linee)
     if prossime:

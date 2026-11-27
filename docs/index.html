@@ -2772,13 +2772,21 @@ function vFootballGiornata(){
 function weekIniziata(G){
   const st=String(G.stagione), w=Number(G.settimana)+1;
   const tutte=(D.ultimePartite||[]).filter(p=>String(p.stagione)===st&&Number(p.settimana)===w);
-  const fatte=tutte.filter(p=>p.pc!==null&&p.pc!==undefined&&p.po!==null&&p.po!==undefined)
-    .sort((a,b)=>((a.dataIt||a.data||"")+(a.oraIt||"")).localeCompare((b.dataIt||b.data||"")+(b.oraIt||"")));
-  if(!fatte.length||fatte.length*2>=tutte.length) return "";
+  const giocata=p=>p.pc!==null&&p.pc!==undefined&&p.po!==null&&p.po!==undefined;
+  const quando=p=>(p.dataIt||p.data||"")+(p.oraIt||"");
+  // dal giro dei dati (G.iniziata: linee, highlights, video come la Giornata); senza, dall'archivio delle partite
+  const I=G.iniziata&&Number(G.iniziata.settimana)===w?G.iniziata:null;
+  const fatte=(I?I.partite:tutte).filter(giocata).slice().sort((a,b)=>quando(a).localeCompare(quando(b)));
+  const totale=Math.max(tutte.length, I&&I.totale||0);
+  if(!fatte.length||fatte.length*2>=totale) return "";
+  const arch={}; tutte.forEach(p=>arch[p.ospite+"@"+p.casa]=p);
   const MAX=6, altre=fatte.length-MAX;
-  return `<h2 class="fb-h2">Week ${w} · già giocate <span class="gio-conta">${fatte.length} di ${tutte.length} partite</span></h2>
+  return `<h2 class="fb-h2">Week ${w} · già giocate <span class="gio-conta">${fatte.length} di ${totale} partite</span></h2>
   <p class="gio-nuova-nota">La Giornata passa alla week ${w} quando ne è giocata metà.${altre>0?` Altre ${altre} partite`:""} <a onclick="vai('partite')">${altre>0?"nel ":""}Calendario →</a></p>
-  <div class="gio-tab">${fatte.slice(0,MAX).map(p=>schedaTabellone(p,{stagione:G.stagione,settimana:w})).join("")}</div>`;
+  <div class="gio-tab">${fatte.slice(0,MAX).map(p=>{
+    const a=arch[p.ospite+"@"+p.casa]||{};
+    return schedaTabellone({...p, giocatoriOspite:p.giocatoriOspite||a.giocatoriOspite, giocatoriCasa:p.giocatoriCasa||a.giocatoriCasa},
+      {stagione:G.stagione,settimana:w});}).join("")}</div>`;
 }
 function segnoGio(v,c){ return v===null||v===undefined?"—":(v>0?"+":"")+numIt(v,c===undefined?2:c); }
 function scegliSchedaGiornata(k){
@@ -2806,11 +2814,13 @@ function schedaTabellone(g, sett){
   const video = vid ? `<a class="gio-azione" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener" title="${esc(g.video.titolo||"")}">${play} Highlights</a>`
     : g.highlights && /^https:\/\/www\.youtube\.com\//.test(g.highlights) ? `<a class="gio-azione" href="${esc(g.highlights)}" target="_blank" rel="noopener">${play} Cerca video</a>` : "";
   const mom = momenti(g);
+  const migliori = (g.giocatoriOspite||[]).length||(g.giocatoriCasa||[]).length
+    ? `<details class="fb-mom"><summary>Migliori della partita</summary><div class="rose">${rosa(breve(g.ospite),g.giocatoriOspite)}${rosa(breve(g.casa),g.giocatoriCasa)}</div></details>` : "";
   return `<article class="fb-game gio-gara">
     <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):""}${giocata?" · Finale":""}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${esito?`<div class="fb-chips">${esito}</div>`:""}
-    ${video||mom||linkArticolo(g,SW.stagione,SW.settimana)?`<div class="gio-piede">${video}${linkArticolo(g,SW.stagione,SW.settimana)}${mom}</div>`:""}
+    ${video||mom||migliori||linkArticolo(g,SW.stagione,SW.settimana)?`<div class="gio-piede">${video}${linkArticolo(g,SW.stagione,SW.settimana)}${mom}${migliori}</div>`:""}
   </article>`;
 }
 
