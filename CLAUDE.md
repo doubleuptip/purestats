@@ -201,8 +201,9 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   sezioni a schede una alla volta (`sezioniGiornata`, `schedaGiornata`): Giocate, Squadre, Leader, Sorprese, Ultimi 2
   minuti, Flag. Sempre a tutta larghezza o in due/tre metà uguali: niente buchi. Tasto «torna su» in tutte le pagine.
 - Week già iniziata (27/11/2026, scelta di Valerio): finché la week successiva ha meno di metà partite giocate, la
-  Giornata resta sulla precedente e mostra in cima il riquadro «Week N iniziata» (`weekIniziata`, `.gio-nuova`: risultati
-  già arrivati in ordine di data, al massimo 6 + «altre N», collegamento al Calendario). NFL e college.
+  Giornata resta sulla precedente e mostra in cima, prima del titolo, la sezione «Week N · già giocate» (`weekIniziata`,
+  `.gio-nuova`: stesse schede del tabellone, `schedaTabellone(p, {stagione, settimana})`, in ordine di data, al massimo 6 +
+  «Altre N partite nel Calendario →»; linea di separazione sotto). NFL e college.
 - Indizi di Charlie (16/11/2026), sempre da spuntare, affidabilità C:
   · squadra già fuori dai playoff (NFL, dalla settimana 12): `scripts/nfl_playoff.py` simula 4.000 volte il resto
     della stagione (linee note; per le settimane future linea stimata dalle forze di mercato), «fuori» = probabilità

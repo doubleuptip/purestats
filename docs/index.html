@@ -458,20 +458,10 @@
   .gio-pos b{font-size:26px!important}
   .gio-pos div span{margin-top:2px!important;font-size:14px!important}
   .gio-conta{font-family:var(--f-testo);font-size:15px;font-weight:400;color:var(--fb-muted);margin-left:8px}
-  .gio-nuova{border:1.5px solid var(--fb-acc);border-radius:12px;padding:12px 14px;margin:6px 0 18px;max-width:640px}
-  .gio-nuova .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-  .gio-nuova .t b{font:700 15px var(--f-testo);color:var(--fb-acc)}
-  .gio-nuova .t span,.gio-nuova .q,.gio-nuova .nota{font-size:13px;color:var(--fb-muted)}
-  .gio-nuova .r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--fb-border);font-size:14px}
-  .gio-nuova .r:last-of-type{border-bottom:0}
-  .gio-nuova .r .sq{display:flex;align-items:center;gap:8px;min-width:0}
-  .gio-nuova .r .sq svg{width:20px;height:20px;flex:none}
-  .gio-nuova .r .sq span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .gio-nuova .r .sq em{font-style:normal;margin-left:auto;font-weight:400;color:var(--fb-muted)}
-  .gio-nuova .r .sq.v em{font-weight:700;color:var(--fb-text)}
-  .gio-nuova .r .q{grid-row:1 / span 2;grid-column:2;text-align:right}
-  .gio-nuova .nota{margin:6px 0 0}
-  .gio-nuova .nota a{color:var(--fb-acc);text-decoration:none;font-weight:600;cursor:pointer}
+  .gio-nuova{margin:0 0 28px;padding-bottom:24px;border-bottom:1px solid var(--fb-border)}
+  .gio-nuova .fb-h2{margin-top:0}
+  .gio-nuova-nota{margin:-4px 0 12px;color:var(--fb-muted);font-size:14px}
+  .gio-nuova-nota a{color:var(--fb-acc);font-weight:600;text-decoration:none;cursor:pointer;white-space:nowrap}
   .gio-tab{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-bottom:8px}
   .gio-gara{padding:12px 14px;gap:6px}
   .gio-gara .fb-team .n{font-size:16px} .gio-gara .fb-team .s{font-size:24px}
@@ -2767,10 +2757,11 @@ function vFootballGiornata(){
     <div class="gio-podio">${ss.migliori.slice(0,3).map((x,i)=>`<div class="fb-tile gio-pos">
       <span class="gio-n">${i+1}°</span>${stemma(x.squadra)}<div><b>${esc(breve(x.squadra))}</b>
       <span>${segnoGio(x.netto)} · contro ${esc(breve(x.avversario))}</span></div></div>`).join("")}</div>`:"";
-  return `
+  const nuova=weekIniziata(G);
+  return `${nuova?`<section class="gio-nuova">${nuova}</section>`:""}
   <h1 class="fb-h1">${esc(D.campionato||"")} · Week ${esc(G.settimana)}${G.completa?"":" (in corso)"}</h1>
   <p class="fb-lead">Stagione ${esc(G.stagione)} · ${privato()?"risultati con la linea di chiusura del mercato":"risultati, giocate, squadre e protagonisti della week"}</p>
-  ${weekIniziata(G)}${numeri}${podio}
+  ${numeri}${podio}
   <h2 class="fb-h2">Risultati <span class="gio-conta">${ris.length} partite</span></h2>
   ${conConf?barraGruppi():""}
   <div class="gio-tab">${ris.map(schedaTabellone).join("")}</div>
@@ -2779,18 +2770,15 @@ function vFootballGiornata(){
 /* Week successiva già iniziata (27/11/2026, scelta di Valerio): la Giornata passa alla week nuova solo a metà partite;
    fino ad allora i risultati già arrivati si vedono qui, sopra la Giornata della week precedente */
 function weekIniziata(G){
-  const st=String(G.stagione), w=Number(G.settimana);
-  const tutte=(D.ultimePartite||[]).filter(p=>String(p.stagione)===st&&Number(p.settimana)===w+1);
+  const st=String(G.stagione), w=Number(G.settimana)+1;
+  const tutte=(D.ultimePartite||[]).filter(p=>String(p.stagione)===st&&Number(p.settimana)===w);
   const fatte=tutte.filter(p=>p.pc!==null&&p.pc!==undefined&&p.po!==null&&p.po!==undefined)
     .sort((a,b)=>((a.dataIt||a.data||"")+(a.oraIt||"")).localeCompare((b.dataIt||b.data||"")+(b.oraIt||"")));
   if(!fatte.length||fatte.length*2>=tutte.length) return "";
-  const MAX=6, vis=fatte.slice(0,MAX);
-  const giorno=d=>{ if(!d) return ""; const x=new Date(d+"T12:00:00"); return isNaN(x)?d:x.toLocaleDateString("it-IT",{weekday:"short",day:"numeric"}); };
-  const sq=(t,pt,vince)=>`<div class="sq${vince?" v":""}">${stemma(t,true)}<span>${esc(breve(t))}</span><em>${pt}</em></div>`;
-  return `<div class="gio-nuova"><div class="t"><b>Week ${w+1} iniziata</b><span>${fatte.length} di ${tutte.length} giocate</span></div>
-    ${vis.map(p=>`<div class="r">${sq(p.ospite,p.po,p.po>p.pc)}<span class="q">${esc(giorno(p.dataIt||p.data))}</span>${sq(p.casa,p.pc,p.pc>p.po)}</div>`).join("")}
-    ${fatte.length>MAX?`<p class="q" style="margin:6px 0 0">+ altre ${fatte.length-MAX}</p>`:""}
-    <p class="nota">La Giornata passa alla week ${w+1} quando ne è giocata metà · <a onclick="vai('partite')">Calendario →</a></p></div>`;
+  const MAX=6, altre=fatte.length-MAX;
+  return `<h2 class="fb-h2">Week ${w} · già giocate <span class="gio-conta">${fatte.length} di ${tutte.length} partite</span></h2>
+  <p class="gio-nuova-nota">La Giornata passa alla week ${w} quando ne è giocata metà.${altre>0?` Altre ${altre} partite`:""} <a onclick="vai('partite')">${altre>0?"nel ":""}Calendario →</a></p>
+  <div class="gio-tab">${fatte.slice(0,MAX).map(p=>schedaTabellone(p,{stagione:G.stagione,settimana:w})).join("")}</div>`;
 }
 function segnoGio(v,c){ return v===null||v===undefined?"—":(v>0?"+":"")+numIt(v,c===undefined?2:c); }
 function scegliSchedaGiornata(k){
@@ -2800,7 +2788,8 @@ function scegliSchedaGiornata(k){
 }
 
 /* Una partita nel tabellone: sempre la stessa forma (niente anteprima grande del video, che allungava la scheda) */
-function schedaTabellone(g){
+function schedaTabellone(g, sett){
+  const SW=sett||D.giornata||{};
   const giocata = g.pc!==null && g.pc!==undefined;
   const vinceOsp = giocata && g.po>g.pc, vinceCasa = giocata && g.pc>g.po;
   const riga=(sig,pt,w)=>`<div class="fb-team${w?" w":""}">${stemma(sig,true)}<span class="n">${esc(breve(sig))}</span><span class="s">${giocata?pt:""}</span></div>`;
@@ -2821,7 +2810,7 @@ function schedaTabellone(g){
     <div class="fb-when">${esc(giornoIt(g.dataIt||g.data))}${(g.oraIt||g.ora)?" · "+esc(g.oraIt||g.ora):""}${giocata?" · Finale":""}</div>
     ${riga(g.ospite,g.po,vinceOsp)}${riga(g.casa,g.pc,vinceCasa)}
     ${esito?`<div class="fb-chips">${esito}</div>`:""}
-    ${video||mom||linkArticolo(g,(D.giornata||{}).stagione,(D.giornata||{}).settimana)?`<div class="gio-piede">${video}${linkArticolo(g,(D.giornata||{}).stagione,(D.giornata||{}).settimana)}${mom}</div>`:""}
+    ${video||mom||linkArticolo(g,SW.stagione,SW.settimana)?`<div class="gio-piede">${video}${linkArticolo(g,SW.stagione,SW.settimana)}${mom}</div>`:""}
   </article>`;
 }
 
