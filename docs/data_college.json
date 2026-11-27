@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-26T21:00:40.488186+00:00",
+  "aggiornato": "2026-11-27T04:34:34.233788+00:00",
   "campionato": "College Football",
   "fonte": "ESPN (calendario, risultati, tabellini) · CollegeFootballData (SP+)",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 4555,
-  "partiteGiocate": 4483,
+  "partiteGiocate": 4484,
   "squadre": [
     {
       "nome": "Georgia",
@@ -1681,28 +1681,28 @@
       "nomeCompleto": "Texas Tech",
       "conference": "Big 12",
       "conferenza": "Big 12",
-      "partite": 64,
-      "vittorie": 45,
+      "partite": 65,
+      "vittorie": 46,
       "sconfitte": 19,
       "pareggi": 0,
-      "percVittorie": 70.3,
-      "mediaFatti": 35.2,
-      "mediaSubiti": 24.8,
-      "differenza": 663,
+      "percVittorie": 70.8,
+      "mediaFatti": 35.4,
+      "mediaSubiti": 24.9,
+      "differenza": 684,
       "perStagione": [
         {
           "stagione": "2026",
           "conferenza": "Big 12",
-          "partite": 11,
-          "vittorie": 10,
+          "partite": 12,
+          "vittorie": 11,
           "sconfitte": 1,
           "pareggi": 0,
-          "percVittorie": 90.9,
-          "mediaFatti": 37.3,
-          "mediaSubiti": 23.1,
-          "differenza": 156,
-          "vittorieCasa": 6,
-          "partiteCasa": 6,
+          "percVittorie": 91.7,
+          "mediaFatti": 38.2,
+          "mediaSubiti": 23.4,
+          "differenza": 177,
+          "vittorieCasa": 7,
+          "partiteCasa": 7,
           "vittorieFuori": 4,
           "partiteFuori": 5
         },
@@ -3297,30 +3297,30 @@
       "nomeCompleto": "TCU",
       "conference": "Big 12",
       "conferenza": "Big 12",
-      "partite": 64,
+      "partite": 65,
       "vittorie": 41,
-      "sconfitte": 23,
+      "sconfitte": 24,
       "pareggi": 0,
-      "percVittorie": 64.1,
-      "mediaFatti": 31.9,
-      "mediaSubiti": 25.1,
-      "differenza": 435,
+      "percVittorie": 63.1,
+      "mediaFatti": 31.8,
+      "mediaSubiti": 25.5,
+      "differenza": 414,
       "perStagione": [
         {
           "stagione": "2026",
           "conferenza": "Big 12",
-          "partite": 11,
+          "partite": 12,
           "vittorie": 5,
-          "sconfitte": 6,
+          "sconfitte": 7,
           "pareggi": 0,
-          "percVittorie": 45.5,
-          "mediaFatti": 22.8,
-          "mediaSubiti": 17.3,
-          "differenza": 61,
+          "percVittorie": 41.7,
+          "mediaFatti": 23.2,
+          "mediaSubiti": 19.8,
+          "differenza": 40,
           "vittorieCasa": 4,
           "partiteCasa": 8,
           "vittorieFuori": 1,
-          "partiteFuori": 3
+          "partiteFuori": 4
         },
         {
           "stagione": "2025",
@@ -194150,12 +194150,88 @@
       "dataIt": "2026-11-27",
       "oraIt": "02:00",
       "inizio": "2026-11-27T01:00Z",
-      "pc": null,
-      "po": null,
+      "pc": 48,
+      "po": 27,
       "conferenzaCasa": "Big 12",
       "stadio": "Galaxy Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Thomas Castellanos",
+          "ruolo": "QB",
+          "valore": 374,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Cameron Dickey",
+          "ruolo": "RB",
+          "valore": 41,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Malcolm Simmons",
+          "ruolo": "WR",
+          "valore": 110,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "J'Koby Williams",
+          "ruolo": "WR",
+          "valore": 100,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Adam Schobel",
+          "ruolo": "QB",
+          "valore": 218,
+          "misura": "yard passate",
+          "dettagli": [
+            "3 TD"
+          ]
+        },
+        {
+          "nome": "Major Everhart",
+          "ruolo": "RB",
+          "valore": 138,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jacobe Hayes",
+          "ruolo": "WR",
+          "valore": 54,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Ed Small",
+          "ruolo": "WR",
+          "valore": 45,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "9 ric.",
+            "2 TD"
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -198397,6 +198473,17 @@
           "netto": 1.36
         },
         {
+          "squadra": "Texas Tech",
+          "nome": "Texas Tech",
+          "partite": 12,
+          "fatti1": 3.5,
+          "fatti2": 1.33,
+          "subiti1": 3.5,
+          "subiti2": 1.92,
+          "quota": null,
+          "netto": -0.58
+        },
+        {
           "squadra": "Iowa",
           "nome": "Iowa",
           "partite": 11,
@@ -198714,17 +198801,6 @@
           "subiti2": 0.91,
           "quota": null,
           "netto": -1.0
-        },
-        {
-          "squadra": "Texas Tech",
-          "nome": "Texas Tech",
-          "partite": 11,
-          "fatti1": 2.55,
-          "fatti2": 1.45,
-          "subiti1": 3.82,
-          "subiti2": 1.45,
-          "quota": null,
-          "netto": -1.27
         },
         {
           "squadra": "USC",
@@ -199046,6 +199122,17 @@
           "netto": -0.36
         },
         {
+          "squadra": "TCU",
+          "nome": "TCU",
+          "partite": 12,
+          "fatti1": 1.17,
+          "fatti2": 2.08,
+          "subiti1": 2.5,
+          "subiti2": 1.33,
+          "quota": null,
+          "netto": -0.58
+        },
+        {
           "squadra": "NC State",
           "nome": "NC State",
           "partite": 11,
@@ -199121,17 +199208,6 @@
           "subiti2": 0.64,
           "quota": null,
           "netto": -1.09
-        },
-        {
-          "squadra": "TCU",
-          "nome": "TCU",
-          "partite": 11,
-          "fatti1": 1.27,
-          "fatti2": 1.64,
-          "subiti1": 1.45,
-          "subiti2": 1.45,
-          "quota": null,
-          "netto": 0.0
         },
         {
           "squadra": "Minnesota",
@@ -199869,15 +199945,6 @@
           "tipi": []
         },
         {
-          "squadra": "TCU",
-          "nome": "TCU",
-          "partite": 11,
-          "flag": 6.64,
-          "yard": 60.7,
-          "subite": 6.0,
-          "tipi": []
-        },
-        {
           "squadra": "Georgia State",
           "nome": "Georgia State",
           "partite": 11,
@@ -199887,21 +199954,21 @@
           "tipi": []
         },
         {
+          "squadra": "TCU",
+          "nome": "TCU",
+          "partite": 12,
+          "flag": 6.58,
+          "yard": 61.1,
+          "subite": 5.92,
+          "tipi": []
+        },
+        {
           "squadra": "Missouri",
           "nome": "Missouri",
           "partite": 11,
           "flag": 6.55,
           "yard": 60.5,
           "subite": 7.0,
-          "tipi": []
-        },
-        {
-          "squadra": "Texas Tech",
-          "nome": "Texas Tech",
-          "partite": 11,
-          "flag": 6.55,
-          "yard": 55.8,
-          "subite": 5.73,
           "tipi": []
         },
         {
@@ -199929,6 +199996,15 @@
           "flag": 6.45,
           "yard": 55.1,
           "subite": 7.09,
+          "tipi": []
+        },
+        {
+          "squadra": "Texas Tech",
+          "nome": "Texas Tech",
+          "partite": 12,
+          "flag": 6.42,
+          "yard": 54.9,
+          "subite": 5.75,
           "tipi": []
         },
         {
