@@ -153,6 +153,13 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   vista, poi a tendina «Reparto contro reparto» (barre speculari, lunga = migliore), «Dove gioca, dove concede la difesa»
   (`duMappa`: verde concede, rosso chiude, riquadro rosso = zona più usata, frase che spiega), «Assenze: chi entra»,
   «Stile di gioco». Charlie → Giocatori: «⚔️ Vedi il duello di …» (`apriDuello`) apre la scheda sulla mappa del giocatore.
+- Next Gen Stats e copertura (28/11/2026, `arricchisci_nfl`, dopo i duelli in fetch_duelli): NGS nflverse (ngs_receiving,
+  ngs_passing, ngs_rushing: riga «settimana 0» = totale ufficiale, altrimenti media pesata; NGS scrive LAR, il resto LA)
+  → separazione e cushion sulle mappe dei ricevitori, yard oltre l'atteso per corsa sugli RB, tempo di lancio del QB;
+  PFR advstats_week_def (posizioni da players.csv, pfr_id) → «La secondaria avversaria» (i 4 CB/S più cercati: bersagli,
+  yard per bersaglio con posizione tra chi ha 20+ bersagli, % completati, TD/INT) e pressioni a partita della difesa
+  avversaria in «Quarterback contro pressione». EndZone API e stat-api valutati il 28/11: rivendono nflverse (stat-api a
+  pagamento), niente di nuovo.
 
 ## Calendario e Matchup (dal 16/11/2026)
 

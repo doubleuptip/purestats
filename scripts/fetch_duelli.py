@@ -1037,6 +1037,11 @@ def main() -> int:
         print(f"{campionato}: contesto (assenze, meteo, forza) non calcolato ({e}): schede senza contesto.")
     if lega == "nfl":
         try:
+            n_ngs = DU.arricchisci_nfl(schede, int(stagione))
+            print(f"NFL: duelli, Next Gen Stats e copertura per {n_ngs} partite.")
+        except Exception as e:     # noqa: BLE001 - i duelli escono senza questi numeri
+            print(f"NFL: Next Gen Stats e copertura non aggiunte ai duelli ({e}).")
+        try:
             n_td = touchdown_nfl(schede, int(stagione))
             print(f"NFL: Charlie, touchdown dei giocatori per {n_td} partite.")
         except Exception as e:     # noqa: BLE001 - il touchdown è un di più: la sezione esce lo stesso

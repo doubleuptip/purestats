@@ -423,3 +423,165 @@ def sostituti_nfl(schede: list, snap: list) -> int:
         sc["sostituti"] = out
         n += bool(out)
     return n
+
+
+# ------------------------------------------------------------------ Next Gen Stats e copertura (NFL, 28/11/2026)
+NGS = "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_{t}.csv.gz"
+ADV_DEF = "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_{s}.csv"
+GIOCATORI = "https://github.com/nflverse/nflverse-data/releases/download/players/players.csv"
+MIN_BERSAGLI_DB = 20     # bersagli minimi in copertura per dare una posizione a un difensore
+SIGLE_NGS = {"LAR": "LA"}
+
+
+def _scarica(url: str, gz: bool = False) -> str:
+    import gzip as _gz
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=180) as r:
+        dati = r.read()
+    return (_gz.decompress(dati) if gz else dati).decode("utf-8")
+
+
+def _media_pesata(righe, campo, peso):
+    s = n = 0.0
+    for r in righe:
+        v, p = _f(r.get(campo)), _f(r.get(peso))
+        if v is not None and p:
+            s += v * p
+            n += p
+    return (s / n, n) if n else (None, 0)
+
+
+def ngs_nfl(stagione: int) -> dict:
+    """{"ric": {gsis: {sep, cush, n}}, "qb": {gsis: {ttt, n, nome, squadra}}, "rb": {gsis: {ryoe, n}}} della
+    stagione: riga «settimana 0» (totale ufficiale NGS) se c'è, altrimenti media delle settimane pesata sui volumi.
+    Posizioni (1 = valore più alto, tranne il tempo di lancio: 1 = il più rapido) tra chi ha abbastanza azioni."""
+    out = {}
+    for tipo, chiave, campi, peso, minimo in (("receiving", "ric", ("avg_separation", "avg_cushion"), "targets", 20),
+                                             ("passing", "qb", ("avg_time_to_throw",), "attempts", 100),
+                                             ("rushing", "rb", ("rush_yards_over_expected_per_att",), "rush_attempts", 50)):
+        righe = [r for r in csv.DictReader(io.StringIO(_scarica(NGS.format(t=tipo), gz=True)))
+                 if r.get("season") == str(stagione) and r.get("season_type") == "REG"]
+        per = defaultdict(list)
+        for r in righe:
+            per[r["player_gsis_id"]].append(r)
+        d = {}
+        for gid, rr in per.items():
+            tot = [r for r in rr if r.get("week") == "0"]
+            sett = [r for r in rr if r.get("week") != "0"]
+            base = tot or sett
+            vals = {}
+            for c in campi:
+                v, n = _media_pesata(base, c, peso)
+                vals[c] = v
+            n = sum(_f(r.get(peso)) or 0 for r in base)
+            ult = max(sett, key=lambda r: int(r["week"]))["team_abbr"] if sett else base[0].get("team_abbr")
+            ult = SIGLE_NGS.get(ult, ult)                 # NGS scrive LAR, il play-by-play LA
+            d[gid] = {**vals, "n": n, "nome": base[0].get("player_display_name"), "squadra": ult}
+        for c in campi:
+            qual = {g: v[c] for g, v in d.items() if v[c] is not None and v["n"] >= minimo}
+            rk = _rango({g: (x if c == "avg_time_to_throw" else -x) for g, x in qual.items()})
+            for g in d:
+                d[g]["r_" + c] = rk.get(g)
+                d[g]["q_" + c] = len(qual)
+        out[chiave] = d
+    return out
+
+
+def copertura_nfl(stagione: int) -> dict:
+    """Pro Football Reference via nflverse (advstats_week_def; solo parte cifrata): per squadra i difensori della
+    secondaria con bersagli, yard e passer rating concessi in copertura, e le pressioni della difesa a partita.
+    {"db": {squadra: [...]}, "pressioni": {squadra: (a partita, posizione, n)}}"""
+    pos = {}
+    for r in csv.DictReader(io.StringIO(_scarica(GIOCATORI))):
+        if r.get("pfr_id"):
+            pos[r["pfr_id"]] = r.get("position") or r.get("position_group") or ""
+    per = defaultdict(lambda: {"t": 0.0, "c": 0.0, "y": 0.0, "td": 0.0, "int": 0.0, "pr": 0.0, "squadra": "", "w": -1,
+                               "nome": ""})
+    press, partite = defaultdict(float), defaultdict(set)
+    for r in csv.DictReader(io.StringIO(_scarica(ADV_DEF.format(s=stagione)))):
+        if r.get("game_type") not in ("REG", None, ""):
+            continue
+        sq, w = r.get("team"), int(float(r.get("week") or 0))
+        press[sq] += _f(r.get("def_pressures")) or 0
+        partite[sq].add(r.get("game_id"))
+        t = _f(r.get("def_targets")) or 0
+        if not t:
+            continue
+        x = per[r.get("pfr_player_id")]
+        x["t"] += t
+        x["c"] += _f(r.get("def_completions_allowed")) or 0
+        x["y"] += _f(r.get("def_yards_allowed")) or 0
+        x["td"] += _f(r.get("def_receiving_td_allowed")) or 0
+        x["int"] += _f(r.get("def_ints")) or 0
+        x["pr"] += (_f(r.get("def_passer_rating_allowed")) or 0) * t
+        x["nome"] = r.get("pfr_player_name") or x["nome"]
+        if w >= x["w"]:
+            x["squadra"], x["w"] = sq, w
+    db = {pid: x for pid, x in per.items() if pos.get(pid, "") in ("CB", "S", "FS", "SS", "DB")}
+    qual = {pid: x["y"] / x["t"] for pid, x in db.items() if x["t"] >= MIN_BERSAGLI_DB}
+    rk = _rango(qual)                                # 1 = concede meno yard per bersaglio
+    squadre = defaultdict(list)
+    for pid, x in db.items():
+        squadre[x["squadra"]].append({"nome": x["nome"], "ruolo": {"FS": "S", "SS": "S"}.get(pos.get(pid), pos.get(pid)),
+                                      "bersagli": int(x["t"]), "ypt": round(x["y"] / x["t"], 1),
+                                      "concesse": round(x["c"] / x["t"] * 100), "td": int(x["td"]), "int": int(x["int"]),
+                                      "rating": round(x["pr"] / x["t"], 1), "rango": rk.get(pid), "n": len(qual)})
+    for sq in squadre:
+        squadre[sq] = sorted(squadre[sq], key=lambda d: -d["bersagli"])[:4]
+    pp = {sq: press[sq] / len(partite[sq]) for sq in press if partite[sq]}
+    rkp = _rango({sq: -v for sq, v in pp.items()})   # 1 = più pressioni a partita
+    return {"db": dict(squadre), "pressioni": {sq: (round(v, 1), rkp[sq], len(pp)) for sq, v in pp.items()}}
+
+
+def arricchisci_nfl(schede: list, stagione: int) -> int:
+    """Aggiunge ai duelli NFL: separazione e cushion sulle mappe dei ricevitori, yard oltre l'atteso sulle corse,
+    tempo di lancio del QB contro le pressioni della difesa, la secondaria avversaria. Ogni pezzo può mancare."""
+    ngs, cop = {}, {}
+    try:
+        ngs = ngs_nfl(stagione)
+    except Exception as e:     # noqa: BLE001
+        print(f"NFL: Next Gen Stats non lette ({e}): duelli senza separazione e tempo di lancio.")
+    try:
+        cop = copertura_nfl(stagione)
+    except Exception as e:     # noqa: BLE001
+        print(f"NFL: copertura PFR non letta ({e}): duelli senza secondaria e pressioni.")
+    n = 0
+    for sc in schede:
+        D = sc.get("duelli")
+        if not D:
+            continue
+        for m in D.get("mappe") or []:
+            if m["tipo"] == "ricevitore":
+                x = (ngs.get("ric") or {}).get(m["id"])
+                if x and x.get("avg_separation") is not None and x["n"] >= 10:
+                    m["sep"] = round(x["avg_separation"], 1)
+                    m["sepRango"], m["sepN"] = x.get("r_avg_separation"), x.get("q_avg_separation")
+                    m["cush"] = round(x["avg_cushion"], 1) if x.get("avg_cushion") is not None else None
+            else:
+                x = (ngs.get("rb") or {}).get(m["id"])
+                v = x and x.get("rush_yards_over_expected_per_att")
+                if v is not None and x["n"] >= 25:
+                    m["ryoe"] = round(v, 2)
+                    m["ryoeRango"], m["ryoeN"] = x.get("r_rush_yards_over_expected_per_att"), x.get("q_rush_yards_over_expected_per_att")
+        qb = {}
+        for sq, avv in ((sc["ospite"], sc["casa"]), (sc["casa"], sc["ospite"])):
+            cand = [(v["n"], g, v) for g, v in (ngs.get("qb") or {}).items() if v.get("squadra") == sq]
+            riga = {}
+            if cand:
+                _, g, v = max(cand, key=lambda t: t[0])
+                if v.get("avg_time_to_throw") is not None:
+                    riga.update({"nome": v["nome"], "ttt": round(v["avg_time_to_throw"], 2),
+                                 "tttRango": v.get("r_avg_time_to_throw"), "tttN": v.get("q_avg_time_to_throw")})
+            p = (cop.get("pressioni") or {}).get(avv)
+            if p:
+                riga.update({"pressioniAvv": p[0], "pressioniRango": p[1], "pressioniN": p[2]})
+            if riga:
+                qb[sq] = riga
+        if qb:
+            D["qb"] = qb
+        sec = {sq: (cop.get("db") or {}).get(sq) for sq in (sc["ospite"], sc["casa"])}
+        sec = {k: v for k, v in sec.items() if v}
+        if sec:
+            D["secondaria"] = sec
+        n += 1
+    return n

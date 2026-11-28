@@ -140,6 +140,8 @@ function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"
   .du-celle .du-top{outline:2px solid var(--fb-acc);outline-offset:-2px;font-weight:700}
   .du-assi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center;font-size:11px;color:var(--fb-muted);margin-top:6px}
   .du-frase{font-size:13px;margin-top:8px}
+  .du-ngs{font-size:13px;margin:4px 0 6px;padding:6px 8px;border-radius:8px;background:var(--fb-chip)}
+  .du-qb{font-size:13.5px;margin:8px 0;line-height:1.45}
   .du-sost li{margin:4px 0;font-size:13.5px}
   .du-link{margin-top:6px;font-size:13px}
   .du-link a{color:var(--fb-acc);font-weight:600;cursor:pointer;text-decoration:none}
@@ -610,6 +612,18 @@ function bloccoDuelli(g, T){
     ${ks.map(k => `<tr><td>${DU_STILE[k][0]}</td>${[g.ospite, g.casa].map(t => { const v = (S[t] || {})[k]; return `<td>${v ? `<b>${DU_STILE[k][1](v.v)}</b> <span class="sotto">${v.r}° più alto</span>` : "—"}</td>`; }).join("")}</tr>`).join("")}</table>
     <div class="legenda"><span>situazioni neutre = 1° e 2° down a partita aperta · posizione su ${n}: solo descrizione, non c'è un «meglio»</span></div></details>` : "";
   const mappe = (D.mappe || []).map(m => duMappa(m, T)).join("");
+  const Q = D.qb || {};
+  const qb = Object.keys(Q).length ? `<details><summary>Quarterback contro pressione</summary>${[[g.ospite, g.casa], [g.casa, g.ospite]].map(([a, d]) => {
+    const q = Q[a]; if (!q) return "";
+    return `<div class="du-qb">${stemma(T[a], "s")} ${q.nome ? `<b>${esc(q.nome)}</b> lancia in <b>${num(q.ttt, 2)} secondi</b> in media${q.tttRango ? ` (${q.tttRango}° più rapido su ${q.tttN})` : ""}` : `QB ${esc(T[a].nome)}`}${q.pressioniAvv != null ? `<br>la difesa dei ${esc(T[d].nome)} mette <b>${num(q.pressioniAvv, 1)} pressioni</b> a partita sul QB (<b>${q.pressioniRango}ª</b> su ${q.pressioniN})` : ""}</div>`;
+  }).join("")}<div class="legenda"><span>tempo di lancio: Next Gen Stats (nflverse) · pressioni: Pro Football Reference, arrivano circa una settimana dopo</span><span>più rapido il lancio, meno conta la pressione</span></div></details>` : "";
+  const SEC = D.secondaria || {};
+  const sec = Object.keys(SEC).length ? `<details><summary>La secondaria avversaria</summary>${[[g.ospite, g.casa], [g.casa, g.ospite]].map(([a, d]) => {
+    const L = SEC[d]; if (!L) return "";
+    return `<div class="blocco">${stemma(T[a], "s")}I ricevitori dei ${esc(T[a].nome)} trovano la secondaria dei ${esc(T[d].nome)}</div>
+      <table><tr><th>Difensore</th><th>bersagli</th><th>yard per bersaglio</th><th>completati</th><th>TD / INT</th></tr>${L.map(x => `<tr><td><b>${esc(x.nome)}</b> <span class="sotto">${esc(x.ruolo || "")}</span></td><td>${x.bersagli}</td>
+      <td><b>${num(x.ypt, 1)}</b>${x.rango ? ` <span class="rk ${classeRank(x.rango, x.n)}">${x.rango}°</span>` : ""}</td><td>${x.concesse}%</td><td>${x.td} / ${x.int}</td></tr>`).join("")}</table>`;
+  }).join("")}<div class="legenda"><span>i difensori più cercati dagli attacchi in stagione, non chi marca chi</span><span>posizione su tutti i difensori con almeno 20 bersagli: 1 = concede meno yard</span><span>fonte Pro Football Reference via nflverse</span></div></details>` : "";
   const sost = (g.sostituti || []).length ? `<details${(g.sostituti || []).length ? " open" : ""}><summary>Assenze: chi entra</summary><ul class="du-sost">${g.sostituti.map(x =>
     `<li>${stemma(T[x.squadra], "s")} <b>${esc(x.assente)}</b> <span class="sotto">${esc(x.ruolo)} · ${esc(x.stato || "")} · ${x.snapAssente}% degli snap</span> → <b>${esc(x.sostituto)}</b> ${x.base === "senza"
       ? `<span class="sotto">${x.prima}% → <b>${x.dopo}%</b> degli snap nelle ${x.partiteSenza} partite senza di lui</span>`
@@ -621,7 +635,7 @@ function bloccoDuelli(g, T){
     <details><summary>Reparto contro reparto</summary>${blocchi}<div class="legenda"><span>barra lunga = migliore per quel lato</span><span>tieni il dito o il mouse su un reparto per la spiegazione</span></div></details>
     ${mappe ? `<details><summary>Dove gioca, dove concede la difesa</summary><div class="du-griglia">${mappe}</div>
       <div class="legenda"><span><span class="rk buono">verde</span> la difesa concede molto in quella zona</span><span><span class="rk scarso">rosso</span> la difesa chiude</span><span>riquadro rosso = la zona dove gioca di più</span></div></details>` : ""}
-    ${sost}${stile}</details>`;
+    ${qb}${sec}${sost}${stile}</details>`;
 }
 function duMappa(m, T){
   const n = m.nDif || 32, cl = r => !r ? "" : r >= n - Math.round(n * 11 / 32) + 1 ? "buono" : r <= Math.round(n * 10 / 32) ? "scarso" : "";
@@ -636,6 +650,8 @@ function duMappa(m, T){
     ? `concede <b>${num(dv, 1)} yard</b> per ${ric ? "bersaglio" : "corsa"}${lv ? ` (media della lega ${num(lv, 1)})` : ""}: ${giud(top)}${top.dRango ? ` <span class="sotto">(${top.dRango}ª su ${n}, 1 = chi concede meno)</span>` : ""}.`
     : "ha visto troppo poche azioni per dirlo.");
   return `<div class="du-map" id="m-${esc(m.id)}"><h4><span>${stemma(T[m.squadra], "s")} ${esc(m.nome)}</span><span class="sotto">${ric ? m.bersagli + " bersagli" : m.corse + " corse"}</span></h4>
+    ${ric && m.sep != null ? `<div class="du-ngs">Si libera di <b>${num(m.sep, 1)} yard</b> in media quando arriva il pallone${m.sepRango ? ` · <b>${m.sepRango}°</b> su ${m.sepN} ricevitori` : ""}${m.cush != null ? ` · ${num(m.cush, 1)} yard di spazio dal difensore allo snap` : ""}</div>` : ""}
+    ${!ric && m.ryoe != null ? `<div class="du-ngs">Yard oltre l'atteso per corsa: <b>${segno(m.ryoe, 2)}</b>${m.ryoeRango ? ` · <b>${m.ryoeRango}°</b> su ${m.ryoeN} running back` : ""} <span class="sotto">(quanto fa in più di quello che lo spazio davanti gli concede)</span></div>` : ""}
     <div class="sotto">${ric ? "dentro: % dei suoi bersagli · sotto: yard per bersaglio concesse lì dai " : "dentro: % delle sue corse · sotto: yard per corsa concesse lì dai "}${esc(T[m.difesa].nome)}</div>
     <div class="du-assi"><span>sinistra</span><span>centro</span><span>destra</span></div>
     <div class="du-celle">${celle}</div>
