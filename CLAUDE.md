@@ -676,7 +676,8 @@ davvero che si veda quello che deve vedersi.
   partite con articolo) nelle 36 ore prima, articoli nuovi (link alle pagine statiche /a/), racconti (/l/), carte 2187
   (foto del fronte + «Personaggio immaginario · immagine creata con AI»). Ogni contenuto una volta sola (stato in
   data/canale_stato.json; il primo giro segna come visto il già pubblicato). «bot» ogni minuto (attesa 50 s, flock):
-  risponde in privato a chiunque con /tv /meteo /articoli /leggende /carte /sito /aiuto. Legge SOLO i file pubblici di
+  risponde SOLO a Valerio (chat_id di [telegram]; scelta del 28/11: niente comandi pubblici, gli altri ignorati, menu dei
+  comandi solo nella sua chat) con /tv /meteo /articoli /leggende /carte /sito /aiuto. Legge SOLO i file pubblici di
   purestats.it (prove: CANALE_LOCALE=docs). Bot diverso da Radar Assenze (che resta solo per Valerio). Config [purestats_canale] (non [canale], già del bot)
   token e canale in config.toml. CHARLIE MAI NEL CANALE (Valerio, 28/11): Decreto Dignità art. 9 (pubblicità anche
   indiretta del gioco vietata anche sui social, sanzioni da 50.000 euro) e regola «niente scommesse nella parte pubblica».

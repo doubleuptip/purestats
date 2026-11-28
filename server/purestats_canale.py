@@ -2,7 +2,9 @@
 
 Nel canale escono, una volta sola ciascuno: la guida «In TV in Italia» alle 9 nei giorni di partita NFL, gli avvisi
 meteo che contano, gli articoli nuovi (anteprime e cronache NFL e college), i racconti delle Leggende e le carte 2187.
-Il bot risponde a chiunque gli scriva in privato con /tv /meteo /articoli /leggende /carte /sito /aiuto.
+Il bot risponde ai comandi /tv /meteo /articoli /leggende /carte /sito /aiuto SOLO a Valerio (chat_id della sezione
+[telegram] di Radar Assenze, scelta del 28/11/2026: niente comandi pubblici, nessun rischio di raffiche di messaggi);
+gli altri vengono ignorati senza risposta.
 Legge SOLO i file pubblici di purestats.it: niente Matchup, niente Charlie, niente scommesse (Decreto Dignità art. 9).
 È un bot diverso da Radar Assenze, che resta privato.
 
@@ -347,6 +349,9 @@ def bot(cfg):
     c = cfg.get("purestats_canale", {})
     if not c.get("token"):
         return
+    titolare = str((cfg.get("telegram") or {}).get("chat_id") or "").strip()
+    if not titolare:
+        scrivi("bot: manca chat_id in [telegram]: nessuno può usare i comandi")
     tg = Telegram(c["token"])
     try:
         stato = json.loads(STATO_BOT.read_text(encoding="utf-8"))
@@ -366,8 +371,9 @@ def bot(cfg):
         stato["offset"] = u["update_id"] + 1
         m = u.get("message") or {}
         testo = (m.get("text") or "").strip()
-        if not testo.startswith("/") or (m.get("chat") or {}).get("type") != "private":
-            continue
+        chat = m.get("chat") or {}
+        if not testo.startswith("/") or chat.get("type") != "private" or str(chat.get("id")) != titolare:
+            continue                     # solo Valerio: gli altri messaggi si scartano senza rispondere
         comando = testo[1:].split()[0].split("@")[0].lower()
         if d is None:
             d = carica()
@@ -381,12 +387,18 @@ def bot(cfg):
 
 
 def configura(cfg):
+    """Menu dei comandi visibile solo nella chat di Valerio; per gli altri il bot rimanda al canale e al sito."""
     tg = Telegram(cfg["purestats_canale"]["token"])
-    tg.chiama("setMyCommands", {"commands": [{"command": k, "description": v} for k, v in COMANDI]})
-    tg.chiama("setMyDescription", {"description": "Statistiche NFL e college football: partite in TV in Italia, "
-                                                  "meteo, articoli, Leggende e carte 2187. Sito: purestats.it"})
-    tg.chiama("setMyShortDescription", {"short_description": "Il bot ufficiale di PureStats · purestats.it"})
-    print("Comandi e descrizione del bot impostati.")
+    titolare = str((cfg.get("telegram") or {}).get("chat_id") or "").strip()
+    tg.chiama("deleteMyCommands", {})                       # nessun menu per gli altri
+    if titolare:
+        tg.chiama("setMyCommands", {"commands": [{"command": k, "description": v} for k, v in COMANDI],
+                                    "scope": {"type": "chat", "chat_id": int(titolare)}})
+    tg.chiama("setMyDescription", {"description": "Bot del canale ufficiale PureStats (t.me/purestats1): "
+                                                  "statistiche NFL e college football su purestats.it"})
+    tg.chiama("setMyShortDescription", {"short_description": "Canale ufficiale: t.me/purestats1 · purestats.it"})
+    print("Menu dei comandi solo per il titolare" + ("" if titolare else " (manca chat_id: nessun menu)")
+          + "; descrizione del bot impostata.")
 
 
 def main():
