@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-28T04:49:40.016918+00:00",
+  "aggiornato": "2026-11-28T06:04:35.598007+00:00",
   "campionato": "College Football",
   "fonte": "ESPN (calendario, risultati, tabellini) · CollegeFootballData (SP+)",
   "stagioni": [
@@ -10,7 +10,7 @@
     "2022"
   ],
   "totalePartite": 4557,
-  "partiteGiocate": 4496,
+  "partiteGiocate": 4497,
   "squadre": [
     {
       "nome": "Georgia",
@@ -1293,6 +1293,102 @@
       ]
     },
     {
+      "nome": "Utah",
+      "nomeCompleto": "Utah",
+      "conference": "Big 12",
+      "conferenza": "Big 12",
+      "partite": 64,
+      "vittorie": 46,
+      "sconfitte": 18,
+      "pareggi": 0,
+      "percVittorie": 71.9,
+      "mediaFatti": 33.3,
+      "mediaSubiti": 19.9,
+      "differenza": 855,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 12,
+          "sconfitte": 0,
+          "pareggi": 0,
+          "percVittorie": 100.0,
+          "mediaFatti": 39.1,
+          "mediaSubiti": 19.2,
+          "differenza": 238,
+          "vittorieCasa": 7,
+          "partiteCasa": 7,
+          "vittorieFuori": 5,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Big 12",
+          "partite": 13,
+          "vittorie": 11,
+          "sconfitte": 2,
+          "pareggi": 0,
+          "percVittorie": 84.6,
+          "mediaFatti": 41.3,
+          "mediaSubiti": 18.9,
+          "differenza": 291,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 5,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 23.6,
+          "mediaSubiti": 20.7,
+          "differenza": 35,
+          "vittorieCasa": 2,
+          "partiteCasa": 6,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Pac-12",
+          "partite": 13,
+          "vittorie": 8,
+          "sconfitte": 5,
+          "pareggi": 0,
+          "percVittorie": 61.5,
+          "mediaFatti": 23.2,
+          "mediaSubiti": 19.3,
+          "differenza": 50,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Pac-12",
+          "partite": 14,
+          "vittorie": 10,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 71.4,
+          "mediaFatti": 38.6,
+          "mediaSubiti": 21.4,
+          "differenza": 241,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 4,
+          "partiteFuori": 7
+        }
+      ]
+    },
+    {
       "nome": "Boise State",
       "nomeCompleto": "Boise State",
       "conference": "Pac-12",
@@ -1481,102 +1577,6 @@
           "partiteCasa": 7,
           "vittorieFuori": 3,
           "partiteFuori": 6
-        }
-      ]
-    },
-    {
-      "nome": "Utah",
-      "nomeCompleto": "Utah",
-      "conference": "Big 12",
-      "conferenza": "Big 12",
-      "partite": 63,
-      "vittorie": 45,
-      "sconfitte": 18,
-      "pareggi": 0,
-      "percVittorie": 71.4,
-      "mediaFatti": 33.0,
-      "mediaSubiti": 19.8,
-      "differenza": 831,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Big 12",
-          "partite": 11,
-          "vittorie": 11,
-          "sconfitte": 0,
-          "pareggi": 0,
-          "percVittorie": 100.0,
-          "mediaFatti": 37.9,
-          "mediaSubiti": 18.5,
-          "differenza": 214,
-          "vittorieCasa": 6,
-          "partiteCasa": 6,
-          "vittorieFuori": 5,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Big 12",
-          "partite": 13,
-          "vittorie": 11,
-          "sconfitte": 2,
-          "pareggi": 0,
-          "percVittorie": 84.6,
-          "mediaFatti": 41.3,
-          "mediaSubiti": 18.9,
-          "differenza": 291,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 5,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Big 12",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 23.6,
-          "mediaSubiti": 20.7,
-          "differenza": 35,
-          "vittorieCasa": 2,
-          "partiteCasa": 6,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Pac-12",
-          "partite": 13,
-          "vittorie": 8,
-          "sconfitte": 5,
-          "pareggi": 0,
-          "percVittorie": 61.5,
-          "mediaFatti": 23.2,
-          "mediaSubiti": 19.3,
-          "differenza": 50,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Pac-12",
-          "partite": 14,
-          "vittorie": 10,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 71.4,
-          "mediaFatti": 38.6,
-          "mediaSubiti": 21.4,
-          "differenza": 241,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 4,
-          "partiteFuori": 7
         }
       ]
     },
@@ -8237,102 +8237,6 @@
       ]
     },
     {
-      "nome": "West Virginia",
-      "nomeCompleto": "West Virginia",
-      "conference": "Big 12",
-      "conferenza": "Big 12",
-      "partite": 61,
-      "vittorie": 29,
-      "sconfitte": 32,
-      "pareggi": 0,
-      "percVittorie": 47.5,
-      "mediaFatti": 29.4,
-      "mediaSubiti": 31.2,
-      "differenza": -106,
-      "perStagione": [
-        {
-          "stagione": "2026",
-          "conferenza": "Big 12",
-          "partite": 11,
-          "vittorie": 5,
-          "sconfitte": 6,
-          "pareggi": 0,
-          "percVittorie": 45.5,
-          "mediaFatti": 34.5,
-          "mediaSubiti": 34.7,
-          "differenza": -2,
-          "vittorieCasa": 3,
-          "partiteCasa": 7,
-          "vittorieFuori": 2,
-          "partiteFuori": 4
-        },
-        {
-          "stagione": "2025",
-          "conferenza": "Big 12",
-          "partite": 12,
-          "vittorie": 4,
-          "sconfitte": 8,
-          "pareggi": 0,
-          "percVittorie": 33.3,
-          "mediaFatti": 21.8,
-          "mediaSubiti": 30.8,
-          "differenza": -109,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 1,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2024",
-          "conferenza": "Big 12",
-          "partite": 13,
-          "vittorie": 6,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 46.2,
-          "mediaFatti": 29.2,
-          "mediaSubiti": 31.9,
-          "differenza": -36,
-          "vittorieCasa": 3,
-          "partiteCasa": 8,
-          "vittorieFuori": 3,
-          "partiteFuori": 5
-        },
-        {
-          "stagione": "2023",
-          "conferenza": "Big 12",
-          "partite": 13,
-          "vittorie": 9,
-          "sconfitte": 4,
-          "pareggi": 0,
-          "percVittorie": 69.2,
-          "mediaFatti": 31.5,
-          "mediaSubiti": 26.2,
-          "differenza": 69,
-          "vittorieCasa": 6,
-          "partiteCasa": 7,
-          "vittorieFuori": 3,
-          "partiteFuori": 6
-        },
-        {
-          "stagione": "2022",
-          "conferenza": "Big 12",
-          "partite": 12,
-          "vittorie": 5,
-          "sconfitte": 7,
-          "pareggi": 0,
-          "percVittorie": 41.7,
-          "mediaFatti": 30.6,
-          "mediaSubiti": 32.9,
-          "differenza": -28,
-          "vittorieCasa": 3,
-          "partiteCasa": 6,
-          "vittorieFuori": 2,
-          "partiteFuori": 6
-        }
-      ]
-    },
-    {
       "nome": "Eastern Michigan",
       "nomeCompleto": "Eastern Michigan",
       "conference": "Mid-American",
@@ -8520,6 +8424,102 @@
           "vittorieCasa": 4,
           "partiteCasa": 7,
           "vittorieFuori": 3,
+          "partiteFuori": 6
+        }
+      ]
+    },
+    {
+      "nome": "West Virginia",
+      "nomeCompleto": "West Virginia",
+      "conference": "Big 12",
+      "conferenza": "Big 12",
+      "partite": 62,
+      "vittorie": 29,
+      "sconfitte": 33,
+      "pareggi": 0,
+      "percVittorie": 46.8,
+      "mediaFatti": 29.4,
+      "mediaSubiti": 31.5,
+      "differenza": -130,
+      "perStagione": [
+        {
+          "stagione": "2026",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 34.0,
+          "mediaSubiti": 36.2,
+          "differenza": -26,
+          "vittorieCasa": 3,
+          "partiteCasa": 7,
+          "vittorieFuori": 2,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2025",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 4,
+          "sconfitte": 8,
+          "pareggi": 0,
+          "percVittorie": 33.3,
+          "mediaFatti": 21.8,
+          "mediaSubiti": 30.8,
+          "differenza": -109,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 1,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2024",
+          "conferenza": "Big 12",
+          "partite": 13,
+          "vittorie": 6,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 46.2,
+          "mediaFatti": 29.2,
+          "mediaSubiti": 31.9,
+          "differenza": -36,
+          "vittorieCasa": 3,
+          "partiteCasa": 8,
+          "vittorieFuori": 3,
+          "partiteFuori": 5
+        },
+        {
+          "stagione": "2023",
+          "conferenza": "Big 12",
+          "partite": 13,
+          "vittorie": 9,
+          "sconfitte": 4,
+          "pareggi": 0,
+          "percVittorie": 69.2,
+          "mediaFatti": 31.5,
+          "mediaSubiti": 26.2,
+          "differenza": 69,
+          "vittorieCasa": 6,
+          "partiteCasa": 7,
+          "vittorieFuori": 3,
+          "partiteFuori": 6
+        },
+        {
+          "stagione": "2022",
+          "conferenza": "Big 12",
+          "partite": 12,
+          "vittorie": 5,
+          "sconfitte": 7,
+          "pareggi": 0,
+          "percVittorie": 41.7,
+          "mediaFatti": 30.6,
+          "mediaSubiti": 32.9,
+          "differenza": -28,
+          "vittorieCasa": 3,
+          "partiteCasa": 6,
+          "vittorieFuori": 2,
           "partiteFuori": 6
         }
       ]
@@ -195322,12 +195322,87 @@
       "dataIt": "2026-11-28",
       "oraIt": "03:00",
       "inizio": "2026-11-28T02:00Z",
-      "pc": null,
-      "po": null,
+      "pc": 52,
+      "po": 28,
       "conferenzaCasa": "Big 12",
       "stadio": "Rice-Eccles Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Devon Dampier",
+          "ruolo": "QB",
+          "valore": 393,
+          "misura": "yard passate",
+          "dettagli": [
+            "5 TD"
+          ]
+        },
+        {
+          "nome": "Daniel Bray",
+          "ruolo": "RB",
+          "valore": 42,
+          "misura": "yard corse",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Braden Pegan",
+          "ruolo": "WR",
+          "valore": 134,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Larry Simmons",
+          "ruolo": "WR",
+          "valore": 74,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "3 ric.",
+            "1 TD"
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Scotty Fox Jr.",
+          "ruolo": "QB",
+          "valore": 253,
+          "misura": "yard passate",
+          "dettagli": [
+            "2 TD"
+          ]
+        },
+        {
+          "nome": "Cam Cook",
+          "ruolo": "RB",
+          "valore": 43,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "DJ Epps",
+          "ruolo": "WR",
+          "valore": 97,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric.",
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Josh Sapp",
+          "ruolo": "WR",
+          "valore": 46,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -198889,13 +198964,13 @@
         {
           "squadra": "Utah",
           "nome": "Utah",
-          "partite": 11,
-          "fatti1": 6.55,
-          "fatti2": 1.27,
-          "subiti1": 0.91,
-          "subiti2": 0.64,
+          "partite": 12,
+          "fatti1": 6.0,
+          "fatti2": 1.17,
+          "subiti1": 1.42,
+          "subiti2": 1.17,
           "quota": null,
-          "netto": 6.27
+          "netto": 4.58
         },
         {
           "squadra": "Oregon",
@@ -200130,6 +200205,17 @@
           "netto": -1.09
         },
         {
+          "squadra": "West Virginia",
+          "nome": "West Virginia",
+          "partite": 12,
+          "fatti1": 1.75,
+          "fatti2": 1.08,
+          "subiti1": 3.33,
+          "subiti2": 2.33,
+          "quota": null,
+          "netto": -2.83
+        },
+        {
           "squadra": "Sam Houston",
           "nome": "Sam Houston",
           "partite": 11,
@@ -200304,17 +200390,6 @@
           "subiti2": 1.33,
           "quota": null,
           "netto": -2.83
-        },
-        {
-          "squadra": "West Virginia",
-          "nome": "West Virginia",
-          "partite": 11,
-          "fatti1": 1.27,
-          "fatti2": 0.55,
-          "subiti1": 3.64,
-          "subiti2": 2.55,
-          "quota": null,
-          "netto": -4.36
         },
         {
           "squadra": "Boston College",
@@ -201083,10 +201158,10 @@
         {
           "squadra": "Utah",
           "nome": "Utah",
-          "partite": 11,
+          "partite": 12,
           "flag": 6.0,
-          "yard": 50.3,
-          "subite": 7.27,
+          "yard": 50.2,
+          "subite": 6.92,
           "tipi": []
         },
         {
@@ -201252,15 +201327,6 @@
           "tipi": []
         },
         {
-          "squadra": "West Virginia",
-          "nome": "West Virginia",
-          "partite": 11,
-          "flag": 5.64,
-          "yard": 46.6,
-          "subite": 7.55,
-          "tipi": []
-        },
-        {
           "squadra": "UCF",
           "nome": "UCF",
           "partite": 11,
@@ -201294,6 +201360,15 @@
           "flag": 5.45,
           "yard": 47.3,
           "subite": 5.55,
+          "tipi": []
+        },
+        {
+          "squadra": "West Virginia",
+          "nome": "West Virginia",
+          "partite": 12,
+          "flag": 5.42,
+          "yard": 45.2,
+          "subite": 7.42,
           "tipi": []
         },
         {
@@ -201612,7 +201687,7 @@
           "tipi": []
         }
       ],
-      "media": 6.31,
+      "media": 6.3,
       "nota": "Penalità accettate a partita, dal tabellino ESPN. Gli arbitri del college non sono nei dati.",
       "arbitri": []
     },
@@ -202039,6 +202114,34 @@
             "canale": "NBC Sports",
             "ufficiale": true,
             "etichetta": "Highlights · NBC Sports · si apre su YouTube"
+          }
+        },
+        {
+          "highlights": "https://www.youtube.com/results?search_query=West+Virginia+vs+Utah+football+highlights+November+28%2C+2026",
+          "data": "2026-11-28",
+          "ora": "",
+          "dataIt": "2026-11-28",
+          "oraIt": "03:00",
+          "inizio": "2026-11-28T02:00Z",
+          "casa": "Utah",
+          "ospite": "West Virginia",
+          "pc": 52,
+          "po": 28,
+          "favorita": "Utah",
+          "linea": 24.5,
+          "totaleLinea": 65.5,
+          "battutaDa": "West Virginia",
+          "totaleEsito": "over",
+          "scartoLinea": 0.5,
+          "stadio": "",
+          "confCasa": "Big 12",
+          "confOspite": "Big 12",
+          "video": {
+            "id": "xjPdHLLjcx8",
+            "titolo": "West Virginia vs. #2 Utah Highlights | 2026 Monster Energy Big 12 Football",
+            "canale": "Big 12 Conference",
+            "ufficiale": true,
+            "etichetta": "Highlights · Big 12 Conference · si apre su YouTube"
           }
         }
       ]
