@@ -1,7 +1,7 @@
 """Salva sul server le chiavi per pubblicare su Instagram e Facebook (PureStats, dal 28/11/2026).
 
 Collegamento «tramite Facebook» (Pagina Facebook PureStats collegata all'account Instagram purestats).
-Chiede, senza mostrarli a schermo: id dell'app, chiave segreta dell'app e il token breve generato con
+Chiede (si vedono solo sul terminale, non finiscono in nessun file né registro): id dell'app, chiave segreta dell'app e il token breve generato con
 Graph API Explorer. Poi da solo:
   1. scambia il token breve con quello lungo (60 giorni);
   2. dal token lungo prende il token della Pagina, che NON scade;
@@ -11,7 +11,6 @@ Nessuna chiave viene stampata né scritta nel registro.
 
 Uso (dalla cartella del bot Radar Assenze):  python3 strumenti/instagram_token.py
 """
-import getpass
 import json
 import re
 import sys
@@ -43,7 +42,7 @@ def chiama(percorso, **parametri):
 
 
 def chiedi(testo, nascosto=True, forma=None):
-    valore = re.sub(r"\s+", "", getpass.getpass(testo) if nascosto else input(testo))
+    valore = re.sub(r"\s+", "", input(testo))   # visibile solo sul terminale: getpass non riceveva l'incolla
     if not valore or (forma and not re.fullmatch(forma, valore)):
         # solo la lunghezza e i tipi di carattere, mai il valore: bastano a capire cosa è andato storto
         tipi = ", ".join(n for n, r in (("cifre", r"\d"), ("lettere minuscole", r"[a-z]"), ("maiuscole", r"[A-Z]"),
@@ -62,8 +61,8 @@ def main():
         if input(f"In config.toml c'è già [{SEZIONE}]. La sostituisco? (si/no) ").strip().lower() not in ("si", "sì", "s"):
             sys.exit("Lasciato tutto com'era.")
     app_id = chiedi("Id dell'app (numero, si vede): ", nascosto=False, forma=r"\d{6,20}")
-    segreto = chiedi("Chiave segreta dell'app (non si vede mentre la incolli): ", forma=r"[0-9a-fA-F]{32}")
-    breve = chiedi("Token di Graph API Explorer (non si vede mentre lo incolli): ", forma=r"[A-Za-z0-9_\-]{60,}")
+    segreto = chiedi("Chiave segreta dell'app: ", forma=r"[0-9a-fA-F]{32}")
+    breve = chiedi("Token di Graph API Explorer: ", forma=r"[A-Za-z0-9_\-]{60,}")
 
     lungo = chiama("oauth/access_token", grant_type="fb_exchange_token", client_id=app_id,
                    client_secret=segreto, fb_exchange_token=breve)["access_token"]
@@ -101,6 +100,7 @@ def main():
     CONFIG.write_text(testo, encoding="utf-8")
     CONFIG.chmod(0o600)
     scade = scadenza.get("expires_at", 0)
+    print("\033[2J\033[H", end="")                          # pulisce lo schermo: chiave e token non restano visibili
     print(f"Fatto. Pagina «{pagina['name']}» collegata a Instagram @{ig.get('username')}.\n"
           f"Token della Pagina {'senza scadenza' if not scade else 'CON scadenza: va rifatto, scrivimelo'}; "
           f"config.toml valido (copia di prima in {copia.name}).")
