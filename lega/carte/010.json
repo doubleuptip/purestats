@@ -1,0 +1,52 @@
+{
+  "n": 10,
+  "uscita": "2026-11-28",
+  "nome": "Bastien Moorcalde",
+  "maglia": 51,
+  "ruolo": "Linebacker",
+  "squadra": "Aurelion Tempest",
+  "conference": "Oceanica",
+  "stemma": "aurelion-tempest.png",
+  "rarita": "Comune",
+  "sintesi": "Il linebacker e capitano della difesa dei Tempest: per tre secondi il rumore sparisce e vede il campo dall'alto.",
+  "dono": {
+    "nome": "La Quiete",
+    "testo": "Per tre secondi ogni rumore sparisce e vede il campo dall'alto, come su una lavagna.",
+    "usi": "3 usi per tempo",
+    "prezzo": "Emozioni spente fino a sera"
+  },
+  "dati_titolo": "Stagione 2187 · 10 partite",
+  "dati": [
+    ["89", "Placcaggi"],
+    ["3", "Sack"],
+    ["6", "Placcaggi in perdita"],
+    ["1", "Intercetto"]
+  ],
+  "storia": [
+    "Nato nel **2160** a Nordhal, la città di legno e fiordi, figlio di un costruttore di barche; cresce nel silenzio dei cantieri d'inverno.",
+    "La **Quiete** arriva a quindici anni, durante una bufera: il vento tace e lui vede dall'alto il sentiero per tornare a casa.",
+    "Ysolde Marrak, anche lei di Nordhal, lo vuole con la **7ª chiamata** del Draft 2182. Capitano della difesa dal 2184.",
+    "Nel 2186 fa 149 placcaggi, il suo record; nel 2187 ne ha già 89 dopo 10 partite."
+  ],
+  "schede": [
+    ["Nato", "2160 · Nordhal"],
+    ["Altezza · peso", "1,90 m · 111 kg"],
+    ["Draft", "2182 · 7ª chiamata"],
+    ["Dono", "La Quiete · Mente"]
+  ],
+  "carriera": {
+    "colonne": ["Stagione", "Partite", "Placc.", "Sack", "Int."],
+    "righe": [
+      ["2182", "17", "104", "2", "0"],
+      ["2183", "17", "131", "3", "1"],
+      ["2184", "17", "142", "4", "2"],
+      ["2185", "15", "118", "2", "1"],
+      ["2186", "17", "149", "5", "2"],
+      ["2187 *in corso*", "10", "89", "3", "1"]
+    ]
+  },
+  "citazione": {
+    "testo": "Gli altri sentono lo stadio. Io sento solo dove andrà il pallone.",
+    "fonte": "Bastien Moorcalde, nominato capitano nel 2184"
+  }
+}
