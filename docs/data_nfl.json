@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-28T01:49:25.754979+00:00",
+  "aggiornato": "2026-11-28T10:36:03.477937+00:00",
   "campionato": "NFL",
   "fonte": "nflverse (CC BY 4.0)",
   "stagioni": [
@@ -141436,8 +141436,94 @@
       "pc": 27,
       "po": 5,
       "stadio": "Acrisure Stadium",
-      "giocatoriCasa": [],
-      "giocatoriOspite": []
+      "giocatoriCasa": [
+        {
+          "nome": "Mason Rudolph",
+          "ruolo": "QB",
+          "valore": 142,
+          "misura": "yard passate",
+          "dettagli": [
+            "1 TD"
+          ]
+        },
+        {
+          "nome": "Rico Dowdle",
+          "ruolo": "RB",
+          "valore": 71,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Germie Bernard",
+          "ruolo": "WR",
+          "valore": 58,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Roman Wilson",
+          "ruolo": "WR",
+          "valore": 37,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        },
+        {
+          "nome": "Pat Freiermuth",
+          "ruolo": "TE",
+          "valore": 1,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "1 ric."
+          ]
+        }
+      ],
+      "giocatoriOspite": [
+        {
+          "nome": "Bo Nix",
+          "ruolo": "QB",
+          "valore": 169,
+          "misura": "yard passate",
+          "dettagli": []
+        },
+        {
+          "nome": "Cody Schrader",
+          "ruolo": "RB",
+          "valore": 27,
+          "misura": "yard corse",
+          "dettagli": []
+        },
+        {
+          "nome": "Jaylen Waddle",
+          "ruolo": "WR",
+          "valore": 53,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "5 ric."
+          ]
+        },
+        {
+          "nome": "Pat Bryant",
+          "ruolo": "WR",
+          "valore": 42,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "4 ric."
+          ]
+        },
+        {
+          "nome": "Adam Trautman",
+          "ruolo": "TE",
+          "valore": 17,
+          "misura": "yard ricevute",
+          "dettagli": [
+            "2 ric."
+          ]
+        }
+      ]
     },
     {
       "stagione": "2026",
@@ -143770,7 +143856,7 @@
         "po": null,
         "favorita": "CLE",
         "linea": 4.5,
-        "totaleLinea": 39.5,
+        "totaleLinea": 38.5,
         "battutaDa": null,
         "totaleEsito": null,
         "scartoLinea": null,
@@ -143958,6 +144044,14 @@
           "dettagli": "2 colpi al QB · 1 placcaggi con perdita"
         },
         {
+          "nome": "Cameron Heyward",
+          "ruolo": "DE",
+          "squadra": "PIT",
+          "avversario": "DEN",
+          "valore": 1,
+          "dettagli": "1 colpi al QB · 1 placcaggi con perdita"
+        },
+        {
           "nome": "Rashan Gary",
           "ruolo": "LB",
           "squadra": "DAL",
@@ -143980,17 +144074,17 @@
           "avversario": "BUF",
           "valore": 1,
           "dettagli": "1 colpi al QB · 2 placcaggi con perdita"
-        },
-        {
-          "nome": "Alim McNeill",
-          "ruolo": "DT",
-          "squadra": "DET",
-          "avversario": "CHI",
-          "valore": 1,
-          "dettagli": "1 colpi al QB · 1 placcaggi con perdita"
         }
       ],
       "intercetti": [
+        {
+          "nome": "Jalen Ramsey",
+          "ruolo": "CB",
+          "squadra": "PIT",
+          "avversario": "DEN",
+          "valore": 1,
+          "dettagli": "36 yard di ritorno · 1 TD · 2 passaggi deviati"
+        },
         {
           "nome": "Alohi Gilman",
           "ruolo": "SAF",
@@ -144022,14 +144116,6 @@
           "avversario": "GB",
           "valore": 1,
           "dettagli": "14 yard di ritorno · 1 passaggi deviati"
-        },
-        {
-          "nome": "Ty'Ron Hopper",
-          "ruolo": "LB",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 1,
-          "dettagli": "21 yard di ritorno · 1 passaggi deviati"
         }
       ],
       "placcaggi": [
@@ -144040,6 +144126,14 @@
           "avversario": "BUF",
           "valore": 14,
           "dettagli": "8 da solo · 6 assist · 2 con perdita"
+        },
+        {
+          "nome": "Alex Singleton",
+          "ruolo": "LB",
+          "squadra": "DEN",
+          "avversario": "PIT",
+          "valore": 13,
+          "dettagli": "3 da solo · 10 assist · 1 con perdita"
         },
         {
           "nome": "Jeremiah Trotter Jr.",
@@ -144064,14 +144158,6 @@
           "avversario": "LA",
           "valore": 9,
           "dettagli": "8 da solo · 1 assist · 1 con perdita"
-        },
-        {
-          "nome": "Isaiah McDuffie",
-          "ruolo": "LB",
-          "squadra": "GB",
-          "avversario": "LA",
-          "valore": 9,
-          "dettagli": "4 da solo · 5 assist · 1 con perdita"
         }
       ],
       "fumbleForzati": [
@@ -144081,6 +144167,14 @@
           "squadra": "DET",
           "avversario": "CHI",
           "valore": 2,
+          "dettagli": "2 placcaggi da solo"
+        },
+        {
+          "nome": "Zach Allen",
+          "ruolo": "DE",
+          "squadra": "DEN",
+          "avversario": "PIT",
+          "valore": 1,
           "dettagli": "2 placcaggi da solo"
         },
         {
@@ -144110,6 +144204,22 @@
           "dettagli": ""
         },
         {
+          "nome": "Daylen Everette",
+          "ruolo": "CB",
+          "squadra": "PIT",
+          "avversario": "DEN",
+          "valore": 3,
+          "dettagli": "1 intercetti"
+        },
+        {
+          "nome": "Jalen Ramsey",
+          "ruolo": "CB",
+          "squadra": "PIT",
+          "avversario": "DEN",
+          "valore": 2,
+          "dettagli": "1 intercetti"
+        },
+        {
           "nome": "Quentin Lake",
           "ruolo": "SAF",
           "squadra": "LA",
@@ -144123,22 +144233,6 @@
           "squadra": "LA",
           "avversario": "GB",
           "valore": 2,
-          "dettagli": ""
-        },
-        {
-          "nome": "Aaron Donald",
-          "ruolo": "DE",
-          "squadra": "LA",
-          "avversario": "GB",
-          "valore": 1,
-          "dettagli": ""
-        },
-        {
-          "nome": "Malik Hooker",
-          "ruolo": "FS",
-          "squadra": "DAL",
-          "avversario": "PHI",
-          "valore": 1,
           "dettagli": ""
         }
       ]
