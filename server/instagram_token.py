@@ -48,7 +48,6 @@ def chiedi(testo, nascosto=True, forma=None):
         tipi = ", ".join(n for n, r in (("cifre", r"\d"), ("lettere minuscole", r"[a-z]"), ("maiuscole", r"[A-Z]"),
                                         ("altri simboli", r"[^A-Za-z0-9]")) if re.search(r, valore)) or "niente"
         sys.exit(f"Valore non valido per «{testo.split('(')[0].strip(': ')}»: ricevuti {len(valore)} caratteri ({tipi}).\n"
-                 "Se sono 0, l'incolla non è arrivato: nel terminale si incolla col tasto destro del mouse (non si vede nulla, è normale), poi Invio.\n"
                  "Niente è stato scritto in config.toml.")
     return valore
 
@@ -80,7 +79,7 @@ def main():
         pagina = pagine[0]
     ig_id = pagina["instagram_business_account"]["id"]
     token_pagina = pagina["access_token"]
-    ig = chiama(ig_id, fields="username,account_type", access_token=token_pagina)
+    ig = chiama(ig_id, fields="username", access_token=token_pagina)
     scadenza = chiama("debug_token", input_token=token_pagina, access_token=f"{app_id}|{segreto}").get("data", {})
     permessi = set(scadenza.get("scopes") or [])
     mancano = {"instagram_basic", "instagram_content_publish", "pages_show_list"} - permessi
