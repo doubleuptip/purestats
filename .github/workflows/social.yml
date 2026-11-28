@@ -1,0 +1,53 @@
+name: Social - immagini per Instagram e Facebook
+
+# Prepara i contenuti nuovi (guida TV, carte 2187, Leggende, anteprime e cronache NFL, risultati, accadde oggi,
+# corsa ai playoff) con scripts/social.py e li mette nel ramo «social», ripubblicato ogni volta da zero (un solo
+# commit: la storia non cresce). Il server li propone a Valerio su Telegram e li pubblica solo con il suo ✅.
+# Nessuna fonte esterna né a credito: legge solo i file pubblici del sito.
+on:
+  schedule:
+    - cron: '41 5-23 * * *'
+  push:
+    branches: [main]
+    paths:
+      - docs/lega/lega.json
+      - docs/articoli/indice.json
+      - docs/leggende/racconti.json
+      - scripts/social.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  social:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: social
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Porta il ramo social
+        run: |
+          mkdir -p ramo
+          if git fetch -q --depth 1 origin social 2>/dev/null; then git archive FETCH_HEAD | tar -x -C ramo; else echo "Ramo social non ancora creato: si parte da zero."; fi
+      - name: Prepara i contenuti nuovi
+        env:
+          SOCIAL_SEGNALE: ${{ runner.temp }}/social_cambiato
+        run: python scripts/social.py ramo
+      - name: Ripubblica il ramo social
+        env:
+          SOCIAL_SEGNALE: ${{ runner.temp }}/social_cambiato
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ ! -f "$SOCIAL_SEGNALE" ]; then echo "Nessuna novità."; exit 0; fi
+          cd ramo
+          git init -q -b social
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Contenuti social $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push -q -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" social

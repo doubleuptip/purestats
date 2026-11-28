@@ -684,6 +684,21 @@ davvero che si veda quello che deve vedersi.
   token e canale in config.toml. CHARLIE MAI NEL CANALE (Valerio, 28/11): Decreto Dignità art. 9 (pubblicità anche
   indiretta del gioco vietata anche sui social, sanzioni da 50.000 euro) e regola «niente scommesse nella parte pubblica».
 
+- Instagram @purestats1 e Pagina Facebook «PureStats» (28/11/2026, scelta di Valerio; account Azienda, collegamento tramite
+  Facebook): `scripts/social.py` (workflow social.yml, ogni ora alle :41 dalle 5 alle 23 UTC e a ogni push di lega.json,
+  articoli/indice.json, racconti.json) prepara con Chrome senza finestra le immagini 1080×1350 (e con ffmpeg il reel 1080×1920
+  della carta che si gira) dai SOLI file pubblici: guida TV del giorno, carte 2187 uscite oggi (+ reel della prima, etichetta
+  AI), racconto nuovo delle Leggende, anteprime e cronache NFL, risultati della week completa, accadde oggi, corsa ai playoff
+  (dalla week 10). Controllo VIETATE_NUOVE su didascalie e slide, massimo 5 hashtag. Tutto nel ramo «social» (coda.json +
+  file degli ultimi 7 giorni, ripubblicato da zero a ogni novità: la storia non cresce), letto da raw.githubusercontent.
+  Sul server `server/purestats_social.py giro` (crontab ogni 2 minuti con flock) propone ogni contenuto a Valerio in privato
+  con il bot PureStats (✅ Instagram + Facebook · 📸 Solo Instagram · ❌ Scarta; i bottoni li riceve purestats_canale.py «bot»
+  e scrive data/social_scelte.json) e pubblica SOLO dopo la scelta; `automatici` in [purestats_instagram] per i tipi da
+  pubblicare senza chiedere (vuoto). Reel caricati dal server (upload resumable, solo col collegamento Facebook). Chiavi in
+  [purestats_instagram] (token della Pagina senza scadenza, instagram_id, pagina_id) da `server/instagram_token.py`: smette di
+  valere se Valerio cambia la password di Facebook, toglie l'app o il ruolo sulla Pagina → rilanciare lo script.
+  Modelli scelti da Valerio il 28/11 («bellissimi»); le prime settimane 1-2 post al giorno, account nuovo.
+
 - Dicembre 2026, rinunce ai bowl: i titolari si contano sull'intera stagione (Protocollo 12), quindi una squadra
   che ha cambiato QB a metà anno ha ancora il vecchio come titolare (Rice: Jacurri Brown, ora ricevitore; gioca
   Gael Ochoa). Prima di spuntare le rinunce, controllare a mano le squadre che hanno cambiato QB.

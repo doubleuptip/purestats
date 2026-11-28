@@ -33,6 +33,7 @@ from zoneinfo import ZoneInfo
 CARTELLA = Path(__file__).resolve().parent.parent
 STATO = CARTELLA / "data" / "canale_stato.json"
 STATO_BOT = CARTELLA / "data" / "canale_bot.json"     # separato: «bot» e «avvisi» girano insieme
+SCELTE_SOCIAL = CARTELLA / "data" / "social_scelte.json"   # bottoni di Instagram/Facebook (purestats_social.py)
 REGISTRO = CARTELLA / "data" / "canale.log"
 SITO = "https://purestats.it"
 ROMA, EST = ZoneInfo("Europe/Rome"), ZoneInfo("America/New_York")
@@ -387,7 +388,7 @@ def bot(cfg):
         stato = {}
     try:
         r = tg.chiama("getUpdates", {"offset": stato.get("offset", 0), "timeout": 50,
-                                     "allowed_updates": ["message"]}, attesa=50)
+                                     "allowed_updates": ["message", "callback_query"]}, attesa=50)
     except Exception as err:             # noqa: BLE001
         scrivi(f"bot: getUpdates non riuscito ({err})")
         return
@@ -397,6 +398,9 @@ def bot(cfg):
     d = None
     for u in aggiornamenti:
         stato["offset"] = u["update_id"] + 1
+        if u.get("callback_query"):
+            scelta_social(tg, u["callback_query"], titolare)
+            continue
         m = u.get("message") or {}
         testo = (m.get("text") or "").strip()
         chat = m.get("chat") or {}
@@ -412,6 +416,32 @@ def bot(cfg):
             scrivi(f"bot: risposta a /{comando} non mandata ({err})")
     STATO_BOT.parent.mkdir(parents=True, exist_ok=True)
     STATO_BOT.write_text(json.dumps({"offset": stato["offset"]}), encoding="utf-8")
+
+
+def scelta_social(tg, cq, titolare):
+    """Bottoni ✅/📸/❌ delle proposte Instagram-Facebook: la scelta va in social_scelte.json, la esegue
+    purestats_social.py al suo giro (entro 2 minuti). Solo Valerio; i bottoni spariscono subito (niente doppio clic)."""
+    dati = (cq.get("data") or "").split("|")
+    msg = cq.get("message") or {}
+    if str((cq.get("from") or {}).get("id")) != titolare or len(dati) != 3 or dati[0] != "s" or dati[1] not in "eix":
+        return
+    try:
+        scelte = json.loads(SCELTE_SOCIAL.read_text(encoding="utf-8"))
+    except (FileNotFoundError, ValueError):
+        scelte = []
+    scelte.append({"numero": int(dati[2]), "scelta": dati[1], "quando": ADESSO.isoformat(timespec="minutes")})
+    SCELTE_SOCIAL.parent.mkdir(parents=True, exist_ok=True)
+    tmp = SCELTE_SOCIAL.with_suffix(".tmp")
+    tmp.write_text(json.dumps(scelte), encoding="utf-8")
+    tmp.replace(SCELTE_SOCIAL)
+    avviso = {"e": "Pubblico su Instagram e Facebook entro 2 minuti", "i": "Pubblico solo su Instagram entro 2 minuti",
+              "x": "Scartato"}[dati[1]]
+    try:
+        tg.chiama("answerCallbackQuery", {"callback_query_id": cq["id"], "text": avviso})
+        tg.chiama("editMessageReplyMarkup", {"chat_id": msg["chat"]["id"], "message_id": msg["message_id"],
+                                             "reply_markup": {"inline_keyboard": [[{"text": "⏳ " + avviso, "callback_data": "s|-|0"}]]}})
+    except Exception as err:             # noqa: BLE001 - la scelta è già salvata
+        scrivi(f"bot: conferma del bottone non mostrata ({err})")
 
 
 def configura(cfg):
