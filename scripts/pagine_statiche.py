@@ -255,7 +255,7 @@ def pagina(base, percorso, titolo, desc, corpo, ld=None, immagine=None, tipo_og=
 <main>
 {corpo}
 </main>
-<footer>PureStats · statistiche NFL e college football · <a href="{r}">pagina principale</a> · <a href="{r}nfl/calendario.html">calendario NFL</a> · <a href="{r}nfl/classifica.html">classifica NFL</a> · <a href="{r}archivio.html">archivio</a> · <a href="{r}chi-siamo.html">chi siamo</a> · <a href="{r}privacy.html">privacy</a>{piede_fonti}{modificato}</footer>
+<footer>PureStats · statistiche NFL e college football · <a href="{r}">pagina principale</a> · <a href="{r}nfl/calendario.html">calendario NFL</a> · <a href="{r}nfl/classifica.html">classifica NFL</a> · <a href="{r}archivio.html">archivio</a> · <a href="{r}chi-siamo.html">chi siamo</a> · <a href="{r}privacy.html">privacy</a> · <a href="https://t.me/purestats1" rel="noopener">canale Telegram</a>{piede_fonti}{modificato}</footer>
 </body>
 </html>
 """
@@ -887,13 +887,18 @@ ufficiali.</p>
 elenco di fatti preparato dai dati. Prima della pubblicazione ogni numero e ogni nome viene controllato su quei dati,
 e le notizie (infortuni, cambi di formazione) sulle fonti citate: un articolo che contiene un numero o un nome che non
 torna non viene pubblicato. Ogni articolo è firmato PureStats e porta la data di pubblicazione.</p>
+<h2>Il canale Telegram</h2>
+<p>Il canale ufficiale <a href="https://t.me/purestats1" rel="noopener">PureStats su Telegram</a> avvisa quando escono anteprime,
+cronache, racconti e carte di 2187, e ogni mattina dei giorni di partita pubblica la guida alle partite NFL in TV in
+Italia. Il bot del canale risponde anche ai comandi /tv, /meteo, /articoli, /leggende e /carte.</p>
 <h2>Dove trovare tutto</h2>
 <p><a href="archivio.html">Archivio di articoli e racconti</a> · <a href="nfl/calendario.html">Calendario NFL in ora
 italiana</a> · <a href="nfl/classifica.html">Classifica NFL</a> · <a href="privacy.html">Informativa privacy</a></p>
 </div></article>"""
     ld = ld_pagina(base, percorso, "AboutPage", titolo + " · PureStats", desc, mainEntity={
         "@type": "Organization", "name": "PureStats", "url": base, "email": "info@purestats.it",
-        "logo": base + "icona-512.png", "founder": {"@type": "Person", "name": "Valerio La Rocca"}})
+        "logo": base + "icona-512.png", "founder": {"@type": "Person", "name": "Valerio La Rocca"},
+        "sameAs": ["https://t.me/purestats1"]})
     return percorso, pagina(base, percorso, titolo, desc, corpo, ld, tipo_og="website", apri="")
 
 
@@ -913,7 +918,9 @@ def con_data(percorso, testo, oggi):
 
 
 def senza_grafica(testo):
-    """Il testo della pagina senza <style> e <header>: serve a non cambiare la data quando cambia solo l'aspetto."""
+    """Il testo della pagina senza <style>, <header> e <footer>: serve a non cambiare la data quando cambia solo l'aspetto."""
+    # anche il piede (collegamenti del sito, come il canale Telegram dal 28/11/2026): non è contenuto della pagina
+    testo = re.sub(r"<footer\b.*?</footer>", "", testo, flags=re.S)
     return re.sub(r"<header\b.*?</header>", "", re.sub(r"<style>.*?</style>", "", testo, flags=re.S), flags=re.S)
 
 

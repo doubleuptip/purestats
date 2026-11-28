@@ -425,7 +425,9 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   i giri ripetuti non cambiano nulla. Si rifanno nel workflow NFL (passo prima del commit: i commit con GITHUB_TOKEN non
   lanciano pagine-statiche.yml) e in pagine-statiche.yml. «Apri nel sito» usa `#vista=<partite|squadre|articoli…>` e
   `#squadra=<sigla>` (index.html, VISTA_DAL_LINK / SQUADRA_DAL_LINK). Piede di index.html: ARCHIVIO e CHI SIAMO (dal 26/11/2026 voci su una riga, `.pie-voci`: «Fonti e condizioni d'uso · Privacy ·
-  Archivio · Chi siamo», sul telefono «Fonti»).
+  Archivio · Chi siamo · Telegram», sul telefono «Fonti»). Canale Telegram ufficiale https://t.me/purestats1 (28/11/2026): nel piede
+  di index.html e delle pagine statiche, paragrafo in Chi siamo, sameAs nei dati strutturati; `senza_grafica` ignora anche il
+  <footer>, così cambiare i collegamenti del piede non cambia dateModified né la sitemap.
   Chi siamo va riletto da Valerio (può aggiungere 2-3 righe sue).
 - Alla prima attivazione del dominio: docs/CNAME con `purestats.it`, og:url/og:image di index.html sul nuovo
   dominio, User-Agent degli script (articoli, leggende, tv_italia) e indirizzo di duelli.html nel bot. Le chiavi
