@@ -82,7 +82,7 @@ def main():
     ig = chiama(ig_id, fields="username", access_token=token_pagina)
     scadenza = chiama("debug_token", input_token=token_pagina, access_token=f"{app_id}|{segreto}").get("data", {})
     permessi = set(scadenza.get("scopes") or [])
-    mancano = {"instagram_basic", "instagram_content_publish", "pages_show_list"} - permessi
+    mancano = {"instagram_basic", "instagram_content_publish", "pages_show_list", "pages_manage_posts"} - permessi
 
     # riscrive la sezione: via quella vecchia (fino alla sezione successiva), poi la nuova in fondo
     testo = re.sub(rf"(?ms)^\[{SEZIONE}\]\s*$.*?(?=^\[|\Z)", "", testo).rstrip() + "\n\n"
