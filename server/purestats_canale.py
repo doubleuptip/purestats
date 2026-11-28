@@ -22,6 +22,7 @@ Stato in data/canale_stato.json, registro in data/canale.log (ultime 300 righe).
 """
 import html
 import json
+import subprocess
 import sys
 import tomllib
 import urllib.error
@@ -423,7 +424,11 @@ def scelta_social(tg, cq, titolare):
     purestats_social.py al suo giro (entro 2 minuti). Solo Valerio; i bottoni spariscono subito (niente doppio clic)."""
     dati = (cq.get("data") or "").split("|")
     msg = cq.get("message") or {}
-    if str((cq.get("from") or {}).get("id")) != titolare or len(dati) != 3 or dati[0] != "s" or dati[1] not in "eix":
+    if str((cq.get("from") or {}).get("id")) != titolare or len(dati) != 3 or dati[0] != "s" or dati[1] not in ("e", "i", "x"):
+        try:
+            tg.chiama("answerCallbackQuery", {"callback_query_id": cq["id"]})    # niente rotellina infinita
+        except Exception:                # noqa: BLE001
+            pass
         return
     try:
         scelte = json.loads(SCELTE_SOCIAL.read_text(encoding="utf-8"))
@@ -434,12 +439,18 @@ def scelta_social(tg, cq, titolare):
     tmp = SCELTE_SOCIAL.with_suffix(".tmp")
     tmp.write_text(json.dumps(scelte), encoding="utf-8")
     tmp.replace(SCELTE_SOCIAL)
-    avviso = {"e": "Pubblico su Instagram e Facebook entro 2 minuti", "i": "Pubblico solo su Instagram entro 2 minuti",
-              "x": "Scartato"}[dati[1]]
+    avviso = {"e": "Pubblico su Instagram e Facebook…", "i": "Pubblico solo su Instagram…", "x": "Scartato"}[dati[1]]
+    # il giro di pubblicazione parte subito, senza aspettare il crontab (stesso lucchetto: mai due giri insieme)
+    try:
+        subprocess.Popen(["flock", "-n", "/tmp/purestats_social.lock", sys.executable,
+                          str(Path(__file__).resolve().parent / "purestats_social.py"), "giro"],
+                         cwd=CARTELLA, start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except OSError as err:
+        scrivi(f"bot: giro social non lanciato subito ({err}), parte col crontab")
     try:
         tg.chiama("answerCallbackQuery", {"callback_query_id": cq["id"], "text": avviso})
         tg.chiama("editMessageReplyMarkup", {"chat_id": msg["chat"]["id"], "message_id": msg["message_id"],
-                                             "reply_markup": {"inline_keyboard": [[{"text": "⏳ " + avviso, "callback_data": "s|-|0"}]]}})
+                                             "reply_markup": {"inline_keyboard": []}})   # bottoni via: niente doppio tocco
     except Exception as err:             # noqa: BLE001 - la scelta è già salvata
         scrivi(f"bot: conferma del bottone non mostrata ({err})")
 
