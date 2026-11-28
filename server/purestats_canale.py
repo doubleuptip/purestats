@@ -1,7 +1,8 @@
 """Canale Telegram ufficiale PureStats e bot dei comandi (dal 28/11/2026, scelta di Valerio).
 
 Nel canale escono, una volta sola ciascuno: la guida «In TV in Italia» alle 9 nei giorni di partita NFL, gli avvisi
-meteo che contano, gli articoli nuovi (anteprime e cronache NFL e college), i racconti delle Leggende e le carte 2187.
+meteo che contano, gli articoli nuovi (anteprime e cronache NFL e college), gli aggiornamenti delle anteprime (una volta
+per ogni aggiornamento, con la nota), i racconti delle Leggende e le carte 2187.
 Il bot risponde ai comandi /tv /meteo /articoli /leggende /carte /sito /aiuto SOLO a Valerio (chat_id della sezione
 [telegram] di Radar Assenze, scelta del 28/11/2026: niente comandi pubblici, nessun rischio di raffiche di messaggi);
 gli altri vengono ignorati senza risposta.
@@ -197,6 +198,21 @@ def msg_articolo(a):
             + f"{SITO}/a/{a['id']}.html")
 
 
+def msg_aggiornamento(a):
+    """Anteprima aggiornata con una novità vera (25/11/2026): la nota dell'ultimo aggiornamento e il collegamento.
+    La nota sta nel file dell'articolo, non nell'indice: si legge solo quando c'è davvero da mandare."""
+    lega = "NFL" if a.get("lega") == "nfl" else "College"
+    sq = f"{nome(a['ospite'])} @ {nome(a['casa'])}" if a.get("lega") == "nfl" else f"{a.get('ospite')} @ {a.get('casa')}"
+    nota = ""
+    try:
+        nota = ((pubblico(f"articoli/{a['id']}.json").get("aggiornamenti") or [{}])[-1].get("nota") or "").strip()
+    except Exception as x:               # noqa: BLE001 - senza nota il messaggio esce lo stesso
+        scrivi(f"nota dell'aggiornamento di {a['id']} non letta: {x}")
+    return (f"🔄 Aggiornamento · Anteprima {lega} · {e(sq)}\n<b>{e(a.get('titolo'))}</b>\n"
+            + (f"{e(nota)}\n" if nota else "")
+            + f"{e(quando(a.get('dataIt'), a.get('oraIt')))}\n{SITO}/a/{a['id']}.html")
+
+
 def msg_racconto(r):
     lega = "College" if r.get("lega") == "college" else "NFL"
     return f"📜 Leggende {lega}\n<b>{e(r.get('titolo'))}</b>\n{e(r.get('occhiello'))}\n{SITO}/l/{r['id']}.html"
@@ -243,6 +259,9 @@ def novita(d):
         out.append((k, "testo", t))
     for a in sorted(d.get("articoli") or [], key=lambda x: x.get("pubblicato") or ""):
         out.append((f"articolo|{a['id']}", "testo", msg_articolo(a)))
+        if a.get("aggiornato") and a.get("tipo") == "anteprima":
+            # chiave con l'ora: ogni nuovo aggiornamento esce una volta; il testo si prepara solo se serve (lambda)
+            out.append((f"agg|{a['id']}|{a['aggiornato']}", "testo", lambda a=a: msg_aggiornamento(a)))
     for r in sorted(d.get("racconti") or [], key=lambda x: x.get("pubblicato") or ""):
         out.append((f"racconto|{r['id']}", "testo", msg_racconto(r)))
     for c in sorted(carte_uscite(d.get("lega") or {}), key=lambda x: x["n"]):
@@ -276,7 +295,10 @@ def avvisi(cfg, prova=False):
     tutte = novita(d)
     if prova:
         for k, tipo, x in tutte:
-            print(("GIÀ VISTO " if k in visti else "NUOVO ") + k + "\n" + (x if tipo == "testo" else x[1]) + "\n")
+            if callable(x) and k not in visti:
+                x = x()
+            print(("GIÀ VISTO " if k in visti else "NUOVO ") + k + "\n" + (x if tipo == "testo" and isinstance(x, str)
+                  else x[1] if tipo == "foto" else "(testo preparato solo all'invio)") + "\n")
         return
     if not stato:
         # primo giro: quello che è già sul sito non si rimanda; la guida TV di oggi e il meteo sì
@@ -284,11 +306,17 @@ def avvisi(cfg, prova=False):
         salva_stato(stato)
         scrivi(f"primo giro: {len(stato['visti'])} contenuti già pubblicati segnati come visti")
         visti = set(stato["visti"])
+    if not stato.get("aggiornamenti_dal"):
+        # avvisi degli aggiornamenti attivati il 28/11/2026: quelli già fatti prima non si mandano
+        visti |= {k for k, _t, _x in tutte if k.startswith("agg|")}
+        stato["aggiornamenti_dal"] = ADESSO.isoformat()
     tg = Telegram(c["token"])
     mandati = 0
     for k, tipo, x in tutte:
         if k in visti:
             continue
+        if callable(x):
+            x = x()
         try:
             tg.testo(c["canale"], x) if tipo == "testo" else tg.foto(c["canale"], x[0], x[1])
         except urllib.error.HTTPError as err:

@@ -673,7 +673,9 @@ davvero che si veda quello che deve vedersi.
   (28/11/2026, scelta di Valerio): `server/purestats_canale.py`, sul server OVH accanto alla sentinella (copia in
   radar-assenze/strumenti). «avvisi» ogni 15 minuti: guida «NFL in TV in Italia» alle 9 italiane nei giorni di partita
   (dalle 9 di oggi alle 9 di domani, ✅ = inclusa negli abbonamenti DAZN), meteo con impatto alto (NFL; college solo
-  partite con articolo) nelle 36 ore prima, articoli nuovi (link alle pagine statiche /a/), racconti (/l/), carte 2187
+  partite con articolo) nelle 36 ore prima, articoli nuovi (link alle pagine statiche /a/), aggiornamenti delle anteprime
+  (dal 28/11, Valerio: «🔄 Aggiornamento» con la nota, una volta per ogni aggiornamento, chiave agg|id|aggiornato; quelli
+  fatti prima dell'attivazione non escono), racconti (/l/), carte 2187
   (foto del fronte + «Personaggio immaginario · immagine creata con AI»). Ogni contenuto una volta sola (stato in
   data/canale_stato.json; il primo giro segna come visto il già pubblicato). «bot» ogni minuto (attesa 50 s, flock):
   risponde SOLO a Valerio (chat_id di [telegram]; scelta del 28/11: niente comandi pubblici, gli altri ignorati, menu dei
