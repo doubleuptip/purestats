@@ -6,7 +6,7 @@ Il bot risponde a chiunque gli scriva in privato con /tv /meteo /articoli /legge
 Legge SOLO i file pubblici di purestats.it: niente Matchup, niente Charlie, niente scommesse (Decreto Dignità art. 9).
 È un bot diverso da Radar Assenze, che resta privato.
 
-Configurazione in config.toml (sezione [canale]):
+Configurazione in config.toml (sezione [purestats_canale]; [canale] è già usata dal bot Radar Assenze):
     token = ""                 token del bot pubblico «PureStats» creato con @BotFather
     canale = "@nomecanale"     il canale (il bot deve esserne amministratore)
 Uso (dalla cartella del bot Radar Assenze, crontab dell'utente ubuntu):
@@ -264,9 +264,9 @@ def salva_stato(s):
 
 # ------------------------------------------------------------------ modalità
 def avvisi(cfg, prova=False):
-    c = cfg.get("canale", {})
+    c = cfg.get("purestats_canale", {})
     if not prova and (not c.get("token") or not c.get("canale")):
-        scrivi("manca la sezione [canale] (token, canale) in config.toml: niente avvisi")
+        scrivi("manca la sezione [purestats_canale] (token, canale) in config.toml: niente avvisi")
         return
     d = carica()
     stato = leggi_stato()
@@ -344,7 +344,7 @@ def risposta(comando, d):
 
 def bot(cfg):
     """Un giro: aspetta i messaggi fino a 50 secondi, risponde ai comandi, esce (il crontab lo rilancia ogni minuto)."""
-    c = cfg.get("canale", {})
+    c = cfg.get("purestats_canale", {})
     if not c.get("token"):
         return
     tg = Telegram(c["token"])
@@ -381,7 +381,7 @@ def bot(cfg):
 
 
 def configura(cfg):
-    tg = Telegram(cfg["canale"]["token"])
+    tg = Telegram(cfg["purestats_canale"]["token"])
     tg.chiama("setMyCommands", {"commands": [{"command": k, "description": v} for k, v in COMANDI]})
     tg.chiama("setMyDescription", {"description": "Statistiche NFL e college football: partite in TV in Italia, "
                                                   "meteo, articoli, Leggende e carte 2187. Sito: purestats.it"})
