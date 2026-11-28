@@ -49,8 +49,10 @@ import contesto as C  # noqa: E402
 import mercato as MK  # noqa: E402
 import difesa_charlie as DC  # noqa: E402
 import td_charlie as TD  # noqa: E402
+import duelli_uno as DU  # noqa: E402
 
 TD_RACCOLTA = TD.Raccolta()      # touchdown dei giocatori: si riempie mentre si legge il play-by-play NFL
+DU_RACCOLTA = None               # duelli «Uno contro uno» (duelli_uno.py): creata in main per il campionato
 
 RADICE = Path(__file__).resolve().parent.parent
 LEGHE = {"nfl": "NFL", "college": "College"}
@@ -140,6 +142,8 @@ def azioni_stagione(lega: str, stagione: int, cartella: str) -> list:
         righe = _con_punti(csv.DictReader(fh), lega, punti)
         if lega == "nfl":
             righe = TD_RACCOLTA.passa(righe)
+        if DU_RACCOLTA is not None:
+            righe = DU_RACCOLTA.passa(righe)
         azioni = list(RP.azioni_nflverse(righe) if lega == "nfl" else RP.azioni_cfbfastr(righe))
     percorso.unlink()
     print(f"{LEGHE[lega]}: {len(azioni)} azioni di corsa e passaggio, {len(punti)} partite con il punteggio.")
@@ -916,6 +920,11 @@ def aggiorna_contesto(campionato: str, lega: str, schede: list, stagione: int, s
                 print(f"NFL: lista del giorno (inattivi) letta per {n_in} partite.")
         except Exception as e:     # noqa: BLE001 - restano le assenze del rapporto infortuni
             print(f"NFL: lista degli inattivi non letta ({e}): restano le assenze del rapporto infortuni.")
+        try:
+            n_sost = DU.sostituti_nfl(vicine, DU.snap_nfl(stagione))
+            print(f"NFL: duelli, sostituti degli assenti dagli snap per {n_sost} partite.")
+        except Exception as e:     # noqa: BLE001 - i duelli escono senza la riga dei sostituti
+            print(f"NFL: sostituti degli assenti non calcolati ({e}): duelli senza sostituti.")
     try:
         traduci = espn_a_gsis() if lega == "nfl" else None
         n_prop = MK.prop_usa(campionato, vicine, traduci)
@@ -972,6 +981,8 @@ def main() -> int:
         print(f"{campionato}: nessuna partita da giocare, la sezione resta com'è.")
         return 0
 
+    global DU_RACCOLTA
+    DU_RACCOLTA = DU.Raccolta(lega)
     with tempfile.TemporaryDirectory() as cartella:
         try:
             azioni, punti = azioni_stagione(lega, int(stagione), cartella)
@@ -988,8 +999,20 @@ def main() -> int:
         print(f"{campionato}: elenco dei campi neutri non letto ({e}): fattore campo applicato a tutte le partite.")
     prima_divisione = {k[2] for k in agg} | {k[3] for k in agg}
     schede, saltate = [], []
+    nomi_gioc = {}
+    if lega == "nfl":
+        try:
+            nomi_gioc = {r["player_id"]: r.get("player_display_name") or "" for r in righe_giocatori_nfl(int(stagione))}
+        except Exception as e:     # noqa: BLE001 - restano i nomi brevi del play-by-play
+            print(f"NFL: nomi completi dei giocatori non letti ({e}): nei duelli i nomi brevi del play-by-play.")
     for w, resto, per_partita in gruppi:
         st = RP.stato(agg, w)
+        try:
+            st_du = DU_RACCOLTA.stato(w)
+            zone_du = DU_RACCOLTA.zone(w) if lega == "nfl" else None
+        except Exception as e:     # noqa: BLE001 - i duelli sono un di più: la scheda esce lo stesso
+            print(f"{campionato}: duelli della settimana {w} non calcolati ({type(e).__name__}: {e}).")
+            st_du, zone_du = None, None
         norma = norma_punti(punti, w)
         norma_m = norma_corretta(punti, w, prima_divisione) if RP.TARATURA_PUNTI[campionato]["norma_margine"] else None
         for g in resto:
@@ -997,6 +1020,12 @@ def main() -> int:
             sc = scheda(campionato, g, per_partita.get((g["casa"], g["ospite"])), st, loghi, indici, norma, norma_m)
             if sc:
                 sc["settimana"] = w
+                if st_du is not None:
+                    try:
+                        sc["duelli"] = DU.partita(DU_RACCOLTA, st, st_du, zone_du, g["casa"], g["ospite"], nomi_gioc,
+                                                  RP.AREE)
+                    except Exception as e:     # noqa: BLE001
+                        print(f"{campionato}: duelli di {g.get('ospite')} @ {g.get('casa')} non calcolati ({e}).")
                 schede.append(sc)
             else:
                 saltate.append(f"{g.get('ospite')} @ {g.get('casa')}")

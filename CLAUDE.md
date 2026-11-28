@@ -135,6 +135,25 @@ URL con identificativi imprevedibili. Sono già stati tentati entrambi.
   di corsa, ricezione e ritorni del tabellino ESPN. A fine stagione salvare data/td_nfl_<stagione>.json.
 - Le tabelle si rifanno con `misure/tabelle_charlie.py` (fuori dal repository) quando cambiano le misure.
 
+## Duelli «Uno contro uno» in Matchup (dal 28/11/2026, scelta di Valerio)
+
+- Materiale da leggere a vista, NON entra nelle probabilità di Charlie (Protocollo 13 in misure/: contro il mercato il
+  confronto attaccante-difesa non aggiunge nulla; «chi marca chi» non si prevede con dati gratuiti: il difensore
+  principale stimato cambia nel 71-73% delle partite, zona 68% nel 2025, participation 2026 non pubblicata in stagione).
+- `scripts/duelli_uno.py`: `Raccolta(lega)` si riempie mentre fetch_duelli legge il play-by-play (nessun download in più);
+  `partita()` scrive `sc["duelli"]` = reparti (le 4 aree di reparti.py con valori e posizioni + terzi down e zona rossa NFL,
+  corretti una volta per gli avversari), squilibri (distanza attacco-difesa ≥ 40% delle squadre, i 3 maggiori), stile
+  (azioni a partita, passaggi in 1°-2° down a partita aperta, lanci da 20+ yard NFL) e mappe NFL (3 ricevitori più cercati
+  per squadra: quota dei bersagli in 9 zone profondità × lato contro yard per bersaglio concesse dalla difesa lì, con
+  posizione, min 8 azioni; RB principale: corse per direzione). College senza mappe né zona rossa né sostituti.
+- Sostituti NFL (`sostituti_nfl`, nel contesto orario dopo assenze e inattivi): snap nflverse (snap_counts, fonte PFR,
+  solo parte cifrata). Chi è cresciuto di più nelle partite già giocate senza l'assente; se non ce ne sono, il primo dietro
+  ai titolari (QB/RB/TE 1, WR 3). Solo assenti con almeno il 25% degli snap.
+- duelli.html: `bloccoDuelli` (al posto del vecchio «Tabellone reparti», che resta per i file senza duelli): squilibri in
+  vista, poi a tendina «Reparto contro reparto» (barre speculari, lunga = migliore), «Dove gioca, dove concede la difesa»
+  (`duMappa`: verde concede, rosso chiude, riquadro rosso = zona più usata, frase che spiega), «Assenze: chi entra»,
+  «Stile di gioco». Charlie → Giocatori: «⚔️ Vedi il duello di …» (`apriDuello`) apre la scheda sulla mappa del giocatore.
+
 ## Calendario e Matchup (dal 16/11/2026)
 
 - Tema (22/11/2026, scelta di Valerio): scuro per tutti; bottone tondo sole/luna (`tema-btn`, `cambiaTema()`) in alto a

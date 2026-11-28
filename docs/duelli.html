@@ -114,6 +114,35 @@ function cambiaTema(){var r=document.documentElement,t=r.dataset.tema==="chiaro"
   .riga{padding:7px 0;border-top:1px solid var(--fb-border);font-size:13px}
   .chiv{font-size:12px;text-align:right}
   .legenda{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--fb-muted);margin-top:10px}
+  /* Duelli «Uno contro uno» (28/11/2026): materiale da leggere, non entra nelle probabilità */
+  .du-nota{font-size:12.5px;color:var(--fb-muted);margin:2px 0 8px}
+  .du-sq{display:flex;align-items:center;gap:10px;border:1px solid var(--fb-border);border-radius:10px;padding:8px 10px;margin:6px 0;font-size:14px}
+  .du-sq.forte{border:2px solid var(--fb-acc)}
+  .du-sq .du-dist{margin-left:auto;font-size:11px;color:var(--fb-muted);text-align:right;white-space:nowrap}
+  .du-testa{display:flex;align-items:center;gap:8px;margin:14px 0 6px;font-size:14px;font-weight:700}
+  .du-rep{display:grid;grid-template-columns:minmax(0,1fr) 92px minmax(0,1fr);gap:4px 10px;align-items:center;font-size:13px;padding:6px 0;border-top:1px solid var(--fb-border)}
+  .du-rep .area{text-align:center;font-weight:600;font-size:12.5px;line-height:1.2}
+  .du-bar{height:9px;border-radius:5px;background:var(--fb-chip);overflow:hidden;display:flex}
+  .du-bar i{display:block;height:100%;border-radius:5px}
+  .du-bar.dx{justify-content:flex-end}
+  .du-val{font-size:11.5px;color:var(--fb-muted);margin-top:2px;font-variant-numeric:tabular-nums}
+  .du-val b{color:var(--fb-text)}
+  .du-rep .dx+.du-val,.du-rep .lato-dx{text-align:right}
+  .du-griglia{display:grid;grid-template-columns:1fr;gap:12px}
+  @media (min-width:760px){ .du-griglia{grid-template-columns:1fr 1fr} }
+  .du-map{border:1px solid var(--fb-border);border-radius:12px;padding:10px 12px}
+  .du-map h4{margin:0;font-size:14px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .du-celle{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:4px}
+  .du-celle div{border-radius:7px;padding:6px 2px;text-align:center;font-size:13px;line-height:1.15;background:var(--fb-chip)}
+  .du-celle div small{display:block;font-size:10.5px;opacity:.85;font-weight:400}
+  .du-celle .buono{background:var(--buono-bg);color:var(--buono)}
+  .du-celle .scarso{background:var(--scarso-bg);color:var(--scarso)}
+  .du-celle .du-top{outline:2px solid var(--fb-acc);outline-offset:-2px;font-weight:700}
+  .du-assi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center;font-size:11px;color:var(--fb-muted);margin-top:6px}
+  .du-frase{font-size:13px;margin-top:8px}
+  .du-sost li{margin:4px 0;font-size:13.5px}
+  .du-link{margin-top:6px;font-size:13px}
+  .du-link a{color:var(--fb-acc);font-weight:600;cursor:pointer;text-decoration:none}
   .legenda .rk{min-width:0;padding:1px 6px}
   .vuoto{color:var(--fb-muted);text-align:center;padding:24px}
   .giocatori{display:grid;grid-template-columns:1fr;gap:4px 18px}
@@ -255,7 +284,7 @@ header.testata{position:relative;background:var(--ts-sfondo,var(--ts-bg));border
 <script>
 /* Dati cifrati da scripts/fetch_duelli.py (un file per campionato): qui si rifanno gli stessi passaggi
    con WebCrypto. Nessun localStorage: la password resta nel gestore password del browser, se lo scegli. */
-const AREE = {corse:"Corse", passaggi:"Passaggi", pressione:"Protezione QB", esplosive:"Giocate lunghe"};
+const AREE = {corse:"Corse", passaggi:"Passaggi", pressione:"Protezione QB", esplosive:"Giocate lunghe", terzi:"Terzi down", rossa:"Zona rossa"};
 const REPARTO_DIFESA = {corse:"difesa corse", passaggi:"difesa passaggi", pressione:"pressione sul QB", esplosive:"difesa giocate lunghe"};
 const ORDINE_AREE = ["corse","passaggi","pressione","esplosive"];
 const MAX_EVIDENZA = 5;
@@ -534,6 +563,97 @@ function tabellone(g, T){
   return h + `<div class="legenda"><span><span class="rk buono">1–${q}</span> tra i migliori</span><span><span class="rk scarso">${n - Math.round(n * 11 / 32) + 1}–${n}</span> tra i peggiori</span><span>su ${n} squadre · il vantaggio dipende dalla difesa</span></div></details>`;
 }
 
+/* ================== Duelli «Uno contro uno» (28/11/2026) ==================
+   Numeri reali della stagione (partite prima della settimana), posizione 1 = la migliore per quel lato.
+   Solo lettura della partita: non entrano nelle probabilità di Charlie (Protocollo 13). */
+const DU_ORDINE = ["corse", "passaggi", "pressione", "esplosive", "terzi", "rossa"];
+const DU_STILE = {ritmo: ["Azioni a partita", v => num(v, 1)], neutrePass: ["Passaggi nelle situazioni neutre", v => num(v * 100, 0) + "%"],
+                  lunghi: ["Lanci da 20+ yard", v => num(v * 100, 1) + "%"]};
+const DU_ZONE_P = {lungo: "lungo", medio: "medio", corto: "corto"}, DU_LATI = {left: "a sinistra", middle: "al centro", right: "a destra"};
+function duValore(area, v){
+  if (v === null || v === undefined) return "—";
+  if (area === "corse" || area === "passaggi") return segno(v, 2) + " EPA";
+  if (area === "pressione") return "sack " + num(Math.max(0, -v) * 100, 1) + "%";
+  return num(v * 100, 0) + "%";
+}
+const duLung = (r, n) => Math.max(4, Math.round((n - r) / Math.max(n - 1, 1) * 100));
+function duSpiega(area){
+  return {corse: "EPA per corsa: punti attesi guadagnati in media",
+          passaggi: "EPA per azione di passaggio, sack compresi",
+          pressione: "sack sulle azioni di passaggio (subiti dall'attacco, fatti dalla difesa)",
+          esplosive: "corse da 10+ e passaggi da 20+ yard sul totale",
+          terzi: "terzi down convertiti",
+          rossa: "touchdown sulle volte dentro le 20 yard"}[area] || "";
+}
+function bloccoDuelli(g, T){
+  const D = g.duelli;
+  if (!D || !(D.reparti || []).length) return tabellone(g, T);
+  const n = D.reparti[0].n;
+  const sq = (D.squilibri || []).map((x, i) => {
+    const vince = x.verso === "attacco" ? x.att : x.dif;
+    return `<div class="du-sq${i === 0 ? " forte" : ""}">${stemma(T[vince], "s")}<div><b>${esc(AREE[x.area] || x.area)}</b>: attacco ${esc(T[x.att].nome)} <span class="rk ${classeRank(x.ra, x.n)}">${x.ra}°</span> contro difesa ${esc(T[x.dif].nome)} <span class="rk ${classeRank(x.rd, x.n)}">${x.rd}ª</span>
+      <div class="sotto">vantaggio ${x.verso === "attacco" ? "dell'attacco" : "della difesa"} ${esc(T[vince].nome)}</div></div><span class="du-dist">distanza<br><b>${x.distanza}</b> posti</span></div>`;
+  }).join("");
+  const blocchi = [[g.ospite, g.casa], [g.casa, g.ospite]].map(([a, d]) => {
+    const righe = DU_ORDINE.map(area => {
+      const x = D.reparti.find(y => y.area === area && y.att === a);
+      if (!x) return "";
+      return `<div class="du-rep" title="${esc(duSpiega(area))}">
+        <div><div class="du-bar"><i style="width:${duLung(x.ra, x.n)}%;background:${coloreTesto(T[a].colore)}"></i></div><div class="du-val"><b>${x.ra}°</b> · ${duValore(area, x.va)}</div></div>
+        <div class="area">${esc(AREE[area])}</div>
+        <div><div class="du-bar dx"><i style="width:${duLung(x.rd, x.n)}%;background:${coloreTesto(T[d].colore)}"></i></div><div class="du-val lato-dx"><b>${x.rd}ª</b> · ${duValore(area, x.vd)}</div></div></div>`;
+    }).join("");
+    return righe ? `<div class="du-testa">${stemma(T[a], "s")}Attacco ${esc(T[a].nome)} <span class="sotto" style="font-weight:400">contro</span> difesa ${esc(T[d].nome)}${stemma(T[d], "s")}</div>${righe}` : "";
+  }).join("");
+  const S = D.stile || {}, ks = Object.keys(DU_STILE).filter(k => (S[g.ospite] || {})[k] || (S[g.casa] || {})[k]);
+  const stile = ks.length ? `<details><summary>Stile di gioco</summary><table><tr><th></th><th>${stemma(T[g.ospite], "s")} ${esc(T[g.ospite].nome)}</th><th>${stemma(T[g.casa], "s")} ${esc(T[g.casa].nome)}</th></tr>
+    ${ks.map(k => `<tr><td>${DU_STILE[k][0]}</td>${[g.ospite, g.casa].map(t => { const v = (S[t] || {})[k]; return `<td>${v ? `<b>${DU_STILE[k][1](v.v)}</b> <span class="sotto">${v.r}° più alto</span>` : "—"}</td>`; }).join("")}</tr>`).join("")}</table>
+    <div class="legenda"><span>situazioni neutre = 1° e 2° down a partita aperta · posizione su ${n}: solo descrizione, non c'è un «meglio»</span></div></details>` : "";
+  const mappe = (D.mappe || []).map(m => duMappa(m, T)).join("");
+  const sost = (g.sostituti || []).length ? `<details${(g.sostituti || []).length ? " open" : ""}><summary>Assenze: chi entra</summary><ul class="du-sost">${g.sostituti.map(x =>
+    `<li>${stemma(T[x.squadra], "s")} <b>${esc(x.assente)}</b> <span class="sotto">${esc(x.ruolo)} · ${esc(x.stato || "")} · ${x.snapAssente}% degli snap</span> → <b>${esc(x.sostituto)}</b> ${x.base === "senza"
+      ? `<span class="sotto">${x.prima}% → <b>${x.dopo}%</b> degli snap nelle ${x.partiteSenza} partite senza di lui</span>`
+      : `<span class="sotto">${x.prima}% degli snap in stagione: il primo dietro ai titolari</span>`}</li>`).join("")}</ul>
+    <div class="legenda"><span>snap: nflverse (Pro Football Reference) · solo chi giocava almeno un quarto degli snap</span></div></details>` : "";
+  return `<details class="du" data-duelli open><summary>⚔️ Duelli</summary>
+    <div class="du-nota">Numeri veri della stagione, corretti per gli avversari incontrati. Posizione su ${n}: 1 = la migliore. Non entrano nelle probabilità.</div>
+    ${sq || `<div class="nessuno">Nessun confronto molto sbilanciato: reparti vicini in classifica.</div>`}
+    <details><summary>Reparto contro reparto</summary>${blocchi}<div class="legenda"><span>barra lunga = migliore per quel lato</span><span>tieni il dito o il mouse su un reparto per la spiegazione</span></div></details>
+    ${mappe ? `<details><summary>Dove gioca, dove concede la difesa</summary><div class="du-griglia">${mappe}</div>
+      <div class="legenda"><span><span class="rk buono">verde</span> la difesa concede molto in quella zona</span><span><span class="rk scarso">rosso</span> la difesa chiude</span><span>riquadro rosso = la zona dove gioca di più</span></div></details>` : ""}
+    ${sost}${stile}</details>`;
+}
+function duMappa(m, T){
+  const n = m.nDif || 32, cl = r => !r ? "" : r >= n - Math.round(n * 11 / 32) + 1 ? "buono" : r <= Math.round(n * 10 / 32) ? "scarso" : "";
+  const top = m.celle.reduce((a, b) => (b.q > a.q ? b : a), m.celle[0]);
+  const ric = m.tipo === "ricevitore";
+  const celle = m.celle.map(c => `<div class="${cl(c.dRango)}${c === top ? " du-top" : ""}">${num(c.q * 100, 0)}%<small>${ric ? (c.dYpt !== null && c.dYpt !== undefined ? num(c.dYpt, 1) + " yd" : "—") : (c.dYpc !== null && c.dYpc !== undefined ? num(c.dYpc, 1) + " yd" : "—")}</small></div>`).join("");
+  const [p, l] = ric ? top.z.split("_") : [null, top.z];
+  const dove = ric ? `${DU_ZONE_P[p]} ${DU_LATI[l]}` : DU_LATI[l];
+  const dv = ric ? top.dYpt : top.dYpc, lv = ric ? top.lYpt : top.lYpc;
+  const giud = c => !c.dRango ? "" : cl(c.dRango) === "buono" ? "concede più di quasi tutte" : cl(c.dRango) === "scarso" ? "chiude più di quasi tutte" : "è nella media";
+  const frase = `Il ${num(top.q * 100, 0)}% ${ric ? "dei suoi bersagli" : "delle sue corse"} è ${ric ? "" : "verso "}${dove}. Lì la difesa dei ${esc(T[m.difesa].nome)} ` + (dv !== null && dv !== undefined
+    ? `concede <b>${num(dv, 1)} yard</b> per ${ric ? "bersaglio" : "corsa"}${lv ? ` (media della lega ${num(lv, 1)})` : ""}: ${giud(top)}${top.dRango ? ` <span class="sotto">(${top.dRango}ª su ${n}, 1 = chi concede meno)</span>` : ""}.`
+    : "ha visto troppo poche azioni per dirlo.");
+  return `<div class="du-map" id="m-${esc(m.id)}"><h4><span>${stemma(T[m.squadra], "s")} ${esc(m.nome)}</span><span class="sotto">${ric ? m.bersagli + " bersagli" : m.corse + " corse"}</span></h4>
+    <div class="sotto">${ric ? "dentro: % dei suoi bersagli · sotto: yard per bersaglio concesse lì dai " : "dentro: % delle sue corse · sotto: yard per corsa concesse lì dai "}${esc(T[m.difesa].nome)}</div>
+    <div class="du-assi"><span>sinistra</span><span>centro</span><span>destra</span></div>
+    <div class="du-celle">${celle}</div>
+    ${ric ? `<div class="sotto" style="margin-top:4px">righe: lungo (20+ yard) · medio (10-19) · corto (meno di 10)</div>` : ""}
+    <div class="du-frase">${frase}</div></div>`;
+}
+/* Da Charlie alla scheda Duelli della partita, aperta sulla mappa del giocatore se c'è */
+function apriDuello(id, gid){
+  VISTA_CHARLIE = false;
+  document.getElementById("cerca").value = ""; document.getElementById("soloSegnali").checked = false;
+  disegna();
+  const art = document.getElementById(id); if (!art) return;
+  const box = art.querySelector("[data-duelli]"); if (box) box.open = true;
+  const m = gid ? document.getElementById("m-" + gid) : null;
+  if (m) { const d = m.closest("details"); if (d) d.open = true; }
+  (m || box || art).scrollIntoView({behavior: "smooth", block: "start"});
+}
+
 function idScheda(g){ return "p-" + String(g.ospite + "-" + g.casa + "-" + g.data).replace(/[^A-Za-z0-9-]/g, ""); }
 
 function scheda(g){
@@ -557,7 +677,7 @@ function scheda(g){
     ${evid.length ? evid.map(s => duelloEvidenza(g, T, s)).join("") : `<div class="nessuno">Nessuna difesa agli estremi: partita in equilibrio sui dati.</div>`}
     ${(g.vantaggi || []).length > MAX_EVIDENZA ? `<div class="sotto">Altri ${g.vantaggi.length - MAX_EVIDENZA} vantaggi nel tabellone e nei giocatori qui sotto.</div>` : ""}
     ${tabellaGiocatori(g, T)}
-    ${tabellone(g, T)}
+    ${bloccoDuelli(g, T)}
   </article>`;
 }
 
@@ -1093,6 +1213,7 @@ function formGiocatori(){
     <label class="largo">Giocatore<select id="chGioc">${gioc.length ? gioc.map((x, i) => `<option value="${i}">${esc(x.n)} · ${esc(x.r)} · ${esc(squadra(g, x.sq).nome || x.sq)}</option>`).join("") : `<option value="">Nessun giocatore disponibile</option>`}</select></label>
     <label>Statistica<select id="chStat">${STAT_PROP.map(s => `<option value="${s[0]}">${s[1]}${s[0] !== "stessa" && ((T.prop || {})[s[0]] || {}).affidabilita ? " · " + T.prop[s[0]].affidabilita : ""}</option>`).join("")}</select></label>
     <div class="ch-rif largo" id="chUSA" style="grid-column:1/-1"></div>
+    <div class="du-link largo" id="chDuello" style="grid-column:1/-1"></div>
     <label>Linea bet365.it<input id="chL365" inputmode="decimal" placeholder="es. 54,5"></label>
     <label>Quota over bet365.it<input id="chQo" inputmode="decimal" placeholder="es. 1,83"></label>
     <label>Quota under bet365.it<input id="chQu" inputmode="decimal" placeholder="es. 1,90"></label>
@@ -1119,6 +1240,12 @@ function mostraUSA(){
   const chi = gioc[Number(document.getElementById("chGioc")?.value)], stat = document.getElementById("chStat")?.value;
   const u = lineaUSA(g, chi, stat);
   const ora = u && u.ora ? new Date(u.ora).toLocaleString("it-IT", {weekday:"short", hour:"2-digit", minute:"2-digit"}) : "";
+  const dl = document.getElementById("chDuello");
+  if (dl && g) {
+    const m = ((g.duelli || {}).mappe || []).find(x => chi && x.id === chi.id);
+    dl.innerHTML = g.duelli ? `<a data-duello="${idScheda(g)}" data-gid="${m ? esc(m.id) : ""}">⚔️ ${m ? `Vedi il duello di ${esc(chi.n)}` : "Vedi i duelli della partita"} →</a>` : "";
+    const a = dl.querySelector("[data-duello]"); if (a) a.addEventListener("click", () => apriDuello(a.dataset.duello, a.dataset.gid));
+  }
   box.innerHTML = u ? `Linea americana (${esc(u.fonte)}): <b>${num(u.l, 1)}</b>${u.ap !== null && u.ap !== undefined ? ` · apertura ${num(u.ap, 1)}${u.ap !== u.l ? ` (mossa ${segno(u.l - u.ap, 1)})` : " (ferma)"}` : ""}${ora ? " · letta " + esc(ora) : ""}. Se lasci vuoti i campi bet365, Charlie parte da questa (50% alla linea, affidabilità B).`
     : (g && g.propUSA ? "Linea americana non pubblicata per questo giocatore e statistica: serve bet365." : "Linee americane delle prop non ancora lette per questa partita: serve bet365.");
 }
