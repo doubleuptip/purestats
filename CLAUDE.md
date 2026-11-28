@@ -667,10 +667,17 @@ davvero che si veda quello che deve vedersi.
   Ordine proposto: messa in regola → Google (pagine statiche, sitemap) → dominio → AdSense con traffico.
 
 
-- ACCANTONATO (26/11/2026, Valerio): annunci automatici di carte 2187 e articoli nuovi in un canale Telegram pubblico
-  (script sul server ogni 15 minuti, bot separato «PureStats» solo per pubblicare; da chiarire di cosa parla il canale).
-  Segnali di Charlie in un canale pubblico sconsigliati: Decreto Dignità art. 9 (pubblicità anche indiretta di
-  scommesse vietata anche sui social, sanzioni da 50.000 euro) e regola «niente scommesse nella parte pubblica».
+- Canale Telegram ufficiale «PureStats» (informazione NFL e college collegata al sito) e bot pubblico dei comandi
+  (28/11/2026, scelta di Valerio): `server/purestats_canale.py`, sul server OVH accanto alla sentinella (copia in
+  radar-assenze/strumenti). «avvisi» ogni 15 minuti: guida «NFL in TV in Italia» alle 9 italiane nei giorni di partita
+  (dalle 9 di oggi alle 9 di domani, ✅ = inclusa negli abbonamenti DAZN), meteo con impatto alto (NFL; college solo
+  partite con articolo) nelle 36 ore prima, articoli nuovi (link alle pagine statiche /a/), racconti (/l/), carte 2187
+  (foto del fronte + «Personaggio immaginario · immagine creata con AI»). Ogni contenuto una volta sola (stato in
+  data/canale_stato.json; il primo giro segna come visto il già pubblicato). «bot» ogni minuto (attesa 50 s, flock):
+  risponde in privato a chiunque con /tv /meteo /articoli /leggende /carte /sito /aiuto. Legge SOLO i file pubblici di
+  purestats.it (prove: CANALE_LOCALE=docs). Bot diverso da Radar Assenze (che resta solo per Valerio). Config [canale]
+  token e canale in config.toml. CHARLIE MAI NEL CANALE (Valerio, 28/11): Decreto Dignità art. 9 (pubblicità anche
+  indiretta del gioco vietata anche sui social, sanzioni da 50.000 euro) e regola «niente scommesse nella parte pubblica».
 
 - Dicembre 2026, rinunce ai bowl: i titolari si contano sull'intera stagione (Protocollo 12), quindi una squadra
   che ha cambiato QB a metà anno ha ancora il vecchio come titolare (Rice: Jacurri Brown, ora ricevitore; gioca
