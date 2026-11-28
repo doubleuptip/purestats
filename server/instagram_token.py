@@ -43,9 +43,14 @@ def chiama(percorso, **parametri):
 
 
 def chiedi(testo, nascosto=True, forma=None):
-    valore = (getpass.getpass(testo) if nascosto else input(testo)).strip()
+    valore = re.sub(r"\s+", "", getpass.getpass(testo) if nascosto else input(testo))
     if not valore or (forma and not re.fullmatch(forma, valore)):
-        sys.exit(f"Valore non valido per «{testo.strip(': ')}». Niente è stato scritto in config.toml.")
+        # solo la lunghezza e i tipi di carattere, mai il valore: bastano a capire cosa è andato storto
+        tipi = ", ".join(n for n, r in (("cifre", r"\d"), ("lettere minuscole", r"[a-z]"), ("maiuscole", r"[A-Z]"),
+                                        ("altri simboli", r"[^A-Za-z0-9]")) if re.search(r, valore)) or "niente"
+        sys.exit(f"Valore non valido per «{testo.split('(')[0].strip(': ')}»: ricevuti {len(valore)} caratteri ({tipi}).\n"
+                 "Se sono 0, l'incolla non è arrivato: nel terminale si incolla col tasto destro del mouse (non si vede nulla, è normale), poi Invio.\n"
+                 "Niente è stato scritto in config.toml.")
     return valore
 
 
@@ -57,7 +62,7 @@ def main():
         if input(f"In config.toml c'è già [{SEZIONE}]. La sostituisco? (si/no) ").strip().lower() not in ("si", "sì", "s"):
             sys.exit("Lasciato tutto com'era.")
     app_id = chiedi("Id dell'app (numero, si vede): ", nascosto=False, forma=r"\d{6,20}")
-    segreto = chiedi("Chiave segreta dell'app (non si vede mentre la incolli): ", forma=r"[0-9a-f]{32}")
+    segreto = chiedi("Chiave segreta dell'app (non si vede mentre la incolli): ", forma=r"[0-9a-fA-F]{32}")
     breve = chiedi("Token di Graph API Explorer (non si vede mentre lo incolli): ", forma=r"[A-Za-z0-9_\-]{60,}")
 
     lungo = chiama("oauth/access_token", grant_type="fb_exchange_token", client_id=app_id,
