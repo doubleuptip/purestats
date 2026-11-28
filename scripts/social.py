@@ -230,6 +230,10 @@ def carte():
 
 def reel_carta(c, dest):
     """Reel 1080×1920 di 8 secondi con solo ffmpeg: la carta entra dal basso, a 3,4 s si gira (fronte → retro)."""
+    if not shutil.which("ffmpeg") and os.environ.get("GITHUB_ACTIONS"):
+        # i server di GitHub (Ubuntu 24.04) non hanno più ffmpeg: si installa solo nei giri che fanno un reel
+        print("ffmpeg mancante: lo installo per il reel")
+        subprocess.run("sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null", shell=True, check=True, timeout=600)
     with tempfile.TemporaryDirectory() as t:
         fondo = os.path.join(t, "fondo.jpg")
         css = f""".t{{position:absolute;top:150px;left:0;right:0;text-align:center;font:800 120px/0.9 'Barlow Condensed';text-transform:uppercase}}
