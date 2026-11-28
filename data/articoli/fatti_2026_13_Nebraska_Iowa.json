@@ -63,42 +63,42 @@
     "nome": "Anthony Colandrea",
     "ruolo": "quarterback",
     "misura": "yard passate",
-    "mediaStagione": 227.0,
-    "mediaUltime3": 224.0,
+    "mediaStagione": 220.8,
+    "mediaUltime3": 180.3,
     "mediaAnnoScorso": 272.9,
-    "forma": null,
-    "nota": "11 partite su 11 · 21 TD, 7 INT",
-    "corseAPartita": 46.4
+    "forma": "in calo",
+    "nota": "12 partite su 12 · 21 TD, 8 INT",
+    "corseAPartita": 41.5
    },
    {
     "nome": "Jamal Rule",
     "ruolo": "running back",
     "misura": "yard corse",
-    "mediaStagione": 70.5,
-    "mediaUltime3": 80.7,
+    "mediaStagione": 73.7,
+    "mediaUltime3": 93.0,
     "mediaAnnoScorso": null,
-    "forma": null,
-    "nota": "10 partite su 11 · 133 corse, 5 TD"
+    "forma": "in forma",
+    "nota": "11 partite su 12 · 151 corse, 6 TD"
    },
    {
     "nome": "Luke Lindenmeyer",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 35.1,
-    "mediaUltime3": 46.3,
+    "mediaStagione": 37.4,
+    "mediaUltime3": 56.0,
     "mediaAnnoScorso": 30.6,
     "forma": "in forma",
-    "nota": "11 partite su 11 · 40 ricezioni, 3 TD"
+    "nota": "12 partite su 12 · 46 ricezioni, 3 TD"
    },
    {
-    "nome": "Kwazi Gilmer",
+    "nome": "Isaiah Mozee",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 67.6,
-    "mediaUltime3": 61.3,
-    "mediaAnnoScorso": 44.6,
+    "mediaStagione": 16.3,
+    "mediaUltime3": 23.3,
+    "mediaAnnoScorso": null,
     "forma": "in forma",
-    "nota": "10 partite su 11 · 53 ricezioni, 8 TD"
+    "nota": "10 partite su 12 · 22 ricezioni, 0 TD"
    }
   ],
   "soprannome": "Nebraska"
@@ -132,41 +132,41 @@
     "nome": "Hank Brown",
     "ruolo": "quarterback",
     "misura": "yard passate",
-    "mediaStagione": 164.2,
-    "mediaUltime3": 150.7,
+    "mediaStagione": 165.0,
+    "mediaUltime3": 166.3,
     "mediaAnnoScorso": null,
     "forma": null,
-    "nota": "10 partite su 11 · 10 TD, 4 INT"
+    "nota": "11 partite su 12 · 11 TD, 4 INT"
    },
    {
     "nome": "L.J. Phillips Jr.",
     "ruolo": "running back",
     "misura": "yard corse",
-    "mediaStagione": 65.0,
-    "mediaUltime3": 135.0,
+    "mediaStagione": 66.2,
+    "mediaUltime3": 117.7,
     "mediaAnnoScorso": null,
     "forma": "in forma",
-    "nota": "8 partite su 11 · 104 corse, 1 TD"
+    "nota": "9 partite su 12 · 118 corse, 1 TD"
    },
    {
     "nome": "Tony Diaz",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 54.6,
-    "mediaUltime3": 46.7,
+    "mediaStagione": 54.1,
+    "mediaUltime3": 48.3,
     "mediaAnnoScorso": null,
     "forma": null,
-    "nota": "11 partite su 11 · 44 ricezioni, 3 TD"
+    "nota": "12 partite su 12 · 47 ricezioni, 3 TD"
    },
    {
     "nome": "DJ Vonnahme",
     "ruolo": "ricevitore",
     "misura": "yard ricevute",
-    "mediaStagione": 36.1,
-    "mediaUltime3": 19.0,
+    "mediaStagione": 38.4,
+    "mediaUltime3": 36.0,
     "mediaAnnoScorso": 32.0,
-    "forma": "in calo",
-    "nota": "10 partite su 11 · 38 ricezioni, 3 TD"
+    "forma": null,
+    "nota": "11 partite su 12 · 41 ricezioni, 4 TD"
    }
   ],
   "soprannome": "Iowa"
@@ -174,5 +174,193 @@
  "colori": {
   "ospite": "#d00000",
   "casa": "#000000"
+ },
+ "partitaGiocata": {
+  "risultato": "Nebraska 7 - Iowa 31",
+  "puntiOspite": 7,
+  "puntiCasa": 31,
+  "vincitore": "Iowa",
+  "scarto": 24,
+  "parziali": [],
+  "marcature": [],
+  "momentiDecisivi": [
+   {
+    "quarto": "1",
+    "tempo": "6:49",
+    "squadra": "Iowa",
+    "azione": "H.Brown lancia corto al centro per B.Jackson, 20 yard",
+    "evento": "",
+    "probabilitaVittoria": "Iowa da 61% a 67%",
+    "giocatori": [
+     "Kahmari Brown",
+     "Braeden Jackson"
+    ]
+   },
+   {
+    "quarto": "1",
+    "tempo": "4:44",
+    "squadra": "Iowa",
+    "azione": "H.Brown corre al centro, 14 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "Iowa da 67% a 73%",
+    "giocatori": [
+     "Kahmari Brown"
+    ]
+   },
+   {
+    "quarto": "2",
+    "tempo": "14:08",
+    "squadra": "Nebraska",
+    "azione": "A.Colandrea lancia corto a destra per L.Lindenmeyer, 13 yard",
+    "evento": "",
+    "probabilitaVittoria": "Nebraska da 25% a 33%",
+    "giocatori": [
+     "Anthony Colandrea",
+     "Luke Lindenmeyer"
+    ]
+   },
+   {
+    "quarto": "2",
+    "tempo": "13:03",
+    "squadra": "Nebraska",
+    "azione": "J.Rule corre al centro, 21 yard: touchdown",
+    "evento": "",
+    "probabilitaVittoria": "Nebraska da 33% a 41%",
+    "giocatori": [
+     "Jamal Rule"
+    ]
+   },
+   {
+    "quarto": "2",
+    "tempo": "5:36",
+    "squadra": "Iowa",
+    "azione": "A.Colandrea subisce un sack, −5 yard",
+    "evento": "sack",
+    "probabilitaVittoria": "Iowa da 61% a 66%",
+    "giocatori": [
+     "Anthony Colandrea"
+    ]
+   },
+   {
+    "quarto": "3",
+    "tempo": "11:34",
+    "squadra": "Iowa",
+    "azione": "A.Colandrea corre al centro, −6 yard, fumble perso",
+    "evento": "fumble recuperato",
+    "probabilitaVittoria": "Iowa da 55% a 65%",
+    "giocatori": [
+     "Anthony Colandrea"
+    ]
+   }
+  ],
+  "numeri": {
+   "ospiti": {
+    "yardTotali": 260,
+    "azioni": 61,
+    "palle perse": 3,
+    "penalita": 2,
+    "yardPenalita": 20,
+    "puntiUltimiDueMinuti": 0
+   },
+   "padroniDiCasa": {
+    "yardTotali": 329,
+    "azioni": 59,
+    "palle perse": 1,
+    "penalita": 3,
+    "yardPenalita": 23,
+    "puntiUltimiDueMinuti": 0
+   }
+  },
+  "protagonisti": {
+   "ospiti": [
+    {
+     "ruolo": "QB",
+     "nome": "Anthony Colandrea",
+     "completiTentati": "19/29",
+     "yardLanciate": 153,
+     "tdLancio": 0,
+     "intercettiSubiti": 1
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "Jamal Rule",
+     "corse": 18,
+     "yardCorsa": 106,
+     "tdCorsa": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Luke Lindenmeyer",
+     "ricezioni": 6,
+     "yardRicevute": 63,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Carter Nelson",
+     "ricezioni": 2,
+     "yardRicevute": 27,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Dwayne McDougle III",
+     "placcaggi": 6,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ],
+   "padroniDiCasa": [
+    {
+     "ruolo": "QB",
+     "nome": "Hank Brown",
+     "completiTentati": "13/18",
+     "yardLanciate": 173,
+     "tdLancio": 1,
+     "intercettiSubiti": 0
+    },
+    {
+     "ruolo": "Corse",
+     "nome": "L.J. Phillips Jr.",
+     "corse": 14,
+     "yardCorsa": 76,
+     "tdCorsa": 0
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "DJ Vonnahme",
+     "ricezioni": 3,
+     "yardRicevute": 61,
+     "tdRicezione": 1
+    },
+    {
+     "ruolo": "Ricezioni",
+     "nome": "Tony Diaz",
+     "ricezioni": 3,
+     "yardRicevute": 48,
+     "tdRicezione": 0
+    },
+    {
+     "ruolo": "Difesa",
+     "nome": "Jayden Montgomery",
+     "placcaggi": 11,
+     "sack": 1.0,
+     "intercetti": 0,
+     "fumbleForzati": 0,
+     "passaggiDeviati": 0
+    }
+   ]
+  },
+  "contoLaLinea": {
+   "linea": "Iowa favoriti di 3,5: hanno vinto con un margine più largo",
+   "totale": "38 punti in tutto contro un totale di 40,5: sotto"
+  },
+  "bilancioDopo": {
+   "ospiti": "7-5",
+   "padroniDiCasa": "10-2"
+  },
+  "video": ""
  }
 }
